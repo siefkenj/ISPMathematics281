@@ -1,0 +1,248 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item  Find general solutions for each of the following equations.  (You
+may find it helpful first to review Chapter VII, Section 4, Exercise 6
+and Section 8, Exercise 3.) \par
+(a) $t^2y'' + 3ty' - 3y = 0$. \par
+(b) $t^2y'' -5ty' + 9y = 0$.
+
+\answer{(a) Try $y=t^r$. Then $t^2y'' + 2ty' - 3y = (r(r-1)+3r-3)t^r =0$ 
+$\iff$ $r^2+2r-3=0$ $\iff$ $r=1,-3$.  So $y_1=t$, $y_2=t^{-3}$ are
+solutions and to the general solution is $y=at+bt^{-3}$. \par
+(b) Again try $y=at^r$. Then $t^2y''-5ty'+9y=(r(r-1)-5r+9)at^r=0$ $\iff$
+$r^2-6r+9=(r-3)^2=0$ $\iff$ $r=3$. So $y_1 = at^3$ is one solution. \par
+We use reduction of order to find the other: \par
+We have $y_2=vy_1$ and
+\[
+  v' = ce^{-\int\left(\frac{2y'_1}{y_1} +
+  \frac{-5}{t}\right)\,dt} = ce^{-\int\frac{6at^2}{at^3}-\frac5t\,dt}
+  = ce^{-\int\frac1t\,dt} = \frac ct
+\] 
+$\implies v=\int \frac ct = c\ln t$ \newline
+$\implies y_2 = bt^r\ln t$ \newline
+So $y=at^r + bt^r\ln t$.
+
+
+
+}
+
+\item    Assume $r^2 + (\alpha - 1)r + \beta = 0$ has a double root $r =
+(1 - \alpha)/2$.  Then, $y_1 = t^r$ is one solution of Euler's
+Equation.   Verify that the method of reduction of order yields the
+second solution $y_2 = t^r\ln t$.
+
+\answer{ If $y_1=t^r$, set $y_2=vy_1$. Then $v'=ce^{-\int\frac{2y'_1}{y_1} +
+\frac\alpha t}$. Now $r=\frac{1-\alpha}2 \implies \alpha=1-2r$ and
+$\dsize\frac{2y'_1}{y_1}=\frac{2r}t$. So $y_2=vy_1=t^r\ln t$ (with $c=1$) is
+another solution.
+
+
+
+
+}
+
+\item   In each of the following cases, tell if the given value of $t$
+is a regular singular point for the indicated differential equation. \par
+(a) $t(t + 1)^2y'' - 2t y' + 7y = 0,\, t = 0$. \par
+(b) $(t - 1)^2ty'' + 3(t - 1) y' - y = 0, \, t = 1$. \par
+(c) $(t + 2)^2y'' + (t + 1)y' + (t + 2)y = 0, \, t = -2$. \par
+(d) $(\sin t)y'' + 2y' - (\cos t) y = 0, \, t = 0$.
+
+\answer{(a) $\dsize y''-\frac{2t}{t(t+1)^2} y' + \frac7{t(t+1)^2} = y'' -
+\frac{2t/(t+1)^2}{t}y' + \frac{7t/(t+1)^2}{t^2}$. And each numerator in the
+second expression is analytic at $t=0$. So $t = 0$ {\it is\/}
+a regular singular
+point. \par
+(b) $\dsize y'' - \frac{3(t-1)}{(t-1)^2t} y' - \frac{1}{(t-1)^2t} y = y'' -
+\frac{3/t}{(t-1)} y' - \frac{1/t}{(t-1)^2} y$. And each numerator in the
+second expression is analytic at $t=1$, so we have a regular singular point
+at $t=1$. \par
+(c) $\dsize y'' + \frac{t+1}{(t+2)^2} y' + \frac{t+2}{(t+2)^2} y'' = y'' +
+\frac{(t+1)/(t+2)}{t+2} y' + \frac{(t+2)}{(t+2)^2} y$. And the numerator of
+the $y'$ coefficient is not analytic at $t=-2$, so it is {\it not\/} a regular
+singular point. \par
+(d) $\dsize y'' + \frac{2y'}{\sin t} - \frac{\cos t}{\sin t} y = y'' +
+y'\frac{2t/\sin t}{t} - y\frac{t^2\cos t/\sin t}{t^2}$.
+Now $\sin t= t-\dfrac{t^3}{3!} + \dfrac{t^5}{5!} - \cdots =
+t(1-\dfrac{t^2}{3!}+ \dfrac{t^4}{5!} - \cdots)$.
+So $\dfrac{t}{\sin t} = \dfrac{1}{(1-\dfrac{t^2}{3!}+ \dfrac{t^4}{5!} -
+\cdots)}$ is analytic at $t=0$. 
+Hence, both $2t/\sin t$ and $\dfrac{t^2\cos t}{\sin t}$ are analytic at $t=0$. 
+Hence $t=0$ is a regular singular point.
+
+
+
+}
+
+\item   Find one solution of $ty'' + y' + ty = 0$ at $t_0 = 0$ by the
+method of Frobenius.   You should get $J_0(t)$ up to a multiplicative
+constant.
+
+\answer{  \begin{multline*}
+ty'' + y' + ty \\
+= \sum^\infty_{k=0}
+a_k(k+r)(k+r-1)t^{k+r-1} + \sum^\infty_{k=0} a_k(k+r)t^{k+r-1} +
+\sum^\infty_{k=0} a_k t^{k+r+1}\\
+= \sum^\infty_{k=0}
+a_k(k+r)(k+r-1)t^{k+r-1} + \sum^\infty_{k=0} a_k(k+r)t^{k+r-1} +
+\sum^\infty_{k=2} a_{k-2} t^{k+r-1}.
+\end{multline*}
+For $k=0$, we get $a_0(r(r-1)+r) = a_0r^2$, so 
+the indicial equation is $r^2=0$, and $r = 0$ is a double root. 
+For $k=1$, we get $a_1=0$. 
+Generally, for $k \ge 2$,
+ we have $a_{k-2} + k^2a_k =0$, so 
+\[a_k =\frac{-1}{k^2} a_{k-2}\qquad k \ge 2. \]
+It follows that $a_k = 0$ for all odd indices, and
+for even indices
+\[a_{2n} = \frac{(-1)^n}{(2n)^2(2(n-1))^2\dots 2^2} a_0 =
+\frac{(-1)^n}{2^{2n}(n!)^2} a_0.\] 
+Taking $a_0 = 1$, this yields the solution
+\[y = 
+\sum^\infty_{n=0} \frac{(-1)^n}{2^{2n} (n!)^2}t^{2n} =
+\sum^\infty_{n=0} \frac{(-1)^n}{(n!)^2}\left(\frac t2\right)^{2n} =
+J_0(t).\] 
+
+
+
+}
+
+\item  (a)  Show that $\dfrac{d}{dt}J_0(t) = -J_1(t)$. \par
+(b) Show that $\dfrac{d}{dt}(tJ_1(t)) = tJ_0(t)$.
+
+\answer{(a) We have
+\begin{align*}
+\frac{d}{dt} J_0(t) &= \frac{d}{dt}\biggl(
+ \sum^\infty_{k=0} \frac{(-1)^k}{(k!)^2} \left(\frac t2\right)^{2k}\biggr)\\
+ &=\sum^\infty_{k=1} \frac{(-1)^k}{(k!)^2}\frac12 2k
+     \left(\frac t2\right)^{2k-1}
+ =\sum^\infty_{k=0} \frac{(-1)^{k+1}}{((k+1)!)^2}\frac12
+     2(k+1)\left(\frac t2\right)^{2k+1} \\
+ &=-\sum^\infty_{k=0} \frac{(-1)^{k}}{(k+1)!\,k!} \left(\frac t2\right)^{2k+1}
+ =-J_1(t).
+\end{align*} \par
+(b) We have
+\begin{align*}
+ \frac{d}{dt}(tJ_1(t)) &= \frac{d}{dt}\biggl(\sum^\infty_{k=0}
+ \frac{(-1)^{k}}{(k+1)!\,(k!)} \frac{t^{2k+2}}{2^{2k+1}}\biggr)\\
+ &=\sum^\infty_{k=0}\frac{(-1)^{k}}{(k+1)!\,(k!)} (2k+2)
+     \frac{t^{2k+2}}{2^{2k+1}} 
+ =\sum^\infty_{k=0}\frac{(-1)^k}{(k!)^2} \left(\frac t2\right)^{2k} t\\
+ &=t \sum^\infty_{k=0}\frac{(-1)^k}{(k!)^2} \left(\frac t2\right)^{2k}
+ =t J_0(t).  
+\end{align*}
+
+
+
+
+}
+
+\item   Show that the power series in the definition
+\[
+J_m(t) = \frac{(t/2)^m}{\Gamma(m+1)} \sum_{k=0}^\infty
+\frac{(-1)^k}{k!(m+k)(m+k-1)\dots (m+1)}\left(\frac t2\right)^{2k}
+\]
+has infinite radius of convergence.
+
+\answer{ We use the ratio test:
+\[ {\lim_{n\to\infty}\left(\frac{1}{(n+1)!\,(m+n+1)(m+n)\cdots(m+1)}
+\left(\frac t2\right)^{2n+2}\right) \over \left(\frac{1}{n!\,(m+n)\cdots(m+1)}
+\left(\frac t2\right)^{2n}\right)}
+= \lim_{n\to\infty}\frac{t^2}{4(n+1)(m+n+1)} = 0 \]
+for any value of $t$.
+
+
+
+
+
+}
+
+\item    Calculate $J_0(t)$ to 4 decimal places for $t = 0, 0.1,
+0.2,\dots, 0.9, 1.0.$
+
+\answer{  Use the series expansion.  It is an alternating series
+so you can estimate the error by the next term in the series.
+You can save yourself a lot of time if you write a computer
+program to do the calculations.   This is what I obtained by
+a simple Pascal program.
+\[\vbox{\halign{\hfill $#$ \hfill\quad & $#$\hfill\cr
+t   & J_0(t) \cr
+\noalign{\smallskip}
+0.0 & 1.0000 \cr
+0.1 & 0.9975 \cr
+0.2 & 0.9900 \cr
+0.3 & 0.9776 \cr
+0.4 & 0.9604 \cr
+0.5 & 0.9385 \cr
+0.6 & 0.9120 \cr
+0.7 & 0.8812 \cr
+0.8 & 0.8463 \cr
+0.9 & 0.8075 \cr
+1.0 & 0.7652 \cr } } \]
+Doing this problem out in detail will help you fit different
+parts of the theory together.  It will also give you a good
+feeling for how interesting functions are computed when simple
+formulas are not applicable.
+
+
+
+}
+
+\item    Show by direct substitution in the differential equation
+$t^2y'' + ty' + (t^2 - 1/4)y = 0$ that  $y_1 = (\sin t)/\sqrt t$
+and $y_2 = (\cos t)/\sqrt t$ are solutions.
+
+\answer{\bigskip
+{\abovedisplayskip=-17pt\begin{align*} y_1=\frac{\sin t}{\sqrt{t}} \implies
+  & y_1'  = t^{-1/2}\cos t - \frac{t^{-3/2}}{2}\sin t \\
+  & y_1'' =-t^{-3/2}\cos t - t^{-1/2}\sin t + \tfrac34 t^{-5/2}\sin t \\
+\intertext{So}
+t^2 y_1'' + ty'_1 + \left(t^2-\frac14\right)y_1
+  & = -t^{1/2} \cos t - t^{2/3}\sin t + \tfrac34 t^{-1/2}\sin t \\
+  & \qquad + t^{1/2} \cos t - -\tfrac t2 ^{-1/2}\sin t \\
+  & \qquad + t^{3/2}\cos t - \tfrac 14 t^{-1/2}\sin t  = 0
+\end{align*}}
+\smallskip
+\begin{align*} y_2 = \frac{\cos t}{\sqrt{t}} \implies
+  & y'_2 = -t^{-1/2}\sin t - \tfrac t2 ^{-3/2} \cos t \\
+  & \qquad y''_2 = -t^{-1/2}\cos t+t^{-3/2}\sin t+\tfrac34 t^{-5/2}\cos t\\
+\intertext{So}
+t^2y''_2 + t'_2 + (t^2-\tfrac14) y_2
+  & = -t^{3/2}\cos t+t^{1/2}\sin t+\tfrac34 t^{-1/2}\cos t \\
+  & \qquad -t^{1/2}\sin t-\tfrac t2^{-1/2}\cos t+t^{3/2}\cos t-\tfrac14
+       t^{-1/2}\cos t = 0
+\end{align*}
+
+
+
+
+}
+
+\item  (Optional)  
+The Gamma function is defined by
+\[
+\Gamma(x) = \int_0^\infty t^{x -1}e^{-t} dt\qquad\text{for } x > 0.
+\]
+(It may also be extended to negative values of $x$ and indeed to
+complex values of $x$.  The resulting function has singularities
+at $x = 0, -1, -2, \dots$.) \par
+(a)  Show $\Gamma(1) = \int_0^\infty e^{-t} dt = 1$ \par
+(b)  Show $\Gamma(x + 1) = x\Gamma(x)$.  Hint:  Apply integration by
+     parts to $\Gamma(x+1) = \int_0^\infty t^{x}e^{-t} dt$. \par
+(c)  Show $\Gamma(1/2) = \int_0^\infty t^{1/2}e^{-t} dt = \sqrt\pi$.
+     Hint: Substitute  $t = s^2$  to obtain
+     $\Gamma(1/2) = 2\int_0^\infty e^{-s^2} ds$.  Now use the
+     calculation from Chapter IV, Section 8 of
+     $\int_0^\infty e^{-u^2/2} du = \sqrt{\pi/2}$.
+
+
+
+\end{enumerate}
+\endinput

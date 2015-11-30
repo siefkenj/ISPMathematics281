@@ -1,0 +1,90 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Sketch the following vector fields by drawing some vectors
+at representative points.
+
+        (a) $\F(x,y) = x^2\i + y^2\j$.
+
+        (b) $\F(x,y) = y^2\i + x^2\j$.
+
+        (c) $\F(x,y) = 3\i-4\j$.
+
+        (d) $\F(x,y,z) = \lb x,y,z \rb$.
+
+        (e) $\F(x,y) = (x\i-y\j)(x^2+y^2)^{-1/2}$.
+
+\answer{  (c) Constant vector field pointing to right and down. \par
+         (d) Vectors point radially away from origin with magnitude
+equal to distance to the origin.\par
+(e)  At each point consider the unit vector pointing radially away
+from the origin and then flip it over a horizontal line passing
+through the point.   The field is not defined at the origin,
+
+
+
+}
+
+\item  For each of the scalar fields, sketch its gradient field
+by drawing vectors at representative points
+
+(a)  $f(x,y) = x + 3y$.
+
+(b)  $f(x,y) = 3x^2 + 4y^2$.
+
+(c)  $f(x,y,z) = x^2 + y^2$.
+
+
+\answer{ (a) $\nabla f=\i + 3\j$.  Constant vector field. \par
+        (b) $\nabla f= 6x\i + 8y\j$ \par
+        (c) $\nabla f=2x\i + 2y\j + 0\k$  Vector field is parallel
+to the $x,y$-plane at every point and points radially away from the
+$z$-axis.
+
+
+
+}
+
+\item  Find the streamlines of the plane vector field defined by
+$\F(\r) = y\,\i + x\,\j$.
+
+
+\answer{ $\dfrac{dy}{dx} = \dfrac xy$ which has solution $y^2 - x^2 = c$.
+
+
+
+}
+
+\item   The shape of a mountain is described by the equation $z = 4000 -
+x^2 - 4y^2$.   There is a shelter at $(10, 14)$.   Find 
+a path from the shelter to the bottom of the mountain
+(at $z = 0$) which descends everywhere as rapidly as possible.
+Describe the projection of the path in the $x,y$-plane, thought
+of as a map of the mountain, rather than the actual path
+on the mountain.
+
+\answer{ $\nabla f= (-2x,-8y)$ \par
+\begin{align*}
+\frac{dx}{dt} &= -c(x,y)2x \\
+\frac{dy}{dt} &= -c(x,y)8y  \\
+              \frac{dy}{dx} &= \frac{4y}{x}
+\end{align*}\par
+which yields $\ln |y| = 4\ln |x|+c$ \par
+or $|y| = |x|^4 e^c = k|x|^4$.
+The path starts at
+$(10,14)$ which implies $14=10^4k$ or $k=\dfrac{14}{10000}$ \par
+Thus, the equation is $y=\dfrac{14}{10000}x^4$ for $x,y\ge 0$.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,145 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   (a)  The US population was approximately $4\times 10^6$
+in 1790 and $92\times 10^6$ in 1910.   Assuming (incorrectly) Malthusian
+growth without immigration,
+estimate the `birth rate' $k$.
+
+(b)   If the population in 1980 was approximately $250\times 10^6$,
+would this be consistent with a Malthusian model without
+immigration?
+
+\answer{ (a) Assume $p = p_0e^{kt}$.  Taking $t = 0$ in $1790$,
+we have $p_0 = 4\times 10^6$.   In $1910$, we had $t = 120$,
+so $92\times 10^6 = 4\times 10^6 e^{120k}$.  It follows
+that $k = \dfrac{\ln 23}{120} \approx .026$.  Thus the `birth
+rate' is about $2.6$ percent. \par
+(b)  In $1980$, we had $t= 190$.  Hence, $p$ would have
+been approximately $4\times 10^6\times e^{\ln(23)\frac{190}{120}} \approx
+572\times 10^6$.  What do you think? 
+
+
+
+}
+
+\item   The `birth rate' of a certain population is $.02$ per year.  
+Because of overcrowding, this induces a constant emigration
+of $10^6$ per year.  What does this predict about population
+in $t$ years if the initial population is $10\times 10^6$.
+
+\answer{ $p = 50\times 10^6 - 40\times 10^t e^{.02\,t}$.
+Note that $p = 0$ when $t = \dfrac{\ln(1.25)}{.02} \approx 11.2$ years.
+After this, the formula would give a negative population.   Clearly,
+this model doesn't make much sense as soon as the population
+is small enough, which should occur in a very few years.
+Usually,
+overcrowding does not induce such drastic emigration rates, and we
+wouldn't expect emigration to continue at such a rate once the
+population had declined to reasonable levels.  Can you invent
+a model which takes that into account?
+
+
+}
+
+\item   (a)  Show that $p = a/b$ and $p = 0$ are also solutions
+of the logistic equation.   Which values of $p_0$ yield these
+solutions?
+
+(b)  Find the solutions of the logistic equation arising from
+the assumption  $p_0 > a/b$.   Show that their solution curves
+approach  the line $p = a/b$ asymptotically from above as $t \to
+\infty$.
+
+(c)  Find the solutions of the logistic equation arising from
+the assumption  $p_0 < 0$.  Show their solution curves approach
+the line $p = 0$ asymptotically as $t \to -\infty$.	 
+
+\answer{ (a) $p_0 = a/b$ yields $p = a/b$ for all $t$.
+$p_0 = 0$ yields $p = 0$ for all $t$.\par
+(b) In doing the integration using partial fractions, you
+need to replace $a - bp$ by $bp - a$ since the former is negative
+in this case.  This can be accomplished in the equation
+$\dfrac p{a-bp} = Ce^{at}$ simply by allowing $C$ to be negative.
+Hence, the final equations giving $p$ in terms of $t$ are the
+same except that  $p > a/b$ for all $t$ instead of $p < a/b$ for
+all $t$, \par
+(c) In doing the integration using partial fractions,
+you need to replace $p$ by $-p$ since the former is negative,
+(but $a - bp > 0$.)   As in (b), the final form of the equation
+for $p$ is the same.  Since $e^{at} \to 0$ as $t\to -\infty$,
+it follows that $p \to 0$ as $t \to -\infty$.
+Notice that if $p_0 < 0$, the denominator varnishes for some
+positive value of $t$, so the graph has a vertical asymptote.
+
+
+}
+
+\item   Consider the population model described by the equation
+\[
+\frac{dp}{dt} = .04\,p - .01\,p^2 - .03.
+\]
+(This is a logistic model with some emigration.)   Assume
+$p(0) = 10^3$ and find $p(t)$.
+
+\answer{ Separation of variables yields
+\[
+\frac{dp}{(p-1)(p-3)} = -\frac{dt}{100}.
+\]
+Using partial fractions and proceeding as in the case of the
+logistic equation yields
+\[
+p =  \frac{3 - Ce^{-\frac t{50}}}{1 - Ce^{-\frac t{50}}}
+\]
+where $C = \dfrac{997}{999}$.   This analysis assumes $p > 3$
+so that neither denominator vanishes in the integration by
+partial fractions.   This is plausible since $p_0 = 1000 > 3$.
+Can you see how to justifiy this assumption rigorously by
+means of an argument like that for the logistic equation? \par
+Note that $\lim_{t\to \infty} = 3$ so that in effect the population
+dies off.  Is this a plausible model for a real population?
+
+
+}
+
+\item   In a chemical reaction a substance $X$ is formed from
+two substances $A$ and $B$.   The reaction rate is governed
+by the rule
+\[
+\frac{dx}{dt} = k(a - x)(b - x)
+\]
+where $x = x(t)$ is the amount of the substance $X$ present
+at time $t$.  Here, $a$ and $b$ are constants related to the
+amounts of substances $A$ and $B$ initially present and
+$k$ is a constant of proportionality.   Assume $x(0) = 0$
+and find $x(t)$.   What happens as $t \to \infty$.
+
+\answer{  Note that the assumptions $a, b, k > 0$ are
+implicit in the statement of the problem. Separation of variables yields
+\[
+\frac{dx}{(a - x)(b -x)} = k\,dt.
+\]
+If $a\not = b$,  integration using partial fractions and the initial 
+condition $x(0) = 0$ yield
+\[
+x = ab \frac{1 - e^{(a -b)kt}}{b - ae^{(a -b)kt}}.
+\]
+The limit as $t \to \infty$ is $a$ if $a < b$ and $b$ if $b < a$.
+If $a = b$, the answer is
+\[
+x = a\left(1 - \frac 1{akt +1}\right),
+\]
+and the limit as $t \to \infty$ is $a$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

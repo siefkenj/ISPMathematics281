@@ -1,0 +1,72 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item   Let $f:\R^2 \to \R$.   Show that if $f$ is differentiable
+at $\r$ then $f$ is continuous at $\r$.   Hint:  The definition
+of continuity at $\r$ can be rewritten
+\[
+   \lim_{\Delta\r \to 0} f(\r + \Delta r) = f(\r).
+\]
+Use the differentiability condition
+\[
+     f(\r +\Delta\r) = f(\r) + \nabla f(\r)\cdot \Delta\r + e(\r, \Delta\r)
+\]
+to verify the previous statement.   What happens to $e$ as $\Delta\r \to 0$?
+
+\answer{ $f(r+\Delta r) = f(r)+\nabla f(r)\cdot\Delta r + e(r,\Delta r)$.
+Now \[\displaystyle\lim_{\Delta r\to 0}\frac{e(r,\Delta r)}{|\Delta r|} =
+0 \Rightarrow\lim_{\Delta r\to 0} e(r,\Delta r)=0.\] Hence
+\[\lim_{\Delta r\to 0} f(r+\Delta r) = \lim_{\Delta r\to 0}
+ f(r) +\lim_{\Delta r\to 0} \nabla
+f(r)\cdot\Delta r + \lim_{\Delta r\to 0} e(r,\Delta r)
+= f(r)+0+0=f(r).\]  (Note $\nabla f(r)$ is constant.)
+So $f$ is continuous.  
+
+
+
+
+}
+
+\item   For each of the following subsets of $\R^2$,  tell if it is open, 
+closed,  or neither.
+
+  (a) The set of $(x, y)$ satisfying $-1 < x < 1,  0 < y < 2$.
+
+  (b) The set of $(x, y)$ satisfying $-1 < x \le 1,  0 < y < 2$.
+
+  (c) The set of $(x, y)$ satisfying $ x \le y \le 1,  0 \le x \le 2$.  (Region
+is triangular.)
+
+  (d) The set of all points in $\R^2$ with the exception of the four points
+$(\pm 1,  \pm 1)$.
+
+  (e) The set of all points with the exception of the line with equation
+$y = 2x + 3$.
+
+\answer{ (a) Open;\quad (b) neither;\quad (c) closed;\quad (d) open;\quad
+(e) open.
+
+
+
+
+}
+
+\item   Describe the set of all points in $\R^3$ with position vector $\r$
+satisfying  $1 < |\r| < 2$.  Is it  open or closed?
+
+\answer{ Open.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

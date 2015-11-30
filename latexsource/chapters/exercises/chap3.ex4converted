@@ -1,0 +1,171 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item  Write out the linear approximation in each case in terms of
+$\Delta x$, $\Delta y$, (and if appropriate, $\Delta z$) at the
+indicated point $P$.  Use it to estimate the value of the function at
+the indicated point $Q$, and compare the estimate with the `true
+value' determined from your calculator. \par
+	(a) $f(x,y) = \dfrac {1}{x+y}$; $P(1,1)$; $Q(1.02, 0.97)$ \par
+	(b) $f(x,y) = \sqrt {x^2 + y^2}$; $P(3,4)$; $Q(3.02,3.98)$ \par
+	(c) $f(x,y,z) = xyz$; $P(1,1,1)$; $Q(0.98, 1.02, 1.02)$ \par
+
+\answer{ (a) $\Delta f = -\frac14 \Delta x - \frac14\Delta y = 0.0025$\par
+	(b) $\Delta f = \frac35 \Delta x - \frac45\Delta y = -0.004$\par
+	(c) $\Delta f = \Delta x + \Delta y + \Delta z = 0.02$
+
+
+
+}
+
+\item   Use differentials to approximate \par
+	(a) $(\sqrt{17} + \sqrt{63})^2$ \par
+	(b) $(\sqrt{5} - \sqrt{3})^2$ \par
+
+
+\answer{ (a) $f = (\sqrt x + \sqrt y)^2 \quad f(17,63) = f(16+1,64-1)
+\sim f(16,64) + f_x(16,64)(1) + f_y(16,64)(-1) = 144+3-\frac32 =
+145\frac12$\par
+(b) $f=(\sqrt x - \sqrt y)^2\quad f(5,3)=f(4+1,\,4-1) \sim f(4,4) +
+f_x(4,4)(1) + f_y(4,4)(-1) = 0+0+0=0$ (poor approximation)
+
+
+
+
+}
+
+\item   The period of a simple pendulum is given by $T = 2\pi
+\sqrt{\dfrac{L}{g}}$.  Use differentials to estimate the error in the
+period if the length is $1.1$ meter, you take it to be 1.0 meters, and
+you approximate $g$ by $10.0$ rather than $9.8 \dfrac{m}{s^2}$?
+
+\answer{ $\Delta T\sim \left(\dfrac{\pi}{\sqrt g}\right)(.1)$ when length
+is increased by .1 \par
+$\Delta T\sim \left(\dfrac{\pi}{\sqrt{10}}\right)(.1)$ if $g=10$ is used
+instead 
+
+
+
+
+}
+
+\item   Find the gradient vector for the following functions at the given 
+points: \par
+	(a) $f(x,y) = 4x - 7y + 3$, $P(3,-2)$ \par
+	(b) $f(x,y) = x^2 - 4y^2 + y -2$, $P(2,1)$ \par
+	(c) $f(x,y,z) = \sqrt{x^2 + y^2 + z^2}$, $P(2,2,2)$ \par
+	(d) $f(x,y,z) = 3xy + y^2z - z^3$, $P(1,-1,8)$ \par
+
+\answer{ (a) $\nabla f=\lb 4,-7\rb$;
+	(b) $\nabla f=\lb 4,-7\rb$;
+	(c) $\nabla f=\lb \dfrac{\sqrt3}3,
+	    \dfrac{\sqrt3}3, \dfrac{\sqrt3}3\rb$;
+	(d) $\nabla f=\lb -3,-13,-191\rb$
+
+
+
+
+}
+
+\item   Verify the following properties of the gradient.  Assume $u$ and
+$v$ are functions and $a$ and $b$ are constants. \par
+	(a) $\nabla (au + bv) = a\nabla u + b\nabla v$ \par
+	(b) $\nabla (uv) = u\nabla v + v\nabla u$
+
+\answer{ (a) \begin{align*}
+\nabla(au+bv) &=
+	    \lb \dfrac{\d(au+bv)}{\d x},
+	     \dfrac{\d(au+bv)}{\d y}\rb
+	    = \lb \dfrac{\d(au)}{\d x} +
+	    \dfrac{\d(bv)}{\d x},
+	    \dfrac{\d(au)}{\d y}+
+	    \dfrac{\d(bv)}{\d y}\rb\\
+	    &= \lb \left(a\dfrac{\d u}{\d x} +
+	     b\dfrac{\d v}{\d x}\right),
+	    \left(a\dfrac{\d u}{\d y} +
+	     b\dfrac{\d v}{\d y}\right)\rb
+	    = \lb a\dfrac{\d u}{\d x},
+	     a\dfrac{\d u}{\d y}\rb + 
+	    \lb \dfrac{\d v}{\d x},
+	     b\dfrac{\d v}{\d y}\rb \\
+	    &= a\lb \dfrac{\d u}{\d x},
+	     \dfrac{\d u}{\d y}\rb + 
+	    b\lb \dfrac{\d v}{\d x},
+	     \dfrac{\d v}{\d y}\rb
+	    = a\nabla u + b\nabla y.
+\end{align*}
+	    (The proof in $n$ variables is analagous.) \par
+	(b) $\displaystyle \nabla(uv) = \lb
+	    \frac{\d(uv)}{\d x},\frac{\d(uv)}{\d y}\rb
+	    =\lb u\frac{\d v}{\d x} + v\frac{\d u}{\d x}, 
+	     u\frac{\d v}{\d y} + v\frac{\d u}{\d y}\rb
+	    \allowmathbreak
+	    =\lb u\frac{\d v}{\d x}, u\frac{\d v}{\d y}\rb +
+	     \lb v\frac{\d u}{\d x}, v\frac{\d u}{\d y}\rb 
+	    \allowmathbreak
+	    = u\lb \frac{\d v}{\d x},\frac{\d v}{\d y}\rb +
+	     v\lb \frac{\d u}{\d x},\frac{\d u}{\d y}\rb 
+	     = u\nabla v + v\nabla u$.
+
+
+
+
+}
+
+\item   Let $f(\r) =\dfrac 12 \ln (x^2 + y^2)$.   Show that
+$\nabla f = \dfrac 1{r}\u_r$ where $r = \sqrt{x^2 + y^2}$ is the
+radial polar coordinate.
+
+\answer{ $\displaystyle\nabla f=\lb f_x,f_y\rb = \lb \frac{x}{x^2+y^2},
+\frac{y}{x^2+y^2}\rb
+= \frac1{\sqrt{x^2+y^2}}\lb \frac{x}{\sqrt{x^2+y^2}},
+\frac{y}{\sqrt{x^2+y^2}} \rb = \frac1r u_r$
+
+
+
+
+}
+
+\item   Let $f(x,y) = x^3 + y^2x + 3y - 1$.   Expand $f(1 + \Delta x, -1 + \Delta y)$
+by substituting $1 + \Delta x$ for $x$ and $-1 + \Delta y$ for y.
+Identify the linear terms and compare with $\nabla f(1, -1)\cdot \Delta \r$.
+Identify the higher order terms and show that they are
+`$O(\Delta \r^2)$'.
+
+
+\item  Let $f:\R^2 \to \R$ be defined by
+$f(x,y) = \dfrac{2xy}{x^2 + y^2}$ for $(x,y) \not= (0,0)$ and
+$f(0,0) = 0$.  \par
+(a)  Show that $f_x(0,0) = f_y(0,0) = 0$.  Hint:  What are
+$f(x,0)$ and $f(0,y)$?\par
+(b)  Show that $f$ is not continuous at $(0,0)$.  Hint:
+Express $f$ using polar coordinates and show that
+the limit as $\r \to \bold 0$ is not defined.
+
+\answer{ (a) $\displaystyle f_x(0,0)
+ = \lim_{\Delta x\to0}\frac{f(\Delta x,0)-f(0,0)}{\Delta x}
+ = \lim_{\Delta x\to 0} \frac0{\Delta x} = 0$ \par
+\blank $\displaystyle f_y(0,0)
+ = \lim_{\Delta y\to0}\frac{f(0,\Delta y)-f(0,0)}{\Delta y}
+ = \lim_{\Delta y\to 0} \frac0{\Delta y} = 0$
+\par (b) $\displaystyle \lim_{(x,y| \to (0,0)} f
+ = \lim_{r\to 0} \frac{2r^2\cos\theeta\sin\theeta}{r^2}
+ = \lim_{r\to 0} 2\cos\theeta\sin\theeta$ which does not exist since the
+value of $2\cos\theeta\sin\theeta$ varies as $\theeta$ does.
+
+
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

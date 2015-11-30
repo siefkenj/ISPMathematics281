@@ -1,0 +1,104 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 5
+\smallskip
+% 1
+\Exer (a) Solve the initial value
+problem $\dfrac{dy}{dt} = t(y-1)$ given $y(0) = 1$ by separation of
+variables.
+
+(b)   How can you conclude that this is the only solution?  
+\answer (a)  Separation of variables yields the general solution
+$y = 1 + Ce^{\frac{t^2}2}$, and putting $y(0) = 1$ yields $C = 0$,
+so the solution to the initial value problem is  the constant
+solution $y = 1$.   Note two peculiarities of this approach.  First,
+in principle, you should distinguish $y > 1$ and $y < 1$ since the
+integration step yields $\ln |y - 1|$.   However, 
+after exponentiation, both cases yield the same algebraic form  but with
+different signs for the constant $C$.  (This also happened in several
+problems in the previous section.)  More important, the whole method
+of separation of variables is of doubtful validity in this case since
+since the denominator in $\dfrac{dy}{y - 1}$
+vanishes for the actual solution.   
+However, the method does give the correct answer anyway.
+You might ask yourself why. \par
+(b)  Whether the method we used to derive the solution is valid or not,
+there  is no questions that $y = 1$ satisfies both the differential
+equation  $\dfrac{dy}{dt} = t(y - 1)$ for all $t$ and also that
+$y(0) = 1$.   Since $f(t,y) = t(y-1)$ has continuous partial
+$f_y(t,y) = t$, it follows from the basic uniqueness theorem that this
+solution is unique.
+
+% 2
+\Exer  (a)  Solve the initial value problem $\dfrac{dy}{dt} = y^{4/5}$
+given $y(0) = 0$ by separation of variables.
+
+(b)  Note that $y = 0$ is also a solution to this initial value
+problem.   Why doesn't this contradict the uniqueness theorem?
+\answer (a) $y = t^5/3125$.   (b)  $f(t,y) = y^{4/5}$ does not
+have a continuous partial with respect to $y$ at $t = 0$.
+($f_y(t,y) = (4/5)y^{-1/5}$.)  Hence, the uniqueness theorem does not
+apply at the point $t = 0, y= 0$.   
+In principle, it could still happen that the solution is
+unique, but we should not be entirely surprised that it is not.
+
+% 3
+\Exer  (a)  Solve the initial value problem $\dfrac{dy}{dt} = 
+\sqrt{1 - y^2}$
+given $y(0) = 1$ by separation of variables.
+
+(b)  Note that $y = 1$ is also a solution to this initial value
+problem.   Why doesn't this contradict the uniqueness theorem?
+\answer (a) $y = \cos t$.  (b) The domain of $f(t,y) = \sqrt{1 - y^2}$
+is $-1\le y \le 1$.   Hence, the point $(0,1)$ is not in an open
+set on which the function $f(t,y)$ is defined.   Hence, the uniqueness
+theorem does not apply.   However, even if we tried to stretch things
+to such domains, we would run into trouble since $f_y(t,y) =
+-\dfrac y{\sqrt{1 - y^2}}$ blows up as $y \to 1$.
+
+% 4
+\Exer (a) Solve $\dfrac{dy}{dt} = 2t(1 + y^2), \, y(0) = 0$
+by separation of variables.
+
+(b)  What is the largest possible domain of definition for the
+solution obtained in part (a)?
+\answer (a) $y = \tan t^2$, for (b) $-\sqrt{\pi/2} < t < \sqrt{\pi/2}$.
+
+% 5
+\Exer  Consider the initial value problem $y' = t^2 + y^2$
+given $y(0) = 0$.   This cannot be solved explicitly by any of the methods
+we have discussed, but the existence and uniqueness theorem tells
+us there is a unique solution defined on some $t$-interval 
+containing $t = 0$.
+
+Show that $(-a, a)$ is such an interval if $a \le \dfrac 1{\sqrt 2}$
+as follows.  Fix a value $b > 0$.  Since $y' = t^2 + y^2 \le a^2 + b^2$
+for $0\le t \le a,\, 0\le y \le b$ (a rectangle with opposite corners
+at $(0,0)$ and $(a,b)$), it follows that a solution
+curve starting at $(0,0)$ will pass out of the right hand side of
+the rectangle provided $a^2 + b^2 \le \dfrac ba$.  This may
+be rewritten $ab^2 - b + a^3 \le 0$.   Fix $a$ and determine a
+condition such that the resulting quadratic expression in $b$
+does assume negative values, i.e., such that the equation
+$ab^2 - b + a^3 = 0$ has two unequal real roots, at least
+one of which is
+positive.
+
+Do you think this initial value problem
+ has a solution defined for $-\infty < t < \infty$?
+\answer The roots of $ab^2 - b + a^3 = 0$ are
+$$
+b = \frac{1 \pm \sqrt{1 - 4a^4}}{2a}.
+$$
+The roots will be real and positive if $1 - 4a^4 > 0$, i.e., if
+$a < \dfrac 1{\sqrt 2}$.  Since a solution exists on the interval
+$(-a,a)$ for every $0 < a < \dfrac 1{\sqrt 2}$, it follows that a solution
+exists on the interval $(-1/\sqrt 2, 1/\sqrt 2)$. \par
+Assume a continuous solution exists for $0\le t < t_0$ where $t_0 > 1$.
+(If not, then there is certainly no solution defined for all $t$.)
+For $t > 1$, we have $y' > 1 + y^2$ from which it follows that
+$\tan^{-1} y(t) - \tan^{-1} y(1) > t-1$.   Put $\alpha = \tan^{-1}y(1)$.
+Transposing and taking tangents yields  $y(t) > \tan(t + \alpha - 1)$.
+Since the right hand side has a vertical asymptote at $t = \pi/2 - \alpha +1$,
+it follows that the initial
+value problem does not have a solution defined for all $t$.
+

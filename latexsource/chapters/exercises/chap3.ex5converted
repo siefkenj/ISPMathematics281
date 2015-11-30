@@ -1,0 +1,124 @@
+
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item   For each of the following functions, find the directional derivative
+in the direction of the given vector:
+
+	(a) $f(x,y) = x^2 + xy + y^2$, $P(1,-1)$, $\v =\lb 2,3\rb$
+
+	(b) $f(x,y) = e^y \sin x$, $P(\frac{\pi}{4}, 0)$, $\v =\lb 1,-1\rb$
+
+	(c) $f(x,y,z) = \sqrt{x^2 + y^2 + z^2}$, $P(2,3,6)$, $\v =2\i -3\j +\k$
+
+	(d) $f(x,y,z) = 20-x^2-y^2-z^2$, $P(4,2,0)$, $\v =\k$
+
+	(e) $f(x,y,z)=(x-1)^2 + y^2 + (z+1)^2$, $P(1,0,-1)$, $\v =\lb 1,0,0\rb$
+
+\answer{ (a) $\dfrac{-1}{\sqrt{13}}$; \quad (b) 0; \quad 
+(c) $\dfrac 1{7\sqrt{14}}$; \quad (d) 0; \quad (e) 0.
+
+
+
+}
+
+\item   Find the maximum directional derivative of the function at the given
+     point and find its direction:
+
+	(a) $f(x,y) = x^2 -3y^2$, $P(1,-2)$
+
+	(b) $f(x,y,z) = x^2 + 4y^3 - z$, $P(1,-3,0)$
+
+	(c) $f(x,y,z) = \sqrt{xyz}$, $P(-1,4,-1)$
+
+\answer{ (a) max.\ directional deriv. $=2\sqrt{37}$;\quad direction $ =
+   \dfrac{\sqrt{37}}{37}\i + \dfrac{6\sqrt{37}}{37}\j$ \par
+(b) max.\ directional deriv. $=\sqrt{11{,}669}$;\quad direction $ =
+   \dfrac{2\sqrt{11{,}669}}{11{,}669}\i + \dfrac{108\sqrt{11{,}669}}{11{,}669}\j
+   - \dfrac{\sqrt{11{,}669}}{11{,}669}k $ \par
+(c) max.\ directional deriv. $=\dfrac{\sqrt{33}}4$;\quad direction $ =
+   -\dfrac{4}{\sqrt{33}}\i + \dfrac 1{\sqrt{33}}\j - \dfrac 4{\sqrt{33}}\k$
+
+
+
+
+}
+
+\item   A mountain climber stands on a mountain described by the
+equation $z = 10000(25 - x^2- y^2)$ where $x$ and $y$ are measured in
+miles and $z$ is measured in feet.  The ground beneath the climber's
+feet is at the point $(2.5,3.0,z)$ where $z$ is determined by the above
+equation.  If the climber slips in a northeasterly direction, at what
+rate will the fall occur?  What is the angle of descent?  Is there a
+steeper path from this point?
+
+\answer{ Rate of descent in the northeasterly direction
+is $-55000\sqrt{2}$ ft$/$mi.  This is  $-\dfrac{55000\sqrt 2}{5280}$
+which is about $-14.73$ ft$/$ft. \par
+The angle of descent is $\tan^{-1}(125\sqrt2/12)$.  There is
+a steeper path, namely that in the direction (on the map)
+of the gradient.
+
+
+
+
+}
+
+\item   An electric charge is uniformly distributed over a thin
+non-conducting wire of radius $a$ centered at the origin in the
+$x,y$-plane.  The electrostatic potential due to this charge at a point
+on the $z$-axis is given by $V(0,0,z) = \dfrac C{\sqrt{a^2 + z^2}}$
+where $C$ is an appropriate constant.   Find $\left. \dfrac{d
+V}{dx}\right|_{\u}$ at the point $(0,0,h)$ in the direction $\u$
+towards the origin.  Hint.  You weren't given enough information to
+determine $\nabla V$.  Why was the information you were given
+sufficient?
+
+\answer{ Find $\displaystyle{\frac{\d V}{\d z}}$ at $(0,0,h)$ and
+change the sign to take account of the fact that the direction
+is toward the origin.  In effect, you find $\nabla V\cdot (-\k)
+= -\displaystyle{\frac{\d V}{\d z}}$.   The answer is
+$\displaystyle{\frac{Ch}{(a^2 + h^2)^{3/2}}}$.
+
+
+
+}
+
+\item   The temperature at any given point $(x,y,z)$ in the universe is given 
+     by the equation $T = 72 + \frac{1}{2}xyz$, with the origin defined as 
+     the corner of Third and Main in Omaha, Nebraska.  You are on a hilly 
+     spot, $P(-2,-1,-7)$ in Lincoln, and the surrounding topography has
+     equation $z = 3x - y^2$.  If you start heading northeast towards 
+     Omaha, what initial rate of temperature change will you experience?
+
+\answer{ Temperature change $= +\dfrac{31\sqrt2}{4}$ of the relevant
+temperature units per ft travelled in a northeasterly direction.
+
+
+
+
+
+}
+
+\item   The temperature inside the cylinder described by
+$x^2 + y^2 \le a^2, \, 0 \le z \le h$ is given by  $T = (x^2 + y^2)z$.
+What is the direction in which the temperature changes as fast as
+possible at the point $(a/2,a/2, h/2)$?
+
+\answer{ A unit vector in the desired direction is
+$\displaystyle{\frac 1{\sqrt{2h^2 + a^2}}\lb h, h, a\rb}$
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

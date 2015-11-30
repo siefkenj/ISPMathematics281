@@ -1,0 +1,4019 @@
+\nextsec{Introduction}
+\head Section \sn. Introduction \endhead
+
+We now turn to the subject of integration for functions of
+more than one variable.   As before, the case of functions
+of two variables is a good starting point.
+
+We start with a discussion of how integration commonly
+arises in applications, and to be concrete we shall discuss
+the the concept of {\it center of mass}.  (Your physics book
+\outind{center of mass}
+should have a discussion of the significance of this concept.) 
+ Given a finite system of particles
+with masses $m_1, m_2, \dots, m_n$ with position vectors
+at $\r_1, \r_2, \dots, \r_n$, the center of mass of the
+system is defined to be
+\[
+    \r_{cm} = \frac 1M (m_1\r_1 + m_2\r_2 + \dots + m_n\r_n)
+       = \frac 1M \sum_{i=1}^n m_i\r_i
+\]
+where
+\[
+     M = m_1 + m_2 + \dots + m_n = \sum_{i=1}^n m_i
+\]
+is the total mass.  The center of mass is important in dynamics
+because it moves like a single particle of mass $M$ which is
+acted upon by the sum of the external forces on the individual
+particles.   
+
+The principle we want to illustrate is that for each concept
+definable for finite sets of points, there is an appropriate
+generalization for  continuous distributions  in
+which the finite sum is replaced by an {\it integral}.
+
+\nextex
+\xdef\ExOne{\en}
+\example{Example \en}  Let a mass $M$ be uniformly distributed
+along a thin rod of length $L$.   We shall set up and evaluate
+an integral representing the center of mass of this system.
+\medskip
+\centerline{\epsfbox{s4-1.ps}}
+\medskip
+We treat the rod as if it were a purely 1-dimensional distribution,
+thus ignoring its extension in the other directions.  We introduce
+a coordinate $x$ to represent distance along the rod, so
+$0 \le x \le L$.    Since
+the mass is uniformly distributed, the mass density per
+unit length will be
+\[
+    \delta = \frac ML.
+\]
+The link between the finite and continuous is obtained by
+imagining that the rod is partitioned into small segments
+by picking division points
+\[
+     0 = x_0 < x_1 < x_2 < \dots < x_{i-1} < x_i < \dots < x_n = L.
+\]
+The easiest way to do this would be to have them equally spaced,
+but to be completely general we don't assume that.  Thus, the
+mass contained in the $i$th segment is $\Delta m_i = \delta \Delta x_i$
+where $\Delta x_i = x_i - x_{i-1}$.  We now replace each segment
+$\Delta x_i$ by a {\it point mass\/} of the
+same mass $\Delta m_i$ placed at the right hand endpoint
+$x_i$.   (As we shall see, it is not critical where the point mass
+is positioned as long as it is somewhere in the segment.  It
+could be instead at the left endpoint $x_{i-1}$
+ or at any point $\tilde x_i$ satisfying $x_{i-1}\le \tilde x_i
+\le x_i$.)  The  $x$-coordinate
+of the center of mass of this finite discrete system
+is
+\[
+     \frac 1M \sum_{i=1}^n (\delta \Delta x_i)x_i
+           =
+     \frac 1M \sum_{i=1}^n \delta\, x_i \Delta x_i.
+\]
+To find---actually, to define---the $x$-coordinate
+of the center of mass of the original continuous
+distribution, we let $n \to \infty$ and all $\Delta x_i \to 0$
+and take the limit.  The result is the integral
+\[
+     x_{cm} = \frac 1M \int_0^L \delta\, x\, dx.
+\]
+This can be evaluated in the usual way
+\[
+     \frac 1M \int_0^L \delta\, x\, dx =\frac 1M \delta x\left.\frac
+{x^2}2\right |_0^L = \frac 1M \frac ML \frac{L^2}2 = \frac L2.
+\]
+Thus $x_{cm} = L/2$ just as you would expect.
+\endexample
+
+Note that had we used some other $\tilde x_i$ in the above
+construction, we would have gotten instead the
+sum
+\[\sum_{i=1}^n \delta\, \tilde x_i \, \Delta x_i,
+\]
+but that wouldn't have made any difference in the limit.
+As you may remember from your previous study of integral
+calculus, all such sums are called {\it Riemann sums\/}
+and, {\it in the limit\/}, it doesn't matter which $\tilde x_i$
+you choose in the $i$th segment.  All such sums approach the
+same limit, the definite integral.  
+
+In the above example, we could have had a non-uniformly
+distributed mass.  In that case, the linear
+density $\delta(x)$
+\outind{density}
+would have been a non-constant function of position  $x$.
+In that case, a typical Riemann sum would look like
+\[
+   \sum_{i=1}^n \delta(\tilde x_i)\tilde x_i\, \Delta x_i
+\]
+where $x_{i-1} \le \tilde x_i \le x_i$, and in the limit
+it would approach the definite integral
+\[
+   \int_0^L \delta(x)x\, dx.
+\]
+The $x$-coordinate of the center of mass would be
+\[
+   \frac 1M \int_0^L \delta(x) x\, dx,
+\]
+but in this case, using similar reasoning, we would calculate
+the mass as an integral
+\[
+    M = \int_0^L \delta(x)\, dx.
+\]
+
+In such problems there are always two parts to the process.
+The first step is {\it conceptual\/}; it involves setting up
+an integral by visualizing it as a limit of  finite sums. 
+The second step is to evaluate the integral by using
+antiderivatives. 
+In the example, $x^2/2$ doesn't have anything to do with any
+sums, it is just an antiderivative or indefinite integral of
+$x$.  The link with limits of sums is provided by the Fundamental
+Theorem of Calculus.
+
+Sometimes we can't evaluate the integral through the use of
+antiderivatives.  For example, $\delta(x)x$ might be
+an expression for which there is no antiderivative expressible
+in terms of known functions.  Then we have to go back to 
+the idea of the definite integral as
+the limit of finite sums and try to approximate it that way.
+Refinements of this idea such as the trapezoidal rule or
+Simpson's rule are often helpful in that case. 
+
+Let's now consider a two dimensional example.  
+
+\nextex
+\xdef\ExTwo{\en}
+\example{Example \en}   Suppose a mass M is uniformly distributed
+over a thin sheet of some shape.  
+By ignoring the  thickness of the sheet, we may assume the mass
+is distributed over a region in a plane, and after choosing
+coordinates $x,y$ in that plane, we may describe the region by
+the equations of its bounding curves.   To be explicit, suppose
+the mass is distributed over the region $D$ contained between
+the line $y = 1$ on top and the parabola $y = x^2$ underneath.
+We want to find the center of mass $(x_{cm}, y_{cm})$ of the distribution.
+\medskip
+\centerline{\epsfbox{s4-2.ps}}
+\medskip
+\noindent
+It is clear that $x_{cm} = 0$.  (Why?)   Hence, we concentrate
+on finding $y_{cm}$
+We try to proceed as in Example \ExOne.   The first {\it conceptual\/}
+ step will be to visualize it as the limit of finite sums.
+
+ Before beginning, note that the mass density per unit
+area
+will be $\delta = M/A$ where $A$ is the area of the region $D$, but
+to find the
+ area, we need to evaluate an integral.
+\[
+   A = \int_{-1}^1 (1 - x^2) dx = \left. x - \frac{x^3}3\right |_{-1}^1 = 
+\frac 43.
+\]
+Thus, $\delta = \dfrac M{4/3} = \dfrac{3M}4$.  
+
+Imagine next that the region $D$ is {\it dissected\/} into small
+rectangles by a grid as in the diagram.  (There is a problem on
+the bottom edge where we won't have rectangles, but ignore that
+for the moment.)
+\medskip
+\centerline{\epsfbox{s4-3.ps}}
+\medskip
+Of course, to actually do this, we will have to number the
+rectangles some way, so we need subscripts and we have to
+keep track of the bookkeeping.  However, for the moment let's
+ignore all that.  Consider a typical rectangle with sides
+$\Delta x, \Delta y$, and area $\Delta A = \Delta x\Delta y$.
+The mass inside that rectangle will be $\Delta m = \delta\,\Delta A$.
+\medskip
+\centerline{\epsfbox{s4-4.ps}}
+\medskip
+Now imagine that each small rectangle is replaced by a particle
+of the same mass $\Delta m$ placed at some point
+$(x,y)$ inside the rectangle. 
+ (If the rectangles are all small enough, it won't matter
+much how the points $(x,y)$ are chosen.  For example, you could
+always choose the upper right corner, or  the
+lower left corner, or the center, or anything
+else that takes your fancy.)   The $y$-coordinate of the center
+of mass of this system will be
+\[
+     y_{cm} = \frac 1M \sum_{\text{all rectangles}} y \,\Delta m
+      = \frac 1M\sum_{\text{all rectangles}}y\, \delta\,\Delta A.
+\]
+Now let the number of rectangles approach $\infty$ while the
+size of each rectangle approaches zero.   The sum approaches
+a {\it limit\/} which is denoted
+\[
+      \iint_D y\,\delta\, dA
+\]
+and which is called a {\it double integral}. (Two integral
+signs are used to remind us of the dimensionality of the
+domain.)   The $y$-coordinate
+of the center of mass of the continuous distribution is
+\[
+y_{cm} =   \frac 1M \iint_D y\,\delta\, dA.
+\]
+This completes the first part of the problem: setting
+up the integral.   However, we have no analogue {\it as yet\/} of the
+second step: evaluating the integral using antiderivatives
+and the
+Fundamental Theorem of Calculus.   Of course, we could always
+\outind{fundamental theorem of calculus}
+approximate it by an appropriate sum, and the smaller we take
+the rectangles and the more of them there are, the better the
+approximation will be.
+
+\subhead The General Concept of a Double Integral \endsubhead
+If the mass density per unit area were a function of position
+$\delta(x,y)$, then the mass in one of the small rectangles
+would be approximately  $\delta(x,y)\,\Delta A$ where as above
+$(x,y)$ is any point in that rectangle.   In the limit,
+ the $y$-coordinate of the center of mass
+would be 
+\[
+   y_{cm} =\frac 1M \iint_D y\,\delta(x,y)\, dA.
+\]
+More generally, let $D$ be a subset of $\R^2$ and let $f(x,y)$
+denote a function defined on $D$.
+\medskip
+\centerline{\epsfbox{s4-5.ps}}
+\medskip
+  As above, dissect the region
+into small rectangles.  For each such rectangle, let its
+sides have dimensions $\Delta x$ and $\Delta y$, so its area
+is $\Delta A = \Delta x\,\Delta y$, and choose a point
+$(x,y)$ in the rectangle.  Form the sum
+\[
+     \sum_{\text{all rectangles}}f(x,y)\Delta A
+\]
+and consider what happens as the size of each rectangle approaches
+zero and the number of rectangles approaches $\infty$.   If the
+ resulting sums approach a definite limit, we call that
+limit the {\it double integral\/} of the function over the region $D$
+\outind{double integral}
+\outind{integral, double}
+and we denote it
+\[
+     \iint_D f(x,y)\, dA.
+\]
+\medskip
+\centerline{\epsfbox{s4-6.ps}}
+\medskip
+There are some problems with this definition that should be
+discussed briefly.   First of all, in principle the set $D$
+could be quite arbitrary, but in that case the limit may
+not exist and in any case it may be impossible to evaluate.
+Usually, in useful situations, the region $D$ is something
+quite reasonable.  For example, it might be bounded by a finite
+set of smooth curves as in Example \ExTwo.  Secondly, the region
+$D$ had better be bounded; that is, it should be
+possible to enclose it in a sufficiently large rectangle.
+If that were not the case, it would not be possible to dissect
+the region into {\it finitely many\/} small rectangles.
+(What one does for unbounded regions will be discussed later.)
+
+\mar{s4-7.ps}
+Another issue was raised briefly above.  On the boundary of
+\outind{boundary, irrelevance for integrals}
+the region $D$, the dissection may not yield rectangles.
+It turns out that in all reasonable cases, this does not matter.
+For suppose the dissection into small rectangles is obtained by
+imposing a grid on an enclosing rectangle $R$ containing the
+region $D$.   Consider the rectangles in the grid which overlap
+the region $D$ but don't lie entirely within it.  If we allow
+some or all of these rectangles in the sum, we run the risk
+of ``overestimating the'' sum, but if we omit them all, we
+run the risk of ``underestimating'' it.   However, in all reasonable
+cases, it won't matter which we do, since the total area of these
+questionable rectangles will be small compared to the area of
+the region $D$, and it will approach zero in the limit.  That is
+because, in the limit, we would obtain the ``area'' of the
+boundary of $D$, and since the boundary would ordinarily be a finite
+collection of smooth curves, that ``area'' would be zero.
+One way to deal with this question of partially overlapping
+rectangles is as follows.  The contribution from such a rectangle
+would be $f(x,y)\Delta A$ where $(x,y)$ is some point in the
+rectangle.  If the point is in the region $D$, we include the
+term in the sum.  On the other hand, we could have chosen for
+that rectangle a point $(x,y)$ not in the region $D$, so
+$f(x,y)$ might not even be defined.  In that case, just redefine
+it to be zero, so the term $f(x,y)\,\Delta A$ would be zero in
+any case.  In essence, this amounts to defining a new function
+$f^*(x,y)$ which agrees with the function $f$ inside the region
+$D$ and is zero outside the region, and considering sums for
+this function.   
+\medskip
+\centerline{\epsfbox{s4-8.ps}}
+\medskip
+Finally, we come to the nitty gritty of how we go about adding
+up the contributions from the individual small rectangles.   Getting
+this straight is essential either for developing a precise,
+rigorous theory of the double integral, or for actually
+approximating it numerically, say using a computer program.
+Here is how it is done.   Assume the region $D$ is contained
+in a (large) rectangle described by two inequalities
+$a \le x \le b$ and $c\le y \le d$.   We form a grid on this
+rectangle by choosing division points
+\[
+    a = x_0 < x_1 < x_2 < \dots < x_{i-1} < x_i < \dots < x_m = b
+\]
+along the $x$ axis, and
+\[
+    c = y_0 < y_1 < y_2 < \dots < y_{j-1} < y_j < \dots < y_n = d
+\]
+along the $y$-axis.  Hence, each rectangle is characterized
+by a pair of indices $(i,j)$ where $1\le i \le m, 1\le j \le n$.
+There are a total $mn$ rectangles.  The division points can
+be chosen in any convenient manner. They might be equally spaced,
+but they need not be.  Put 
+$\Delta x_i = x_i - x_{i-1},
+\Delta y_j = y_j - y_{j-1}$ and $\Delta A_{ij} = \Delta x_i\Delta y_j$.
+\medskip
+\centerline{\epsfbox{s4-9.ps}}
+\medskip
+In the $(i,j)$-rectangle, we choose a point $(\tilde x_{ij},
+\tilde y_{ij})$.  As mentioned above, there are a variety of ways
+we could choose such a point.  The contribution from this
+rectangle will be $f(\tilde x_{ij}, \tilde y_{ij})\Delta A_{ij}$
+except that we will agree to set  
+$f(\tilde x_{ij}, \tilde y_{ij}) = 0$ if the point is not in the
+region $D$.   Finally, we add up the contributions.  There are
+clearly many ways we could do this.  For example, we could 
+form
+\[
+  \sum_{j=1}^n\sum_{i=1}^m
+f(\tilde x_{ij}, \tilde y_{ij})\Delta A_{ij}
+\]
+which amounts to summing across ``horizontal strips'' first
+and then summing up the contributions from these strips.
+Alternately, we could form
+\[
+  \sum_{i=1}^m\sum_{j=1}^n
+f(\tilde x_{ij}, \tilde y_{ij})\Delta A_{ij}
+\]
+which sums first along ``vertical strips''.  There are even
+more complicated ways of adding up, which might be a good idea
+in special circumstances, but the bookkeeping would be more
+complicated to describe.
+
+To complete the process, it is necessary to take a limit, but
+this also requires some care.  If we just let the number 
+$mn$  of
+rectangles go to $\infty$, we could encounter problems.  For
+example, if $n \to \infty$, but $m$ stays fixed, we would
+expect some difficulty.  In that case, the area $\Delta A_{ij}$
+of individual rectangles would approach zero, but their width
+would stay constant.  The way around this is to insist that
+not only should the number of rectangles
+go to $\infty$, but also the largest possible
+{\it diagonal\/} of any rectangle in a dissection should
+approach
+zero. 
+\medskip
+\centerline{\epsfbox{s4-10.ps}}
+\medskip
+Perhaps it will make the process seem a bit more concrete
+if we give a (Pascal) computer program to approximate the
+integral in Example \ExTwo
+\[
+   \iint_Dy\delta\, dA
+\]
+where $D$ is the region described by $x^2 \le y \le 1,
+-1\le x \le 1$.   As above,  the variable $\delta$ represents
+the density.  The horizontal interval $-1\le x \le 1$ is
+divided into 
+ $m$ equal subintervals, each of length $Dx = 2/m$.  Similarly,
+the $y$-range is divided into
+$m$ equal subintervals, each of length $Dy = 1/m$.  (Note that
+this means that  $n = m$.)  Thus,
+the region $D$ is covered by a collection of subrectangles,
+each of area $DA = Dx\,Dy$, but some of these subrectangles
+overlap the bottom edge of the region.
+The integrand is evaluated 
+ in the $i,j$-rectangle at the
+upper
+right hand corner $(x,y)$.  The sums are done first along vertical strips,
+but in such a way that subrectangles below the bottom edge of
+the region don't
+contribute to the sum.  (Examine the program to see if the subrectangles
+overlapping the bottom edge contribute to the sum.)
+
+\def\hs{\hskip 25pt}
+\medskip
+{
+\obeylines
+\tt
+program integrate;
+var m,i,j : integer; 
+\hs x, y, Dx, Dy, DA, delta, sum : real;
+begin
+\hs write('Give density');
+\hs readln(delta);
+\hs write('Give number of subintervals');
+\hs readln(m);
+\hs Dx :$=$ 2/m;
+\hs Dy :$=$ 1/m;
+\hs DA :$=$ Dx*Dy;
+\hs x :$=$ -1.0;
+\hs sum :$=$ 0.0;
+\hs for i :$=$ 1 to m do
+\hs \hs begin
+\hs \hs\hs x :$=$ x $+$ Dx; 
+\hs \hs\hs y :$=$ 0;
+\hs \hs\hs for j :$=$ 1 to m do
+\hs \hs\hs\hs begin
+\hs \hs\hs\hs\hs y :$=$ y $+$ Dy;  
+\hs \hs\hs\hs\hs if x*x $<=$ y then
+\hs \hs\hs\hs\hs\hs sum :$=$ sum + delta*y*DA; 
+\hs \hs\hs\hs end;
+\hs \hs end;
+\hs writeln('Approximation $=$ ', sum);
+end.
+}
+\medskip
+Here are some results from an equivalent program (written in the
+programming language C) where $\delta = 1.0$.
+\[\begin{matrix}
+   m &\qquad & \text{Approximation} \\
+  10&\qquad & 0.898000 \\
+50&\qquad &0.818863 \\
+100 &\qquad & 0.809920 \\
+ 200 &\qquad & 0.804981 \\
+1000 &\qquad & 0.800981 \\
+\end{matrix}
+\]
+As we shall see in the next section, the exact answer, determined
+by calculus, is $0.8$.  If you examine the program carefully,
+you will note that the approximating sums overestimate the
+answer because the overlapping rectangles on the bottom parabolic
+edge are more often included than excluded.  
+
+\subhead Other Notations \endsubhead
+There are a variety of other notations you may see for
+double integrals.   First, 
+you may see
+\[
+  \int_D f(x,y)\, dA
+\]
+with just one integral sign to stand for the summation process.
+In that case, you have to look for other clues to the dimensionality
+of the domain of integration.
+You may also see
+\[
+  \iint_D f(x,y)\, dx\,dy.
+\]
+The idea here is that each small element of area is a rectangle
+with sides $dx$ and $dy$, so the area is $dA = dx\,dy$.   However,
+we shall see later that there may be advantages to dissecting
+the region into things other than rectangles (as when using
+polar coordinates, for example).   Hence, it is better generally
+to stick with the `$dA$' notation.  In the next section, we
+shall introduce the notion of an {\it iterated integral\/}. 
+This is a related but logically distinct concept with a slightly different
+notation, and the two concepts should not be confused.
+
+\subhead What Is an Integral? \endsubhead
+If you ignore the subtlety involved in taking a limit, then an
+integral of the form
+\[
+\int_a^b f(x)\,dx \qquad\text{or}\qquad \iint_D f(x,y)\,dA
+\]
+should be thought of basically as a {\it sum}.   In the first case,
+you take an element of length $dx$, weight it by the factor
+$f(x)$ to get $f(x)\,dx$ and then add up the results.  Similarly,
+in the second case, the element of area $dA$ is weighted by the
+factor $f(x,y)$ to get $f(x,y)\,dA$ and the results are added
+up to get the double integral,   These are the first of many examples
+we shall see of such {\it sums}.  Of course, the concepts have many
+important applications, but no one of these applications tells you what
+the integral `really is'.   Unfortunately, students are often misled
+by their first introduction to integrals where the {\it sum\/}
+$\int_a^b f(x)\,dx$ is interpreted as the area between the $x$-axis
+and the graph of $y = f(x)$.   This is one of many interpretations
+of such an integral (i.e., sum) and should not be assigned
+special significance.   Similarly, all the other integrals we
+shall discuss are (except for technicalities concerning limits)
+sums; they are not areas or volumes or any special interpretation.
+
+
+\bigskip
+
+\bigskip
+\includeexercises{chap4.ex1}
+
+\nextsec{Iterated Integrals}
+\head Section \sn. Iterated Integrals \endhead
+Let $z = f(x,y) = f(\r)$ denote a function of two variables defined
+on some region $D$ in $\R^2$.   In the previous section we discussed
+the definition of the double integral
+\[
+\iint_D f(x,y) \,dA.
+\]
+\outind{double integral}
+We discuss next how you can use antiderivatives to calculate such
+a double integral.
+
+	Suppose first that the region $D$  {\it is bounded 
+vertically
+by graphs of functions}.   More precisely, suppose the region is bounded
+\outind{bounded vertically by graphs}
+on the left and right by vertical lines $x = a, x= b$ and between
+those lines it is bounded
+below by the graph of a function
+$y = h_{bot}(x)$ and
+ above by the graph of another function
+$y = h_{top}(x)$. 
+\medskip
+\centerline{\epsfbox{s4-11.ps}}
+\medskip
+The region in Example 2 in the previous section was just such a
+region:  
+$a = -1, b = 1, h_{bot}(x) = x^2, h_{top}(x) = 1$. 
+Many, but not all regions have such descriptions.
+
+As in the previous section, imagine the region dissected into
+many small rectangles by imposing a mesh, and indicate an
+approximating sum for the double integral $\displaystyle{
+\iint_D f(x,y)\, dA}$ schematically by
+\[
+    \sum_{\text{all rectangles}} f(x,y) \,\Delta x\,\Delta y
+\]
+where we have used $\Delta A = \Delta x\,\Delta y$.
+\medskip
+\centerline{\epsfbox{s4-12.ps}}
+\medskip
+We pointed out in the previous section that there are two rather
+obvious ways to add up the terms in the sum (as well as many not
+very obvious ways to do it.)  The way which suggests itself here
+is to add up along each vertical strip and then add up the
+contributions from the individual strips:
+\[
+    \sum_{\text{all rectangles}} f(x,y) \,\Delta x\,\Delta y
+=\sum_{\substack{\text{all}\\ \text{strips}}} 
+\sum_{\substack{\text{strip}\\ \text{at } x }}
+f(x,y)\,\Delta x\,\Delta y.
+\]
+For any given strip, we can assume we are using the same value
+of $x$, (say the value of $x$ at the right side of all the
+rectangles in that strip), and we can factor out the common
+factor $\Delta x$ to obtain
+\nexteqn
+\[
+\sum_{\substack{\text{all}\\ \text{strips}}}\ 
+(\sum_{\substack{\text{strip}\\ \text{at } x }}
+f(x,y)\,\Delta y)\, \Delta x.\tag{\eqn}
+\]
+Now let the number of rectangles go to $\infty$
+while the size of each rectangle shrinks to 0.  Concentrating
+on what happens in a vertical strip, we see that
+\[
+    \sum_{\substack{\text{strip}\\ \text{at } x}}  f(x,y)\Delta y
+       \longrightarrow  G(x) =  \int_{y = h_{bot}(x)}^{y = h_{top}(x)}
+      f(x,y) \,dy.
+\]
+Note that the integral on the right is a
+`partial integral'.  That is, $x$ is temporarily kept constant
+and we integrate with respect to $y$.  Note also that the limits
+depend on $x$ since, in the sum on the left, we only include rectangles
+that lie within the region, i.e., those for which
+$h_{bot}(x) \le y \le h_{bot}(x)$.   Thus the integral is altogether
+a function $G(x)$ of $x$.   If we replace the internal sum in
+expression (\eqn) by the partial integral $G(x)$ (which it is
+approximately equal to), we get
+\[
+   \sum_{\substack{\text{all}\\ \text{strips}}} G(x)\, \Delta x 
+\]
+which in the limit approaches
+\[
+   \int_a^b G(x) dx = \int_a^b\left(\int_{y = h_{bot}(x)}^{y = h_{top}(x)}
+    f(x,y) dy\right)\, dx.
+\]
+Thus, we obtain finally the formula
+\nexteqn
+\xdef\Fuby{\eqn}
+\[
+\iint_D f(x,y)\, dA =
+\int_a^b\left(\int_{y = h_{bot}(x)}^{y = h_{top}(x)}
+    f(x,y) dy\right)\, dx.\tag{\eqn}
+\]
+\smallskip
+\mar{s4-13.ps}
+\nextex
+\example{Example \en, {\rm (Example 2, Section 1)}}  We had
+\[
+    y_{cm} = \frac 1M \iint_D y \delta \, dA
+\]
+where $\delta = 3M/4$.   We use the above method to calculate
+the integral, where  $a = -1, b = 1, h_{bot}(x) = x^2$,
+and $h_{top}(x) = 1$.
+\begin{align*}
+\iint_D y \delta \, dA &= 
+\int_{-1}^1\left(\int_{y = x^2}^{y=1} y\delta\, dy\right) dx \\
+   &=\int_{-1}^1 \left( \left.\delta \frac{y^2}2\right|_{x^2}^1\right) dx \\
+   &=\int_{-1}^1\delta \left(\frac 12 - \frac{x^4}2\right) dx \\
+   &=\delta \int_{-}^1\frac 12 (1 - x^4)dx \\
+   &= \frac\delta 2\left[ \left.x - \frac{x^5}5\right|_{-1}^1\right] \\
+   &= \frac\delta 2 \left[1 -  \frac 15 - (-1 - \frac{-1} 5)\right] \\
+   &= \frac{8\delta}{10}.
+\end{align*}
+(Note that if $\delta = 1$, this gives $0.8$ as suggested by
+numerical approximation in Section 1.)
+We may now determine the $y$-coordinate of the center of mass
+\[
+y_{cm} = \frac 1M\delta\frac 8{10} = \frac 1M \frac{3M}4\frac 8{10} =
+\frac 35.
+\]
+\endexample
+
+\mar{s4-14.ps}
+There are a couple of remarks that should be made about formula
+(\Fuby).   As noted earlier, the double integral on the left
+is defined as the limit of sums obtained by dissecting the region.
+The integral on the right is called an {\it iterated integral\/}
+\outind{iterated integral}
+\outind{integral, iterated}
+and it represents something different.  It is an `integral of
+an integral' where the inner integral is a `partial integral'
+depending on $x$.  However, both integrations are with respect
+to a {\it single variable\/}, so both can be evaluated by means
+of anti-derivatives and the Fundamental Theorem, as we did in the
+example.   
+
+The above derivation of formula (\Fuby) is not a rigorous argument.
+It is not possible to separate the process of taking the inner
+limit (counting vertically) from the outer limit (counting
+horizontally).   A correct proof is actually quite difficult,
+and it is usually done in a course in real analysis.
+The correctness of the formula for reasonable
+functions is called {\it Fubini's Theorem}.   You should
+\outind{Fubini's theorem}
+remember the intuition behind the argument, because it will
+help you understand how to turn a double integral into an
+iterated integral.    
+
+\medskip
+If we reverse the roles of $x$ and $y$ in the above analysis,
+we obtain a formula for regions $D$ which are {\it bounded
+horizontally by graphs}.   Such a region is bounded below
+\outind{bounded horizonitally by graphs}
+by a line $y = c$, above by a line $y = d$, and between
+those lines it is bounded on the left by the graph of
+a function $x = g_{left}(y)$ and on the right by the
+graph of another function $x = g_{right}(y)$.  For such
+a region, the double integral is evaluated by summing first
+along horizontal strips ($y$ constant, $x$ changing) and
+then summing vertically the contributions from the strips
+($y$ changing).   The analogous formula is
+\nexteqn
+\xdef\Fubx{\eqn}
+\[
+\iint_D f(x,y)\, dA =
+\int_c^d\left(\int_{x = g_{left}(y)}^{x = g_{right}(y)}
+    f(x,y) dx\right)\, dy.\tag{\eqn}
+\]
+\medskip
+\centerline{\epsfbox{s4-15.ps}}
+\medskip
+Note that the integration is in the direction in which the variables
+{\it increase\/}:  $x$ from left to right, and $y$ from bottom to
+top.
+\nextex
+\example{Example \en}  Let $f(x,y) = x^2 + y^2$,
+and let $D$ be the region between the
+parabola $x = y^2$ on the left and the line $x = y + 2$
+on the right.  These curves intersect when
+\begin{align*}
+   y^2 &= y + 2 \\
+\text{or}\qquad y^2 -y - 2 &= 0 \\
+\text{or}\qquad (y - 2)(y + 1) &= 0 \\
+\text{so}\qquad y = 2\quad &\text{or}\quad y = -1.
+\end{align*}
+Hence, $D$ also lies between $y = -1$ below and $y = 2$
+above.   
+\medskip
+\centerline{\epsfbox{s4-16a.ps}}
+\medskip
+Thus
+\begin{align*}
+\iint_D x^2 + y^2\, dA &= 
+\int_{-1}^2\left(\int_{x = y^2}^{x=y+2} x^2 + y^2\, dx\right) dy \\
+   &=\int_{-1}^2 \left( \left.\frac{x^3}3 + xy^2\right|_{y^2}^{y+2}\right) dy \\
+   &=\int_{-1}^2 \left(\frac {(y + 2)^3}3 + (y + 2)y^2 -
+    \frac{y^6}3 - y^4 \right) dy \\
+   &=\left. \left(\frac {(y + 2)^4}{12} + \frac{y^4}4 + \frac{2y^3}3 -
+    \frac{y^7}{21} - \frac{y^5}5 \right)\right|_{-1}^2 \\
+   &=\frac{256}{12} + \frac{16}4 + \frac{16}3 - \frac{128}{21} - \frac{32}5
+     - \frac 1{12} - \frac 14 + \frac 23 - \frac 1{21} - \frac 15 \\
+   &=\frac{639}{35} \approx 18.26.
+\end{align*}
+Note that the region is also bounded vertically by graphs, so in
+principle the integral could be evaluated by the previous method
+using formula (\Fuby).   There is a serious problem in trying this,
+however.  The top graph is that of  $y = h_{top}(x) = \sqrt x$,
+ but the bottom
+graph is described by two different formulas depending on what $x$
+is.  It is a parabola to the left of the point $(1,-1)$ and a line
+to the right of that point, so  
+\[
+h_{bot}(x) = \left\{\aligned &-\sqrt(x)\qquad 0\le x \le 1 \\
+                            &y - 2 \qquad 1 \le x \le 4. \endaligned \right.
+\]
+\medskip
+\centerline{\epsfbox{s4-16b.ps}}
+\medskip
+(The $x$-values at the relevant points are determined from the corresponding
+$y$-values which were calculated above.)  That means to do the calculation
+effectively using vertical strips we must in effect decompose the region
+$D$ into two subregions meeting along the line $x = 1$ and treat each
+one separately.   Then
+\[
+\iint_D x^2 + y^2\, dA
+=
+\int_{0}^1\left(\int_{y = -\sqrt x}^{y= \sqrt x} x^2 + y^2\, dy\right) dx 
++
+\int_{1}^4\left(\int_{y = x-2}^{y= \sqrt x} x^2 + y^2\, dy\right) dx .
+\]
+You should work out the two iterated integrals on the right just to check
+that their sum gives the same answer as above.
+\endexample
+
+As the previous example indicates, even if in principle you could treat
+a region as either bounded vertically by graphs or as bounded
+horizontally by graphs, the choice can make a big difference in how easy it
+is to calculate.  In some cases, it may be impossible to do the
+iterated integrals by antiderivatives in one order but fairly easy
+in the other order.
+
+\nextex
+\example{Example \en}  Consider the iterated integral
+\[
+\int_0^1\, \int_x^1 \frac{\sin y}ydy\, dx.
+\]
+This is the iterated integral obtained from the double integral
+of the function $f(x,y) = \sin y/y$ for the triangular
+region $D$ contained
+between the vertical lines  $x = 0, x = 1$, the line
+$y = x$ below, and the line $y = 1$ above.
+\medskip
+\centerline{\epsfbox{s4-17.ps}}
+\medskip
+   The indefinite
+integral (anti-derivative) 
+\[
+     \int \frac{\sin y}y dy
+\]
+{\it cannot be expressed in terms of known elementary functions}.
+(Try to integrate it or look in an integral table if you don't
+believe that.)   Hence, the iterated integral cannot be evaluated
+by anti-derivatives.  However, the triangular region may be
+described just as well by bounding it horizontally by graphs:
+it lies between $y = 0$ and $y = 1$ and for each $y$ between
+\medskip
+\centerline{\epsfbox{s4-18.ps}}
+\medskip
+$x = 0$ and $x = y$.  
+ Thus, the double integral can be evaluated
+from the  iterated integral
+\begin{align*}
+\int_0^1\, \int_0^y\frac{\sin y}ydx\, dy &=
+\int_0^1\, \left. \frac{\sin y}y x\right|_0^y\, dy  \\
+&= \int_0^1\,  \frac{\sin y}y y\, dy
+= \int_0^1\ \sin y\, dy  \\
+&= \left. -\cos y\right|_0^1 = 1 - \cos 1.
+\end{align*}
+
+Note that in order to set up the iterated integral in the other
+order, {\it we had to draw a diagram\/} and work directly from
+that.   {\it There are no algebraic rules which will allow you
+to switch orders without using a diagram.}
+\endexample
+
+The simplest kind of region is a rectangle, described,say, by
+inequalities $a \le x \le b, c \le y \le d$.   In this case
+the iterated integrals look like
+\[
+\int_a^b \, \int_c^d f(x,y)\, dy \, dx
+  = 
+\int_c^d \, \int_a^b f(x,y)\, dx \, dy
+\]
+and it should not make much difference which you choose.  You
+should immediately recognize a rectangular region from the
+fact that the internal limits are both constants.  In the 
+general case they will depend on one of the variables.
+Since the geometry can be somewhat complicated, it is easy
+to put constant limits where they are not appropriate.
+Suppose for example we have a region bounded vertically
+by graphs.  The appropriate way to think of it is that
+we temporarily fix one value of $x$ (between the given
+$x$-limits), and {\it for that\/} $x$ add up along a
+vertical strip ($y$ varying) of width $dx$.  Hence, the
+limits for that strip will generally depend on $x$.
+Unfortunately, students often oversimplify and 
+take for limits the minimum and maximum values of $y$
+for the region as a whole.  If you do that, you have
+in effect replaced the desired region by a minimal bounding
+rectangle.  (See the diagram.)    You can recognize that
+you have done that when the limits tell you the region is
+a rectangle, but you know it is not.
+\medskip
+\centerline{\epsfbox{s4-19.ps}}
+\medskip
+In the previous examples, we dealt with regions which were bounded
+by graphs, either vertically or horizontally.  There are many
+examples of regions which are neither.  For such a region,
+we employ the `divide and conquer' strategy.  That is, we
+try to decompose the region into subregions that are bounded
+by graphs.
+In so doing we use the following 
+{\it additivity\/} rule.   If $D$ can be decomposed into
+subsets  $D_1, D_2, \dots, D_k$ where at worst any two subsets
+$D_i$ and $D_j$ share a common boundary which is a smooth curve,
+then
+\[
+ \iint_D f\, dA =
+ \iint_{D_1} f\, dA +
+ \iint_{D_2} f\, dA + \dots +
+ \iint_{D_2} f\, dA.
+\]
+(This rule certainly makes sense intuitively, but is is a little
+tricky to prove.)
+
+\mar{s4-20.ps}
+\nextex
+\example{Example \en}  Consider
+\[
+\iint_D\frac 1{x^2 + y^2}\, dA
+\]
+for $D$ the region between the circle $x^2 + y^2 = 1$ and
+the circle $x^2 + y^2 = 4$.  $D$ can be decomposed into 4
+regions 
+\[
+  D = D_1 \cup D_2 \cup D_3 \cup D_4
+\]
+as indicated in the diagram. 
+\medskip
+\centerline{\epsfbox{s4-21.ps}}
+\medskip
+ Each of these regions is bounded
+by graphs, and the double integrals on them may
+ be evaluated by iterated integrals.  Thus, we have  
+\begin{align*}
+\iint_{D_1}\frac 1{x^2 + y^2}dA
+&= \int_{-2}^{-1}\,\int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}}
+   \frac 1{x^2 + y^2}dy \, dx \\
+\iint_{D_2}\frac 1{x^2 + y^2}dA
+&= \int_{-1}^{1}\,\int_{\sqrt{1 - x^2}}^{\sqrt{4 - x^2}}
+   \frac 1{x^2 + y^2}dy \, dx \\
+\iint_{D_3}\frac 1{x^2 + y^2}dA
+&= \int_{1}^{2}\,\int_{-\sqrt{4 - x^2}}^{\sqrt{4 - x^2}}
+   \frac 1{x^2 + y^2}dy \, dx \\
+\iint_{D_2}\frac 1{x^2 + y^2}dA
+&= \int_{-1}^{1}\,\int_{-\sqrt{4 - x^2}}^{\sqrt{1 - x^2}}
+   \frac 1{x^2 + y^2}dy \, dx. 
+\end{align*}
+Because of the symmetric nature of the integrand $1/(x^2 + y^2)$,
+the integrals for $D_1$ and $D_3$ are the same as are those
+for $D_2$ and $D_4$.  Hence, only two of the four integrals
+need to be computed.   However, these integrals are not easy
+to do.  For example, for the region $D_2$,
+\begin{align*}
+\int_{\sqrt{1 - x^2}}^{\sqrt{4 - x^2}} \frac 1{x^2 + y^2} dy
+ &= \left. \frac 1x \tan^{-1}(\frac yx)
+\right|_{\sqrt{1 - x^2}}^{\sqrt{4-x^2}} \\
+&= \frac 1x\left(\tan^{-1}(\frac{\sqrt{4-x^2}}x) 
+-\tan^{-1}(\frac{\sqrt{1-x^2}}x)\right).
+\end{align*}
+Hence,
+\[
+\iint_{D_2}\frac 1{x^2 + y^2} dA =
+\int_{-1}^1
+\frac 1x\left(\tan^{-1}(\frac{\sqrt{4-x^2}}x) 
+-\tan^{-1}(\frac{\sqrt{1-x^2}}x)\right)dx.
+\]
+I asked Mathematica to do this for me, but it could not give
+me an exact answer.  It claimed that a good numerical approximation
+was $1.16264$.
+
+We shall see in the next section how to do this problem using
+polar coordinates.  It is much easier that way.
+\endexample
+
+\subhead Things to Integrate \endsubhead
+The choice of $f(x,y)$ in
+\[
+ \iint_D f(x,y)\, dA
+\]
+depends strongly on what problem we want to solve.
+We saw that $f(x,y) = y\delta$ was appropriate for finding the
+$y$-coordinate of the center of mass.     You will later learn
+about moments of inertia where the appropriate $f$ might
+be $f(x,y) = (x^2 + y^2)\delta$.  In electrostatics, $f(x,y)$
+might represent the charge density, and the integral would be
+the total charge in the domain $D$.   For the special case,
+$f(x,y) = 1$, the integral
+\[
+    \iint_D 1\, dA
+\]
+is just the {\it area of the region\/} $D$.  (The integral just amounts
+to adding up the contributions from small elements of area `$dA$',
+so the sum is just the total area.)  If the region $D$ is bounded
+vertically by graphs $y = h_{bot}(x)$ and $y = h_{top}(x)$, and
+extends horizontally from $x = a$ to $x = b$, 
+we get
+\begin{align*}
+  A = \iint_D 1\, dA 
+&= \int_a^b\,\int_{h_{bot}(x)}^{h_{top}(x)} dy\, dx \\
+&= \int_a^b\,\left. y\right |_{h_{bot}(x)}^{h_{top}(x)}  dx \\
+&= \int_a^b (h_{top}(x) - h_{bot}(x))\,dx.
+\end{align*}
+You may recognize the last expression as the appropriate
+formula for the area between two curves that you learned in
+your single variable integral calculus course.                   
+
+\emar{s4-22.ps}{65}
+    There is one
+fairly simple geometric interpretation which always makes
+sense.  $f(x,y)$ is the {\it height\/}
+at the point $(x,y)$ of the graph of the
+function.  We can think of $f(x,y)dA$ as the {\it volume\/}
+is a column of height $f(x,y)$ and base area $dA$.  Hence, the
+double integral $\displaystyle{\iint_D f\, dA}$ represents
+the {\it volume\/} under the graph of the function.  However,
+just as in the case of area under a graph in single variable
+calculus, this volume must be considered a {\it signed\/}
+quantity.   Contributions from the part of the graph under
+the $x,y$-plane are considered negative, and the integral is
+the algebraic sum of the contributions from above and below
+the $x,y$-plane. 
+\smallskip
+\emar{s4-23.ps}{-75}
+\bigskip
+
+\includeexercises{chap4.ex2}
+\bigskip
+\nextsec{Double Integrals in Polar Coordinates}
+\head Section \sn.  Double Integrals in Polar Coordinates \endhead
+
+Some double integrals become much simpler if one uses polar coordinates.
+If there is circular symmetry of some sort present in the underlying
+\outind{double integral in polar coordinates}
+\outind{polar coordinates, double integral in}
+problem, you should always consider polar coordinates as a possible
+alternative.
+\smallskip
+
+\subhead Graphing in Polar Coordinates \endsubhead
+You should learn to recognize certain curves when expressed in
+polar coordinates.  For example, as mentioned in Chapter I,
+Section 2,
+ the equation $r = a$ describes a circle
+of radius $a$ centered at the origin, and
+the equation $\theta = \alpha$ describes a ray
+starting at the origin and extending to $\infty$.   The ray makes
+angle $\alpha$ with the positive $x$-axis. Note that, depending on
+the value of $\alpha$, the ray could be in any of the four quadrants.
+\outind{polar coordinates, graphs in}
+
+\emar{s4-24.ps}{-100}
+Here are some more complicated graphs.
+
+\nextex
+\example{Example \en}  The equation $r = 2a\cos \theta$ describes a circle
+of radius $a$ centered at the the point $(a, 0)$.  To see this
+transform to rectangular coordinates, using first  $\cos\theta = x/r$,
+and then $r^2 = x^2 + y^2$,
+so
+\[
+    r = 2a\frac xr\qquad\text{or}\qquad r^2 = 2a x\qquad\text{or}
+\qquad x^2 + y^2 = 2ax.
+\]
+Now transpose and complete the square to obtain
+\[
+   x^2 -2ax + a^2 + y^2 = a^2\qquad\text{or}\qquad (x - a)^2 + y^2 = a^2.
+\]
+Note that the equation $r = 2a\cos \theta$ has no locus for
+$\pi/2 < \theta < 3\pi/2$ since in that range $\cos\theta < 0$,
+and we are not allowing $r$ to be negative.  If we were to allow
+$r$ to be negative, we would retrace the circle.  (Can you see
+why?)  This example shows the importance of thinking carefully
+about what the symbols mean.  When we get to integration in
+polar coordinates you will see that an unthinking use of formulas
+in a case like this can lead either to double the correct answer
+or zero because some part of a figure is considered twice,
+possibly with the same sign or possibly with opposite signs.
+\endexample
+
+\mar{s4-25.ps}
+\nextex
+\example{Example \en}  The equation $r = a(1 + \cos\theta)$ has as
+locus a curve called a {\it cardioid}.   See the picture.  Perhaps
+\outind{cardiod}
+you can see the reason for the name.  Here, the appropriate range
+of $\theta$ would be $0\le \theta \le 2\pi$.
+\endexample
+\medskip
+\centerline{\epsfbox{s4-26.ps}}
+\medskip
+\nextex
+\example{Example \en}  The equation $r = \dfrac 2{3 + \cos\theta}$ 
+has as locus an ellipse with one focus at the origin.  You can
+\outind{ellipse in polar coordinates}
+verify this by changing to rectangular coordinates as above.
+\begin{align*}
+   r &= \frac 2{3 + \frac xr} \\
+  3r + x &= 2\qquad\text{by cross multiplying}\\
+  3r &= 2 - x \\
+  9r^2 &= (2 - x)^2\qquad\text{square---this might add some points}\\
+  9(x^2 + y^2) &= 4 - 4x + x^2 \\
+  8x^2 +4x + 9y^2 &= 4 \\
+  8(x^2 + \frac 12 x + \frac 1{16}) + 9y^2 &= \frac 92
+ \qquad\text{completing
+the square}\\
+  8(x + \frac 14)^2 + 9y^2 &= \frac 92 \\
+   \frac{(x + 1/4)^2}{9/16} + \frac{y^2}{1/2} &= 1.
+\end{align*}
+The locus of the last equation is an ellipse centered at the
+point $(-1/4,0)$, with semi-major axis $3/4$ and
+semi-minor axis $1/\sqrt{2}$.   That the origin is one focus
+of the ellipse requires going into the details of the analytic
+geometry of ellipses which we won't explore here, but it is true.
+Note that in the step where we squared both sides, we might have
+added to the locus points where $r > 0$ but $2 - x < 0$.  You
+should convince yourself that no point on the ellipse has this
+property.
+\endexample
+
+\subhead Integration in Polar Coordinates \endsubhead
+To evaluate the integral $\iint_D f(x,y) dA$ in polar
+coordinates, we must use a dissection of the region which
+is appropriate for polar coordinates.    In rectangular
+coordinates, the dissection into rectangles is
+obtained from a network of vertical lines, $x = $ constant,
+and horizontal lines, $y = $ constant.   In polar coordinates
+the corresponding network would consist of concentric circles,
+$r = $ constant, and rays from the origin, $\theta = $ constant.
+\medskip
+\centerline{\epsfbox{s4-27.ps}}
+\medskip
+As indicated in the diagram, a typical element of area produced
+by such a network is bounded by two nearby circular arcs
+separated radially by $\Delta r$ and two nearby rays separated
+angularly by $\Delta \theta$.  Such an element of area is
+called a {\it polar rectangle}.  To determine its area we
+\outind{polar rectangle}
+argue as follows.  The area of a circular wedge of radius
+$r$ and subtending an angle $\Delta \theta$ at the center of
+the circle is $\dfrac 12 r^2\Delta\theta$.  (If you are not
+familiar with this formula, try to reason it out.  The point is
+that the area of the wedge is to the area of the circle as
+$\Delta\theta$, the subtended angle, is to $2\pi$.)  Suppose
+now that the polar rectangle has inner radius $r_{in}$ and
+outer radius $r_{out}$.  Then the area of the polar rectangle
+is
+\[
+\Delta A = \frac 12
+ (r_{out}{}^2\Delta\theta -  
+ r_{in}{}^2\Delta\theta) = \frac 12
+ (r_{out} +   r_{in})  (r_{out} -   r_{in})\Delta\theta =
+\frac{r_{out} +   r_{in}}2  (\Delta r)\Delta\theta.
+  \]
+Now put $r = \dfrac{r_{out} + r_{in}}2$ (the average radius)
+to get
+\nexteqn
+\[
+ \Delta A = r\Delta r \Delta\theta = \Delta r(r \Delta\theta).\tag{\eqn}
+\]
+This formula is an exact equality, but note that if we use any
+other value of $r$  falling within the
+range $r_{in} \le r \le  r_{out}$, it will only make a slight
+difference in the answer if the polar rectangle is small enough.
+
+\mar{s4-28.ps}
+Given a dissection of the region $D$ into polar rectangles, we
+can form as before the sum
+\[
+     \sum_{\substack{\text{all polar}\\ \text{rectangles}}}
+      f(x,y)\Delta A
+\]
+where for each polar rectangle, $(x,y)$ is a point somewhere inside
+the rectangle.   Again, it doesn't matter much which point is chosen,
+so we can assume $r = \sqrt{x^2 + y^2}$ has the same value as the
+$r$ in the formula $\Delta A = r\Delta r \Delta\theta$.  If we
+now put $x = r\cos\theta, y = r\sin\theta$, the sum takes the
+form
+\nexteqn
+\xdef\PolDis{\eqn}
+\[
+     \sum_{\substack{\text{all polar}\\ \text{rectangles}}}
+      f(r\cos\theta,r\sin\theta)r\Delta r \Delta\theta.\tag{\eqn}
+\]
+It is fairly clear (and can even be proved with some effort)
+that the limit of this sum as the number of polar rectangles
+approaches $\infty$ (and as the size of each shrinks to zero)
+is the double integral
+$\iint_D f \,dA$.   
+
+Suppose now that the region is {\it bounded radially by graphs}.
+\outind{bounded radially by graphs}
+By this we mean that it lies between two rays $\theta = \alpha$
+and $\theta = \beta$ (with $\alpha < \beta$), and for each
+$\theta$ it lies between two polar graphs:  $r = h_{in}(\theta)$
+on the inside and $r = h_{out}(\theta)$ on the outside.
+\medskip
+\centerline{\epsfbox{s4-29.ps}}
+\medskip
+For such a region, we can do the sum by adding first
+the contributions from those polar rectangles within
+a given  {\it thin wedge\/}---say it is at
+position $\theta$ and has angular width $\Delta\theta$---and
+  then adding up the
+contributions from the wedges.
+\nexteqn
+\xdef\RadDisSum{\eqn}
+\begin{align*}
+     \sum_{\substack{\text{all polar}\\ \text{rectangles}}}
+      f(r\cos\theta,r\sin\theta)r\Delta r \Delta\theta
+&=
+     \sum_{\substack{\text{all}\\ \text{wedges}}}\,
+     \sum_{\substack{\text{in a}\\ \text{wedge}}}
+      f(r\cos\theta,r\sin\theta)r\Delta r \Delta\theta\\
+&=     \sum_{\substack{\text{all}\\ \text{wedges}}}\,
+     (\sum_{\substack{\text{in a}\\ \text{wedge}}}
+      f(r\cos\theta,r\sin\theta)r\Delta r)\, \Delta\theta.
+\end{align*}
+In the limit, the expression in parentheses
+\[
+     \sum_{\substack{\text{in a}\\ \text{wedge}}}
+      f(r\cos\theta,r\sin\theta)r\Delta r \longrightarrow
+     \int_{r = h_{in}(\theta)}^{r=h_{out}(\theta)} f(r\cos\theta,
+r\sin\theta)\, r\,dr = G(\theta).
+\]
+As indicated, this is a partial integral depending on $\theta$.
+Putting this back in (\eqn), we obtain the approximation
+\[
+    \sum_{\substack{\text{all}\\ \text{wedges}}}\,
+     G(\theta)\Delta\theta
+\]
+which in the limit approaches
+\[
+\int_{\alpha}^{\beta} G(\theta) \, d\theta.
+\]
+Thus, we get finally
+\nexteqn
+\xdef\PolInt{\eqn}
+\[
+\iint_D f\, dA = \int_\alpha^\beta\,
+     \int_{r = h_{in}(\theta)}^{r=h_{out}(\theta)} f(r\cos\theta,
+r\sin\theta)\, r\,dr \,d\theta.\tag{\eqn}
+\]
+Note that the derivation of formula (\PolInt) suggests the
+symbolic rule
+\[
+   dA = r\,dr\,d\theta = dr\,(r\,d\theta).
+\]
+$r$ is to be thought of as a {\it correction factor\/} for
+changing the (false) `area' $dr\, d\theta$ to the correct
+area $dA$.  One way to think of this is that the polar rectangle
+is almost a true rectangle of dimensions  $dr$ by $rd\theta$.
+\smallskip
+\mar{s4-30.ps}
+\nextex
+\example{Example \en}  We find $\iint_D 1/(x^2 + y^2) dA$ for
+$D$ the region between the circles $x^2 + y^2 = 1$ and
+$x^2 + y^2 = 4$.   Here,
+\[  f(x,y) = \frac 1{x^2 + y^2} = \frac 1{r^2},
+\]
+and $D$ lies between the inner graph $r = 1$ and the outer
+graph $r = 2$.  It also lies between two rays, but they happen
+to be the same ray described in two different ways:  $\theta =
+\alpha = 0$  and $\theta = \beta = 2\pi$.
+    Hence, the double integral is calculated by
+\begin{align*}
+\iint_D f \, dA &= \int_0^{2\pi} \, \int_{r=1}^{r= 2} \frac
+1{r^2}\, r\, dr\, d\theta \\
+&= \int_0^{2\pi} \, \int_{r=1}^{r= 2} \frac
+1{r} dr\, d\theta \\
+&= \int_0^{2\pi} \left.(\ln r)\right|_1^2 d\theta \\
+&= \int_0^{2\pi} \ln 2 d\theta = \ln 2\,\left.\theta\right|_0^{ 2\pi} \\ 
+&= 2\pi \ln 2.
+\end{align*}
+\endexample
+
+\mar{s4-31.ps}
+\nextex
+\example{Example \en}  We find the {\it volume\/} under the
+cone $z = \sqrt{x^2 + y^2}$ and over the circular disk
+inside $r = 2\cos\theta$.  That is given by the
+double integral $\iint_D \sqrt{x^2 + y^2}\, dA$.
+   In this case, $f(x,y) = r$, and  we can describe the
+region as bounded by the rays $\theta = -\pi/2$ and $\theta = \pi/2$
+and, for each $\theta$, as lying between the inner graph  $r = 0$
+(i.e., the origin) and the outer graph $r = 2\cos\theta$.
+The integral is
+\begin{align*}
+\int_{-\pi/2}^{\pi/2} \int_0^{2\cos\theta} r\, r\, dr\, d\theta
+&=
+\int_{-\pi/2}^{\pi/2} \left.\frac{r^3}3\right|_0^{2\cos\theta} \, d\theta
+\\
+&=
+\int_{-\pi/2}^{\pi/2} \frac 83 \cos^3\theta \, d\theta \\
+&= \frac 83\, \frac 43 = \frac{32}9.
+\end{align*}
+(The last integration was done by Mathematica.)
+\endexample
+
+\emar{s4-32.ps}{-40}
+\nextex
+\example{Example \en}  We find the center of mass of the
+region inside the
+cardioid $r = a(1 + \cos\theta)$ assuming constant density $\delta$.
+We may as well assume the density is $\delta = 1$.  (Can you see
+why?)  Then the mass is the same as the area, which is
+\begin{align*}
+\iint_D 1\, dA &= \int_0^{2\pi}\,\int_0^{a(1 + \cos\theta)} 1\,r\,dr\,d\theta\\
+&=
+\int_0^{2\pi}\,\left.\frac{r^2}2\right|_0^{a(1 + \cos\theta)} d\theta\\
+&=\frac{a^2}2\int_0^{2\pi} (1 + 2\cos\theta + \cos^2\theta) d\theta\\
+&=\frac{a^2}2 (2\pi + 0 + \pi) = \frac{3\pi a^2}2.
+\end{align*}
+\medskip
+\centerline{\epsfbox{s4-33.ps}}
+\medskip
+We used here the formulas 
+\begin{align*} \int_0^{2\pi} \cos\theta \,d\theta &= 0\\
+ \int_0^{2\pi} \cos^2\theta \,d\theta &= \pi
+\end{align*}
+both of which can be derived without integrating anything very
+complicated.  (Do you know the appropriate tricks?)
+
+The $y$-coordinate of the center of mass is $0$
+(by symmetry), and the $x$-coordinate
+is
+\begin{align*}
+\frac 1A \iint_D x \,dA 
+&= 
+\frac 1A 
+ \int_0^{2\pi}\,\int_0^{a(1 + \cos\theta)} r\cos\theta\,r\,dr\,d\theta\\
+&=
+\frac 1A \int_0^{2\pi}\,\left.\frac{r^3}3\right|_0^{a(1 + \cos\theta)}
+\cos\theta\, d\theta\\
+&=\frac{a^3}{3A}\int_0^{2\pi} (\cos\theta + 3\cos^2\theta + 3\cos^3\theta
+     + \cos^4\theta) d\theta\\
+&=\frac{a^3}{3A} (0 + 3\pi + 0 + \frac{3\pi}4) 
+= \frac{15\pi a^3}{12 A} = \frac{15\pi a^3}{18 \pi a^2} = \frac{5a}6.
+\end{align*}
+This used the additional rule
+\[
+   \int_0^{2\pi}\cos^4\theta\,d\theta = \frac{3\pi}4
+\]
+for which I know no simple derivation.  You can hack it out,
+or preferably use a table or Mathematica.
+\endexample
+
+It is always true that the center of mass of a distribution of
+{\it constant density\/} does not depend on the density.  ($\delta$ appears
+as a factor in two places which cancel.)  In that case, the center
+of mass is a purely geometric property of the region, and it is
+called the {\it centroid}.
+\medskip
+Occasionally, in polar coordinates one deals with a region which
+is {\it bounded angularly by graphs}.  In that case, you would
+integrate first---the inner integral---with respect to $\theta$
+and then with respect to $r$.  The student is encouraged to
+work out what the corresponding iterated integral would look like.
+
+\bigskip
+
+\includeexercises{chap4.ex3}
+
+\bigskip
+\nextsec{Triple Integrals}
+\head Section \sn.  Triple Integrals \endhead
+
+The theory of integration in space proceeds much as the theory
+in the plane.  Suppose $E$ is a bounded subset of $\R^3$, and
+suppose $w = f(x,y,z) = f(\r)$  describes a function defined
+on $E$.
+(`$E$ is bounded' means that $E$ is contained in some {\it rectangular
+box\/}, $a \le x \le b, c\le y \le d, e \le z \le f$.)  Usually,
+$E$ will be a quite reasonable looking set; in particular its
+boundary will consist of a finite set of smooth surfaces.
+  To define the integral, we proceed
+by analogy with the 2-dimensional case.  First partition the region
+$E$ into a collection of small {\it rectangular boxes or
+cells\/} through 
+a lattice of closely spaced parallel planes.  We employ three
+such families of planes, each perpendicular to one of the
+coordinate axes.  A typical cell will be
+a box with dimensions $\Delta x, \Delta y$, and $\Delta z$ and
+ volume 
+\[
+    \Delta V =  
+\Delta x \Delta y \Delta z.
+\]
+Choose a point $(x,y,z)$ in  such a cell, and
+form $f(x,y,z)\,\Delta V$, which will be the contribution
+from that cell. Now form
+the sum
+\[
+   \sum_{\substack{\text{all cells}}} f(x,y,z)\Delta V
+\]
+and let the number of cells go to $\infty$ while
+the size of each  goes to zero.  If the region
+and function are reasonably smooth, the sums will approach
+a definite limit which is called a {\it triple integral\/}
+and which is denoted
+\outind{triple integral}
+\outind{integral, triple}
+\[
+\iiint_E f(x,y,z)\, dV\qquad\text{or}\qquad\int_E f(x,y,z)\,dV.
+\]
+
+\mar{s4-34.ps}
+\subhead Iterated Integrals in $\R^3$ \endsubhead
+There are many ways in which one could add up the terms
+in the above sum.  We start with one that is appropriate
+if $E$ is {\it bounded by graphs in the $z$-direction}.
+That is, $E$ lies above the graph of a function $z = z_{bot}(x,y)$
+and below the graph of another function $z = z_{top}(x,y)$.
+In addition, we assume that $E$ is bounded on its sides
+by a `cylindrical surface' consisting of perpendiculars to
+a  closed curve $\gamma$ in the $x,y$-plane.  The region
+$D$ in the $x,y$-plane bounded by $\gamma$ is then the
+{\it projection\/} of $E$ in the $x,y$-plane.  The
+`cylinder' is only cylindrical in a very general sense,
+and it may even happen that part or all of it consists of
+curves rather than surfaces.  For example, consider the
+region between the cone $z = \sqrt{x^2 + y^2}$ (below) and 
+the plane $z = 1$ (above).  The `cylinder' in this case is
+just a circle. 
+\medskip
+\centerline{\epsfbox{s4-35.ps}}
+\medskip
+Suppose the region is dissected into cells as described
+above.  There will be a corresponding
+dissection of the projected region $D$ into small rectangles.
+Consider one such rectangle with area $\Delta A$ positioned
+at $(x,y)$ in $D$, and consider
+the contribution from the cells forming the {\it column\/}
+lying over that rectangle.  In the limit, this will approach
+an integral
+\[
+      \int_{z = z_{bot}(x,y)}^{z = z_{top}(x,y)} f(x,y,z) \, dz\, \Delta A
+= G(x,y)\Delta A.
+\]
+Here, we used the fact that all the cells in the column share a
+common base with area $\Delta A$, so the volume of any such cell
+is $\Delta V = \Delta z\,\Delta A$ where $\Delta z$ is its height.
+$G(x,y)$ is the {\it partial integral\/} obtained by integrating
+with respect to $z$, keeping $x, y$ constant, and then evaluating
+at limits depending on $x,y$.
+Putting this in the sum, we have schematically
+\[
+\sum_{\substack{\text{rectangles}\\ \text{in } D}} \sum_{\substack{\text{cells in}\\  
+\text{column}}} f(x,y,z)\Delta V
+\to 
+\sum_{\substack{\text{rectangles}\\ \text{in } D}} G(x,y)\,\Delta A
+\to \iint_D G(x,y) \,dA.
+\]
+Recalling what $G(x,y)$  is, we get the following formula
+for the triple integral.
+\nexteqn
+\xdef\ZInt{\eqn}
+\[
+\iint_E f(x,y,z)\, dV =  
+\iint_ D\left(\int_{z = z_{bot}(x,y)}^{z = z_{top}(x,y)} f(x,y,z) \, dz\right)
+ dA 
+\]
+This in effect reduces the calculation of triple integrals to that
+of double integrals.  The double integral can be done in any order
+that is appropriate.  (It may even be done in polar coordinates!)
+
+\nextex
+\example{Example \en}  We shall find the centroid (center of mass
+for constant density) of the solid region $E$ in the first octant which
+lies beneath the plane $x + y + z = 1$.   The solid $E$ has
+four faces.  It is an example of a {\it tetrahedron}.  If we take
+the density to be 1, the mass will equal the volume.   A tetrahedron
+is a special case of pyramid, and you should recall from high
+school that the volume of a pyramid is $1/3$ its height times the
+area of its base.  In this case, we get  $M = V = (1/3)\times(1)
+\times(1/2) = 1/6$.  By symmetry it is clear that the three coordinates
+of the centroid are equal, so we need only find
+\[
+    x_{cm} = \frac 1V \iiint_E x\, dV.
+\]
+
+\mar{s4-36.ps}
+To evaluate the triple integral, note that $E$ is $z$-bounded by
+graphs since it lies
+lies
+between $z = z_{bot}(x,y) = 0$ and $z = z_{top}(x,y) =
+1 - x -y$.  The projection of $E$ in the $x,y$-plane is the
+triangular region $D$ in the first quadrant, bounded by the line
+$x + y = 1$.  Hence,
+\begin{align*}
+\iiint_E x\,dV &= \iint_D\, \int_{z = 0}^{z = 1 - x - y} x dz\, dA \\
+ &= \iint_D\, \left.x\,z\right|_{z = 0}^{z = 1 - x - y} \, dA \\
+ &= \iint_D\, [x(1 - x - y)] \, dA 
+ = \iint_D\, (x - x^2  - xy) \, dA.
+\end{align*}
+The problem has now been reduced to a double integral.  It is best
+to treat this as a separate problem, redrawing if necessary a
+diagram of the region $D$.  We can view $D$ as bounded in the
+$y$-direction by the graphs  $y = 0$ and $y = 1-x$ with $0\le x \le 1$.
+Thus,
+\begin{align*} 
+ \iint_D\, (x - x^2  - xy) \, dA 
+&= \int_0^1\,\int_{y=0}^{y=1-x} (x - x^2  - xy)dy \, dx \\
+&= \int_0^1\,\left.(xy - x^2y  - xy^2/2)\right|_{y=0}^{y=1-x}  \, dx \\
+&= \int_0^1\,(x(1-x) - x^2(1-x)  - x(1-x)^2/2) \, dx \\
+&= \int_0^1\,(x^3/2 - x^2 + x/2) \, dx \\
+&= \left. x^4/8 - x^3/3 + x^2/4\right|_0^1 = \frac 1{24}.
+\end{align*}
+
+\mar{s4-37.ps}
+It follows that 
+\[
+ x_{cm} = \frac 1V \iiint_E x\,dV = \frac{1/24}{1/6} = \frac 14.
+\]
+Hence the centroid is at $(1/4, 1/4, 1/4)$.
+
+Note that if we had suppressed the evaluations temporarily, the
+triple integral above would appear as the following triply iterated
+integral
+\begin{align*}
+\iiint_E x\,dV &= \iint_D\, \int_{z = 0}^{z = 1 - x - y} x dz\, dA \\
+&= \int_0^1\,\int_{y=0}^{y=1-x}\, \int_{z = 0}^{z = 1 - x - y} x dz\,
+dy \, dx .
+\end{align*}
+\outind{iterated integral}
+You should try to visualize the dissection of the solid region
+associated with each step in the iterated integral.
+\[
+\undersetbrace{\text{solid}}\to
+{\int_0^1
+\,\undersetbrace{\text{slab}}\to
+{\int_{y=0}^{y=1-x}\, 
+\undersetbrace{\text{column}}\to
+{\int_{z = 0}^{z = 1 - x - y} x dz
+\,
+dy
+\, dx}}}.
+\]  
+First, we sum in the $z$-direction to include all cells in a
+{\it column}.  Next, we sum in the $y$-direction to include
+all cells in a row of columns to form a {\it slab}. Finally,
+we sum in the $x$-direction to put these slabs together to
+form the entire solid region.
+\medskip
+\centerline{\epsfbox{s4-38.ps}}
+\medskip
+\endexample
+
+The above example was done in the order $dz\,dy\,dx$.   There
+are in fact {\it six possible orders of integration in\/}
+$\R^3$.   Which is appropriate depends on how the solid region
+and its projections in the coordinate planes are bounded by
+graphs.
+
+\nextex
+\xdef\ExX{\en}
+\example{Example \en}  We find the volume in the first octant
+of the solid $E$ bounded by the graphs  
+$y^2 + z^2 = 1$
+and 
+$x = z^2$. 
+The former surface is part of a right
+circular cylinder perpendicular to
+the $y,z$-plane.  The latter is a cylinder (in the general sense)
+perpendicular to the $x,z$-plane.  $E$ is $z$-bounded by graphs,
+but it is not easy to visualize its projection in the $x,y$-plane.
+In this case, it would be better to project instead in the
+$y,z$-plane or the $x,z$-plane.  Let's project in the
+$y,z$-plane, so $E$ will be viewed as bounded in the $x$-direction
+by the graph $x = 0$ (behind) and $x = z^2$ (in front).  The projection
+$D$ of $E$ in the $y,z$-plane is the quarter disc inside the
+circle $y^2 + z^2 = 1$.  
+\begin{align*}
+  V = \iiint_E 1\, dV 
+&= \iint_D \,\int_{x=0}^{x=z^2}1\,dx\, dA\\
+&= \iint_D \left. x\right|_{x=0}^{x=z^2}\, dA\\
+&= \iint_D  z^2\, dA.
+\end{align*}
+We now calculate the double integral in the $y,z$-plane by viewing
+$D$ as bounded in the $z$-direction by the graphs $z = 0$ and
+$z = \sqrt{1 - y^2}$ with $0\le y \le 1$.  
+\medskip
+\centerline{\epsfbox{s4-39.ps}}
+\medskip
+\begin{align*}
+\iint_D  z^2\, dA
+&= \int_0^1\,\int_{z = 0}^{z = \sqrt{1 - y^2}} z^2 dz\, dy \\
+&= \int_0^1\,\left. z^3/3\right|_{z = 0}^{z = \sqrt{1 - y^2}}\, dy \\
+&= \frac 13 \int_0^1\,(1-y^2)^{3/2} dy = \frac{\pi}{16}.
+\end{align*}
+The last step was done by Mathematica.
+
+You should try to do the same triple integral by viewing it
+as bounded in the $y$-direction by the graphs $y = 0$ and
+$y = \sqrt{1 - z^2}$ and projecting in
+the $x,z$-plane. 
+\endexample
+
+Sometimes it may be appropriate to do the double integral in
+polar coordinates.
+\nextex
+\example{Example \en}  We shall find $\iiint_E z\, dV$ where
+$E$ is the solid cone contained between the cone
+$z = \dfrac HR \sqrt{x^2 + y^2}$ and the plane $z = H$.  This
+is a cone of height $H$ and radius $R$.  Its projection in the
+$x,y$ plane is the region $D$ inside the circle $x^2 + y^2 = R^2$.
+\begin{align*}
+\iiint_E z \, dV
+&= \iint_D\,\int_{z =(H/R)\sqrt{x^2 + y^2}}^{z = H} z dz\, dA \\
+&= \iint_D\,\left. z^2/2\right|_{z =(H/R)\sqrt{x^2 + y^2}}^{z = H}\, dA \\
+&= \frac 12 \iint_D\, (H^2 - (H/R)^2(x^2 + y^2))\, dA.
+\end{align*}
+\medskip
+\centerline{\epsfbox{s4-40.ps}}
+\medskip
+We could of course do the double integral in rectangular coordinates.
+(The region $D$ in the $x,y$-plane is bounded in the $y$-direction
+by $y = -\sqrt{R^2 - x^2}$
+and $y = \sqrt{R^2 - x^2}$ with $-R\le x\le R$.)  You should try to
+do it that way.   It makes more sense, however, to use polar coordinates.
+\begin{align*}
+\frac 12 \iint_D\, (H^2 - (H/R)^2(x^2 + y^2))\, dA
+&= \frac 12\int_0^{2\pi} \,\int_{r= 0}^{r=R} (H^2 - (H/R)^2 r^2)\,r\,dr\,d\theta \\
+&=\frac 12 \int_0^{2\pi} \,\left.(H^2r^2/2 - (H/R)^2 r^4/4)\right|_{r= 0}^{r=R} 
+\,d\theta \\
+&=\frac 12 \int_0^{2\pi} \,(H^2R^2/2 - (H^2/R^2) R^4/4)\,d\theta \\
+&=\frac 12 \int_0^{2\pi} \,H^2R^2/4 \,d\theta 
+= \frac 12 \frac{H^2R^2}4\, 2\pi = \frac{\pi H^2R^2}4.
+\end{align*}
+\endexample
+
+Note that you can  do Example \ExX\ this way if you are willing
+to introduce polar coordinates in the $y,z$-plane.
+
+\bigskip
+
+\includeexercises{chap4.ex4}
+
+\bigskip
+\nextsec{Cylindrical Coordinates}
+\head Section \sn.  Cylindrical Coordinates \endhead
+
+In the previous section, we saw that we could switch to polar
+coordinates in the $x,y$-plane
+when doing a triple integral.  This really amounts to introducing
+a new coordinate system in space called {\it cylindrical coordinates}.
+The cylindrical coordinates of a point in space with rectangular
+coordinates $(x,y,z)$ are $(r, \theta, z)$ where $(r,\theta)$
+\outind{cylindrical coordinates}
+\outind{coordinates, cylindrical}
+are the polar coordinates of the projection $(x,y)$ of the point
+in the $x,y$-plane.   Just as with polar
+coordinates, we insist that $r \ge 0$, and usually $\theta$ is
+restricted to some range of size $2\pi$.   Moreover, the same
+formulas
+\begin{align*}
+  x &= r\cos\theta \\
+  y &= r\sin\theta \\
+\intertext{and}
+  r & = \sqrt{x^2 + y^2}\\
+  \tan\theta & = \frac yx\qquad\text{if } x \ne 0.
+\end{align*}
+
+\mar{s4-41.ps}
+The geometric interpretations of $r$ and $\theta$ in space
+are a bit different.  $r$ is the perpendicular distance of the
+point to the $z$ axis (as well as being the distance of its
+projection to the origin).  $\theta$ is the angle that the plane
+determined by the point and the $z$-axis makes with the
+positive $x,z$-plane.
+
+You should learn to recognize certain important surfaces when
+described in cylindrical coordinates.
+
+\nextex
+\example{Example \en}  $r = a$ describes an (infinite) cylinder
+of radius $a$ centered on the $z$-axis.  If we let $a$ vary, we
+obtain an infinite family of concentric cylinders.  We can treat
+the case $a = 0$ (the $z$-axis) as a degenerate cylinder of
+radius 0.
+\endexample
+\medskip
+\centerline{\epsfbox{s4-42.ps}}
+\medskip
+\nextex
+\example{Example \en}  $\theta = \alpha$ describes a {\it half
+plane\/} making angle $\alpha$ with the positive $x,z$-plane.
+Note that in this half plane, $r$ can assume any non-negative
+value and $z$ can assume any value.
+\endexample
+\nextex
+\example{Example \en}  $z = mr$  describes an (infinite)
+  cone centered
+on the $z$-axis with vertex at the origin.  For a fixed value
+of $\theta$, we obtain a ray in this cone which starts at
+the origin and extends to $\infty$.  This ray makes angle
+$\tan^{-1} m$ with the $z$-axis, and if we let $\theta$
+vary, the ray rotates around the $z$-axis generating the
+cone.  Note also that if $m > 0$, the angle with the $z$-axis
+is acute and the cone lies above the $x,y$-plane.  If
+$m < 0$, the angle is obtuse, and the cone lies below the
+$x,y$-plane.  The case $m = 0$ yields the $x,y$-plane
+($z = 0$) which may be considered a special `cone'.
+
+Note that in rectangular coordinates,  $z = mr$ becomes
+$z = m\sqrt{x^2 + y^2}$.
+\endexample
+\medskip
+\centerline{\epsfbox{s4-43.ps}}
+\medskip
+\nextex
+\example{Example \en}  $r^2 + z^2 = a^2$ describes a sphere
+of radius $a$ centered at the origin.  The easiest way to
+see this is to put $r^2 = x^2 + y^2$ whence the equation
+becomes $x^2 + y^2 + z^2 = a^2$.  The top hemisphere of the
+sphere would be described by $z = \sqrt{a^2 - r^2}$
+and the bottom hemisphere by
+ $z = -\sqrt{a^2 - r^2}$.
+\endexample
+
+\subhead Integrals in Cylindrical Coordinates \endsubhead
+Suppose $E$ is and solid region is $\R^3$,
+and it is bounded in the $z$ direction
+by graphs.  If we use cylindrical coordinates directly
+(rather than switching to polar coordinates after the $z$
+integration), the triple integral would take the form
+\[
+\iiint_E f(x,y,z)\, dV 
+= \iint_D\, \int_{z = z_{bot}(r,\theta)}^{z = z_{top}(x,y)}
+f(r\cos\theta,r\sin\theta, z)\,dz\, dA
+\]
+\outind{triple integral in cylindrical coordinates}
+\outind{cylindrical coordinates, triple integral in}
+where the upper and lower graphs are expressed in
+cylindrical coordinates and
+ the double integral over the region $D$ should be done
+in polar coordinates.   Symbolically, we have for 
+$dA = r\,dr\,d\theta$, so we may also write
+\[
+   dV = dA\, dz = r\,dr\,d\theta\,dz = r\,dz\,dr\,d\theta
+\]
+for the element of volume in cylindrical coordinates.  Implicit
+in this is a dissection of the region into {\it cylindrical
+cells\/} as indicated in the diagram.
+\medskip
+\centerline{\epsfbox{s4-44.ps}}
+\medskip
+\outind{cylindrical cell}
+
+\nextex
+\xdef\CylEx{\en}
+\example{Example \en}  We calculate $\iiint_E x^2 \, dV$
+for $E$ the solid region contained within the cylinder
+$x^2 + y^2 = a^2$ and between the planes $z = 0$ and
+$z = h$.  Here $f(x,y,z) = x^2 = r^2\cos^2\theta$, and
+$E$ is bounded in the $z$ direction between $z = 0$ and
+$z = h$.  The projection of $D$ in the $x,y$-plane is
+the disc inside the circle $x^2 + y^2 = a^2$ (i.e., $r = a$).
+Thus,
+\begin{align*}
+\iiint_E x^2 \, dV 
+&= \iint_D\,\int_{z = 0}^{z = h}r^2\cos^2\theta\,dz \,dA \\
+&= \iint_D\,\left. r^2\cos^2\theta\, z\right|_{z = 0}^{z = h} \,dA \\
+&= h\iint_D\,r^2\cos^2\theta\, dA \\
+&= h \int_0^{2\pi}\,\int_{r= 0}^{r=a}r^2\cos^2\theta  \,r\,dr \,d\theta\\
+&= h \int_0^{2\pi}\,\int_{r= 0}^{r=a}r^3\cos^2\theta \,dr \,d\theta\\
+&= h \int_0^{2\pi}\,\left. r^4/4\right|_{r= 0}^{r=a}\cos^2\theta \,d\theta\\
+&= h\frac{a^4}4 \int_0^{2\pi}\cos^2\theta \,d\theta = 
+h\frac{a^4} 4\, \pi = \frac{\pi a^4h}4.
+\end{align*}
+\endexample
+
+\mar{s4-45.ps}
+\nextex
+\xdef\SphereEx{\en}
+\example{Example \en}  We shall find $\iiint_E (x^2 + y^2) \,dV$
+for $E$ a solid sphere of radius $a$ centered at the origin.
+Here $f(x,y,z) = x^2 + y^2 = r^2$.   Moreover, the surface
+of the sphere has equation $r^2 + z^2 = z^2$ in cylindrical
+coordinates, so the solid sphere may be viewed a lying between
+the graphs $z = -\sqrt{a^2 - r^2}$ below and
+$z =  \sqrt{a^2 - r^2}$ above.  The projection $D$ in the $x,y$-plane
+is the disc inside the circle $r = a$.  Hence, the integral is
+\begin{align*}
+\iiint_E (x^2 + y^2) \,dV 
+&= \iint_D\,\int_{z=-\sqrt{a^2-r^2}}^{z=\sqrt{a^2-r^2}} r^2\,dz\,dA\\
+&=\iint_D\, 
+r^2\left(\left. z\right|_{z=-\sqrt{a^2-r^2}}^{z=\sqrt{a^2-r^2}}\right)
+\,dA \\
+&=\iint_D\, r^2 (2\sqrt{a^2 - r^2}) \,dA \\
+&=\int_0^{2\pi}\,\int_{r=0}^{r=a} r^2 (2\sqrt{a^2 - r^2}) \,r\,dr\,d\theta \\
+&=\int_0^{2\pi}\,\int_{r=0}^{r=a} r^3 (2\sqrt{a^2 - r^2}) \,dr\,d\theta
+ = 2\pi\,\frac{4 a^5}{15} = \frac{8\pi a^5}{15}. 
+\end{align*}
+(The last step was done by Mathematica.)
+\endexample
+
+\mar{s4-46.ps}
+There is no need to first reduce to a double integral.
+We could have written out the triply iterated
+integral directly.
+\[
+\undersetbrace\text{solid}\to
+{\int_0^{2\pi}\,
+\undersetbrace\text{wedge}\to
+{\int_{r=0}^{r=a}  
+\undersetbrace\text{column}\to
+{\int_{z = -\sqrt{a^2 - r^2}}
+^{z = \sqrt{a^2 - r^2}} r^2\,r\,dz\,dr\,d\theta}}}.
+\]
+The order of integration suggests a
+ dissection of the sphere.
+The first integration with respect to $z$ ($r, \theta$ fixed)
+ adds up the contributions
+from cells in a {\it column}.  The second integration with respect to
+$r$ ($\theta$ fixed) adds up
+ the contributions from columns forming a {\it wedge\/}.
+The final integration with respect to $\theta$ adds up the
+contributions from the wedges to form the solid sphere.
+\medskip
+\centerline{\epsfbox{s4-47.ps}}
+\medskip
+It is sometimes worthwhile doing the summation in some other order.
+For example, consider the order
+\[
+\undersetbrace\text{solid}\to
+{\int_{z = -a}^{z = a}
+\undersetbrace\text{slab}\to
+{\int_{r=0}^{r=\sqrt{a^2-z^2}}  
+\undersetbrace\text{ring}\to
+{\int_0^{2\pi}\,r^2\,r\,d\theta\  \,dr\,dz}}}.
+\]
+The first integration with respect to $\theta$ ($r,z$ fixed) adds
+up the contribution from all cells in a {\it ring\/} at height
+$z$ above the $x,y$-plane and distance $r$ from the $z$-axis.
+The next integration with respect to $r$ ($z$ fixed) adds
+up the contributions from all rings at height $z$ which
+form a {\it circular slab\/} of radius $\sqrt{a^2 - z^2}$.
+Finally, the last integration adds up the contributions from
+all the slabs as $z$ ranges from $z = -a$ to $z = a$.
+\medskip
+\centerline{\epsfbox{s4-48.ps}}
+\medskip
+You should try the integration in this order to see if it is
+easier.  You should also try to visualize the dissection for
+the order $dr, dz, d\theta$.
+\endexample
+\nextex
+\example{Example \en}
+We shall find the volume of the solid region $E$
+inside both the sphere $x^2 + y^2 + z^2 = 4$
+and the cylinder $r = 2\cos\theta$.  Recall that the second
+equation describes a circle in the $x,y$-plane of radius 1
+and centered at $(1,0)$.  However, in space, it describes
+the cylinder {\it perpendicular\/} to that circle.  The
+appropriate range for $\theta$ is $-\pi/2\le\theta\le\pi/2$.   
+The volume is
+\begin{align*}
+\iiint_E\, 1\,dV
+&= \int_{-\pi/2}^{\pi/2}\,\int_{r=0}^{r=2\cos\theta}\,
+\int_{z = -\sqrt{4 - r^2}}^{z = \sqrt{4 - r^2}} 1\,dz\,r\,dr\,d\theta \\
+&= \int_{-\pi/2}^{\pi/2}\,\int_{r=0}^{r=2\cos\theta}\,
+\left. z\right|_{z = -\sqrt{4 - r^2}}^{z = \sqrt{4 - r^2}} \,r\,dr\,d\theta \\
+&= \int_{-\pi/2}^{\pi/2}\,\int_{r=0}^{r=2\cos\theta}\,
+2\sqrt{4 - r^2} \,r\,dr\,d\theta \\
+&= \int_{-\pi/2}^{\pi/2}\,
+\left.\left(-\frac{(4 - r^2)^{3/2}}{3/2}\right)\right|_{r=0}^{r=2\cos\theta}\,
+\,d\theta \\
+&=\frac 23 \int_{-\pi/2}^{\pi/2}\,(8 - 8|\sin\theta|^3)\,\,d\theta .
+\end{align*}
+Here we used
+$1 - \cos^2\theta = \sin^2\theta$
+and the fact that $\sqrt{\sin^2\theta} = |\sin\theta|$,
+not $\sin\theta$.  This would cause a problem in integration
+over the range $-\pi/2\le\theta\le\pi/2$, so we get around it by
+integrating over $0\le\theta\le\pi/2$ and doubling the result.
+We get
+\[
+\frac {16}3  \, 2\, \int_{0}^{\pi/2}\,(1 - \sin^3\theta)\,\,d\theta 
+=\frac {32}3 \left(\frac{\pi}2 - \frac{2}3\right)
+= \frac{16(3\pi - 4)}9.
+\]
+
+\medskip
+\centerline{\epsfbox{s4-49.ps}}
+\medskip
+\subhead Moments of Inertia \endsubhead
+In the Example \SphereEx, we calculated $\iiint_E r^2\,dV$ where
+$r$ is the perpendicular distance to the $z$-axis.  This
+is a special case of the concept of {\it moment of inertia}.
+\outind{moment of inertia}
+In physics, the moment of inertia of a finite set of points
+about an axis $L$ is defined to be
+\[
+  I_L = \sum_i m_ir_i{}^2
+\]
+where $m_i$ is the mass of the $i$th particle and $r_i$ is
+its perpendicular distance to the axis.  The generalization
+for a mass distribution of density $\delta$ is
+\[
+I_L = \iiint_E r^2\,dm = \int_E r^2 \,\delta\,dV.
+\]
+Here $r$ is the distance of a point inside the solid region $E$
+ to the axis $L$.  We often choose the coordinate
+system so the $z$-axis lies along $L$.  The density $\delta
+= \delta(x,y,z)$ can generally
+be variable.   Moments of inertia are very important in the
+study of rotational motion of rigid bodies.
+\endexample
+
+\mar{s4-50.ps}
+\smallskip
+
+\example{Example \SphereEx, {\rm (revisited)}}  For a mass
+of constant density $\delta$ distributed
+ over a solid sphere of radius $a$, the moment of inertia
+about a diameter (which we can take to be the $z$-axis) is
+\[
+I_z = \iiint_E r^2\delta\, dV = \delta \iiint_E r^2\, dV = 
+\frac{8\pi a^5\delta}{15}.
+\]
+However, the total mass in the sphere will be 
+\[
+M = V\delta = \frac {4\pi a^3}3 \delta
+\]
+so the moment of inertia may be rewritten
+\[
+  I_z = \frac 25 M a^2.
+\]
+\endexample
+
+\mar{s4-51.ps}
+\bigskip
+
+\includeexercises{chap4.ex5}
+\bigskip
+\nextsec{Spherical Coordinates}
+\head Section \sn. Spherical Coordinates \endhead
+
+Cylindrical coordinates are one way to generalize polar coordinates
+to space, but there is another way that is more useful in
+problems exhibiting spherical symmetry. 
+We suppose as usual that a rectangular
+coordinate system has been chosen.
+ The {\it spherical
+coordinates\/} $(\rho, \phi,\theta)$ of a point $P$ in space
+\outind{spherical coordinates}
+\outind{coordinates, spherical}
+are defined as follows.   
+   $\rho$ is the distance
+$|\overrarrow{OP}|$ of the point
+to the origin.  It is always non-negative, and it should be
+distinguished from the cylindrical coordinate $r$ which is the
+distance from the $z$-axis.  The {\it azimuthal angle\/} $\phi$
+\outind{azimuthal angle}
+is the angle between $\overrarrow{OP}$ and the positive $z$-axis.
+$\phi$ is always assumed to lie between $0$ and $\pi$.  Finally,
+the {\it longitudinal angle\/} $\theta$ is the same as the
+\outind{longitudinal angle}
+cylindrical coordinate $\theta$.  $\theta$ is assumed to range
+over some interval of size $2\pi$, e.g., $0\le\theta < 2\pi$.
+Note the reason for the range chosen for $\phi$. Fix $\rho$
+and $\theta$.   If $\phi = 0$,
+the point is on the positive $z$-axis, and as $\phi$ increases,
+the point swings down toward the negative $z$-axis, but it stays
+in the half plane determined by that value of $\theta$.  For
+$\phi = \pi$, the point is on the negative $z$-axis, but if we
+allow $\phi$ to increase further, the point swings into the
+{\it opposite\/} half plane with longitudinal angle $\theta + \pi$.
+Such points can be obtained just as well by swinging down from
+the positive $z$-axis in the opposite half plane determined by
+$\theta + \pi$.
+\medskip
+\centerline{\epsfbox{s4-52.ps}}
+\medskip
+The following relationships hold between spherical coordinates,
+cylindrical coordinates, and spherical coordinates.  Refer to
+the diagram
+\begin{align*}
+r & = \rho \sin\phi \\
+z & = \rho \cos\phi \\
+\intertext{so}
+x &=  \rho \sin\phi \cos\theta \\
+y &=  \rho \sin\phi \sin\theta \\
+z & = \rho \cos\phi\\
+\intertext{and}
+\rho &= \sqrt{r^2 + z^2} = \sqrt{x^2 + y^2 + z^2} \\
+\tan\phi &= \frac rz\qquad\text{if } z \ne 0.
+\end{align*}
+
+One may think of the spherical coordinates $(\rho,\phi)$  as 
+polar coordinates  in the {\it half plane\/} determined
+by fixing $\theta$.   However, because of the restrictions on 
+$\phi$, this is not quite the same as  polar coordinates
+in the $x,y$-plane.
+
+You should learn to recognize certain important surfaces when
+described in spherical coordinates.
+
+\nextex
+\example{Example \en}
+$\rho = a$ describes a sphere of radius $a$ centered at the origin.
+\endexample
+\nextex
+\example{Example \en}
+$\phi = \alpha$ describes a cone making angle $\alpha$ with the
+positive $z$-axis.  The cone can lie above or below the $x,y$-plane,
+and $\phi = \pi/2$ describes the $x,y$-plane.
+\endexample
+\nextex
+\example{Example \en}
+$\theta = \beta$ describes a half plane starting from the $z$-axis
+as before.
+\endexample
+\nextex
+\xdef\OffSph{\en}
+\medskip
+\centerline{\epsfbox{s4-53.ps}}
+\medskip
+\example{Example \en}
+$\rho = 2a\cos\phi$ describes a sphere of radius
+$a$ centered at $(0,0,a)$.  You can see this by fixing attention
+on the half plane determined by fixing $\theta$.  In that half
+plane, the locus is the {\it semi-circle\/} with the given
+radius and center.  If we then let $\theta$ vary, the effect is
+to rotate the semi-circle about the $z$-axis and generate the
+sphere
+\medskip
+\centerline{\epsfbox{s4-54.ps}}
+\medskip
+\endexample
+
+\subhead Geometry on the Surface of a Sphere \endsubhead
+If we fix $\rho = a$, we obtain a sphere of radius $a$.
+Then $(\phi, \theta)$ specify the position of a point on
+that sphere.  
+
+For $\theta = $ constant, we obtain the semi-circle
+which is the intersection of the half plane for that $\theta$
+with the sphere.  That circle is called a {\it meridian of
+longitude}.  This is exactly the concept of longitude used to
+\outind{meridian of longitude}
+\outind{longitude}
+measure position on the surface of the Earth, except that we
+use radians instead of degrees.  Earth longitude is usually
+measured in degrees east or west of the Greenwich Meridian.
+That corresponds in our case to the positive and negative
+directions from the 0-meridian.  
+
+For $\phi = $ constant, we obtain the circle which is the
+intersection of the cone for that $\phi$ with the sphere.
+Such circles are called {\it circles of latitude}.
+\outind{circle of latitude}
+\outind{latitude}
+$\phi$ is related to the notion of latitude on the surface
+of the Earth, except that the latter is an angle $\lambda$
+ measured
+in degrees north or south of the {\it equatorial plane}.  The
+spherical coordinate $\phi$ is sometimes called {\it co-latitude\/},
+and we have $\phi = \pi/2 - \lambda$, if both are measured in
+radians.  The unique point with $\phi = 0$ is called the
+{\it north pole\/}, that with $\phi = \pi$ is called the
+{\it south pole\/}, and at the  poles $\theta$ is not well defined.
+\medskip
+\centerline{\epsfbox{s4-55.ps}}
+\medskip
+\subhead Integrals in Spherical Coordinates \endsubhead
+We want to evaluate  triple integrals $\iiint_E\,f(x,y,z)\,dV$
+using spherical coordinates.
+The most common order of integration for spherical coordinates
+is---from the inside out---$d\rho, d\phi, d\theta$.  
+As before, this is associated with a certain dissection of the
+solid region $E$ into {\it spherical cells}.  To see what these
+cells look like, we describe the dissection of the region in
+the reverse order.   First, assume $\alpha \le \theta \le \beta$.
+In this range, decompose the solid  into {\it wedges\/}
+formed by a family of half planes emanating from the $z$-axis.
+Let $\Delta\theta$ be the angle subtended at the $z$-axis for the
+wedge at longitudinal
+angle $\theta$.
+\medskip
+\centerline{\epsfbox{s4-56.ps}}
+\medskip
+In that wedge, assume 
+$\phi_1(\theta)\le \phi \le \phi_2(\theta)$, where the
+extreme values of $\phi$ depend in general
+on $\theta$.  Decompose the wedge into {\it spikes\/} formed
+by a family of conical surfaces for different (constant) values
+of $\phi$.  Let $\Delta \phi$ be the angle subtended at the
+origin by the spike at azimuthal angle $\phi$.
+
+Finally, assume for that spike that $\rho_1(\phi,\theta)\le
+\rho \le \rho_2(\phi,\theta)$ where the extreme values of
+$\rho$ depend generally on $\phi$ and $\theta$.  Decompose
+the spike into {\it spherical cells\/} by a family of concentric
+spherical surfaces.   Let $\Delta\rho$ be the radial extension of
+the cell at radius $\rho$.  
+\medskip
+\centerline{\epsfbox{s4-57.ps}}
+\medskip
+Note that the `base' of this spherical cell is a spherical
+`rectangle' on the sphere of radius $\rho$.  Two of its
+\outind{spherical cell}
+sides lie along meridians of longitude, and the length of
+ each of these sides is $\rho\Delta\theta$.  The other two sides
+are circles of latitude.  The top circle of latitude has radius $r =
+\rho\sin\theta$, and if everything is small enough the bottom
+circle has only a slightly larger radius.  The arc which is
+the top side of the spherical rectangle subtends angle $\Delta\theta$
+at the center of the circle of latitude, so its length is
+$r\Delta\theta = \rho\sin\phi\,\Delta\theta$.  It is not hard
+to see from this that the area of the spherical rectangle is
+approximately
+$\rho\Delta\phi\cdot\rho\sin\phi\,\Delta\theta = \rho^2\sin\phi
+\,\Delta\phi \Delta\theta$.  Multiplying by $\Delta\rho$,
+we have the following approximate formula for the volume of
+a spherical cell
+\[
+\Delta V = \rho^2\sin\phi\,\Delta\rho\,\Delta\phi\,\Delta\theta.
+\]
+(This can be made an exact formula if we use appropriate values
+of $\rho$ and $\phi$ {\it inside the cell\/} instead of the
+values at one one corner.)  The iterated integral is
+\begin{multline*}
+\iiint_E f(x,y,z)\,dV \\
+= 
+\undersetbrace\text{solid}\to
+{\int_\alpha^\beta\,
+\undersetbrace\text{wedge}\to
+{\int_{\phi_1(\theta)}^{\phi_2(\theta)}\,
+\undersetbrace\text{spike}\to
+{\int_{\rho_1(\phi,\theta)}^{\rho_2(\phi,\theta)}
+f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\,
+\rho^2\sin\phi\,d\rho\,d\phi\,d\theta}}}.
+\end{multline*}
+\outind{triple integral in spherical coordinates}
+\outind{spherical coordinates, triple integral in}
+Symbolically, we may write
+\[
+  dV = \undersetbrace\text{correction factor}\to
+{\rho^2\sin\phi}\, d\rho\,d\phi,d\theta.
+\]
+\nextex
+\example{Example \en}
+We shall evaluate $\iiint_E (x^2 + y^2)dV$ for $E$ a solid sphere
+of radius $a$ centered at the origin.   (This was done in the
+previous section in cylindrical coordinates.)  Here
+$f(x,y,z) = x^2 + y^2 = r^2 = \rho^2\sin^2\phi$.  To generate
+the entire sphere, we let $0\le \theta \le 2\pi$.  For each
+$\theta$, to generate a wedge, we let $0\le\phi\le \pi$.
+Finally, for each $\phi,\theta$, to generate a spike, we let
+$0\le \rho\le a$.  The integral is
+\begin{align*}
+\iiint_E r^2\,dV 
+&= \int_0^{2\pi}\,\int_{\phi=0}^{\phi=\pi}\,
+\int_{\rho=0}^{\rho=a}\rho^2\sin^2\phi\, \rho^2\sin\phi\,
+d\rho\,d\phi\,d\theta \\ 
+&= \int_0^{2\pi}\,\int_{\phi=0}^{\phi=\pi}\,
+\int_{\rho=0}^{\rho=a}\rho^4\sin^3\phi\, d\rho\,d\phi\,d\theta \\ 
+&= \frac{a^5}5\int_0^{2\pi}\,\int_{\phi=0}^{\phi=\pi}\,
+\sin^3\phi\, d\phi\,d\theta \\ 
+&= \frac{a^5}5\frac 43\int_0^{2\pi}\,d\theta \\ 
+&= \frac{a^5}5\frac 43 2\pi = \frac{8\pi a^5}{15}.
+\end{align*}
+Note that it was not at all apparent whether this problem would be
+easier to solve in cylindrical or in spherical coordinates.
+The fact that we were integrating $r^2$ suggested the former
+but the fact that the region is a sphere suggested the latter.
+It turned out that the integral was a trifle easier in
+spherical coordinates, but there wasn't much difference.
+\endexample
+\nextex
+\example{Example \en}
+We shall find the volume bounded by the cone $z = \sqrt 3\,r$
+and the sphere $r^2 + (z - 1)^2 = 1$.  
+Recall from Example \OffSph\ that the sphere may be described
+in spherical coordinates by $\rho = 2\cos\phi$.   The cone
+makes angle $\alpha$ with the positive $z$-axis where
+$\tan\alpha = r/z = 1/\sqrt 3$.  Hence, the cone is described
+in spherical coordinates by $\phi = \alpha = \pi/6$.
+To generate the solid, let $0\le \theta \le 2\pi$,
+for each $\theta$, let $0\le \phi \le \pi/6$, and
+for each $\phi,\theta$, let $0\le \rho\le 2\cos\phi$.
+Thus, the volume is given by
+\begin{align*}
+\iiint_E 1\,dV
+&=\int_0^{2\pi}\,\int_0^{\pi/6}\,\int_0^{2\cos\phi}\rho^2\sin\phi
+\,d\rho\,d\phi\,d\theta \\
+&=\frac 13\int_0^{2\pi}\,\int_0^{\pi/6}\,8\cos^3\phi\sin\phi
+\,d\phi\,d\theta \\
+&=\frac 83\int_0^{2\pi}\,
+\left. (-\cos^4\phi)/4 \right|_0^{\pi/6}\,d\theta \\
+&=\frac 23\int_0^{2\pi}\,
+(1 - (\sqrt 3/2)^4) \,d\theta \\
+&=\frac 23\frac 7{16} 2\pi = \frac{7\pi}{12}.
+\end{align*}
+
+There are other possible orders of integration in spherical
+coordinates, and you should try to visualize some of them.
+For example, suppose the region $E$ is a solid
+sphere centered at the origin.
+The order $d\theta,d\phi, d\rho$
+is associated with the following dissection.   The sphere is
+first dissected into spherical shells of thickness $d\rho$.
+Then each shell is dissected into `rings' at different
+latitudes subtending angle $d\phi$ at the center of the
+sphere.  Finally, each ring is dissected into spherical
+cells as before each subtending angle $d\theta$ on the $z$-
+axis.  
+
+\mar{s4-58.ps}
+\smallskip
+\subhead Other Notation \endsubhead
+Unfortunately there is no universally accepted notation for
+spherical coordinates.  First of all, $\rho = |\r|$ is just the
+magnitude of the position vector $\r = \overrarrow{OP}$,
+and another common  notation for $|\r|$ is $r$,
+which we have reserved for the cylindrical coordinate.
+Secondly, many texts reverse the meanings of $\phi$
+and $\theta$.   Indeed, almost all physics books and most
+mathematics books---except for calculus books---use
+$\theta$ to denote the azimuthal angle and $\phi$ for the
+longitudinal angle.   Because of this inconsistency, you
+should be sure you check the meanings of the symbols whenever
+you encounter these coordinate systems.   In any case,
+you should concentrate on the geometric and physical meaning
+of the concepts rather than the symbols used to represent
+them. 
+
+
+
+\bigskip
+
+\includeexercises{chap4.ex6}
+\bigskip
+\nextsec{Two Applications}
+\head Section \sn.  Two Applications \endhead
+
+We illustrate the use of integration in spherical coordinates
+by giving two historically important applications.
+
+\subhead Olbers' Paradox \endsubhead
+Olbers' Paradox is the 19th century observation that,
+in an infinite Newtonian universe in which stars are uniformly
+\outind{Olbers' paradox}
+distributed and which has always existed, 
+the sky would not be dark at night. 
+
+The argument for the paradox goes as follows.  Assume stars are
+uniformly distributed through space.
+(Although stars are discrete objects, the model assumes that
+on a large scale, we may assume a uniform continuous mass
+distribution as an approximation.  Today, we would replace
+`star' by `galaxy' as the basic unit.)  Choose a coordinate
+system centered on our solar system.   Since light intensity
+follows the {\it inverse square law\/}, the stars in a cell
+\outind{inverse square law}
+$dV$ at distance $\rho$, would produce intensity proportional
+to $dV/\rho^2$.  Choosing our units properly, we would obtain
+for all the stars in a large sphere of radius $R$ the
+light intensity
+\begin{align*}
+  I = \iiint_E \frac 1{\rho^2}dV
+&= \int_0^{2\pi}\,\int_0^\pi\,\int_0^R\frac 1{\rho^2}\,
+\rho^2\sin\phi\,d\rho\,d\phi\,d\theta \\
+&= \int_0^{2\pi}\,\int_0^\pi\,\int_0^R\,
+\sin\phi\,d\rho\,d\phi\,d\theta \\
+&= R \int_0^{2\pi}\,\int_0^\pi\,\sin\phi\,d\phi\,d\theta \\
+&= R \int_0^{2\pi}\,\left. -\cos\phi \right|_0^\pi\,d\theta \\
+&= R\,2 \int_0^{2\pi}\,d\theta  = 4\pi R.
+\end{align*}
+This is unbounded as $R \to \infty$, whence the conclusion
+that the sky would not be dark at night.  Of course, there are
+lots of objections to this simple model,
+but the paradox persists even if one attempts to be more
+realistic. 
+ The resolution of the paradox
+had to await modern cosmology with its model of a universe expanding
+from an initial `big bang'.
+  We won't go into this here, referring you instead
+to any good book on cosmology.
+
+\emar{s4-59.ps}{-75}
+The usual derivation of the paradox does not explicitly mention
+spherical coordinates.  The argument is that the intensity due
+to all the stars in a thin shell at distance $\rho$ will be
+proportional to the product
+of the area of the shell, $4\pi \rho^2$, with 
+$1/\rho^2$; hence it will be proportional to $4\pi$.  In other
+words, the contribution from each spherical shell is the same
+and independent of the radius of the shell.  If the contributions
+from all shells in the universe are added up, the result is
+infinite.  You should convince yourself that this is just the
+same argument in other language. 
+
+\subhead The Gravitational Attraction of a Solid Sphere \endsubhead
+Newton discovered his laws of
+motion and the inverse square law for gravitational
+attraction about 1665,
+when he was quite young, 
+\outind{gravitational attraction of a sphere}
+but he waited until 1686 to start his famous
+{\it Principia\/} in which these laws are expounded.   Some scholars
+think the reason
+ is that he was stumped by the problem
+of showing that the gravitational
+attraction of a solid sphere on a particle outside
+the sphere  is the same as if the entire mass
+of the sphere were concentrated
+at the center.  (However, according to the Encyclopedia
+Brittanica,  most authorities reject this explanation,
+thinking instead that he did not have an accurate enough value for
+the radius of the Earth.)  We shall show how to solve that problem
+using spherical coordinates.
+
+Let a mass $M$ be distributed over a solid sphere of radius
+$a$ in such a way that the density $\delta = \delta(\rho)$
+depends only on the distance $\rho$ to the center of the
+sphere.  Let a test particle of unit mass be located at a point $P$ 
+ at distance $R$ from its center, and suppose $R > a$, i.e., $P$ is
+outside the sphere.   Choose the coordinate system so that the
+origin is at the center of the sphere and so that the $z$-axis
+passes through $P$.  
+ We can resolve the force 
+$\F$ exerted on
+the test particle into components $\lb F_x, F_y, F_z \rb$,
+but it is clear by symmetry considerations that $F_x = F_y = 0$, so
+$\F = F_z\k$ is directed toward the origin.  Thus we need only
+find $F_z$.  
+Let $dV$ be a small element of volume
+located at a point inside the sphere with spherical coordinates
+$(\rho,\phi,\theta)$.   The mass inside $dV$ will be $dm = \delta\, dV$,
+and according to the law of gravitation, the force on the test particle
+will have magnitude $G\,dm/s^2$, where $s$ is the distance
+from $P$ to $dV$.  This force will be directed toward $dV$, but
+its $z$-component will be given by
+\nexteqn
+\xdef\Aa{\eqn}
+\[
+    dF_z = -\frac{G \delta \,dV}{s^2}\cos\eta\tag{\eqn}
+\]
+where $\eta$ is the angle between the vector from $P$ to $dV$
+and the $z$-axis.  (See the diagram.)   
+
+\mar{s4-60.ps}
+We calculate the total
+$z$-component by {\it integrating\/} this over the solid sphere
+$E$.
+\nexteqn
+\xdef\Ab{\eqn}
+\[
+  F_z = - G\iiint_E\frac{\delta}{s^2}\cos\eta\, dV.\tag{\eqn}
+\]
+We shall compute the integral by integrating in spherical
+coordinates in the order $d\theta, d\phi, d\rho$.
+\[  
+  F_z = - G\int_0^a\,\int_0^\pi\,\int_0^{2\pi}\frac{\delta}{s^2}\cos\eta\,
+ \rho^2\sin\phi\, d\theta\,d\phi\,d\rho.
+\]
+The first integration with respect to $\theta$ is easy since nothing
+in the integrand depends on $\theta$.   It just yields a factor
+$2\pi$ which may be moved in front of the integral signs.
+\begin{align*}  
+  F_z &= - G (2\pi)\int_0^a\,\int_0^\pi\,\frac{\delta}{s^2}\cos\eta\,
+ \rho^2\sin\phi\, d\phi\,d\rho \\
+&=
+ - 2\pi G \int_0^a\,\rho^2\delta(\rho)\int_0^\pi\,\frac 1{s^2}\cos\eta\,
+ \sin\phi\, d\phi\,d\rho.
+\end{align*}
+(Since $\rho$ and $\delta(\rho)$ do not depend on $\phi$ we have
+moved them out of the way.)  The first integration gives us the
+contribution from the mass in a ring situated at co-latitude $\phi$ and
+distance $\rho$ from the origin.  
+The next integration with respect to $\phi$
+is the hardest part of the computation.  It will give us the
+contribution from the mass in a spherical shell of radius
+$\rho$.  It is easier if we
+{\it change the variable of integration\/} from $\phi$ to
+$s$.  By the law of cosines, we have
+\begin{gather*}
+    s^2 = \rho^2 + R^2 - 2\rho R\cos\phi \\
+\intertext{whence}
+   2s\,ds = -2\rho R\,(-\sin\phi\, d\phi) \\
+\intertext{or}  
+\sin\phi\, d\phi
+   = \frac{s\,ds}{\rho R}.
+\end{gather*}
+Also,  at  $\phi = 0$ (the north pole), we have $s = R - \rho$,
+and at $\phi = \pi$ (the south pole), we have
+$s = R + \rho$.  (Look at the diagram.)
+Hence,
+\begin{align*}  
+  F_z &=
+ - 2\pi G \int_0^a\,\rho^2\delta(\rho)\int_{R-\rho}^{R + \rho}
+\,\frac 1{s^2}\cos\eta\,
+ \frac s{\rho R} \,ds \,d\rho \\
+&=
+ - 2\pi G \int_0^a\,\frac{\rho\delta(\rho)}R 
+\int_{R-\rho}^{R + \rho}\,\frac 1{s}\cos\eta\,
+  \,ds \,d\rho.
+\end{align*}
+To proceed, we need to express $\cos\eta$ in terms of $s$.   Refer to
+the diagram.  By the law of cosines, we have
+\[
+   \rho^2 = s^2 + R^2 - 2Rs\cos \eta 
+\]
+so
+\[
+  \cos \eta = \frac{s^2 + R^2 - \rho^2}{2Rs}
+\]
+and
+\[
+\frac 1s\cos\eta = \frac 1s
+   \frac{s^2 + R^2 - \rho^2}{2 R s} =
+ \frac 1{2R}\left(1 + \frac{R^2 - \rho^2}{s^2}\right).
+\]
+Hence,
+\begin{align*}
+  F_z &=
+ - 2\pi G\frac 1{2R^2} \int_0^a\,\rho\delta(\rho) 
+\int_{R-\rho}^{R + \rho}\,
+ \left(1 + \frac{R^2 - \rho^2}{s^2}\right)
+  \,ds \,d\rho \\
+ &= - \pi G\frac 1{R^2} \int_0^a\,\rho\delta(\rho) 
+\left. \left(s - \frac{R^2 - \rho^2}{s}\right)\right|_{s = R-\rho}^{s=R+\rho}
+   \,d\rho \\
+ &= - \pi G\frac 1{R^2} \int_0^a\,\rho\delta(\rho) 
+ \left(R+\rho - \frac{R^2 - \rho^2}{R+\rho}-
+(R-\rho) + \frac{R^2 - \rho^2}{R-\rho}
+\right)   \,d\rho \\
+ &= - \pi G\frac 1{R^2} \int_0^a\,\rho\delta(\rho) 
+(4\rho) \,d\rho = -\frac G{R^2}\int_0^a \, 4\pi \rho^2\,\delta(\rho) \,d\rho.
+\end{align*}
+The integral on the right is
+just the total mass $M$ in the sphere.  You can see this by setting
+up the integral for the mass in spherical coordinates and carrying
+out the integrations with respect to $\theta$ and $\phi$ as above.
+However, since a sphere of radius $\rho$ has surface area $4\pi\rho^2$,
+it is clear that the mass in a thin shell of radius $\rho$ and
+thickness $d\rho$ is $4\pi\rho^2 \delta(\rho)\,d\rho$.
+We get finally the desired result
+\[
+   F_z = -\frac{GM}{R^2}
+\]
+as claimed.
+
+The calculation of the force due to a spherical shell depends strongly
+on the test particle being outside the shell, i.e., $R > \rho$.  The
+expression for $\cos\eta$ is different if the test particle is
+inside the shell, i.e., $R < \rho$.  In that case, it turns out
+that the force on the test particle is zero.   (See the Exercises.)
+
+\bigskip
+
+\includeexercises{chap4.ex7}
+\bigskip
+\nextsec{Improper Integrals}
+\head Section \sn.  Improper Integrals \endhead
+
+One often encounters integrals involving {\it infinities\/}
+of one sort or another.    This may occur if either the
+domain of integration is not bounded or if the function
+being integrated is not bounded on its domain.
+   The basic method of dissecting the domain, forming
+a {\it finite\/} sum, and taking a limit does not work 
+in such cases, but one can usually do something sensible.
+The resulting integrals are called {\it improper integrals}.
+\outind{improper integral}
+\outind{integral, improper}
+
+\nextex
+\example{Example \en}  We shall find the area bounded by the graphs of
+$x = 1, y = 0$, and $y = 1/x^2$.   The region is bounded  below by
+the $x$-axis  and above by a graph which approaches the
+$x$-axis asymptotically.  The region is cut off by the line
+$x = 1$ on the left, but it extends without limit to the right.
+
+The area is calculated as follows.  Consider a finite portion of
+the region, bounded on the right by the line  $x = U$ (for `upper
+limit').   Its area is the integral
+\[
+   A(U) = \int_1^U \frac{dx}{x^2} = \left. -\frac 1x\right|_1^U
+             = 1 - \frac 1U.
+\]
+Now let the upper limit  $U \to \infty$.   The term $1/U \to 0$,
+so the area is
+\[
+   A = \lim_{U\to \infty} A(U) = 1.
+\]
+Note that the result seems a trifle paradoxical.  {\it Although
+the region is unbounded, it does have a finite area\/} according
+to this plausible method for finding area.
+\endexample
+
+   
+\mar{s4-61.ps}
+The above example is a special case of a more general concept.
+Suppose  $y = f(x)$ defines a function for $a \le x < \infty$.
+Suppose moreover that the integral $\int_a^U f(x)\, dx$ exists
+for each $a < U$.  We define the improper integral
+\[
+   \int_a^\infty f(x)\,dx = \lim_{U\to \infty} \int_a^U f(x)\,dx
+\]
+provided this limit exists.  Similar definitions can be made
+for $\int_{-\infty}^b f(x)\, dx$ or for various unbounded regions
+in $\R^2$ and $\R^3$.   (See below for some examples.) 
+\medskip
+\centerline{\epsfbox{s4-62.ps}}
+\medskip
+The answer is not always finite.
+\nextex
+\example{Example \en} 
+To determine
+$\int_1^\infty \dfrac {dx}{\sqrt x}$, we consider 
+\[
+     \int_1^U \frac{dx}{\sqrt x} =
+     \int_1^U x^{-1/2} dx =
+\left. \frac{x^{1/2}}{1/2}\right|_1^U = 2\sqrt U - 2.
+\]
+This does not have a finite limit as $U \to \infty$, so we
+say the improper integral {\it diverges\/} or that the answer
+is $+\infty$.
+\outind{divergence of improper integral}
+\endexample
+
+\nextex
+\example{Example \en}  We shall evaluate $\int_0^1\dfrac{dx}{\sqrt x}$.
+At first glance, this looks like an ordinary integral.  Indeed,
+we have
+\[
+     \int_0^1 \frac{dx}{\sqrt x} =
+\left. \frac{x^{1/2}}{1/2}\right|_0^1 = 2.
+\]
+However, if you look carefully, you will notice that there is
+something not quite right since the integrand is not bounded
+near the lower limit $0$.  (The graph approaches the $y$-axis
+asymptotically.)
+\medskip
+\centerline{\epsfbox{s4-63.ps}}
+\medskip
+ {\it The correct way to do this problem\/}
+is to treat the integral as an improper integral and to evaluate
+it as a limit of proper integrals.   Let $0 < \epsilon  < 1$.  Then
+\[
+     \int_\epsilon^1 \frac{dx}{\sqrt x} =
+\left. \frac{x^{1/2}}{1/2}\right|_\epsilon^1 = 2 - 2\sqrt\epsilon.
+\]
+If we now let $\epsilon \to 0$, we have
+\[
+ \int_0^1 \frac{dx}{\sqrt x} =
+\lim_{\epsilon\to 0} \int_\epsilon^1 \frac{dx}{\sqrt x} =
+\lim_{\epsilon\to 0} (2 - 2\sqrt\epsilon) = 2.
+\]
+\endexample
+
+Evaluating the above integral
+as a limit is a bit silly, since the first method gives the same answer.
+This is a common state of affairs.  What saves us from error in
+such cases is that the anti-derivative is continuous, so taking
+a limit or evaluating it yield the same answer.
+However, as the next example shows, it is possible to go
+wrong, so one should always be aware that one is really evaluating
+an improper integral.   (Check through the previous sections and
+you will find several improper integrals in hiding.)
+
+\nextex
+\example{Example \en}  We shall try to evaluate $\int_{-1}^1\dfrac{dx}{x^2}$.
+The graph of the function $f(x) = 1/x^2$ is asymptotic to the positive
+$y$-axis, so it is unbounded as $x \to 0$. 
+ Suppose we ignore this and just try to
+do the integral by the usual method.
+\[
+  \int_{-1}^1\frac{dx}{x^2} = \left. -\frac 1x \right|_{-1}^1 = -2.
+\]
+However, this is clearly not a correct answer since it is
+negative and the function is always positive.   Moreover, suppose 
+we
+divide the integral into two parts: one from $-1$ to $0$ and the
+other from $0$ to $1$.  Each of these is an improper integral,
+so they should be computed as limits.  Looking at the second
+integral, we have for $0 < \epsilon < 1$,
+\[
+  \int_{\epsilon}^1\frac{dx}{x^2} = \left. -\frac 1x \right|_{\epsilon}^1 
+= \frac 2\epsilon - 2,
+\]
+and this does not approach a finite limit as $\epsilon \to 0$.
+By symmetry, the same argument works for the other integral, so the
+sum of the two is not a finite number.
+\endexample
+
+\mar{s4-64.ps}
+In each of the above examples, the functions were always positive.
+In cases where we have to combine `positive infinities'
+with `negative infinities', the situation is a bit more
+complicated because the answer may depend on how you take
+limits.
+
+\nextex
+\example{Example \en}
+Consider $\int_{-1}^1 \dfrac {dx}x$.  If we divide
+this into two improper integrals, we could {\it try}
+\[
+   \int_{-1}^1\frac{dx}x = 
+   \int_{-1}^0\frac{dx}x + 
+   \int_0^1\frac{dx}x. 
+\]
+However
+\begin{align*}
+   \int_{-1}^0\frac{dx}x  
+&= 
+\lim_{\epsilon\to 0} \int_{-1}^{-\epsilon}\frac{dx}x  
+= 
+\lim_{\epsilon\to 0}\left. \ln |x|\right|_{-1}^{-\epsilon}\\
+& = 
+\lim_{\epsilon\to 0} (\ln |-\epsilon| - \ln |-1|)
+ =\lim_{\epsilon\to 0} \ln \epsilon
+ = -\infty,
+\end{align*}
+and
+\begin{align*}
+   \int_0^1\frac{dx}x &= 
+ \lim_{\eta\to 0} \int_\eta^1\frac{dx}x =
+ \lim_{\eta\to 0}\left. \ln |x|\right|_{\eta}^1 \\
+&= \lim_{\eta\to 0} (-\ln \eta) = +\infty.
+\end{align*}
+There is no sensible way to combine these infinities to get a
+unique value.   However, we could combine the two
+integrals as follows
+\begin{align*}
+   \int_{-1}^1\frac{dx}x &= 
+\lim_{\epsilon\to 0}\left[ \int_{-1}^{-\epsilon}\frac{dx}x  
++ \int_\epsilon^1\frac{dx}x\right] \\
+&= \lim_{\epsilon\to 0}
+\left[ (\ln |-\epsilon| - \ln |-1|) - (\ln 1 - \ln \epsilon)\right]  = 0.
+\end{align*}
+Here we have carefully arranged to approach zero from both directions
+at {\it exactly\/} the same rate, so at each stage the integrals
+cancel.   The result 0, in this case, is called the
+{\it Cauchy principal value\/} of the improper integral.
+\endexample
+
+\mar{s4-65.ps}
+
+\subhead The Normal Distribution \endsubhead
+In probability and statistics one encounters the so-called
+`bell shaped curve'. 
+\outind{normal distribution}
+ This is the graph of the function
+$f(x) = Ce^{-x^2/2\sigma^2}$ where $C$ and $\sigma$ are
+appropriate constants.
+\medskip
+\centerline{\epsfbox{s4-66.ps}}
+\medskip
+   For any interval $[a,b]$ on the
+real line, the integral $\int_a^b f(x) dx$ is supposed to
+be the probability of a measurement of the quantity $x$
+giving a value in that interval.  Here, the mean value of
+the measured variable is assumed to be 0, and $\sigma$, which
+is called the {\it standard deviation\/},
+tells us how concentrated the measurements will be about
+that mean value.  Moreover,
+the constant $C$ should be chosen so that $\int_{-\infty}^\infty f(x) = 1$
+since it is certain that a measurement will produce {\it some value\/}.
+Hence, $C$ should be  the reciprocal of 
+\[
+   \int_{-\infty}^\infty e^{-x^2/2\sigma^2} dx.
+\]
+This is of course an improper integral.  The fact that both
+limits are infinite adds a complication, but since the function
+is always positive, no significant problem arises.  Indeed, by
+symmetry, we may assume
+\[
+   \int_{-\infty}^\infty e^{-x^2/2\sigma^2} dx =
+   2 \int_0^\infty e^{-x^2/2\sigma^2} dx,
+\]
+and we shall calculate the latter integral.   The first
+step is to eliminate the parameter $\sigma$ by making the
+substitution $ u = x/\sigma, du = dx/\sigma$.   This gives
+\[
+   \int_0^\infty e^{-x^2/2\sigma^2} dx = \sigma 
+   \int_0^\infty e^{-u^2/2} du.
+\]
+The integral $I = 
+   \int_0^\infty e^{-u^2/2} du$ cannot be done by explicit integration,
+so we make use of a clever trick.   Consider
+\begin{align*}
+I^2 = 
+   \left(\int_0^\infty e^{-u^2/2} du\right)^2
+&=
+   \left(\int_0^\infty e^{-u^2/2} du\right)
+   \left(\int_0^\infty e^{-u^2/2} du\right) \\
+    &= 
+   \left(\int_0^\infty e^{-x^2/2} dx\right)
+   \left(\int_0^\infty e^{-y^2/2} dy\right).
+\end{align*}
+(Here we used the fact that the `dummy variable' in a definite
+integral can be called anything at all, so we called it first
+`$x$' and then `$y$'.)  This product can also be
+written as an iterated integral
+\[
+   \int_0^\infty\, \int_0^\infty e^{-x^2/2}  e^{-y^2/2}\, dy \,dx =
+   \int_0^\infty\, \int_0^\infty e^{-(x^2+ y^2)/2}\, dy \,dx.
+\]   
+This last integral can be viewed as an {\it improper double
+integral\/}, i.e., as
+\[
+   \iint_D e^{-(x^2+ y^2)/2}\, dA 
+\]
+where $D$ is the first quadrant in the $x,y$-plane.  
+\medskip
+\centerline{\epsfbox{s4-67.ps}}
+\medskip
+To calculate
+this improper integral, we switch to polar coordinates and treat
+the region $D$ as a limit of quarter discs  $D(R)$
+of radius $R$ as
+$R \to \infty$.
+Thus,
+\begin{align*}
+   \iint_D e^{-(x^2+ y^2)/2}\, dA &= \lim_{R\to \infty} 
+   \iint_{D(R)} e^{-(x^2+ y^2)/2}\, dA \\
+&= \lim_{R\to \infty} \int_0^{\pi/2}\,\int_0^R\, e^{-r^2/2}\, r\,dr\,d\theta \\
+&= \lim_{R\to \infty} 
+ \int_0^{\pi/2}\left.(-e^{-r^2/2})\right|_0^R\,d\theta \\
+ &= \frac{\pi}2 \lim_{R\to \infty}(1 - e^{-R^2/2}) \\
+ &= \frac{\pi}2,
+\end{align*}
+since $\lim_{R\to \infty} e^{-R^2} = 0$.  It follows that
+$I^2 =  \pi/2$ whence $I = \sqrt{\pi/2}$.   Hence,
+\[
+   \int_{-\infty}^\infty e^{-x^2/2\sigma^2} dx =
+   2 \int_0^\infty e^{-x^2/2\sigma^2} dx = 2 \sigma I = 2\sqrt{\frac\pi 2}
+\,\sigma = \sqrt{2\pi}\,\sigma.
+\]
+Thus, we should take $C = 1/(\sqrt{2\pi}\,\sigma)$, so
+\[
+\int_{-\infty}^\infty \,\frac{e^{-x^2/2\sigma^2}}{\sqrt{2\pi}\,\sigma}\,dx
+ = 1.
+\]
+The adjusted integrand is called the {\it normal\/} or
+{\it Gaussian\/} density function.
+
+The calculation of the improper double integral involves some
+hidden assumptions.  (See the Exercises.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Similar calculations for unbounded regions may be done in
+$\R^3$
+\nextex
+\example{Example \en}
+We shall determine the improper integral
+\[
+    \iiint_{\R^3} e^{-(x^2 + y^2 + z^2)/2}\,dV.
+\]
+The method is to calculate the integral for a solid sphere $E(R)$
+of radius $R$, centered at the origin, and then let $R \to \infty$.
+Using spherical coordinates, we have
+\begin{align*}
+\iiint_{E(R)} e^{-(x^2 + y^2 + z^2)/2}\,dV &=
+\int_0^{2\pi}\int_0^\pi \int_0^R\, e^{-\rho^2/2}\,\rho^2\sin\phi
+\,d\rho\,d\phi,d\theta \\
+&= \undersetbrace{\text{from }\theta}\to{2\pi}\,
+\undersetbrace{2}\to{\int_0^\pi\sin\phi\,d\phi}
+\,
+ \int_0^R\, e^{-\rho^2/2}\,\rho^2\,d\rho.
+\end{align*}
+
+\mar{s4-68.ps}
+The $\rho$ integral can be done by integrating by parts and the
+answer is
+\[
+ -Re^{-R^2/2} +
+\int_0^R e^{-\rho^2/2}\,d\rho.
+\]
+Let $R \to \infty$.  The first limit may be calculated by L'H\^opital's
+rule.
+\[
+\lim_{R\to\infty}
+Re^{-R^2/2} = 
+\lim_{R\to\infty}
+\frac R{e^{R^2/2}} = 
+\lim_{R\to\infty}
+\frac 1{R e^{R^2/2}} =  0.
+\]
+ The second
+term approaches $\int_0^\infty e^{-\rho^2/2}\,d\rho = \sqrt{\pi/2}$
+by the previous calculation.   Hence,
+\[
+    \iiint_{\R^3} e^{-(x^2 + y^2 + z^2)/2}\,dV 
+= (2\pi)(2)\left(\sqrt{\frac\pi 2}\right) = (2\pi)^{3/2}.
+\]
+\endexample
+
+\medskip
+Note that the argument for Olbers Paradox in the previous section
+really involves an improper integral.   So do many gravitational
+force calculations which involve integrating functions with
+denominators which may vanish.
+
+\bigskip
+
+\includeexercises{chap4.ex8}
+\bigskip
+\nextsec{Integrals on Surfaces}
+\head Section \sn.  Integrals on Surfaces \endhead
+
+The double
+integrals discussed so far have been for regions in $\R^2$.
+We also want to be able to integrate over {\it surfaces\/} in $\R^3$.
+In the former case, we can always dissect the region into
+true rectangles (except possibly near the boundary), but that
+won't generally be possible for surfaces which are usually
+{\it curved}.   We encountered a similar situation in our
+discussion of arc length and line integrals for paths in
+$\R^2$ and $\R^3$, so we shall briefly review that here.
+
+\subhead Parametric Representations \endsubhead
+Let $\r = \r(t), a\le t \le b$ provide a parametric representation
+for a path $\Cal C$ in $\R^n$ ($n = 2$ or $3$). 
+  It is useful to picture
+this by drawing a diagram which exhibits the domain $a\le t \le b$
+on the left, $\R^n$ with the image curve on the right, and a
+curved arrow indicating the action of {\it mapping\/} the parameter
+$t$ to the point $\r(t)$ on the path. 
+\medskip
+\centerline{\epsfbox{s4-69.ps}}
+\medskip
+To integrate on the curve, we dissect the parameter domain
+into small intervals  $\Delta t$, and that results in
+a corresponding dissection of the curve into small arcs
+$\Delta s$ where
+\[
+   \Delta s \approx |\r'(t)| \Delta t.
+\]   
+(The quantity on the right is just the length of a small displacement
+{\it tangent\/} to the curve, but it is also a good approximation
+to the length of the chord connecting the endpoints of the small
+arc.)   Suppose now that $f:\R^n \to \R$ is a scalar valued function
+such that the image curve $\Cal C$ is contained in its domain, i.e.,
+$f(\r)$ is defined for $\r$ on $\Cal C$.  We can form the sum
+\[
+\sum_{\substack{ t-\text{dis-}\\ \text{section}}} f(\r)\Delta s
+   \approx
+\sum_{\substack{ t-\text{dis-}\\ \text{section}}} f(\r(t))|r'(t)|\Delta t
+\]
+which in the limit becomes
+\[
+\int_{\Cal C} f(\r)\,ds = \int_a^b \,f(\r(t))|\r'(t)|\,dt.
+\]
+ This generalizes slightly what we did before when discussing
+{\it line integrals}.   In that case, we have a vector function
+\outind{line integral}
+\outind{integral, line}
+$\F$ defined on $\Cal C$, and the scalar function $f$ to be
+integrated is given by $f(\r) = \F(\r)\cdot \T$ where $\T$ is
+the unit tangent vector at $\r$.
+
+\nextex
+\example{Example \en}  Suppose a mass is distributed on a thin wire
+shaped in a circle of radius $a$ 
+ in such a way that the density is 
+proportional to the distance $r$ to a fixed point $O$ on the circle.
+  We shall find the total mass.  To this end,
+introduce a coordinate system with the origin at $O$ and the $x$-axis
+pointing along the diameter through $O$.  (See the diagram.)  Then
+the mass density will have the form $\delta(\r) =  kr =
+k\sqrt{x^2 + y^2}$, and we want to find $\int_{\Cal C}\delta(\r)\,ds$.
+We know that the circle may be described in polar coordinates by
+$r = 2a\cos\theta$, so using $x = r\cos\theta, y = r\sin\theta$,
+we obtain a parametric representation in terms of $\theta$
+\[
+  \r = \lb 2a\cos^2\theta, 2a\cos\theta\sin\theta \rb,
+\qquad -\pi/2 \le \theta \le \pi/2.
+\]
+Hence,
+\begin{align*}
+  \r'(\theta) &= \lb -4a\cos\theta\sin\theta,
+          -2a\sin\theta\sin\theta + 2a\cos\theta\cos\theta \rb    \\
+&= \lb -2a\sin 2\theta, 2a \cos 2\theta \rb,
+\end{align*}
+so $|\r'(\theta)| = 2a$.  In addition, {\it on the curve\/},
+$\delta(\r) = kr = k(2a\cos\theta)$, so
+\[
+\int_{\Cal C} \delta(\r)\, ds =
+\int_{-\pi/2}^{\pi/2}(2ak\cos\theta)(2a)\,d\theta
+ = 4a^2k\left. \sin\theta\right|_{-\pi/2}^{\pi/2} = 8a^2k.
+\]
+(You might also try to do the problem by choosing a coordinate
+system with origin at the center of the circle.  Then the
+expression for $\delta(\r)$ would be a bit more complicated.)
+
+\mar{s4-70.ps}
+\endexample
+
+We want to do something similar for surfaces in space.  So far,
+we have met surfaces as graphs of functions $f:\R^2 \to \R$
+or as level sets of functions $g:\R^3 \to \R$.  They may
+also be represented {\it parametrically\/} by vector valued
+functions $\R^2 \to \R^3$.   Before, discussing the general
+case, we recall our discussion of the surface of a sphere
+which is one of the most important applications. 
+
+\nextex
+\xdef\SphPar{\en}
+\example{Example \en}
+ In our
+discussion of `geography', we noted that on the surface
+of the sphere $\rho = a$, the spherical coordinates
+$\phi, \theta$ are {\it intrinsic coordinates\/}
+ specifying the position of points on that sphere.
+Moreover, using $x = \rho\sin\phi\cos\theta,
+y = \rho\sin\phi\sin\theta, z = \rho\cos\phi$, we may
+specify the relation between $(\phi,\theta)$ and the
+position vector of the point on the sphere by
+\begin{gather*}
+ \r = \lb a\sin\phi\cos\theta,a\sin\phi\sin\theta, a\cos\phi \rb,
+\\
+0 \le \phi \le \pi, 0\le \theta < 2\pi.
+\end{gather*}
+As above, consider a diagram with a $\phi,\theta$-plane on
+the left, the sphere imbedded in $\R^3$ on the right, and
+a curved arrow indicating the action of {\it mapping\/}
+$(\phi,\theta)$ to the image point on the sphere.   
+\medskip
+\centerline{\epsfbox{s4-71.ps}}
+\medskip
+$\phi,\theta$ on the left should be thought of as {\it rectangular\/}
+coordinates in a {\it map\/} of the sphere, while the picture
+on the right represents `reality'.   In the map, circles of
+latitude are represented by vertical lines and meridians of
+longitude by horizontal lines.   The entire sphere is covered
+by mapping the rectangle $0\le \phi\le \pi, 0\le\theta \le 2\pi$.
+The bottom edge of this rectangle ($\phi = 0$) 
+is
+mapped to the North Pole on the sphere, and similarly, the upper
+edge 
+($\phi = \pi$) is mapped to the South Pole.  For points interior
+to the rectangle, there is a one-to-one correspondence between
+parameter points $(\phi,\theta)$ and points on the sphere.
+\endexample
+
+The general situation is quite similar.  We suppose we are given
+a smooth vector valued function $\r = \r(u,v)$ defined on some
+domain $D$ in the $u,v$-plane and taking values in $\R^3$.
+The subset of $\R^3$ consisting of image points $\r(u,v)$ for
+$(u,v)$ in $D$ will generally be a surface, and we say the
+function $\r = \r(u,v)$ is a parametric representation of this
+surface.
+\outind{parametric representation of a surface}
+\outind{surface, parametric representation of}
+As above, we picture this by a diagram with the $u,v$-parameter
+plane on the left, $\R^3$ with the image surface imbedded on
+the right, and a curved arrow indicating the action of mapping
+$(u,v)$ to $\r(u,v)$.
+\medskip
+\centerline{\epsfbox{s4-72.ps}}
+\medskip
+We assume that at least for the interior of the domain, the
+function is one-to-one, i.e., distinct points in the parameter
+plane map to distinct points on the surface.  However, for the
+boundary of the domain, the one-to-one condition may fail.
+
+Horizontal lines ($v = $ constant) in the parameter domain,
+and vertical lines ($u = $ constant) map to curves on the
+surface, and it is usually worthwhile seeing what those lines
+are.
+
+There are of course as many surfaces which can be defined this
+way as there are functions $\R^2 \to \R^3$.  However, it is not
+necessary at this point to be familiar with all of them; knowing
+how to represent certain simple surfaces parametrically will
+suffice.   We started with the surface of a sphere.   The
+case of a cylinder is even easier.
+
+\nextex
+\xdef\CylPar{\en}
+\example{Example \en}  Consider a cylinder of radius $a$ centered
+on the $z$-axis.  In cylindrical coordinates, this is described
+simply by $r = a$.  Putting this in $x = r\cos\theta, y = r\sin\theta$,
+we obtain the following parametric representation of the cylinder
+\begin{gather*}
+   \r = \r(\theta,z) = \lb a\cos\theta, a\sin\theta, z \rb \\
+   0\le\theta < 2\pi, -\infty < z < \infty.
+\end{gather*}
+\medskip
+\centerline{\epsfbox{s4-73.ps}}
+\medskip
+ The parameter domain in this case
+is the infinite strip between the lines $\theta = 0$ and $\theta = 2\pi$
+in the $\theta, z$-plane.   If we wanted only a finite portion of
+the cylinder, say between $z = 0$ and $z = h$, we would appropriately
+limit the domain.
+
+The lines $\theta = $ constant in the $\theta,z$-plane correspond to
+vertical lines on the cylinder.   The lines $z = $ constant in
+the parameter plane correspond to circles on the cylinder, parallel
+to the $x,y$-plane.
+\endexample
+
+\nextex
+\example{Example \en}  Let $\a = \lb a_1,a_2,a_3\rb$ and 
+$\b = \lb b_1,b_2,b_3\rb$ be fixed vectors
+in $\R^3$, and consider the function defined by
+\begin{gather*}
+   \r = \r(u,v) = u\a + v\b = \lb a_1u + b_1v, a_2u + b_2v, a_3u + b_3v \rb,
+\\
+   -\infty < u < \infty, -\infty < v < \infty.
+\end{gather*}
+Here the domain is the entire $u,v$-plane and the image surface
+is just the plane through the origin containing the vectors
+$\a$ and $\b$.   
+\medskip
+\centerline{\epsfbox{s4-74.ps}}
+\medskip
+The lines $u = $ constant and $v = $ constant in the parameter
+domain correspond to lines in the image plane.   Note that these
+lines won't generally be perpendicular to one another.  In fact
+the line $u = $ constant ($v$ varying) will meet the line
+with $v = $ constant ($u$ varying) in the same angle as
+that between $\a$ and $\b$. 
+
+How would you modify this function to represent the plane which
+passes through
+the endpoint of the position vector 
+ $\r_0$ and which is parallel to the above plane?
+\endexample
+
+\nextex
+\xdef\TorEx{\en}
+\example{Example \en}  Consider the 
+circle  of radius $a$
+in the $x,z$-plane centered at $(b,0,0)$.  The surface obtained by
+rotating this circle about the $z$-axis is called a {\it torus}.
+\outind{torus}
+Using cylindrical coordinates, you see from the diagram that
+\begin{align*}
+    r &= b + a\cos\eta \\
+    z &= a\sin\eta
+\end{align*}
+where $\eta$ is the indicated angle.   Hence, we obtain the
+parametric representation
+\begin{gather*}
+   \r = \r(\eta,\theta) = \lb (b + a\cos\eta)\cos\theta,
+   (b + a\cos\eta)\sin\theta, a\sin\eta \rb,\\
+   0\le \eta < 2\pi, 0 \le \theta < 2\pi.
+\end{gather*}
+\medskip
+\centerline{\epsfbox{s4-75.ps}}
+\medskip
+The line $\eta = $ constant in the $\eta, \theta$-domain corresponds
+to a circle on the torus centered on the $z$-axis and parallel to
+the $x,y$-plane.  The line $\theta = $ constant in the $\eta,\theta$-domain
+corresponds to a circle on the torus obtained by cutting it crosswise with
+the half-plane from the $z$-axis determined by that value of $\theta$.
+
+\mar{s4-76.ps}
+\endexample
+
+\subhead Integrating on Parametrically Defined Surfaces \endsubhead
+Let $\Cal S$ denote a surface in $\R^3$ represented parametrically
+by $\r = \r(u,v)$.  In what follows, we shall make use of the
+curves on the surface
+ obtained by keeping one of the parameters constant and letting
+the other vary.  For example, if $v$ is constant, $\r(u,v)$ provides
+a parametric representation of a curve with parameter $u$.
+As usual, you can find a tangent vector to the curve by taking
+the derivative, but since $v$ is constant,
+it is the partial derivative, $\partial \r/
+\partial u$.   Similarly, $\partial \r/\partial v$ is a vector
+tangent to the curve obtained by keeping $u$ constant and letting
+$v$ vary.
+
+Let $f(x,y,z) = f(\r)$ be a scalar valued function with
+domain containing the surface $\Cal S$.   We want to define
+what we mean by the integral of the function on the surface.
+Our method parallels what we did in the case of curves.  Imagine
+that the domain $D$ of the parameterizing function is dissected into
+small rectangles with the area of a typical rectangle being
+$\Delta A = \Delta u \Delta v$.   Corresponding to this dissection
+is a dissection of the surface into subsets we shall call
+{\it curvilinear rectangles}. 
+\medskip
+\centerline{\epsfbox{s4-77.ps}}
+\medskip
+  Suppose for the moment that we
+know how to find the {\it surface area\/} $\Delta S$ of each such 
+curvilinear rectangle.   Also, for each such curvilinear
+rectangle, choose a point 
+ $\r = \r(u,v)$ inside it at which to evaluate $f(\r)$. 
+ (For reasonable functions, it won't matter
+much where it is chosen.)
+  Form the
+sum
+\nexteqn
+\xdef\SumEq{\eqn}
+\[
+\sum_{\substack{\text{dissection}\\ \text{of } \Cal S}} f(\r)\,\Delta S \tag{\eqn}
+\]
+and consider what happens to such sums as the dissection gets finer and
+finer and the number of curvilinear rectangles goes to $\infty$.
+If the sums approach a limit,  we denote it by
+\[
+    \iint_{\Cal S} f(x,y,z)\, dS\qquad\text{or sometimes }
+    \int_{\Cal S} f(x,y,z)\, dS.
+\]
+\outind{surface integral}
+\outind{integral on surface}
+
+\mar{s4-78.ps}
+The crucial part of this analysis is determining how to identify
+the element of surface area $\Delta S$ for a typical
+curvilinear rectangle and seeing how that
+is related to the area 
+$\Delta A = \Delta u\Delta v$ of the corresponding rectangle in the
+parameter domain.   There are several
+ways to do this, and seeing how they are related is a bit involved.
+The method we shall use is based on the idea that the {\it tangent
+plane\/} to the surface is a good approximation to the
+surface.  Let  $(u,v)$ be the lower left corner
+of a small rectangle in the parameter domain. Consider the
+two sides meeting there and their images which form the
+corresponding sides of the curvilinear rectangle.  
+The image of the side  from $(u,v)$ to $(u+\Delta u, v)$
+ is mapped  into the arc
+ from $\r(u,v)$ to $\r(u+\Delta u, v)$.  
+This arc is approximated pretty closely by the tangent
+ vector $(\partial \r/\partial u)\Delta u$. 
+ Similarly, the arc from $\r(u,v)$ to $\r(u,v + \Delta v)$
+is approximated pretty closely by the tangent 
+vector $(\partial \r/\partial v)\Delta v$.
+\medskip
+\centerline{\epsfbox{s4-79.ps}}
+\medskip
+Thus, the {\it parallelegram\/} spanned by these tangent
+vectors is a good approximation to the curvilinear rectangle,
+and we may take 
+$\Delta S$ to be the area of that  parallelegram.
+\[
+  \Delta S = \left|\frac{\partial\r}{\partial u}\Delta u\times  
+\frac{\partial\r}{\partial v}\Delta v\right| =
+\left|\frac{\partial\r}{\partial u}\times  
+\frac{\partial\r}{\partial v}\right| \,\Delta u\,\Delta v.
+\]
+We can also write this equation as
+\[
+  \Delta S = 
+\left|\frac{\partial\r}{\partial u}\times  
+\frac{\partial\r}{\partial v}\right| \,\Delta A,
+\]
+so that
+$\displaystyle{\left|\frac{\partial\r}{\partial u}\times  
+\frac{\partial\r}{\partial v}\right|}$ is the {\it correction factor\/}
+needed to convert area $\Delta A = \Delta u\Delta v$
+in the parameter plane into area $\Delta S$ on the
+surface.
+
+If we put this value for $\Delta S$ in formula (\SumEq), and take the
+limit, we obtain
+\[
+  \iint_{\Cal S}f(\r)\,dS = \iint_D\,f(\r(u,v))
+\left|\frac{\partial\r}{\partial u}\times\frac{\partial\r}{\partial v}\right|
+\,dA
+\]
+\outind{surface integral for parametric surface}
+where the integral on the right is a normal double integral in the
+$u,v$-parameter plane.  In particular, if we take $f(\r) = 1$,
+we obtain a formula for the surface area of $\Cal S$
+\[
+  S = \iint_{\Cal S}1\,dS = \iint_D\,
+\left|\frac{\partial\r}{\partial u}\times\frac{\partial\r}{\partial v}\right|
+\,dA.
+\]
+\outind{surface area}
+
+\example{Example \SphPar, {\rm (revisited)}}  We shall find the
+element of surface area on a sphere.   We have
+\[
+ \r = \lb a\sin\phi\cos\theta,a\sin\phi\sin\theta, a\cos\phi \rb,
+\]
+so
+\begin{align*}
+\frac{\partial\r}{\partial \phi}
+&= \lb a\cos\phi\cos\theta,a\cos\phi\sin\theta, -a\sin\phi \rb, \\
+\frac{\partial\r}{\partial \theta}
+&=\lb -a\sin\phi\sin\theta,a\sin\phi\cos\theta, 0 \rb.
+\end{align*}
+These vectors are perpendicular to each other.  You can see that
+directly from the formulas or you can remember that they are
+tangent respectively to a meridian of longitude and a circle of
+latitude.   {\it The magnitude of the cross product of two perpendicular
+vectors is just the product of their magnitudes.}  We have
+\begin{align*}
+\left|\frac{\partial\r}{\partial \phi}\right|
+&= \sqrt{a^2\sin^2\phi(\cos^2\theta + \sin^2\theta) + a^2\cos^2\theta} =
+a, \\
+\left|\frac{\partial\r}{\partial \theta}\right|
+&= \sqrt{a^2\sin^2\phi(\sin^2\theta + \cos^2\theta)} = a\sin\phi,
+\end{align*}
+so
+\begin{align*}
+dS &= 
+\left|\frac{\partial\r}{\partial \phi}\times
+\frac{\partial\r}{\partial \theta}\right|
+\,dA\\
+&= a^2\sin\phi\, d\phi\,d\theta.
+\end{align*}
+That of course is the same value that was obtained earlier when we
+viewed this same curvilinear rectangle on the sphere as the base of
+a spherical cell in computing the element of volume in spherical
+coordinates.
+\outind{sphere, surface integral on}
+
+\mar{s4-80.ps}
+Let's use this to calculate the surface area of a sphere of radius
+$a$.  
+\begin{align*}
+S = \iint_{\Cal S} 1\,dS 
+&= \int_0^{2\pi}\int_0^\pi  a^2 \sin\phi \,d\phi\,d\theta\\
+&= a^2 \undersetbrace{2\pi}\to{\int_0^{2\pi}d\theta}\,
+\undersetbrace{2}\to{\int_0^\pi   \sin\phi \,d\phi} \\
+&= 4\pi a^2,
+\end{align*}
+and that is the answer you should be familiar with from high school.
+\endexample
+
+\example{Example \CylPar, {\rm (revisited)}}
+Assume a mass is distributed over the surface of a right circular
+cylinder of height $h$ and radius $a$ so that the density $\delta$
+is proportional to the distance to the base.  We shall find the
+total mass.   We represent the cylinder parametrically by
+\begin{gather*}
+   \r = \r(\theta,z) = \lb a\cos\theta, a\sin\theta, z \rb \\
+   0\le\theta < 2\pi, 0 \le z \le h.
+\end{gather*}
+Then
+\begin{align*}
+   \frac{\partial\r}{\partial\theta}
+ &= \lb -a\sin\theta, a\cos\theta, 0 \rb \\
+   \frac{\partial\r}{\partial z}
+   &= \lb 0, 0, 1 \rb,
+\end{align*}
+and again these are perpendicular.  The product of their
+magnitudes is just $a$, so the element of area is
+\[
+  dS = a\,d\theta\,dz.
+\]
+Note that it is quite easy to see why this formula should
+be correct by looking directly
+at the curvilinear rectangle on the surface of the cylinder.
+Its dimensions are $a\,d\theta$ by $dz$.
+\outind{cylinder, surface integral on}
+
+\emar{s4-81.ps}{-70}
+The mass density has been assumed to have the form
+$\delta(\r) = k z$ for some constant of proportionality $k$.
+Hence, the mass is given by
+\begin{align*}
+\iint_{\Cal S}\,kz\,dS &= \int_0^{2\pi}\int_0^h kz\,a\,d\theta\,dz \\
+ &= a\,k\, \undersetbrace{2\pi}\to{\int_0^{2\pi}\,d\theta}
+\int_0^h z\,dz  = 2\pi ak\, \left. \frac{z^2}2\right|_0^h \\
+& = \pi ah^2k.
+\end{align*}
+\endexample
+
+\subhead The Graph of a Function \endsubhead
+One very important case of a surface in $\R^3$ is that
+of a graph of a function.  This may be treated as a special
+case of a parametrically defined surface as follows.  Suppose
+$z = f(x,y)$ denotes a function with domain $D$ in $\R^2$.  Let $x, y$
+be the parameters and set
+\[
+\r = \r(x,y) = \lb x, y, f(x,y) \rb,\qquad \text{for } (x,y)\quad \text{in } D.
+\]
+\medskip
+\centerline{\epsfbox{s4-82.ps}}
+\medskip
+In this case the element of surface area is calculated as follows.
+\begin{align*}
+\frac{\partial\r}{\partial x} &= \lb 1, 0,  f_x \rb, \\
+\frac{\partial\r}{\partial y} &= \lb 0, 1,  f_y \rb. 
+\end{align*}
+These vectors are not generally perpendicular, so we need to calculate
+\[
+\frac{\partial\r}{\partial x} \times \frac{\partial\r}{\partial y} 
+= \lb 1, 0,  f_x \rb \times \lb 0, 1,  f_y \rb  =
+\lb -f_x, -f_y, 1 \rb.
+\]
+(You may remember that we encountered the same vector earlier as a
+normal vector to the graph.)  Hence, the correction factor is
+$|\partial\r/\partial x \times \partial\r/\partial y| =
+\sqrt{f_x{}^2 + f_y{}^2 + 1}$, and
+\[
+dS = \sqrt{f_x{}^2 + f_y{}^2 + 1}\, dA,
+\]
+where $dA = dy\,dx$ is the element of area in the domain $D$ of the function
+$f$.
+\outind{graph of function, surface integral on}
+
+
+\nextex
+\example{Example \en}  We shall find the surface area of that portion
+of the paraboloid $z = x^2 + y^2$ below the plane $z = 4$.   Here
+$f(x,y) = x^2 + y^2$ and $D$ is the disc in the $x,y$-plane
+determined by
+$x^2 + y^2 \le 4$.   We have $f_x = 2x, f_y = 2y$, so
+\[
+\sqrt{f_x{}^2 + f_y{}^2 + 1} = \sqrt{4x^2 + 4y^2 + 1}
+\]
+and
+\[
+S = \iint_{\Cal S} 1\,dS = \iint_D\, \sqrt{4(x^2 + y^2) + 1}\, dA.
+\]
+The problem has now been reduced to a double integral in the
+$x,y$-plane.   This can be done by any method you find convenient.
+For example, since the region $D$ is a disk, it would seem reasonable
+to use polar coordinates.
+\begin{align*}
+ \iint_D\, \sqrt{4(x^2 + y^2) + 1}\, dA
+&= \int_0^{2\pi}\,\int_0^2 \sqrt{4r^2 + 1}\, r\,dr\,d\theta \\
+&= 
+\undersetbrace{2\pi}\to
+{\int_0^{2\pi}\,\,d\theta} 
+\, \frac 18 \int_0^2 \sqrt{4r^2 + 1}\, 8r\,dr\\
+&= \frac{\pi}4 \left. \frac{(4r^2 + 1)^{3/2}}{3/2}\right|_0^2 \\
+&= \frac \pi 6 (\sqrt{4913} - 1).
+\end{align*}
+
+\mar{s4-83.ps}
+Note that in effect, we have introduced two correction factors here.
+The first $\sqrt{4x^2 + 4y^2 + 1}$ converted area in the $x,y$-plane
+to surface area on the graph.  The second $r$ was needed because
+we chose to use polar coordinates in the $x,y$-plane.   There is
+an entirely different approach which introduces only one
+correction factor.  Namely, use the parametric representation
+\begin{gather*}
+\r = \lb r\cos\theta, r\sin\theta, r^2 \rb,\\
+0\le r \le 2, 0 \le \theta < 2\pi.
+\end{gather*}
+In this case, the domain of integration is a {\it rectangle\/}
+in the $r,\theta$-plane, and the correction factor ends up being
+\[
+\left|\frac{\partial\r}{\partial r}
+ \times \frac{\partial\r}{\partial\theta}\right|
+= \dots = \sqrt{4r^4 + r^2} = \sqrt{4r^2 + 1}\, r.
+\]
+(You should check the $\dots$ in the above calculation.)
+\endexample
+\nextex
+\example{Example \en}  We shall find the area of the circle
+in the plane $x = 1$ of radius $2$ centered on the point $(1,0,0)$.
+This is a bit silly since the answer is clearly $\pi 2^2 = 4\pi$,
+but let's see how the method gives that answer.   The surface
+in this case may be viewed as the graph of a function
+$x = g(y,z) = 1$ with domain $D$ a disc of radius 2
+centered at the origin in the $y,z$-plane. 
+  In this case, the appropriate element of
+area would be
+\[
+dS = \sqrt{g_y{}^2 + g_z{}^2 + 1} \, dy\, dz
+\]
+but since $g_y = g_z = 0$, the correction factor is just 1.
+Hence,
+\[
+S = \iint_D\, 1\, dy\, dz.
+\]
+We need not actually do the integral, since we know that the
+answer will just be the area of the domain $D$, which is 
+$\pi 2^2 = 4\pi$.
+
+\mar{s4-84.ps}
+Note that you could also represent the surface parametrically
+by
+\begin{gather*}
+\r = \lb 1, r\cos\theta, r\sin\theta \rb,\\
+0\le r \le 2, 0\le \theta < 2\pi.
+\end{gather*}
+\endexample
+\bigskip
+
+\includeexercises{chap4.ex9}
+\bigskip
+\nextsec{The Change of Variables Formula}
+\head Section \sn.  The Change of Variables Formula \endhead
+
+Recall how we use substitution to evaluate an ordinary
+integral  $\int_a^b\,f(x)\, dx$.  We try to express $x =x(u)$
+in terms of some other variable, and then
+\[
+\int_a^b f(x)\,dx = \int_c^d\, f(x(u))\, \frac{dx}{du}\,du
+\]
+where the $u$-limits are chosen so that $a = x(c)$ and $b = x(d)$.
+A similar method works to evaluate a double integral
+$\iint_D\, f(x,y)\, dA$, but of course
+it is more complicated.  To proceed by analogy, assume
+we have $x = x(u,v)$ and $y = y(u,v)$.   These two functions
+may be used to define a vector function $\R^2 \to \R^2$ given by
+\[
+   \r = \r(u,v) = \lb x(u,v), y(u,v) \rb
+\]
+which {\it transforms\/} some domain  $U$ in the $u,v$-plane into
+the domain 
+$D$ in the $x,y$-plane.  
+\medskip
+\centerline{\epsfbox{s4-86.ps}}
+\medskip
+Assume that this function provides
+a one-to-one correspondence between the interior of $U$ and
+the interior of $D$.   That will insure that some parts of $D$
+are not covered more than once, so we won't have to worry about
+a part of the domain contributing more than once to the
+integral.  (The restriction can be weakened for the boundaries
+without creating problems.)  We want a formula with relates
+$\iint_D\,f(x,y)\,dy\,dx$ to an integral of the form
+$\iint_U\, f(x(u,v), y(u,v))\,C(u,v)\, du\,dv$ where
+$C(u,v)$ is an appropriate `correction factor'.  
+One way to determine the correction factor  is as follows.
+Think of the function as a mapping into $\R^3$ with
+the third coordinate zero
+\[
+   \r = \r(u,v) = \lb x(u,v), y(u,v), 0 \rb.
+\]
+From this point of view, the region $D$ is a surface in
+$\R^3$ (represented parametrically)
+ which happens to be contained in the $x,y$-plane.
+Then the correction factor for area on this `surface' is
+$C(u,v) = |(\partial\r/\partial u) \times (\partial\r/\partial v)|$.
+However,
+\begin{align*}
+\frac{\partial \r}{\partial u} & = 
+\left\lb \frac{\partial x}{\partial u},\frac{\partial y}{\partial u}, 0
+ \right\rb,\\
+\frac{\partial \r}{\partial v} & = 
+\left\lb \frac{\partial x}{\partial v},\frac{\partial y}{\partial v}, 0 
+\right\rb.
+\end{align*}
+so
+\[
+\frac{\partial \r}{\partial u} \times 
+\frac{\partial \r}{\partial v}  = 
+\left\lb 0, 0, 
+\frac{\partial x}{\partial u}\,\frac{\partial y}{\partial v} -
+\frac{\partial y}{\partial u}\,\frac{\partial x}{\partial v}\right\rb.
+\]
+Thus,
+\[
+  dy\,dx = \left|
+\frac{\partial x}{\partial u}\,\frac{\partial y}{\partial v} -
+\frac{\partial y}{\partial u}\,\frac{\partial x}{\partial v}\right|
+\, du\, dv.
+\]
+\outind{change of variables in integrals}
+\outind{integral, change of variables in}
+The quantity in absolute values is called the {\it Jacobian\/}
+of the transformation relating $x,y$ to $u,v$.  It is often denoted
+\outind{Jacobian}
+\[
+ \frac{\partial(x,y)}{\partial(u,v)}.
+\]
+   It may also
+be characterized as the $2\times 2$ determinant
+\[
+\det
+\bm
+\dfrac{\partial x}{\partial u} &
+\dfrac{\partial y}{\partial u}\\
+\dfrac{\partial x}{\partial v} &
+\dfrac{\partial y}{\partial v} \em .
+\]
+
+\nextex
+\example{Example \en, {\rm(Polar Coordinates)}}.  Consider the
+transformation $\R^2 \to \R^2$ defined by
+\[
+  \r = \r(r,\theta) = \lb r\cos\theta, r\sin\theta \rb.
+\]
+This is the transformation used when expressing points in the
+$x,y$-plane in terms of polar coordinates $(r,\theta)$.   From
+this point of view, $r$ and $\theta$ are {\it rectangular\/}
+coordinates in a `fictitious' $r,\theta$-plane which through
+the transformation maps points in the `real' $x,y$-plane.
+We have
+\begin{align*}
+\frac{\partial x}{\partial r} & = \cos\theta\qquad &
+\frac{\partial y}{\partial r} & = \sin\theta \\
+\frac{\partial x}{\partial \theta} & = -r\sin\theta\qquad &
+\frac{\partial y}{\partial \theta} & = r\cos\theta 
+\end{align*}
+so the Jacobian is
+\[
+\frac{\partial(x,y)}{\partial(r,\theta)} = r\cos^2\theta -(-r\sin^2\theta) = r.
+\]
+Since $r \ge 0$, we have the change of variables formula
+\[
+\iint_D f(x,y)\, dA = \iint_U\, f(r\cos\theta, r\sin\theta)\, r \,dr\,d\theta
+\]
+where $U$ is the domain in the $r,\theta$-plane which describes the
+region $D$ in polar coordinates.
+Notice that this is essentially the same as what we derived earlier.
+\endexample
+
+\nextex
+\example{Example \en}  We shall find the area enclosed within 
+the ellipse $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$.  (Assume
+$a, b > 0$.)  We make
+the change of variables   $x = a u, y = b v$, i.e.,
+\[
+  \r = \r(u,v) = \lb au, bv \rb.
+\]
+Then
+\begin{align*}
+\frac{\partial x}{\partial u} & = a\qquad &
+\frac{\partial y}{\partial u} & = 0 \\
+\frac{\partial x}{\partial v} & = 0\qquad &
+\frac{\partial y}{\partial v} & = b. 
+\end{align*}
+It follows that
+\[
+\frac{\partial(x,y)}{\partial(r,\theta)} = ab,
+\]
+so
+\[
+\iint_D 1 \, dA = \iint_U 1\, (ab) \,du\,dv,
+\]
+where $U$ in the $u,v$-plane corresponds to $D$.
+However, substituting for $x$ and $y$ in terms of
+$u$ and $v$ yields
+\[
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} =
+    \frac{a^2u^2}{a^2} + \frac{b^2v^2}{b^2} =
+    u^2 + v^2,  
+\]
+so the {\it circle\/} $u^2 + v^2 = 1$ in the $u,v$-plane corresponds
+to the ellipse
+ $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$ in the $x,y$-plane.  It
+is not hard to see that $U$ is the interior of a circle of radius
+1 in the 
+ $u,v$-plane, so its area is easy to find.
+\medskip
+\centerline{\epsfbox{s4-87.ps}}
+\medskip
+Thus,
+\[
+\iint_U ab\, du\,dv = (ab) \iint_U\,du\,dv = ab\,\pi\,1^2 = \pi\,ab.
+\]
+Note that in this example, it wasn't actually necessary to
+work out the $u,v$ integral.  This is in keeping with the point.
+One chooses to use the transformation formula for the multiple
+integral in the hope that the calculation in the new
+coordinates ($u,v$) will be easier than the calculation in the
+original coordinates ($x,y$).
+\endexample
+
+\subhead Some Subtle Points in the Theory \endsubhead
+Our treatment of the change of variables formula can involve 
+elements of circular reasoning if it is not worked out carefully.
+Our basic argument is that the change of variables formula can
+be derived from the formula for the integral over a surface.
+There is an implicit assumption here, namely, that the concept of
+{\it area\/}  (`$dA$') in the domain $D$,  when it is
+viewed as a subset of
+$\R^2$, is the same as the concept of {\it surface area\/}
+(`$dS$') when $D$ is viewed as a parametrically defined (albeit
+flat) surface.   Of course, that is a true fact, but one must
+prove it, and the proof will depend on the precise definitions
+of the two concepts.   
+
+In our previous discussions we were a trifle vague about how these
+concepts are defined.  Let's look a little closer.  First, let's
+consider the definition we introduced for the surface integral
+\[
+   \iint_{\Cal S} \,f(\r)\, dS = 
+\iint_D \,f(\r(u,v))\,\left|\frac{\partial\r}{\partial u} 
+\times \frac{\partial\r}{\partial v}\right|\, du\,dv.
+\] 
+Suppose the same surface has another parametric representation
+$\r = \r'(u',v')$ with domain $D'$.   If we compute
+\[
+\iint_{D'} \,f(\r(u',v'))\,\left|\frac{\partial\r}{\partial u'} 
+\times \frac{\partial\r}{\partial v'}\right|\, du'\,dv',
+\]
+how do we know that we will get the {\it same answer\/}?   This
+questions merits some thought.  For example, note that we won't
+necessarily get the same answer in general, since if the 
+parameterizing functions are not both one-to-one, parts of
+the surface may be covered more than once by one or the other
+of the two functions.   Suppose then that both parameterizing
+functions are one-to-one (except possibly on their boundaries).
+Consider the relation between $u,v$-coordinates and
+$u',v'$-coordinates of the {\it same point} on
+the surface:
+\[
+    (u,v) \longrightarrow \r(u,v) = \r'(u',v') \longleftarrow (u'v').
+\]
+\medskip
+\centerline{\epsfbox{s4-88.ps}}
+\medskip
+Use this to define a transformation  $(u',v') = \bold T(u,v)$.
+Then some rather involved calculation using the chain rule
+gives the formula
+\[
+\left|\frac{\partial\r}{\partial u} 
+\times \frac{\partial\r}{\partial v}\right|
+= 
+\left|\frac{\partial\r}{\partial u'} 
+\times \frac{\partial\r}{\partial v'}\right|\,
+\left|\frac{\partial(u',v')}{\partial(u,v)}\right|.
+\]
+So to show that the elements of surface area in the two parameterizations
+are equal, i.e., that 
+\[
+\left|\frac{\partial\r}{\partial u'} 
+\times \frac{\partial\r}{\partial v'}\right| \,du'\,dv'
+=
+\left|\frac{\partial\r}{\partial u} 
+\times \frac{\partial\r}{\partial v}\right| \,du\,dv 
+=
+\left|\frac{\partial\r}{\partial u'} 
+\times \frac{\partial\r}{\partial v'}\right|\,
+\left|\frac{\partial(u',v')}{\partial(u,v)}\right|\,
+du\,dv,
+\]
+we need to show that
+\[
+  du'\,dv' =  
+\left|\frac{\partial(u',v')}{\partial(u,v)}\right|\,
+du\,dv.
+ \]
+But this is just the change of variables formula for the
+transformation $\T$ relating the element of area in the
+$u',v'$-plane to the element of area in the $u,v$-plane.
+
+The above analysis shows that to define surface integrals in
+terms of parametric representations and to know that the
+answer depends only on the surface, we must first prove the
+change of variables formula for double integrals.   That can
+be done with some effort, but the technical hurdles are
+difficult to surmount.   If you go back to the discussion of
+integrals in polar coordinates, you can see the source of
+some of the problems.  The double integral is defined originally
+in terms of {\it rectilinear\/} partitions by a network of lines
+parallel to the coordinate axes.   To use the other coordinate
+system, we need to use {\it polar rectangles\/} (curvilinear
+rectangles in the general case), so we have to prove that the
+limits for curvilinear partitions and
+rectilinear partitions are the same.   We leave further discussion
+of such issues for a course in real analysis.
+
+We noted in passing that both for integrals over surfaces and
+for change of variables, the relevant functions should be
+{\it one-to-one\/} except possibly on boundaries.  That will
+insure that sets with positive area are counted exactly once in
+any integrals.  There is a related property of the `correction
+factor', namely that it should not vanish.   Consider the case
+of surface integrals.   We have
+\[
+dS =
+\left|\frac{\partial\r}{\partial u} 
+\times \frac{\partial\r}{\partial v}\right| \,du\,dv 
+\]
+and we generally want it to be true that
+\[
+\left|\frac{\partial\r}{\partial u} 
+\times \frac{\partial\r}{\partial v}\right|  \ne 0.
+\]
+Otherwise, the cross product will vanish, meaning that the two
+tangent vectors generating the sides of the parallelegram are
+{\it collinear}.  That means that the tangent plane might
+degenerate into a line (or even a point), and our whole analysis
+might break down.  Points at which this happens are called
+{\it singular points\/}, and it
+ is often (but not always)
+ the case that the one-to-one
+property fails near such a point.  
+   Similar remarks apply to the
+change of variables formula where  one wants the Jacobian
+not to vanish.
+
+\nextex
+\example{Example \en}
+\[
+\r = \lb a\sin\phi\cos\theta,a\sin\phi\sin\theta,a\cos\phi \rb
+\]
+provides a parametric representation of a sphere of radius $a$
+centered at the origin.  For $(\phi,\theta) = (0,0)$, we have
+\begin{align*}
+\frac{\partial\r}{\partial\phi} &= \lb a, 0, 0 \rb \\
+\frac{\partial\r}{\partial\theta} &= \lb 0, 0, 0 \rb \\
+\end{align*}
+so the cross product and the correction factor are zero.  Of
+course, the parametric representation fails to be one-to-one
+at the corresponding point (the North Pole of the sphere) because
+the entire boundary segment $\phi = 0, 0\le\theta\le 2\pi$ maps
+into it.  Of course, this does not affect the validity of the
+integration formulas because the point is on the boundary of
+the parameter domain.
+
+\mar{s4-89.ps}
+\endexample
+
+\subhead Generalizations to Higher Dimensions \endsubhead
+The change of variables formula may be generalized to
+three dimensions. 
+  Let $E$ be a region in
+let $f(x,y,z)$ denote a reasonably smooth function defined on $E$.
+Suppose  we change variables by smooth functions
+$x = x(u,v,w), y = y(u,v,w), z=z(u,v,w)$ so that the
+ vector valued function  $\R^3 \to \R^3$ given by
+\[
+  \r = \r(u,v,w) = \lb x(u,v,w), y(u,v,w), z(u,v,w) \rb
+\]
+carries a subset $U$ in the parameter space  onto $E$.  Suppose
+moreover that this function is one-to-one except possibly on
+the boundary of
+$U$.  Define the Jacobian of the transformation to be
+\[
+   \frac{\partial(x,y,z)}{\partial(u,v,w)}
+ = \det \bm 
+\partial x/\partial u &
+ \partial y/\partial u &
+ \partial z/\partial u \\
+\partial x/\partial v &
+ \partial y/\partial v &
+ \partial z/\partial v \\
+\partial x/\partial w &
+ \partial y/\partial w &
+ \partial z/\partial w 
+\em.
+\]
+\outind{Jacobian}
+Then the change of variables formula says that
+\medskip
+\begin{multline*}
+\iiint_E f(x,y,z)\,dx\,dy\,dz = \\
+  \iiint_U f(x(u,v,w),y(u,v,w),z(u,v,w))\,
+   \left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\,
+du\,dv\,dw.
+\end{multline*}
+\medskip
+
+\nextex
+\example{Example \en}
+Consider the transformation 
+\[
+\r = \r(\rho,\phi,\theta) =
+\lb \rho\sin\phi\cos\theta,
+ \rho\sin\phi\sin\theta,
+ \rho\cos\phi \rb
+\]
+which relates the rectangular coordinates $(x,y,z)$ of
+a point in space to its spherical coordinates.  We have
+\begin{align*}
+\frac{\partial x}{\partial \rho} &= \sin\phi\cos\theta \qquad &
+\frac{\partial y}{\partial \rho} &= \sin\phi\sin\theta \qquad &
+\frac{\partial z}{\partial \rho} &= \cos\phi \\
+\frac{\partial x}{\partial \phi} &= \rho\cos\phi\cos\theta \qquad &
+\frac{\partial y}{\partial \phi} &= \rho\cos\phi\sin\theta \qquad &
+\frac{\partial z}{\partial \phi} &= -\rho\sin\phi \\
+\frac{\partial x}{\partial \theta} &= -\rho\sin\phi\sin\theta \qquad &
+\frac{\partial y}{\partial \theta} &= \rho\sin\phi\cos\theta \qquad &
+\frac{\partial z}{\partial \theta} &= 0.
+\end{align*}
+We leave it to you to calculate the determinant of this $3\times 3$
+array.  It is not surprising that the answer is
+\[
+\frac{\partial(x,y,z)}{\partial(\rho,\phi,\theta)} =
+\rho^2\sin\phi.
+\]
+\endexample
+
+The change of variables formula in fact holds in $\R^n$ for
+any positive integer $n$, but of course to make sense of it,
+one must first define  multiple integrals and
+determinants in higher dimensions.  We shall come back to such
+matters later in this text.
+\bigskip
+
+\includeexercises{chap4.ex10}
+\bigskip
+\nextsec{Properties of the Integral}
+\head Section \sn.  Properties of the Integral \endhead
+
+Multiple integrals satisfy the rules you learned for single
+variable integrals.  It isn't necessary at this point for you
+to go through the proofs of the rules, and in the ordinary
+course of events, most people just use these rules without
+having to be told about them.  Unfortunately,
+there are some 
+ hypotheses which must hold for a rule to apply, so it is possible to
+go wrong.  Such matters, including
+proofs
+ are usually
+studied in a course in real analysis.
+Just for the record, here are some of the relevant rules,
+without the proofs.
+We state them for double integrals, but they also hold much more
+generally, e.g., for triple integrals.
+\medskip
+
+ (i) {\bf Existence}.  Let $D$ be a closed, bounded subset of
+$\R^2$ such that its boundary consists of a finite set of
+smooth curves. If $f$ is continuous on 
+$D$, then
+$\iint_D \, f \, dA$ exists.
+
+\smallskip
+(ii)   {\bf Linearity}.  If $f$ and $g$ are both integrable on
+$D$, then so is $af + bg$  for any constants $a$ and $b$, and
+\[
+   \iint_D (af + bg)\,dA = a\iint_D \,f\,dA + b\iint_D\,g\,dA.
+\]
+\smallskip
+(iii)  {\bf Additivity}.   If $D_1$ and $D_2$ are disjoint sets
+such that $f$ is integrable on both, then $f$ is integrable on
+their union $D_1\cup D_2$, and
+\[
+   \iint_{D_1\cup D_2}\, f \, dA = \iint_{D_1}\,f\,dA +
+\iint_{D_2}\,f\,dA.
+\]
+This can be extended slightly in most cases to regions which intersect
+only on their common boundary, provided that boundary is at worst
+a finite collection of smooth curves.  This rule was referred to
+earlier when we discussed decomposing a general region into ones
+bounded by graphs.
+\smallskip
+(iv)  {\bf Inequality Property}. If  $f$ and $g$ are integrable on
+$D$ and $f(\r) \le g(\r)$ for every point $\r$ in $D$, then
+\[
+    \iint_D\,f\, dA \le \iint_D\, g\, dA.
+\] 
+\smallskip
+(v) {\bf Average Value Property}  Suppose $f$ is continuous
+on the closed bounded set $D$ in $\R^2$.   Then there is a point
+$\r_0$ in $D$ such that
+\[
+      f(\r_0) = \frac 1{A(D)}\,\iint_D\, f(\r)\, dA,
+\]
+where $A(D)$ is the area of the region $D$.
+\medskip
+
+Rule (v) is actually a simple consequence of rule (iv), so let's
+derive it.   Since $f$ is continuous, and since the domain $D$
+is {\it closed and bounded\/}, $f$ takes on a maximum value
+$M$  and a minimum value $m$.   Since, $m \le f(\r) \le M$,
+rule (iv) gives
+\[
+\iint_D \, m \, dA \le \iint_D\, f(\r)\, dA \le \iint_D\, M\,dA.
+\]
+The constants $m$ and $M$ may be moved out of the integrals
+(by rule (ii)), so dividing by $A(D) = \iint_D\,dA$, we obtain
+\[
+ m  \le \frac 1{A(D)} \iint_D\, f(\r)\, dA \le  M.
+\]
+Again, since $f$ is continuous, it assumes every possible value
+between its minimum value $m$ and its maximum value $M$.  (That
+is called the {\it intermediate value property of continuous
+functions}.)   the quantity in the middle of the inequality
+is one such value, so there is a point $\r_0$ in $D$ such that
+\[
+     f(\r_0) = \frac 1{A(D)} \iint_D\, f(\r)\, dA.
+\]
+For the proofs of the facts about continuous functions that we
+just used, we 
+ must  refer you to that same
+course in real analysis.   (Maybe your curiosity will be whetted
+enough to study the subject some day.)
+
+\subhead Non-integrable Functions, Measure Theory, and
+Some Bizarre Phenomena \endsubhead
+The significance of rule (i) is not too clear unless one has seen
+an example of a non-integrable function.  `Non-integrable'
+ does not mean
+that you can't calculate the integral.   It means that when you
+consider the (Riemann)
+sums which are supposed to approximate the integral, they
+don't stabilize around any fixed limit as the dissections get
+finer and finer.  Since the integral is defined as that limit,
+there can be no well defined integral if there is no limit.
+
+Everyone's favorite non-integrable function (in the plane) is
+defined as follows.   Let the domain $D$ be the unit square
+$0\le x \le 1, 0\le y\le 1$.  Define  $f(x,y) = 1$ if both
+coordinates $x$ and $y$ are rational numbers and $f(x,y) = 0$
+if either $x$ or $y$ is not a rational number.  Note that
+this is a highly discontinuous function since near any point
+there are both points of the first type and points of the
+second type.
+When one forms a Riemann sum
+\[
+  \sum f(x,y) \, \Delta A
+\]
+the point $(x,y)$ in a typical element of area in the dissection
+could be either of the first type or of the second type.
+If the choices are made so they are all of the first type,
+the answer will be $\sum \Delta A$ which is just the area of
+$D$, which is 1.   If the choices are made so they are all of
+the second type, then the sum will be 0.    No matter how
+fine the dissection is, we can always make the choices that
+way, so 1 and 0 are always possible outcomes for the Riemann
+sum.  That shows there is no stable limit for these sums.
+
+Late in the 19th century, mathematicians became dissatisfied
+with the definition of the integral given by Riemann.  
+The example indicates one of the reasons.  Rational numbers
+are much `rarer' than irrational numbers.
+One can make a plausible argument that the function $f$
+defined above is practically always equal to 0, so its
+integral should be zero.   In response to such concerns,
+the  French mathematician Lebesgue developed a more general
+\outind{Lebesgue integral}
+concept of an integral which subsumes Riemann's theory but
+allows more functions (still not all functions) to be integrable.
+Lebesgue's theory was vastly generalized in the 20th century
+to what is  called general {\it measure theory}.
+Although the basic ideas of this theory are quite simple, it
+requires a high level of technical proficiency  with abstract
+concepts and proofs, 
+so it is usually postponed
+until the first year of graduate study in mathematics.  For
+this reason, although the theory is very general and very powerful,
+it is not well understood by non-mathematicians.   Despite that,
+ many ideas in modern physics (and  other areas such
+as probability and statistics) use measure theory,
+so you will probably encounter it in some form.
+
+Of course, I can't really tell you in a brief section what this
+theory is about, but it is worth giving some hints.   To explain
+it, consider the physical problem of determining the total
+mass of a mass distribution distributed over space.  As usual,
+we denote
+the density function $\delta(x,y,z)$. 
+  Then for any subset $E$ of
+$\R^3$, the mass inside $E$ is given by
+\[
+    m(E) = \iiint_E\,\delta(x,y,z)\,dV.
+\]
+Such a function is called a {\it set function}.   It attaches
+to each set a number, called the {\it measure\/} of the
+set; in this case the mass inside it.   So far, this is just a
+\outind{measure theory}
+matter of notation, but the general theory allows us to
+consider measures $m(E)$ which cannot be expressed in terms
+of any density function.   For example, suppose we have a
+collection of point masses $m_1, m_2, \dots, m_n$ at positions
+$\r_1, \r_2,\dots, r_n$.   Then $m(E)$ can be defined to be the 
+sum of
+the masses which happen to be inside $E$.   There is no 
+{\it function\/} $\delta(x,y,z)$ which could give the density
+of such a mass distribution.  $\delta(x,y,z)$ would have to be
+zero except at the points where the masses are.  At such
+points, the density function would have to be infinite, 
+but there would have
+to be some way to account for possible differences among the
+masses.
+  The power
+of the general theory is that one can apply it in a very
+similar way to continuous distributions (for which there is
+a density function) or to discrete distributions or even
+to combinations of the two.
+
+Given  such a set function $m(E)$, one can define the
+integral of a function $f$ 
+with respect to that
+measure.   Namely, consider appropriate dissections
+of the region $E$ into subsets $E_i$, and form sums  
+\[
+     \sum_i f(\r_i)\,m(E_i),
+\]
+where $\r_i$ is in $E_i$.
+If these stabilize around a limiting value, that limit is called
+the integral and is denoted
+\[
+    \iiint_E \,f\,dm.
+\]
+(The details of what dissections to allow and how to take the
+limit are quite involved.)
+To see how general this is, note that for the measure associated
+as above with a finite set of
+point masses $m_1, m_2, \dots, m_n$ at points
+$\r_1,\r_2,\dots,\r_n$ in $E$,  we have simply
+\[
+     \iiint_E\, f\,dm = \sum_i f(\r_i)\,m_i.
+\]
+This also generalizes the ordinary concept of integral since the
+set function $V(E)$ which attaches to each set its volume is
+a perfectly good measure, and the resulting integral is just
+$\iiint_E\,f\,dV$. 
+
+There are two points raised in the above discussion meriting
+further discussion.  The concept of a density function is
+so useful, that physicists were reluctant to give it up, even
+in the case of a point mass.  For this reason, the Nobel
+prize winning physicist Dirac invented a `function' which
+today is called the `Dirac $\delta$ function'.  Here is
+\outind{Dirac $\delta$ function}
+how he reasoned.   We will explain it in the one-dimensional
+case, but it generalizes easily to two and three dimensions.
+  Consider a unit mass on the real line
+$\R$ placed at the origin.
+Associated with this is a measure on subsets $I$ of $\R$  defined by
+$m(I) = 1$ if $I$ contains the origin and $m(I) = 0$ otherwise.
+This measure can also be described by its so-called distribution
+function:  $F(x) = 0$ if $x < 0$, and $F(x) = 1$ if $x > 0$,
+which gives the value of $m(I)$ for
+$I = (-\infty,x)$.  (It is not hard to see that  if you know the
+distribution function  $F(x)$, you can reconstruct
+the measure.)  Dirac's idea amounts  to choosing the density function
+$\delta(x)$ to be the derivative $F'(x)$.  This derivative is
+clearly $0$ except at $x = 0$ where it is undefined.  ($F$ is
+not even continuous at 0, so it certainly isn't
+differentiable.)  However, imagine that the derivative did make sense
+at zero, and that the usual relation between derivatives and
+integrals holds for this derivative.  Then we would have
+\[
+  \int_a^b \delta(x)\,dx = \int_a^b \,F'(x)\,dx = F(b) - F(a)
+\]
+and this would be $0$ unless $a < 0 \le b$ in which case
+it would be 1.  Thus the integral
+$\int_a^b\,\delta(x)\,dx$ would have exactly the right properties
+for the set function associated with a point mass at the
+origin.   Physicists liked this so much that they adopted the
+useful fiction that there actually is such a function
+$\delta(x)$, and they
+ use it freely nowadays in formulas and calculations.  It
+all works out correctly, if one is careful, because a
+statement involving the $\delta$ function
+ usually  makes sense as a statement about set functions
+ if one puts integral signs around it.
+ We will see the $\delta$
+function on several occasions in this course.
+
+  It turns out that Dirac had a better idea than he might have
+realized.  Subsequently, mathematicians developed a rigorous
+concept called a {\it generalized function\/} or 
+{\it distribution\/} which 
+\outind{distribution}
+provides a firm foundation for practically everything the
+physicists want to do.  (The main exponent of this theory
+was the French mathematician Laurent Schwartz.) 
+\outind{Schwartz}
+  
+The final remark concerns the concept of measure.  We said that
+the set function $m(E)$ is defined for {\it every\/} subset,
+but that was wrong.   If the measure is to have reasonable
+properties, for example, if it gives the expected values
+for length, area, or volume (depending on whether we are
+discussing the theory in $\R, \R^2$, or $\R^3$), then it
+is not possible for every subset to have a measure.  There
+must be what are called {\it non-measurable sets\/}.   There
+is an interesting sidelight to the theory called the
+{\it Banach--Tarski Paradox}.   Banach and Tarski 
+\outind{Banach--Tarski paradox}
+ showed that
+it is possible to take a solid sphere of radius 1 in
+$\R^3$ and decompose it into a small number of
+{\it non-overlapping\/} subsets
+(about 5), move these sets by rigid motions (combinations
+of translations and rotations), and then reassemble them
+into two non-overlapping solid spheres, each of radius 1.
+In this process, no point in  any of
+the three spheres is unaccounted for.   This seems
+to say that $2 = 1$, and that would indeed be a consequence
+if the subsets of the dissection were measurable sets and
+so had well defined volumes.   (Volume certainly has to
+satisfy  the additivity rule for non-overlapping sets, and
+it is certainly not changed by translation and rotations.)
+However, the subsets of the dissection are {\it not\/}
+measurable sets, so there is no contradiction, just an
+apparent contradiction or {\it paradox}.
+Moreover, the argument just shows
+that  the relevant dissection {\it exists};
+it doesn't  give a physically realizable method to do it.
+  In fact, no one believes
+that is this is physically possible.
+
+
+\includeexercises{chap4.ex11}
+\endinput

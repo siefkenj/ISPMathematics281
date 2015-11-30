@@ -1,0 +1,199 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 7
+\smallskip
+% 1
+\Exer Find the Taylor Series 
+$\sum_{n=0}^\infty \dfrac{f^{(n)}(t_0)}{n!}(t - t_0)^n$
+for each of the following functions for
+the indicated value of $t_0$.  Do it by finding all the
+derivatives and evaluating them at $t_0$.   Having
+done that, see if you can also find the Taylor series by some
+simpler method.
+
+(a)  $f(t) = e^{-t}, \, t_0 = 0$.
+
+(b)  $f(t) = e^t,\, t_0 = 1$.
+
+(c)  $f(t) = \dfrac 1t,\, t_0 = 1$.
+
+(d)  $f(t) = \cos t, \,  t_0 = \dfrac{\pi}2$.
+
+(e)  $f(t) = \ln t,\, t_0 = 1$.  
+\answer (a) $\sum_{n=0}^\infty \dfrac{(-1)^n}{n!}t^n$.  Put $-t$
+for $t$ in the series for $e^t$.\par
+(b)  $\sum_{n=0}^\infty \dfrac e{n!}(t-1)^n$. Use $e^t = ee^{t-1}$.\par
+(c) $\sum_{n=0}^\infty (-1)^n(t -1)^n$.  Use $\dfrac 1t = \dfrac 1{1 + t -1}$
+and substitute $t -1$ for $t$
+in  the geometric series for $\dfrac 1{1 + t}$.\par
+(d)  $\sum_{n=0}^\infty \dfrac{(-1)^{n+1}}{(2n+1)!}(t - \pi/2)^{2n+1}$.
+Use $\cos t = \cos(\pi/2 + t - \pi/2)  = -\sin(t - \pi/2)$ and
+substitute $t - \pi/2$ for $t$ in the series for $\sin t$.\par
+(e) $\sum_{n=1}^\infty \dfrac{(-1)^{n+1}}n(t-1)^n$.  Use
+$\ln t = \ln(1 + t -1)$ and substitute $t-1$ for $t$ in the series
+for $\ln(1 + t)$.
+
+% 2
+\Exer  By differentiating the Taylor series expansion for $\sin t$
+at $t_0 = 0$,
+check that you get the Taylor series expansion for $\cos t$.
+\answer  We have
+$$\dfrac d{dt} \sum_{n=0}^\infty \dfrac{(-1)^{n+1}}{(2n+1)!}t^{2n+1}
+  =  \sum_{n=0}^\infty \dfrac{(-1)^{n+1}}{(2n+1)!}(2n+1)t^{2n}
+    =  \sum_{n=0}^\infty \dfrac{(-1)^{n+1}}{(2n)!}t^{2n}
+$$
+which is the series for $\cos t$.
+
+% 3
+\Exer  In complex variable courses, one studies power series
+where the independent variable, usually called $z$, 
+is allowed to assume complex
+values.   It is very much like the the theory outlined in this
+section.   With this in mind, verify the identity
+$$
+e^{it} =  \cos t + i\sin t
+$$
+by calculating the series on both sides of the equation.
+\answer  Use $i^{2k} = (-1)^k$ for $n = 2k$ even and
+$i^{2k+1} = (-1)^ki$ for $n = 2k+1$ odd.   Then
+$$
+\align
+e^{it} &= \sum_{n=0}^\infty \frac 1{n!}(it)^n
+     = \sum_{n=0}^\infty \frac 1{n!}i^nt^n \\
+    &= \sum_{k=0}^\infty \frac 1{(2k)!}(-1)^kt^{2k} +
+     \sum_{k=0}^\infty \frac 1{(2k+1)!}(-1)^kit^{2k+1} \\
+    &= \sum_{k=0}^\infty \frac 1{(2k)!}(-1)^kt^{2k} +
+     i\sum_{k=0}^\infty \frac 1{(2k+1)!}(-1)^kt^{2k+1}
+ = \cos t + i\sin t.
+\endalign
+$$
+
+% 4
+\Exer  How many terms of the Taylor series expansion of
+$\cos t$ at $t_0 = 0$ are needed to calculate  $\cos(1)$
+to within $5\times 10^{-16}$?  Hint:  The series is an alternating
+series
+\answer  The series is $\sum_{n=0}^\infty \dfrac{(-1)^n}{(2n)!}1^{2n}$
+so we want the absolute value of the next term $\dfrac 1{(2n + 2)!}
+< 5\times 10^{-16}$, i.e., $(2n + 2)! > 2\times 10^{15}$.
+By trial and error, with some help from Maple, we see that  this
+entails $2n+2 \ge 18$ so
+$n = 8$ is the smallest value which we are
+sure will do.  (Since we are only estimating errors rather than
+calculating them exactly, it is possible that a smaller value of
+$n$ might work, but we can't be sure of that.)  This actually invovles
+using $9$ terms of the series since the series starts with 
+$n = 0$.  Also, if one thinks of the alternating series as being
+a Taylor series with odd powers of $t$ missing because the coefficients
+are zero, then there are 18 terms, i.e., terms form $t^0$ up to and including
+$t^{17}$ which has coefficient zero.\par
+As mentioned earlier, there is a formula called Stirling's formula for
+estimating factorials which is sometimes useful in such calculations.
+Stirling's formula says that for large $n$
+$$
+   n! \approx \sqrt{2\pi}n^{n+1/2}e^{-n}
+$$
+in the sense that the quotient approaches 1 as $n \to \infty$.
+Thus, for $n = 17$, Stirling's formula gives
+$n! \approx .3539483286\times 10^{15}$, where Maple was used to
+do the calculation.   On the other hand, when Maple was asked for
+an exact value, it gave
+$17! =  355687428096000 \approx .3556874281\times 10^{15}$, so you can see the
+two are quite close together.   As long as we are using trial and error
+to determine $n$, there isn't much
+point in using Stirling's formula in such examples when we
+have Maple handy.   (However, if we wanted to determine $n$ by
+`solving' the inequality $n! \ge A$ where $A$ is a specified number,
+then we might first approximate $n!$ by Stirling's formula and then
+use some method like Newton's method or some other equation solver
+to determine $n$.  The expression in Stirling's formula, of course,
+is much too complicated for us to solve the inequality directly.)    
+
+% 5
+\Exer  How many terms of the Taylor series expansion of
+$e^t$ at $t_0 = 0$ are necessary to calculate $e$ to
+within $5\times 10^{-16}$?
+How about $e^{10}$ to
+within $5\times 10^{-16}$?
+ Hint:  The series is {\it not\/} an alternating
+series.
+\answer According to the discussion in the section, we have
+the following estimate for the remainder in calculating
+$e^t$ for $t = 1$
+$$
+|R_n| \le \dfrac 3{(n+1)!}1^{n+1} = \dfrac 3{(n+1)!}.
+$$
+Hence, we want $\dfrac 3{(n+1)!} < 5\times 10^{-16}$ or
+$(n+1)! > 6\times 10^{15}$.   For this, we need $n + 1 \ge 18$ so
+$n = 17$ is the smallest value which we are sure will work. \par
+To determine the number of terms for $e^{10}$, we must look more
+carefully at the analysis of the error in Example 6 in the section.
+The general remainder estimate for $e^t$ for $t > 0$ is 
+$$ 
+|R_n| \le \dfrac {e^t}{(n+1)!}t^{n+1}
+$$
+so we want to choose $n$ with 
+$\dfrac {e^{10}}{(n+1)!}10^{n+1} < 5\times 10^{-16}$.   If we knew
+$e$ exactly, we could of course calculate $e^{10}$ exactly, so
+we don't want to use such information in this estimate.  Hence, we
+replace $e^{10}$ on the right by something larger, say $2.8^{10}$.
+Thus, we want $n$ such that $\dfrac {2.8^{10}}{(n+1)!}10^{n+1}< 5\times 10^{-16}$,
+i.e., $(n+1)!10^{-(n+1)} \ge 6\times 2.8^{10}\times 10^{15}
+ \approx 1.777\times 10^{20}$.
+Some experimatation with Maple shows that $n + 1 = 58$ or
+$n = 57$ is the smallest value we can be sure will work.\par 
+
+
+% 6
+\Exer   Use Taylor series to calculate $\sin(100)$ accurately
+to with $5\times 10^{-4}$.   Hint:  Don't use the series at $t_0 = 0$.  
+\answer  You can't use the series for $t_0 = 0$ because although
+it is an alternating series for $t = 100$, the terms don't start
+to decrease until $n$ is very large.  Hence, you would have to
+use an enormous number of terms.  It is better to use the
+periodicity of the sine function and choose the closest value of
+$k\pi$ to 100.  Some calculation shows that $32\pi \approx 100.5309649$
+so it makes sense to use
+$\sin 100 = \sin(100 - 32\pi + 32\pi) = -\sin(32\pi - 100)$.
+For $u = 32\pi - 100$, the series for $\sin u$ is a well
+behaved alternating series, so we need to choose $n$ so that
+$\dfrac 1{(2n+3)!}u^{2n+3} < 5\times 10^{-4}$.  Some trial
+and error shows that $n = 1$ is the smallest value of $n$
+we can be sure will work.  (Since we are only making estimates,
+it is possible that $n = 0$ will also work.)   Hence,
+$$
+\sin 100 \approx -(u - u^3/6) \approx -.506.
+$$
+According to Maple,
+$$
+\sin 100 \approx -.5063656411.
+$$
+Note that I used Maple to help make these calculations, but any one
+of them could have been done accurately enough with a hand calculator
+or even by hand.  It is of course important in doing such calcuations
+that the number of decimal places used to specify $u$ is large enough
+so that we don't introduce an error in the third decimal place because
+$u$ is not given accurately enough.
+
+% 7
+\Exer  For each of the following functions, determine
+the radius of convergence of its Taylor series for $t_0 = 0$.
+
+(a) $f(t) = \dfrac{1 + t}{t - 2}$.
+
+(b) $f(t) = \dfrac{2t}{1 + 2t^2}$.
+
+(c) $f(t) = \dfrac 1{1 - t^3}$.
+
+(d) $f(t) = \dfrac 1{(t - 4)(t^2 + 3)}$.
+
+It is not necessary to actually find the Taylor series.
+\answer Find the distance to the nearest complex singularity.\par
+(a) $R = 2$. \par
+(b)  $1 + 2t^2 = 0$ when $t = \pm\dfrac i{\sqrt 2}$.
+$R = \dfrac 1{\sqrt 2}$.\par
+(c) $R = 1$.  This one is a bit subtler than you might think.
+There is a singularity at $t = 1$, but there are also complex
+singularities at $t = \dfrac { -1 +i\sqrt 3}2$ and $t =\dfrac{ -1 -i\sqrt 3}2$.
+However, these singularities are also at unit distance from $t = 0$.\par
+(d) $R = \sqrt 3$.
+

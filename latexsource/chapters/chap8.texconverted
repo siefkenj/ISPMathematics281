@@ -1,0 +1,3255 @@
+\nextsec{Series Solutions of a Differential Equation}
+\head \sn.  Series Solutions of a Differential Equation \endhead
+
+There are several second order
+linear differential equations which arise in mathematical
+\outind{series solution of a differential equation}
+\outind{Legendre's equation}
+\outind{Bessel's equation}
+\outind{Euler's equation}
+physics which cannot be solved by the methods introduced in the
+previous chapter.  Here are some examples
+\begin{gather*}
+y'' -\frac{2t}{1 - t^2}y' + \frac{\alpha(\alpha + 1)}{1 - t^2} y = 0
+\qquad\text{Legendre's equation}\\
+t^2 y'' + ty' + (t^2 - \nu^2)y = 0\qquad\text{Bessel's equation}\\
+ty'' + (1 - t)y' + \lambda y = 0 \qquad\text{Laguerre's equation}
+ \end{gather*}
+A related equation we studied (in the Exercises to Chapter VII, Sections
+4 and 8) is
+\[
+y'' +\frac{\alpha}t y' + \frac{\beta}{t^2} y = 0 \qquad\text{Euler's
+equation}.
+\]
+These equations and others like them arise as steps in solving 
+important partial differential equations such as Laplace's
+equation, the wave equation, the heat equation, or Schroedinger's
+equation.  Their solutions are given appropriate names:
+{\it Legendre functions, Bessel Functions\/}, etc.  Sometimes
+these {\it special functions\/} can be expressed in terms of
+other known functions, but usually they are entirely new
+functions.  One way to express these solutions is as {\it infinite
+series\/}, and we investigate that method here.
+
+\example{Example}  Consider
+\nexteqn
+\[
+(1 - t^2)y'' - 2t y' + 6 y = 0\tag{\eqn}
+\]
+which is Legendre's equation for $\alpha = 2$.   The simplest possible
+functions are the {\it polynomial functions\/},
+ those which can be expressed as combinations of powers of $t$
+\[
+y = a_0 + a_1t + a_2t^2 +  a_3t^3 + a_4t^4 + \dots + a_dt^d.
+\]
+The highest power of $t$ occurring in in such an expression is called
+its {\it degree}.  We shall try to find a solution of
+(\eqn) which is a polynomial function
+{\it without\/} committing ourselves about its degree in advance.  We have
+\begin{align*}
+y &= a_0 + a_1t + a_2t^2 +  a_3t^3 + a_4t^4 + \dots + \\
+y'&={\hskip 20pt} a_1{\hskip 5pt}+ 2a_2t +  3a_3t^2 + 4a_4t^3 + \dots  \\
+y''&={\hskip 45pt}2a_2{\hskip 5pt} + 6a_3t + 12a_4t^2 + \dots 
+\end{align*}
+Note that these equations tell us that $y(0) = a_0$ and
+$y'(0) = a_1$, so the first two coefficients just give
+us the initial conditions at $t = 0$.
+
+We have
+\begin{align*}
+1\,y'' &= 2a_2 + 6a_3t + 12a_4t^2 + 20a_5t^3 + \dots \\
+-t^2y''&={\hskip 50pt}-2a_2t^2  -6a_3 t^3  -\dots  \\
+-2ty'&={\hskip 15pt}-2a_1t  -4a_2t^2 - 6a_3 t^3 - \dots  \\
+6y &=  6a_0 + 6a_1t + 6a_2t^2 + 6a_3t^3 + \dots 
+\end{align*}
+The sum on the left is $(1 - t^2)y'' -2ty' + 6y$ which is
+assumed to be zero.
+ If we add up the coefficients
+of corresponding powers of $t$ on the right,
+we obtain
+\[
+ 0 = 
+2a_2 + 6a_0  + (6a_3 + 4a_1)t +
+12a_4t^2  +  (20a_5 - 6a_3)t^3 + \dots
+\]
+Setting the coefficients of each power of $t$ equal
+to zero, we obtain
+\[
+2a_2 + 6a_0 =0\quad 6a_3 + 4a_1= 0\quad
+12a_4 = 0\quad 20a_5 - 6a_3 = 0 \quad\dots
+\]
+Thus,
+\begin{align*}
+a_2 &= -3a_0 \\
+a_3 &= -\frac 23 a_1 \\
+a_4 &= 0 \\
+a_5 &= \frac 3{10} a_3 = -\frac 15 a_1 \\
+&\vdots
+\end{align*}
+The continuing pattern is more or less clear.  Each succeeding
+coefficient $a_n$ is expressible as a multiple of the coefficient 
+$a_{n-2}$ two steps lower.   Since $a_4 = 0$, it follows
+that all coefficients $a_n$ with $n$ even must vanish for $n \ge 4$.
+On the other hand, the best that can be said about the coefficients
+$a_n$ with $n$ odd is that ultimately each of them may be
+expressed in terms of $a_1$.
+It follows that if we separate out even and odd powers
+of $t$, the solution looks something like
+\begin{align*}
+y &= a_0 -3a_0t^2 + a_1t -\frac 23 a_1 t^3 -\frac 15 a_1 t^5 + \dots \\
+ &= a_0(1 - 3t^2) + a_1(t -\frac 23 t^3 -\frac 15 t^5 + \dots).
+\end{align*}
+Consider first the solution satisfying the initial conditions
+$a_0 = y(0) = 1, a_1 = y'(0) = 0$.  The corresponding solution is
+\[
+y_1 = 1 - 3t^2
+\]
+which is a polynomial of degree 2, just as expected.
+(However, notice that we had no way to predict in advance that
+it would be of degree 2.)  The meaning of the `solution'
+obtained by putting $a_0 = 0$ and $a_1 = 1$ is not so clear.
+It appears to be a `polynomial'
+\[
+y_1 = t - \frac 23 t^3 - \frac 15 t^5 + \dots
+\]
+which goes on forever.  In fact, it is what is called an
+{\it power series}.    This is just one example of many
+\outind{power series}
+where one must represent a function in terms of an infinite
+series.   We shall concern ourselves in the rest of this
+chapter with the theory of such series with the ultimate aim
+of understanding how they may be used to solve differential
+equations.   For many of you this may be review, but you
+should pay close attention since some points you are not
+familiar with may come up.
+\endexample
+
+
+
+\bigskip
+\includeexercises{chap8.ex1}
+\bigskip
+\nextsec{Definitions and Examples}
+\head \sn. Definitions and Examples \endhead
+
+A series is a sequence of terms $u_n$ connected by `$+$' signs
+\[
+ u_1 + u_2 + u_3 + \dots + u_n + \dots
+\]
+The idea is that if there are infinitely
+many terms, the summation process is supposed to go on
+forever.   Of course, in reality that is impossible, but perhaps
+after we have added up sufficiently  many terms, the contributions
+of additional terms will be so negligible that they really
+won't matter.   We shall make this idea a bit more precise
+below.
+
+The terms of the series can be positive, negative or zero.  They
+can depend on variables or they can be constant.   The summation
+can start at any index.  In the general theory we assume the
+first term is $u_1$, but the summation could start just as
+well with $u_0$, $u_6$, $u_{-3}$, or any convenient index.
+
+Here are some examples of important series
+\begin{align*}
+1 + t + t^2 + \dots + t^n + \dots\qquad&\text{geometric series}\\
+1 + \frac 12 + \frac 13 + \dots + \frac 1n + \dots\qquad&\text{harmonic
+series}\\
+t - \frac{t^3}{3!} + \frac{t^5}{5!} - \dots +(-1)^n\frac{t^{2n+1}}{(2n+1)!}
++\dots \qquad&\text{Taylor series for } \sin t 
+\end{align*}
+In the first series, the general term is $t^n$ and the numbering starts
+with $n = 0$.   In the second series, the general term is $1/n$ and
+the numbering starts with $n = 1$.
+
+Series are often represented more compactly using `$\Sigma$'-notation
+\[
+\sum_{n = 1}^\infty u_n.
+\]
+For example,
+\begin{align*}
+\sum_{n=0}^\infty t^n\qquad&\text{is the geometric series}\\
+\sum_{n=1}^\infty \frac 1n\qquad&\text{is the harmonic series}
+\end{align*}
+\outind{geometric series}
+\outind{harmonic series}
+
+The notion of the sum of an infinite series is made precise
+as follows.  Let
+\begin{align*}
+s_1 &= u_1 \\
+s_2 &= u_1 + u_2 \\
+s_3 &= u_1 + u_2 + u_3 \\
+&\vdots \\
+s_n &= u_1 + u_2 + \dots + u_n = \sum_{j=1}^n u_j\\
+&\vdots
+\end{align*}
+$s_n$ is called the {\it $n$th partial sum}.  It is obtained by
+adding the $n$th term $u_n$ to the previous partial sum,
+i.e.,
+\[
+   s_n = s_{n-1} + u_n.
+\]
+Consider the behavior of the {\it sequence\/} of
+partial sums  $s_1, s_2, \dots, s_n, \dots$ as $n \to \infty$.
+If this sequence approaches a finite limit
+\[
+\lim_{n \to \infty} s_n = s
+\]
+then we say the series {\it converges\/} and that $s$ is its
+{\it sum}.   Otherwise, we say that the series {\it diverges}.
+
+\example{Example}  Consider the geometric series
+\[
+1 + t + t^2 + \dots + t^n + \dots = \sum_{n=0}^\infty t^n.
+\]
+The partial sums are
+\begin{align*}
+s_0 &= 1 \\
+s_1 &= 1 + t \\
+s_2 &= 1 + t + t^2 \\
+&\vdots\\
+s_n &= 1 + t + t^2 + \dots + t^n = \frac{1 - t^{n+1}}{1 -t}\\
+&\vdots
+\end{align*}
+The formula for $s_n$ should be familiar to you from high school
+algebra, it is the sum of the first $n + 1$ terms of a geometric
+progression with starting term 1 and ratio $t$.  It applies
+as long as $t \not= 1$.   Let $n \to \infty$.
+There are several cases to consider.
+
+Case (a).  $|t| < 1$.   Then, $\lim_{n\to \infty} t^n = 0$
+so $\lim_{n\to\infty} s_n = \dfrac 1{1 -t}$.  Hence, in this
+case the series converges and the sum is $1/(1 - t)$.
+
+Case (b)  $t = 1$.  Then $s_n = n \to \infty$, so the
+series diverges.  We might also say in a case like this
+that the sum is $\infty$.
+
+Case (c)  $t = -1$.   Then the series is
+\[
+1 - 1 + 1 - 1 + 1 - \dots
+\]
+and the partial sums $s_n$ alternate between 1 ($n$ odd)
+ and 0  ($n$ even).  As a result
+they don't approach any definite limit as $n \to \infty$.
+
+Note that in cases (b) and (c) it is {\it not\/} true that
+$1/(1- t)$ is the sum of the series, since that sum 
+is not well defined.  However, in case (c) ($t = -1$),
+we have $1/(1-t) = 1/2$
+which is the average of the two possible partial sums
+1 and 0.
+
+Case (d).  Assume $t > 1$.  In this case, it might be more
+appropriate to write
+\nexteqn
+\[
+  s_n = \frac{t^{n+1} - 1}{t - 1}.\tag{\eqn}
+\]
+As $n \to \infty$, $t^{n+1} \to \infty$, so the series
+diverges.  However, since $t^n$ increases without limit,
+it would also be appropriate in this case to say the sum
+is $\infty$.
+
+Case (e).   Assume $t < -1$.   Then in (\eqn), the term
+$t^{n+1}$ oscillates wildly between positive and negative
+values, and the same is true of $s_n$.  Hence, $s_n$
+approaches no definite limit as $n\to \infty$, and the 
+series diverges.
+
+To summarize, {\it the geometric series $\sum_{n=0}^\infty t^n$
+converges to the sum $\dfrac 1{1-t}$
+ for $-1 < t < 1$ and diverges otherwise.}
+\endexample
+
+\subhead Properties of Convergence \endsubhead
+We list some important properties of convergent and divergent
+series.
+\medskip
+1. {\it Importance of the tail}.  Whether or not a series converges
+does not depend on any {\it finite\/} number of terms.  Thus,
+\outind{tail of a series, importance of}
+one should not be misled by what happens to the first few
+partial sums.  (In this context `few' might mean the first
+10,000,000 terms!)  Convergence of a series depends on
+the limiting behavior of the sequence of partial sums, and
+no finite number of terms in that sequence will tell you
+for sure what is happening in the limit.
+
+Of course, the actual {\it sum\/} of a convergent series
+depends on all the terms.
+\medskip
+
+2. {\it The general term $u_n$ of a convergent series always
+approaches zero}.   For, as noted earlier
+\[
+   s_n = s_{n-1} + u_n.
+\]
+If $s_n$ approaches a finite limit $s$, then it is not hard
+to see that $s_{n-1}$ approaches this same limit $s$.  Hence,
+\[
+\lim_{n\to \infty} u_n = \lim_{n\to\infty} s_n - \lim_{n\to \infty}
+s_{n-1} = s - s = 0.
+\]
+This rule provides a quick check for divergence in special cases.
+For example, the series
+\[
+\frac 12 + \frac 23 + \dots \frac n{n+1} + \dots
+\]
+cannot possibly converge because
+\[
+\lim_{n\to \infty} \frac n{n+1} = 1 \not=0.
+\]
+(That limit can be calculated using L'H\^opital's Rule or
+rewriting $\dfrac n{n+1} = \dfrac 1{1 + 1/n}$.)
+\medskip
+3. {\it The harmonic series $\sum_{n=1}^\infty 1/n$ diverges.}
+This is important because it shows us that the converse of
+the previous assertion is not true.  That is, it is possible
+that $u_n \to 0$ as $n\to \infty$ and the series still diverges.
+Many people find this counter-intuitive.  Apparently, it
+is hard to believe that the sum of infinitely many things
+can be a finite number, and having convinced oneself that
+it can happen, one seeks an explanation.  The explanation
+that comes to mind is that it can happen because the
+terms are getting smaller and smaller.  However, as the
+example of the harmonic series shows, {\it that is not
+enough}.  There are of course many other examples.
+\smallskip
+Here is a {\it proof\/}
+ that the harmonic series diverges.  We use the principle
+that if $s_n$ approaches a finite limit $s$, then any subsequence
+obtained by considering infinitely many selected values of $n$
+would also approach this same finite limit.   Consider, in particular,
+\begin{align*}
+s_2 &= 1 + \frac 12 = \frac 32\\
+s_4 &= s_2 + \frac 13 + \frac 14 > \frac 32 + 2\left(\frac 14\right) = \frac 42 \\
+s_8 &= s_4 + \frac 15 + \frac 16 + \frac 17 + \frac 18 >
+\frac 42 + 4\left(\frac 18\right) = \frac 52\\
+s_{16} &= s_8 + \undersetbrace{8\ \text{terms}}
+\to{\frac 19 + \dots +\frac 1{16}} > \frac 52 + 8\left(\frac 1{16}\right) = \frac 62\\
+&\vdots
+\end{align*}
+Continuing in this way, we can show in general that
+\[
+s_{2^k} > \frac {k+2}2.
+\]
+Since the right hand side is unbounded as $k \to \infty$, the
+sequence $s_{2^k}$ cannot approach a finite limit.    It follows that
+$s_n$ cannot approach a finite limit.
+\medskip
+The harmonic series also provides a warning to those who would
+compute without thinking.   If you naively add up the terms
+of the harmonic series using a computer, the series will appear to
+approach a finite sum.  The reason is that after the partial
+sums attain a large enough value, each succeeding term will
+get lost in round-off error and not contribute to the accumulated
+sum.   The exact `sum' you will get will depend on the word
+size in the computer, so it will be different for different
+computers.  We shall see other examples of this phenomenon below.
+The moral is to be very careful about how you add up a large
+number of small terms in a computer if you want an accurate
+answer.
+\medskip
+4. {\it Algebraic manipulation of series}.     One may perform
+many of the operations with series that one is familiar
+with for finite sums, but some things don't work.
+
+For example, the sum or difference of two convergent series
+is convergent.  Similarly, any  multiple of  a convergent
+series is convergent.
+
+\nextex
+\example{Example \en}  Each of the series $\sum_{n=0}^\infty
+\dfrac 1{2^n}$ and $\sum_{n=0}^\infty\dfrac 1{3^n}$ is a
+geometric series with a $|t| < 1$.  ($t = 1/2$ for the first
+and $t = 1/3$ for the second.)  Hence, both series converge
+and so does the series
+\[
+\sum_{n=0}^\infty \left(\frac 1{2^n} + \frac 1{3^n}\right).
+\]
+In fact, its sum is obtained by adding the sums of the two
+constituent series
+\[
+  \frac 1{1 - 1/2} + \frac 1{1 - 1/3} = 2 + \frac 32 = \frac 72.
+\]
+\endexample
+
+\nextex
+\example{Example \en}
+\[
+\sum_{n=0}^\infty t^{n+1} = t\sum_{n=0}^\infty t^n = t\frac 1{1-t} = 
+\frac t{1-t}
+\]
+is valid for $-1 < t < 1$.
+\endexample
+
+On occasion, you can combine divergent series to get a
+convergent series.
+
+\nextex
+\example{Example \en}  Consider the two series
+\[
+\sum_{n=1}^\infty \frac 1n\qquad\text{and}\qquad
+\sum_{n=1}^\infty \frac 1{n+1}.
+\]
+The first is the harmonic series, which we saw is not convergent.
+The second series is
+\[
+\frac 12 + \frac 13 + \frac 14 + \dots + \frac 1{n+1} + \dots
+\]
+which is the harmonic series with the first term omitted.  Hence,
+it is also divergent.  However, the difference of these two
+divergent series is
+\[
+\sum_{n=1}^\infty \left(\frac 1n - \frac 1{n+1}\right)
+=
+\sum_{n=1}^\infty \frac 1{n(n + 1)},
+\]
+and this series is convergent.  (This follows by one of the
+tests for convergence we shall investigate in the next section,
+but it may also be checked directly.  See the
+Exercises.)
+\medskip
+However, {\it not all manipulations are valid}.
+\nextex
+\example{Example \en}  We saw that the series
+\[
+1 - 1 + 1 - 1 + 1 - 1 + \dots
+\]
+is not convergent.  However, we may produce a convergent series
+of regrouping terms
+\[
+(1 - 1) + (1 - 1) + (1 - 1) + \dots = 0 + 0 + 0 + \dots
+\]
+or
+\[
+1 + (-1 + 1) + (-1 + 1) + \dots = 1 + 0 + 0 + 0 + \dots
+\]
+\endexample
+
+{\it Generally speaking, regrouping of terms so as to produce a
+new series won't produce correct results\/}, although in certain 
+important cases it does work.  We shall return to this point in
+Sections 3 and 5.    
+\bigskip
+\includeexercises{chap8.ex2}
+\bigskip
+
+\nextsec{Series of Non-negative Terms}
+\head \sn. Series of Non-negative Terms \endhead
+
+Some of the strange things that happen with series result from
+trying to balance one `infinity' against another.  Thus, if
+infinitely many terms are positive, and infinitely many terms are
+negative, the sum of the former might be `$+\infty$' while
+the sum of the latter might be `$-\infty$', and the result
+of combining the two is anyone's guess.   For
+series $\sum_n u_n$ in which all the terms have the same sign,
+ that is not a problem, so
+such series are much easier to deal with.  In this section
+we shall consider series in which all terms $u_n \ge 0$, but
+analogous conclusions are valid for series in which all $u_n \le 0$.
+
+Let $\sum_{n=1}^\infty u_n$ be such a series with non-negative
+terms $u_n$.   In the sequence of partial sums
+we have
+\[
+ s_n = s_{n-1} + u_n \ge s_{n-1},
+\]
+i.e., the next term in the sequence is never less than the
+previous term.  There are only two possible ways such a sequence
+can behave.
+\roster
+\item "(a)" The sequence $s_n$ can grow without bound.  In that case
+we say $s_n \to \infty$ as $n \to \infty$.
+\item "(b)"  The sequence $s_n$ can remain bounded so no $s_n$
+ever exceeds some preassigned upper limit.  In that case, the
+sequence must approach a finite limit $s$, i.e.,
+$s_n \to s$ as $n \to \infty$.
+\endroster
+The fact that non-decreasing sequences behave this way is a fundamental
+property of the real number system called {\it completeness}.
+
+\medskip
+\centerline{\epsfbox{s8-1.ps}}
+\medskip
+\example{Example}  Consider the decimal expansion of $\pi$.  It
+may be considered the limit of the sequence
+\begin{align*}
+s_1 & = 3 \\
+s_2 &= 3.1 \\
+s_3 &= 3.14 \\
+s_4 &= 3.141 \\
+s_5 &= 3.1415 \\
+s_6 &= 3.14159 \\
+&\vdots
+\end{align*}
+This is a sequence of numbers which is bounded above (for
+example, by 4), so (b) tells us that it approaches a finite
+limit, and that limit is the real number $\pi$.
+\endexample
+
+Note that for series, with terms alternately positive and
+negative, the above principle does not apply.  
+
+\example{Example}  For the series $1 - 1 + 1 - 1 + 1 - \dots$,
+the partial sums are 
+\begin{align*}
+s_1 &= 1 \\
+s_2 &= 0 \\
+s_3 &= 1 \\
+s_4 &= 0 \\
+&\vdots
+\end{align*}
+so although the sequence is bounded above (and also below),
+it never approaches a finite limit.
+
+{\it For series consisting of terms all of the same sign (or zero),
+rearranging the terms does not affect convergence or divergence
+or the sum when convergent}.   We won't try to prove this in this
+course because we would first have to define just precisely what
+we mean by `rearranging' the terms of a series.   You can find a
+proof in any good calculus book.  (See for example {\it Calculus\/}
+by Tom M.  Apostol).
+
+\subhead The Integral Test \endsubhead
+Suppose we have a series $\sum_{n=1}^\infty u_n$ where
+each term is positive ($u_n > 0$) and moreover the terms
+\outind{integral test for convergence}
+decrease
+\[
+  u_1 > u_2 > \dots > u_n > \dots
+\]
+Suppose in addition that $\lim_{n \to \infty} u_n = 0$.
+Often it is possible to come up with a function $f(x)$
+of a real variable such that $u_n = f(n)$ for each $n$.
+This function should be continuous and it should also
+be decreasing and approach 0 as $x \to \infty$.
+Then, there is a very simple test to check whether
+or not the series converges.
+\medskip
+{\it $\sum_n u_n$ converges if and only if the improper integral
+$\int_1^\infty f(x)\,dx$ is finite.}
+\medskip
+\nextex
+\example{Example \en}
+The harmonic series $\sum_n 1/n$ satisfies the above conditions
+and we may take $f(x) = 1/x$.  Then
+\[
+\int_1^\infty \frac 1x dx = \lim_{X \to \infty} \int_1^X\frac {dx}x
+  = \lim_{X \to \infty}\left. \ln x\right|_1^X =
+  \lim_{X \to \infty} \ln X = \infty.
+\]
+It follows that the series diverges, a fact we already knew.
+\endexample
+
+The reason why the integral test works is fairly clear
+from some pictures.  
+From the diagram below
+\medskip
+\centerline{\epsfbox{s8-2.ps}}
+\medskip
+\[
+s_n = u_1 + u_2 + \dots + u_n \ge \int_1^{n+1} f(x) dx 
+\]
+Hence, if $\int_1^\infty f(x)dx = \lim_{n \to \infty}\int_1^{n+1} f(x)dx
+ = \infty$, it follows that the sequence $s_n$ is not bounded
+and (a) applies, i.e., $s_n \to \infty$ and the series diverges.
+On the other hand from the diagram below,
+\medskip
+\centerline{\epsfbox{s8-3.ps}}
+\medskip
+
+\[ s_n - u_1 = u_2 + u_3 + \dots + u_n \le \int_1^n f(x)dx.
+\]
+Hence, by similar reasoning if the integral is finite, the
+sequence $s_n$ is bounded, so by (b) it approaches a limit,
+and the series converges.
+
+\nextex
+\example{Example \en}  The series $\sum_1^\infty \dfrac 1{n^p}$
+with $p > 0$
+is called the `$p$-series'.  The conditions of the integral
+test apply, and we may take $f(x) = 1/x^p$.  Then, with the
+exception of the case $p = 1$, which we have already dealt with,
+we have
+\[
+\int_1^\infty \frac{dx}{x^p} =
+\lim_{X\to \infty}\int_1^X\frac{dx}{x^p} =
+\lim_{X\to \infty}\left.\frac{x^{-p+1}}{-p + 1}\right|_1^X
+ = \lim_{X\to \infty}\frac 1{1-p}[ X^{1 - p} -1].
+\]
+If $p > 1$, then $X^{1-p} = \dfrac 1{X^{p-1}} \to 0$
+so the above limit is $\dfrac 1{p-1}$ (finite), and the
+series converges.
+On the other hand, if $0 < p < 1$, then $1 - p > 0$ and
+$X^{1-p} \to \infty$, so the above limit is not finite and the
+series diverges.
+For $p = 1$, the series is the harmonic series which we already
+discussed.
+Hence, we conclude that the `$p$-series' diverges for
+$0 < p \le 1$ and converges for $p > 1$.  
+\endexample
+
+{\bf Error estimates with the integral test.}
+The integral test may be refined to estimate the speed at
+which a series converges.   Suppose $\sum_n u_n$ is
+\outind{integral test, error estimate}
+\outind{error estimate for sum of a series by integral test}
+convergent and its sum is $s$.   
+Decompose $s$ as follows
+\[
+s = \undersetbrace{s_n}\to{u_1 + u_2 + \dots + u_n}
+ + \undersetbrace{R_n}\to{u_{n+1} + u_{n+2} + \dots }
+\]
+Here, $R_n = s - s_n = \sum_{j = n+1}^\infty u_j$ is the
+error you make if you stop adding terms after the $n$th term.
+It is sometimes called the {\it remainder}.  From the diagram
+below, you can see that
+\nexteqn
+\[
+\int_{n+1}^\infty f(x)dx < R_n = \sum_{j=n+1}^\infty u_n < \int_n^\infty
+f(x)dx.\tag{\eqn}
+\] 
+\medskip
+\centerline{\epsfbox{s8-4.ps}}
+\medskip
+
+\nextex
+\example{Example \en}  Consider the series $\sum_{n=1}^\infty 1/n^2$.
+We have
+\[
+\int_{n+1}^\infty \frac{dx}{x^2} < R_n < \int_n^\infty \frac{dx}{x^2}.
+\]
+Evaluating the two integrals, we obtain
+\[
+\frac 1{n+1} < R_n < \frac 1n.
+\]
+This gives us a pretty good estimate of the size of the error.  For
+$n$ large, the upper and lower estimates are about the same, so
+is makes sense to say $R_n \approx 1/n$.  For example, I used
+Mathematica to add up 100 terms of this series and got
+(to 5  decimal places) $1.63498$, but it is known that the true
+sum of the series is $\pi^2/6$ which (to 5 decimal places) is $1.64493$.  As
+you see, they differ in the second decimal place, and the error
+is about $1/100 = .01$ as predicted.  
+
+{\bf A common blunder}.   It is often suggested that when adding
+up terms of a series on a computer, it suffices to stop when
+the next term you would add  is less than the error you
+are willing to tolerate.  The above example shows that this
+suggestion is nonsense.  For, if you were willing to accept
+an error of $.0001 = 10^{-4}$, you would then stop when $1/n^2 < .10^{-4}$
+ or
+$n^2 > 10^4$ or $n > 100$.  However, the above analysis shows
+that the actual error at that stage would be about $1/100 = .01$.
+
+This rule makes even less sense for a divergent series like the
+harmonic series because it tells you that its sum is finite.  
+
+\subhead The Comparison Test \endsubhead
+By a variation of the reasoning used to derive the
+integral test, one may derive the following criteria to
+\outind{comparison test for convergence of a series}
+determine if a series $\sum_n u_n$
+of non-negative terms converges or diverges.
+\medskip
+(a)  If you can find a convergent series $\sum_{n=1}^\infty a_n$
+such that $u_n \le a_n$ for every $n$, then $\sum_{n=1}^\infty u_n$
+also converges.
+  \smallskip
+(b)  If you can find a divergent series $\sum_{n=1}^\infty b_n$
+of non-negative terms such that $b_n \le u_n$, then
+$\sum_{n=1}^\infty u_n$ also diverges.
+\medskip
+
+
+\nextex
+\example{Example \en}
+The series
+$\sum_{n=1}^\infty \dfrac {\ln n}{n}$ diverges because
+it can be compared to the harmonic series, i.e.,
+\[
+   \frac{\ln n}n \ge \frac 1n\qquad\text{for } n > 1,
+\]
+so $\sum \ln n/n$ diverges since $\sum 1/n$ diverges.
+(Why doesn't it matter that the comparison fails for $n = 1$?)
+\endexample
+
+\nextex
+\example{Example \en}  Consider the series
+\[
+\sum_{n=1}^\infty \frac n{n^3 -n + 2}.
+\]
+We have
+\[
+\frac n{n^3 - n + 2} = \frac 1{n^2 - 1 + 2/n} < \frac 1{n^2 -1} 
+ < \frac 1{n^2 - n^2/2} = \frac 1{n^2/2} = \frac 2{n^2}.
+\]
+The first equality is obtained by dividing numerator and denominator
+by $n$.  Each inequality is obtained by making the
+denominator smaller.   Since $\sum_n 2/n^2 = 2\sum_n 1/n^2$
+and $\sum_n 1/n^2$ converges, so does $\sum_n 2/n^2$.  Hence, the
+comparison test tells us that $\sum_n n/(n^3 - n + 2)$ converges.
+\endexample
+
+The last example illustrates a common strategy when
+applying the comparison test.
+We try to estimate the approximate behavior of $u_n$ for large
+$n$ and thereby come up with an appropriate comparison series.
+We then try (usually by a tricky argument) to show that the given
+series is less than the comparison series (if we expect convergence)
+or greater than the comparison series (if we expect divergence.)
+Unfortunately, it is not always easy to dream up the relevant
+comparisons.  Hence, it is often easier to use the following
+version of the comparison test.
+
+\proclaim{The Limit Comparison Test} Suppose $\sum_n u_n$ and
+$\sum_n c_n$ are series of non-negative terms such that
+$\lim_{n\to \infty} \dfrac {u_n}{c_n}$ exists and is not
+0 or $\infty$.  Then $\sum_n u_n$ converges if and only if
+\outind{limit comparison test for convergence of a series}
+$\sum_n c_n$ converges.  If the limiting ratio is 0, and
+$\sum_n c_n$ converges, then $\sum_n u_n$ converges.  If the
+limiting ratio is $\infty$, and $\sum_n c_n$ diverges, then
+$\sum_n u_n$ diverges.
+\endproclaim
+
+\example{Example \en, again}  $u_n = n/(n^3 - n + 2)$ looks
+about like $c_n = 1/n^2$.  Consider the ratio
+\[
+\frac{u_n}{c_n} = \frac n{n^3 - n + 2}\frac {n^2} 1
+   = \frac{n^3}{n^3 - n + 1} = \frac 1{1 - 1/n^2 + 2/n^3} \to 1
+\]
+as $n \to \infty$.  Since 1 is finite and non-zero, and since
+the comparison series $\sum_n 1/n^2$ converges, the series
+$\sum_n n/(n^3 - n + 2)$ also converges.
+\endexample
+
+It is important to emphasize that this test does not work
+for series for which some terms are positive and some are
+negative.
+
+
+\subhead The Proof \endsubhead
+The proof of the limit comparison test is fairly straightforward,
+but if you are not planning to be a Math major and you are
+willing to accept such things on faith, you should skip it.
+Suppose
+\[
+\lim_{n\to \infty} \frac{u_n}{c_n} = r\qquad\text{with }
+0 < r < \infty.
+\]
+Then, 
+for all $n$ sufficiently large
+\[
+\frac r2  < \frac{u_n}{c_n} < 2r.
+\]
+(All the values of $u_n/c_n$ have to be very close to $r$ when
+$n$ is large enough.)   Hence, for all $n$ sufficiently large,
+\[
+\frac r2 c_n < u_n < 2rc_n
+\]
+If $\sum_n c_n$ converges, then so does $\sum_n 2rc_n$, so by
+the comparison test, so does $\sum_n u_n$.   By similar reasoning,
+if $\sum_n c_n$ diverges, so does $\sum_n u_n$.   Note that we
+have used the remark about the importance of
+the tail---see Section 2---which asserts that when deciding
+on matters of convergence or divergence, it is enough to look only
+at all sufficiently large terms.
+
+
+\bigskip
+\includeexercises{chap8.ex3}
+\bigskip
+\nextsec{Alternating Series}
+\head \sn. Alternating Series \endhead
+
+A series with alternating positive and negative terms is called
+an {\it alternating series}.  Such a series is usually
+represented
+\[
+  v_1 - v_2 + v_3 - v_4 + \dots
+\]
+where $v_1, v_2, v_3, \dots$ are all positive.  Of course, variations
+of this scheme are possible.  For example, the first term might have
+an index other than 1, and also there is no reason not to start
+\outind{alternating series}
+with a negative term.   However, to simplify the discussion of
+the general theory, we shall assume the series is as presented
+above.  For alternating series, we start to encounter the problem
+of `balancing infinities', but they are still relatively well
+behaved.  Also, many series important in applications are
+alternating series.
+
+\example{Examples {\rm of Alternating Series}}
+\nexteqn\xdef\Axx{\eqn}
+\nexteqn\xdef\B{\eqn}
+\nexteqn\xdef\Ce{\eqn}
+\begin{gather*}
+\sum_{n=0}^\infty t^n \qquad\text{if } t\ \text{is negative}\tag{\Axx}\\
+\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}n = 1 - \frac 12 + \frac 13 - \dots\tag\B \\
+\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!}
+    + \frac{x^4}{4!} - \frac{x^6}{6!} + \dots\tag{\Ce}
+\end{gather*}
+(\Axx) is a special case of the geometric series, and we shall
+see later that (\Ce) is a series
+for $\sin x$.
+\nextthm
+\proclaim{Theorem \cn.\tn}
+ Let $v_1 - v_2 + v_3 - \dots$ be an alternating series
+with
+\[
+  v_1 > v_2 > \dots > v_n > \dots \qquad\text{(all $ > 0$)}.
+\]
+If $\lim_{n\to \infty} v_n = 0$, then the series converges.
+If $s$ is the sum of the series, then the error $R_n = s - s_n$
+after $n$ terms satisfies
+\[
+|R_n| < v_{n+1}.
+\]
+That is, the absolute value of the error after $n$ terms is
+bounded by the next term of the series.
+\outind{error estimate for sum of an alternating series}
+\endproclaim
+
+\example{Example}  The series
+\[
+1 - \frac 12 + \frac 13 - \dots + (-1)^{n+1}\frac 1n + \dots
+\]
+converges since $\dfrac 1n \to 0$.  Also,
+\[
+s = \undersetbrace{s_n}\to{1 - \frac 12 + \frac 13 - \dots
+   + (-1)^{n+1}\frac 1n} + R_n
+\]
+where $|R_n| < \dfrac 1{n+1}$.  According to Mathematica,
+for $n = 100$, $s_n =  0.688172$ (to 6 decimal places), and
+the theorem tells us the error is less than $1/100 = .01$.
+Hence, the correct value for the sum is somewhere between
+$.67$ and $.69$.  
+
+Suppose on the other hand, we want to use enough terms to
+get an answer 
+such that the error will be less than $.0005 = 5\times 10^{-4}$.
+For that, we need  
+\begin{gather*}
+\dfrac 1{n+1} \le 5\times 10^{-4}\qquad\text{or}\\
+n + 1 \ge \dfrac 1{5\times 10^{-4}} = \frac 15 10^4 = 2\times 10^3.
+\end{gather*}
+Thus, $n = 2000$ would work.
+\endexample
+
+\noindent {\it An aside on rounding.}
+
+In the above example, we asked for enough terms to be sure that
+\outind{rounding}
+the error is less that $5\times 10^{-4}$.  This is {\it different
+from\/}
+asking that it be accurate to three decimal places, although the
+two questions are closely related.   For example, suppose the
+true answer to a problem is $1.32436...$  An error of $+.0004$
+would change this to $1.32476..$ which would be rounded {\it up\/}
+to the incorrect answer $1.325$ if we used only three decimal places.
+An alternative to rounding is {\it truncating\/}, i.e. cutting off
+\outind{truncation}
+all digits past the desired one.  That would solve our problem in
+the case of a positive error, but an error of $-.0004$ would in
+this case result in the incorrect answer  $1.323$ if we truncated.
+
+By using extra decimal places, it is possible to reduce the likelihood
+of a false rounding error, but it is not possible to eliminate
+it entirely.  For example, suppose the true answer 
+is $2.426499967$ and we insist on
+enough terms so that the error is less that $5\times 10^{-8}$.
+Then, an error of
+ $+.00000004$ would cause us to round up incorrectly to
+$2.427$.
+
+Since the issue of rounding can be so confusing, we shall instead
+generally ask that the error be smaller that five in the next
+decimal position.  You should generally read a request for a
+certain number of decimal places in this way but you should also
+remember that rounding may change the answer a bit in such cases.
+
+
+{\bf The Proof.}
+The proof of the theorem is a little tricky, but it is
+illuminating enough that you should try to follow it.  
+You will get a better idea of how the error behaves,
+and that is important.   The diagram below
+makes clear what happens.
+
+\medskip
+\centerline{\epsfbox{s8-5.ps}}
+\medskip
+Here is the same thing in words.
+\nexteqn
+If $n$ is odd,
+\[
+  s_{n-1} < s_{n-1} + \undersetbrace{> 0}\to{u_n - u_{n-1}} = s_{n+1}.\tag{\eqn}
+\]
+Hence, the 
+even numbered partial sums $s_n$
+form an increasing sequence. Similarly,
+\nexteqn
+\[
+ s_{n+1} = s_{n-1} -\undersetbrace{> 0}\to{(u_n - u_{n-1})} < s_{n-1},\tag{\eqn}
+\]
+so  the odd numbered partial sums $s_n$ form a decreasing sequence.
+Also, if $n$ is odd,
+\[
+s_{n+1} = s_n - v_{n+1} < s_n,
+\]
+so it follows that every odd partial sum is greater than every
+even partial sum:
+\[
+s_2 < s_4 < s_6 < \dots < s_7 < s_5 < s_3 < s_1.
+\]
+The even partial sums form an increasing sequence, bounded above,
+so by
+the completeness property (b), they must approach a finite limit
+$s'$.   By similar reasoning,  since the odd partial sums form a
+{\it decreasing\/} sequence, bounded below, they also approach a finite
+limit $s''$.  Moreover, it is not too hard to see that for $n$ even
+\[
+     s_n \le s' \le s'' \le s_{n+1}.
+\]
+However, $s_{n+1} - s_n = v_{n+1} \to 0$ as $n \to \infty$.
+It follows that $s''-s' \to 0$ as $n \to \infty$, but since
+$s'' - s'$ does not depend on $n$, it must be equal to zero.
+In other words the even partial sums {\it and\/} the odd partial
+sums must approach the {\it same\/} limit $s = s' = s''$.
+It follows that $\lim_{n \to \infty} s_n = s$, and the series
+converges.   
+
+\mar{s8-6.ps}
+Note also that we get the following refined error estimate from the
+above analysis.
+\begin{gather*}
+   s_n < s < s_n + v_{n+1}\qquad\text{if $n$ is even} \\
+   s_n - v_{n+1} < s < s_n\qquad\text{if $n$ is odd}. 
+\end{gather*}
+
+
+
+\bigskip
+\includeexercises{chap8.ex4}
+\bigskip
+\nextsec{Absolute and Conditional Convergence}
+\head \sn.  Absolute and Conditional Convergence \endhead
+
+A series $\sum_n u_n$ is called {\it absolutely convergent\/}
+\outind{absolute convergence of a series}
+\outind{conditional convergence of a series}
+if the series $\sum_n |u_n|$ converges.  If $\sum_n u_n$ converges,
+but $\sum_n |u_n|$ diverges, the original series is called
+{\it conditionally convergent}.  Absolutely convergent series
+are quite well behaved, and one can manipulate them almost
+as though they were finite sums.   Conditionally convergent
+series, on the other hand, are often hard to deal with.
+
+\example{Examples}  The series 
+\[
+ 1 - 1/4 + 1/9 - \dots + (-1)^{n+1}(1/n^2) + \dots = \sum_{n=1}^\infty
+\frac{(-1)^{n+1}}{n^2}
+\]
+is absolutely convergent because $\sum_n 1/n^2$ converges.
+The series
+ \[1 - 1/2 + 1/3 - \dots + (-1)^{n+1}(1/n) + \dots = \sum_{n=1}^\infty
+\frac{(-1)^{n+1}}n
+ \]
+is conditionally convergent.  It does converge by the alternating
+series test, but the series of absolute values $\sum_n 1/n$ diverges.
+\endexample
+
+Of course, for series with non-negative terms, absolute convergence
+means the same  thing as convergence.  Also, for series with all terms
+$u_n \le 0$, absolute convergence means the same thing as convergence.
+(Just consider the series $-\sum_n u_n = \sum_n (-u_n)$ for which all
+the terms are non-negative.)
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  If $\sum_n |u_n|$ converges,
+then $\sum_n u_n$ converges.  That is, an absolutely convergent
+series is convergent.
+\endproclaim
+
+This theorem may look `obvious', but that is the result
+of the choice of terminology.  The relation between the
+series $\sum_n u_n$ and the corresponding series of absolute
+values  $\sum_n |u_n|$ is rather subtle.   For example, even
+if they both converge, they certainly won't have the same
+sum.  
+
+{\bf The proof.}
+Assume $\sum_n |u_n|$ converges.  Define two new series as
+follows.   Let
+\begin{align*}
+p_n &= \left\{\aligned u_n\quad&\text{if $u_n > 0$}\\
+                       0\qquad&\text{otherwise}\endaligned \right. \\
+q_n &= \left\{\aligned |u_n| =  -u_n\quad&\text{if $u_n < 0$}\\
+                       0\qquad&\text{otherwise}\endaligned \right. .
+\end{align*}
+Then $\sum_n p_n$ is the series obtained when all negative terms of
+the original series are replaced by 0's, and $\sum_n q_n$ 
+is the {\it negative\/} of the series obtained if all positive
+terms of the original series are replace by 0's.  Both are
+series of non-negative terms, and
+\[
+u_n = p_n + (-q_n) = p_n - q_n\qquad\text{for each } n.
+\]
+(Either $p_n$ or $-q_n$ is zero, and the other is $u_n$.)
+Hence, to show that $\sum_n u_n$ converges, it would suffice
+to show that both $\sum_n p_n$ and $\sum_n q_n$ converge.
+Consider the former.  For each $n$, we have
+\[
+0 \le p_n \le |u_n|.
+\]
+Indeed, $p_n$ equals one or the other of the bounds depending on
+the sign of $u_n$.   Hence, by the comparison test, since
+$\sum_n |u_n|$ converges, so does $\sum_n p_n$.   A similar
+argument shows that $\sum_n q_n$ converges.
+ Hence, we conclude that 
+$\sum_n u_n$ converges.  That completes the proof.
+\medskip
+
+One consequence of the above argument is that for absolutely
+convergent series, rearranging the terms of the series does
+not affect convergence or divergence or the sum when convergent.
+The reason is that  for an absolutely convergent series,
+\nexteqn
+\[
+\sum_n u_n = \sum_n p_n - \sum_n q_n,\tag{\eqn}
+\]
+and each of the series on the right is
+a convergent series of non-negative
+terms.   For such series, rearranging terms
+is innocuous.   Suppose on the other hand that
+the two series $\sum_n p_n$ and $\sum_n q_n$ are
+both divergent.   Then (\eqn) would assert that the $\sum_n u_n$
+is the difference of two `infinities', and any attempt to
+make sense of that is fraught with
+peril.  
+  However, in that case
+\[
+\sum_n |u_n| = \sum_n p_n + \sum_n q_n
+\]
+is a sum of two divergent series of non-negative terms and certainly
+doesn't converge, so the series $\sum_n u_n$ is not absolutely
+convergent.
+
+\subhead  The Ratio Test \endsubhead
+There is a fairly simple test which will establish absolute
+convergence for series to which it applies.   Consider the
+ratio
+\[
+    \frac {|u_{n+1}|}{|u_n|}
+\]
+of succeeding terms of the series of absolute values.  Suppose this
+approaches a finite limit $r$.  (Note that we must have
+$r \ge 0$ since it is a limit of non-negative terms.) 
+That means that, for large $n$,
+the series $\sum_n |u_n|$ looks very much like a geometric series
+of the form
+\[
+   \sum_n ar^n = a\sum_n r^n.
+\]
+However, the geometric series converges exactly when $0 \le r < 1$.
+We should be able to conclude from this that the original
+series also converges exactly in those circumstances.  Unfortunately,
+because the comparison involves only a limiting ratio, the analysis
+is not precise enough to tell us what happens when $r = 1$.  The
+precise statement of the test is the following.
+
+\proclaim{The Ratio Test}  Suppose
+\[
+r = \lim_{n\to\infty} \frac {|u_{n+1}|}{|u_n|}
+\]
+exists.  If $r < 1$, the series $\sum_a u_n$ is absolutely
+convergent.  If $r > 1$, the series $\sum_n u_n$ diverges.
+If $r = 1$, the test provides no information.
+\endproclaim
+\outind{ratio test for convergence of a series}
+
+\nextex
+\example{Example \en}
+Consider the series
+\[
+\sum_{n=0}^\infty \frac{x^n}{n!}.
+\]
+(As you may already know,
+this is the series for $e^x$.)  To apply the ratio test, we
+need to consider
+\[
+\frac{ |x^{n+1}/(n+1)!|}{|x^n/n!|} =
+\frac{|x|^{n+1}}{(n+1)!}\,\frac{n!}{|x|^n} = \frac{|x|}{n+1}.
+\]
+The limit of this as $n \to \infty$ is $r = 0 < 1$.  Hence, by the
+ratio test, the series $\sum_n x^n/n!$ is absolutely convergent
+for every possible $x$.
+\endexample
+
+\nextex
+\example{Example \en}  Consider the series
+\[
+\sum_{n=1}^\infty (-1)^n \frac {x^n}n.
+\]
+(As we shall see this is the series for $\ln(1 + x)$ at least when
+it converges.)  The ratio test tells us to consider
+\[
+\frac{|(-1)^{n+1}x^{n+1}/n+1|}{|(-1)^nx^n/n|}
+= \frac{|x|^{n+1}}{n+1}\,\frac n{|x|^n} = \frac n{n+1} |x|.
+\]
+Since, $\lim_{n\to\infty}\dfrac n{n+1} = 1$, the limiting ratio
+in this case is $|x|$.  Thus, the series $\sum_{n=1}^\infty
+(-1)^nx^n/n$ converges absolutely if $|x| < 1$ and diverges
+if $|x| > 1$.   Unfortunately, the ratio test does not tell
+us what happens when $|x| = 1$.    However, {\it we can settle
+those case by using other criteria}.  Thus, for $x = 1$.
+the series is
+\[
+\sum_{n=1}^\infty \frac{(-1)^n}n
+\]
+and that converges by the alternating series test.  On the other
+hand, for $x = -1$, the series is
+\[\sum_{n=1}^\infty (-1)^n \frac{(-1)^n}n = \sum_n\frac{(-1)^{2n}}n
+= \sum_n \frac 1n
+\]
+which is the harmonic series, so it diverges.
+\endexample
+
+The detailed proof that the ratio test works is a bit subtle.  We
+include it here for completeness, but you will be excused if you
+skip it.
+
+
+{\bf The proof.}
+Suppose $\lim_{n\to\infty}\dfrac{|u_{n+1}|}{|u_n|} = r$.
+That means that if $r_1$ is slightly less than $r$,
+ and $r_2$ is slightly greater than $r$, then 
+for all  sufficiently large $n$
+\[
+     r_1 < \frac{|u_{n+1}|}{|u_n|} < r_2.
+\]
+Moreover, by making $n$ large enough, we can arrange for the
+numbers $r_1$ and $r_2$ to be as close to $r$ as we might like.
+
+By the general principle that the tail of a series dominates
+in discussions of convergence, we can ignore the finite number
+of terms for
+which the above inequality does not hold. 
+  Renumbering, we may assume
+\[
+r_1|u_n| < |u_{n+1}|< r_2|u_n|
+\]
+holds for all $n$ starting with $n = 1$.  Then,
+\[
+  |u_2| < r_2|u_1|, |u_3|< r_2|u_2| < r_2{}^2|u_1|, \dots,
+ |u_n| < |u_1|r_2{}^{n-1}
+\]
+and similarly for the lower bound, so putting $a = |u_1|$,
+ we may assume
+\nexteqn
+\[
+   ar_1{}^{n-1} < |u_n| < ar_2{}^{n-1}\tag{\eqn}
+\]
+for all $n$.  Suppose $r < 1$.  Then, by taking $r_2$
+sufficiently close to $r$, we may assume that $r_2 < 1$.
+ So we may use (\eqn) to compare $\sum_n |u_n|$ to
+$\sum_n ar_2{}^{n-1}$ which is a convergent geometric series.
+Hence, $\sum_n |u_n|$ converges.  Suppose on the other hand
+that $r > 1$.  Then by choosing $r_2$ sufficiently close to
+$r$, we may assume $r_2 > 1$.   Putting this in (\eqn)
+yields
+\[
+   1 < |u_n|
+\]
+for all $n$.  Hence, $u_n \to 0$ as $n \to \infty$ is not
+possible, and $\sum_n u_n$ must diverge.
+
+Note that the above argument breaks down if $r = 1$.  In that
+case, we cannot assume that $r_2 < 1$ or $r_1 > 1$, so
+neither part of the argument works.
+
+\subhead The Root Test \endsubhead
+There is a test which is related to the ratio test which is
+a bit simpler to use.  Instead of considering the ratio of
+successive terms, one considers the $n$th root $|u_n|^{1/n}$.
+If this approaches a finite limit $r$, then roughly speaking,
+for large $n$, $|u_n|$ behaves like $r^n$.   Thus, we are led to compare
+$\sum_n |u_n|$ to the geometric series $\sum_n r^n$.  We
+get convergence or divergence, as in the ratio test,
+which depends on the value of the limit $r$.  As in the ratio
+test, the analysis is not precise enough to tell us what
+happens if that limit is 1.
+
+\proclaim{The Root Test}  Suppose $\lim_{n\to\infty}|u_n|^{1/n} = r$.
+If $0\le r < 1$, then $\sum_n u_n$ converges absolutely.  If
+$1 < r$, then $\sum u_n$ diverges.  If $r = 1$, it may converge or
+diverge.
+\endproclaim
+\outind{root test for convergence of a series}
+
+\nextex
+\example{Example \en}  Consider the series
+\[
+x + \frac {x^2}4 + \frac {x^3}9 + \dots = 
+\sum_{n=1}^\infty \frac{x^n}{n^2}.
+\]
+We have
+\[
+\left|\frac {x^n}{n^2}\right|^{1/n} = \frac{|x|}{n^{2/n}}
+\]
+so in this case
+\[
+\lim_{n\to\infty} |u_n|^{1/n} = |x|\lim_{n\to\infty} n^{-2/n}.
+\]
+The limit on the right is evaluated by a tricky application
+of L'H\^opital's rule.   The idea is that if $\lim_{n\to\infty} \ln a_n
+= L$, then $\lim_{n\to\infty} a_n = e^L$.  In this case,
+\[
+\lim_{n\to\infty} \ln(n^{-2/n}) = \lim_{n\to\infty}(-\frac 2n \ln n)
+= \lim_{n\to\infty}\frac{-2\ln n}n = \lim_{n\to\infty}\frac{-2/n}1 = 0.
+\]
+(The next to last step was done using L'H\^opital's rule.)  Hence,
+\[
+\lim_{n\to\infty} n^{-2/n} = e^0 = 1.
+\]
+It follows that the limiting ratio for the series is $r = |x|$.
+Thus, if $|x| < 1$ the series $\sum_n \dfrac{x^n}{n^2}$ converges
+absolutely, and if $|x| > 1$, it diverges.  For $|x| = 1$,
+{\it we must settle the question by other means}.  For
+$x = 1$, the series is $\sum_n 1/n^2$ which we know converges.
+(It is a `$p$-series' with $p = 2 > 1$.)  For $x = -1$, 
+the series is $\sum_n (-1)^n/n^2$, and we just decided its
+series of absolute values converges.  Hence, $\sum_n (-1)^n/n^2$
+converges absolutely.  (You could also see it converges by the
+alternating series test, but absolute convergence is stronger.)
+\endexample
+
+The proof of the root test is similar to that of the ratio test.
+Again you will be excused if you skip it, but here it is.
+
+{\bf The proof.}
+Suppose $\lim_{n\to\infty} |u_n|^{1/n} = r$.   If
+$r_1$ is slightly less than $r$ and $r_2$ is slightly larger,
+then, for $n$ sufficiently large,
+\[
+   r_1 < |u_n|^{1/n} < r_2.
+\]
+Again, by the principle that we may ignore finitely many terms of
+a series when investigating convergence,
+we may assume the inequalities holds for all $n$. Raising to the $n$ power,
+we get
+\[
+   r_1{}^n < |u_n| < r_2{}^n.
+\]
+If $r < 1$, we may assume $r_2 < 1$, and compare $\sum_n |u_n|$
+with a convergent geometric series.   On the other hand, if
+$1 < r$, we may assume $1 < r_2$, and then $|u_n| \to \infty$
+which can't happen for a convergent series.
+\bigskip
+\includeexercises{chap8.ex5}
+\bigskip
+
+\nextsec{Power Series}
+\head \sn. Power Series \endhead
+
+At the beginning of this chapter, we saw that we might want to
+consider series of the form $\sum_{n=0}^\infty a_n t^n$ as solutions
+of differential equations.  A bit more generally, if we were
+given initial conditions  at $t = t_0$, we might
+consider series of the form
+\[
+\sum_{n = 0}^\infty a_n (t - t_0)^n.
+\]
+Such a series is called a {\it power series\/} centered at $t_0$.
+\outind{power series}
+
+A power series will generally converge for some, but perhaps not all,
+values of the variable.  Usually, you can determine those
+values for which it converges by an application of the ratio or
+root test.
+
+\nextex
+\example{Example \en}  Consider the power series
+\[
+\sum_{n=0}^\infty \frac n{2^n} (t - 3)^n.
+\]
+To apply the ratio test, consider
+\[
+\frac{\dfrac{n+1}{2^{n+1}}|t - 3|^{n+1}}{\dfrac n{2^n} |t - 3|^n}
+= \frac{|t - 3|}2 \frac {n + 1}n.
+\]
+However,
+\[
+\lim_{n\to \infty} \frac {n + 1}n = 1
+\]
+(by L'H\^opital's rule, or by dividing numerator and denominator by $n$).
+Hence, the limiting ratio is $|t - 3|/2$.  Hence, the series converges
+absolutely if
+\begin{gather*}
+\frac {|t - 3|}2 < 1 \\
+\text{i.e.,}\qquad |t - 3| < 2 \\
+\text{i.e.,}\qquad  -2 < t - 3 < 2 \\
+\text{i.e.,}\qquad 1 < t < 5.
+\end{gather*}
+Similarly, if $|t - 3|/2 > 1$, the series diverges.  That inequality
+amounts to $t < 1$ or $5 < t$.   The case $|t - 3|/2 = 1$,
+i.e., $t = 1$ or $t = 5$, must be handled separately.  I leave the
+details to you.  It turns out that the series 
+diverges both for $t = 1$ and $t = 5$.
+Hence, the exact range of convergence is
+\[
+   1 < t < 5
+\]
+and the series converges absolutely on this interval.
+\medskip
+\centerline{\epsfbox{s8-7.ps}}
+\medskip
+
+The above analysis could have been done equally well using the
+root test.
+\endexample
+
+The behavior exhibited in Example \en, or in similar  examples
+in the previous section, is quite general.  For any power series
+$\sum_n a_n (t - t_0)^n$
+there is a number $R$ such that  the series converges absolutely
+in the interval
+\[
+   t_0 - R < t < t_0 + R,
+\]
+diverges outside that interval, and may converge or diverge at
+either endpoint.  $R$ is called the {\it radius of convergence\/}
+\outind{radius of convergence of a power series}
+of the series.  (The terminology comes from the corresponding
+concept in complex analysis where the condition $|z - z_0| < R$
+characterizes all points in the complex plane
+ inside a circular disk of radius $R$
+centered at $z_0$.)
+  $R$ may be zero, in
+which case the series converges only for $t = t_0$ (where 
+all terms but the first are 0).   $R$ may be infinite, in which case
+the series converges for all $t$.  In many cases, it is finite,
+and it may be important to know its value.
+\medskip
+\centerline{\epsfbox{s8-8.ps}}
+\medskip
+
+Understanding how the ratio or root test is used to determine
+the radius of convergence gives you a good idea of why a power
+series converges in a connected interval rather than at a random
+collection of points,
+so you should work enough examples to be sure
+you can do such calculations.
+Unfortunately, in the general case, neither the ratio nor the root
+test may apply, so the argument
+justifying the existence of an interval of convergence is a bit
+tricky.
+
+We shall outline the argument here, but you need not study it at
+this time if the examples satisfy you that it all works.
+
+{\bf The argument why the range of convergence is an interval.}
+If the series converges only for $t = t_0$, then we take $R = 0$,
+and we are done.  Suppose instead that there is a $t_1 \not=t_0$
+at which the series $\sum_n a_n (t_1 - t_0)^n$ converges.  
+Then the general term
+\[
+    a_n (t_1 - t_0)^n \to 0
+\]
+as $n \to \infty$.  One consequence is that the absolute value
+of the general term must be bounded, i.e., there is a bound $M$ such
+that
+\[
+      |a_n||t_1 - t_0|^n < M
+\]
+for all $n$.  Put $R_1 = |t_1 - t_0|$.
+ Then, if $|t - t_0| < R_1$,
+\[
+   |a_n| |t - t_0|^n = 
+|a_n||t_1 - t_0|^n \left(\frac{|t - t_0|}{R_1}\right)^n
+< Mr^n
+\]
+where $r = |t - t_0|/R_1 < 1$.  Comparing with a geometric
+series, we see that $\sum_n |a_n||t - t_n|^n$ converges, so
+$\sum_n a_n (t - t_0)^n$ is absolutely convergent
+ as long as $|t - t_0| < R_1$.      
+
+Consider next all possible $R_1 > 0$ such that the series
+converges absolutely in the range $t_0 - R_1 < t < t_0 + R_1$.
+If there is no upper bound to this set of numbers, then the
+series converges absolutely for all $t$.  In that case, we set
+the radius of convergence $R = \infty$.  Suppose instead that
+there is some upper bound to the set of all such $R_1$.  By
+a variation of the completeness arguments we have used before
+(concerning bounded increasing sequences), it is possible to
+show in this case that there is a single value $R$ such that
+$\sum_n a_n (t - t_0)^n$ converges absolutely for $|t - t_0| < R$,
+but that the series diverges for $|t - t_0| > R$.  This $R$
+is the desired radius of convergence.
+
+\subhead Differentiation and Integration of power Series \endsubhead
+The rationale behind the use of series to solve differential equations
+is that they are generalizations of polynomial functions.  By the
+usual rules of calculus, polynomial functions are easy to differentiate
+or integrate.  For example, if
+\begin{align*}
+f(t) &= a_0 + a_1(t - t_0) + a_2(t - t_0)^2 + \dots + a_n(t - t_0)^n + \dots \\
+\intertext{then}
+f'(t) &= 0 + a_1\,1 + 2a_2(t - t_0) + \dots + na_n(t - t_0)^{n-1} + \dots
+\end{align*}
+That is, to differentiate a polynomial (or any finite sum), you differentiate
+each term, and then add up the results.  A similar rule works for integration.
+Unfortunately, these rules do not always work for infinite sums.  It
+is possible for the derivatives of the terms of a series to add up to
+something other than the derivative of the sum of the series.  
+
+
+\example{Example}
+Consider the series
+\[
+\sum_{n=1}^\infty \left(\frac{\sin nt}n - \frac{\sin (n+1)t}{n+1}\right).
+\]
+The partial sums are
+\begin{align*}
+s_1(t) &= \sin t - \frac 12 \sin 2t \\
+s_2(t) &= \sin t - \frac 12 \sin 2t + \frac 12 \sin 2t - \frac 13 \sin 3t
+     = \sin t - \frac 13 \sin 3t \\
+&\vdots \\
+s_n(t) &= \dots = \sin t - \frac 1{n+1}\sin (n+1)t\\
+&\vdots
+\end{align*}
+However,  $\dfrac{|\sin (n+1)t|}n \le \dfrac 1n$ for any $t$,
+so its limit is 0 as $n \to \infty$.  Hence,
+\[
+\lim_{n\to\infty} s_n(t) = \sin t
+\]
+so the series converges for every $t$ and its sum is $\sin t$.
+On the other hand, the series of derivatives is
+\[
+\sum_{n=1}^\infty (\cos nt - \cos (n+1)t).
+\]
+The partial sums of this series are calculated essentially
+the same way, and
+\[
+s_n'(t) = \cos t - \cos (n+1)t.
+\]
+For most values of $t$, $\cos (n+1)t$ does not approach a
+definite limit as $n\to \infty$.  (For example, try $t = \pi/2$.
+You alternately get $0, -1$, or 1 for different values of $n$.)
+Hence, the series of derivatives is generally not even a convergent
+series.
+
+Even more bizarre examples exist in which the series of derivatives
+converges but to something other than the derivative of the sum
+of the original series.
+\endexample
+
+Similar problems arise when you try to integrate a series term
+by term.  Some of this will be discussed when you study Fourier
+Series and Boundary Value Problems, next year.
+\medskip
+   Fortunately, for
+a power series, {\it within its interval of absolute convergence\/}
+the derivative of the sum is the sum of the derivatives and similarly for
+integrals.   This fact is fundamental for any attempt to use power
+series to solve a differential equation.  It may also be used to
+make a variety of other calculations with series.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Suppose $\sum_{n=0}^\infty a_n(t - t_0)^n$
+converges absolutely to
+ $f(t)$ for $|t - t_0| < R$.  Then
+
+(a)  $f'(t) = \sum_{n=1}^\infty na_n(t - t_0)^{n-1}$ for
+$|t - t_0| < R$.
+
+(b)  $\int_{t_0}^t f(s) ds = \sum_{n=0}^\infty \dfrac {a_n}{n+1}(t - t_0)^{n+1}$
+for $|t - t_0| < R$.
+\outind{radius of convergence of a power series}
+\outind{differentiation of a power series}
+\outind{integration of a power series}
+Moreover, the series $\sum_{n=1}^\infty na_n(t - t_0)^{n-1}$
+and $\sum_{n=0}^\infty \dfrac {a_n}{n+1}(t - t_0)^{n+1}$ have the
+same radius of convergence as $\sum_{n=0}^\infty a_n(t - t_0)^n$.
+\endproclaim
+
+The proof of this theorem is a bit involved.  An outline is given in
+the appendix to this section, which you may want to skip.
+
+\nextex
+\example{Example \en}
+We know
+\[
+\frac 1{1 - t} = \sum_{n=0}^\infty t^n \qquad\text{for } |t| < 1.
+\]
+(1 is the radius of convergence.)  Hence,
+\[
+\frac 1{(1 - t)^2} = \sum_{n=1}^\infty nt^{n-1} = \sum_{n=0}^\infty
+   (n+1)t^n.
+\]
+The last expression was obtained by substituting $n + 1$ for
+$n$.  This has the effect of changing the lower limit `$n = 1$' 
+to `$n + 1 = 1$' or `$n = 0$'.  Such
+substitutions are often useful when manipulating power series,
+particularly in the solution of differential equations.
+
+The differentiated series also converges absolutely for $|t| < 1$.
+\endexample
+\nextex
+\example{Example \en}  If replace $t$ by $-t$ in the formula
+for the sum of a geometric series, we get
+\[
+\frac 1{1 + t} = \sum_{n=0}^\infty (-t)^n = \sum_{n=0}^\infty (-1)^n t^n
+\]
+and this converges absolutely for $|-t| = |t| < 1$.  Hence, by (b),
+we get 
+\[
+\int_0^t \frac{ds}{1 +s} = \sum_{n=0}\frac{(-1)^n}{n+1}t^{n+1}
+    =  \sum_{n=1}^\infty \frac{(-1)^{n+1}}n t^n
+\]
+and this is valid for $|t| < 1$.  Note the shift obtained by
+replacing $n$ by $n - 1$.   Doing the integral on the left
+yields
+\[
+\ln (1 + t) = \sum_{n=1}^\infty \frac{(-1)^{n+1}}n t^n =
+ t -\frac{t^2}2 + \frac{t^3}3 + \dots\qquad\text{for } |t| < 1.
+\]
+
+Series of this kind may be used to make numerical calculations.
+For example, suppose we want to calculate $\ln 1.01$ to
+within $5\times 10^{-6}$, i.e., {\it loosely speaking\/}, we want
+the answer to be accurate to five decimal places.   We can use the series
+\[
+\ln (1 + .01) =  .01 -\frac{(.01)^2}2 + \frac{(.01)^3}3 + \dots + 
+(-1)^{n+1}\frac {(.01)^n}n + \dots
+\]
+and include enough terms so the error $R_n$ satisfies $|R_n| < 5\times 10^{-6}$.
+Since the series is an alternating series with decreasing terms,
+we know that $|R_n|$ is bounded by the absolute value of
+the next term in the series,
+i.e., by  $\dfrac{(.01)^{n+1}}{n+1}$.  Hence, to get the desired accuracy,
+it would suffice to choose $n$ large enough so that
+\[
+      \frac{(.01)^{n+1}}{n+1} = \frac{10^{-2(n+1)}}{n+1}   < 5 \times 10^{-6} .
+\]
+There is no good way to determine such an $n$ by a deductive
+process, but trial and error works reasonably well.  Certainly,
+$n = 2$ would be good enough.   Let's see if $n = 1$ would
+also work.
+\[
+\frac{10^{-4}}2 = .5\times 10^{-4} = 5\times 10^{-5},
+\]
+and that is not small enough.  Hence, $n = 2$ is the best
+that this particular estimate of the error will give us.
+Hence,
+\[
+\ln(1.01) = .01 - \frac{(.01)^2}2 
+ \approx 0.00995.
+\]
+You should check this with your calculator to see if it is
+accurate.  (Remember however that the calculator is also using
+some approximation, and it doesn't know the true value any
+better than you do.)
+\endexample
+
+The estimate $R_n$ of the error after using $n$ terms of a
+series is tricky to determine.  For alternating series,
+we know that the next term rule applies, but we shall see
+examples later of where much more sophisticated methods
+need to be used.
+
+\subhead Appendix.  Proof of the Theorem \endsubhead
+
+We first note that it is true that the sum of a power series
+within its radius of convergence is always a {\it continuous
+function}.   The proof is not extremely hard, but we shall
+omit it here.   You may see some further discussion of
+this point in your later mathematics courses.
+We shall use this fact implicitly several places in what
+follows.  In particular, knowing the sum of a series is
+continuous allows us to conclude it is integrable and also
+to apply the fundamental theorem of calculus.
+
+Statement(a) in the
+theorem may be proved once statement (b) has been established.  
+To see this, argue
+as follows.  Let $\sum_{n=0}^\infty a_n(t - t_0)^n = f(t)$
+have radius of convergence $R > 0$.
+  Consider the differentiated series $\sum_{n=1}^\infty
+ na_n(t - t_0)^{n-1}$.   If the ratio (or root) test applies,
+it is not hard to see that this series has the same radius
+of convergence $R$ as the original series.  (See the Exercises.)
+If the ratio test does not apply, there is a tricky argument
+to establish this fact in any case.  Suppose that point is
+settled.   Define
+\[
+g(t) = \sum_{n=1}^\infty  na_n(t - t_0)^{n-1}\quad\text{for } 
+|t - t_0| < R.
+\]
+(We hope that $g(t) = f'(t)$, but we don't know that yet.)
+Assume (b) is true and apply it to the series for $g(t)$.  We
+get
+\[
+\int_{t_0}^t g(s)ds = \sum_{n=1}^\infty \frac nn a_n(t - t_0)^n
+= \sum_{n=1}a_n(t - t_0)^n.
+\]
+However,
+\begin{align*}
+f(t) &= \sum_{n=0}^\infty a_n(t - t_0)^n = a_0 + \sum_{n=1}^\infty
+a_n(t - t_0)^n \\
+&= a_0 + \int_{t_0}^t g(s)ds.
+\end{align*}
+This formula, together with the fundamental theorem of
+calculus assures us that $f(t)$ is a differentiable function
+and 
+\[
+ f'(t) = 0 + \frac{d}{dt}\int_{t_0}^t g(s)ds =  g(t)
+\]
+as needed.
+\medskip
+The proof of (b) is harder.  Let
+\[
+f(t) = \sum_{n=0}^\infty a_n(t - t_0)^n\quad\text{for } |t - t_0| < R.
+\]
+Fix $t > t_0$.  (The argument for $t < t_0$ is similar.)
+We want to integrate $f(s)$ over the range $t_0 \le s \le t$. 
+For any given $N$, we may decompose the series for $f(s)$ into two parts
+\[
+f(s) = \sum_{n=0}^N a_n(s - t_0)^n + 
+\undersetbrace{R_N(s)}\to{\sum_{n = N+1}^\infty a_n(s - t_0)^n}.
+\]
+Integrate both sides to obtain
+\begin{align*}
+\int_{t_0}^t f(s)ds &= \sum_{n=0}^N\int_{t_0}^t a_n(s - t_0)^n ds
+  + \int_{t_0}^t R_N(s)ds \\
+&= \sum_{n=0}^N \frac{a_n}{n+1} \left.(s - t_0)^{n+1}\right|_{t_0}^t
+   + \int_{t_0}^t R_N(s)ds \\
+&= \sum_{n=0}^N \frac{a_n}{n+1} (t - t_0)^{n+1} + \int_{t_0}^t R_N(s)ds.
+\end{align*}
+
+To complete the proof, we need to see what happens in the last
+equality as $N \to \infty$.  The first term is the $N$th partial
+sum of the desired series, so it suffices to show that the second
+error term approaches zero.  However.
+\[
+\left|\int_{t_0}^t R_N(s)ds \right | \le \int_{t_0}^t |R_N(s)|ds.
+\]
+On the other hand, we have
+\begin{align*}
+|R_N(s)| &= \left|\sum_{n=N+1}^\infty a_n(s - t_0)^n\right|
+\le \sum_{n = N+1}^\infty |a_n||s - t_0|^n \\
+&\le \sum_{n = N+1}^\infty |a_n||t - t_0|^n.
+\end{align*}
+(This follows by the same reasoning as in the comparison test.)
+Note that since
+$|t - t_0| < R$, the series $\sum_n a_n(t - t_0)^n$ converges
+{\it absolutely\/}, so the series on the right of the above
+inequality is the tail of a convergent series; call it
+$T_N$.  Then, we have
+\[
+|R_N(s)| \le T_N
+\]
+for  $|s- t_0| < |t - t_0|$, where $T_N$ is independent of $s$.  Hence,
+\[
+\left|\int_{t_0}^t R_N(s)ds\right| \le
+\int_{t_0}^t |R_N(s)|ds \le \int_{t_0}^t T_N ds = T_N (t - t_0).
+\]
+Since $T_N$ is the tail of a convergent series, it goes to zero
+as $N \to \infty$.   That completes the proof.
+\bigskip
+\includeexercises{chap8.ex6}
+\bigskip
+\nextsec{Analytic Functions and Taylor Series}
+\head \sn. Analytic Functions. Taylor Series \endhead
+
+Our aim, as enunciated at the beginning of this chapter, is to use
+power series to solve differential equations.   So suppose that
+\[
+f(t) = \sum_{n= 0}^\infty a_n(t - t_0)^n
+\qquad\text{for } |t - t_0| < R,
+\]
+where $R$ is the radius of convergence of the series on the right.
+(Note that this assumes that $R > 0$.  There are power series
+with $R = 0$.  Such a series converges only at $t = t_0$ and
+won't be of much use.  See the Exercises for the
+previous section for an example.)
+A function $f:\R \to \R$ is said to be {\it analytic\/} if
+\outind{analytic function}
+at each point $t_0$ in its domain, it may be represented by
+such a power series in an interval about $t_0$.  Analytic
+functions are the best possible functions to use in applications.
+For example, we know by the previous section, that such a function
+is differentiable.  Even better, its derivative is also analytic
+because it has a power series expansion with the same radius of
+convergence.  Hence, the function also has a second derivative,
+and by extension of this argument, {\it must have derivatives
+of every order}.   Moreover, it is easy to relate the
+coefficients of the power series to these derivatives.  We have
+\begin{align*}
+f(t) &= \sum_{n= 0}^\infty a_n(t - t_0)^n = a_0 + a_1(t - t_0) + a_2(t -t_0)^2
++ \dots \\
+f'(t) &= \sum_{n= 1}^\infty na_n(t - t_0)^{n-1} =  a_1 + 2a_2(t -t_0)
++ \dots \\
+f''(t) &= \sum_{n= 2}^\infty n(n-1)a_n(t - t_0)^n =  2a_2
++ \dots \\
+&\vdots\\
+f^{(k)}(t) &= \sum_{n=k}^\infty n(n-1)(n-2)\dots(n-k+1)a_n(t - t_0)^n = 
+k(k-1)\dots 2\cdot 1 a_k +  \dots \\
+&\vdots
+\end{align*}
+Here $f^{(k)}$ denotes the $k$th derivative of $f$.  Note  that
+the series for $f^{(k)}(t)$ starts off with $k!a_k$.  Make sure
+you understand why!  Now put $t = t_0$ in the above formulas.  All
+terms involving $t - t_0$ to a positive power vanish, and we get
+\begin{align*}
+f(t_0) &= a_0 \\
+f'(t_0) &= a_1 \\
+f''(t_0) &= 2a_2 \\
+ &\vdots \\
+f^{(k)}(t_0) &= k!a_k \\
+&\vdots
+\end{align*}
+We can thus solve for the coefficients
+\begin{align*}
+a_0 &= f(t_0) \\
+a_1 &= f'(t_0) \\
+a_2 &= \frac{f''(t_0)}2 \\
+&\vdots \\
+a_k &= \frac{f^{(k)}(t_0)}{k!} \\
+&\vdots
+\end{align*}
+Hence, within the radius of convergence, the power series expansion
+of $f(t)$ is
+\[
+f(t) = \sum_{n=0}^\infty \frac{f^{(n)}(t_0)}{n!}(t - t_0)^n.
+\]
+This series is called the {\it Taylor series\/} of the function $f$.
+\outind{Taylor series}
+
+The above series was derived under the assumption that $f$ is
+analytic, but we can form that series
+for any function whatsoever, provided
+derivatives of all orders exist at $t_0$. If the function is analytic,
+then it will equal its Taylor series within its radius of convergence.
+
+\nextex
+\example{Example \en}  Let $f(t) = e^t$ and let $t_0 = 0$.
+Then,  
+\[f'(t) = e^t, f''(t) = e^t, \dots, f^{(n)}(t) = e^t, \dots,\]
+so
+\[
+a_n = \frac {e^0}{n!} = \frac 1{n!}.
+\]
+Hence, the Taylor series for $e^t$ at $0$ is
+\[
+\sum_{n=0}^\infty \frac 1{n!} t^n.
+\]
+It is easy to determine the radius of convergence of this series
+by means of the ratio test.
+\[
+\frac{|t|^{n+1}/(n+1)!}{|t|^n/n!} = \frac{|t|}{n+1} \to 0 < 1.
+\]
+Hence, the series converges for all $t$ and the radius of convergence
+is infinite.  We shall see that $e^t$ equals the series for every
+$t$, so f(t) = $e^t$ defines an analytic function  on $\R$.  However,
+this need not always be the case.  For example,  we might have
+$f(t)$ equal to the Taylor series for some but not all values in the interval
+of convergence of that series. 
+\endexample
+
+\nextex
+\example{Example \en}  Let $f(t) = \cos t$ and let $t_0 = 0$.
+Then, $f'(t) = -\sin t, f''(t) = -\cos t, f'''(t) = \sin t$,
+and $f^{(4)}(t) = \cos t$.  This pattern then repeats indefinitely
+with a period of 4.  In particular,
+\[
+f^{(n)}(0) = \left\{\aligned 1\quad&\text{if $n$ is even and a multiple of 4}\\
+-1\quad&\text{if $n$ is even and not a multiple of 4}\\
+ 0\quad&\text{otherwise}
+\endaligned \right..
+\]
+Hence, the Taylor series is
+\[
+1 - \frac{t^2}{2} + \frac{t^4}{4!} - \frac{t^6}{6!} + \dots
+= \sum_{n=0}^\infty (-1)^n\frac{t^{2n}}{(2n)!}.
+\]
+As above, a simple application of the ratio test shows that this
+series has infinite radius of convergence.  We shall see below
+that $\cos t$ is in fact analytic and equals its Taylor series for
+all $t$.
+\endexample
+\nextex
+\example{Example \en}  We showed in the previous section that the
+expansion
+\[
+\ln (1 + t) = \sum_{n=1}^\infty (-1)^{n+1} \frac{t^n}n
+\]
+is valid for $t$ in the interval of convergence of the series,
+($|t| < 1$).    This tells us that the function $\ln (1 + t)$
+is certainly analytic for $-1 < t < 1$, and the series on the
+right is its Taylor series.
+
+If we substitute $t - 1$ for $t$ in that expansion we get
+\[
+\ln t = \sum_{n=1}^\infty (-1)^{n+1} \frac{(t -1)^n}n
+\]
+and this gives us the Taylor series of $\ln t$ for $t_0 = 1$.
+\endexample
+
+\subhead Taylor's Formula with Remainder \endsubhead
+Because analytic functions are so important, it is useful
+to have a mechanism for determining when a function is equal
+to its Taylor series.  To this end, let
+\[
+R_N(t) = f(t) - \sum_{n=0}^N\frac{f^{(n)}(t_0)}{n!}(t - t_0)^n.
+\]
+The {\it remainder\/}, $R_N(t)$, is the difference 
+\outind{remainder, Taylor series}
+\outind{Taylor series, remainder}
+between the value of the function
+and the value of the appropriate partial sum of its Taylor series.
+To say the series converges to the function is to say that the
+limit of the sequence of partial sums
+is $f(t)$, i.e., that  $R_N(t) \to 0$.   To determine if this
+is the case, it is worthwhile having a method for estimating
+$R_N(t)$.   This is provided by the following formula which is
+called the {\it Cauchy form of the remainder}.
+\nexteqn
+\xdef\AE{\eqn}
+\[
+R_N(t) = \frac 1{N!}\int_{t_0}^t (t - s)^N f^{(N+1)}(s)\,ds.\tag{\eqn}
+\]
+This formula is in fact valid as long as the $f^{(N+1)}(s)$
+exits and is continuous in the interval from $t_0$ to $t$.
+We shall derive this formula later in this section, but it
+is instructive to look at the first case $N = 0$.  Here
+\begin{gather*}
+f(t) = f(t_0) + R_0(t) \\
+\text{where}\qquad R_0(t) = \int_{t_0}^t f'(s)ds
+\end{gather*}
+so the formula tells us that the change $f(t) - f(t_0)$ in the
+function is the integral of its rate of change $f'(s)$.  The general
+case may be considered an extension of this for higher derivatives,
+but just why the factor $(t - s)^n$ comes up in the integral won't
+be clear until you see the proof.
+
+In most cases, formula (\eqn) isn't much use as written.  The point
+is that we want to use the partial sum
+\[
+  \sum_{n=0}^N\frac{f^{(n)}(t_0)}{n!}(t - t_0)^n
+\]
+as an approximation to the function value $f(t)$.  If we could
+calculate the remainder term  $R_N(t)$ exactly, we could also
+calculate $f(t)$ exactly, and there would be no need to use
+an approximation.   Hence, in most cases, we want to get an
+{\it upper bound\/} on the size of $R_N(t)$ rather than an
+exact value.  {\it Suppose it is known that} 
+\[
+    |f^{(N+1)}(s)| \le M
+\]
+{\it for $s$ in the interval between $t_0$ and $t$}.   Then
+replacing $|f^{(N+1)}(s)|$ by $M$ in (\eqn) yields
+(for $t > t_0$)
+\[
+|R_N(t)| \le \frac 1{N!}\int_{t_0}^t (t - s)^N M ds 
+ = -\frac M{N!}\left. \frac{(t - s)^{N+1}}{N+1}\right|_{t_0}^t
+ = \frac M{(N + 1)!} (t - t_0)^{N+1}.
+\]
+A similar argument works for $t < t_0$ except for some fiddling with
+signs.  The result which holds in both cases is
+\nexteqn\xdef\AI{\eqn}
+\[
+|R_N(t)| \le \frac M{(N+1)!}|t - t_0|^{N+1}.\tag{\eqn}
+\]
+The expression on the right is what we get
+get from the {\it next term\/} of the Taylor series if we
+{\it replace $f^{(N+1)}(t_0)$ by the maximum value of that
+derivative in the interval from $t_0$ and $t$}.
+
+\nextex
+\example{Example \en}  Consider the Taylor series for
+$f(t) = \cos t$ centered at $t_0 = 0$   
+\[
+\sum_{n=0}^\infty \frac{(-1)^n}{(2n)!}t^{2n}.
+\]
+Only even numbered terms appear in this series.   We want to estimate
+the error $R_N(t)$ using the inequality (\AI).   We might as well
+take $N = 2K+1$ odd.  (Why?)  We know the even derivatives are
+all $\pm\cos t$, so we can take $M= 1$ as an upper bound for
+$|f^{(N+1)}(s)| = |f^{(2K + 2)}(s)|$. Hence, the estimate for the
+remainder is
+\[
+|R_{2K+1}(t)| \le \frac 1{(2K+2)!} |t|^{2K+2}.
+\]
+(Note that in this case the estimate on the right is just the
+absolute value of the
+next term in the series.)
+Thus for $K = 5, t = 1$ radian, we get
+\[
+|R_{11}| \le \frac 1{12!} 1^{12} = 2.08768\times 10^{-9}.
+\]
+Because the odd numbered terms of the series are zero,
+the number of non-zero terms in the approximating sum is 6.
+According to Mathematica
+\[
+\sum_{n=0}^5 (-1)^n\frac 1{(2n)!} =  0.540302304
+\]
+to 9 decimal places.  Use your calculator to see if it agrees that
+this result is as accurate as the above error estimate suggests.
+\endexample
+
+\nextex
+\example{Example \en}  Take $f(t) = \sin t$ and $t_0 = 0$. 
+Calculations as above lead to the Taylor series
+\[
+\sum_{n=0}^\infty (-1)^n\frac{t^{2n+1}}{(2n + 1)!}.
+\]
+All the even numbered terms are zero.  We get the estimate
+for the remainder for $N = 2K + 2$---(why don't we use $N = 2K + 1$?)---
+\[
+|R_{2K+2}(t)| \le \frac{|t|^{2K + 3}}{(2K + 3)!}.
+\]
+\endexample
+
+\nextex
+\emar{s8-9.ps}{-125}
+\example{Example \en}  Take $f(t) = e^t$ and $t_0 = 0$.   The Taylor
+series is
+\[
+\sum_{n=0}^\infty \frac{t^n}{n!}.
+\]
+The estimate of the remainder, however, is a bit more involved.
+The crucial parameter $M$ is the upper bound
+of $|f^{(N+1)}(s)| = e^s$ for $s$ in the interval from $0$ to $t$,
+but this
+depends on the sign of $t$.  
+Suppose first that $t < 0$.   Then, since $e^s$ is an increasing
+function of $s$, its maximum value is attained at the right endpoint,
+i.e., at $s = 0$.  Hence, we should take $M = e^0 = 1$.
+Thus,
+\[
+|R_N(t)| \le \frac 1{(N+1)!} |t|^{N+1}
+\]
+is a plausible estimate for the remainder.
+On the other hand, if $t > 0$, the same reasoning shows that
+we should take $M = e^t$.  This seems a bit circular, since
+it is $e^t$ that we are trying to calculate.  However, there is
+nothing preventing us from using an $M$ {\it larger than\/}
+$e^t$ if it is easier to calculate.
+For example, suppose we want to compute $e = e^1$ using the
+series
+\[
+  \sum_{n=0}^\infty \frac 1{n!} 1^n =
+\sum_{n=0}^\infty \frac 1{n!}.
+\]
+The maximum value of $e^s$ in this case would be $e^1 = e$, but
+that is certainly less than 3.  Hence, we take $M = 3$ and use the
+error estimate
+\[
+|R_N(1)| \le \frac 3{(N+1)!} |1|^{N+1}.
+\]
+Thus, for $N = 15$ (actually 16 terms), we could conclude
+\[
+|R_{15}(1)| \le \frac 3{16!} = 1.43384\times 10^{-13}.
+\]
+According to Mathematica, the sum for $N = 15$ is
+$2.71828182846$.  You should try this on your calculator to
+see if it agrees.
+\endexample
+
+We may use the estimate of the error to determine values of
+$t$ for which the Taylor series converges to the function.
+The following lemma is useful in that context.
+
+\nextthm
+\proclaim{Lemma \cn.\tn} For any number $t$,
+\[
+ \lim_{n\to\infty} \frac{t^n}{n!} = 0.
+\]
+\endproclaim
+\demo{Proof}
+We saw earlier (by the ratio test) that the Taylor series
+for $e^t$ 
+\[
+\sum_{n=0}^\infty \frac{t^n}{n!}
+\]
+has infinite radius of convergence.  Hence, it converges 
+ for all $t$, and its general term  $t^n/n!$ must
+approach 0.
+\enddemo
+
+For each of the functions we considered above, the estimate
+of the remainder involved $|t|^n/n!$ or something related to it.  Hence,
+the Lemma tells us $R_N(t) \to 0$ as $N \to \infty$ in each
+of these cases, for any $t$.  Thus, we have
+the following Taylor series expansions, valid for all $t$,
+\begin{align*}
+\cos t &= \sum_{n=0}^\infty (-1)^n\frac {t^{2n}}{(2n)!} \\
+\sin t &= \sum_{n=0}^\infty (-1)^n\frac {t^{2n+1}}{(2n+1)!} \\
+e^t &=\sum_{n=0}^\infty \frac{t^n}{n!}.
+\end{align*}
+
+In principle, each of these series may be used to calculate
+the function to any desired degree of accuracy by using sufficiently
+many terms.  However, in practice this is only useful for relatively
+small values of $t$.  For example,  we saw that 
+\[
+ |R_{2K+1}(t)| \le \frac {|t|^{2K+2}}{(2K+2)!}
+\]
+is a plausible estimate of the error when using the Taylor series
+for $\cos t$.   However, here are some values for 
+ $t = 10$
+\begin{align*}
+  n\qquad & t^n/(2n)! \\
+1\qquad & 50 \\
+2\qquad & 416.667 \\
+3\qquad &1388.89\\
+4\qquad &  2480.16 \\
+5\qquad & 2755.73 \\
+6\qquad & 2087.68 \\
+&\vdots \\
+10\qquad& 41.1032 \\
+&\vdots \\
+20\qquad & 1.22562 10^{-8} \\
+&\vdots
+\end{align*}
+As you see, the terms can get quite large before the factorial
+term in the denominator begins to dominate.  Using the series
+to calculate $\cos t$ for large $t$ might lead to some nasty surprises.
+(Can you think of a better way to do it?)
+
+\subhead Derivation of the Cauchy Remainder \endsubhead
+We assume that all the needed derivatives exist and are
+continuous functions.   
+Consider the expression
+\[
+R_N(t,s) = f(t) - f(s) - f'(s)(t - s) - \frac{f''(s)}2(t -s)^2
+            - \dots - \frac{f^{(N)}(s)}{N!}(t - s)^N
+\]
+as a function of both $t$ and $s$.  Take the derivative of both
+sides with respect to $s$.  Note that by the product rule,
+the derivative of a typical term is
+\[
+\frac{\d}{\d s}\left(-\frac{f^{(n)}(s)}{n!}(t -s)^n\right)
+= -\frac{f^{(n+1)}(s)}{n!}(t - s)^n + \frac{f^{(n)}(s)}{(n-1)!}(t - s)^{n-1}
+\]
+If we write these terms in the reverse order, we get
+\begin{align*}
+\frac{\d R_N}{\d s}
+&= 0 - f'(s)  + f'(s) - f''(s)(t -s) + f''(s)(t - s) - \dots
+      - \frac{f^{(N+1)}(s)}{N!}(t - s)^N \\
+&=   - \frac{f^{(N+1)}(s)}{N!}(t - s)^N.
+ \end{align*}
+since all terms except the last cancel.
+Integrating with respect to $s$, we obtain
+\[
+\int_{t_0}^t \frac{\d R_N}{\d s} ds
+= - \frac 1{N!}\int_{t_0}^t f^{(N+1)}(s)(t - s)^N ds.
+\]
+However, the integral on the left is
+\[
+\left. R_N(t,s)\right|_{s = t_0}^{s = t} = R_N(t,t) - R_N(t,t_0).
+\]
+Since $R_N(t,t) = f(t) - f(t) - 0  - \dots -0 = 0$, it follows that
+\[
+-R_N(t,t_0) = 
+ - \frac 1{N!}\int_{t_0}^t f^{(N+1)}(s)(t - s)^N ds,
+\]
+which is the desired formula except for the minus signs.
+
+\subhead Determining the Radius of Convergence of a Taylor Series
+\endsubhead
+We have seen that generally speaking the Taylor series expansion
+\[
+f(t) = \sum_{n=0}^\infty \frac{f^{(n)}(t_0)}{n!} (t - t_0)^n
+\]
+is valid in some interval $t_0 - R < t < t_0 + R$.   There is
+a simple rule for determining $R$ from $f$, which applies in
+many cases.
+
+Consider  the example
+\[
+f(t) = \frac 1{1 - t} = 1 + t + t^2 + \dots + t^n + \dots
+\]
+We know the series on the right converges absolutely for
+$-1 < t < 1$  and that the expansion of the function is valid
+in this range.  ($t_0 = 0, R = 1$.)  You will note that the
+function in this case has a singularity at $t = 1$.  That suggests
+the following rule:
+
+\proclaim{Radius of Convergence of a Taylor Series}
+  For each point $t_0$, let $R$ be the
+distance to the nearest singularity of the function $f$.  Then
+the radius of convergence of
+the Taylor series for $f$ centered at $t_0$ is $R$, and the series 
+converges absolutely
+to the function in the interval $t_0 - R < t < t_0 + R$.
+\endproclaim
+\outind{radius of convergence of a power series}
+
+Unfortunately, it is easy to come up with an example for which
+this rule appears to fail.  Put  $u = -t^2$  in
+the formula 
+\[
+\frac 1{1 - u} = 1 + u + u^2 + \dots + u^n + \dots
+\]
+to get
+\[
+\frac 1{1 - (-t^2)} = 1 + (-t^2) + (-t^2)^2 + (-t^2)^3
++ \dots + (-t^2)^n + \dots
+\]
+This is valid for $|u| = |-t^2| < 1$, i.e., $|t| < 1$.
+Cleaning up the minus signs yields
+\[
+\frac 1{1 + t^2} = 1 - t^2 + t^4 - t^6 + \dots + (-1)^nt^{2n} + \dots
+\]
+for $-1 < t < 1$.    The function $f(t) = 1/(1 + t^2)$ does
+not appear to have a singularity either at $t = 1$ or $t= -1$,
+which contradicts the rule.  However, if you consider the function
+of a {\it complex\/} variable $z$ defined by
+\[
+f(z) = \frac 1{1 +z^2}
+\]
+this function does have singularities at $z = \pm i$ where the
+denominator vanishes.   Also, very neatly, the distance
+in the complex plane from $z_0 = 0$ to each of these singularities
+is $R = 1$, and that is the proper radius of convergence of the
+series.  {\it Thus the rule does apply if we extend the function
+$f(t)$ to a function $f(z)$ of a complex variable and look for
+the singularities of that complex function}.   In many simple
+cases, it is obvious how to do this, but in general, the
+notion of singularity for  functions $f(z)$ of a complex
+variable and how to go about extending  functions $f(t)$ of a real
+variable requires extensive theoretical discussion.
+This will be done in your complex analysis course.  We felt
+it necessary, however, to enunciate the rule, even though
+it could not be fully explained, because it is so important
+in studying the behavior of series solutions of differential
+equations.  It is one of many circumstances in  which 
+behavior in the complex plane, which would be invisible just
+by looking at real points, can affect the behavior of a mathematical
+system and of physical processes modeled by such a system.
+
+
+\subhead A Subtle Point \endsubhead
+We have been using implicitly the fact that the sum
+ $f(t) = \sum_{n=0}^\infty a_n (t - t_0)^n$ of a power
+series is an analytic function within the interval
+of convergence $t_0 - R < t < t_0 + R$ of that series.
+If so, then the Taylor series of $f(t)$
+at any {\it other\/}
+point $t_1$ in $(t_0 - R, t_0 + R)$ should also converge to $f(t)$.
+(Look carefully at the definition of `analytic' at the beginning
+of this section!)
+In fact, such is the case, and the interval of convergence 
+of the Taylor series at $t_1$
+ extends at least to
+the closer of the two endpoints  $t_0 - R, \, t_0 + R$ of the
+interval of convergence of the original power series.  
+One must prove these assertions to justify
+the conclusion that the sum of a power series
+is analytic, but we won't do that in this course.
+It would be rather difficult to do without getting
+into complex variable theory.
+Hence, you will have to wait for a course in that subject for
+a proof.   
+
+\smallskip
+\mar{s8-10.ps}
+\bigskip
+\includeexercises{chap8.ex7}
+\bigskip
+
+\nextsec{More Calculations with Power Series}
+\head \sn.  More Calculations with Power Series \endhead
+
+There are two approaches to finding the Taylor series expansion
+of an analytic function.  You can start with the function and
+its derivatives and calculate the coefficients $a_n = f^{(n)}(t_0)/n!$.
+This is often quite messy.  (Also, it may be quite difficult
+to show
+that the series converges to the function in an appropriate
+range  by  
+estimating $R_N(t)$.)  Another approach is to start with the
+series for a related function and then derive the desired series 
+by differentiating, integrating or other manipulations.
+
+\nextex
+\example{Example \en}  By {\it substituting\/}  $u = -t^2$ in
+the series expansion
+\[
+\frac 1{1 - u}  = 1 + u + u^2 + \dots
+\] we may obtain
+the expansion
+\[
+\frac 1{1 + t^2} = 1  - t^2 + t^4 - t^6 + \dots + (-1)^nt^{2n} + \dots.
+\]
+Since the first expansion is valid for $-1 < u < 1$, the second
+expansion is valid for $0\le t^2 < 1$, i.e., $-1< t < 1$.
+In this range,
+we may integrate the series term by term to obtain
+\[
+\int_0^t\frac 1{1 + s^2}ds = t -\frac{t^3}3 + \frac{t^5}5 -
+\dots + (-1)^n\frac {t^{2n+1}}{2n+1} + \dots
+\]
+or after evaluating the left hand side
+\[
+\tan^{-1}t = t -\frac{t^3}3 + \frac{t^5}5 -\dots + (-1)^n\frac {t^{2n+1}}{2n+1} + \dots
+\]
+for $-1 < t < 1$.  You might try to derive this Taylor series by taking
+derivatives of the $\tan^{-1} t$.  You will find it is a lot harder.
+
+The above series also converges  for $t = 1$ by the alternating series
+test, and its sum is $\tan^{-1} (1)$.  (This does not follow simply
+by the above analysis, since that only applied in the range $-1 < t <1$,
+but it can be demonstrated by a more refined analysis.)  Thus
+we get the formula
+\[
+\frac{\pi}4 =
+1 -\frac 13 + \frac 15 - \frac 17 + \dots +  (-1)^n\frac 1{2n+1} + \dots
+\]
+In principle, this series may be used to compute $\pi$ to any
+desired degree of accuracy.   Unfortunately, it converges rather
+slowly, but similar expansions for other rational multiples of
+$\pi$ converge rapidly.  Recently, such series have been used
+to test the capabilities of modern computers by computing $\pi$
+to exceptionally large numbers of decimal places.
+
+The Taylor series does not converge for
+ $t = -1$,  since in that case you get
+\[
+-1 -\frac 13 - \frac 15 - \frac 17 - \dots - \frac 1{2n+1} - \dots
+\]
+(Apply the integral test to the negative of the series.)  That fact
+should make you cautious about trying to extend results to the
+endpoints of the interval of convergence.
+\endexample
+
+\nextex
+\example{Example \en}  The quantities $\sin t/t$ and $(1 - \cos t)/t$
+occur in a variety of applications.  
+
+The limits $\lim_{t \to 0} \sin t/t = 1$ and $\lim_{t \to 0}(1 - \cos t)/t
+= 0$ must be determined in order to calculate the derivatives of the
+$\sin$ and $\cos$ functions.  We can use the current theory to get
+more precise information about how the above ratios behave near
+$t = 0$.   We discuss the case of $\sin t/t$.  $(1 - \cos t)/t$
+is similar.  Start with
+\[
+\sin t = t - \frac{t^3}{3!} + \frac{t^5}{5!} - \dots +(-1)^n\frac{t^{2n+1}}
+{(2n +1)!} + \dots
+\]
+which is valid for {\it all\/} $t$.  Multiply by $1/t$ to obtain
+\[
+\frac{\sin t}t = 1 - \frac{t^2}{3!} + \frac{t^4}{5!} - \dots +
+(-1)^n\frac{t^{2n}}{(2n+1)!} + \dots
+\]
+which is also valid for all $t \not= 0$.  (The analysis breaks down if $t = 0$,
+but the formula may be considered valid in the sense that
+the right hand side is
+1 and the left hand side has limit 1.) 
+Note that the series is an alternating series so we may estimate the
+error if we stop after $N$ terms by looking at the {\it next\/}
+term.  By taking $n=1$, we conclude that
+\[
+\frac{\sin t}t \approx 1
+\]
+for $t$ small with the difference behaving like $O(t^2)$.
+\endexample
+
+Sometimes one can use Taylor series to evaluate an integral
+quickly and to high accuracy in a case where it is not possible
+to determine an elementary anti-derivative.
+
+\nextex
+\example{Example \en}  We shall calculate $\int_0^{\pi/2}\dfrac{\sin x}x dx$
+so that the error is less than
+$5\times 10^{-4}$,
+which {\it loosely speaking\/} says is it accurate
+to three decimal places.   Note that the function $\sin x/x$ does not have
+an elementary anti-derivative.   As in the previous example,
+\[
+\frac{\sin x}x =
+ 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \dots +
+(-1)^n\frac{x^{2n}}{(2n+1)!} + \dots
+\]
+and we may consider this expansion valid for all $x$ by using the
+limit 1 for the value of $\sin x/x$ for $x = 0$.   Integrating term
+by term yields
+\[
+\int_0^{\pi/2} \frac{\sin x}x dx
+=
+\frac\pi 2 - \frac 1{3\cdot 3!}\left(\frac \pi 2\right)^3
++ \frac 1{5\cdot 5!}\left(\frac \pi 2\right)^5 
+- \frac 1{7\cdot 7!}\left(\frac\pi 2\right)^7 + \dots
+\]
+Also, it is possible to show that the right hand side is an
+alternating series {\it in which the terms decrease}.  Indeed,
+checking the first few values, we have (to 4 decimal places)
+\begin{align*}
+\frac\pi 2 &= 1.5708 \\
+\frac 1{18}\left(\frac\pi 2\right)^3 &= 0.2153 \\
+\frac 1{600}\left(\frac\pi 2\right)^5 &= 0.0159 \\
+\frac 1{35280}\left(\frac\pi 2\right)^7 &= 0.0007 \\
+&\vdots
+\end{align*}
+The next term is $(1/9\cdot 9!)(\pi/2)^9\approx 2\times 10^{-5}$.
+Hence, the error in just using the terms listed is certainly small
+enough that it won't affect the 3rd decimal place.  Adding up
+those terms (including signs) yields $1.371$ to 4 decimal places.
+\endexample
+
+\subhead The Binomial Theorem \endsubhead
+An important Taylor series is that for the function
+$f(t) = (1 + t)^a$.   That series is called the {\it
+binomial series}.
+Perhaps you recall from high school the formulas
+\begin{align*}
+(1 + t)^2 &= 1 + 2t + t^2 \\
+(1+t)^3 &= 1 + 3t + 3t^2 + t^3 \\
+(1 + t)^4 &= 1 + 4t + 6t^2 + 4t^3 + t^4 \\
+&\vdots
+\end{align*}
+The general case for $a$ a positive integer is the
+{\it binomial theorem\/} formula
+\outind{binomial theorem}
+\nexteqn
+\[
+(1 + t)^a = 1 + at + \frac{a(a - 1)}2 t^2 + \dots + at^{a-1}t^a
+ = \sum_{n=0}^a \binom an t^n,
+\]
+where
+\[
+\binom an = \frac{a(a - 1)(a - 2)\dots (a - n +1)}{n!}
+       = \frac{a!}{n!(a - n)!}.
+\]
+(By convention $\binom an = 0$ if $n < 0$ or $n > a$.)
+If we take $a$ to be a negative integer, a fraction
+ or indeed {\it
+any non-zero real number\/}, then we may still define
+binomial coefficients
+\[
+\binom an = \frac{a(a - 1)(a - 2)\dots (a - n +1)}{n!}
+\]
+with the convention that $\binom a0 = 1$.
+\outind{binomial coefficients}
+Unlike the ordinary binomial coefficients, 
+these quantities aren't necessarily positive,
+and moreover they don't vanish for $n > a$.  Thus, instead of
+a polynomial, we get a {\it series expansion}
+\nexteqn
+\[
+(1 + t)^a = \sum_{n=0}^\infty \binom an t^n\tag{\eqn}
+\]
+which is valid for $-1 < t < 1$.  
+\nextex
+\example{Example \en}  For $a = -2$, the coefficients are
+\begin{align*}
+\binom {-2}0 &= 1 \\
+\binom {-2}1 &= -2 \\
+\binom {-2}2 &\frac{(-2)(-3)}2 = 3 \\
+\binom {-2}3 &= \frac{(-2)(-3)(-4)}{3!} = -4 \\
+&\vdots \\
+\binom {-2}n &= \frac{(-2)(-3)\dots(-n)(-n-1)}{n!} = (-1)^n(n+1)
+\end{align*}
+Hence,
+\[
+(1 + t)^{-2} = \sum_{n=0}^\infty (-1)^n(n+1)t^n.
+\]
+(Compare this with the series for $(1 + t)^{-2}$ you  obtained
+in the Exercises for Section 6
+by differentiating the series for $(1 + t)^{-1}$.)
+
+\endexample
+
+The general binomial theorem (\eqn)
+ was discovered and first proved by Isaac Newton.
+Since then there have been several different proofs.  We
+shall give a rather tricky proof based on some of the
+ideas we developed above.
+
+First note that the series $\sum_n\binom an t^n$
+ has radius of convergence
+1.  For, the ratio
+\begin{multline*}
+\frac{|\binom a{n+1}||t|^{n+1}}{|\binom an||t|^n} =\\
+  |t|\frac{|a(a-1)\dots(a - n + 1)(a - (n+1)+1)|}
+{(n+1)!}\,
+\frac{n!}{|a(a-1)\dots(a - n + 1)|} \\
+= |t|\frac{|a - n|}{n+1}
+\end{multline*}
+approaches $|t|$ as $n \to \infty$.  Thus, the series converges
+absolutely for $|t| < 1$.  Let
+\[
+f(t) = \sum_{n=0}^\infty \binom an t^n\qquad\text{for } -1 < t < 1.
+\]
+Then
+\nexteqn
+\[
+f'(t) = \sum_{n=1}^\infty \binom an n t^{n-1}.\tag{\eqn}
+\]
+Multiply this by $t$
+to obtain
+\[
+tf'(t) = \sum_{n=1}^\infty \binom an n t^n =
+\sum_{n=0}^\infty \binom an n t^n,
+\]
+where we put back the $n=0$ term which is zero in any case.
+Similarly, putting $n+1$ for $n$ in (\eqn) yields
+\[
+f'(t) = \sum_{n=0}^\infty \binom a{n+1}(n+1)t^{n-1},
+\]
+so
+\[
+f'(t) + tf'(t) = \sum_{n=0}^\infty \left(\binom a{n+1}(n+1)
+           + \binom an n\right)t^n.
+\]
+However,
+\begin{align*}
+\binom a{n+1}(n+1) &+ \binom an n \\
+&=\frac{a(a-1)\dots(a - (n+1) + 1)}{(n+1)!}(n+1) 
++ \frac{a(a-1)\dots(a - n +1)}{n!}n \\
+&= \frac{a(a -1)\dots(a - n +1)}{n!}(a -n) + 
+\frac{a(a-1)\dots(a - n +1)}{n!}n \\
+&= \frac{a(a-1)\dots(a -n +1)}{n!}a = \binom an a.
+\end{align*}
+Hence,
+\[
+(1 + t)f'(t) = \sum_{n=0}^\infty a\binom an t^n = a
+\sum_{n=0}^\infty \binom an t^n = af(t).
+\]
+In other words, $f(t)$ satisfies the differential equation
+\[
+f'(t) - \frac a{1+t}f(t) = 0.
+\]
+This is a linear equation, and we know the solution
+\[
+f(t) = Ce^{\int \frac a{1 +t}dt} = Ce^{a\ln(1 + t)} = C(1 + t)^a.
+\]
+To determine $C$, note that it follows from the definition
+of $f$ that $f(0) = 1$.  Hence, $1 = C1^a = C$, and
+\[
+f(t) = (1 +t)^a\qquad\text{for } -1 < t < 1
+\]
+as claimed.
+
+
+
+\subhead Other Manipulations \endsubhead
+Other manipulations with series are possible.  For example, series
+may be added, subtracted,  multiplied or even divided, 
+but determining the radius
+of convergence of the resulting series may be somewhat tricky.
+
+\nextex
+\example{Example \en}  We find the Taylor series expansion
+for $e^{2t}\cos t$ for $t_0 = 0$.  We have
+\begin{align*}
+e^{2t} &= 1 + 2t + 2t^2 + \frac 43 t^3 + \dots \\
+\cos t &= 1 - \frac 12 t^2 + \frac 1{24} t^4 - \dots
+\end{align*}
+so
+\begin{align*}
+e^{2t}\cos t
+&= 1 + 2t + 2t^2 + \frac 43 t^3 + \dots \\
+       &-\frac 12 t^2 - t^3 - \dots 
+\end{align*}
+where we have listed only the terms of degree $\le 3$.  Combining
+terms, we obtain
+\[
+e^{2t}\cos t = 1 + 2t + \frac 32 t^2  + \frac 13 t^3 + \dots
+\]
+\endexample
+\nextex  
+\example{Example \en}   We know that
+\[
+\frac 1{1 + u} = 1 - u + u^2 - u^3 + \dots\qquad\text{for } |u| < 1.
+\]
+Since $(1 + t)^2 = 1 + 2t + t^2$, we may substitute $u = 2t + t^2$
+in the above equation to get
+\begin{align*}
+\frac 1{(1 + t)^2} = \frac 1{1 + 2t + t^2}
+  &= 1 - (2t + t^2) + (2t + t^2)^2 - (2t + t^2)^3 + \dots \\
+  &= 1 -2t -t^2 + 4t^2 + 4t^3 + t^4 - 8t^3 -12t^4 - 6t^5 - t^6 + \dots \\
+  & = 1 - 2t + 3t^2 - 4t^3 + \dots
+\end{align*}
+Note that I stopped including terms where I could be sure that the higher
+degree terms would not contribute further to the given power of t.
+(The term $(2t + t^2)^4$ would contribute a term involving $t^4$.)
+Note also that it is not clear from the above computations
+what radius of convergence
+to specify for the last expansion to be valid.
+
+You should compare the above expansion with what you would obtain
+by using the binomial theorem for $(1 + t)^{-2}$.
+\endexample
+
+One consequence of the fact that we may manipulate series in this
+way is
+that the sum, difference, or product of analytic functions is
+again analytic.  Similarly, the quotient of two analytic
+functions is also analytic, at least if we exclude from the
+domain points where the denominator vanishes.  Finally,
+it is even possible
+to substitute one series in another, so the composition of
+two analytic functions is generally analytic.
+
+\bigskip
+\includeexercises{chap8.ex8}
+\bigskip
+\nextsec{Multidimensional Taylor Series}
+\head \sn. Multidimensional Taylor Series \endhead
+
+We want to extend the notions introduced in the previous sections
+to functions of more than one variable, i.e.,   $f(\r)$ with
+$\r$ in $\R^n$.   In this section, we shall concentrate entirely
+on the case $n = 2$ because the notational difficulties get
+progressively worse as the number of variables increases.  However,
+with a good understanding of that case, it is not hard to see how
+to proceed in higher dimensional cases.
+
+Suppose then that $n = 2$, and a scalar valued function is given
+by $f(\r) = f(x,y)$.  We want to expand this function in a
+multidimensional power series.   From our previous discussion
+of linear approximation, we know it should start
+\[
+f(x,y) = f(0,0) + f_x(0,0)x + f_y(0,0)y + \dots,
+\]
+and we need to figure out what the higher degree terms should be.
+
+To this end, 
+consider series of the
+ form
+\[
+a_{00} + a_{10}x + a_{01}y + a_{20}x^2 + a_{11}xy + a_{02}y^2
+ + \dots = \sum_{n=0}^\infty(\sum_{i+j = n} a_{ij}x^iy^j).
+\]
+Notice the way the terms are arranged.  A typical term will
+be some multiple of a {\it monomial\/} $x^iy^j$.   The coefficient
+of that monomial is denoted $a_{ij}$ where the subscripts specify the
+powers of $x$ and $y$ in the monomial.   Moreover, we call 
+$n = i+j$ the {\it total degree\/} of the monomial $x^iy^j$, and 
+we group all monomials of the same degree together as
+$\sum_{i+j = n} a_{ij}x^iy^j$.
+
+The above series is centered at $(0,0)$.  We can similarly
+discuss a multidimensional power series of the form
+\[
+    \sum_{n=0}^\infty (\sum_{i+j = n} a_{ij}(x - x_0)^n(y - y_0)^n)
+\]
+centered at the point $(x_0,y_0)$.   For the moment we will
+concentrate on series centered at $(0,0)$ in order to save writing.
+Once you understand that, you can get the general case by
+substituting $x - x_0$ and $y - y_0$ for $x$ and $y$ and making
+other appropriate changes.
+
+A function $f(x,y)$ with domain some open set in $\R^2$
+is said to be {\it analytic\/} if at each point in its domain
+it may be expanded in a power series centered at that point
+in some neighborhood of the point.   Suppose then that
+\[
+f(x,y) =  
+a_{00} + a_{10}x + a_{01}y + a_{20}x^2 + a_{11}xy + a_{02}y^2
+ + \dots = \sum_{n=0}^\infty(\sum_{i+j = n} a_{ij}x^iy^j)
+\]
+is valid in some neighborhood of $(0,0)$.  By putting $x = 0, y = 0$
+we see that 
+\[f(0,0) = a_{00}.\]
+  Just as in the case
+of power series in one variable, term by term differentiation
+(or integration) is valid.   Hence, we have
+\nexteqn
+\xdef\EqOne{\eqn}
+\[
+\frac{\d f}{\d x} = a_{10} + 2a_{20}x + a_{11}y + \dots
+   = \sum_{n=1}^\infty (\sum_{i + j = n} ia_{ij}x^{i-1}y^j).\tag{\eqn}
+\]
+Putting $x = 0, y = 0$ yields
+\[
+\frac{\d f}{\d x}(0,0) = a_{10},
+\]
+just as we expected.  Similarly,  $\frac{\d f}{\d y}(0,0) = a_{01}$.
+
+Take yet another derivative  to get
+\[
+\frac{\d^2 f}{\d x^2} = 2a_{20} + \dots =
+\sum_{n=2}^\infty \sum_{i + j = n}i(i-1)a_{ij}x^{i-2}y^j.
+\]  
+Hence,
+\[
+\frac{\d^2 f}{\d x^2}(0,0) = 2a_{20}.
+\]
+Similar reasoning applies to partials with respect to $y$, and
+continuing in this way, we discover that
+\begin{align*}
+a_{n0} &= \frac 1{n!}\frac{\d^nf}{\d x^n}(0,0)\\
+a_{0n} &= \frac 1{n!}\frac{\d^nf}{\d y^n}(0,0).
+\end{align*}
+However, this still leaves the bulk of the coefficients undetermined.
+To find these, we need to find some {\it mixed partials}.  Thus,
+from equation (\EqOne), we get
+\[
+\frac{\d^2 f}{\d x\d y} = 
+a_{11} + \dots = \sum_{n=2}^\infty (\sum_{i+j = n} ij a_{ij}x^{i-1}y^{j-1}).
+\]
+Thus,
+\[
+\frac{\d^2 f}{\d x\d y}(0,0) = a_{11}.
+\]
+Here the total degree is $1 + 1 = 2$.
+Suppose we consider the case of total degree $r + s = k$ where
+$r$ and $s$ are the subdegrees for $x$ and $y$ respectively.
+Then, it is possible to show that
+\[
+\frac{\d^kf}{\d x^r\d y^s} = \sum_{n = k}^\infty \sum_{i + j = n}
+i(i -1)(i -1)\dots (i - r + 1)\,j(j -1)(j - 1)\dots (j - s + 1)
+a_{ij}x^{i - r}y^{j - s}.
+\]
+The leading term in the expansion on the right for $n = k$
+has only one non-zero term, the one with 
+$i = r$ and $j = s$, i.e.,
+ \[
+r!s!a_{rs}.
+\]
+Hence, since $k = r + s$,
+\[
+a_{rs} = \frac 1{r!s!}\frac{\d^{r + s}f}{\d x^r\d y^s}(0,0).
+\]
+(You should do all the calculations for $a_{21}$ and $a_{12}$
+to convince yourself that it really works this way.  If you
+don't quite see why the calculations work as claimed in the
+general case, you should probably just accept them.)
+
+Thus, the power series expansion centered at $(0,0)$ is
+\[
+f(x,y) = \sum_{n= 0}^\infty (\sum_{i + j = n}
+\frac 1{i!j!}\frac{\d^nf}{\d x^i\d y^j}(0,0)\,x^iy^j).
+\]
+Similarly, the power series expansion centered at $(x_0,y_0)$ is
+\[
+f(x,y) = \sum_{n= 0}^\infty \sum_{i + j = n}
+\frac 1{i!j!}\frac{\d^nf}{\d x^i\d y^j}(x_0,y_0)\,(x - x_0)^i(y - y_0)^j.
+\]
+The right hand side is called the (multidimensional) {\it Taylor
+series\/} for the function centered at $(x_0,y_0)$.
+\outind{multidimensional Taylor series}
+\outind{Taylor series, multidimensional}
+
+There is another way to express the series.  Consider the terms
+of total degree $n$
+\[
+\sum_{i + j = n}\frac 1{i!j!}\frac{\d^nf}{\d x^i\d y^j}\,(x - x_0)^i(y - y_0)^j,
+\]
+where to save writing we omit explicit mention of the fact that the
+partial derivatives are to be evaluated at $(x_0, y_0)$.
+To make this look a bit more like the case of one variable, we divide
+by a common factor of $n!$.  Of course, we must then also multiply
+each term by $n!$ to compensate, and the extra $n!$ may be incorporated
+with the other factorials to obtain
+\[
+\frac{n!}{i!j!} = \binom ni.
+\]
+Hence, the terms of degree $n$ may be expressed
+\nexteqn
+\xdef\EqTwo{\eqn}
+\[
+\frac 1{n!}\sum_{i + j = n} \binom ni \frac{\d^nf}{\d x^i\d y^j}\,
+(x - x_0)^i(y - y_0)^j.\tag{\eqn}
+\]
+
+\nextex
+\example{Example \en}
+Let $f(x,y) = e^{x +y}$ and $x_0 = 0, y_0 = 0$.   Then it is not
+hard to check that
+\[
+\frac{\d^n f}{\d x^i \d y^j} = e^{x+y} = e^0 = 1\quad\text{at }
+(0,0).
+\]
+Hence, the series expansion is
+\[
+e^{x+y} = \sum_{n=0}^\infty \frac 1{n!}\sum_{i + j = n} \binom n i
+x^i y^j.
+\]
+
+An easier way to derive this same series is to start with
+\[
+e^u = \sum_{n=0}^\infty \frac 1{n!}u^n
+\]
+and put $u = x+y$.  Since
+\[
+(x + y)^n = \sum_{i+j = n} \binom ni x^i y^j,
+\]
+we get the same answer.
+\endexample
+
+\medskip
+There is yet another way to express formula (\EqTwo).  To save
+writing, put $\Delta x = x - x_0, \Delta y = y - y_0$.
+Consider the operator  $D = \Delta x \dfrac \d{\d x}
++ \Delta y \dfrac \d{\d y}$.  Then, symbolically,
+\begin{align*}
+  D^n =  (\Delta x \frac \d{\d x}+ \Delta y \frac \d{\d y})^n
+     &= \sum_{i + j = n}\binom ni (\Delta x \frac \d{\d x})^i
+(\Delta y\frac\d{\d y})^j\\
+ &=\sum_{i+j = n}\binom ni \Delta x^i \Delta y^j \frac {\d^n}
+{\d x^i \d y^j}.
+\end{align*}
+Hence, 
+\[
+\sum_{n=0}^\infty \frac 1{n!} (D^n f)(x_0,y_0)
+ = \sum_{n=0}^\infty \frac 1{n!}\sum_{i + j = n}\binom ni
+\Delta x^i \Delta y^j \frac{\d^n f}{\d x^i \d y^j}(x_0,y_0),
+\]
+which is the expression arrived at earlier in formula (\EqTwo).
+
+\subhead The Error \endsubhead
+One can analyze the error $R_N$ made if you stop with terms of
+degree $N$ for multidimensional Taylor series in a manner similar
+to the case of ordinary Taylor series.
+The  exact form of this remainder  $R_N$ is not as important as the
+\outind{remainder, multidimensional Taylor series}
+fact
+ that {\it as a function of $|\Delta\r| = \sqrt{\Delta x^2 + \Delta y^2}$\/}
+it is $O(|\Delta\r|^{N+1})$.
+Thus, we may write in general
+\[
+f(x + \Delta x, y + \Delta y)
+ = \sum_{n=0}^N \frac 1{n!}\sum_{i + j = n}\binom ni
+\frac{\d^n f}{\d x^i \d y^j}
+\Delta x^i \Delta y^j + O(|\Delta r|^{N+1}).
+\]
+  One important case is
+$N = 1$ which gives
+\[
+f(x + \Delta x, y + \Delta y) = f(x,y) + f_x\Delta x + f_y\Delta y +
+ O(|\Delta\r|^2).
+\]
+(You should compare this with our previous discussion of the linear
+approximation in Chapter III.)  
+
+The case $N= 2$ is also worth writing
+out explicitly.  It may be put in the following form
+\nexteqn
+\begin{multline*}
+f(x + \Delta x, y + \Delta y) \\
+ = f(x,y) + f_x\Delta x + f_y\Delta y
+ + \frac 12 (f_{xx}\Delta x^2 + 2f_{xy}\Delta x \Delta y + f_{yy} \Delta y^2)
++ O(|\Delta\r|^3).
+\end{multline*}
+We shall use this relation in the next section.
+
+\subhead Derivation of 
+the Remainder Term \endsubhead
+You may want to skip the following discussion.
+
+There is a multidimensional analogue of Taylor's formula
+{\it with remainder}.  
+The easiest way to get it is to derive it from the
+one dimensional case as follows.   We concentrate, as above,
+on the case $n = 2$.   Consider the function $f(\r) = f(x,y)$
+near the point $\r_0 = (x_0,y_0)$ and put
+$\Delta\r = \lb \Delta x, \Delta y \rb = \lb x - x_0, y - y_0 \rb$.
+Consider the line segment from $\r_0$ to $\r = \r_0 + \Delta\r$
+parameterized by
+\[
+   \r_0 + t\Delta r,\qquad\text{where } 0\le t \le 1.
+\]
+Define a function of one variable
+\[
+g(t) = f(\r_0 + t\Delta\r), \qquad 0\le t \le 1.
+\]
+By the 1-dimensional Taylor's formula, we have
+\[
+g(t) = g(0) + g'(0)t + \frac 12 g''(0)t^2 + \dots +
+       \frac 1{N!}g^{(N)}(0)t^N + R_N(t)
+\]
+where the remainder $R_N(t)$ is given by a certain integral.
+Putting $t = 1$, we obtain
+\[
+g(1) = g(0) + g'(0) + \frac 12 g''(0) + \dots +
+       \frac 1{N!}g^{(N)}(0) + R_N(1)
+\]
+where
+\[
+R_N(1) = \frac 1{N!}\int_0^1 (1 - s)^N g^{(N+1)}(s)ds.
+\]
+We need to express the above quantities in terms of the
+function $f$ and its partial derivatives.  This is
+not hard if we make use of the chain rule
+\[
+\frac{dg}{dt} = \nabla f\cdot \frac{d}{dt}(\r_0 + t\Delta\r)
+    = \nabla f\cdot\Delta\r.
+\]
+We can write this as a symbolic relation between operators
+\[
+\frac{d}{dt}g  = \Delta\r\cdot\nabla f = (\Delta x\frac{\d}{\d x}
+     + \Delta y\frac{\d}{\d y})f = D f.
+\]
+Hence,
+\[
+\frac{d^n}{dt^n}g = D^n f
+\]
+so evaluating at $t = 0, \r = \r_0$ yields
+\[
+f(x,y) = \sum_{n=0}^N \frac 1{n!} D^n f(x_0,y_0) + R_N(1).
+\]
+To estimate the remainder, consider
+\[
+\frac{d^{N+1}}{ds^n}g(s) = \sum_{i+j = N+1}\binom {N+1}i
+\Delta x^i\Delta y^j \frac{\d^{N+1}f}{\d x^i \d y^j}(\r_0 + s\Delta\r). 
+\]
+Assume that within the indicated range
+\[
+\left |\frac{\d^{N+1}f}{\d x^i \d y^j}\right | \le M. 
+\]
+Then
+\[
+|\frac{d^{N+1}}{ds^n}g(s)| \le \sum_{i+j = N+1}\binom {N+1}i
+|\Delta x|^i|\Delta y|^j M = M(|\Delta x| + |\Delta y|)^{N+1}. 
+\]
+The quantity $|\Delta x| + |\Delta y|$ represents the sum of
+the lengths of the legs of a right triangle with hypotenuse
+$|\Delta\r|$.  A little plane geometry will convince you that
+$|\Delta x| + |\Delta y| \le \sqrt 2 |\Delta\r|$.  Hence,
+\[
+\left |\frac{d^{N+1}}{ds^n}g(s)\right | \le 
+M(\sqrt 2 |\Delta\r|)^{N+1} = 2^{(N+1)/2}M |\Delta\r|^{N+1}.
+\]
+Hence,
+\nexteqn
+\begin{align*}
+|R_N(1)| &\le \frac 1{N!}2^{(N+1)/2}M |\Delta\r|^{N+1}\int_0^1(1 -s)^N ds
+\intertext{or}
+|R_N(1)| &\le \frac {2^{(N+1)/2}M}{(N+1)!}|\Delta\r|^{N+1}.\tag{\eqn}
+\end{align*}
+
+\mar{s8-11.ps}
+A similar analysis works for functions $f:\R^n \to \R$, but the
+factor in the numerator will be more complicated for more than
+two variables.
+\bigskip
+\includeexercises{chap8.ex9}
+\bigskip
+\nextsec{Local Behavior of Functions and Extremal Points}
+\head \sn. Local Behavior of Functions and Extremal Points \endhead
+
+In your one variable calculus course, you learned how to find
+maximum and minimum points for graphs of functions.   We want
+to generalize the methods you learned there to functions of
+several variables.   Among such problems, one usually distinguishes
+{\it global\/} problems from {\it local\/} problems.  A
+{\it global\/} maximum (minimum) point is one at which the
+function takes on the largest (smallest) possible value for
+all points in its domain.  A {\it local\/} maximum (minimum)
+point is one at which the function is larger (smaller)
+than its values at all nearby points. 
+Thus, the bottom of the crater in the volcano Mauna Loa is a local
+minimum but certainly not a global minimum,   Generally, one may use
+the methods of differential calculus to determine local
+maxima or minima, but usually other considerations must be
+brought into play to determine the global maximum or minimum.
+In this section, we shall concern ourselves only with 
+local extremal points.
+
+First, let's review the single variable case.   Suppose
+$f:\R \to \R$ is a function, and we want to determine
+where it has local minima.  If $f$ is sufficiently smooth,
+we may begin to expand it near a point $x$ in a Taylor series 
+\[
+f(x + \Delta x) = f(x) + f'(x)\Delta x +  O(\Delta x^2)
+\]
+or
+\[
+f(x + \Delta x) - f(x) = f'(x)\Delta x + O(\Delta x^2).
+\]
+The terms on the right represented by $O(\Delta x^2)$ are generally
+small compared to the linear term $f'(x)\Delta x$, so provided
+$f'(x) \not = 0$ and $\Delta x$ is small, we may write
+\nexteqn
+\[
+f(x + \Delta x) - f(x) \approx f'(x)\Delta x. \tag{\eqn}
+\]
+ On the other hand, at a local minimum,
+we must have  $f(x + \Delta x) - f(x) \ge 0$, and that contradicts
+(\eqn) since the quantity on the right changes sign when $\Delta x$
+changes sign.  The only way out of this dilemma is to conclude
+that $f'(x) = 0$ at a local minimum. 
+  Similar reasoning applies at
+a local maximum.
+
+Suppose $f'(x) = 0$.   Then, the approximation (\eqn) is
+no longer valid, and we must consider higher order terms.
+Continuing the 
+Taylor expansion yields
+\begin{align*}
+f(x + \Delta x) - f(x) &= f'(x)\Delta x + \frac 12 f''(x)\Delta x^2
+   + O(\Delta x^3) \\
+&= \frac 12 f''(x)\Delta x^2 + O(\Delta x^3).
+\end{align*}
+Reasoning as above, we conclude that if $f''(x) \not= 0$
+and $\Delta x$ is
+ small, the quadratic term on the right dominates.
+That means that $f(x + \Delta x) \ge f(x)$ if
+$f''(x) > 0$, in which case we conclude that $x$ is
+a local minimum point.  Similarly, $f(x + \Delta x) \le f(x)$
+if $f''(x) < 0$, in which case we conclude that $x$ is a local
+maximum point.   If $f''(x) = 0$, then of course no conclusion is possible.
+As you know, in that case, $x$ might be  a local minimum point,
+a local maximum point, or a point at which the graph has a point
+of inflection.  
+Taking the Taylor series one step further might yield
+additional information, but we will leave that
+for you to investigate on your own.
+
+We now want to generalize the above analysis to functions
+$f:\R^2 \to \R$.   If we assume that $f$ is sufficiently smooth,
+then it may be expanded near a point $(x,y)$
+\[
+f(x + \Delta x, y + \Delta y) = f(x,y) + \nabla f\cdot\Delta\r
+ + O(|\Delta\r|^2)
+\]
+which may be rewritten
+\[
+f(x + \Delta x, y + \Delta y) - f(x,y) = \nabla f\cdot\Delta\r
+ + O(|\Delta\r|^2).
+\]
+As above, if $|\Delta\r|$ is small enough, and $\nabla f
+\not= \bold 0$, then the linear term on
+the right dominates.  Since in that case the linear term can
+be either positive or negative depending on $\Delta\r$,
+it follows that the quantity on the left cannot be of a single
+sign.  Hence, if the point $(x,y)$ is either a local maximum
+or a local minimum point, we must necessarily have
+$
+\nabla f = 0.
+$ 
+In words, {\it at a local extremal point of the function $f$,
+the gradient $\nabla f = 0$}.
+
+A point $(x,y)$ at which $\nabla f = \bold 0$ is called
+a {\it critical point\/} of the function.   For a smooth
+\outind{critical point of a function}
+function, every local maximum or minimum is a critical
+point, but the converse is not generally true.  (This
+parallels the single variable case.)  All the assertion
+$\nabla f = 0$ tells us is that the tangent plane
+to the graph of the function is horizontal at the critical
+point.
+
+\example{Examples}
+Let $f(x,y) = x^2 + 2x + y^2 -6y$.   Then
+\[
+\nabla f = \lb f_x, f_y \rb = \lb 2x + 2, 2y - 6 \rb.
+\]
+Setting this to zero yields $2x + 2 = 0, 2y - 6 = 0$ or
+$x = -1, y = 3$.  Hence, $(-1,3)$ is a critical point.
+We can see that this point is actually a local minimum point
+by completing the square.
+\[
+ f(x,y) = x^2 + 2x + y^2 - 6y = x^2 + 2x + 1 + y^2 - 6y + 9 - 10
+   = (x + 1)^2 + (y - 3)^2 -10. 
+\]
+The graph of this function is a circular paraboloid (bowl) with vertex
+ $(-1,3,-10)$, and it certainly has a minimum at $(-1,3)$.
+(It is even a global minimum!)
+
+Consider on the other hand, the function $f(x,y) = x^2 - y^2$.
+Setting $\nabla f = \bold 0$ yields
+\[
+\lb 2x, -2y \rb = \lb 0, 0\rb
+\]
+or $x = y = 0$.   Hence, the origin is a critical point.  However,
+we know the graph of the function is a hyperbolic paraboloid
+with a {\it saddle point\/} at $(0,0)$.   Near	
+ a saddle point,
+the function increases in some directions and decreases in others,
+so such a point is neither a local maximum nor a local minimum.
+\endexample.
+
+\smallskip
+\centerline{\epsfbox{s8-12.ps}}
+\medskip
+As in the single variable case, the analysis may be carried
+further by considering second derivatives and quadratic terms.  Suppose
+$\nabla f = \bold 0$, and extend the Taylor expansion to
+include the quadratic terms.  We have
+\[
+f(x+ \Delta x, y + \Delta y) - f(x,y)
+= \frac 12(f_{xx}\Delta x^2 + 2 f_{xy}\Delta x\Delta y
+ + f_{yy}\Delta y^2) + O(|\Delta\r|^3).
+\]
+In most circumstances, the quadratic terms will dominate,
+so we will be able to determine the local behavior by
+examining them.  However, because the expression is so
+much more complicated than in the single variable case,
+the theory is more complicated.  To save writing,
+put $A = f_{xx}, B = f_{xy}, C = f_{yy}, u = \Delta x$,
+and $v =\Delta y$.   Then we want to look at
+the graph of
+\[
+ z = Q(u,v) =  Au^2 + 2Buv + Cv^2
+\]
+in the neighborhood of the origin.
+Such an expression is called a {\it quadratic form}.
+
+Before considering the general case we consider some examples.
+
+(a) $z = 2u^2 + v^2$.  The graph is a bowl shaped surface which
+opens upward, so the origin is a local minimum.  Similarly,
+the graph of $z = -u^2 - 5v^2$ is a bowl shaped surface
+opening downward, and the origin is a local maximum.
+\medskip
+\centerline{\epsfbox{s8-13.ps}}
+\medskip
+
+(b) $z = uv$.  The graph is a saddle shaped surface, and the
+origin is neither a local minimum nor a local maximum.
+\medskip
+\centerline{\epsfbox{s8-14.ps}}
+\medskip
+(c) $z = u^2$.  The graph is a `trough' centered on the $u$-axis
+and opening upward.  The entire $v$-axis is a line of local minimum
+points.  Similarly, the graph of $z = -v^2$ is a trough centered
+on the $u$-axis and opening downward.
+\medskip
+\centerline{\epsfbox{s8-15.ps}}
+\medskip
+We now consider the general case.
+  Suppose
+first that $A\not=0$.  Multiply through by $A$ and then
+complete the square 
+\begin{align*}
+AQ(u,v) &= A^2u^2 + 2ABuv + B^2v^2 - B^2v^2 + ACv^2 \\
+&= (Au + Bv)^2 + (AC - B^2)v^2.
+\end{align*}
+The first term is a square, so it is always non-negative, so
+the signed behavior of the expression depends on the quantity
+$\Delta = AC - B^2$.   $\Delta$ is called the
+{\it discriminant of the quadratic form}. 
+\outind{discriminant of a quadratic form}
+
+If $\Delta > 0$, the expression is
+a sum of squares so it is always non-negative.  Even better,
+it can't be zero unless $u = v = 0$.  For, if the sum is
+zero, it follows $Au + Bv = 0$ and also $v = 0$.  Since
+we assumed $A \not=0$, that means that $u = 0$.  Hence,
+if $A\not= 0$ and $\Delta > 0$, then $AQ(u,v)$
+is always positive (except for $u=v=0$), and $Q(u,v)$
+ has the {\it same sign as\/} $A$.  Hence, the origin
+is a local minimum if $A > 0$, and it is a local maximum
+if $A < 0$.  In this case the form is called {\it definite}.
+\outind{definite quadratic form}
+\outind{quadratic form}
+
+If $\Delta < 0$, the expression is a difference of squares,
+so it is sometimes positive and sometimes negative.   The
+graph of $z = AQ(u,v) = (Au + Bv)^2 - |\Delta|v^2$ is a saddle shaped
+surface which intersects  the $u,v$-plane in the locus
+\[
+Au + Bv = \pm \sqrt{|\Delta|}v,
+\]
+which is a pair of lines intersecting at the origin.
+These lines divide the $u,v$-plane into four regions with
+the surface above it in two of the regions and below it
+in the other two.  In this case, the form is called
+{\it indefinite}.
+\outind{indefinite quadratic form}
+\medskip
+\centerline{\epsfbox{s8-15a.ps}}
+\medskip
+
+If $\Delta = 0$, 
+\[
+ z = AQ(u,v) =  (Au + Bv)^2
+\]
+defines a trough shaped surface which intersects the $u,v$-plane
+along the line $Au + Bv = 0$.   The graph of $z = Q(u,v)$
+either lies above or  below the $u,v$-plane,
+depending on the sign of $A$.   If $\Delta = AC - B^2 = 0$,
+we say that the quadratic form is {\it degenerate}.
+\outind{degenerate quadratic form}
+
+If $A = 0$ and $B\not= 0$, then $\Delta = AC - B^2 = -B^2 < 0$, and
+\[
+Q(u,v) = 2Buv + Cv^2 = (2Bu + Cv)v
+\]
+can be positive or negative.  This just amounts to a special
+case of the analysis above for an indefinite form.  
+
+If $A = B = 0$ and $C\not = 0$, then $\Delta = 0$, and
+\[
+Q(u,v) = Cv^2
+\]
+and this is a special case of a degenerate form.   
+
+If $A = B = C = 0$, there isn't really anything to consider
+since we don't really have a quadratic form.
+
+
+The above analysis tells us how the quadratic terms in
+\[
+f(x+\Delta x, y+\Delta y) - f(x,y)
+ = \frac 12(f_{xx}\Delta x^2 + 2f_{xy}\Delta x \Delta y
++ f_{yy}\Delta y^2) + O(|\Delta\r|^3)
+\]
+behave.   
+If $|\Delta\r|$ is small, the behavior on the
+right is determined primarily by
+ $Q(\Delta x, \Delta y)$, with the cubic and higher order
+providing a slight distortion.   In particular we have
+
+\proclaim{Sufficiency Conditions for Local Extrema}
+Assume $f:\R^2 \to \R$ has continuous second partials, and that
+$(x,y)$ is a critical point.  Let
+\[
+\Delta = f_{xx}f_{yy} - f_{xy}{}^2
+\]
+where everything is evaluated at the critical point.
+
+(a) If $\Delta > 0$,
+then the critical point is a local minimum
+if $f_{xx} > 0$,  or a local maximum if $f_{xx} < 0$. 
+(The quadratic approximation is an elliptic paraboloid.)
+
+(b) If $\Delta < 0$, then the critical point is neither
+a local maximum nor a local minimum.
+(The quadratic approximation is a saddle.)
+
+(c) If $\Delta = 0$, any of the above possibilities might
+occur.
+\endproclaim
+
+The proofs of these assertions require a careful analysis in
+which the different order terms are 
+compared to one another.  We shall not go into these matters
+here in detail, but a few remarks might be enlightening.
+The reason why case (c) is ambiguous is not hard to see.
+If $\Delta = 0$, the graph of the degenerate quadratic
+form is a trough which contains a line of minimum (or
+maximum) points.  {\it Along that line\/}, the cubic order terms
+will control what happens.  We could have either a local
+maximum or a local minimum or neither depending on the
+shape of the trough and the contribution from the cubic
+terms.   In case $\Delta < 0$,  it 
+ is harder to see how the cubic terms perturb the saddle
+shaped graph for the quadratic form, but it may still
+be thought of as a saddle. 
+
+There is one slightly confusing point in the use of the
+above formulas.  It appears that $f_{xx}$ is playing a
+special role in (a).  However, it is in fact true
+in case (a) that $f_{xx}$ and $f_{yy}$ have the same
+sign.  Otherwise,
+$\Delta = f_{xx}f_{yy} - f_{xy}{}^2 < 0$. 
+
+\nextex
+\example{Example \en} We shall classify the critical points of
+the function defined by  $f(x,y) = x\sin y$.  
+First, to find the critical points, solve
+\begin{align*}
+\frac{\d f}{\d x} &= \sin y = 0 \\
+\frac{\d f}{\d y} &= x\cos y = 0.
+\end{align*} 
+From the first equation, we get $y = k\pi$ where $k$ is any
+integer.  Since $\cos (k\pi) \not=0$, the second equation
+yields $x = 0$.   Hence, there are infinitely many critical
+points $(0,k\pi)$ where $k$ ranges over all possible integers.
+
+To apply the criteria above, we need to calculate the discriminant.
+We
+have
+\begin{align*}
+f_{xx} &= 0 \\
+f_{yy} &= -x\sin y \\
+f_{xy} &= \cos y \\
+\Delta &= 0 - \cos^2y = -\cos^2 y.
+\end{align*}
+At $(0,k\pi)$, we have $\Delta = -(\pm 1)^2 = -1 < 0$.
+Hence, (b) applies and every critical point is a saddle point.
+\endexample
+
+\nextex
+\example{Example \en}  Let  
+\[
+f(x,y) = x^3 + y^3 - 3x^2 + 3y^2 +2.
+\]
+To find the critical points, solve
+\begin{align*}
+f_x &= 3x^2 -6x = 0 \\
+f_y &= 3y^2 + 6y = 0.
+\end{align*}
+The solutions are $x = 0, 2$ and $y = 0, -2$, so the critical
+points are \[(0,0), (0,-2), (2,0), (2, -2).\]
+
+To classify these, calculate
+\begin{align*}
+f_{xx} &= 6x - 6 \\ 
+f_{yy} &= 6y + 6 \\
+f_{xy} &= 0 \\
+\Delta &= 36(x -1)(y + 1).
+\end{align*}
+
+At $(0,0)$, $\Delta = - 36 < 0$, so $(0,0)$ is a saddle
+point.
+
+At $(0,-2)$, $\Delta = 36 > 0$.  Since, $f_{xx} = -6 < 0$,
+$(0,-2)$ is a local maximum.
+
+At $(2,0)$, $\Delta = 36 > 0$.  Since, $f_{xx} = 6 > 0$,
+$(2,0)$ is a local minimum. 
+
+At $(2,-2)$, $\Delta = -36 < 0$, so $(2, -2)$ is a saddle
+point. 
+\endexample
+\smallskip
+\centerline{\epsfbox{s8-17.ps}}
+\medskip
+\nextex
+\example{Example \en}
+Let 
+\[ f(x,y) = x^3 + y^2.\]
+We have
+\[
+f_x = 3x^2\qquad f_y = 2y,
+\]
+so $(0,0)$ is the only critical point.
+Moreover
+\[
+f_{xx} = 6x,\qquad f_{yy} = 2,\qquad\text{and } f_{xy} = 0.
+\]
+Hence, $\Delta = 12x = 0$ at $(0,0)$.  Hence, the
+criteria yield no information in this case.  In fact,
+the point is not a maximum, a minimum, or a saddle point.
+\medskip
+\centerline{\epsfbox{s8-18.ps}}
+\medskip
+The example $f(x,y) = x^4 + y^2$ is very similar.  It also
+has a degenerate critical point at $(0,0)$ but in this
+case it is a minimum point.
+\endexample
+
+If the quadratic terms vanish altogether, then the cubic
+terms dominate and various interesting possibilities arise.
+One of these is called a `monkey saddle', and you can imagine
+its shape from its name.  (See the Exercises.) 
+
+\subhead Higher Dimensional Cases \endsubhead
+For a {\it smooth\/}
+function $f:\R^n \to \R$ with $n > 2$, many of the above
+considerations still apply.    If $\nabla f = 0$ at a point
+$\r$, then the point is called a {\it critical point}.  Local maxima
+\outind{critical point of a function}
+and minima occur at critical points, but there are many
+other possibilities.  Examination of the quadratic terms
+may allow one to determine precisely what happens, but even in
+the case $n = 3$ this can be much more complicated than the
+case of functions of two variables.
+
+\bigskip
+\includeexercises{chap8.ex10}
+\endinput

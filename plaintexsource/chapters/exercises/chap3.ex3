@@ -1,0 +1,103 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 3
+\smallskip
+
+% 1
+\Exer Compute all first order partial derivatives of the following functions
+\par (a) $f(x,y) = x^5 - 4x^4 + 2x + 10$ \par
+     (b) $f(x,y) = x \cos y + y \cos x$ \par
+     (c) $f(x,y) = \ln (x^2 - y^2)$ \par
+     (d) $f(x,y,z) = x^2y^3z^4$ \par
+     (e) $f(u,v,w) = ue^w + ve^v + we^u$
+\answer (a) $f_x = 5x^4 - 16x^3+2 \qquad f_y=0$ \par
+	(b) $f_x = \cos y- y\sin x \qquad f_y = -x\sin y+\cos x$ \par
+	(c) $f_x = 2x/(x^2-y^2) \qquad f_y = -2y/(x^2-y^2)$ \par
+	(d) $f_x=2xy^3z^4\qquad f_y=3x^2y^2z^4\qquad f_z=4x^2y^2z^3$\par
+	(e) $f_u=e^w+w e^u\qquad f_v=e^v+ve^v\qquad f_w=ue^w+e^u$
+
+
+% 2
+\Exer Find an equation for the tangent plane to the graph of the function
+at the given point: \par
+	(a) $f(x,y) = x^2 - y^2$; $P(5,4,9)$ \par
+	(b) $f(x,y) = \cos \dfrac {\pi xy}{4}$; $P(4,2,1)$ \par
+	(c) $f(x,y) = xy$; $P(3,-2,-6)$ \par
+\answer (a) $z-10x+8y + 9 = 0$;\par
+	(b) $z=1$;\par
+	(c) $2x-3y + z = 6$.
+
+
+% 3
+\Exer The ideal gas law may be written $pv =nRT$.  Show that
+    $$\left(\frac{\d p}{\d v}\right)_T\,
+\left( \frac{\d v}{\d T}\right)_p\,
+      \left(\frac{\d T}{\d p}\right)_v  = -1$$
+Hint:  To find $\d p/\d v$, for example, you could solve for $p$ in
+terms of $v$ and $T$ as above in the text.  Alternatively, you could
+{\it assume\/} that $p$ is a function of $v$ and $T$, and differentiate
+the equation $pv = nRT$ with respect to $v$ treating $v$ and $T$ as
+independent variables.
+\answer $\displaystyle \left(\frac{dp}{dv}\right)_T
+   \left(\frac{dv}{dT}\right)_p \left(\frac{dT}{dp}\right)_v
+   = \left(\frac{-nRT}{v^2}\right) \left(\frac{nR}{p}\right)
+   \left(\frac{v}{nR}\right) = \frac{-nRT}{vp} = \frac{-pv}{pv} = -1$
+
+% 4
+%%%Need problem involving VanderWaals equation.  Ask a chemist.
+\Exer Let $(x_0,y_0,z_0)$ be a point on the upper cone defined
+by the equation $z^2 = x^2 + y^2$.  \par
+   (a)  Find an equation for the tangent plane at $(x_0,y_0,z_0)$.
+Hint:   You may solve for $z$ in terms of $x$ and $y$ and
+determine the partial derivatives $\d z/\d x$ and $\d z/\d y$
+at the point $(x_0,y_0,z_0)$.   Alternatively, you may
+{\it assume\/} $z$ is a function of $x$ and $y$ and differentiate
+the equation $z^2 = x^2 + y^2$ with respect to $x$ and $y$
+treating them as independent variables.  \par
+   (b)  Show that the plane determined in part (a) passes through
+the origin.   Is this reasonable on geometric grounds?
+\answer (a) $z-z_0 = \dfrac{x_0}{z_0}(x-x_0) + \dfrac{y_0}{z_0}(y-y_0)$
+	or $z_0(z-z_0) = x_0(x-x_0) + y_0(y-y_0)$ \par
+	(b) $(0,0,0)$ is on the graph $\iff$ the equation
+	$z_0(0-z_0) = x_0(0-x_0) + y_0(0-y_0)$ is satisfied
+	$\forall (x_0,y_0,z_0)$ on the cone, but the above equation holds
+	$\iff z_0^2=x_0^2 + y_0^2$ (which = equation cone). 
+\par Geometrically: the tangent plane should follow a line at the edge of
+	the cone down through the origin. % Need diag
+
+
+% 5
+\Exer  Newton's Method is an iterative process used to solve systems of
+equations of the form $f(x) = 0$.  There is a generalization for a
+system of two equations in two unknowns: $f(x,y)=0,\, g(x,y)=0$.  Each
+equation has as locus a curve in the $x,y$-plane.   Consider a {\it
+guess\/} $(x_0,y_0)$ for the point of intersection of these two
+curves.  The point $(x_0,y_0,f(x_0,y_0))$ is on the surface $z=f(x,y)$
+and the point $(x_0,y_0,g(x_0,y_0))$ in on the second surface
+$z=g(x,y)$.  The tangent planes to these surfaces at these two points
+and the xy-plane intersect in a point $(x_1,y_1)$  which---we hope---is
+closer to the desired intersection than $(x_0,y_0)$.  \par
+(a) Verify that the the following equations give the coordinates of 
+$(x_1,y_1)$. 
+$$ \align
+x_1 &=x_0-\frac{f(x_0,y_0)g_y(x_0,y_0)-g(x_0,y_0)f_y(x_0,y_0)}
+{f_x(x_0,y_0)g_y(x_0,y_0)-g_x(x_0,y_0)f_y(x_0,y_0)}\\
+y_1 &=y_0-\frac{g(x_0,y_0)f_x(x_0,y_0)-f(x_0,y_0)g_x(x_0,y_0)}
+{f_x(x_0,y_0)g_y(x_0,y_0)-g_x(x_0,y_0)f_y(x_0,y_0)}.
+\endalign
+$$ \par
+(b)  Are there circumstances in which no such point will exist? \par
+(c)  The above process may be iterated to find a solution of of a pair
+of equations.  Choose some arbitrary guess, use the above equations to
+obtain another guess, do the same for the new guess to obtain a third
+guess,  etc.  Continue this process until you have sufficient accuracy
+for your purposes. \par
+Apply this method to the system $x^3+y^2+2xy^2=0, x^2-y^2+4=0$.  Try 3
+or 4 iterations. \par
+(d)  Clearly, you would be better off doing part (c)
+on a computer.   Write a computer program to run the algorithm.
+Run the program for many more iterations.
+%%%  Need some problem estimating change in variable from
+%%% partial derivatives.
+\answer Check with the instructors in your computer class.
+
+\endinput

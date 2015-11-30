@@ -1,0 +1,154 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item   Let $\F(\r) = \r$.  (Then $\nabla\cdot\F = 3$.)   Verify that
+the divergence theorem is true for each of the following solid regions
+$E$ by calculating the outward flux $\iint_{\d E}\F\cdot\N dS$ through
+the boundary of $E$ and checking that it is three times the volume.\par
+(a)  $E$ is a solid sphere of radius $a$ centered at the origin. \par
+(b)  $E$ is a cube of side $a$ in the first octant with opposite
+vertices at $(0,0,0)$ and $(a,a,a)$.
+
+\answer{ (a) $dS=a^2\sin\phi\, d\phi\, d\theta$, $\F\cdot \N=a$ and 
+$\iint_{\d E} \F\cdot \N\, dS = \int^{2\pi}_0\int^\pi_0 a^3\sin\phi\, d\phi\,
+d\theta = 4\pi a^3 = 3 V(E)$. \par
+(b) $\F\cdot \N=0$ on the faces with vertex $(0,0,0)$, and on the
+other 3 faces $\F\cdot \N=a$ so $\iint_{\d E}\F\cdot \N\, dS =
+3\int^a_0\int^a_0 a\, du\, dv = 3a^3 = 3v(E)$. 
+
+
+
+}
+
+\item   Let $\F = x^2\i + y^2\j + z^2\k$.  Use the divergence theorem to
+calculate the flux out of the following solid regions. \par
+(a) The solid cube of side 1 in the first octant with opposite
+vertices at $(0, 0, 0)$ and $(1,1,1)$. \par
+(b) The inside of the cylinder  $x^2 + y^2 = a^2, \, 0\le z \le h$.
+
+\answer{ (a) $\iint \F\cdot \N\, dS = \iiint\nabla\cdot \F\, dV =
+\int^1_0\int^1_0\int^1_0 (2x+2y+2z)\, dx\, dy\, dz = 3$. \par
+(b) $\iint \F\cdot \N\, dS = \iiint \nabla\cdot \F\, dV
+= \int^{2\pi}_0\int^a_0\int^h_0 (2r\cos\theta + 2r\sin\theta+2z)r\, dz\,
+dr\, d\theta = \pi a^2h^2$.
+
+
+
+}
+
+\item  Find $\iint_{\Cal S} \F\cdot d\S$ where
+$\F(x,y,z) = x^3\i + y^3\j + z^3\k$ and $\Cal S$ is a sphere of radius
+$a$ centered at the origin.  Use outward normals.
+
+\answer{ $\iint_S \F\cdot d\S = \iiint\nabla\cdot \F\,dV
+= \int^{2\pi}_0\int^\pi_0\int^a_0 \undersetbrace\nabla\cdot \F\to{3\rho^2}
+\rho^2\sin\phi\;d\rho\,d\phi\,d\theta = \frac{12\pi}5 a^5$.
+
+
+
+}
+
+\item   Find $\iint_{\Cal S} \F\cdot d\S$ where
+$\F(x,y,z) = \lb x + e^{y^2}, \cos(xz), \sin(x^3 + y^3)\rb$ and
+$\Cal S$ is the boundary of the solid region bounded below by
+$z = x^2 + y^2$ and bounded above by the plane $z = 4$.
+Use outward normals.
+
+\answer{ $\iint_S \F\cdot d\S = \iiint\nabla\cdot \F\,dV =
+\iiint 1\,dV   = \int^{2\pi}_0\int^2_0\int^4_{r^2}
+r\,dz\,dr\,d\theta = 8\pi$.
+
+
+
+}
+
+\item  Let $f$ and $g$ be  scalar fields which are both sufficiently
+smooth on a solid region $E$ and its boundary.   Apply the divergence
+theorem to $f\nabla g$ to obtain {\it Green's first identity}
+\[
+\iint_{\d E}f\,\nabla g\cdot\N\,dS
+ = \iiint_E(\nabla f\cdot\nabla g + f\nabla^2 g)dV.
+\]
+Note that $\nabla g\cdot\N$  is just the directional derivative of
+$g$ in the direction of the normal vector $\N$.  This is sometimes
+called the normal derivative of $g$ on the surface $\Cal S = \d E$.
+\outind{Green's first identity}
+\par
+Reverse the roles of $f$ and $g$ and subtract to obtain
+{\it Green's second identity}
+\[
+\iint_{\d E}(f\,\nabla g\cdot\N\ - g\,\nabla f\cdot\N)dS
+ = \iiint_E(f\nabla^2 g - g\nabla^2 f)dV.
+\]
+\outind{Green's second identity}
+
+\answer{ (a) Set $\F=f\nabla g$ then $\iint_{\d E} f\nabla g\cdot \N\, dS = 
+\iint_{\d E} \F\cdot \N\,dS = \iiint_E\nabla\cdot \F\,dV =
+\iiint_E\nabla\cdot(f\nabla g) = \iiint_E(\nabla f\cdot \nabla g +
+f\nabla^2g)\,dV$. \par
+(b) $\iint_{\d E}(f\nabla g\cdot \N - g\nabla f\cdot \N)\,dS =\text{(by a)}
+\iiint_E(\nabla f\cdot\nabla g+f\nabla^2g)\,dV -
+\iiint(\nabla g\cdot\nabla f + g\nabla^2f)\,dV =
+\iiint_E(f\nabla^2g-g\nabla^2f)\,dV$. 
+
+
+
+
+}
+
+\item   Let $\F = \dfrac{1}{|\r|^2}\u_\rho$, and let $\Cal S$ be a disk
+of radius $\dfrac {\sqrt 3 a}2$ in the plane $z =\dfrac a2$ with center
+on the $z$-axis.  Orient $\Cal S$ with upward normals.  Use the divergence
+theorem to calculate $\displaystyle{\iint_{\Cal S} \F\cdot \n\, dS}$.
+Hint:  Form a closed surface with a spherical cap $\Cal S'$ of radius
+$a$.   Calculate  the surface integral for the cap and use the fact
+that $\nabla\cdot \F = 0$ between the spherical cap and the disk.
+
+\answer{ $\iint_S \F\cdot \N\,dS = \iiint_E\nabla\cdot \F\,dV - \iint_{S'}\F\cdot
+\N\,dS = -\iint_{S'}\F\cdot \N\,dS$ since $\nabla\cdot \F=0$ on $E$
+($E$=region between $S$ and $S'$, $\d E = S\cup S'$). \par
+$= -\int^{2\pi}_0\int^{\pi/3}_0 \dfrac1{a^2} a^2\sin\phi\,d\phi\,d\theta$
+(parametrize as in 1a.) \par
+$= -\pi$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+\item   Suppose that it is known that the flux of the vector field $\F$ out
+of every sufficiently small cube is zero.  Show that $\nabla\cdot\F = 0$.
+
+\answer{   Take the limit over a sequence of small cubes $E$
+centered at $P$ as the cubes shrink to $P$.
+Then,  $\nabla\cdot\F(P) = \lim_{E\to P}\dfrac 1{v(E)}\iint_{\d E}\F\cdot
+d\S = 0$.   
+
+
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,1708 @@
+
+\nextsec{Differential Forms}
+\head \sn. Differential Forms \endhead
+
+Differential forms are an alternate way to talk about vector fields,
+and for some applications they are the preferred way.  They are
+used frequently in thermodynamics and also in the study of first
+order differential equations.
+\outind{differential form}
+\outind{form, differential}
+
+We shall concentrate on the case of forms in $\R^2$.  There is
+a corresponding theory for $\R^n$ with $n > 2$, but it is
+much more difficult.   
+
+Let $\F = \lb F_1, F_2 \rb$ be a
+plane vector field, and let $\Cal C$ be a path in the plane.
+Unless $\F$ is conservative, the line integral $W = \int_{\Cal C} \F\cdot
+d\r$  is a path dependent quantity, so we might write 
+symbolically $W = W(\Cal C)$.  You may also have encountered path
+dependent quantities in your chemistry course when studying
+thermodynamics.  Namely, if a gas satisfies an equation of
+state of the form  $f(p,v,T) = 0$, it is possible to choose
+two of the three variables to be independent variables and
+(at least locally) solve for the third in terms of those.  
+Suppose, for example, that $v, T$ are the independent variables.
+
+In this context, we can think of the path $\Cal C$ as representing
+a sequence of changes of state of the gas leading from
+the state characterized by $(v_1,T_1)$ to the state characterized
+by $(v_2,T_2)$.   Such a sequence of changes of state will yield
+a change in the {\it heat\/} $q$ in the system, 
+and this change will generally depend on the path $\Cal C$.
+For `infinitesimal changes' $dv, dT$, {\it the first law of
+thermodynamics\/} asserts that the {\it change in\/} $q$ is given
+by
+\[
+  du - p\,dv
+\]
+where $u = u(p, v, T)$ is a function of the state of the system
+called its {\it internal energy}. 
+ $du$ can be expressed
+in terms of $dp, dv$ and $dT$, and since $dp$ can
+\outind{thermodynamics}
+be expressed in terms of $dv$ and $dT$,  the  above expression
+for the change in $q$ can be put ultimately in the form
+\[
+   M(v,T)dv + N(v,T)dT.
+\]
+Then the total change in the heat $q$ along the path
+$\Cal C$ will be the line integral
+\[
+\int_{\Cal C} du -p\,dv = \int_{\Cal C} M\, dv + N\, dT. 
+\]
+As mentioned above, it depends on the path $\Cal C$.
+
+\mar{s6-1.ps}
+Leaving the thermodynamics to your chemistry professors, let
+us consider the basic mathematical situation.  Given a pair
+of functions $M(x,y), N(x,y)$, the expression
+\[
+    M(x,y)\,dx + N(x,y)\,dy
+\]
+is called a {\it differential form}. 
+We shall always assume that the component functions $M$ and $N$
+are as smooth as we need them to be on the domain of the form.
+You can think of the form as giving the change of some quantity for
+a displacement $d\r = \lb dx, dy \rb$ in $\R^2$.   Associated
+to such a differential form is the vector field $\F = \lb M, N \rb$,
+and the form is just the expression $\F\cdot d\r$ appearing in
+line integrals for $\F$.  Similarly, given a vector field
+$\F = \lb M, N \rb$, we may consider the differential
+form $M\,dx + N\,dy$. Thus, the two formalisms, vector fields
+and differential forms, are really just alternate
+notations for the same concept. This may seem to add needless
+complication, but  there are situations,
+e.g., in thermodynamics, where it is easier to think
+about a problem in the language of forms than it is in the
+equivalent language of vector fields.
+
+We can translate many of the notions we encountered in studying
+plane vector fields to the language of differential forms.
+
+Recall first that a plane vector field $\F = \lb M, N \rb$
+is conservative if and only if it is the gradient of a scalar
+function  $\F = \nabla f$.  Then  
+\[
+   M\,dx + N\,dy =  \F\cdot d\r = \nabla f\cdot d\r.
+\]
+You should recognize the expression on the right as the
+{\it differential of the function\/} 
+\[
+df = \nabla f\cdot d\r = \frac{\d f}{\d x}dx + \frac{\d f}{\d y}dy.
+\]
+Thus, $\lb M, N\rb$ is conservative if and only if the
+associated form $M\,dx + N\,dy$ equals the
+ differential $df$ of a function.
+Such forms are called {\it exact}.   For exact forms, the
+\outind{exact form}
+path independence property looks particularly simple:
+\[
+\int_{\Cal C} M\,dx + N\,dy = \int_{\Cal C} df =
+   f(\text{end of }\Cal C) - f(\text{start of }\Cal C).
+\] 
+
+ Recall  the screening test for the field $\F = \lb M, N \rb$ 
+\outind{screening test, two dimensions}
+\nexteqn
+\[
+\frac{\d N}{\d x} = \frac{\d M}{\d y}\tag{\eqn}
+\]
+which in some (but not all) circumstances will tell us if the
+field is conservative.  We say that the corresponding differential
+form $M\,dx + N\,dy$ is {\it closed\/} if its components
+satisfy equation (\eqn).
+\outind{closed form}
+\outind{conservative vector field}
+
+We now translate some of the things we learned about vector
+fields to the language of forms.
+
+(a) ``Every conservative field passes the screening test (\eqn)''
+becomes ``Every exact form is closed''.
+
+(b)``The field $\dfrac 1r\u_\theta$ satisfies the screening test
+but is not conservative'' becomes
+``$\dfrac{-y}{x^2 + y^2}dx + \dfrac x{x^2 + y^2} dy$ is closed
+but not exact''.
+
+(c) ``If the domain of a field is simply connected, then the field is
+conservative if and only if it passes the screening test''
+becomes ``If the domain of a form is simply connected, then the field
+is exact if and only if it is closed''.
+
+Note that because of (c), a closed form
+$M\,dx + N\,dy$ defined on some open set in the plane
+ is always {\it
+locally\/} exact.  That is, for any point in its domain, we can
+always choose a small neighborhood, i.e., a disk or a rectangle,
+and a function $f$ defined on that neighborhood such that
+\[
+  M\,dx + N\,dy = df
+\]
+{\it on that neighborhood}.   However, we can't necessarily
+find a single function which will work everywhere.  If we
+can find an $f$ which works everywhere in the domain of the
+form,
+ the form would be exact, but we might say
+`globally exact' to emphasize the distinction. 
+
+\bigskip
+\includeexercises{chap6.ex1}
+\bigskip
+
+\nextsec{Using Differential Forms}
+\head \sn. Using Differential Forms to Solve Differential Equations \endhead
+
+We want to develop general methods for solving first order
+differential equations.   In most applications, the independent
+variable represents time, so instead of calling the variables
+$x$ and $y$, we shall call them $t$ and $y$ with $t$ being the
+independent variable and $y$ being the dependent variable.  
+Then a first order differential equation can {\it usually\/} be put
+in the form
+\nexteqn
+\[
+  \frac{dy}{dt} = f(t,y)\tag{\eqn}
+\]
+where $f$ is some specified function.  A solution  of (\eqn)
+is a function  $y = y(t)$ defined on some  real $t$-interval
+ such that
+\[
+y'(t) = f(t,y(t))
+\]
+is valid for each $t$ in the domain of the solution function $y(t)$.
+
+\nextex
+\example{Example \en}   Consider $\dfrac{dy}{dt} = -\dfrac{2t+y}{t +2y}$.
+We shall 
+`solve' this equation by some {\it formal\/} calculations using differential
+forms, and later we shall try to see why the calculations should be
+expected to work.
+
+First, cross multiply to obtain
+\[
+  (t + 2y)dy = -(2t + y)dt
+\]
+or
+\nexteqn
+\[
+  (2t + y)dt + (t + 2y)dy = 0.\tag{\eqn}
+\]
+Consider the differential form appearing on the left of this
+equation.  It is closed since
+\[
+\frac{\d}{\d t} (t + 2y) = 1 = \frac{\d}{\d y}(2t + y).
+\]
+(Don't get confused by the fact that what was previously called
+$x$ is now called $t$.)  Since the domain of this form is all
+of $\R^2$ (the $t,y$-plane), and that is simply connected, the form
+is exact.  Thus, it is the differential of a function,
+ $df = (2t + y)dt + (t + 2y)dy$.  We may find that
+$f$ by the same method we used to find a function 
+with a specified 
+ conservative vector field as gradient.  After all, it is just
+the same theory in other notation.  Thus, since
+$df = \dfrac{\d f}{\d t}dt + \dfrac{\d f}{\d y} dy$,
+we want
+\[
+\frac{\d f}{\d t} = 2t + y\qquad\frac{\d f}{\d y} = t + 2y.
+\]
+Integrating each of these, we obtain
+\[
+f(t,y) = t^2 + yt + C(y)\qquad f(t,y) =  ty + y^2 + D(t),
+\]
+and comparing, we see that we may take $C(y) = y^2, D(t) = t^2$.
+Thus,
+\[
+f(t,y) = t^2 + ty + y^2 
+\]
+will work.  (Check it by taking its differential!)
+Thus, equation (\eqn) may be rewritten
+\[
+df = d (t^2 + ty + y^2) = 0
+\]
+from which we conclude
+\[
+  f(t,y) = t^2 + ty + y^2 = c
+\]
+for some constant $c$. 
+We obtain this way an infinite collection
+of level curves of the function $f$ as a ``solution'' to
+the original differential equation.  In order to determine a
+unique solution, we must specify a point $(t_0, y_0)$ lying
+on the level curve or impose some other equivalent condition.
+This corresponds to requiring that the solution of the differential
+equation satisfy an {\it initial condition}  $y(t_0) = y_0$.
+(Refer back to Chapter II where the issue of initial conditions
+was first discussed.)   For example, if we know that
+$y = 2$ when $t = 1$, we have
+\[
+   1^2 + (1)(2) + 2^2 = c\qquad\text{or}\qquad c = 7.
+\]
+Hence, the corresponding ``solution'' is $t^2 + ty + y^2 = 7$.
+We can solve this for $y$ in terms of $t$ by applying the quadratic formula
+to the equation $y^2 + ty + (t^2 - 7) = 0$.  This yields
+\[
+  y(t) = \frac{ -t \pm \sqrt{t^2 -4(t^2 - 7)}}2  = 
+\frac{ -t \pm \sqrt{28 - 3t^2}}2
+\]
+but only the plus sign gives a solution satisfying the condition
+$y = 2$ when $t = 1$.  Hence the solution we end up with
+is  $y(t) = \dfrac 12(-t + \sqrt{28 - 3t^2})$.
+
+\emar{s6-2.ps}{200}
+Note that not every value of $c$ yields a solution which makes
+sense.  Thus, requiring $y = 0$ when $t = 0$ yields $c = 0$
+or $t^2 + yt + y^2 = 0$ and the locus of this equation in
+$\R^2$ is the point $(0,0)$.  (Why?)   This is not a total
+surprise, since the right hand side of the  original
+differential equation $\dfrac{dy}{dt} = -\dfrac{2t+y}{t +2y}$
+is undefined at $(0,0)$.
+
+\mar{s6-3.ps}
+\subhead Analysis of the Solution Process \endsubhead
+We went from an equation of the form
+\nexteqn
+\xdef\EqA{\eqn}
+\[
+\frac{dy}{dt} = f(t,y)\tag{\eqn}
+\]
+to one of the form
+\nexteqn
+\[
+M\,dt + N\,dy = 0\tag{\eqn}
+\]
+where $f(t,y) = -\dfrac{M(t,y)}{N(t,y)}$.  (We could take $M = f$
+and $N = 1$, but in many cases, as in Example 1, $f$ is actually
+a quotient.)  
+The two equations are not quite the same.  A solution of (\EqA)
+is a collection of functions $y = y(t)$,
+one for each initial condition,  satisfying the differential equation,
+while a solution of (\eqn) is a family of level curves
+$f(t,y) = c$ in $\R^2$.  The relation between the two is
+that the {\it graph\/} of each $y(t)$ is a subset of
+some one of the level curves.
+
+In general, I shall say that a smooth curve $\Cal C$
+ in the plane is a
+solution curve to equation (\eqn) if at each point on the
+curve, the equation is true for each displacement vector
+$\lb dt, dy \rb$ which is {\it tangent\/} to the curve.  Note that at
+ any point in the domain of the differential form, the equation
+(\eqn) determines the ratio $dy/dt$, so it
+determines the vector  $\lb dt, dy \rb$
+ up to multiplication by a scalar.  That means that the
+{\it line\/} along which the vector  points is determined.  
+(There is some fiddling you
+have to do if one or the other of the coefficients $M, N$
+vanishes.  However, if they both vanish at a point, the argument
+fails and $\lb dt, dy \rb$ is not restricted at all.)    
+A general solution of (\eqn), then, will be a
+ family of such curves, one passing through each
+point of the domain of the differential form---except possibly
+where both coefficients vanish. 
+
+\mar{s6-4.ps}
+If $y = y(t)$ is a solution of the differential equation (\EqA),
+then,  at each point of its graph, we also
+have the relation
+\[
+ dy = y'(t) dt = f(t,y) dt = -\frac{M(t,y)}{N(t,y)} dt
+\]
+so the graph is at least part of a solution curve to
+\[
+ M(t,y)dt + N(t,y)dy = 0.\tag{\eqn}
+\] 
+Conversely, the reasoning can be reversed, so that any
+section of a solution curve to (\eqn) which happens to be
+the graph of a function will be a solution to the original
+differential equation.
+
+\mar{s6-5.ps}
+Example \en\ illustrates this quite well.  The curve
+$t^2 + ty + y^2 = 7$ is in fact an ellipse in the $t,y$-plane,
+but we can pick out a segment of that ellipse
+by solving  $y(t) = \dfrac 12(-t + \sqrt{28 - 3t^2}$ 
+ for $28 - 3t^2 > 0$ (i.e., $-\sqrt{28/3} < t < \sqrt{28/3}$),
+and that yields a solution of the original differential
+equation satisfying $y = 2$ when $t = 1$.
+
+\emar{s6-6.ps}{-100}
+There are differences between curves satisfying
+$M\,dt + N\,dy = 0$ and graphs of functions satisfying
+$dy/dt = f(t,y)$.  First of all, a solution curve for the
+differential form could be
+a vertical line, and that certainly can't be the
+graph of a function.  Secondly, at a point where $N = 0$
+but $M \not=0$, we must have $dt = 0$.  At such a point
+the proposed tangent line to the curve is vertical, and
+the curve might not look like the graph of a function.
+However, this is quite reasonable, since at such a
+point the differential equation $dy/dt = -M/N$ has
+a singularity on the right.   Finally, at points at
+which $M = N = 0$, all bets are off since no unique
+tangent line is specified.  Such points are called
+{\it critical points\/} of the differential form.
+\outind{critical points of a differential form}
+
+\medskip
+\subhead Integrating Factors \endsubhead
+The strategy suggested in Example 1 for solving an equation of
+the form 
+\[
+  M\,dt + N\,dy = 0
+\]
+is to look for a function $f$ so that $df =  M\,dt + N\,dy$,
+and then to take the level curves of that function.
+Of course, this will only be feasible if the differential
+form is exact, so you may wonder what to try if it is
+{\it not\/} exact.  The answer is to try to make it exact
+by multiplying by an appropriate function.  Such
+a function is called an {\it integrating factor}.  Thus,
+\outind{integrating factor for a differential form}
+we want to look for a function $\mu(t,y)$ such that
+\[
+  \mu(M\,dt + N\,dy) = (\mu M)dt + (\mu N)dy
+\]
+{\it is\/} exact.
+
+\nextex
+\example{Example \en}  We shall try to solve
+$y\,dt - t\,dy = 0$.   Note that
+\[
+   \frac{\d (-t)}{\d t} = -1 \not= 1 = \frac{\d y}{\d y}
+\]
+so the form is not closed and hence it cannot be exact.
+We shall try to find $\mu(t,y)$ so that
+\[
+   (\mu y)dt - (\mu t) dy
+\]
+is exact.  Since every exact form is closed, we must have
+\nexteqn
+\begin{align*}
+       \frac{\d(-\mu t)}{\d t} &= \frac{\d(\mu y)}{\d y}\qquad\text{or} \\
+   - \frac{\d\mu }{\d t}t - \mu &= \frac{\d\mu}{\d y}y + \mu\qquad\text{or}\\
+\frac{\d\mu }{\d t}t  +  \frac{\d\mu}{\d y}y  &= -2\mu.\tag{\eqn}
+\end{align*}
+At this point, it is not clear how to proceed.  Equation (\eqn)
+alone does not completely determine $\mu$, and indeed that is
+no surprise because in general there may be many possible
+integrating factors.  Of course, we need only one.  To find
+a $\mu$ we proceed in effect by making educated guesses.    In
+particular, we shall look for an integrating factor
+  which depends only on $t$,
+i.e., we assume $\mu = \mu(t)$.  Of course, this may not work, but we have
+nothing to lose by trying.
+With this assumption, equation (\eqn) becomes
+\begin{align*}
+\frac{d\mu}{dt}t  &= -2\mu \qquad\text{or} \\
+\frac{d\mu}{\mu}  &= -2\frac{dt}{t}\qquad\text{which yields} \\
+\ln |\mu| &= -2\ln |t| + c.
+\end{align*}
+Since we only need {\it one\/} integrating factor, we may take
+$c = 0$, so we get  
+\begin{align*}
+\ln |\mu| &= \ln |t|^{-2}\qquad\text{or} \\
+\mu &= \pm\frac 1{t^2}.
+\end{align*}
+Again, since we only need one integrating factor, we may
+as well take  $\mu = 1/t^2$.
+
+Having done all that work, you may think you are done, but of
+course, all we now know is that
+\[
+   \frac 1{t^2}(y\,dt - t\, dy) = \frac y{t^2}dt - \frac 1t dy
+\]
+is probably exact.  Hence, it now makes sense to look for a
+function $f(t,y)$ such that $df = \dfrac 1{t^2}(y\,dt - t\, dy)$.
+If you remember the quotient rule, you will see immediately
+that $f(t,y) = -y/t$ is just such a function.  However,
+let's be really dumb and proceed as if we hadn't noticed
+that.  We  use the usual method to find $f$.
+Integrate the equations
+\[
+\frac{\d f}{\d t} = \dfrac y{t^2}\qquad
+\frac{\d f}{\d y} = -\dfrac 1 t
+\]
+ to obtain
+\[
+ f = -\frac yt + C(y)\qquad  f =  -\frac yt + D(t). 
+\]
+Clearly, we can take $C = D = 0$, so we do obtain $f(t,y) =
+-y/t$ as expected.  Hence, the general solution curves are
+just the level curves of this function
+\[
+  f(t,y) = -y/t = c\qquad \text{or}\qquad y = -c t.
+\]
+Clearly, it doesn't matter what we call the constant, so we
+can drop the sign and write the general solution as
+\[
+   y = ct.
+\]
+This is the family of all straight lines through the origin with
+the exception of the $y$-axis.
+
+
+\mar{s6-7.ps}
+There is one problem with the above analysis.  What we actually
+obtained were solution curves for the
+equation
+\[
+ \mu(M\,dt + N\,dy) = 0.
+\]
+rather than the original equation $M\,dt + N\,dy = 0$.
+If for example, $\mu(t,y) = 0$ has some solutions, that
+locus would be added as an additional {\it extraneous\/}
+solution which is not a solution of the original equation.
+In this example, $\mu = 1/t^2$ never vanishes, so we
+don't have any extraneous solutions.  However, it has
+a singularity at $t = 0$, so its domain is smaller than
+that of the original form $y\,dt - t\,dy$ (which is
+defined everywhere in $\R^2$.)  Thus, it is possible
+that the curve $t = 0$, i.e., the $y$-axis is a solution
+curve for the original problem, which got lost when
+the integrating factor was introduced.  In
+fact that is the case.  If $t = 0$, so is $dt = 0$,
+so 
+$y\,dt - t\,dy = 0$.  
+ 
+Hence, the general solution is the set of all straight lines
+through the origin.  Note also that the origin itself
+is a critical point of $y\,dt - t\,dy = 0$.
+
+In general, there are many possible integrating factors
+for a given differential form.  Thus,  in this example, 
+$\mu = \dfrac 1{yt}$  is also an integrating factor and results
+in the equation
+\begin{gather*}
+\frac 1{yt}(y\,dt - t\,dy) = \frac{dt}t - \frac{dy}y = 0\\
+\text{or}\qquad\qquad \frac{dt}t = \frac{dy}y
+\end{gather*}
+which is what we would have obtained by trying separation of
+variables.  That would be the most appropriate method for
+this particular problem, but we did it the other way in
+order to illustrate the method in a simple case.
+
+\endexample
+
+If you thoroughly understand the above example, you will
+be able to work many problems, but it is worthwhile also
+describing the {\it general case}.   To see if the
+form
+\[
+  (\mu M)dt + (\mu N)dy 
+\]
+is closed, apply the screening test
+\[
+   \frac{\d(\mu N)}{\d t} =  \frac{\d(\mu M)}{\d y}
+\]
+which 
+yields
+\nexteqn
+\begin{align*}
+\frac{\d\mu}{\d t}N + \mu\frac{\d N}{\d t} &=
+\frac{\d\mu}{\d y}M + \mu\frac{\d M}{\d y}\qquad\text{or} \\
+\frac 1\mu\left[\frac{\d\mu}{\d t}N - \frac{\d\mu}{\d y}M\right]
+&= \frac{\d M}{\d y}- \frac{\d N}{\d t}. \tag{\eqn}
+\end{align*}
+
+Unfortunately, {\it it is not generally possible to solve
+this equation!}  This is quite disappointing because it also means
+that there is no general method to
+solve explicitly the equation $M\,dt + N\,dy = 0$ or the related
+equation $dy/dt = f(t,y)$.  There are however many special cases
+in which the method does work.
+These are discussed in great detail in books devoted to
+differential equations.
+ 
+Typically one tries integrating factors  depending
+only on one or the other of the variables or perhaps on
+their sum.  This is basically a matter of trial and error.
+
+\nextex
+\example{Example \en}  Consider
+\[
+   (t + e^y) dt + (\frac 12 t^2 + 2t e^y) dy = 0.
+\]
+You should apply the screening test to check that the differential
+form on the left is not closed.   We look for an integrating
+factor by considering equation (\eqn) which in this case
+becomes
+\begin{align*}
+\frac 1\mu\left[\frac{\d\mu}{\d t}(\frac 12 t^2 + 2t e^y)
+ - \frac{\d\mu}{\d y} (t + e^y)\right]
+&= \frac{\d  (t + e^y)}{\d y}- \frac{\d (\frac 12 t^2 + 2t e^y)}{\d t} \\
+\intertext{or}
+\frac 1\mu\left[\frac{\d\mu}{\d t}(\frac 12 t^2 + 2t e^y)
+ - \frac{\d\mu}{\d y} (t + e^y)\right]
+&=  e^y - (t + 2e^y) = -(t + e^y).
+\end{align*}
+(This was derived by substituting in equation (\eqn), but
+you would have been just as well off deriving it from scratch
+by applying the screening test directly to the form 
+$\mu(t + e^y) dt + \mu(\frac 12 t^2 + 2t e^y) dy$.  There is
+no need to memorize equation (\eqn).) 
+It is apparent that assuming that
+$\partial\mu/\partial y = 0$
+ (i.e., $\mu$ depends only on $t$) leads nowhere.    Try instead
+assuming $\partial\mu/\partial t = 0$. In that case, the
+equation becomes
+\begin{align*}
+-\frac 1\mu \frac{d\mu}{dy}(t + e^y) &= -(t + e^y) \qquad\text{or}\\
+	\frac 1\mu \frac{d\mu}{dy} &= 1.
+\end{align*}
+(Note that the partial derivative becomes an ordinary derivative
+since we have assumed $\mu$ is a function only of $y$.)  This
+can be solved easily to obtain as a possible integrating factor
+\[
+\mu = e^y.
+\]
+I leave the details to you.
+
+To continue, we expect that the form
+\[
+e^y(t + e^y) dt + e^y(\frac 12 t^2 + 2t e^y) dy
+\]
+is exact.  Hence, we look for $f(t,y)$ such that
+\[
+\frac{\d f}{\d t} = te^y + e^{2y}\qquad \frac{\d f}{\d y} =
+\frac 12 t^2e^y + 2t e^{2y}.
+\]
+Integrating the first equation with respect to $t$ and the
+second with respect to $y$ yields
+\[
+f(t,y) = \frac 12 t^2 e^y + te^{2y} + C(y)
+\qquad
+f(t,y) = \frac 12 t^2 e^y + te^{2y} + D(t).
+\]
+Comparing, we see that $C = D = 0$ will work, so we obtain
+$f(t,y) = \frac 12 t^2 e^y + te^{2y}$.  Hence, the
+general solution is 
+\[\frac 12 t^2 e^y + te^{2y} = C.\]
+
+Notice that in this case the integrating factor neither vanishes
+nor has any singularities, so we don't have to worry about
+adding extraneous solutions or losing solutions.
+\endexample
+
+Note that in the above analysis we did not worry too much about
+the geometry of the domain.  We know that it is not generally
+true that a closed form is exact, so even if we find an
+integrating factor, we may still not be able to find a
+$f$ defined on the entire domain of the original differential
+form.   However, this issue is not usually worth worrying about
+because there are so many other things which can go wrong in
+applying the method.   In any case, we know that {\it locally\/}
+closed forms are exact, so that in any sufficiently small 
+neighborhood of a point,  we can always find a $f$ which
+works in that neighborhood.   Since, in general,
+solution methods for differential equations only 
+give local solutions, this may be the best we can hope for.
+Extending local solutions to a global solution
+is often a matter of great interest and great difficulty.
+
+\bigskip
+\includeexercises{chap6.ex2}
+\bigskip
+
+
+\nextsec{First Order Linear Equations}
+\head \sn.  First Order Linear Equations \endhead
+The simplest first order equations are the {\it linear equations\/},
+\outind{linear first order differential equation}
+those of the form
+\nexteqn
+\[
+\frac{dy}{dt} + a(t)y = b(t), \tag{\eqn}
+\]
+where $a(t)$ and $b(t)$ are known functions.  Equation (\eqn)
+may also be written in the form $\dfrac{dy}{dt} = f(t,y)$ by taking
+$f(t,y) = b(t) - a(t)y$.
+
+\example{Examples}
+\begin{gather*}
+\frac{dy}{dt} = ky \\
+\frac{dy}{dt} - ky = j \\
+\frac{dy}{dt} + \frac 1t y = \frac 1{t^2}
+\end{gather*}
+The first equation is that governing exponential growth or decay,
+and it was solved in Chapter II.  The general solution is
+$y = Ce^{kt}$.
+
+An example of a non-linear first order equation is
+\[
+\frac{dy}{dt} + y^2 = t.
+\]
+\endexample
+
+Equation (\eqn) can be put in the form
+\[
+   (a(t)y - b(t))dt + dy = 0
+\]
+and solved by the methods of the previous section.  You should try it
+as an exercise to see if you understand those methods.   However,
+we shall use another method which is easier to generalize to
+second order linear equations.
+
+First consider the so-called {\it homogeneous\/} case  where  $b(t) = 0$,
+i.e., we want to solve
+\[
+\frac{dy}{dt} + a(t)y = 0.
+\]
+\outind{homogeneous linear first order differential equation}
+This may be done fairly easily by separation of variables.
+\begin{gather*}
+\frac{dy}y = -a(t)dt \\
+\ln |y| = -\int a(t) dt + c \\
+\intertext{where $\int a(t) dt$ denotes any antiderivative}
+|y| = e^{-\int a(t) dt +c} = e^{-\int a(t) dt} e^c.
+\end{gather*}
+Put $C = \pm e^c$, depending on the sign of $y$, so the
+{\it general solution\/}  takes the 
+the form
+\nexteqn
+ \[
+    y = Ce^{-\int a(t) dt},\tag{\eqn}
+\]
+where the constant $C$ is determined as usual by specifying an
+initial condition.
+Of course, you could rederive this in each specific case if you
+remember the method, but you will probably save yourself considerable
+time by memorizing formula (\eqn).
+
+\nextex
+\example{Example \en}  Consider
+\[
+\frac{dy}{dt} + \frac 1t y = 0\qquad\text{for } t > 0.
+\]
+Note that in this case $t = 0$ is a singularity of the coefficient
+$a(t)$.  Hence, we would not expect the solution for $t < 0$
+to have anything to do with the solution for $t > 0$.
+
+We have
+\[
+   \int a(t) dt = \int \frac {dt}t = \ln t.
+\]
+(Of course, you could find the most general indefinite integral
+or antiderivative by adding `$+ c$', but we only need {\it one\/}
+antiderivative.)   Hence, according to formula (\eqn), the
+general solution is
+\[
+  y = C e^{-\ln t} = \frac C t.
+\]
+The graphs for some values of $C$ are sketched below
+\medskip
+\centerline{\epsfbox{s6-8.ps}}
+\medskip
+
+Note how one specific solution may be picked out by specifying
+ an initial condition $y(t_0) = y_0$
+\endexample
+
+Consider next the {\it inhomogeneous case\/} where $b(t) \not= 0$,
+i.e.,
+\[
+\frac{dy}{dt} + a(t) y = b(t).
+\]
+Denote by
+\[
+h(t) = e^{-\int a(t) dt}
+\]
+the solution of the corresponding homogeneous equation with $C = 1$.
+We try to find a solution of the inhomogeneous equation of
+the form $ y = u(t)h(t)$ where $u(t)$ is a function to be determined.
+(This method is called ``variation of parameters''.)
+We have
+\begin{gather*}
+\frac{d(uh)}{dt} + auh = b,\\
+\frac{du}{dt}h + u\frac{dh}{dt} + auh = b, \\
+\frac{du}{dt}h + u\left(\frac{dh}{dt} + ah\right) = b.
+\end{gather*}
+Since $h$ was chosen to be a solution of the homogeneous equation,
+the quantity in parentheses vanishes.  Hence, the above
+equation reduces to
+\[
+\frac{du}{dt} = \frac bh.
+\]
+ This is easy to solve.  The general solution is
+\[
+u = \int \frac{b(t)}{h(t)} dt + C
+\]
+where again the indefinite integral notation means that one
+specific antiderivative is selected.  Since $y = hu$, we
+obtain the following general solution of the inhomogeneous
+equation
+\outind{inhomogeneous linear first order differential equation}
+\nexteqn
+\xdef\VarPar{\eqn}
+\[
+y = h(t)\int\frac{b(t)}{h(t)} dt + C\,h(t).\tag{\eqn}
+\]
+Note the form of this equation.  The term $Ch(t) = C e^{-\int a(t) dt}$
+is a general solution of the homogeneous equation.  The first term
+is the {\it particular solution\/} of the inhomogeneous equation
+\outind{particular solution, linear first order equation}
+obtained by setting $C = 0$.  This is a theme which will be
+repeated often in what follows
+\smallskip
+{\narrower\it
+
+A general solution of  the inhomogeneous equation is obtained by
+adding a general solution of the homogeneous equation to a particular
+solution of the inhomogeneous equation.
+}
+\smallskip
+\nextex
+\example{Example \en}  Consider
+\[
+\frac{dy}{dt} + \frac 1t y = \frac 1{t^2}\qquad\text{for } t > 0.
+\]
+We determined $h(t) = \dfrac 1t$ in the previous example where we
+solved the homogeneous equation.
+Moreover,
+\[
+\int \frac{1/t^2}{1/t} dt = \int \frac1t dt = \ln t
+\]
+where as suggested we pick one antiderivative.  Then
+from equation (\eqn), the general solution is
+\[
+ y = \frac 1t \ln t + \frac Ct.
+\]
+\endexample
+
+It is important to note that equation (\eqn)
+provides us, at
+least in principle, with
+a {\it complete solution\/} to the problem, a situation which will not
+arise often in our study of differential equations,
+
+\subhead Sometimes Guessing is Okay \endsubhead
+In general, the solution of a first order differential equation
+is uniquely determined if an initial condition is specified.
+(We have seen how this works in several examples, and we shall
+discuss the theory behind it later.)  Hence, if you are able
+to guess a solution that works, that is a perfectly acceptable
+way to proceed.   We can adapt that principle to finding the
+general solution of a first order linear equation as
+follows.   We may write the general solution (\eqn) in the
+form
+\[
+    y = p(t) + Ch(t)
+\]
+where $p(t) = h(t)\int (b(t)/h(t)) dt$ is the particular
+solution obtained by setting $C = 0$.   Suppose we can guess
+some  particular solution $p_1(t)$  (which might be different 
+from $p(t)$.)   Then, for some value of the constant $C_1$,
+\[
+    p_1(t) = p(t) + C_1h(t)\qquad\text{or}\qquad p(t) = p_1(t) - C_1h(t).
+\]
+Hence, the general solution may be written
+\begin{align*}
+    y &= p_1(t) - C_1h(t) + Ch(t) = p_1(t) + (C-C_1)h(t) \\
+      &= p_1(t) + C'h(t)
+\end{align*}
+where $C' = C - C_1$ is also an arbitrary constant.  What this says
+is that the general solution of the inhomogeneous equation is
+the sum of {\it any\/} particular solution and the general solution
+of the homogeneous equation.
+
+\nextex
+\example{Example \en}  Consider the equation
+\nexteqn
+\[
+\frac{dy}{dt} - k y = I\tag{\eqn}
+\]
+where $k$ and $I$ are constants.   The homogeneous equation
+\[
+\frac{dy}{dt} -k y = 0 \qquad\text{or}\qquad \frac{dy}{dt} = k y
+\]
+has the general solution  $y = Ce^kt$.   We try to find a
+particular solution of the inhomogeneous equation by guessing.
+The simplest thing to try is a constant solution $y = A$.
+Substituting in (\eqn) yields
+\[
+0 - kA = I\qquad\text{or}\qquad A = -\frac Ik.
+\]
+Hence,
+\[
+y = -\frac Ik + Ce^{kt}
+\]
+is a general solution of the inhomogeneous equation.   Note that this
+is a bit simpler than using equation (\VarPar).
+
+\subhead Using Definite Integrals in the Formulas \endsubhead
+The notation $\int a(t)\,dt$ stands for {\it any\/} antiderivative
+of the function $a(t)$.  Thus
+\[
+\int t\,dt = \frac 12 t^2\qquad\text{and}\qquad \int t\,dt = \frac 12 t^2 + 1
+\]
+are both true statements.  This ambiguity can lead to confusion.  To
+avoid this, we may on occasion use definite integrals with variable
+upper limits.  Thus
+\[
+\int_{t_0}^t a(s)\,ds
+\]
+is definitely an antiderivative for $a(t)$ because the fundamental
+theorem of calculus tells us that
+\[
+\frac{d}{dt} \int_{t_0}^t a(s)\,ds = a(t).
+\]
+With this notation, we may write
+\[
+ h(t) = e^{-\int_{t_0}^t a(s)ds}.
+\]
+Note that $h(t_0) = e^0 = 1$.   In addition, we may write the
+general solution of the inhomogeneous equation
+\[
+y = h(t)\int_{t_0}^t \frac{b(s)}{h(s)} ds + Ch(t).
+\]
+Note that $y(t_0) = 0 + Ch(t_0) = C$, so it may also be
+written
+\[
+y = h(t)\int_{t_0}^t \frac{b(s)}{h(s)} ds + y_0h(t)
+\]
+where $y_0 = y(t_0)$.
+
+Note that we have been careful to use a `dummy variable' $s$ in
+\outind{dummy variable}
+the integrand.
+Sometimes people are a bit sloppy and just use $t$ both for
+the integrand and the upper limit, but
+that is of course wrong.
+
+
+\bigskip
+\includeexercises{chap6.ex3}
+\bigskip
+
+\nextsec{Applications to Population Problems}
+\head \sn.  Applications of First Order Equations to Population
+Problems \endhead
+
+With the little you now know, it is possible to solve a large
+number of problems both in natural and social sciences.   To
+do so, you need to construct a {\it model\/} of reality which
+\outind{model}
+can be expressed in terms of a differential equation.  While
+the mathematics that follows may be impeccable, the conclusions
+will still only be as good as the model.  If the model is
+based on established physical law, as for example the theory
+of radioactive decay, the predictions will be quite accurate.
+On the other hand, in some other applications,
+there is little or no reason to accept the model,
+so the results will be of questionable value.
+
+\subhead Population Growth with Immigration \endsubhead
+Let $p = p(t)$ denote the number of individuals in a population.
+(The individuals could be people, bacteria, radioactive atoms,
+etc.)  One common assumption about population growth is that
+the number of births per unit time is proportional to the size
+of the population, i.e., the rate of change of $p(t)$ due to
+births is of the form $bp(t)$ for some constant $b$ called
+the {\it birth rate}.  Similarly, it is assumed that the
+number of deaths per unit time is of the form $dp(t)$ where
+$d$ is another constant called the {\it death rate}.  We
+may combine these and write symbolically
+\[
+  \frac{dp}{dt} = bp - dp = (b - d)p = kp
+\]
+where $k = b - d$ is a constant combining both the birth and
+death rates.   The solution to this equation is
+$p = p_0e^{kt}$ where $p_0 = p(0)$.  Thus according to this
+model, population grows exponentially if $k > 0$ and
+declines exponentially if $k < 0$.   Suppose in addition
+to natural growth due to births and deaths, we also have
+immigration taking place at a constant rate $I$.  (We
+can assume $I$ is the net effect of immigration---into
+the population---and emigration---out of the population.
+It could even be negative in the case of net outflow.)  The
+differential equation
+becomes
+\begin{gather*}
+\frac{dp}{dt} = kp + I\\
+\text{or}\qquad \frac{dp}{dt} - kp = I.
+\end{gather*}
+We solved this problem (with slightly different notation) in
+the previous section.  The general solution is
+\[
+  p = -\frac Ik + Ce^{kt}.
+\]
+If $p = p_0$ at $t = 0$, we have
+\[
+  p_0 = -\frac Ik + C\qquad\text{or}\qquad C = p_0 +\frac Ik.
+\]
+Hence, the solution can also be written
+\[
+  p = -\frac Ik + (p_0 + \frac Ik)e^{kt}.
+\]
+Note that {\it in this model\/} if $k > 0$ and $p_0 + I/k > 0$,
+then population grows exponentially, even if $I < 0$, i.e.,
+even if there is net emigration.  
+
+  
+The idea that natural populations grow exponentially was
+first popularized by Thomas Malthus (1766-1834), and it
+\outind{Malthus}
+is a basic element of modern discussions of population
+growth.  Of course, the differential equation model ignores
+many complicated factors.  Populations come in discrete
+chunks and cannot be governed by a differential equation
+in a continuous variable $p$.  In addition, most biological
+populations involve two sexes, only one of which produces
+births, and individuals vary in fertility due to age
+and many other factors.  However, even when all these
+factors are taken into consideration, the Malthusian model
+seems quite accurate as long as the birth rate less the
+death rate is constant.
+
+\subhead The Logistic Law \endsubhead
+The Malthusian model (with $k > 0$)
+ leads to population growth which fills
+all available space within a fairly short time.  That clearly
+doesn't happen, so limiting factors somehow come into play
+and change the birth rate so it no longer is constant.
+Various models have been proposed to describe real populations
+more accurately.    One is the so-called {\it logistic law}.
+Assume $I = 0$---i.e., there is
+no net immigration or emigration---and that
+the `birth rate' has the form $k = a - bp$ where $a$ and $b$
+are positive constants.  Note that there is very little thought behind
+this about how populations behave.  We are just choosing the
+simplest non-constant mathematical form for $k$.  About the only
+thought involved is the decision to make the constant term positive
+and the coefficient of $p$ negative.  That is, we assume that
+as population grows, the birth rate goes down, although no
+mechanism is suggested for why that might occur.  With
+these assumptions, the differential equation becomes
+\[
+  \frac{dp}{dt} = (a - bp)p.
+\]
+\outind{logistic law}
+This is not a linear equation, but it can be solved by
+separation of variables.
+\[
+  \frac{dp}{(a - bp)p} = dt \qquad\text{or}\qquad
+\int\frac{dp}{(a - bp)p} = t + c.
+\]
+Assume $p > 0$ and  $a - bp > 0$.  In effect, that means we
+are looking for solution curves in the $t,p$-plane between the
+lines $p = 0$ and  $p = a/b$.  
+If we find any solutions which start in this region and leave it,
+we will be in trouble, so we will
+have to go back and redo the analysis.
+Under these assumptions, the integration on the left yields
+(by the method of partial fractions) 
+\[
+-\frac 1a \ln(a - bp) + \frac 1a \ln p = \frac 1a\ln\left(\frac p{a - bp}
+\right).
+\]
+(I tried to do this using Mathematica, but it kept getting the
+sign of one of the factors wrong.  You should review the method
+of partial fractions and make sure you understand where the
+answer came from!  If you can't do it, ask for help from your
+instructor.)  Hence, we obtain
+\[
+\ln\left(\frac p{a - bp}
+\right) = at + ac = at + c'
+\]
+which after exponentiating yields
+\nexteqn
+\[
+  \frac p{a - bp} = e^{at}e^{c'} = Ce^{at}.\tag{\eqn}
+\]
+If $p(0) = p_0$, we have
+\[
+  \frac {p_0}{a - bp_0} = C.
+\]
+Equation (\eqn) may be solved with some simple algebra to obtain
+\begin{align*}
+p &= \frac {Cae^{at}}{1 + Cbe^{at}} =
+\frac{\dfrac {p_0}{a - bp_0}ae^{at}}{1 + \dfrac {p_0b}{a - bp_0}e^{at}}\\
+\intertext{which simplifies to}
+p &= \frac{ap_0e^{at}}{a - bp_0 + bp_0e^{at}}\\
+  &= \frac{p_0e^{at}}{1 + \dfrac ba p_0(e^{at} - 1)}.
+\end{align*}
+To see what happens for large $t$, let $t \to \infty$.  For this
+divide both numerator and denominator by $e^{at}$ as in
+\[
+p = \frac {p_0}{e^{-at} + \dfrac bap_0(1 - e^{-at})} \to \frac{p_0}
+{\dfrac ba p_0} = \frac ab.
+\]
+Hence, the solution approaches the line $p = a/b$ asymptotically
+from below, but it never crosses that line.
+See the graph below which illustrates the population
+growth under the logistic law.  Initially, it does appear
+to grow exponentially, but eventually population growth
+slows down and population approaches the equilibrium value
+$p_e = a/b$ asymptotically.
+
+\medskip
+\centerline{\epsfbox{s6-9.ps}}
+\medskip
+
+
+
+
+If you want to read a bit more about population models,
+see Section 1.5 of {\it Differential Equations and Their Applications\/}
+by M. Braun.   However, you should take this with a grain of
+salt, since it is all based on assuming a particular model and
+then fiddling with parameters in the model to fit observation.
+
+Note that the graphs of the solutions are also asymptotic to the
+line $p = 0$ as $t \to -\infty$.   It may not be clear how to
+interpret this in terms of populations, but there is no problem
+with the mathematics.  Thus, each of the solutions obtained
+above is defined for
+$-\infty < t < \infty$, and its graph is contained entirely
+in the strip $0 < p < a/b$.   Moreover, the lines $p = 0$ and
+$p = a/b$ are also solutions, and there are solutions above
+and below these lines.  (See the Exercises.)  Indeed,
+by  suitable
+choice of the arbitrary constants, you can find a solution curve passing
+through every point in the plane, and moreover these solution
+curves {\it never cross}.  
+
+The fact that solution curves don't cross (except in very special
+circumstances) is a consequence of the basic uniqueness theorem and
+will be discussed in the next section.
+However, we can use it here to justify our contention that
+that $0 < p(t) < a/b$  if $0 < p_0 < a/b$.   
+What we have to worry about is the possibility
+ that some other solution curve (not one
+arrived at above) could start inside
+the desired strip and later leave it.   However, to do so, it would
+have to cross one of the bounding lines, and we saw that they
+also are solution curves, so that never happens.
+
+\bigskip
+\includeexercises{chap6.ex4}
+\bigskip
+
+\nextsec{Existence and Uniqueness of Solutions}
+\head \sn. Existence and Uniqueness of Solutions \endhead
+
+I mentioned earlier that the first order equations
+\[
+  \frac{dy}{dt} = f(t,y)
+\]
+often cannot be solved explicitly.    In such cases, one must resort
+to graphical or numerical techniques in order to get
+approximate solutions.  Before attempting that, however, one
+should be confident that there actually is a solution.  Clearly,
+if we can't find the solution, we have to use other methods to
+convince ourselves it exists.   In this section, we describe
+some of what is known in this area.
+
+Consider the basic {\it initial value problem}: find $y = y(t)$
+such that
+\[
+\frac{dy}{dt} = f(t,y)\qquad\text{where } y(t_0) = y_0.
+\]
+There are two basic questions one may ask.
+\roster
+\item  {\it Existence of a solution}.   Under what circumstances
+can we be sure there is a solution $y = y(t)$ defined for some
+$t$-interval containing $t_0$?   In this connection, we may also
+ask what is the largest possible domain for such a solution.
+\item  {\it Uniqueness of solutions}.  Under what circumstances
+is the solution unique?  That is, can there be two or more
+solutions satisfying the same initial condition?
+\endroster
+It would be foolish to devote a lot of time and energy to
+finding a solution without first knowing the answers to these
+questions.
+
+\nextex
+\example{Example \en}  Consider
+\[
+\frac{dy}{dt} = y^2\qquad\text{where } y(0) = y_0,
+\]
+and we assume $y_0 > 0$.
+This equation is easy to solve by separation of variables.
+\begin{gather*}
+\frac{dy}{y^2} = dt \\
+-\frac 1y = t + C
+\intertext{so for $t = 0$}
+-\frac 1{y_0} = C\\
+\text{and}\qquad -\frac 1y = t - \frac 1{y_0}\\
+\text{so } y = \frac{y_0}{1 - y_0t}.
+\end{gather*}
+The graph of this solution is a hyperbola asymptotic horizontally to the
+$t$-axis and asymptotic vertically to the line $t = 1/y_0$.
+\medskip
+\centerline{\epsfbox{s6-10.ps}}
+\medskip
+Thus the solution has a singularity at $t = 1/y_0$, and there is
+no coherent relationship between the solution to the right and
+left of the singularity.  We conclude that there is a solution
+defined on the interval $-\infty < t < 1/y_0$, but that solution
+can't be extended smoothly to a solution on a larger interval.
+Note that the differential equation itself provides no hint that
+the solution has to have a singularity.  The function $f(t,y) = y^2$ is
+smooth in the entire $t,y$-plane.  The lesson to be learned from
+this is that at best we can be sure that the initial value problem 
+has a solution
+{\it locally\/} in the vicinity of the initial
+point $(t_0, y_0)$.
+
+The above solution is unique.  The reasoning for that is a little
+tricky.   Basically, the solution was deduced by a valid argument from
+the differential equation, so if there is a solution,
+it must be the one we found.  Unfortunately, the solution process
+involved division by $y^2$, so there is a minor complication.  
+We have to worry about the possibility that there might be a
+solution with $y(t) = 0$ for some $t$.   To eliminate that
+we argue as follows. If $y(t_1) \not=0$ for a given $t_1$, by continuity
+$y(t) \not= 0$ for all $t$ in an interval centered at $t_1$.  Hence,
+the above reasoning is valid and the solution satisfies
+$-1/y(t) = t + C$ in that interval, which is to say its graph is part
+of a hyperbola.  However, none of these hyperbolas intersect the
+$t$-axis, so no solution which is non-zero at one point can vanish
+at another.    Notice, however, that $y(t) = 0$ for all $t$
+does define a solution.  It satisfies the initial condition $y(0) = 0$.
+\endexample
+
+\nextex
+\example{Example \en}  Consider 
+\[
+\frac{dy}{dt} = \frac yt.
+\]
+I leave it to you to work out the general solution by separation of
+variables.  It is $y = Ct$.  For every 
+$t_0 \not= 0$ and any $y_0$, there is a unique such solution satisfying
+the initial condition $y_(t_0) = y_0$.
+(Take $C = y_0/t_0$.)  If $t_0 = 0$, there is no such solution
+satisfying $y(0) = y_0$ if $y_0 \not= 0$.
+For $y_0 = 0$, every one of these solutions satisfies
+the initial condition
+$y(0) = 0$, so  
+  the solution is not unique.  This is
+not entirely surprising since $f(t,y) = y/t$  is not continuous for
+$t = 0$.  Note however, that all the solutions $y = Ct$ are defined
+and continuous at $t = 0$.
+\endexample
+
+\nextex
+\example{Example \en}  Consider 
+\[
+\frac{dy}{dt} = 3y^{2/3}\qquad\text{where } y(0) = 0.
+\]
+We can solve this by separation of variables
+\begin{gather*}
+\frac{dy}{3y^{2/3}} =  dt \\
+\frac{y^{1/3}}{3/3} = t + C \\
+\intertext{so putting $y = 0$ when $t = 0$ yields}
+0 = 0 + C \qquad \text{or} \qquad C = 0.\\
+\text{Hence, }\qquad y^{1/3} = t\qquad\text{or } y = t^3
+\end{gather*}
+is a solution.  (You should check that it works!)   Unfortunately,
+the above analysis would exclude solutions which vanish, and it
+is easy to see that
+\[
+y(t) = 0\qquad\text{for all } t
+\]
+also defines a solution.  Hence, there are (at least) two solutions
+satisfying the initial condition $y(0) = 0$.
+\medskip
+\centerline{\epsfbox{s6-11.ps}}
+\medskip
+Note that in this case $f(t,y) = 3y^{2/3}$ is continuous for all
+$t,y$.   However, it is not terribly smooth since
+$f_y(t,y) =2y^{-1/3}$ blows up for $y = 0$.
+\endexample
+
+\subhead Propagation of Small Errors in the Solution \endsubhead
+The above example suggests that the uniqueness of solutions
+may depend on how smooth the function $f(t,y)$ is.  We shall
+present an argument showing how uniqueness may be related to
+the behavior of the
+ partial derivative $f_y(t,y)$.   You might want to skip
+this discussion
+your first time through the subject since the reasoning is quite intricate.
+
+Suppose $y_1(t)$ and $y_2(t)$ are two solutions of $dy/dt = f(t,y)$
+which happen to be close for one particular value $t = t_0$.
+(The extreme case of `being close' would be `being equal'.)
+Let $\epsilon(t) = y_1(t) - y_2(t)$.   We want to see how far apart
+the solutions can get as $t$ moves away from $t_0$, so
+we
+try to determine an upper bound on the function $\epsilon(t)$.   We have
+\begin{align*}
+\frac{dy_1}{dt} &= f(t,y_1(t)) \\
+\frac{dy_2}{dt} &= f(t,y_2(t)) \\
+\end{align*}
+Subtracting yields
+\[
+\frac{d(y_1 - y_2)}{dt}
+= 
+\frac{dy_1}{dt}-\frac{dy_2}{dt}
+ = f(t,y_1(t)) -   f(t,y_2(t)).
+\]
+However, if the difference $\epsilon = y_1 - y_2$ is {\it small enough\/}
+we have approximately
+\[
+ f(t,y_1) -   f(t,y_2) \approx f_y(t, y_2(t))(y_1-y_2) = f_y(t, y_2) \epsilon.
+\]
+  That means that $\epsilon(t)$ {\it approximately\/} satisfies the
+differential equation
+\[
+\frac{d\epsilon}{dt} = f_y(t,y_2(t))\epsilon.
+\]
+This equation is linear, and it has the solution
+\nexteqn
+\[
+\epsilon = Ce^{\int f_y(t,y_2(t))dt},\tag{\eqn}
+\]
+so we can take the right had side as an {\it estimate\/}
+of the size of the error as a function of $t$.
+Of course, the above reasoning is a bit weak.  First of all,
+we haven't defined what we mean  by an `approximate'
+solution of a
+differential equation.   Moreover, the approximation is only
+valid for $\epsilon$ small, but we want to
+use the
+result to see if $\epsilon$ is small.  That is certainly circular
+reasoning.
+However, it is possible to make all this precise by judicious use
+of inequalities, so the method can give you an idea of
+how the difference of two solutions propagates.   
+
+\emar{s6-12.ps}{100}
+There are two important conclusions to draw from the estimate
+in (\eqn).  First, assume the function $f_y$ is continuous,
+so the exponential on the right will be well behaved.  In that
+case
+if the difference between two solutions $\epsilon$ is initially
+0, the constant $C$ will be 0, so the difference $\epsilon$
+will vanish for all $t$, at least in the range where all
+the approximations are valid.  Second, assume the function
+$f_y(t,y_2(t))$ has a singularity at $t_0$, and
+the exponent in (\eqn) diverges to $-\infty$ as $t \to t_0$.
+In that case, the exponential would approach zero, meaning that
+we could have $\epsilon = y_1(t) - y_2(t) \not = 0$ for
+$t \not = t_0$ but have it approach 0 as $t \to t_0$.  In
+other words, the graphs of the two solutions might cross at
+$(t_0, y_0)$.  In Example \en, that is exactly what occurs.
+We have $f_y = 2y^{-1/3}$, so if we take $y_2 = t^3$
+and $y_1 = 0$, we have
+\begin{gather*}
+\int f_y(t,y_2(t))dt = \int 2(t^3)^{-1/3}dt
+  = 2\int t^{-1}dt =  \ln t^2 \\
+\text{so}\qquad e^{\int f_y(t,y_2(t))dt} = e^{\ln t^2} = t^2,
+\end{gather*}
+and this does in fact approach 0 as $t \to 0$.
+\medskip
+\mar{s6-13.ps}
+\subhead The Basic Existence and Uniqueness Theorem \endsubhead
+
+\nextthm
+\proclaim{Theorem \cn.\tn}
+Assume $f(t,y)$ is continuous on an open set $D$ in the $t,y$-plane.
+Let $(t_0,y_0)$ be a point in $D$.   Then there is a function
+$y(t)$ defined on some interval $(t_1, t_2)$  containing the
+point $t_0$  such that
+\begin{gather*}
+\frac{dy(t)}{dt} =  f(t, y(t))\qquad\text{for every $t$ in } (t_1, t_2)\\
+\text{and }\qquad y(t_0) = y_0.
+\end{gather*}
+
+Moreover, if $f_y(t,y)$ exists and is continuous on $D$, then
+there is at most one such solution defined on any interval
+containing $t_0$.
+\endproclaim
+\outind{existence theorem, first order differential equations}
+\outind{uniqueness theorem, first order differential equations}
+\medskip
+\centerline{\epsfbox{s6-16.ps}}
+\medskip
+The proof of this theorem is quite involved, so it is better left
+for a course in Real Analysis.  However, most good books on
+differential equations include a proof of some version of this
+theorem.  See for example, Section 1.10 of {\it Braun} which uses
+the method of {\it Picard iteration}.
+
+\nextex
+\example{Example \en}  Consider  the logistic equation
+\[
+\frac{dp}{dt} = ap - bp^2.
+\]
+Here $f(t,p) = ap - bp^2$ is continuous for all $(t,p)$,
+so a solution exists satisfying any possible initial condition
+$p(t_0) = p_0$.   Similarly $f_p(t,p) = a - 2bp$ is
+continuous everywhere, so every solution is unique.  Thus,
+graphs of solutions $p = p(t)$ never cross.
+\endexample
+
+\nextex
+\example{Example \en}  Consider
+\[
+\frac{dy}{dt} = (y - t)^{1/3}.
+\]
+Here $f(t,y) = (y - t)^{1/3}$ is continuous for all $(t,y)$ so
+a solution always exists satisfying any given initial condition.
+However, $f_y(t,y) = \dfrac 13\dfrac 1{(y - t)^{2/3}}$ has
+singularities along the line $y = t$.  Hence, we cannot be
+sure of the uniqueness of solutions satisfying initial
+conditions of the form $y_0 = t_0$.
+\endexample
+
+\mar{s6-15.ps}
+Let us return to the second part of the {\it existence\/} question:
+how large a $t$-interval can we choose for the domain of definition
+of the solution.  We saw in Example 1
+
+that this cannot be determined simply by examining the
+domain of $f(t,y)$.  Here is another example.  
+
+
+\nextex
+\example{Example \en}
+Consider the initial value problem $\dfrac{dy}{dt} = 1 + y^2$
+with $y(0) = 0$.   The equation can be solved by separation of
+variables, and the solution is  $y = \tan t$.  (Work it out
+yourself.)  The domain of the continuous branch of this function
+passing through $(0,0)$ is  the interval $-\pi/2 < t < \pi/2$.
+\endexample
+
+\emar{s6-19.ps}{-150}
+Even in cases where the differential equation can't be
+solved explicitly, it is {\it sometimes\/} possible to
+determine an interval on which there is a solution.
+We illustrate how to do this in the above example
+(without solving the equation), but 
+the reasoning 
+is quite subtle, and you may not want to go through it at
+this time .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\example{Example \en, continued}
+  We consider the case $0 \le t$.  (The reasoning for
+$t < 0$ is similar.)  The problem is to find a value $a$ such
+that when $0 \le t \le a$, the solution won't grow so fast that
+it will become asymptotic to some line $t = t_1$ with $0< t_1 < a$.
+Since $y' = 1 + y^2 \ge 1$, there is certainly no problem with
+the solution going to $-\infty$ in such an interval, so we only
+concern ourselves with positive asymptotes.  Suppose that
+we want to be sure that $0\le y \le b$.   Then we would have
+$y' = 1 + y^2 \le 1 + b^2$, i.e., the graph would lie under the
+a line (starting at the initial point $(0,0)$) with slope
+$1 + b^2$.   That line has equation $y = (1 + b^2)t$
+so it intersects the horizontal line
+$y = b$ in the point $(\dfrac{b}{1 + b^2}, b)$.  Thus, for a given
+$b$, we could take $a = \dfrac{b}{1 + b^2}$, and the solution 
+ could not go to $\infty$ for $0 < t < a$.
+
+The trick is to maximize $a$ by 
+finding the maximum value of $b/(1 + b^2)$ over all possible
+$b > 0$.   This may be done by
+elementary calculus. Setting
+\[
+\frac{d}{db}\frac b{1 + b^2} =  \frac{(1 + b^2) - b(2b)}{(1 + b^2)^2}
+  = \frac{1 - b^2}{(1 + b^2)^2} = 0
+\]
+yields $b = 1$ (since we know $b > 0$).  It is easy to see that this
+is indeed a maximum point and the maximum value is $1/(1 + 1^2) = 1/2$.
+It follows that we can be sure there is a solution for $0 \le t < 1/2$.
+Similar reasoning (or a symmetry argument) shows that there is also
+a solution for $-1/2 < t \le 0$.
+
+Note that this reasoning gave us an interval $(-1/2,1/2)$ somewhat
+smaller than that obtained above for the exact solution.
+\endexample
+
+\centerline{\epsfbox{s6-20.ps}}
+\bigskip
+The analysis in the above example involves
+`lifting oneself by one's bootstraps' in that one uses `$b$' (a bound
+on $y$) to find `$a$' (a bound on $t$), whereas what we really
+want is the reverse.  It only
+works well if $f(t,y)$ is
+independent of $t$ or is bounded by functions independent
+of $t$.  In general,  there may be no effective way to determine
+an interval on which we can be sure there is a solution, although
+the existence theorem assures there is such an interval. 
+
+\bigskip
+\includeexercises{chap6.ex5}
+\bigskip
+
+\nextsec{Graphical and Numerical Methods}
+\head \sn. Graphical and Numerical Methods \endhead
+
+What if the initial value problem for
+a first order differential equation cannot be solved
+explicitly?   In that case one may try to use graphical
+or numerical techniques to find an approximate solution.
+Even if one can't get very precise values, it is
+sometimes possible to get a qualitative understanding
+of the solution.
+
+\subhead The Direction Field \endsubhead
+For each point $(t,y)$ in $\R^2$, $f(t,y)$ specifies the slope
+that the graph of a solution passing through that point should
+have.   One may draw small line segments at selected points,
+and it is sometimes possible to sketch in a good approximation
+to the solution. 
+\outind{direction field}
+
+\nextex
+\example{Example \en}   
+Consider  
+\[
+\frac{dy}{dt} = t\sqrt{1 + y^3}\qquad\text{where } y(0) = 1.
+\]
+We can make an attempt to solve this by separation of variables
+to obtain
+\begin{gather*}
+\frac{dy}{\sqrt{1 + y^3}} = t\,dt \\
+\text{so}\qquad \int \frac{dy}{\sqrt{1 + y^3}} = \frac 12 t^2 + c.
+\end{gather*}
+Unfortunately, the left hand side cannot be integrated explicitly
+in terms of known functions, so there is no way to get an
+explicit solution $y = y(t)$.  In the diagram below, I sketched
+some line segments with the proper slope  $t\sqrt{1 + y^3}$
+at points in the first quadrant.   Also, starting at the point
+$(0,1)$, I attempted to sketch a curve which is 
+tangent to the  line segment  at
+each point it passes through.  I certainly didn't get it
+exactly right, but the general characteristics of the solution
+seem clear.  It increases quite rapidly and it may even have
+an asymptote around $t = 2$.
+\medskip
+\centerline{\epsfbox{s6-21.ps}}
+\medskip
+We may verify analytically that the graph has an asymptote as follows.
+We have
+\[
+\frac{dy}{dt} = t\sqrt{1 + y^3} > t\sqrt{y^3} = t y^{3/2}
+\qquad\text{for } t >0, y > 0.
+\]
+Hence, in the first quadrant
+\[
+\frac{dy}{y^{3/2}} > t\,dt
+\]
+so 
+\[
+\int_1^y \frac{du}{(u)^{3/2}} > \int_0^t t'\,dt' = \frac 12 t^2.
+\]
+Note that we have to use definite integrals in order to preserve
+the inequality, and we also used that $y > 1$ along the solution
+curve.  The latter is apparent from the direction field, although
+a detailed proof might be tricky.   Integrating on the left,
+we obtain
+\begin{gather*}
+\left . -\frac 2{u^{1/2}}\right|_1^y > \frac 12 t^2 \\
+-2(\frac 1{\sqrt y} - 1) > \frac 12 t^2 \\
+\text{or}\qquad \sqrt y > \frac 1 {1 - \frac 14 t^2} \\
+\text{or}\qquad y > \frac 1{(1 - \frac 14 t^2)^2}, 
+\end{gather*}
+and the expression on the right has an asymptote at $t = 2$.
+
+\subhead Euler's Method \endsubhead
+
+There are a variety of {\it numerical methods\/} for solving
+differential equations.  Such a method can generate a table
+\outind{numerical methods}
+of values  $y_i$ which are approximations to the true solution
+$y(t_i)$ for selected values $t_i$ of the independent variable.
+Usually, the values $t_i$ are obtained by dividing up a
+specified interval  $[t_0, t_f]$  into $n$ equally spaced
+points.
+\medskip
+\centerline{\epsfbox{s6-22.ps}}
+\medskip
+The simplest method is called {\it Euler's method}.  It is
+\outind{Euler's method}
+based on the linear approximation
+\[
+y(t + h) = y(t) + y'(t)h + o(h)
+\]
+where as in Chapter III, Section 4,
+
+ the notation `$o(h)$' indicates
+a quantity small compared to $h$.  ($\lim_{h\to 0} o(h)/h = 0$.)
+Since  $y'(t) = f(t,y(t))$, we have approximately
+\[
+y(t + h) \approx y(t) + f(t,y)h.
+\]
+Using this, we may describe Euler's method by the following
+Pascal-like pseudo-code, where $t_0$ and $y_0$ denote the
+initial values of $t$ and $y$,  $t_f$ is the `final' value
+of $t$, $n$ is the number of steps from $t_0$ to $t_f$,
+and $h = (t_f - t_0)/n$ is the step size.
+\smallskip
+\def\hs{\hskip 20pt}
+{\obeylines
+
+read $t_0, y_0, t_f, n$;
+$h$ :$=$ $(t_f - t_0)/n$;
+$t$ :$=$ $t_0$;
+$y$ :$=$ $y_0$;
+while ($t \le t_f + h/2$) do
+\hs begin
+\hs\hs $yy$ :$=$ $y + f(t,y)*h$;
+\hs\hs $t$ :$=$ $t + h$;
+\hs\hs $y$ := $yy$;
+\hs\hs show($t$, $y$);
+\hs end;
+end.
+}
+\smallskip
+\mar{s6-23.ps}
+Note the construction `$t \le t_f + h/2$'.   This complication
+is needed
+ because of the way numerical
+calculations are done in a computer. 
+ Namely, the calculation of $h$ will involve either
+a round-off error or truncation error in almost all cases.  As
+a result,  $n$ iterations of the step $t$ :$=$ $t + h$
+could yield a value for $t$ slightly greater than $t_f$, but it
+will certainly yield a value short of $t_f + h/2$. 
+Adding the $h/2$ will insure that the loop stops exactly where we
+want it to.
+
+Euler's method is very simple to program, but it is not too
+accurate.  It is not hard to see why.  At each step, we make
+an error due to our use of the linear approximation rather
+than the true solution at that point.  In effect that moves us
+onto a neighboring solution curve.  After many steps, these
+errors will {\it compound\/}, i.e., the errors from all previous
+ steps will add additional errors at the current step.  Hence,
+the cumulative error after a large number of steps can get
+very large.   
+See Figure 1 for the graphs of some
+solutions of the initial value problem  $dy/dt = 1 - y,
+y(0) = 0$ by Euler's method with different values of $n$.
+The exact solution in this case is $y = 1 - e^{-t}$.
+  In this case, the approximate solutions all lie above
+ the exact solution.  Can you see why?
+\medskip
+\centerline{\epsfbox{euler.ps}}
+\medskip
+\centerline{Figure 1.  Euler's method for $n = 5, 10, 25$ and
+exact solution}
+\bigskip
+One can estimate the error due to the approximation in
+Euler's method.  It turns out that the error in the
+calculation of the last value $y(t_f)$ is $O(h)$.  That means
+if you double the number of steps, you will generally halve
+the size of the error.  See {\it Braun\/} Section 1.13.1 for
+\outind{Euler's method, error}
+a discussion of the error analysis.  Thus, in principle,
+you ought to be able to get any desired degree of accuracy
+simply by making the step size small enough.  However, the
+error estimate $O(h)$ is based on the assumption of exact arithmetic.
+Numerical considerations such as round-off error become
+increasingly important as the step size is made smaller.
+(For example, in the extreme case, if the number of steps
+$n$ is chosen large enough, the computer may decide that the
+step size $h$ is zero, and the while loop won't terminate!)
+ As a result, there is a point of diminishing returns where
+the answer actually starts getting worse as the step size
+is decreased.   To get better answers one needs a more
+sophisticated method.
+
+\subhead The Improved Euler Method \endsubhead
+Euler's method may be improved by incorporating a feedback
+mechanism which tends to correct errors.  We start off as
+\outind{Euler's method (improved)}
+before with the tangent approximation
+\[
+yy \text{:}= y + f(t,y)*h;
+\]
+but then we use this provisional value $yy$ at $t + h$
+to calculate the putative slope  $f(t + h, yy)$ at
+$(t + h, yy)$.   This is now averaged with the slope
+$f(t,y)$ at $(t,y)$, and the result is used to determine
+a new value $yyy$ at $t + h$
+\[
+yyy \text{:}= y + ((f(t,y) + f(t+h,yy))/2)*h;
+\]
+
+\emar{s6-24.ps}{-50}
+Here is some Pascal like pseudo code implementing this
+algorithm.
+{\obeylines
+
+read $t_0, y_0, t_f, n$;
+$h$ :$=$ $(t_f - t_0)/n$;
+$t$ :$=$ $t_0$;
+$y$ :$=$ $y_0$;
+while ($t \le t_f + h/2$) do
+\hs begin
+\hs\hs $m$ :$=$ $f(t,y)$;
+\hs\hs $yy$ :$=$ $y + m*h$;
+\hs\hs $t$ :$=$ $t + h$;
+\hs\hs $yyy$ :$=$ $y + ((m + f(t,yy))/2)*h$;
+\hs\hs $y$ :$=$ $yyy$;
+\hs\hs show($t$, $y$);
+\hs end;
+end.
+}
+
+See Figure 2 for graphs showing the behavior of the improved
+Euler method for the initial value problem $y' = 1- y, \, y(0) = 0$ for 
+various $n$.   Note that the approximations lie below the
+exact solution in this case.  Can you see why?    Note also
+that the improved Euler method does give better accuracy
+than the Euler method for the same value of $n$.
+\medskip
+\centerline{\epsfbox{ieuler.ps}}
+\medskip
+\centerline{Figure 2.  Improved Euler for $n = 5, 10, 25$ versus
+exact solution.}
+\bigskip
+
+One can also estimate the error due to the approximation in
+the improved Euler method.  It turns out that the error in the
+\outind{Euler's method (improved), error}
+calculation of the last value $y(t_f)$ is $O(h^2)$.  That means
+if you double the number of steps, you will generally reduce
+the size of the error by a factor
+of $1/4$.  See {\it Braun\/} Section 1.13.1 for
+a discussion of the error analysis.
+
+\bigskip
+There are many methods for wringing out the last bit of accuracy
+when attempting to solve a differential equation numerically.
+One very popular method is the {\it Runge-Kutte method\/}
+\outind{Runge-Kutte method}
+which tries to use quadratic approximations rather than linear
+approximations.   There are people who have devoted a considerable
+part of their professional
+careers to the study of numerical solutions of
+differential equations, and their results are embodied in a variety
+of software packages.
+
+\bigskip
+\includeexercises{chap6.ex6}
+\endinput

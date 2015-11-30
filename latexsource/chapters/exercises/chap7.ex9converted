@@ -1,0 +1,69 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Find a general solution of each of the following inhomogeneous
+equations by variation of parameters.
+
+(a)  $y'' - 4y = e^{-t}$.
+
+(b)  $y'' + 4y = \cos t$.
+
+(c)  $y'' - 4y' + 4y = t$.
+
+(d)  $y'' - 4y' + 4y = e^{-2t}$.
+
+(e)  $y'' -2y' + 2y = e^t\cos t$.
+
+\answer{ (a) $y = -\dfrac{e^{-t}}{12} + C_1e^{2t} + C_2e^{-2t}$.\par
+(b) $y = \dfrac 13\cos^3t\cos 2t + (\dfrac 12\sin t - \dfrac 13\sin^3t)
+\sin 2t + C_1\cos 2t + C_2\sin 2t$.   There is a much simpler particular
+solution obtained by the method of the next section.\par
+(c) $y = \dfrac{t+1}4 + C_1e^{2t} + C_2te^{2t}$.\par
+(d) $y = \dfrac{e^{-2t}}{12} + C_1e^{2t} + C_2te^{2t}$.\par
+(e) $y = \dfrac t2 e^t\sin t + C_1e^t\cos t + C_2e^t\sin t$.
+   
+
+
+}
+
+\item    Solve the initial value problem
+ $y'' + 5y' + 6y = e^{4t}$ given $y(0) = 0, y'(0) = 1$.
+
+\answer{  The general solution is
+$y = \dfrac{e^{4t}}{42} + C_1e^{-2t} + C_2e^{-3t}$.  The initial
+conditions lead to 
+\begin{align*}
+C_1 + C_2 &= -\frac 1{42}\\
+-2C_1 - 3C_2 &= \frac {19}{21},
+\end{align*}
+which leads
+ to $C_1 = \dfrac 56, C_2 = -\dfrac 67$.
+The solution is
+$y = \dfrac{e^{4t}}{42} + \dfrac{5e^{-2t}}6 - \dfrac{6e^{-3t}}7$.
+
+
+
+}
+
+\item  Find a general solution of $t^2y'' - 2y = t$.  Hint:  The
+homogeneous equation is a special case of Euler's Equation.
+
+\answer{  Find an independent pair of solutions of the homogeneous
+equation by trying solutions of the form $y = t^r$.   These
+are $y_1 = t^2$ and $y_2 = \dfrac 1t$.  The general solution
+is $y = -\dfrac t2 + C_1t^2 + C_2\dfrac 1t$.  Note that you
+have to remember to divide through by $t^2$ before using variation
+of parameters, i.e., $f(t) = \dfrac 1t$, not $t$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,2506 @@
+\documentstyle{book}
+%\syntax
+\loadbold
+\input extra.tex
+\input epsf.tex
+\input le2.sty
+\maketoctrue
+\mardiagtrue
+\indextrue
+\openseg{chap1}
+\Monograph
+\startup
+\topmatter
+\nextchap{Vectors}
+\title\chapter{\chapno} Vectors\endtitle
+\endtopmatter
+\document
+\nextsec{Introduction}
+\head \sn. Introduction \endhead
+%\def\i{\bold i}\def\j{\bold j}\def\k{\bold k}
+%\def\u{\bold u}\def\v{\bold v}
+
+A {\it vector\/} is a quantity which is characterized by
+a {\it magnitude\/} and a {\it direction}.   Many quantities are best
+described by vectors rather than
+numbers.  For example, when driving a car,
+\outind{vector}%
+ it may be sufficient to
+know your speed, which can be described by a single number,
+ but the motion of an airplane must be described
+by a vector quantity called velocity which takes into account its
+direction as well as its speed.
+%D1 vector
+Ordinary numerical quantities are called {\it scalars\/}
+when we want to emphasize that they are not vectors.
+
+\mar{s1-1.ps}
+In print, vectors are almost always denoted by bold face symbols, e.g.,
+$\bold F$, but when written, one uses a variety of mechanisms for
+distinguishing vectors from scalars.  One common such notation is
+$\overrarrow F$.  The magnitude of a vector $\bold F$ is denoted
+$|\bold F|$.   Indicating its direction symbolically is a bit more
+difficult, and we shall discuss that later.      
+
+Vectors are  represented {\it geometrically\/} by
+{\it directed line segments.} The length of the line segment is
+the magnitude of the vector and its direction is the direction of
+\outind{directed line segment}%
+\outind{vector, representation by directed line segment}%
+the vector.
+%D2  Two dir line segs for same vector.  $\overrarrow{AB}=\overrarrow{BC}$
+Note that
+parallel lines segments of the {\it same length\/} and {\it same direction\/} 
+represent the {\it same vector}.  In drawing pictures, there
+is a tendency to identify a directed line segment with the vector
+it represents, but this can lead to confusion about
+how vectors are used.   In general, there are infinitely many
+directed line segments which could be used to represent the
+same vector.   You should always remember that {\it you
+are free to put the tail end of a vector at any point which might
+be convenient for your purposes.}  We shall often use the notation
+$\overrarrow{AB}$ for the vector represented by the directed line
+segment from $A$ to $B$.
+
+\mar{s1-2.ps}
+Many of the laws of physics relate vector quantities.  For example,
+Newton's Second Law
+$$
+        \bold F = m\bold a
+$$
+relates two vector quantities:  force $\bold F$ and acceleration
+$\bold a$.  The constant of proportionality $m$ is a scalar quantity
+called the mass.
+
+
+\subhead Operations with vectors \endsubhead
+It is a familiar experience that when velocities are combined, their
+magnitudes do not add.  For example, if an airplane flies North
+at 600 mph against  an east  wind of 100 mph,  the resultant  velocity
+will be somewhat west of north and its magnitude certainly won't
+be 700 mph.  To calculate the correct velocity in this case, we need
+{\it vector addition\/}, which is defined geometrically as follows.
+Suppose  $\bold a, \bold b$ are vectors.  To add them, choose directed line
+\outind{vector addition}%
+\outind{parallelogram law}%
+segments representing them, with tails at the same point, and consider
+the vector represented by the diagonal of the resulting parallelogram.
+%D3   Parallelogram  law
+We call that vector $\bold a + \bold b$.  This is called the parallelogram
+law of addition.   There is also another way to do the same thing
+called the triangle law of addition.  See the diagram.
+\medskip
+\centerline{\epsfbox{s1-3.ps}}
+\medskip
+Note that for the triangle law, we place the tail of one directed
+line segment on the head of the other, taking advantage of of freedom
+to place the tail where needed.  If the vectors $\bold a$ and $\bold b$
+have the same or opposite directions, then the diagrams become degenerate
+(collinear) figures.   (You should draw several cases for yourself to
+make sure you understand.)
+
+As we saw in Newton's Law, we sometimes want to {\it multiply\/}
+a vector by a scalar.  This is defined as follows.  If $s$ is a scalar
+and $\bold v$ is a vector, then $s\bold v$ is the vector with magnitude
+$|s||\bold v|$ and its direction is either the same as that of $\bold v$,
+if $s > 0$, or opposite to $\bold v$, if $s < 0$.
+
+\mar{s1-4.ps}
+Note that the above definition omits the case that $s = 0$.  In that
+case, we run into a problem, at least if we represent vectors by directed
+line
+segments.  It does not make sense to talk of the direction of a
+directed line segment with length zero.  For this reason, we introduce
+a special quantity we call the {\it zero vector\/} which has
+magnitude zero and no well defined direction.  It is not 
+a vector as previously defined, but we allow it as
+a degenerate case which is needed so operations with vectors will make
+sense in all cases.  
+ The zero vector is denoted by a bold face zero
+\outind{zero vector}%
+$\bold 0$ or in writing by $\overrarrow 0$.  With that notation,
+$s\v = \bold 0$ if $s = 0$.  Note also that a degenerate
+case of the parallelogram law yields $\v + \bold 0 = \v$ for
+any vector $\v$.
+
+You can {\it subtract\/} a vector $\bold a$ from a vector
+\outind{vectors, subtraction of}%
+$\bold b$  by adding the opposite vector $-\bold a = (-1)\bold a$.
+Study the accompanying diagram for some idea of how
+$\bold b - \bold a$ might be represented geometrically.
+\medskip
+\centerline{\epsfbox{s1-5.ps}}
+\medskip
+Note that if $\bold a$ and $\bold b$ are represented by directed
+line segments with the same tail, then the line segment from the end
+of $\bold a$ to the end of $\bold b$ represents $\bold b - \bold a$.
+
+	In the study of motion, which is of interest both in physics
+and in mathematics, it is common to use the so called {\it position
+vector\/} (also called {\it radius vector}).  Thus, if a particle
+\outind{position vector}%
+moves on a path, its position can be specified as the endpoint 
+$P$ of
+a directed line segment from a common {\it origin} $O$.  The position vector
+is $\bold r = \overrarrow{OP}$.   In this context, we are often interested
+in comparing the position vectors $\bold r_1$ and $\bold r_2$ of the
+same particle at different times (or of two different particles).  As
+the diagram indicates, the difference $\bold r_2 - \bold r_1$ is
+associated with the directed line segment from the first position to the
+second position.  This is called the {\it displacement vector\/}, and
+it would be the same for any choice of common origin $O$.
+\medskip
+\centerline{\epsfbox{s1-6.ps}}
+\medskip
+
+The operations defined above satisfy the usual laws of algebra.
+Here are some of them
+\def\b{\bold b}\def\a{\bold a}\def\c{\bold c}
+$$
+\align
+(\a + \b) + \c &= \a + (\b + \c)\qquad \text{Associative Law}\\
+\a + \b &= \b + \a\qquad \text{Commutative Law}\\
+s(\a + \b) &= s\a + s\b \\
+(s + t)\a &= s\a + t\a \\
+(st)\a &= s(t\a)
+\endalign$$
+There are several others which you can probably invent for yourself.
+These rules are not too difficult to check from the definitions we
+gave, but we shall skip that here.  (You might try doing it yourself
+by drawing the appropriate diagrams.)
+
+\subhead Components \endsubhead
+The geometric definitions above result in nice pictures and nourish
+our intuition, but they are quite difficult to calculate with.  To
+make that easier,
+\outind{components}%
+it is necessary to introduce coordinate systems and thereby
+reduce geometry to algebra and arithmetic.   We start with the
+case of vectors in the plane since it is easier to visualize, but of course
+to deal with the the real world, we shall have to also extend our
+notions to space.
+
+\emar{s1-6a.ps}{-75}
+Recall that a coordinate system in the plane is specified by choosing
+an origin $O$ and then choosing two perpendicular axes meeting at
+the origin.  These axes are chosen in some order so that we know which
+axis (usually the $x$-axis) comes first and which (usually the
+$y$-axis) second.   Note that there are many different coordinate systems
+which could be used although we often draw pictures
+\outind{orientation of axes}%
+ as if there were only one.
+%D8  Two orientations 
+In physics, one often has to think carefully about the
+coordinate system because
+choosing it appropriately  may greatly simplify the
+resulting analysis.  Note that the axes are usually drawn with {\it
+right hand orientation\/} where the right angle from the positive
+$x$-axis to the positive $y$-axis is in the counter-clockwise
+direction.  However, it would be equally valid to use the
+{\it left hand orientation\/} in which that angle is in the
+clockwise direction.  One can easily switch the orientation of
+\outind{left hand orientation}%
+a coordinate system by reversing one of the axes.   (The concept of
+orientation is quite fascinating and it arises in mathematics,
+physics, chemistry, and even biology in many interesting ways.
+Note that almost all of us base our intuitive concept of orientation
+on our inborn notion of ``right'' versus ``left''.)
+\medskip
+\centerline{\epsfbox{s1-7.ps}}
+\medskip
+	Given a vector $\bold v$, the projections---of any directed line
+segment representing it---onto the coordinate axes are called the 
+{\it components\/} of the vector.   The components of $\bold v$ are
+often displayed
+as an ordered pair $\lb v_1, v_2 \rb$ where each component is numbered
+according to the axis it is associated with.  Another common notation
+is $\lb v_x, v_y\rb$.   We shall use both. 
+%D9 Components
+Notice that the Pythagorean Theorem tells us that
+$$
+        |\v| = \sqrt{v_1{}^2 + v_2{}^2}.
+$$
+  Our notation
+ distinguishes
+between the coordinates $(x,y)$ of a point $P$ in the plane, and 
+the components $\lb v_x, v_y\rb$ of a vector.   This is to emphasize
+the difference between a vector and a point.  That distinction
+is a bit esoteric, particularly in the analytic context,
+since a
+pair of numbers is just that  no matter what notation we use.  Hence,
+you will find that many mathematics and physics books make no such
+distinction.
+(Review in your mind the distinction between a point $P$ and the
+position vector $\overrarrow{OP}$.  What relation exists between
+the coordinates of $P$ and the components of $\overrarrow{OP}$?)
+
+\mar{s1-8.ps}
+There is another common way to indicate components.  Let $\bold i$
+denote a vector of length 1 pointing in the positive direction along
+the $x$-axis, and let $\bold j$ denote the corresponding 
+unit vector for the $y$-axis.  (These are also commonly written
+$\hat\bold x$ and $\hat\bold y$.)   Then the diagram
+makes clear that
+$$
+    \bold v = v_1\bold i + v_2 \bold j .
+$$
+
+Vector operations are mirrored by corresponding operations for
+components.  Thus, if $\bold u$ has components $\lb u_1,u_2\rb$ and
+$\bold v$ has components $\lb v_1, v_2\rb$, then
+$$\align
+  \bold u + \bold v &= u_1 \i + u_2\j + v_1\i + v_2\j \\
+&= (u_1 + v_1)\i + (u_2 + v_2)\j
+\endalign
+$$
+from which we conclude that the components of $\u + \v$ are
+$\lb u_1 + v_1, u_2 + v_2\rb$.  (The diagram below exhibits
+ a more
+geometric argument.
+\medskip
+\centerline{\epsfbox{s1-9.ps}}
+\medskip
+   (Note that I only drew one of the many diagrams
+needed to handle all possible cases.)  In words, we may restate the rule
+as follows
+\block
+{\it the components of the sum of two vectors are the sums of the
+components of the vectors.}
+\endblock
+A similar argument shows that the components of $s\v$ are
+$\lb sv_1, sv_2\rb$, i.e.,
+\block
+{\it the components of a scalar multiple of a vector are that
+multiple of the components of the vector.}
+\endblock
+
+The same sort of considerations  apply in space.  To set up a coordinate
+system, we first choose an origin $O$, and then choose, in a some
+order, three mutually perpendicular axes through $O$,
+ each with a specified
+positive direction.  These are usually called the $x$-axis, the
+$y$-axis, and the $z$-axis.  
+Since any two {\it intersecting\/} lines in space determine a plane,
+we can think of the first two axes generating an $x,y$-plane.  Since
+the $z$-axis must be perpendicular to this plane, the line along which
+it lies is completely determined, but we have two possible choices
+for its positive direction.   
+(See the diagram.)
+%D10  Orientation of axes
+A set of axes in space has the {\it right hand orientation\/}
+\outind{orientation of axes in space}%
+if when you point the fingers of your right hand from the positive
+$x$-axis to the positive $y$-axis, your upright thumb points in the
+direction of the positive $z$-axis.  Otherwise, it has
+the {\it left hand orientation}.   As in the plane case, reversing the
+direction of one axis reverses the orientation.   Almost all authors
+today use the right
+hand orientation for coordinate axes.
+
+\mar{s1-10.ps}
+	Given a set of coordinate axes,  a point $P$ in space is
+assigned coordinates $(x,y,z)$  as follows.  Let the origin
+$O$ and the point $P$ be opposite vertices of a rectangular box.
+%D11
+The coordinates $x, y$, and $z$ are the (signed) magnitudes of the
+sides of this box.   Points with $x > 0$ are in front of the
+$y,z$-plane, and points  with $x < 0$ are in back of that plane.  You
+should think out the possibilities for the signs of $y$ and $z$.
+  A point has coordinate $x = 0$ if and only if it lies in the
+$y,z$-plane (in which case the ``box'' is degenerate).  Similarly,
+$y = 0$ characterizes the $x,z$-plane and $z = 0$ characterizes the
+$x,y$-plane.
+\medskip
+\centerline{\epsfbox{s1-11.ps}}
+\medskip
+Our previous discussion of vectors generalizes in a more or less obvious
+way to space.  The components $\lb v_1, v_2, v_3\rb$ (sometimes
+$\lb v_x, v_y, v_z \rb$) of a vector $\v$ are obtained by projecting
+a directed line segment representing the vector onto each of the
+coordinate axes.
+%D12   Components
+As before, we have
+$$
+  |\v| = \sqrt{v_1{}^2 + v_2{}^2 + v_3{}^2}.
+$$
+(Look at the diagram for an indication of why this is so.  It requires
+two applications of the Pythagorean Theorem.)   In addition, the
+same rules for components of sums and scalar multiples apply as before
+except, of course, there is one more component to worry about.
+%D13  Length
+
+In space, in addition to $\i$ and $\j$, we have a third unit vector
+$\k$ pointing along the positive $z$-axis, and any vector can be
+resolved
+$$
+      \v = v_1\i + v_2\j + v_3\k
+$$
+in terms of its components.
+
+\mar{s1-12.ps}
+Often, to save writing, we shall not distinguish between a vector
+and its components, and we will write
+$$
+\align
+\v &= \lb v_1, v_2 \rb\qquad \text{in the plane,}\\
+\v &= \lb v_1, v_2, v_3\rb\qquad \text{in space.}
+\endalign
+$$
+This is an `abuse of notation' since a
+ vector is not the same as its set
+of components, which generally 
+{\it depend on the choice of coordinate axes\/}.  But, it is
+a convenient notation, and you usually won't get in trouble   
+if you use it with discretion.
+
+\subhead Higher dimensions and $\bold R^n$ \endsubhead
+One can't progress very far in the study of science and mathematics
+without encountering a need for higher dimensional ``vectors''.  For
+example, physicists have known since Einstein that the physical
+universe is best thought of as a 4-dimensional entity called
+spacetime in which time plays a role close to that of the 
+3 spatial coordinates.  Since, we don't have any way to deal %
+\outind{$\noexpand\R^n$}%
+intuitively with any higher dimensional geometries, we must
+proceed by analogy with two and three dimensions, and the easiest
+way to proceed is to generalize the analytic approach by adding 
+additional coordinates.  Thus, in general, we consider
+$n$-tuples
+$$
+     (x_1,x_2,\dots, x_n)
+$$
+where $n$ can be any positive integer.  The collection of all such
+$n$-tuples is denoted $\bold R^n$, where the $\bold R$ refers to
+the fact that the entries (coordinates) are supposed to be
+real numbers.  From this perspective, it doesn't make a whole
+\outind{$n$-tuples}%
+lot of sense to distinguish points from vectors, so the two terms
+are often used interchangeably.   
+Vector operations in $\bold R^n$ may be {\it defined\/}
+in terms of components.  
+$$\align
+     |(x_1,x_2,\dots, x_n)|&=
+     \sqrt{x_1{}^2 + x_2{}^2 + \dots + x_n{}^2}, \\
+     (x_1,x_2,\dots, x_n) +
+     (y_1,y_2,\dots, y_n) &=
+     (x_1+y_1,x_2+y_2,\dots, x_n+y_n),\\
+     s(x_1,x_2,\dots, x_n) &=
+     (sx_1,sx_2,\dots, sx_n).
+\endalign $$
+The case $n=1$ yields  ``geometry'' on a line, 
+the cases $n = 2$ and $n = 3$ geometry in the plane and in space, and
+the case $n = 4$ yields the geometry of ``4-vectors'' which
+are  used in the special theory of relativity.
+Larger values of $n$ are used in a
+variety of contexts, some of which we shall encounter later in this
+course.
+\bigskip
+
+% exercises together with answers
+\input chap1.ex1
+
+\nextsec{Kinematics and Vector Functions}
+\head \sn. Kinematics and Vector Functions. \endhead
+
+In physics, you will study the motion of particles, so we need to
+investigate here the associated mathematics.
+
+\nextex
+\example{Example \en}
+You probably learned in high school that the path of a projectile
+moving under the force of gravity near the earth is pretty close
+to a parabola.
+%D1  Parabola with $v_0$
+   If we  choose coordinates $x$ (for horizontal displacement)
+and $y$ (for vertical displacement), the  path 
+may be described by the equations
+$$\align
+  x &= v_{x 0}t \\
+  y &= v_{y 0}t - \frac 12 g t^2,
+\endalign $$
+where $t$ denotes time,
+ $v_{x0}$ and $v_{y0}$ are the components of a vector
+$\v_0$ called the {\it initial velocity\/}, and $g$ is a constant
+giving the acceleration of gravity at the surface of the Earth.
+This can be simplified if we combine the two coordinate functions
+of $t$ in a single vector quantity
+$$ \r =  x\i + y\j = (v_{x0}t)\i + (v_{y0}t - \frac 12 g t^2)\j.$$
+\endexample
+\medskip
+\centerline{\epsfbox{s1-13.ps}}
+\medskip
+We can think of this as expressing $\r$ as {\it a single vector
+function\/} of time $t$:  $\r = \r(t)$.
+(Note that $\r$ is just the position vector 
+connecting the origin to the position of projectile
+at time $t$.)   
+
+	In general, we can think of any vector function
+$\r = \r(t)$ as describing the {\it path\/}
+ of a particle as it moves through space.   For such a function
+\outind{vector function}%
+we will have
+\nexteqn
+$$
+\r = x(t)\i + y(t)\j + z(t)\k \tag\eqn
+$$
+so giving a vector function is equivalent to giving three
+scalar functions  $x(t)$, $y(t)$, and $z(t)$.
+The single vector equation (\eqn) can also be written as
+three scalar equations
+$$\align
+   x &= x(t)\\
+   y &= y(t)\\
+   z &= z(t)
+\endalign$$
+ If, as in Example \en,  the motion is
+restricted to a plane, then, with suitably a chosen coordinate
+system,  we may  omit one coordinate, e.g., we may write 
+$ \r = x(t)\i + y(t)\j$, or  $x = x(t), y = y(t)$.
+
+\nextex
+\xdef\tmpref{\en}
+\example{Example \en.  Uniform Circular Motion}
+Let
+$$\align
+x &= R \cos \omega t \\
+y &= R \sin \omega t.
+\endalign$$
+The (end of) the position vector $\r = x\i + y\j$ traces out a
+circle of radius $R$ centered at the origin.
+%D3  Picture of circle.
+To see this note that $x^2 + y^2 = R^2(\sin^2 \omega t + \cos^2 \omega t)
+= R^2$ so the path is certainly a subset of that circle.  The exact part
+of the circle traced out depends on which values of $t$ are prescribed
+(i.e., on the {\it domain\/} of the function.)  If $t$ extends over
+an interval of size $2\pi/\omega$ (i.e., $\omega t$ extends over
+an interval of size $2\pi$), the circle will be traced exactly once,
+but for other domains, only part of the circle may be traced or the circle
+might be traced several times.  The constant $\omega$ determines the
+\outind{uniform circular motion}%
+rate at which the particle moves around the circle.  You should try some
+representative values of $t$, say with $\omega = 1$ to convince yourself
+that the circle is traced counterclockwise if $\omega > 0$ and
+clockwise if $\omega < 0$.  (What about $\omega = 0$?)  
+
+The vector equation for the circle would be
+$\r = (R\cos \omega t)\i + (R\sin \omega t)\j$
+or, in component notation,
+$\r = \lb R\cos \omega t, R\sin \omega t\rb$.
+\endexample
+
+\nextex
+\mar{s1-14.ps}
+\example{Example  \en}
+Let
+$$\align
+x &= R \cos \omega t \\
+y &= R \sin \omega t \\
+z &= b t.
+\endalign$$
+Then the position vector $\r = x\i + y\j + z\k$ traces out a path
+in space.  The projection of this path in the $x,y$-plane
+(obtained by setting $z = 0$) is the circle described in
+Example \tmpref.  At the same time, the particle is rising
+(assuming $b  > 0$) in the $z$-direction at a constant rate.
+The resulting path is called a {\it helix}.
+\outind{helix}%
+(What if $b < 0$ or $b = 0$?)
+
+The vector equation for the helix would be
+$\r = (R\cos \omega t)\i + (R\sin \omega t)\j + bt\,\k$
+or, in component notation,
+$\r = \lb R\cos \omega t, R\sin \omega t, bt\rb$.
+\endexample
+\smallskip
+\mar{s1-15.ps}
+\smallskip
+\subhead Velocity and Acceleration \endsubhead
+\exno=0
+Suppose the path of a particle is described by a vector function
+$\r = \r(t)$.   The derivative of such a function may be defined
+exactly as in the case of a scalar function of a real variable.
+Let $t$ change by a small amount $\Delta t$, and put
+$\Delta \r = \r(t + \Delta t) - \r(t)$.  Then define
+$$
+  \r'(t) = \frac{d\r}{dt} = \lim_{\Delta t \to 0}\frac{\Delta\r}{\Delta t}.
+$$
+Although this looks formally exactly like the scalar case, the geometry is
+\outind{velocity vector}%
+quite different.  Study the accompanying diagram.
+\medskip
+\centerline{\epsfbox{s1-16.ps}}
+\medskip
+$\Delta\r$ is the displacement vector from the position of the
+particle at time $t$ to its position at time $t + \Delta t$.  It
+is represented by the directed {\it chord\/} in the diagram.
+As $\Delta t \to 0$, the direction of the chord approaches a limiting
+direction, which we call the {\it tangent direction\/} to the curve.
+The derivative $\r'(t)$ is also called {\it the instantaneous velocity},
+and it is usually denoted $\v$ (or $\v(t)$ if we want to emphasize its
+functional dependence on $t$.)
+It is, of course, a vector, and we usually picture it with its tail
+at the point with position vector $\r(t)$ and pointing (appropriately)
+along the tangent line to the curve.
+
+
+
+
+Calculating the derivative (or velocity) is much easier if we use
+components.  If $\r = x\i + y\j + z\k$, then we may write
+$\Delta r = \Delta x \i + \Delta y \j + \Delta z \k$, and
+$$\align
+\r'(t) &= 
+\lim_{\Delta t \to 0}\frac{\Delta\r}{\Delta t}\\
+& = \lim_{\Delta t \to 0}\frac{\Delta x}{\Delta t}\i +
+\lim_{\Delta t \to 0}\frac{\Delta y}{\Delta t}\j
+\lim_{\Delta t \to 0}\frac{\Delta z}{\Delta t}\k\\
+&= \frac{dx}{dt}\i +
+ \frac{dy}{dt}\j +
+ \frac{dz}{dt}\k.
+\endalign$$
+In other words, {\it the components of the derivative of a vector function
+are just the derivatives of the component functions}.
+
+Of course, in calculus, one need not stop with the first derivative.
+The second derivative 
+$$\frac{d^2\r}{dt^2} = \r''(t) = 
+\frac{d^2x}{dt^2}\i +
+\frac{d^2y}{dt^2}\j +
+\frac{d^2z}{dt^2}\k 
+$$
+is called the {\it acceleration\/}, and it is often denoted $\a$.
+It may also be described as $\a = \dfrac{d\v}{dt}$.
+\outind{acceleration vector}%
+
+\nextex
+\example{Example \en}
+Let $x(t) = v_{x0}t, y(t) = v_{y0}t - (1/2)gt^2$ as in the previous
+section.  Then
+$$
+     \v = \r'(t) = v_{x0}\i + (v_{y0} - gt)\j
+$$
+and, in particular, at $t = 0$, we have  $\r'(0) = v_{x0}\i + v_{y0}\j$.
+In other words, the velocity vector at $t = 0$ is the vector
+$\v_0$ with components $\lb v_{x0}, v_{y0} \rb$, as expected.
+(Where on the path does the velocity vector point horizontally?)
+Similarly, the acceleration
+$$
+ \a = \frac{d\v}{dt} =  0\i + (0 -g)\j = -g\j.
+$$
+is directed vertically downward and has magnitude $g$.   You are probably
+familiar with this from your previous work in physics.
+\medskip
+\centerline{\epsfbox{s1-17.ps}}
+\medskip
+\endexample
+
+\nextex
+\example{Example \en}
+Let $\r = R \cos \omega t \i + R \sin \omega t \j$, (i.e.,
+$x = R \cos \omega t, y = R \sin \omega t$.) Then
+%D6   circle with velocity
+$$
+\v = \frac{d\r}{dt} = (-R \omega \sin \omega t)\i + (R \omega \cos \omega t)\j
+$$ 
+and a little trigonometry will convince you that $\v$ is perpendicular
+to $\r$.  For,  $\r$ makes angle $\theeta = \omega t$ with the positive
+$x$-axis while $\v$ makes angle $\theeta + \pi/2$.   Hence, $\v$ is tangent
+to the circle as expected.  Also,
+\nexteqn
+$$
+ |\v| = \sqrt{R^2\omega^2\sin^2\omega t + R^2\omega^2\cos^2\omega t}
+      = R\omega.\tag\eqn
+$$
+Hence, the {\it speed\/} $|\v|$ is constant. 
+
+\mar{s1-18.ps}
+	The acceleration is given by
+$$
+\a = \frac{d\v}{dt} = (-R\omega^2\cos\omega t)\i + (-R\omega^2\sin\omega t)\j
+        = -\omega^2 \r.
+$$
+Hence, the acceleration is directed opposite to the position vector
+and points from the position of the particle toward the origin.  This
+is usually called {\it centripetal acceleration}.  Also,
+$|\a| = \omega^2|\r| = \omega^2 R$.   By equation (\eqn),  $\omega = 
+\dfrac{|\v|}R$, so
+$$
+ |\a| = \frac{|\v|^2}{R^2} R = \frac{|\v|^2}R.
+$$ 
+Note that in this example, acceleration results entirely from changes
+in the direction of the velocity vector since its magnitude is constant.
+In general, both the direction and magnitude of the velocity vector will
+be changing.
+\endexample
+
+\nextex
+\example{Example \en}
+Let $\r = \lb R\cos\omega t, R\sin \omega t, bt \rb$ represent
+a   
+ helix as  above. 
+
+\mar{s1-19.ps}
+The velocity  and acceleration are  given by
+$$\align
+ \v &= \lb -R\omega\sin\omega t, R\omega\cos\omega t, b\rb \\
+ \a &= \lb  -R\omega^2\cos\omega t, R\omega^2\sin\omega t, 0\rb.
+\endalign$$
+Since its third component is zero, $\a$ points parallel to the
+\outind{helix}%
+$x,y$-plane.  Also, if you compare the first two components with
+what we obtained in the example of uniform circular motion, you will
+see that $\a$ points from the position of the particle directly at
+the $z$-axis.
+\endexample
+
+\nextex
+\example{Example \en.  Uniformly Accelerated Motion}
+Suppose the acceleration vector $\a$ is {\it constant}.   Then, just
+as would be the case for scalar functions, we can {\it integrate\/}
+the equation
+$$
+  \frac{d\v}{dt} = \a
+$$
+to obtain
+$$
+   \v = \a t + \c
+$$
+where $\c$ is a {\it vector constant}.  In fact, putting $t = 0$
+shows that $\c = \v(0)$, the value of $\v(t)$ at $0$, and this
+is usually denoted $\v_0$.   Thus, we may write  
+$\dfrac{d\r}{dt} = \v = t\a + \v_0$.
+(It is customary to put the scalar $t$ in front of the vector,
+but it is not absolutely necessary.)  If we integrate this, we obtain
+$$
+  \r = \frac 12 t^2 \a + t \v_0 + \bold C,
+$$
+but putting $t = 0$, as above, yields $\bold C =\r(0) = \r_0$, 
+the value of the position vector at $t = 0$.  Thus, we obtain
+$$
+  \r = \frac 12 t^2 \a + t \v_0 + \r_0.
+$$
+The path of such a particle is a {\it parabola}.  (Can you see
+why?)
+
+\mar{s1-20.ps}
+The special case $\a = \bold 0$ is of interest.  This is called 
+{\it uniform linear motion\/} and is described by
+$$
+   \r = t \v_0 + \r_0.
+$$
+The path is a straight line.  (See the diagram.)
+Moreover, $\v = d\r/dt = \v_0$, so the velocity
+vector is constant.  Of course, it points along the line of motion.
+The particle moves along this line at constant speed.
+\endexample
+\medskip
+\centerline{\epsfbox{s1-21.ps}}
+\medskip
+All our discussions have assumed implicitly that $\v \ne \bold 0$.
+  If $\v$
+vanishes for one particular value of $t$, there may not be a well
+defined tangent vector at the corresponding point on
+the path.  A simple example of this
+would be
+a particle which rises vertically in a straight line
+with decreasing velocity until it reaches its maximum height where
+it reverses direction and falls back along the same line.
+At the point of maximum height, the velocity would be zero, and
+it does not really make sense to talk about a tangent {\it vector\/} there
+since we can't assign it a well defined direction.
+If $\v(t)$ vanishes for all $t$ in an interval, then the particle
+stays at one point without moving.
+It would make even
+less sense to talk about a tangent vector in that case.
+
+% We have also assumed that all the vector functions we encountered
+%  are continuous,
+% but there are clearly cases where we may want to relax that
+% assumption.  For
+% example, a ball bouncing off the side of a billiard table
+% may be modelled as a particle with velocity switching
+% instaneously from one vector to another at the point of impact.
+% In that case, it wouldn't make sense to talk about the velocity
+% vector at the point of impact.  (That would be an idealized model,
+% and a figuring out what a real physical billiard ball actually
+% does at the `point' of impact is something I leave for your
+% physics professor.)  
+
+\mar{s1-22.ps}
+\remark{Remark}
+In our discussion of derivatives (and integrals) of vector
+functions, we shall ignore for the present the issue of how {\it limits\/} are handled
+for such functions.  This would be a matter of some importance
+for a completely rigorous treatment because those concepts are 
+defined by limits.  These issues are best postponed to a course in
+{\it real analysis\/} where there is time for such matters.  It suffices
+for now to say that such limits behave exactly as you would expect.
+Also, one way to avoid worrying about the matter is to reduce all
+limits for vector functions of a single variable $t$ to statements about
+limits for the scalar component functions.
+\endremark
+
+\subhead Polar Coordinates \endsubhead
+For motion in the plane where there is some sort of circular symmetry,
+it is often more convenient to use polar coordinates.  This would
+certainly be the case for circular motion, but it is also useful,
+for example, in celestial mechanics where we think of a planet as
+a particle moving in the gravitational field of a star.  In that
+case, the gravitational force may be assumed to point directly toward
+the origin, and Newton, confirming what Kepler had demonstrated, showed
+that the motion would lie in a plane and follow a conic section.
+
+Recall how polar coordinates are defined in the plane.  We choose
+an origin $O$, and a (right handed) cartesian coordinate system with
+that origin.  The polar coordinates $(r, \theeta)$
+ of a point $P$ are the distance $r =|\r| = |\overrarrow{OP}|$ to
+the origin and the angle $\theeta$ which the position vector $\r$
+makes with the positive $x$-axis.
+\outind{polar coordinates}%
+\medskip
+\centerline{\epsfbox{s1-23.ps}}
+\medskip
+By definition $r \ge 0$ since it is a distance.  Generally, $\theeta$
+is allowed to have any value, but so that the point $P$ will
+uniquely determine its polar angle $\theeta$, it is common to restrict
+$\theeta$ to some interval of length $2\pi$.  Common choices are
+$0\le \theeta < 2\pi$ or $-\pi \le \theeta < \pi$, but many other
+choices are possible.  Note that in any case, there is no way to
+define $\theeta$ unambiguously at the origin where $r = 0$.  
+
+The set of points with a fixed value $r = a > 0$ constitute a circle
+with radius $a$.  The set of points with a fixed value $\theeta = \alpha$
+constitute a {\it ray\/}, i.e., a half line, emanating from the origin,
+making angle $\alpha$ with the positive $x$-axis.
+%D8 circle and ray.
+
+\mar{s1-24.ps}
+It is common in elementary mathematics books to interpret a point
+with polar coordinates $(r,\theeta)$ where $r < 0$ as lying on
+the ray opposite to the ray for the given value of $\theeta$.
+ This
+is convenient in some formulas, but it adds another degree of ambiguity
+since we can get to the opposite ray just as well by adding $\pi$ to
+$\theeta$.  Such practices are best avoided.  In this course, you may
+generally assume $r \ge 0$, but each time you encounter polar coordinates
+in other contexts, you will have to check what the author intends.
+%D9 negative r
+
+$r$ and $\theeta$ are the most commonly used symbols for
+polar coordinates in mathematics
+and physics books, but there are others you may encounter.  For example,
+you may sometimes see $\rho$ in place of $r$ or $\phii$ in place
+of $\theeta$.  Later in this course, we shall introduce coordinates
+in space which are analogous to polar coordinates in the plane.  For
+these, there is even more variation of symbols in common use.   It
+is specially important when you see any of these coordinate systems
+used that you concentrate on the geometric and physical meaning of
+the quantities involved rather than on the particular letters
+used to represent them.
+
+
+You may remember the following formulas relating rectangular and
+polar coordinates.  In any case, they are clear by elementary trigonometry
+from the diagram.
+$$
+\align
+x &= r\cos\theeta \\
+y &= r\sin\theeta \\
+\intertext{and}
+r &= \sqrt{x^2 + y^2} \\
+\tan\theeta &= \frac yx,\qquad\text{if } x \ne 0.
+\endalign$$
+%D10 Formulas
+
+\mar{s1-25.ps}
+The description of motion in polar coordinates is both simpler and
+more complicated than in rectangular coordinates.  Instead of
+expressing vectors in terms of $\i$ and $\j$, it is useful instead
+to use unit vectors associated with the polar directions.  These
+depend on the value of $\theeta$ at the point $P$ under consideration
+and should be viewed as placed with their tails at that point.
+$\u_r$ is chosen to point directly away from the origin, so
+it is parallel to the position vector $\r = \overrarrow{OP}$.
+$\u_\theeta$ is chosen perpendicular to $\u_r$ and pointing in
+the counter-clockwise direction (positive $\theeta$),
+so it is tangent to a circle passing through $P$ and centered
+at $O$.  
+\medskip
+\centerline{\epsfbox{s1-26.ps}}
+\medskip
+\outind{$\noexpand\u_r$}%
+\outind{$\noexpand\u_\noexpand\theeta$}%
+(These are also commonly denoted $\hat\r$ and $\hat\bold\theeta$).
+Because of the definition of $\u_r$, we have
+$$
+    \r = r\u_r
+$$
+(This equation is a little confusing since the position vector
+$\r$ is commonly thought of with its tail at $O$ while $\u_r$
+was supposed to be thought of with its tail at $P$.  However,
+if you remember that the tail of a vector can be placed wherever
+convenient without changing the vector, you won't have a problem.)
+
+It follows that the velocity vector is given by
+$$
+    \v = \frac{d\r}{dt} = \frac{d(r\u_r)}{dt} =
+           \frac{dr}{dt}\u_r + r\frac{d\u_r}{dt},
+$$
+where we have calculated the product using the {\it product rule\/}
+for derivatives.  Since,  $\u_r$ changes its direction as we
+move along the path, it is necessary to keep the second term.
+(How does the case of rectangular coordinates differ?)   To
+calculate further, we first express $\u_r$ and $\u_\theeta$ in 
+rectangular coordinates.  (See the diagram.)
+$$\align
+    \u_r &= \cos\theeta\,\i + \sin\theeta\,\j, \\
+\u_\theeta &= -\sin\theeta\,\i + \cos\theeta\,\j.
+\endalign$$
+\medskip
+\centerline{\epsfbox{s1-27.ps}}
+\medskip
+Hence,
+
+\nexteqn
+\edef\eqnone{\eqn}
+$$
+    \frac{d\u_r}{dt} = -\sin\theeta \frac{d\theeta}{dt} \i +
+                        \cos\theeta \frac{d\theeta}{dt} \j
+                     = \frac{d\theeta}{dt}\u_{\theeta}. \tag\eqn
+$$
+A similar calculation shows that
+\nexteqn
+$$
+     \frac{d\u_\theeta}{dt} = -\frac{d\theeta}{dt}\u_r.\tag{\eqn}
+$$ 
+Putting (\eqnone) in the expression for $\v$ yields
+$$
+   \v = \frac{dr}{dt}\u_r + r\frac{d\theeta}{dt}\u_\theeta.
+$$
+This same process can be repeated to obtain the acceleration
+$\a = \dfrac{d\v}{dt}$.
+Using both (\eqnone) and (\eqn) yields after considerable calculation
+\nexteqn
+$$
+\a = \left(\frac{d^2r}{dt^2} -r\left(\frac{d\theeta}{dt}\right)^2\right)\u_r + 
+\left(r\frac{d^2\theeta}{dt^2} + 2\frac{dr}{dt}\frac{d\theeta}{dt}\right)\u_\theeta. \tag\eqn
+$$
+I leave it as a challenge for your algebraic prowess to try to verify
+this formula.
+
+\example{Example. Uniform Circular Motion}
+\outind{uniform circular motion}%
+Suppose the particle moves in a circle of radius $R$ centered at
+the origin, so that $r = R$, and $dr/dt = 0$.  Suppose in addition
+that $d\theeta/dt = \omega$ is constant.  Then $d^2r/dt^2 = d^2\theeta/dt^2
+= 0$, and putting all this in the above expressions yield
+$$\align
+\v &= R\omega \u_\theeta \\
+\a &= -R\omega^2 \u_r = -\frac{|\v|^2}R \u_r
+\endalign
+$$
+as we discovered previously.
+\bigskip
+\endexample
+
+% Exercises for section 2 with answers
+\input chap1.ex2
+
+\bigskip
+\nextsec{The Dot Product}
+\head \sn. The Dot Product \endhead
+Let $\a$ and $\b$ be vectors.  We assume they are placed so their
+tails coincide.  Let $\theeta$ denote the {\it smaller\/} of the
+two angles between them, so $0\le \theeta \le \pi$.
+Their {\it dot product\/} is defined to be
+$$
+     \a\cdot\b = |\a|\,|\b|\,\cos \theeta.
+$$
+%%%  This really should be theeta
+\outind{dot product}%
+\outind{scalar product}%
+This is also sometimes called the {\it scalar product\/} because
+the result is a scalar.
+Note that $\a\cdot\b = 0$ when either $\a$ or $\b$ is zero or,
+more interestingly, if their directions are perpendicular.
+If the two vectors have parallel directions, $\a\cdot\b$ is
+the product of their magnitudes if they point the same way
+or the negative of that product if they point in opposite
+directions.  (Make sure you understand why.)
+
+\mar{s1-28.ps}
+The dot product is a useful concept when one needs to find the
+component of one vector in the direction of another.  For example,
+in a typical inclined plane problem in elementary mechanics, one
+needs to resolve the vertical gravitational force into components,
+one parallel to the inclined plane, and one perpendicular to it.
+To see how the dot product enters into that, note that
+%D2    projection diagram
+the quantity $|\b|\cos\theeta$ is just the perpendicular projection
+of $\b$ onto any line parallel to $\a$.  (See the diagram.)  Hence,
+we have
+\nexteqn
+\def\eqone{\eqn}
+$$
+     \a\cdot\b = |\a|\, (\text{projection of $\b$ on $\a$}).\tag\eqn
+$$
+(Note that this description is symmetric; either vector could be
+projected onto a line parallel to the other.)  In particular, if
+$\a$ is a unit vector ($|\a| = 1$), $\a\cdot\b$ is just the value of
+the projection.  (What does it mean if $\a\cdot\b < 0$?)
+\medskip
+\centerline{\epsfbox{s1-29.ps}}
+\medskip
+The above projection is a scalar quantity, but one is often
+interested in the {\it vector\/} obtained by by multiplying the scalar
+ projection
+of $\b$ on  $\a$ with a unit vector in the
+direction of $\a$.  (See the accompanying diagram.)
+$\u = \dfrac 1{|\a|}\a$ is such a unit vector, so this {\it vector
+projection\/} of $\b$ on $\a$ is given by
+\nexteqn
+\def\eqtwo{\eqn}
+$$
+   (\u\cdot\b)\u = (\frac 1{|\a|}\a\cdot\b)\frac 1{|\a|}\a
+         = \frac{\a\cdot\b}{|\a|^2}\a. \tag\eqn  
+$$
+
+The dot product satisfies certain simple algebraic rules.
+$$\align
+  \a\cdot\b &= \b\cdot\a\qquad\text{commutative law},\\
+  \a\cdot(\b + \c) &= \a\cdot\b + \a\cdot\c\qquad \text{distributive law},\\
+  (s\a)\cdot\b &= \a\cdot(s\b) = s(\a\cdot\b),\\
+\intertext{and}
+   \a\cdot\a &= |\a|^2.
+\endalign$$
+      These can be proved without too much difficulty from the
+geometric definition.  See, for example, the accompanying diagram
+which illustrates the proof of the distributive law.
+\medskip
+\centerline{\epsfbox{s1-30.ps}}
+\medskip
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let the components of
+ $\a$ be $\lb a_1, a_2, a_3 \rb$
+and let those of $\b$ be  $\lb b_1, b_2, b_3 \rb$.  Then
+$$
+    \a\cdot\b = a_1b_1 + a_2b_2 + a_3b_3.
+$$
+\endproclaim
+
+For plane vectors, the same principle applies without the third components.
+
+\example{Examples}
+
+For $\lb 1, 2, -1 \rb$ and $\lb 2, -1, 3 \rb$, the dot product
+is $ 2 -2 -3 = -3$.   In particular, that means the angle between
+the two vectors is obtuse.
+
+For $\lb 1, 1, 2 \rb$ and $\lb -1, -1, 1 \rb$, the dot product
+is $ -1 - 1 + 2 = 0$.   That means the 
+two vectors are perpendicular.
+\endexample
+
+\demo{Proof of the theorem}
+We have
+$$\align
+\a &= a_1\i + a_2\j + a_3\k \\
+\b &= b_1\i + b_2\j + b_3\k,
+\endalign$$
+so the aforementioned rules of algebra yield
+$$\align
+   \a\cdot\b 
+&= a_1b_1\i\cdot\,\i + a_1b_2\,\i\cdot\j + a_1b_3\,\i\cdot\k \\
+&+ a_2b_1\,\j\cdot\i + a_2b_2\,\j\cdot\j + a_2b_3\,\j\cdot\k \\
+&+ a_3b_1\,\k\cdot\i + a_3b_2\,\k\cdot\j + a_3b_3\,\k\cdot\k .
+ \endalign$$
+However, $\i$, $\j$, and $\k$ are mutually perpendicular
+unit vectors, so the off-diagonal dot products (e.g., $\i\cdot\j,
+\ \i\cdot\k$, etc.) are all zero while the diagonal dot products
+(e.g., $\i\cdot\i$) are all one.  Hence, only the three diagonal
+terms survive and we obtain
+$a_1b_1 + a_2b_2 + a_3b_3$ as claimed.
+\qed\enddemo
+
+The theorem gives us a way to calculate the angle between two
+vectors {\it in case we know their components}.  Indeed, the formula
+may be rewritten
+$$
+   \cos \theeta = \frac{\a\cdot\b}{|\a||\b|}.
+$$
+The right hand side may be computed using
+$\a\cdot\b = a_1b_1 + a_2b_2 + a_3b_3$, $|\a| =
+\sqrt{a_1{}^2 + a_2{}^2 + a_3{}^2}$,  and similarly for $|\b|$, and
+from this we can determine $\theeta$.
+
+\example{Example}
+Suppose $\a = \i + 2\j -\k, \b = 2\i -\j + 3\k$.  Then
+$$\align
+    \a\cdot\b &= (1)(2) + (2)(-1) + (-1)(3) = -3 \\
+     |\a| &= \sqrt{ 1 + 4 + 1} = \sqrt 6 \\
+     |\b| &= \sqrt{ 4 + 1 + 9} = \sqrt{14} \\
+\intertext{so}
+     \cos \theeta &= \frac{-3}{\sqrt{84}} \\
+    \theeta &= 1.90427\text{\ radians}
+\endalign $$
+
+The use of components simplifies other calculations also.  For example,
+suppose we want to know the {\it projection\/} of the vector
+$\b$ on a line parallel to $\a$.  We know from (\eqone)
+that  this is
+$$
+    |\b|\cos \theeta = \frac{\a\cdot\b}{|\a|} = \frac{-3}{\sqrt{6}}.
+$$
+Similarly, from (\eqtwo), we see that the vector projection of $\b$
+on $\a$ is given by
+$$
+         \frac{\a\cdot\b}{|\a|^2}\a = \frac{-3}6(\i +2\j -\k)
+            = -\frac 12 \i - \j + \frac 12 \k.
+$$ 
+    
+Note that in all these calculations we must rely on the use of
+components to make the formulas useful.  
+\endexample
+
+\subhead The Law of Cosines \endsubhead
+  Let $A, B$, and $C$ be the vertices of a triangle,
+and define vectors
+$$\align
+  \a &= \overrarrow{CB} \\
+  \b &= \overrarrow{CA} \\
+   \c &= \overarrow{BA} = \b - \a.
+\endalign $$
+
+\mar{s1-31.ps}
+\noindent
+Then we have
+$$\align
+|\c|^2 = \c\cdot\c &= (\b - \a)\cdot(\b - \a) \\
+        &= \b\cdot\b -\b\cdot\a - \a\cdot\b + \a\cdot\a \\
+        &= |\b|^2 - 2\a\cdot\b + |\a|^2 \\
+\intertext{which may be rewritten}
+|\c|^2 &= |\a|^2 + |\b|^2 - 2|\a||\b|\cos \theeta . 
+\endalign $$
+You should recognize that as the {\it Law of Cosines\/}
+from Trigonometry.
+
+\subhead Generalizations \endsubhead
+We have already mentioned higher dimensional vectors being
+characterized as $n$-tuples for values of $n \ge 4$.   The
+dot product of $n$-tuples can be defined by analogy with
+the formula derived above.  Thus for $4$-vectors,
+$\a = \lb a_1, a_2, a_3, a_4 \rb, \b = \lb b_1, b_2, b_3, b_4 \rb$,
+we would define
+$$
+ \a\cdot\b = a_1b_1 + a_2b_2 + a_3b_3 + a_4b_4.
+$$
+\outind{dot product in $n$ dimensions}%
+In the theory of special relativity, it turns out to be useful to
+consider instead a ``dot product'' of $4$-vectors of the form
+$$
+  a_1b_1 + a_2b_2 + a_3b_3 - c^2 a_4b_4
+$$
+where $c$ is the speed of light.  (Some authors prefer the negative of
+this quantity.)  This is a bit bizarre, because the ``dot product''
+of a vector with itself can be zero without the vector being zero.
+
+We shall consider some of these strange and wonderful ideas later in
+this course.      
+
+\subhead Differentiation of Dot Products \endsubhead
+The usual differentiation rules, e.g., the product rule, the chain
+rule, etc., apply to vector functions as well as to scalar functions.
+Indeed, we have already used some of these rules without making a
+point of it.   The proofs are virtually the same as those in the
+scalar case, so we need not go through them again in this course.
+However, since there are so many different vector operations, it
+is worth exploring the consequences of these rules in interesting
+cases.  They are sometimes not what you would expect.
+For example, the {\it product rule\/} for the dot product of two
+vector functions $\bold f(t)$ and $\bold g(t)$ takes the form
+\nexteqn
+$$
+    \frac d{dt}\bold f(t)\cdot \bold g(t) =
+    \frac{d\bold f(t)}{dt} \cdot \bold g(t) +
+          \bold f(t)\cdot\frac{d\bold g(t)}{dt}.
+$$
+\outind{dot product, differentiation of}%
+Let us apply this to the case $\bold f(t) = \bold g(t) = \r(t)$,
+the position vector of a particle moving in the plane or in space.  
+{\it Assume the particle moves so that its distance to the origin
+is a constant  $R$}.    Symbolically, this can be written
+$ \r\cdot\r = |\r|^2 = R^2$.   Then the product rule gives
+$$
+    0 = \frac{d(\r\cdot\r)}{dt} = \frac{d\r}{dt}\cdot\r +
+  \r\cdot\frac{d\r}{dt} = 2\r\cdot \v.
+$$
+It follows from this that either $\v = 0$ or $\v\perp\r$.   In the
+plane case, this is yet another confirmation that for motion in
+a circle, the velocity vector is perpendicular to the radius vector.
+
+Similar reasoning shows that if $|\v|$ is constant, then the
+acceleration vector $\a$ is perpendicular to $\v$.  (You should write
+it out to convince yourself you understand the argument.)
+%Ex  Show that if the velocity vector $\v$ is perpendicular to the
+%Ex acceleration vector $\a$ at every point of a path, then the
+%Ex speed $|\v|$ is constant.
+\bigskip
+
+% Exercises for section 3 and answers
+\input chap1.ex3
+
+\nextsec{The Vector Product}
+\head \sn. The Vector Product \endhead
+
+Let $\a$ and $\b$ be two vectors in space placed so their tails
+coincide, and let $\theeta$ be the smaller of the two angles between
+them (i.e., $0\le \theeta \le \pi$).  
+ Previously, we defined the dot or scalar product $\a\cdot\b$.
+There is a second product  called
+ the {\it vector product\/} or {\it cross product\/}. It is denoted
+\outind{vector product}%
+\outind{cross product}%
+$\a\times\b$, and as its name suggests, it is a 
+{\it vector}.  It is used extensively in mechanics for such notions
+as torque and angular momentum, and we shall use it shortly in
+studying solid analytic geometry.
+
+$\a\times \b$ is defined as follows.
+    Its magnitude is 
+\nexteqn
+$$
+|\a\times\b| = |\a||\b|\sin\theeta.\tag\eqn
+$$
+The quantity on the right has a very simple interpretation.
+$|\b|\sin\theeta$  is the height of the parallelogram spanned by
+$\a$ and $\b$, so $|\a||\b|\sin\theeta$ is
+ the {\it area of the parallelogram}. 
+ Note it is zero if the vectors point 
+ in the same ($\theeta = 0$) or  opposite  ($\theta =
+\pi$)  directions, but otherwise it is non-zero.
+
+\mar{s1-32b.ps}
+The direction of $\a\times \b$ (when it isn't zero)
+ is a bit harder to describe.  First,
+$\a\times \b$ is perpendicular to both $\a$ and $\b$, and given that we know
+its magnitude that leaves precisely two possibilities.   We specify that
+it has the {\it right hand\/} orientation.  That is, 
+\outind{right hand rule for vector product}%
+if the fingers of your right hand
+point from $\a$ to $\b$ through the angle $\theeta$,   $\a\times\b$
+should point in the direction of your thumb.  
+
+The vector product has some surprising algebraic properties.  First,
+as already noted,
+$$
+   \a\times \b = \bold 0
+$$
+when $\a$ and $\b$ point in the same or opposite directions.
+In particular, $\a\times\a = \bold 0$ 
+for any vector $\a$.  
+Secondly,  
+the commutative law fails, and we have instead
+$$
+    \a\times \b = - \b\times \a.
+$$
+(Point from $\b$ to $\a$, and your thumb reverses direction.)
+The vector product does satisfy other rules of
+algebra such as  
+$$\align
+    \a\times (\b + \c) &= \a\times\b + \a\times\c \\
+     (s\a)\times \b &= \a\times (s\b) = s(\a\times \b),
+\endalign$$
+ but they are a bit tricky to verify from the geometric
+definition.  (See below for another approach.)
+
+
+The vector products of the basis vectors are easy to
+calculate from the definition.  We have
+$$\align
+  \i\times\j &= -\j\times\i  = \k, \\
+\j\times\k &= -\k\times\j = \i\\
+ \k\times\i &=  -\k\times\i = \j.
+\endalign
+$$
+
+\mar{s1-33.ps}
+To calculate vector products in general, we expand in terms of components.
+$$\align
+\a\times\b &= (a_1 \i + a_2\j + a_3\k) \times (b_1\i + b_2\j + b_3\k) \\
+       &= a_1b_1\i\times\i + a_1b_2\i\times\j + a_1b_3\i\times\k \\
+       &+ a_2b_1\j\times\i + a_2b_2\j\times\j + a_2b_3\j\times\k \\
+       &+ a_3b_1\k\times\i + a_3b_2\k\times\j + a_3b_3\k\times\k \\
+       &= \bold 0  + a_1b_2\k - a_1b_3\j \\
+       &- a_2b_1\k + \bold 0 + a_2b_3 \i \\
+       &+ a_3b_1\j - a_3b_2\i + \bold 0 \\
+\intertext{so}
+\a\times \b &= (a_2b_3 - a_3b_2)\i - (a_1b_3 - a_3b_1)\j + (a_1b_2 - a_2b_1)\k.
+\endalign$$
+(Note that this makes extensive use of the rules of algebra for vector
+products, so one should really prove those rules first.)
+
+There is a simple way to remember the formula.  Recall that
+a $2\times 2$ determinant is defined by
+$$
+ \det\bm a & b \\ c & d \em = ad - bc.
+$$
+\outind{determinant, $2\noexpand\times 2$}%
+Now consider the {\it matrix\/} or array
+$$
+    \bm a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \em
+$$
+formed from the components of $\a$ and $\b$, and calculate the
+$2\times 2$ determinants obtained by omitting successively each of
+the columns.  For the first and third, use a ($+$) sign and for the
+second use a ($-$) sign.   
+
+
+\nextex
+\example{Example \en}
+Let $\a = \lb 1, 2, -1\rb$ and $\b = \lb 1, -2, 3 \rb$.  Then
+$$
+ \a \times \b = \lb 6-2, -(3 + 1), -2 -2\rb = \lb 4, -4, -4 \rb.
+$$
+We can check that this vector is indeed perpendicular to both
+$\a$ and $\b$ by calculating dot products.
+$$\align
+   \a\cdot (\a \times \b) &= 4 - 8 + 4 = 0 \\
+   \b\cdot (\a \times \b) &= 4 + 8 - 12 = 0 .
+\endalign
+$$
+\endexample
+
+(Many texts suggest defining
+$\a\times\b$ by a  $3\times 3$
+determinant
+\nexteqn
+\xdef\ForOne{\eqn}
+$$
+  \a\times\b = \det 
+    \bm \i & \j & \k \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \em.\tag\eqn
+$$
+\outind{determinant, $3\noexpand\times 3$ and vector product}%
+If you are not familiar with $3\times 3$ determinants, see the
+Exercises.)
+
+\subhead The triple product \endsubhead
+Let $\a$, $\b$, and $\c$ be three vectors in space and suppose they
+are placed so their tails coincide.  Then the product
+$$
+     (\a\times\b)\cdot \c
+$$
+has a simple geometric interpretation.  The vectors are three
+of the twelve sides of a {\it parallelepiped}.  $|\a\times\b|$
+is the area of the base of that parallelepiped.  Moreover the
+projection  of $\c$ on $\a\times\b$ is either the {\it altitude\/}
+of the parallelepiped or the negative of that altitude depending
+on the relative orientation of the vectors.   Hence, the dot product
+is, except for sign, the {\it volume\/} of the parallelepiped.
+It is positive if $\c$ is on the same side of the plane determined
+by $\a$ and $\b$ as $\a\times\b$, and it is negative if they are
+on opposite sides.   
+\medskip
+\centerline{\epsfbox{s1-34.ps}}
+\medskip
+\nextex
+\example{Example \en}
+Let $\a = \lb 0, 1, 1 \rb, \b = \lb 1, 1, 0 \rb,$ and $\c = \lb 1, 0, 1 \rb$.
+Then
+$\a\times \b = \lb -1, 1, -1\rb$, so
+$(\a\times\b)\cdot\c = -1 + 0 + (-1) = -2$.  Hence, the volume is
+2.  You should study the diagram to make sure you understand why the
+answer is negative. 
+\endexample
+
+An immediate consequence of the geometric interpretation is the
+formula
+\nexteqn
+\xdef\TDP{\eqn}
+$$
+   (\a\times\b)\cdot\c = \a\cdot(\b\times\c). \tag\eqn
+$$
+For, except for sign, both sides may be interpreted as the volume
+of the same parallelepiped, and careful inspection of all
+possible relative orientations shows
+that the signs will be the same.
+
+Using $3\times 3$ determinants---see the Exercises---you can
+check the formula
+\nexteqn
+\xdef\ForTwo{\eqn}
+$$
+    \a\cdot(\b\times \c) = \det \bm a_1 & a_2 & a_3 \\
+ b_1 & b_2 & b_3 \\
+ c_1 & c_2 & c_3 \em. \tag\eqn
+$$
+\outind{determinant, $3\noexpand\times 3$ and volume}%
+
+It is worth noting that we can use (\TDP) to verify the formula
+$$
+    \a\times(\b + \c) = \a\times\b + \a\times\c.
+$$
+For, it would suffice to show that both sides have the same components.
+Consider the $x$-component.  In general, the $x$-component of a
+vector $\v$ is its projection on the $x$-axis, that is, it is $\i\cdot\v$.
+However,
+$$\align
+  \i\cdot(\a\times(\b+\c)) &= (\i\times\a)\cdot(\b + \c) \\
+&= (\i\times\a)\cdot\b + (\i\times\a)\cdot\c \\
+&= \i\cdot(\a\times\b) + \i\cdot(\a\times\c) \\
+&= \i\cdot(\a\times\b + \a\times\c).
+\endalign$$
+(Here we used the fact that the distributive law does hold for the
+dot product.)  It follows that the two sides have the same $x$-component.
+Similar arguments work for the $y$ and $z$-components, so the two
+sides are the same.
+
+\subhead Product Rule \endsubhead
+Like the dot product, the cross product also satisfies the
+product rule.  (Also, the proof is virtually identical to the
+proof for scalar functions.)   Thus, if $\f(t)$ and $\g(t)$ are
+vector valued functions, then
+\nexteqn
+$$
+\frac{d}{dt}(\f\times\g) = \frac{d\f}{dt}\times \g + \f\times \frac{d\g}{dt}.
+\tag\eqn
+$$ 
+This formula has many useful consequences.  We shall illustrate one
+such by showing that if a particle moves in space so that the
+acceleration $\a$ is parallel to the position vector $\r$, then
+the motion must be constrained to a plane.  To see this, consider
+the quantity $\bold L = \r\times\v$.  We have
+$$\align
+    \frac{d\bold L}{dt} &= \frac{d\r}{dt}\times \v + \r\times \frac{d\v}{dt} \\
+		 &= \v\times \v + \r\times\a = \r\times\a.
+\endalign
+$$
+However, since $\r$ and $\a$ are parallel, $\r\times\a = \bold 0$, and
+it follows that $d\bold L/dt = 0$, i.e., $\bold L$ is constant.  In particular,
+the direction of $\bold L = \r \times\v$ does not change, so since
+$\r\perp \bold L$, it follows that the position vector is constrained
+to the plane perpendicular to $\bold L$ and containing the origin.
+
+\mar{s1-35.ps}
+	The quantity $\r\times \v$ seems to have been pulled from
+a hat, but you will learn in physics how the related quantity
+$\r\times(m\v)$, which is called {\it angular momentum\/}, is used
+\outind{angular momentum}%
+to make sense of certain aspects of motion. 
+
+\bigskip
+
+% Exercises with answers for section 4
+\input chap1.ex4
+
+\bigskip
+\nextsec{Geometry of Lines and Planes}
+\head \sn. Geometry of Lines and Planes \endhead
+
+We depart for the moment from the study of concepts of immediate use
+in dynamics to discuss some analytic geometry in space.   The notions
+we shall introduce have a variety of applications, but, more important,
+they will help you develop your spatial intuition and teach you something
+about expressing such intuition analytically.
+
+\subhead Lines \endsubhead
+We saw before that the motion of a particle moving with constant speed
+%%%  Reference?
+on a line is described by a vector equation of the form
+$$
+\r = t\v + \r_0
+$$
+\outind{line, vector equation of}%
+\outind{line, parametric representation of}%
+where $\v$ is the constant velocity vector pointing along the line
+in the direction of motion, and $\r_0$ is its position at $t = 0$.
+(Previously $\v$ was denoted $\v_0$, but since the velocity is constant,
+we can use either, and we drop the subscript to save writing.)
+%D1   Line pictures
+It is often more convenient to use a slightly different form
+of this equation
+$$
+  \r = (t - t_0)\v + \r_0.
+$$
+Here, `$t$' is replaced by `$t - t_0$' which denotes the time
+`elapsed' since some initial time $t_0$, and $\r_0$ denotes the
+position at $t = t_0$.   If you multiply this out, you will see
+it is really the same as the previous equation with $\r_0$
+being replaced by the constant vector $-t_0\v + \r_0$.  (Why is
+`elapsed' in quotes?  Think about the case $t < t_0$.) 
+
+\mar{s1-36.ps}
+There are a couple of points that should be stressed at this point.
+First, the above equations apply in the plane as well as in space.
+You should think about how the ordinary analytic geometry of lines
+in the plane can be related to this approach.
+Secondly, while we have been thinking of $t$ as representing ``time'',
+it is not absolutely necessary to do so.  It is better in some circumstances
+to think of it as just another variable which ranges over the {\it domain\/}
+of a vector function described by the equation
+$$
+   \r = \r(t) = t\v + \r_0,
+$$
+and the line is the {\it image\/} of this function, i.e., the set of
+all $\r(t)$ so obtained.   Such a variable is called a {\it parameter\/},
+\outind{parameter}%
+and the associated description of the line is called a {\it parametric
+representation}.   This is a more static point of view since we need not
+think of the line as traced out by a moving particle.  Also, there is no
+need to use the symbol `$t$' for the parameter.  Other letters, such as
+`$s$' or `$x$' are perfectly acceptable, and in some circumstances may
+be preferable because of geometric connotations in the problem. 
+
+\nextex
+\xdef\exone{\en}
+\example{Example \en}
+Consider the line through the points $P_0$ and
+$P_1$ with respective coordinates  $(1,1,0)$ and
+$(0,2,2)$.
+%D2  Line diagram
+Choose $\v = \overrarrow{P_0P_1}$.   This is certainly a vector
+pointing along the line, and it does not matter what its magnitude
+is.  (Thinking in kinematic imagery, we don't care how fast the
+line is traced out.)  Its components are
+$\lb 0 - 1 , 2 - 1, 2 - 0 \rb = \lb -1, 1, 2\rb$.
+Since the line passes through $P_0$, we may choose $\r_0 = \overrarrow{OP_0}$
+which has components $\lb 1, 1, 0 \rb$.   With some abuse of notation,
+we may write the parametric equation of the line
+$$\align
+   \r &= t\lb -1, 1, 2 \rb + \lb 1, 1, 0 \rb =
+          \lb -t + 1, t + 1, 2t \rb  \\
+\intertext{or}
+    \r &= (1-t)\i + (1+t)\j + (2t)\k.
+\endalign$$
+This can also be written as 3 component equations
+$$\align
+   x &= 1 - t, \\
+   y &= 1 + t,   \\
+   z &= 2t.
+\endalign $$
+Note that there are other ways we could have approached this problem.
+We could have reversed the roles of $P_0$ and $P_1$, we could have
+used $\frac 12 \v$ instead of $\v$, etc.   Each of these would have
+produced a valid parametric equation for the line, but they would all
+have looked different.
+\endexample
+
+\mar{s1-37.ps}
+\smallskip
+\nextex
+\example{Example \en}
+Consider the line in the plane with parametric equation
+$$\align
+   \r &= t\lb -1, 1 \rb + \lb 1, 3 \rb \\
+\intertext{or}
+    x &= -t + 1, \\
+    y &= t + 3.
+\endalign$$
+%D3  Line diagram  (1,3)
+We may eliminate $t$ algebraically by writing
+$$
+    t = 1 - x  = y - 3
+$$
+whence we obtain $y = -x + 4$.  This is the usual way of
+representing a line in the plane by an equation of the form
+$y = mx + b$, where $m$ is the slope, and $b$ is the $y$-intercept.
+\endexample
+
+\mar{s1-38.ps}
+Eliminating the parameter makes sense for lines in space, but unfortunately
+it does not lead to a single equation.
+The vector equation $\r = t\v + \r_0$ can be written as 3 scalar equations
+$$\align
+    x &= ta + x_0, \\
+    y &= tb + y_0, \\
+    z &= tc + z_0
+\endalign$$
+where $\v = \lb a, b, c \rb$.  If none of the components of $\v$
+are zero, we can solve these equations for $t$ to obtain
+$t = \dfrac{x-x_0}a$,
+   $t = \dfrac{y-y_0}b$, and
+   $t = \dfrac{z - z_0}c$.   Eliminating $t$ yields so called
+{\it symmetric equations\/} of the line
+\outind{line, symmetric equations of}%
+$$
+   \frac{x-x_0}a
+   = \frac{y-y_0}b
+   = \frac{z - z_0}c.
+$$
+These have the advantage that the components of $\v$ and the coordinates
+of $P_0$ are clearly displayed.  However, symmetric equations are not
+directly applicable if, as in Example \exone, one or more of the components
+of $\v$ are zero.
+
+\example{Example \exone\ {\rm  revisited}}
+We found $\v = \lb -1, 1, 2\rb$ and $\r_0 = \lb 1, 1, 0 \rb$ so
+the symmetric equations are
+$$
+  \frac{x -1}{-1} = \frac{y - 1}{1} = \frac z2.
+$$
+\endexample
+
+%Ex  What does it say about the line described parametrically
+%Ex by $\r = t\lb a,b,c \rb + \lb x_0, y_0, z_0 \rb$ if $a = 0$?  If $b = 0$?
+%Ex If $a = b = 0$?   Can we have $a = b = c = 0$?
+The geometry of lines in space is a bit more complicated than that of lines
+in the plane.  Lines in the plane either intersect or are parallel.
+In space,  we have to be a bit more careful about what we mean by
+`parallel lines', since lines with entirely different directions can
+still fail to intersect.
+\medskip
+\centerline{\epsfbox{s1-39.ps}}
+\medskip
+\nextex
+\example{Example \en}  
+Consider the lines described by
+$$\align
+\r &= t\lb 1, 3, -2 \rb + \lb 1, 2, 1 \rb \\
+\r &= t\lb -2, -6, 4\rb + \lb 3, 1, 0 \rb.
+\endalign
+$$
+They have parallel directions since $\lb -2, -6, 4 \rb = -2\lb 1, 3,-2 \rb$.
+Hence, in this case we say the lines are {\it parallel}.  (How can
+we be sure the lines are not the same?)
+\endexample
+
+\nextex
+\example{Example \en}
+Consider the lines
+$$\align
+\r &= t\lb 1, 3, -2 \rb + \lb 1, 2, 1 \rb \\
+\r &= t\lb 0, 2, 3\rb + \lb 0, 3, 9 \rb.
+\endalign $$
+They are not parallel because neither of the vectors
+ $\v$ is a multiple
+of the other.  They may or may not intersect.  (If they don't,
+we say the lines are {\it skew}.)  How can we find out?  One
+method, is to set them equal and see if we can solve for the point
+of intersection.  There is one tricky point here.  If we think of
+the parameter $t$ as time, even if the lines do intersect, there
+is no guarantee that particles moving on these lines would arrive
+at the point of intersection {\it at the same instant}.  Hence,
+the way to proceed is to introduce a second parameter, call it $s$,  
+for one of the lines, and then try to solve for the point of
+intersection.  Thus, we want
+$$
+\r = t\lb 1, 3, -2 \rb + \lb 1, 2, 1 \rb =
+s\lb 0, 2, 3\rb + \lb 0, 3, 9 \rb,
+$$
+which after collecting terms yields
+$$
+    \lb t + 1, 3t + 2, -2t + 1 \rb = \lb 0, 2s + 3, 3s + 9\rb.
+$$
+Picking out the components yields three equations
+$$\align
+    t + 1 &= 0 \\
+    3t +2 &= 2s + 3 \\
+    -2t + 1 &=  3s + 9
+\endalign
+$$
+in 2 unknowns  $s$ and $t$.  This is an {\it overdetermined\/}
+system, and it may or may not have a consistent solution.  In this
+case, the first two equations yield $t = -1$  and $s = -2$.  Putting
+these values in the last equation yields $(-2)(-1) + 1 = 3(-2) + 9$
+which checks.  Hence, the equations are consistent, and the lines
+do intersect.   To find the point of intersection, put $t = -1$
+in the equation for the first line (or
+$s = -2$ in that for the second) to obtain  $\lb 0, -1, 3 \rb$.  
+%D  Intersecting lines.
+\endexample
+
+\nextex
+\example{Example \en}
+Consider the lines
+$$\align
+\r &= t\lb 1, 3, -2 \rb + \lb 1, 2, 1 \rb \\
+\r &= s\lb 0, 2, 3\rb + \lb 0, 3, 8 \rb.
+\endalign $$
+We argue exactly as above, except in this case, we obtain component
+ equations
+$$\align
+    t + 1 &= 0 \\
+    3t +2 &= 2s + 3 \\
+    -2t + 1 &=  3s + 8
+\endalign
+$$
+Again, the first two equations yield $t= -1, s = -2$, but these
+values are not consistent with the third equation.  Hence, the lines
+are skew, they are not parallel and they don't intersect.
+\endexample.
+
+\subhead Planes \endsubhead
+A plane in space may be characterized geometrically in several different
+ways.  Here are some of the most common characterizations.
+\roster
+\item   Any three non-collinear points $P_1, P_2$, and
+$P_3$ (points not on a common line)
+determine a plane. 
+\item  There is a unique plane passing through a given point $P_0$ and
+perpendicular to a given line $l$.  (A plane is perpendicular to a line
+$l$ if each line in the plane through the point of intersection with
+$l$ is perpendicular to $l$.)
+\item  Any two distinct lines $l_1$ and $l_2$
+ which intersect determine a plane.
+\item  A line $l$ and a point $P_0$ not on $l$ determine a plane.
+\endroster
+
+We want to describe planes analytically.  For this, it is best to
+start with the second characterization.   Let $P_0$  with
+coordinates $(x_0,y_0,z_0)$ be the given
+point.  Clearly, we will get the same plane if we replace the
+perpendicular line
+$l$ with any line parallel to $l$, so we may as well assume that
+$l$ passes through $P_0$.  Choose a vector $\N$ pointing in the
+direction of $l$.  If $P$ is any point in the plane, then the
+displacement vector  $\overrarrow{P_0P}$ is perpendicular to
+$\N$.  However,  $\overrarrow{P_0P} = \r - \r_0$, so the
+perpendicularity may be described algebraically by
+\nexteqn
+$$
+    \N\cdot(\r - \r_0) = 0.  \tag\eqn
+$$
+\outind{plane, equation of}%
+\outind{plane, normal to}%
+\medskip
+\centerline{\epsfbox{s1-40.ps}}
+\medskip
+
+Suppose $\N$ has components $\lb a, b, c \rb$.  Since $\r - \r_0$
+has components $\lb x - x_0, y - y_0, z - z_0 \rb$, this equation
+may be rewritten
+\nexteqn
+$$
+     a(x - x_0) + b(y - y_0) + c(z - z_0) = 0. \tag\eqn
+$$
+This is called a {\it normal form\/} of an equation of a plane.
+
+\nextex
+\example{Example \en}
+We shall find an equation for the plane through the points
+with coordinates $(1,0,0)$, $(0,1,0)$, and $(0,0,1)$. 
+ By symmetry, the angles
+which a normal vector makes with the coordinate axes (called its
+{\it direction angles\/}), should
+be equal, so the vector $\N$ with components $\lb 1, 1, 1 \rb$
+should be perpendicular to this plane.  For $P_0$, we could use
+any of the three points; we choose it to be the point with coordinates
+$(1,0,0)$.   With these choices, we get the normal form of the equation
+of the plane
+$$
+   1(x - 1) + 1(y - 0) + 1(z - 0) = 0
+$$
+which can be rewritten more simply
+$$\align
+   x + y + z - 1 &= 0\\
+\text{or}\quad x + y + z &= 1.
+\endalign
+$$
+Note that we chose the normal direction by being clever, but there
+is a quite straightforward way to do it.  If the three points are
+denoted $P_0, P_1$ and $P_2$, then the directed line
+segments $P_0P_1$
+and $P_0P_2$ lie in the plane, so the vector product
+$\overrarrow{P_0P_1}\times \overrarrow{P_0P_2}$ is perpendicular
+to the plane.  In this case, $\overrarrow{P_0P_1}$ has components
+$\lb 0 - 1, 1 - 0, 0 - 0 \rb = \lb -1, 1, 0 \rb$, and
+ $\overrarrow{P_0P_2}$ has components
+$\lb 0 - 1, 0 - 0, 1 - 0 \rb = \lb -1, 0, -1 \rb$.  Hence, the
+cross product has components $\lb -1, -1, -1 \rb$.  This yields
+the normal form
+$$
+\align
+     -1(x - 1) + (-1)(y - 0) + (-1)(z - 0) &= 0 \\
+\text{or}\quad -x - y - z = -1.
+\endalign $$
+\endexample
+\mar{s1-41.ps}
+As the above example illustrates, there is nothing unique about
+the equation of a plane.   For example, if $\N$ with components
+$\lb a, b, c \rb$ is a normal vector, so is $s\N$ with components
+$\lb sa, sb, sc \rb$ for any non-zero scalar $s$.  Replacing
+$\N$ by $s\N$ just multiplies the normal form by the factor $s$,
+and clearly this does not change the locus of the equation.  (The
+locus of an equation is the set of all points whose coordinates
+satisfy the equation.)
+
+In general, the normal form may be rewritten
+$$\align
+    ax + by + cz - ax_0 -by_0 - cz_0 &= 0 \\
+\text{or}\qquad ax + by + cz &= d
+\endalign $$
+where $d = ax_0 + by_0 + cz_0$.  Conversely, the locus of any such
+linear equation, $ax + by +cz = d$, in which not all of the coefficients
+$a,b$, and $c$ are zero, is a plane.  This is not hard to prove in
+general, but we illustrate it instead in an example.
+\nextex
+\example{Example \en}
+Consider the locus of the equation
+$$
+2x - 3y + z = 6.
+$$
+The choice of a normal vector is clear,  $\N = \lb 2, -3, 1 \rb$.
+Hence, to express the above equation in normal form, it suffices
+to find one point $P_0$ in the plane.  This could be done in many
+different ways, but one method that works in this case would be
+to set $x = y = 0$ and to solve for $z$.  In this case, we get
+$z = 6$, so the point with coordinates $(0,0, 6)$ lies in the
+plane.
+Write
+$$\align
+  2x - 3y + z &= 6\qquad\text{for a general point}\\
+  2(0) - 3(0) + 6 &= 6\qquad\text{for the specific point}
+\endalign$$
+and then subtract to obtain
+$$
+  2(x - 0) -3(y - 0) + 1(z -  6) = 0.
+$$
+That is an equation for the same plane in normal form. It may also
+be written
+$$
+   \lb 2, -3, 1 \rb \cdot \lb x - 0,y -  0,z -  6 \rb = 0
+$$
+to express the perpendicularity of $\overrarrow{P_0P}$ to $\N$.
+
+You should convince yourself that this method works in complete
+generality.  You should also ask what you might do for an equation
+of the form $2x + 3y = 12$ where you can't set $x = y = 0$ and solve
+for $z$. 
+\endexample
+
+Various special cases where one or more of the coefficients in
+the linear equation $ax + by + cz = d$ vanish represent special
+orientations of the plane with respect to the coordinate axes.
+For example, $x = d$ has as locus a plane parallel to the
+$y,z$-plane (i.e., perpendicular to the $x$-axis), and passing
+through the point $(d, 0, 0)$.   $ax + by = d$ would have as
+locus a plane {\it perpendicular\/} to the $x,y$-plane and intersecting
+it in the line in that plane with equation $ax + by = c$.
+%D  Diagram of ax + by = d
+{\it It is important to note that the equation $ax + by = d$ does not
+by itself specify a locus.  You must say whether you are considering
+a locus in the plane or in space.}    You should consider other
+variations on these themes and draw representative diagrams to make
+sure you understand their geometric significance.
+
+\mar{s1-42.ps}
+We saw that the coefficients $a, b$, and $c$ in the linear equation
+may be chosen to be the components of a normal vector $\N$. 
+ The significance
+of the constant $d$ is a bit trickier.  We have
+$$
+   d = ax_0 + by_0 + cz_0 = \N\cdot\r_0
+$$
+  It is easiest to understand this 
+if $\N$ is a unit vector, i.e., $a^2 + b^2 + c^2 = 1$, 
+so we suppose that to be the case.  Then $\N\cdot\r_0$
+is the {\it projection\/} of the position vector $\r_0$ of the
+reference point $P_0$ on the normal direction.   Since the 
+vector $\N$ can be placed wherever convenient, we move it so its
+tail is at the origin.  Then it is clear that this projection
+is just the {\it signed\/} distance of the plane to the origin.
+The sign depends on whether the origin is on the side of the
+plane pointed at by the normal or the other side.  (How?) 
+
+This reasoning can be extended further as follows.  Let $P_1$
+be any point, not necessarily the origin, and let
+$(x_1,y_1, z_1)$ be its coordinates.  Then the
+projection of $\overrarrow{P_0P_1}
+= \r_1 - \r_0$ on the vector $\N$ gives the signed perpendicular distance
+from the point $P_1$ to the plane.  Thus, if $\N$ is a unit vector,
+the {\it distance\/} is given by
+$$
+   D = |\N\cdot (\r_1 - \r_0)|.
+$$
+If $\N$ is not a unit vector, we may replace it by $\n = \dfrac 1{|\N|}\N$.
+This yields the formula for that distance
+\nexteqn
+$$\align
+   D &= \frac 1{|\N|} |\N\cdot\r_1 - \N\cdot\r_0| \\ 
+     &= \frac 1{\sqrt{a^2 + b^2 + c^2}}|ax_1 + by_1 + cz_1 - d|. \tag\eqn
+\endalign
+$$
+
+\mar{s1-43.ps}
+\nextex
+\example{Example \en}
+The distance of the point  $(-1, 1, 0)$ to the plane with equation
+$x + y + z = 1$ is 
+$$
+   \frac 1{\sqrt 3}| 1(-1) + 1(1) + 1(0) - 1| = \frac 1{\sqrt 3}.
+$$
+Note that the sign inside the absolute values is negative which
+reflects the fact that $(-1, 1, 0)$ is on the side of the plane
+opposite to that pointed at by  $\lb 1, 1, 1 \rb$.
+\endexample
+
+\subhead Intersection of Planes \endsubhead
+In general, two distinct planes in space are either parallel or they
+intersect in a line.  In the first case, the normal vectors are
+parallel.  
+\outind{line as intersection of planes}%
+
+\nextex
+\example{Example \en}
+The loci of
+$$\align
+     2x - 3y + 2z &= 12 \\
+\text{and}\qquad -6x + 9y - 6z &= 12
+\endalign $$
+are parallel.  Indeed the indicated normal vectors are
+$\lb 2, -3, 2\rb$ and $\lb -6, 9, -6\rb$ which are multiples of
+one another, so they are parallel.
+(How do you know the planes are not identical?)
+\endexample
+
+\mar{s1-44.ps}
+In the second case, there is a simple way to find an equation for
+the line of intersection of the two planes.
+
+\nextex
+\example{Example \en}   
+We find the line of intersection of the planes which are loci of
+the linear equations
+\nexteqn
+\xdef\eqtwo{\eqn}
+$$
+\align
+   6x + 2y -z &= 2 \\
+   x - 2y + 3z &= 5. \tag\eqn
+\endalign 
+$$
+\medskip
+\centerline{\epsfbox{s1-45.ps}}
+\medskip
+The line of intersection of the two planes is perpendicular to
+normals to both planes.  Thus it is perpendicular to
+$\lb 6, 2, -1 \rb$ and also to $\lb 1 , -2, 3 \rb$.   Thus, the
+cross product 
+$$
+\v = \lb 6, 2, -1 \rb\times \lb 1 , -2, 3 \rb = \lb 4, -19, -14 \rb
+$$
+ is parallel to the desired line.  To find a parametric representation
+of the line, it suffices to find one point $P_0$ in the line.
+We do this as follows.  In the system of equations (\eqn), choose
+some particular value of $z$, say $z = 0$.  this yields the system
+$$
+\align
+   6x + 2y  &= 2 \\
+   x - 2y &= 5 
+\endalign 
+$$
+which may be solved by the usual methods of high school algebra to
+obtain  $x = 1, y = -2$.  That tells us that the point $P_0$ with
+coordinates $(1, -2, 0)$ is a point on the line.  Hence,
+$$
+  \r = t\v + \r_0 = t\lb 4, -19, -14 \rb + \lb 1, -2, 0\rb
+        = \lb 4t + 1, -19t -2, -14t\rb
+$$
+is a vector parametric representation of the line.  (What would you
+have done if $x$  did not appear in either equation, i.e.,
+appeared with $0$ coefficients?  In that case, you would not be able
+to set $z = 0$ and solve for $x$.)
+\endexample
+
+Note that the symmetric equations of a line
+$$
+   \frac{x- x_0}a = \frac{y - y_0}b = \frac{z - z_0}c
+$$
+may be interpreted in this light as asserting the intersection
+of two planes.  The first equality could be rewritten
+$$
+    bx - ay = bx_0 - ay_0
+$$
+which defines a plane perpendicular to the $x,y$-plane. Similarly, the
+second equality could be rewritten
+$$
+     cy - bz = cy_0 - bz_0
+$$
+which defines a plane perpendicular to the $y,z$-plane.  The line
+is the intersection of these two planes.
+
+In general, the intersection of three planes in space is a point,
+but there are many special cases where it is not.  For example, the
+planes could be parallel, or
+the line of intersection of two of the planes might be parallel to
+the third, in which case they do  not intersect at all.  Similarly, all
+three planes could intersect in a common line.  This geometry is
+reflected in the algebra.  If the planes intersect in a single point,
+their defining equations provide a system of 3 equations in 3
+unknowns which have a unique solution.  In the second case, the
+equations are inconsistent, and there is no solution.  In the third
+case there are infinitely many solutions.   We shall return to
+a study of such issues when we study linear algebra and the solution
+of systems of linear equations.
+
+\subhead Elaborations \endsubhead
+The analytic geometry of lines and planes in space is quite interesting
+and presents us with many challenging problems.  We shall not go
+into this in detail in this course, but you might profit from trying
+some of the exercises.  One interesting problem, is to determine
+the perpendicular distance between skew lines in space.  If the
+lines are given parametrically by equations
+$$\align
+   \r &= t\v_1 + \r_1  \\
+    \r &= t\v_2 + \r_2,
+\endalign $$
+then the distance between the lines is given by
+\nexteqn
+$$
+ \frac{|(\r_2 - \r_1)\cdot(\v_2\times\v_1)|}{|\v_2\times\v_1|}.\tag\eqn
+$$
+See if you can derive this formula!   (There are some hints in the
+exercises.)
+\bigskip
+
+% Exercises (with answers) for section 5
+\input chap1.ex5
+
+
+\bigskip
+\nextsec{Integrating on Curves}
+\head \sn. Integrating on Curves \endhead
+\subhead Arc Length \endsubhead
+Suppose a particle follows a path in space (or in the plane) described
+by $\r = \r(t)$.  Suppose moreover it starts for $t = a$ at
+$\r(a)$  and ends
+for $t = b$ at $\r(b)$.
+We want to calculate the total distance it travels on the curve. 
+The correct formula for this distance is
+\nexteqn
+\xdef\eqnone{\eqn}
+$$
+   L = \int_a^b |\r'(t)| dt \tag\eqn
+$$
+\outind{arc length}%
+where $\r'(t) = \dfrac{d\r}{dt}$ is the velocity vector at time $t$
+(when the particle has position vector $\r(t)$).
+\medskip
+\centerline{\epsfbox{s1-46.ps}}
+\medskip
+This makes sense, because $|\r'(t)|$ should be the {\it speed\/}
+\outind{speed}%
+of the particle at time $t$, so $|\r'(t)|dt$ should
+be a good approximation to the distance traveled in a small time
+interval $dt$. (Integration amounts to adding up the incremental
+distances.)  
+
+\nextex
+\xdef\exone{\en}
+\example{Example \en}
+Let $\r = R\cos t\,\i + R\sin t\, \j$ with $0\le t \le 2\pi$.  As we
+saw earlier, this describes one circuit of a circle of radius $R$
+centered at the origin.  We have
+$$
+   \frac{d\r}{dt} = -R\sin t \, \i + R\cos t \, \j,
+$$
+so $|\r'(t)| = \sqrt{R^2\cos^2 t + R^2\sin^2 t} = R$.  Hence,
+$$
+    L = \int_0^{2\pi} R dt =\left . R t \right\vert_0^{2\pi} = 2\pi R
+$$
+just as we would expect.
+\endexample
+
+
+\mar{s1-47.ps}
+Formula (\eqnone) may be taken as the {\it definition\/} of the
+arc length of the curve, but a little more discussion will clarify
+ its ramifications.
+Choose $n + 1$ points $\r_0, \r_1, \r_2, \dots, \r_n$ on the curve (as 
+indicated in the diagram) by choosing a partition of the
+time interval
+$$  
+a = t_0 < t_1 < t_2 < \dots < t_{n-1} < t_n = b,
+$$
+and letting the $i$th position vector $\r_i = \r(t_i)$.  
+\medskip
+\centerline{\epsfbox{s1-48.ps}}
+\medskip
+For two
+neighboring points $\r_{i-1}$ and $\r_i$ on the curve, the
+displacement vector $\Delta \r_i = \r_i - \r_{i-1}$ is represented in
+the diagram
+by the {\it chord\/} connecting the points.  Hence, for any plausible
+definition of length, the length of arc $\Delta s_i$ on the
+curve from $\r_{i-1}$ to $\r_i$ is approximated quite well by
+the length of the chord, at least if the points are closely spaced.
+Thus
+$$
+      \Delta s_i \approx |\Delta \r_i|.
+$$
+(`$\approx$' means `is approximately equal to'.)  Hence, if we
+add everything up, we get
+$$
+    L = \sum_{i=1}^n \Delta s_i \approx \sum_{i=1}^n |\Delta \r_i|,
+$$
+that is, {\it the length of the curve is approximated by the length of
+the polygonal path\/} made up of the chords.
+To relate the latter length to the integral,
+note that if we put 
+$\Delta t_i = t_i - t_{i-1}$,  then for closely spaced points
+$$
+     \Delta \r_i \approx \r'(t_{i-1})\Delta t_i.
+$$
+Putting this in the prior formula for L yields
+$$
+    L \approx \sum_{i=1}^n |\r'(t_{i-1})| \Delta t_i,
+$$
+and the sum on the right is one of the approximating (Riemann) sums
+which approach the integral $\displaystyle {\int_a^b|\r'(t)| dt}$
+as $n \to \infty$.
+
+In our discussions, we have denoted the independent variable
+by `$t$' and thought of it as
+time.  Although this is helpful in kinematics, from a mathematical
+point of view this is not necessary.  Any vector valued function
+$\r = \r(u)$ of a variable $u$ can be thought of as yielding a
+curve as $u$ ranges through the set of values in the domain of
+the function.  As mentioned elsewhere, the variable $u$ is usually
+called a {\it parameter\/}, and often it will have some geometric
+or other significance.
+For example, in Example \exone, it might have made more sense to call
+the parameter $\theeta$ (instead of $t$) and to think of it as the
+angle the position vector makes with the positive real axis.
+
+\nextex
+\example{Example \en}
+We shall find the length of the parabola with equation $y = x^2$
+on the interval $-1\le x \le 1$.   One parametric representation
+of the parabola  would be $\r = x \i + y \j = t \i + t^2 \j$
+where $-1 \le t \le 1$.  However, there is no real need to introduce
+a new variable; we might just as well use $x$, and write instead 
+  $$
+     \r = x\,\i + x^2\,\j,\qquad -1 \le x \le 1.
+$$
+The formula (\eqnone) still applies with $t$ replaced by $x$.
+Then,
+$$
+     \frac{d\r}{dx} = \i + (2x)\j,
+$$
+so $|\r'(x)| = \sqrt{ 1 + 4x^2}$.
+Hence,
+$$
+  L = \int_{-1}^1 \sqrt{1 + 4x^2} dx = \sqrt 5 + 
+\frac 14\ln\frac{\sqrt 5 + 2}{\sqrt 5 - 2}.
+$$
+
+\mar{s1-49.ps}
+You should ponder what we just did, and convince yourself there is
+nothing peculiar about the use of $x$ as parameter.
+\endexample
+
+As the previous example shows, calculation of lengths often results
+in difficult integrals because of the square root.  Recourse to
+integral tables or appropriate computer software is advised.
+
+There is one very tricky point in using formula (\eqnone) to
+{\it define\/} length of arc on a curve.  The same curve might
+be given by two different parametric representations
+$\r = \r_1(u), a\le u \le b$ and $\r = \r_2(v), c \le v \le d$.
+How can we be sure we will get the {\it same\/} answer for
+the length if we compute
+$$
+   \int_a^b |\r'_1(u)| du\qquad\text{and}\qquad
+\int_c^d |\r_2'(v)| dv ?
+$$
+The superficial answer is that in general we won't always
+get the same answer.  For example,
+a circle might be represented parametrically in two different
+ways, one which traverses the circle  once, and one
+which traverses it twice, and the answers for the length
+would be different.  The curve {\it as a point set\/}
+does not by itself determine the answer if part or all of it
+is covered more than once in a given parametric representation.
+This issue, while something to
+worry about in specific examples, is really a red herring.  If we
+are careful to choose parametric representations which trace each
+part of the curve {\it exactly once}, then we expect always
+to get the same answer.  (Such representations are called
+{\it one-to-one}.)  Our reason for believing this is that
+we think of length as a physical quantity which can be measured
+by tapes (or more sophisticated means), so we expect the mathematical
+theory to fall in line with reality.  Unfortunately, it is not logically
+or philosophically legitimate to 
+identify the world of  mathematical discourse with
+physical reality, so it is incumbent on mathematicians to {\it prove\/}
+that all one-to-one parametric representations yield the same answer.
+We won't actually do this in this course, but some of the relevant
+issues are discussed in the Exercises.
+
+
+\subhead Line Integrals \endsubhead
+In elementary physics, the work $W$ done by a constant force
+$F$ exerted over a distance $\Delta$ is defined to be
+the product $F\Delta$.
+%D   Work.
+\outind{work}%
+In more complicated situations, physicists need to deal with
+forces which may vary or which may not point along the direction
+of motion.  In addition, they have to worry about motion which
+is not constrained to a line.  We shall investigate the mathematical
+concepts needed to generalize the concept of work in those
+situations.  First suppose that the work is done along a line,
+but that the force varies with position on the line.  If $x$
+denotes a coordinate describing that position, and the force
+is given by $F = F(x)$, then the work done going from
+$x = a$ to $x = b$ is
+$$
+   W = \int_a^b F(x)dx.
+$$
+\medskip
+\centerline{\epsfbox{s1-50.ps}}
+\medskip
+The justification for that formula is that if we think of the
+interval $[a,b]$ being partitioned into small segments by
+division points
+$$
+ a= x_0 < x_1 < x_2 < \dots < x_{n-1} < x_n = b,
+$$
+then the work done going from $x_{i-1}$ to $x_i$ should be
+given approximately by $\Delta W_i \approx F(x_{i-1})\Delta x_i$
+where $\Delta x_i = x_i - x_{i-1}$.  Adding up and taking a limit
+yields the integral.
+
+\nextex
+\example{Example \en}
+Suppose $F(x) = -kx, 0\le x \le D$.  (This is the restoring force
+of a spring, where the constant $k$ is the {\it spring constant}.)
+Then
+$$
+     W = \int_0^D (-kx)dx =\left . -k\frac{x^2}2\right\vert_0^D = - \frac {kD^2}2.
+$$
+\endexample
+
+More generally, the force may not point in the direction of
+the displacement.  If that is the case, we simply use the
+component of the force in the direction of the displacement.
+Thus, if the force $\F$ is a constant vector, and the displacement
+is given by a vector $\Delta \r$, then the component in the
+direction of of $\Delta \r$ is $|\F|\cos \theeta$ and the work
+is $(|\F|\cos \theeta)|\Delta \r|$, which you should recognize
+as the dot product
+$$
+    \F\cdot \Delta\r.
+$$
+If the force is not constant, this formula will still be approximately
+valid if the magnitude of the displacement $\Delta \r$ is sufficiently
+small.
+
+\mar{s1-51.ps}
+We are now ready to put all this together for the most general
+situation.  Suppose we have a force $\F$ which may vary from point
+to point, and it is exerted on a particle moving on a path
+given parametrically by $\r = \r(u), a \le u \le b$.  (We assume
+also that the representation is one-to-one, although it turns out
+that this is not strictly necessary here.)  The correct mathematical
+quantity to use for the work done is the integral
+\nexteqn
+\xdef\LineInt{\eqn}
+$$
+   \int_a^b \F(\r(u))\cdot\r'(u) du. \tag\eqn
+$$
+\outind{line integral}%
+\medskip
+\centerline{\epsfbox{s1-52.ps}}
+\medskip
+The idea behind this formula is that $d\r = \r'(u)du$ is the
+displacement along the curve produced by a small increment
+$du$ in the parameter, so $\F\cdot d\r = \F\cdot\r'(u)du$
+is a good approximation to the work done in that displacement.
+As usual, the integral sign suggests a summing up of the
+incremental contributions to the total work.
+
+\nextex
+\xdef\CircEx{\en}
+\example{Example \en}
+Let $\Cal C$ be a circle of radius $R$ centered at the origin and
+traversed in the counter-clockwise direction.  $\Cal C$
+may be represented parametrically by
+$$
+\r = (R\cos\theeta)\i + (R\sin\theeta)\j,\qquad 0\le \theeta \le 2\pi.
+$$
+Suppose the the force
+is given by $\F = -y\,\i + x\,\j$.   To calculate the work
+by formula (\LineInt), we calculate
+$$
+     \r'(\theeta) - (-R\sin\theeta)\i + (R\cos\theeta)\j,
+$$
+and note that since $x = R\cos\theeta, y = R\sin\theeta$ {\it on the
+circle\/}, we have
+$$
+   \F = -y\,\i + x\,\j = (-R\sin\theeta)\i + (R\cos\theeta)\j.
+$$
+Hence,
+$$
+W = \int_0^{2\pi} (R^2\cos^2\theeta + R^2\sin^2\theeta)d\theeta =
+           \int_0^{2\pi} R^2 d\theeta = 2\pi R^2.
+$$
+
+\mar{s1-53.ps}
+Note that had we not substituted for $x$ and $y$ in terms of $\theeta$
+in the expression for $\F$, we would have gotten a meaningless
+answer with $x$'s and $y$'s in it.   Generally, when working
+such problems, one must be sure that  the relevant quantities in the integrand
+have all been expressed in terms of the parameter.
+\endexample
+
+Some additional discussion will clarify the meaning of formula
+(\LineInt).   Suppose a curve $\Cal C$ is represented
+parametrically by a vector function
+$\r = \r(u), a\le u \le b$, and suppose a  force $\F$
+is defined on $\Cal C$ but may vary from point to point.  Choose
+a sequence of points on the curve with position vectors
+$\r_0, \r_1, \dots, \r_n$ by subdividing the parameter domain
+$$
+    a = u_0 < u_1 < u_2 < \dots < u_{n-1} < u_n = b
+$$
+and letting $\r_i = \r(u_i)$.  Let $\Delta \r_i = \r_i - \r_{i-1}$.
+\medskip
+\centerline{\epsfbox{s1-54.ps}}
+\medskip
+Then it is plausible that the work done moving along the curve
+from $\r_{i-1}$ to $\r_i$
+ is approximated by $\F(\r_{i-1})\cdot\Delta\r_i$,
+at least if $|\Delta r_i|$ is small.  Moreover, adding it all up,
+we have
+$$
+      W \approx \sum_{i=1}^n \F(\r_{i-1})\cdot\Delta \r_i.
+$$
+Just as in the case of arc length, the right hand side approaches
+the integral in formula (\LineInt) as a limit as $n \to \infty$
+and as the points get closer together.
+
+We introduce the following notation for the limit of the sum
+\nexteqn
+\def\LineIntII{\eqn}
+$$
+\int_{\Cal C} \F\cdot d\r = \lim \sum_{i=1}^n \F(\r_{i-1})\cdot\Delta \r_i
+            = \int_a^b\F(\r(u))\cdot\r'(u)\,du,
+$$
+and call it  a {\it line integral}.  It first appears in
+physics in discussions of work and energy where $\F$ represents a
+force, but it may be thought of as a mathematical entity
+defined for any vector function of position $\F$.  
+
+The curve $\Cal C$ and ultimately the line integral have been
+discussed in terms of a specific parametric representation
+$\r = \r(u)$.  As in the case of arc length, it is possible to
+show that different parametric representations produce the same
+answer {\it except for one additional difficulty}.   In the
+formula for arc length, we dealt with $|\Delta \r|$, so the
+{\it direction\/} in which the curve was traced was not relevant.
+In the case of line integrals, we use $\F\cdot\Delta\r$, so
+reversing the direction changes the sign of $\Delta\r$ and
+hence it changes the sign of the line integral.  Line integrals,
+in fact, must be defined for {\it oriented\/} curves for which
+one of the two  possible directions has been specified.   If
+$\Cal C'$ and $\Cal C$ are the same curve but traversed in opposite
+directions then
+$$
+    \int_{\Cal C'}\F\cdot d\r = - \int_{\Cal C} \F\cdot d\r.
+$$ 
+\medskip
+\centerline{\epsfbox{s1-55.ps}}
+\medskip
+There are several different notations for line integrals. 
+For example, you may see
+$$
+  \int_{\Cal C}\F\cdot d\bold l\qquad\text{or}\qquad
+  \int_{\Cal C} \F\cdot d\bold s.
+$$
+The `$d\bold s$' suggests a vector version of the element of
+arc length $ds = |\r'(t)| dt$.   We can also write formally,
+$\F = F_x\i + F_y\j + F_z\k, d\r = dz\,\i + dy\,\j + dz\,\k$,
+so $\F\cdot d\r = F_xdx + F_ydy + F_zdz$, and
+$$
+  \int_{\Cal C} \F\cdot d\r = \int_{\Cal C} F_xdx + F_ydy + F_zdz.
+$$
+\mar{s1-56.ps}
+The notation
+$$
+   \oint \F\cdot d\r
+$$
+is sometimes used to denote a line integral for an unspecified
+closed path (i.e., one which starts and ends at the same point.)
+Finally, in some cases the line integral depends only on the
+endpoints of $A$ and $B$ of the path, so you may see the notation
+$$
+   \int_A^B\F\cdot d\r
+$$
+or something equivalent.  We shall discuss some of these concepts
+and special notations later in this course.
+\smallskip
+\mar{s1-57.ps}
+\smallskip
+
+
+\goodbreak
+\subhead Geometric Reasoning \endsubhead
+\nobreak
+\example{Example \CircEx, {\rm revisited}}
+In applying formula (\LineInt) to Example \CircEx, you may have
+noticed that, on the circle, the force
+$$\align
+  \F &= -R\sin\theeta\, \i + R\cos\theeta \,\j \\
+\intertext{and the displacement}
+  d\r &= \r'(\theeta)d\theeta = (-R\sin\theeta\, \i + R\cos\theeta\,\j)d\theeta
+\endalign$$
+have the same direction.  
+  If we had been able to visualize this
+geometric relationship, we could have calculated the line integral
+more directly.   
+Thus,
+$$
+     \F\cdot d\r = |\F||d\r|\cos 0 = |\F||d\r|.
+$$
+On the other hand, $|\F| = \sqrt{(-y)^2 + x^2} = \sqrt{R^2} = R$,
+and $|d\r| = ds = Rd\theeta$.  (The length of arc on a circle is always
+the radius of the circle times the subtended angle).   Hence,
+we could have written directly
+$$
+  \int_{\Cal C} \F\cdot d\r = \int_0^{2\pi} R\, R d\theeta = 2\pi R^2.
+$$
+\endexample
+
+\mar{s1-58.ps}
+You will often see this approach used by physicists or engineers. 
+ Note that
+it emphasizes the geometric or physical significance of the
+quantities, and it often makes clear underlying simplicity
+ which might otherwise be hidden by complicated
+formulas.   The approach used previously seems more straightforward,
+but that is because the the geometric (or physical) part of the problem
+had already been solved for you by giving you the
+parametric representation.  For a real problem, you would have to
+do that yourself.
+
+To approach line integral problems geometrically, it is useful
+to introduce one final bit of notation.  We can think
+of the displacement $d\r$ as connecting two very close points on
+the curve, or to a high degree of approximation as being tangent
+to the curve.  We have already introduced the notation $ds$
+for the magnitude of $d\r$, and we can specify its direction by
+giving the unit vector $\T$ which is tangent to the curve at the
+point and which points in the preferred direction along the curve.
+Then $d\r = \T\,ds$, and we may write
+$$
+   \int_{\Cal C} \F\cdot d\r = \int_{\Cal C}\F\cdot \T\, ds.
+$$  
+It is important to note that this last formula is only useful
+if you argue geometrically.
+
+\nextex
+\example{Example \en}
+Suppose $\F = 2x\j$ and let $\Cal C$ be the path which starts at
+$(0,0)$, moves to $(1,0)$ and then moves to $(1,1)$.   (See
+the diagram.)  In this case, the path consists of two segments
+$\Cal C_1$ and $\Cal C_2$ joined at a corner where the direction
+changes discontinuously.  Clearly, the proper definition of
+the line integral in this situation should be
+$$
+   \int_{\Cal C}\F\cdot d\r = 
+   \int_{\Cal C_1}\F\cdot d\r + 
+   \int_{\Cal C_2}\F\cdot d\r. 
+$$
+For the first segment $\Cal C_1$, $\F = 2x\j$ is perpendicular to
+$\T$ (hence, to $d\r$), so $\F\cdot d\r = 0$.   Thus the first
+integral vanishes.   For the second segment, $\Cal C_2$, 
+$\F = 2x\j = 2\j$, and $d\r = \T\, ds = \j\,dy$.  $\F$ and $\T$
+point the same way, so $\F\cdot d\r = 2 ds = 2 dy$.   Hence,
+$$
+   \int_{\C_2}\F\cdot d\r = \int_0^1 2\, dy = \left. 2y\right\vert_0^1
+                = 2.
+$$
+To find the total answer, add up the answers for the two segments to
+get $0 + 2 = 2$.
+\endexample
+\centerline{\epsfbox{s1-59.ps}}
+\medskip
+\nextex
+\example{Example \en}
+Let $\F = 2x\j$ as in the previous example, but let $\Cal C$ be the
+straight line segment from $(0,0)$ to $(1,1)$.   Then, $\F = 2x\j$
+makes angle $\pi/4$ with $\T$ (hence, with $d\r$).  Thus,
+$$\F\cdot d\r = |\F|ds\, \cos(\frac\pi 4) = 2x ds\frac 1{\sqrt 2}.$$
+Choosing $x$ as the parameter, we may write $ds = \sqrt 2 \, dx$,
+so
+$$
+ \int_{\Cal C}\F\cdot d\r = \int_0^1 \frac{2x\sqrt 2 dx}{\sqrt 2}
+                   = \int_0^1 2x\,dx = \left. x^2\right\vert_0^1 = 1.
+$$
+
+Here is another slightly different way to do the calculation.
+We have $\F = 2x \j, \, d\r = dx\,\i + dy\, \j$.  Hence,
+$\F\cdot d\r = 2x\,dy$.   It would seem appropriate to choose
+$y$ as parameter, so since $x = y$ on the given line, we have
+$$
+ \int_{\Cal C}\F\cdot d\r = \int_0^1 2y\,dy = 1.
+$$
+
+Finally, the calculation could be done using formula (\LineInt)
+as follows.  The given line
+segment can be described by the parametric representation
+$\r = t\,\i + t \,\j, \, 0\le t \le 1$.   Then
+$\r'(t) = \i + \j$, and on the line $\F = 2x\,\j = 2t\,\j$.
+Hence, by formula (\LineInt),
+$$
+  \int_{\Cal C} \F\cdot d\r = \int_0^1(2t\,\j)\cdot(\i + \j)dt
+ = \int_0^1 2t\,dt = 1.
+$$ 
+\endexample
+
+\subhead Polar Coordinates \endsubhead
+In polar coordinates, the velocity vector is given by
+$$
+   \frac{d\r}{dt} = \frac{dr}{dt} \u_r + r\frac{d\theeta}{dt}\u_\theeta
+$$
+so we may write symbolically
+$$
+   d\r = \frac{d\r}{dt} dt = dr\,\u_r + rd\theeta\,\u_\theeta.
+$$
+Hence, if $\F = F_r\u_r + F_\theeta\u_\theeta$ is resolved into
+polar components, we may write
+$$
+  \int_{\Cal C} \F\cdot d\r = \int_{\Cal C} F_rdr + F_\theeta r\,d\theeta.
+$$
+
+\example{Example}
+Let $\F = -\dfrac 1{r^2} \u_r$.    Such a force has magnitude
+ inversely proportional to the square of the distance to the origin
+and is directed toward the origin.   (Does it remind you of anything?)
+Let  $\Cal C$ be any path whatsoever, which starts at a point
+with $r = a$ and ends up at a point with $r = b$.   We have
+$$
+    \F\cdot d\r = (-\frac 1{r^2} \u_r) \cdot (dr\,\u_r + rd\theeta\,\u_\theeta)
+      = -\frac 1{r^2} dr.
+$$
+(In other words, only the radial component of the displacement counts
+since the force is entirely radial in direction.)
+If we choose $r$ as the parameter, we have
+$$
+   \int_{\Cal C} \F\cdot d\r = \int_a^b -\frac 1{r^2} dr
+            = \left.\frac 1r\right\vert_a^b = \frac 1b - \frac 1a.
+$$
+In particular, the answer does not depend on the path, only on the
+values of $r$ at the start and finish.
+\medskip
+\centerline{\epsfbox{s1-60.ps}}
+\medskip
+Note that the argument (and diagram) presumes that the particle moves
+in such a way that the radius always increases.  Otherwise, it would
+not make sense to use $r$ as the parameter, since there should be
+exactly one point on the curve for each value of the parameter.
+  Can you see how to make
+the argument work if the path is allowed to meander in such a way
+that $r$ sometimes increases and sometimes decreases?
+\endexample
+\bigskip
+
+% Exercises (with answers) for section 6
+\goodbreak
+\input chap1.ex6
+
+\goodbreak
+\endchapter
+\closeseg{chap1}
+\enddocument

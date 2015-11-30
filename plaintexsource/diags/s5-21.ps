@@ -1,0 +1,104 @@
+%!
+%%Title: /tmp/xfig-export018108
+%%Creator: fig2dev
+%%CreationDate: Wed Dec 25 16:50:31 1991
+%%For: len@schur (Len Evens)
+%%BoundingBox: 0 0 79 133
+%%Pages: 0
+%%EndComments
+/$F2psDict 64 dict def 
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y translate xrad yrad scale 0 0 1 startangle endangle arc
+	savematrix setmatrix
+	} def newpath 0 0 0 0 0 1 DrawEllipse stroke
+
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+	/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+	/$F2psEnd {$F2psEnteredState restore end} def
+	%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-264 186 translate
+0.0 133.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Ellipse
+n 306 351 3 3 0 360 DrawEllipse gs 0.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 378 210 3 3 0 360 DrawEllipse gs 0.00 setgray fill gr
+gs col-1 s gr
+% Polyline
+n 329 289 m 341 279 l gs col-1 s gr
+n 333.574 282.585 m 341.000 279.000 l 336.135 285.658 l gs 2 setlinejoin col-1 s gr
+% Polyline
+n 329 290 m 314 212 l gs col-1 s gr
+n 313.547 220.234 m 314.000 212.000 l 317.475 219.478 l gs 2 setlinejoin col-1 s gr
+	1 setlinecap [1 3.000000] 3.000000 setdash
+% Polyline
+n 303 311 m 367 258 l gs 0.00 setgray fill gr
+gs col-1 s gr
+	[] 0 setdash 0 setlinecap
+% Open spline
+n 307.000 351.000 m 309.500 325.000 l
+	309.500 325.000 312.000 299.000 341.000 281.000 DrawSplineSection
+	341.000 281.000 370.000 263.000 373.500 236.500 DrawSplineSection
+	377.000 210.000 l gs col-1 s gr
+/Times-Roman findfont 14.00 scalefont setfont
+348 296 m 
+gs 1 -1 scale (d) col-1 show gr
+/Times-Bold findfont 14.00 scalefont setfont
+360 296 m 
+gs 1 -1 scale (r) col-1 show gr
+/Times-Bold findfont 14.00 scalefont setfont
+327 228 m 
+gs 1 -1 scale (F) col-1 show gr
+/Times-Roman findfont 14.00 scalefont setfont
+293 349 m 
+gs 1 -1 scale (A) col-1 show gr
+/Times-Roman findfont 14.00 scalefont setfont
+363 216 m 
+gs 1 -1 scale (B) col-1 show gr
+$F2psEnd

@@ -1,0 +1,302 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Let $\F(x,y,z) = -y\i + x\j + z\k$.
+   Use Stokes's Theorem to evaluate 
+$\int_{\Cal C}\F\cdot d\r$ for each of the following paths.
+
+(a)  A circle  of radius $a$ in the plane $z = 5$ centered on
+the $z$ axis and traversed counterclockwise when viewed from
+above.
+
+(b)  A circle of radius $a$ in the plane $x = 3$ centered on the
+$x$-axis and traversed counterclockwise when viewed from
+in front.
+
+(c) The intersection of the paraboloid $z = x^2 + y^2$ with the
+paraboloid $z = 8 - x^2 - y^2$ traversed counterclockwise
+when viewed from above.
+
+\answer{  $\nabla\times\F = 2\k$.\par
+ (a)  Let $\Cal S$ be the disk spanning the
+circle.   Then, $\N = \k$, and
+ $\iint_{\Cal S}\nabla\times\F\cdot \N\,dS = 2(\pi a^2)$.\par
+(b)  Let $\Cal S$ be the disk spanning the circle.  Then,
+$\N = \i$, and $\nabla\times\F\cdot\N = 0$, so the answer
+is 0.\par
+(c)  The intersection is a circle in the plane $z = 4$, of
+radius 2, and centered on the $z$-axis.   As in (a), the
+answer is $2(\pi 2^2) = 8\pi$.
+
+
+
+}
+
+\item   For each of the following surfaces $\Cal S$ determine the
+proper coherent direction of the normal vector if the boundary $\Cal C =
+\d \Cal S$ is traversed in the indicated direction.
+
+(a)  The half open cylinder $x^2 + z^2 = 1, 0\le y \le 2$, closed off on the
+left by the disk $x^2 + z^2 \le 1$ in the $x, z$-plane.  Assume
+the boundary $x^2 + z^2 = 1, \, y = 2$ is traversed counterclockwise
+with respect to the positive $y$-axis, i.e., it comes toward you
+and down in the first octant.
+
+(b) The half open cylinder as in part (a), but open on the left
+and closed off on the right.  Assume $\Cal C$ is also traversed
+counterclockwise with respect to the positive $y$-axis.
+
+(c) The part of the paraboloid $z = 25 - x^2 - 2y^2$ above
+ the plane $x + y + z = 1$.   Assume the boundary $\Cal C$ is traversed
+counterclockwise with respect to the positive $z$-axis. 
+
+\answer{ (a) The normals point into the cylinder. \par
+(b)  The normals point out of the cylinder. \par
+(c)  The normals point away from the origin and generally
+upward.
+
+
+
+}
+
+\item   For each of the following surfaces $\Cal S$ with the
+indicated normal vectors, describe the proper coherent orientation
+for its boundary $\Cal C = \d \Cal S$. 
+
+(a)  The part of the cone $z = \sqrt{x^2 + 4 y^2}$ below the plane
+$3x + 4y + z = 10$.  Use normals pointing roughly away from
+the $z$-axis.
+
+(b)  The 3 faces of the unit cube in the first octant which
+lie in the coordinate planes.   Use normals pointing into the
+first octant.   Make sure you indicate the proper orientation
+for each of the 6 components of the boundary.
+
+(c)  The portion of the hyperboloid of one sheet
+$x^2 - y^2 + z ^2 = 1$ between the planes $y = 1$ and $y = -1$.
+Use normals pointing away from the $y$-axis.  Hint:  Note that
+the boundary consists of two disconnected curves.
+
+\answer{ (a) The curve should be traversed roughly in the clockwise
+sense about the $z$-axis. \par
+(b) Start at $(1,0,0)$.   Go to $(1,1,0)$, then to $(0,1,0)$,
+then to $(0,1,1)$, then to $(0,0,1)$, then to $(1,0,1)$,
+and finally back to $(1,0,0)$.\par
+(c)  The component of the curve in the plane $y = 1$ should be
+traversed in the clockwise direction about the positive $y$-axis.
+Similarly for the curve in the plane $y = -1$ relative to the
+negative $y$-axis.  The two curves are traversed in opposite
+directions.
+
+
+
+}
+
+\item  Let $\F(x,y,z) = -y\i + x\j + z\k$.
+   Use Stokes's Theorem to evaluate
+$\int_{\Cal C}\F\cdot d\r$ where $\Cal C$ is the intersection of
+the surface of
+the unit cube in the first octant with the plane  $z = \dfrac x{10} +
+\dfrac y{12}$.   Assume the curve is traversed counterclockwise when
+viewed from above.   Hint:  Think of $\Cal C$ as the boundary of
+the surface consisting of the vertical faces of the cube below
+the curve together with the bottom face.
+
+\answer{  Let $\Cal S$ be the part of the cube described in the
+hint.  Since $\nabla\times\F = 2\k$, it is perpendicular to the
+normals for the vertical faces of the cube and hence those portions
+of $\Cal S$ contribute nothing to the surface integral.   Because
+of the orientation of the curve, the normals point into the
+cube, so on the bottom face of the cube, we need to take $\N = \k$.
+Hence, the surface integral for this face is $2\cdot 1^2 = 2$.\par
+You could also do the problem by spanning the curve by the portion
+of the plane $z = \dfrac x{10} +\dfrac y{12}$ cut off by the cube.
+Then use $d\S = \lb -1/10,-1/12,1\rb dx\,dy$ and integrate 
+$\nabla\times\F\cdot d\S = 2\,dx\,dy$
+over the unit square.
+
+
+
+}
+
+\item   Evaluate $\int_{\Cal C} (\sin(x^3) + y)dx + (e^{y^2} + x)dy
++ \cos z \, dz$ for $\Cal C$ the intersection of the ellipsoid
+$\dfrac{x^2}4 + \dfrac{y^2}9 + \dfrac{z^2}{25} = 1$
+with the paraboloid $z = x^2 + y^2$.   Find the answer for both
+possible orientations of this curve.
+
+\answer{ For $\F = \lb \sin(x^3) + y, e^{y^2} + x, \cos z \rb$,
+$\nabla\times\F = \bold 0$.   Hence, the answer is zero for either
+orientation.   Note that this problem could have been extremely
+difficult if $\nabla\times\F$ had been non-zero
+since it would be hard to describe the projection of an appropriate
+surface spanning $\Cal C$ in the $x,y$-plane.
+
+
+
+}
+
+\item  Let $\Cal S$ be a simple closed surface in $\R^3$ and let
+$\F$ be a smooth vector field with domain containing $\Cal S$.
+
+(a)  Assume $\F$ is smooth on the interior $E$ of $\Cal S$.
+Use the divergence theorem and the formula $\nabla\cdot(\nabla\times\F)
+= 0$ to prove that $\iint_{\Cal S} (\nabla\times\F)\cdot d \S = 0$.
+Use outward normals.
+
+(b)  Do not assume that $\F$ is necessarily smooth on the interior
+of $\Cal S$.  Prove the above formula by means of Stokes's Theorem
+as follows.  Decompose $\Cal S = \Cal S_1 \cup \Cal S_2$ into
+a union of two subsurfaces which meet only on their common
+boundary $\Cal C$.  Note that $\Cal C$ is traversed in
+opposite directions for the two surfaces if its orientation 
+is consistent with the use of the outward orientation of normals
+on both.
+
+\answer{ (b)  In this case, the divergence theorem does not apply
+because the vector field may not be smooth in the interior of
+$\Cal S$.    We have
+\begin{align*}
+\iint_{\Cal S} \nabla\times\F\cdot d\S &=
+\iint_{\Cal S_1} \nabla\times\F\cdot d\S +
+\iint_{\Cal S_2} \nabla\times\F\cdot d\S \\
+&= \int_{\d \Cal S_1} \F\cdot d\r +\int_{\d \Cal S_2} \F\cdot d\r = 0
+\end{align*}
+since the two line integrals are on the same path but in opposite
+directions.
+
+
+
+}
+
+\item   Let $\F = \langle yz, -xz, xy \rangle$.  Calculate $\nabla\times \F$.
+Let $C$ be the unit circle $x^2 + y^2 = 1$ in the $x,y$-plane traversed
+counterclockwise.   (a) Calculate $\displaystyle\iint_S \nabla\times\F\cdot
+\bold N\, dS$ for $S$ the unit disk in the $x,y$-plane.  (b) Make the same
+calculation for $S$ the hemisphere $x^2 + y^2 + z^2 = 1, z \le 0$.
+(c)  Make the same calculation if $S$ is made up of the cylindrical
+surface $x^2 + y^2 = 1, 0 \le z \le 1$ capped off on top by the
+the plane disk $z = 1, x^2 + y^2 \le 1$.   Note that in each case
+the boundary of $S$ is the curve $C$, so the answers should all be the
+same (in this case 0).  Make sure you choose the proper direction for
+the normal vectors for each surface.
+
+\answer{ $\nabla\times\F = \lb 2x, 0, -2z \rb$. \par
+(a) For $z = 0$,  $\nabla\times\F = \lb 2x, 0, 0\rb$ is perpendicular to
+ $\N = \k$ so the surface
+integral is zero. \par
+(b)  Use spherical coordinates.  On $\Cal S$,  we have
+$\nabla\times\F = 2x\i -2z\k = 2(\sin\phi\cos\theta\i - \cos\phi\k)$.
+Also, $\N = - \u_\rho$, so
+\begin{align*}
+\nabla\times\F\cdot\N &= -2(\sin\phi\cos\theta (\i\cdot\u_\rho)
+  - \cos\phi(\k\cdot\u_\rho)) \\
+ &= -2(\sin^2\phi\cos^2\theta - \cos^2\phi).
+\end{align*}
+Hence,
+\begin{align*}
+\iint_{\Cal S} \nabla\times\F\cdot\N\,dS &=
+-2\int_0^{2\pi}\int_{\pi/2}^\pi
+(\sin^2\phi\cos^2\theta - \cos^2\phi)\sin\phi\,d\phi\,d\theta \\
+&=-2\int_0^{2\pi}\cos^2\theta\,d\theta \int_{\pi/2}^\pi\sin^3\phi\,d\phi
+  +4\pi\int_{\pi/2}^\pi\cos^2\phi\sin\phi\,d\phi \\
+&=-2\pi\frac 23 + 4\pi \frac 13 = 0.
+\end{align*}\par
+(c)  Use cylindrical coordinates on the lateral part of the
+surface.  We have  $\nabla\times\F = 2\cos\theta\i - 2z\k$ and
+$\N = \u_r$.  Hence,
+\[
+\nabla\times\F\cdot\N = 2(\cos\theta(\i\cdot\u_r) - z(\k\cdot\u_r))
+ = 2\cos^2\theta.
+\]
+Also, $dS = dz\,d\theta$, so
+ the surface integral for this part of the surface is
+\[
+2\int_0^{2\pi}\int_0^1 \cos^2\theta\,dzd\theta = 2\pi.
+\]
+For the top disk, $\N = \k$,
+so $\nabla\times\F\cdot\N = -2z = -2$.   Hence, the surface integral
+is $-2(\pi\,1^2) = -2\pi$.   The two contributions add up to zero. 
+  
+
+
+}
+
+\item   Let $\F$ be a smooth vector field in $\R^3$.
+
+(a)  Assume that $\int_{\Cal C} \F\cdot d\r = 0$ for every
+sufficiently small rectangular path, whatever its orientation.  
+Show that $\nabla\times\F = 0$.
+
+(b)  Suppose we only assume that $\int_{\Cal C} \F\cdot d\r = 0$
+for every sufficiently small rectangular path which lies in a
+plane parallel to one of the coordinate planes.  Can we still
+conclude that $\nabla\times\F = 0$?   Explain.
+
+\answer{ Use $(\nabla\times\F)\cdot\N
+=\lim_{\Cal S \to P}\dfrac 1{A(\Cal S)}\int_{\d\Cal S}\F\cdot d\r$.
+If we let $\Cal S$ range over a famility of rectangles perpendicular
+to $\N$ and shrinking to $P$, we get zero for the right hand side.
+It follows that $\nabla\times\F\cdot\N = 0$ for every possible
+$\N$.  Taking $\N$ equal respectively to $\i, \j$, and $\k$,
+we see that the components of $\nabla\times\F$ are zero.\par
+(b)  The argument still works because by the above argument the
+only $\N$'s that we need to look at are $\i, \j$, and $\k$.
+Similarly, since a limit is involved, it is only necessary to
+consider all sufficiently small rectangles.
+ 
+
+
+}
+
+\item   Let $\F =\dfrac 1r \u_\theta$ where $r = \sqrt{x^2 + y^2}$.
+
+(a)
+Let $C_1$ be a circular arc which is part of a circle of radius $r$
+parallel to the $x,y$-plane, centered on the $z$-axis and  with
+the arc subtending
+an angle $\alpha$.   Assume $C_1$ is oriented in the counterclockwise
+direction when viewed from above.
+  Show that $\displaystyle\int_{C_1} \F\cdot d\bold r
+= \alpha$.   
+
+(b)  Consider the following path $C$ in a plane parallel to the $x,y$-plane.
+Start at the point with cylindrical coordinates $(r, \theta, z)$
+and move in the positive $r$-direction to $(r + \Delta r, \theta, z)$,
+then along an arc (as above) to $(r + \Delta r, \theta + \Delta\theta,z)$,
+then to $(r, \theta + \Delta\theta, z)$, and finally back on a circular
+arc to $(r, \theta, z)$.   Using part (a), show that $\displaystyle\int_C
+\F\cdot d\bold r = 0$.  
+
+(c)  Show that $(\nabla\times\F)\cdot\k = 0$.
+
+(d)  Using a similar argument, show that
+$(\nabla\times \F)\cdot\u_\theta = 0$. 
+
+\answer{ (a) On $\Cal C_1$,
+ $\F\cdot d\r =  \dfrac 1r\,ds = \dfrac 1r\,r\,d\theta = d\theta$.\par
+(b) Along the radial segments of the path, $\F = \dfrac 1r\u_\theta$
+is perpendicular to $d\r$, so the integrals are zero.  Along the
+two circular portions of the path, the integrals (by part (a)) are
+$\alpha$ and $-\alpha$ because the are traversed in opposite
+directions.   The total is zero.\par
+(c)  We can choose a familiy of such curvilinear rectangles perpendicular
+to $\N = \k$ and converging to a specified point.   It follows that
+by taking the limit that $\nabla\times\F\cdot\k = 0$.\par
+(d)  Use a familiy of rectangles perpendicular to a fixed $\u_\theta$
+at a specified point.   The line integral over the perimeter of such
+a rectangle of $\F = \dfrac 1r\u_\theta$ is zero because
+$\F \perp d\r$ everywhere on such a path.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

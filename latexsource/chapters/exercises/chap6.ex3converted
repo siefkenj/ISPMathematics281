@@ -1,0 +1,140 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Find a general solution
+for each of the following linear differential equations.
+Either use the general formula, or find the general solution of
+the corresponding homogeneous solution and guess a particular
+solution.
+
+(a) $\dfrac{dy}{dt} -(\sin t)y = 0$. 
+
+(b) $\dfrac{dx}{dt} - \dfrac{2t}{1 + t^2}x = 1$.
+
+(c) $\dfrac{dy}{dx} = \dfrac 1x y + x$.
+
+\answer{ (a) $y = Ce^{-\cos t}$.\par
+(b) $h(t) = e^{\ln(1 + t^2)} = 1 + t^2$.  $y =
+(1 + t^2)\int \dfrac{dt}{1 + t^2} + C(1 + t^2)
+= (1 + t^2)(\tan^{-1} t + C)$.\par
+(c) $h(x) = x$.  $y = x^2 + Cx$.
+
+
+
+}
+
+\item 
+Solve each of the following initial value problems.
+Use the general formula or guess as appropriate.
+
+(a) $\dfrac{dp}{dt} + 2p = 6$ given $p(0) = 4$.
+
+(b)  $t\dfrac{dy}{dt} + 2y = 3t$ given $y(1) = 4$.
+
+(c) $(1 + t^2)\dfrac{dx}{dt} + 2t\,x = e^t$ given $x(0) = 0$.
+
+\answer{ (a) $y = 3 + Ce^{-2t}$.  $p(0) = 4$ yields
+$C = 1$, so the solution is $y = 3 + e^{-2t}$.\par
+(b) $y = t + \dfrac C{t^2}$.   $C = 3$, so $y = t + \dfrac 3{t^2}$.
+\par
+(c) $x = \dfrac{e^t - 1}{1 + t^2}$.
+
+
+
+
+}
+
+\item   The charge $q$ on a capacitor of capacitance $C$ in series
+with a resistor of resistance $R$ and battery with voltage $V$
+satisfies the differential equation
+\[
+R\frac{dq}{dt} + \frac qC = V.
+\]
+Assume $q(0) = 0$.  
+Find $\lim_{t \to \infty} q(t)$.    
+
+\answer{  $q = CV(1 - e^{-\frac t{RC}})$.   The limit is $CV$.
+
+
+
+}
+
+\item 
+In a certain chemical reaction, the rate of production
+of substance $X$ follows the rule
+\[
+\frac{dx}{dt} = -.001\,x + .01\, y
+\]
+where $x$ is the amount of substance $X$ and $y$ is the amount
+a catalyst $Y$.   If the catalyst also decomposes according to
+the rule  $y = 2e^{-.002\,t}$, find $x(t)$ assuming $x(0) = 0$.
+
+\answer{ $x = 20(e^{-.001\,t} - e^{-.002\,t})$.
+
+
+
+}
+
+\item 
+  Using the methods of the previous section, find an integrating
+factor $\mu = \mu(t)$ for
+\[
+  (b(t) - a(t) y)dt - dy = 0
+\]
+and then solve the resulting equation.  You should get the
+general solution of the inhomogeneous equation derived in
+this section.
+
+\answer{  An integrating factor satisfies
+\[
+\mu_y(b(t) - a(t)y) - \mu\,a(t) = -\mu_t.
+\]
+Try an integrating factor of the form $\mu = \mu(t)$.   The above
+becomes
+\[
+\frac{\mu'}{\mu} = a(t)
+\]
+which yields $\ln |\mu| = \int a(t)dt + c$ or
+$\mu = Ce^{\int a(t) dt}$.   Taking $C = 1$ yields one
+integrating factor $\mu = e^{\int a(t) dt} = \dfrac 1{h(t)}$.  
+Hence, the exact
+equation we need to solve is
+\[
+df = \frac{b(t) - a(t) y}{h(t)}dt - \frac 1{h(t)}dy = 0.
+\]
+Then $f(t,y) = \int \dfrac{b(t) - a(t) y}{h(t)}dt + C(y)$.
+However,
+$\dfrac{dh(t)}{dt} = h(t)(-a(t))$, so 
+$-\dfrac{a(t)}{h(t)} = \dfrac 1{h(t)^2}\dfrac{dh(t)}{dt}$.
+Hence, the above expression becomes
+\begin{align*}
+f(t,y) &= \int\dfrac{b(t)}{h(t)}dt + y\int \dfrac 1{h^2}\dfrac{dh}{dt}
++ C(y) \\
+&= \int\dfrac{b(t)}{h(t)}dt - \frac y{h(t)} + C(y).
+\end{align*}
+On the other hand, integrating the coefficient of $dy$ with
+respect to $y$, we also have
+$f(t,y) = - \dfrac y{h(t)} + D(t)$.   Comparing, we see we should take
+$D(t) = \int\dfrac{b(t)}{h(t)}dt$ and $C(y) = 0$.   Hence, the
+general solution is
+\[
+f(t,y) = \int\dfrac{b(t)}{h(t)}dt - \frac y{h(t)} = C
+\]
+Solving for $y$ yields
+\[
+y = h(t)\int\dfrac{b(t)}{h(t)}dt - Ch(t)
+\]
+which is just a variant of the formula derived in the section.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

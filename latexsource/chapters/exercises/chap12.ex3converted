@@ -1,0 +1,225 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Set up and solve the normal mode problem for each of the systems
+depicted below.   Choose as variables the horizontal displacements
+from equilibrium of each of the particles.   Assume these are
+measured so the positive direction is to the right.
+In each case
+identify the normal modes and their frequencies.
+
+(a)
+\medskip
+\centerline{\epsfbox{s12e-1.ps}}
+\medskip
+
+(b)
+\medskip
+\centerline{\epsfbox{s12e-2.ps}}
+\medskip
+
+
+\answer{ (a)  The second order system is
+\[
+\bm 2m & 0 \\ 0 & m \em \x'' = \bm -3k & k \\ k & -k \em \x.
+\]
+The secular equation is
+\[
+\det\bm -3k -2m\mu & k \\
+         k & -k -m\mu \em = 2m^2\mu^2 + 5mk\mu + 2k^2 = 0.
+\]
+The roots are $\mu = -2\dfrac km, -\dfrac k{2m}$.
+For $\mu = -2\dfrac km$, a `secular' vector is
+\[
+\v_1 = \bm 1\\ 1 \em.
+\]
+The corresponding normal mode oscillates at angular frequency
+$\sqrt{\dfrac{2k}m}$ and the two particles move in phase
+with equal amplitude.
+For $\mu = - \dfrac k{2m}$, a `secular' vector is 
+\[
+\v_2 = \bm 1\\ 2 \em.
+\]
+The corresponding normal mode oscillates at angular frequency
+$\sqrt{\dfrac k{2m}}$ and the two particles move in phase
+but the second particle has amplitude twice that of the first.\par
+(b)  The second order system is
+\[
+\bm 2m & 0 &0 \\ 0 & 2m & 0\\ 0 & 0 & m \em \x'' 
+= \bm -2k & k & 0 \\ k & -2k & k\\ 0 & k & -k \em \x.
+\]
+The secular equation is
+\[
+\det\bm -2k -2m\mu & k & 0 \\
+         k & -2k -2m\mu & k \\
+         0 & k & -k - m\mu \em = -4(k + m\mu)^3 + 3(k + m\mu)  = 0.
+\]
+The roots are $\mu = -1, \mu = -1 - \dfrac{\sqrt 3}2,
+\mu = -1 + \dfrac{\sqrt 3}2$.   For $\mu = -1$, a secular vector
+is
+\[
+\v_1 = \bm -1 \\ 0 \\ 1 \em.
+\]
+In this normal mode, the particles on the end move  
+opposite to one another at angular frequency $\sqrt{\dfrac km}$ while
+the middle particle stays put.   For $\mu = -1 - \dfrac{\sqrt 3}2$,
+a secular vector is
+\[
+\v_2 = \bm 2 \\ \sqrt 3 \\ 1 \em.
+\]
+All three vectors move in phase, and the entries
+of $\v_2$ show the relative amplitudes.  The
+normal mode angular frequency is $\sqrt{1 + \sqrt 3/2}$.
+For $\mu = -1 + \dfrac{\sqrt 3}2$, a secular vector is
+\[
+\v_3 = \bm 2 \\ -\sqrt 3 \\ 1 \em.
+\]
+The two end particles move in phase while the middle
+particle moves opposite to them, all with the indicated
+relative amplitudes.  The angular frequency is $\sqrt{1 - \sqrt 3/2}$.
+
+
+
+}
+
+\item   Consider the normal mode problem for the {\it plane\/}
+oscillations of
+a molecule consisting of three atoms
+of equal mass $m$ connected by `springs' with equal spring constants
+$k$.   Without deriving the equations, see if you can figure out
+what some of the normal modes should look like.   Which `normal
+modes' will correspond to $\omega = 0$?  Can you guess what
+the dimension of the space of all real solutions corresponding to
+$\omega = 0$ will be?
+
+\answer{  Since each particle has two coordinates, the system is
+a second order $6\times 6$ system.   The dimension of the space
+of solutions is 12.
+$\omega = 0$ corresponds to `translations'.
+There are two {\it independent\/} directions  for bona-fide translations
+in the plane.  There is also the possibility that the molecule rotates
+at constant angular velocity about its centroid, 
+and this appears as a `translation',
+at least for small displacements of the particle.  Since each translation
+yields two independent real solutions, the dimension of the space of
+real solutions corresponding to $\omega = 0$ is 6.   That leaves
+6 real solutions occurring in pairs that are associated with oscillatory
+normal modes.   One of these corresponds to the case in which each
+atom moves in and out along a line connecting it
+to the centroid of the triangle.   There are three additional
+normal modes in which two of the atoms move apart (together)
+while the third moves towards (away from) them in such a way that
+the center of mass stays fixed.   However, these
+normal modes are not independent.  Any two of them will be independent.
+Thus there are four independent real solutions corresponding to this
+configuration.   Thus we conclude that there are two nonzero
+values of $\omega$, one with multiplicity one (giving two 
+independent real solutions) and one with multiplicity two
+(giving four independent real solutions),   Note that we would have
+to do considerably more work to
+determine the oscillatory frequencies.
+
+
+
+}
+
+\item  Read the proof of linear independence at the end of the
+section and write it out explicitly for the case of the
+CO$_2$ molecule as described in Example 2.
+
+
+\item   In our discussion of normal modes, we suggested a method
+for finding $n$ basic complex solutions $e^{i\omega t}\v$
+ and then constructed
+an independent set of $2n$ basic real solutions
+by taking real and imaginary parts.  However, there should
+be $n$ additional basic complex solutions since the dimension of
+the vector space of all complex solutions should also be
+$2n$.   What are those additional basic complex solutions?
+
+\answer{  For $\omega \not= 0$, use the
+conjugate solution $e^{-i\omega t}\overline\v$.
+Since $\v$ happens to be real, $\overline \v = \v$, 
+and the solution is just  $e^{-i\omega t}\v$.
+For $\omega = 0$, take   $t\v$.
+
+
+
+}
+
+\item  (a) Calculate $A = (\sqrt M)^{-1}K(\sqrt M)^{-1}$
+for $K$ and $M$ as in Example 2 (the CO$_2$ molecule).
+
+(b)  Use $\dfrac{m'}m = \dfrac 34$ to simplify  $A$,
+and find its eigenvalues.   Check that you get the same
+roots as we did when we worked directly with the secular
+equation.
+
+(c)  Are the eigenvectors of $A$ the same as the solutions of
+$(K - \mu M)\v = 0$?
+
+\answer{ (a)  
+\[
+k\bm -\frac 1m & \frac 1{\sqrt{mm'}} & 0 \\
+        \frac 1{\sqrt{mm'}} & -\frac 2{m'} & \frac 1{\sqrt{mm'}}\\
+         0 & \frac 1{\sqrt{mm'}} & -\frac 1m \em
+= \frac km
+\bm -1 & \sqrt{\frac mm'} & 0 \\
+   \sqrt{\frac mm'} & -2\frac mm' & \sqrt{\frac mm'} \\
+    0 & \sqrt{\frac mm'} & - 1 \em.
+\]\par
+(b)  With the suggested approximation,
+the matrix becomes
+\[
+\frac km \bm -1 & \sqrt{\frac 43} & 0 \\
+        \sqrt{\frac 43} & -\frac 83 &  \sqrt{\frac 43} \\
+       0 &  \sqrt{\frac 43} & -1 \em.
+\]
+Eigenvalues and corresponding basic eigenvectors of this matrix are
+\begin{align*}
+\mu_1 &= -\frac km,\qquad \u_1 =  \bm{} -1\\ 0\\ 1 \em \\
+\mu_2 &= -\frac {11k}{3m},\qquad \u_2 = \bm{} -\frac{\sqrt 3}4
+\\ 1 \\ -\frac{\sqrt 3}4 \em \\
+\mu_3 &= 0,\qquad \u_3 = \bm 1 \\ \frac{\sqrt 3}2 \\ 1 \em
+\end{align*}
+Note that the values of $\mu$ are the same as obtained in the
+text.\par
+(c)  The eigenvectors of $A$ are not the same as
+the `secular' vectors obtained in the
+text.  You should check that if you make the transformation
+$\v = (\sqrt M)^{-1}\u$ you will get multiples of these 
+vectors.   For example,
+\[
+\frac 1{\sqrt m}\bm 1 & 0 & 0 \\
+           0 & \sqrt{\frac 43} & 0 \\
+           0 & 0 & 1 \em \bm -\frac{\sqrt 3}4
+\\ 1 \\ -\frac{\sqrt 3}4 \em 
+= -\frac {\sqrt 3}{4\sqrt m} \bm 1\\ -\frac 83 \\ 1 \em.
+\]
+
+
+
+}
+
+\item   Let $K$ be a symmetric $n\times n$  matrix and let $Q$
+be a diagonal $n\times n$ matrix.   Show that $A = QKQ$
+is symmetric.   Hint: Calculate $(QKQ)^t$.
+
+\answer{  $A^t = (QKQ)^t = Q^tK^tQ^t$.  However, since $Q$ is
+diagonal, $Q^t = Q$.  Also, since $K$ is symmetric,
+$K^t = K$.   Hence the previous expression is
+$QKQ = A$.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,210 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item  Calculate the
+flux  $\iint_{\Cal S} \F\cdot\N \,dS$ through the indicated
+surface for the indicated vector field. \par
+(a) $\F=2x\i+3y\i-z\k$, $\Cal S$  the portion of the
+plane $x+y+z=1$ in the first octant.  Use the normals
+pointing away from the origin.  (You can solve for $z$ and treat
+the surface as the graph of a function.) \par
+(b) $\F=z\k$, $\Cal S$ the lower half of the sphere $x^2+y^2+z^2=1$.
+Use normals pointing towards the origin. \par
+(c) $\F=\lb 2y,3x,z\rb$, $\Cal S$ the portion of the paraboloid
+            $z=9-x^2-y^2$ above the xy-plane.  Use normals pointing
+away from the origin.  (The surface is the graph of a function.)
+
+\answer{  (a) $\F = \lb 2x,3y,-z \rb, d\S = \lb 1, 1, 1\rb dy\,dx$.  The
+projection of the surface in the $x,y$-plane is the triangle
+$0\le y \le 1-x, 0\le x \le 1$. 
+The answer is
+$\int_0^1\int_0^{1-x} (3x + 4y -1)\,dy\,dx = \dfrac 23$.\par
+(b)  $\F\cdot \N = \cos\phi(\k\cdot\N) = -\cos^2\phi$.\par
+\[
+\int_0^{2\pi}\int_{\pi/2}^\pi -\cos^2\phi\,\sin\phi\,d\phi\,d\theta
+= - \frac{2\pi}3.
+\]\par
+(c) $\dfrac{81\pi}2$.
+
+
+
+}
+
+\item    Let $\F = -y\i + x\j$ and let $\Cal S$ be the portion of
+the cone $z = \sqrt{x^2 + y^2}$ within the cylinder $x^2 + y^2 = 4$.
+Find the flux through the surface using normals pointing away from
+the $z$-axis.   You can treat the surface as the graph of a function,
+but it might be faster to do the problem by visualizing geometrically
+the relation of $\F$ to the normals to the surface.
+
+\answer{ $F = r\u_\theta$ is tangent to circles centered on the
+$z$-axis, so it is perpendicular to normals to the surface.
+The answer is 0. 
+
+
+
+}
+
+\item   Let $\Cal S$ be a sphere of radius $a$ centered at the origin,
+For each of the indicated vector fields, find the flux {\it out of\/}
+the surface $\Cal S$. \par
+(a) $\F = z^3\k$. Hint: $\k\cdot \bold N = \cos \phi$. \par
+(b) $\F = x\i + y\j + z\k = \bold r$. \par
+(c) $\F = x\i + y\j = r\, \bold u_r$.    Hint: $\bold u_r\cdot \N =
+    \sin \phi$. \par
+(d) $\F = -y\i + x\j$.  Hint:  At each point of $\Cal S$, the vector
+field $\F$ is tangent to the circle of latitude through that point.
+
+\answer{ (a) $\int^{2\pi}_0\int^\pi_0
+a^3\cos^4\phi a^2\sin\phi\, d\phi\, d\theta = \dfrac{4a^5\pi}5$.\par
+(b) $\F\cdot \N = a$ so the flux is $4\pi a^3$ \par
+(c)  $\dfrac{8\pi a^3}3$.\par 
+(d) $\F\cdot \N=0$  so the flux is 0.
+
+
+
+
+}
+
+\item   Let $\Cal S$ be the closed cylinder of radius $a$, centered on
+the $z$-axis, with its base in the $x,y$-plane, and extending to the
+plane $z = h$.  Both the top and bottom of the cylinder are considered
+part of $\Cal S$ in addition to the cylindrical lateral surface.   Find
+the flux {\it out of\/} $\Cal S$ for each of the following vector
+fields.   Note that the computations have to be done for each of the
+three components of $\Cal S$. \par
+(a) $\F = z\k$. \par
+(b) $\F = x\i + y\j +z\k = \bold r$. \par
+(c) $\F = x\i + y\j = r\, \bold u_r$.  Hint:  On the lateral surface,
+    $\N = \bold u_r$. \par
+(d) $\F = -y\i + x\j$. \par
+
+\answer{  (a) The flux through the top is 
+$h(\pi a^2)$ since $\F$ is perpendicular
+to the top surface and has magnitude $h$.   The flux through the sides
+is zero since $\F \perp \N$ there.   The flux through the bottom is
+zero because $\F = \bold 0$ there.   The total flux is $\pi a^2 h$.\par
+(b)  The flux through the top is $h(\pi a^2)$ as above because
+the component $x\i + y\j$ is parallel to the top and only $z\k$
+contributes anything.   Similarly, the flux through the bottom
+is zero.  For the sides, the term $z\k$ is irrelevant, and
+$x\i + y\j = r\u_r$ is perpendicular to the surface.  Hence,
+the flux through the sides is $a(2\pi a h)$.   The total flux
+is $3\pi a^2 h$. \par
+(c)  $2\pi a^2 h$. \par
+(d) $\F = \lb -y,x,0\rb = r\u_\theta$ is parallel to the top
+and bottom surfaces and tangent to the sides.  The answer is 0.
+
+
+
+}
+
+\item   Let $\F(\r) = \r = \lb x, y, z \rb$, and let $\Cal S$ be the
+surface bounding the unit cube in the first octant. ($\Cal S$ consists
+of 6 squares, each of side 1.)  Find the flux through $\Cal S$
+using outward  normals.   Hint: The surface integral breaks up
+into 6 parts, three of which are zero.  (Why?)  The remaining
+3 involving integrating a constant over a square.
+
+\answer{ \vtop{\hbox{$\N_1 = \lb 0,-1,0\rb \quad \F\cdot \N_1=-y =0$ on 1}
+      \hbox{$\N_2 = \lb -1,0,0\rb\quad \F\cdot \N_2=-x =0$ on 2}
+      \hbox{$\N_3 = \lb 0,0,-1\rb\quad \F\cdot \N_3=-z =0$ on 3} } \smallskip
+\indent $\implies \iint\limits_1 \F\cdot \N_1\, dS =
+            \iint\limits_2 \F\cdot \N_2\, dS =
+            \iint\limits_3 \F\cdot \N_3\, dS = 0  $ \smallskip\indent
+\vbox{\hbox{$\N_4 = \lb 0,0,1\rb\quad \F\cdot \N_4=z =1$ on 4}
+      \hbox{$\N_5 = \lb 1,0,0\rb\quad \F\cdot \N_5=x =1$ on 5}
+      \hbox{$\N_6 = \lb 0,1,0\rb\quad \F\cdot \N_6=y =1$ on 6} } \smallskip
+\indent $\implies \iint\limits_4 \F\cdot \N_4\, dS =
+            \iint\limits_5 \F\cdot \N_5\, dS =
+            \iint\limits_6 \F\cdot \N_6\, dS = 1  $ \smallskip
+So Flux = 3 \par
+
+
+
+
+}
+
+\item  Let $\F(\r) = z\k$ and let $\Cal S$ be the surface bounding
+the tetrahedron cut off in the first octant by the plane
+$x + 2y + z = 2$.   Find the flux {\it out of\/} $\Cal S$.
+(Note that $\Cal S$ breaks up into four pieces.)
+
+\answer{  $\F$ is parallel to two of the faces.  It is zero on
+the bottom face.  Hence, the only contribution is the flux through
+the top face which by direct calculation is $\dfrac 23$. 
+
+
+
+}
+
+\item   Consider the cylindrical surface given parametrically by
+\[ \r = \lb a\cos\theta, a\sin\theta, s \rb \]
+where  $0\le \theta < 2\pi, -b \le s \le b$.  It has radius $a$
+and height $2b$.  Note that $\r(\theta,s)$ approaches $\r(0,s)$
+as $\theta \to 2\pi$.  Hence, the entire surface is represented
+smoothly by the parametric representation; the ``seam'' at
+$\theta = 2\pi$ being illusory.  \par
+(a) Find $\n(\theta, s) = \dfrac{\partial\r}{\partial\theta}\times
+\dfrac{\partial\r}{\partial s}$.  \par
+(b)  Show that $\n(\theta, 0) \to \n(0,0)$ as $\theta \to 2\pi$.
+
+\answer{ (a) $\dfrac{\d\r}{\d\theta} =
+\lb-a\sin\theta,a\cos\theta,0\rb$
+and $\dfrac{\d\r}{\d s} = \lb 0,0,1\rb$
+so
+$\n(\theta,s) = \lb a\cos\theta,a\sin\theta,0\rb$ \par
+(b) $\n(\theta,0) = \lb a\cos\theta,a\sin\theta,0\rb$ \par
+so
+\[\lim_{\theta\to 2\pi} \n(\theta,0) = \lim_{\theta\to 2\pi}
+\lb a\cos\theta,a\sin\theta,0\rb = \lb a,0,0\rb = \n(0,0).\]
+
+
+
+
+}
+
+\item   Consider the Moebius surface given parametrically by
+\[
+ \r = \lb (a + s \cos(\theta/2))\cos\theta, 
+(a + s\cos(\theta/2))\sin\theta, s\sin(\theta/2) \rb
+\]
+where  $0\le \theta < 2\pi, -b \le s \le b$.  (Assume $b < a$.) Note
+that $\r(\theta,s)$ approaches $\r(0,-s)$ as $\theta \to 2\pi$.  Hence,
+the ``seam'' at $\theta = 2\pi$ is real, and the parametric
+representation fails to be continuous across it. \par
+(a) Find $\n(\theta, 0) = \dfrac{\d\r}{\d\theta}(\theta,0)\times
+\dfrac{\d\r}{\d s}(\theta,0)$. \par
+(b)  Follow $\n(\theta, 0)$ as $0\le \theta < 2\pi$.  In particular,
+note that $\n(\theta, 0) \to -\n(0,0)$ as $\theta \to 2\pi$.
+
+\answer{ (a) We have for $s = 0$
+\begin{align*}
+\frac{\d\r}{d\theta} &= \lb -a\sin\theta, a\cos\theta, 0 \rb \\
+\frac{\d\r}{\d s} &= \lb \cos(\theta/2)\cos\theta,
+\cos(\theta/2)\sin\theta,
+\sin(\theta/2) \rb\\
+\n(\theta,0) &=
+\lb a\cos\theta\sin(\theta/2),
+a\sin\theta\sin(\theta/2),
+  -a\cos(\theta/2)\rb.
+\end{align*} 
+\par
+(b)  Let $\theta \to 0$.  Then, $\n(\theta, 0)$ approaches
+$\n(0,0) = \lb 0, 0, -a \rb$.  Let $\theta \to 2\pi$.  
+Then, $\n(\theta,0)$ approaches
+$\n(2\pi,0) = \lb 0, 0, a\rb$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

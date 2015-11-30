@@ -1,0 +1,94 @@
+%!
+%%Title: /tmp/xfig-export002458
+%%Creator: fig2dev
+%%CreationDate: Sat Jan 11 16:07:40 1992
+%%For: len@schur (Len Evens)
+%%BoundingBox: 0 0 120 134
+%%Pages: 0
+%%EndComments
+/$F2psDict 64 dict def 
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y translate xrad yrad scale 0 0 1 startangle endangle arc
+	savematrix setmatrix
+	} def newpath 0 0 0 0 0 1 DrawEllipse stroke
+
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+	/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+	/$F2psEnd {$F2psEnteredState restore end} def
+	%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-79 50 translate
+0.0 134.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Ellipse
+n 150 146 61 21 0 360 DrawEllipse gs col-1 s gr
+	1 setlinecap [1 3.000000] 3.000000 setdash
+% Polyline
+n 191 107 m 94 204 l gs col-1 s gr
+	[] 0 setdash 0 setlinecap
+n 101.071 199.757 m 94.000 204.000 l 98.243 196.929 l gs 2 setlinejoin col-1 s gr
+	1 setlinecap [1 3.000000] 3.000000 setdash
+% Polyline
+n 87 146 m 221 145 l gs col-1 s gr
+	[] 0 setdash 0 setlinecap
+n 212.985 143.060 m 221.000 145.000 l 213.015 147.060 l gs 2 setlinejoin col-1 s gr
+	1 setlinecap [1 3.000000] 3.000000 setdash
+% Polyline
+n 151 176 m 151 55 l gs col-1 s gr
+	[] 0 setdash 0 setlinecap
+n 149.000 63.000 m 151.000 55.000 l 153.000 63.000 l gs 2 setlinejoin col-1 s gr
+% Open spline
+n 89.000 146.000 m 100.500 140.500 l
+	100.500 140.500 112.000 135.000 150.000 134.500 DrawSplineSection
+	150.000 134.500 188.000 134.000 199.500 139.500 DrawSplineSection
+	211.000 145.000 l gs col-1 s gr
+% Open spline
+n 132.000 166.000 m 136.500 154.000 l
+	136.500 154.000 141.000 142.000 149.500 135.000 DrawSplineSection
+	149.500 135.000 158.000 128.000 165.000 127.000 DrawSplineSection
+	172.000 126.000 l gs col-1 s gr
+$F2psEnd

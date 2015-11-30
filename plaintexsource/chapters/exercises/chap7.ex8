@@ -1,0 +1,39 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 8
+\smallskip
+% 1
+\Exer  One solution of $(1 + t^2)y'' - 2ty' + 2y = 0$
+is
+$y_1(t) = t$.  Find a second solution by the method
+of reduction of order.
+\answer $v = -\dfrac 1t + t$ and $y_2 = -1 + t^2$ is a second
+solution.
+
+% 2
+\Exer One solution of $y'' - 2ty' + 2y = 0$ is $y_1 = t$.
+Use the method of reduction of order to find another solution.    
+Warning.  You won't be able to determine $v$ explicitly in
+this case, but push the
+integration as far as you can.
+\answer $v = \int\dfrac{e^{t^2}}{t^2}dt$.   This can't be
+expressed in terms of elementary functions.  You could use
+integration by parts to obtain
+$v = -\dfrac{e^{t^2}}t + 2\int e^{t^2} dt$, but again the
+second integral can't be expressed in terms of elementary
+functions.   It is a well known function, however, whose
+values have been tabluated.
+
+\Exer  (a)  Find one solution of
+ Euler's equation $t^2y'' - 4ty' + 6y = 0$.
+
+(b)  Find a second solution by the method of reduction of order.
+
+(c)  Solve $t^2y'' - 4ty' + 6y = 0$ given  $y(1) = 0, y'(1) = 1$.
+\answer (a) $y_1 = t^2, y_2 = t^3$ are solutions.  You can determine
+these by trying solutions of the form $t^r$.\par
+(b) If you use the method of reduction of order on either solution,
+you get the other.\par 
+(c) The general solution is $y = C_1t^2 + C_2t^3$.  Matching the
+initial conditions yields $C_1 = -1, C_2 = 1$.   The solution is
+$y = -t^2 + t^3$.
+

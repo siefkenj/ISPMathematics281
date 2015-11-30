@@ -1,0 +1,193 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 8
+\smallskip
+
+% 1
+\Exer Let $\F = \lb x, y \rb$.  (Then $\nabla\cdot\F = 2$.)  Verify
+formula (\GTI) (the first form of Green's Theorem) for each of the
+following curves by calculating the outward flux through the given
+curve and checking that it is twice the area enclosed. \par
+(a)  A circle of radius $a$ centered at the origin.  \par
+(b)  A square of side $a$ in the first quadrant with opposite vertices
+at $(0,0)$ and $(a,a)$.
+\answer (a)  Note that $\F = \r$ and $\N = \u_r$ so $\F\cdot \N = |\r| = a$.
+Hence, $\int_{\Cal C}\F\cdot \N\,ds = 2\pi a\,a = 2(\pi a^2)$.\par 
+(b)  For the edges on the coordinate axes, $\F \perp \N$ so there
+is no contribution.   For the edge going from $(a,0)$ to $(a,a)$,
+$\F = \lb x, y \rb$ and $\N = \i$, so $\F\cdot \N = x = a$.   Hence,
+the line integral on that segment is $\int_0^a a\,dy = a^2$.
+For the segment going from $(a,a)$ to $(0,a)$,  $\N = \j$, so
+$\F\cdot \N = y = a$.  However,  $ds = -dx$ so the line integral
+is $\int_a^0 a\,(-dx) = a^2$.   The total line integral is
+$2a^2$.
+
+% 2
+\Exer Let $\F = \lb -y, x \rb$.  (Then $\dfrac{\d F_2}{\d x} -
+\dfrac{\d F_1}{\d y} = 2$.)  Verify formula (\GTII) (the second form of
+Green's Theorem) for each of the following curves by calculating the
+line integral for the given curve and checking that it is twice the
+area enclosed. \par
+(a)  A circle of radius $a$ centered at the origin, traversed
+counterclockwise. \par
+(b)  A square of side $a$ in the first quadrant with opposite vertices
+at $(0,0)$ and $(a,a)$, traversed counterclockwise.
+\answer (a)  Here $\F = r\u_\theta = a\u_\theta$ and
+$d\r = \u_\theta ds$.   Then $\F\cdot d\r = a\,ds$.  Integrating
+around the circle yields $a(2\pi a) = 2\pi a^2$.\par
+(b)  For the segments along the coordinate axes, $\F \perp d\r$
+so the integrals are zero.   For the other two segments, $\F$
+is parallel to $d\r$ and has constant value $a$.  Hence, each
+of these segments contribtes $a\,a = a^2$.  The total is
+$2a^2$.\par
+Note that the calculations for this problem are essentially the
+same as in the previous problem, but the interpretation is
+different.
+
+% 3
+\Exer Use Green's Theorem (second form) to calculate $\int_{\Cal C}
+(y^2)dx + (x^2)dy$ where $\Cal C$ is the path which starts at $(0,0)$
+goes to $(3,0)$ then to $(3,3)$ and finally back to $(0,0)$.
+\answer $\int_{\Cal C} y^2 dx + x^2 dy = 
+\int_0^3\int_0^x (2x - 2y)\,dy\,dx = 9$.
+
+% 4
+\Exer Use Green's Theorem (second form) to calculate $\int_{\Cal C}
+-y\,dx + x\,dy$ where $\Cal C$ is the semi-circular path from $(a,0)$
+to $(-a,0)$ with $y \ge 0$.   Hint:  $\Cal C$ is not a closed path, but
+you can form a closed path by adding the linear path $\Cal C'$ from
+$(-a,0)$ to $(a,0)$.  Use Green's Theorem to relate $\int_{\Cal C}$ to
+$\int_{\Cal C'}$ through the use of $\int_{\Cal C \cup \Cal C'}$.
+\answer  We have
+$$
+\int_{\Cal C\cup\Cal C'}-y\,dx + x\,dy =
+\int_{D} 2 \,dA = 2\frac{\pi a^2}2 = \pi a^2.
+$$
+However
+$$
+\int_{\Cal C\cup\Cal C'}-y\,dx + x\,dy = \int_{\Cal C}
+-y\,dx + x\,dy + \int_{\Cal C'}-y\,dx + x\,dy.
+$$
+The second integral is zero because $\lb -y, x\rb$ is perpendicular
+to $d\r$ on $\Cal C'$.   Hence, the first integral is $\pi a^2$.
+
+% 5
+\Exer Let $\F(x,y) = \lb y + \sin(x^2), (1 + y^2)^{1/5} \rb$.
+Calculate $\int_{\Cal C} \F\cdot d\r$ for $\Cal C$ the ellipse
+$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$, traversed
+counterclockwise.   Hint:  You should remember what the area of an
+ellipse is.
+\answer  $\dfrac{\d F_2}{\d x} - \dfrac{\d F_1}{\d y} = -1$.
+Hence, the answer is $-\pi ab$.
+
+% 6
+\Exer Let $\F(x,y) = \lb e^{x^3}, xy \rb$.  Calculate $\int_{\Cal
+C}\F\cdot d\r$ for $\Cal C$ the path bounded below by the graph of $y =
+x^2$ and above by the graph of $x = y^2$ and traversed in the
+counterclockwise direction.
+\answer $\dfrac{\d F_2}{\d x} - \dfrac{\d F_1}{\d y} = y$.
+Hence, the answer is
+$\int_0^1\int^{\sqrt x}_{x^2} y\,dy\,dx = \dfrac 3{20}$.
+
+% 7
+\Exer  What is $\displaystyle{\int_C \frac{-y}{x^2 + y^2}dx + \frac
+x{x^2 + y^2} dy}$ for each of the following curves?  (a)  The ellipse
+$x^2/9 + y^2/16 = 1$ traversed counterclockwise.  (b)  The triangle
+with vertices $(1,1), (2,3)$, and $(0,6)$ traversed clockwise.
+\answer (a)  $2\pi$.  (b) 0.
+
+% 8
+\Exer  Throughout this problem, take $\bold F =
+\displaystyle{\frac{-y}r\bold i + \frac xr\bold j}$ where $r =
+\sqrt{x^2 + y^2}$. \par
+(a)  Show that $\displaystyle{\frac{\partial Q}{\partial x} -
+\frac{\partial P} {\partial y} = \frac 1r}$. \par
+(b)  Show by direct calculation that $\int_C \bold F\cdot d\bold r =
+2\pi$ where $C$ is the circle $x^2 + y^2 = 1$ traversed
+counterclockwise. \par
+(c)  Let  $C$ be the square with vertices at the four points $(\pm 2,
+\pm 2)$ and assume $C$ is traversed counterclockwise.  Use Green's
+Theorem for a region with a hole to show that $$ \int_C \bold F\cdot
+d\bold r = 2\pi + 8\int_0^{\pi/4} \int_1^{2\sec\theta} dr\,d\theta.  $$
+\par
+(d)  Evaluate the double integral to complete the calculation. \par 
+(e)  Calculate $\int_C\bold F\cdot d\bold r$ directly.  Hint: Calculate
+the line integral for one side of the square and multiply by 4. \par
+\answer (a)  Since $\dfrac{\d r}{\d x} = \dfrac xr$,
+$$
+\frac{\d Q}{\d x} = \frac{\d}{\d x}\frac xr = \frac{r - x^2/r}{r^2}
+   = \frac{y^2}{r^3}.
+$$
+Similarly, $\dfrac{\d P}{\d y} = -\dfrac{x^2}{r^3}$.  Hence,
+$$
+\frac{\d Q}{\d x} - \frac{\d P}{\d y} = \frac{y^2 + x^2}{r^3} =\frac 1r.
+$$\par
+(b) $\F = \u_\theta$ so $\F\cdot d\r = ds$.  Hence, the line integral
+is the length of the circle which in this case is $2\pi$.\par
+(c)  The integrand for the double integral is $\dfrac 1r \,dA$
+which in polar coordinates is $\dfrac 1r \,r\,dr\,d\theta =
+dr\,d\theta$.  By symmetry, it suffices to integrate over the
+region in the first quadrant between the circle and the square
+and under the line $y = x$ and then multiply by 8. \par
+(d)  According to Maple, the double integral is
+$2\ln(\sqrt 2 + 1) - \dfrac \pi 4$.  Hence, the answer for the
+line integral on the square is $16 \ln(\sqrt 2 + 1)$.\par
+(e)  Use the parameterization for the right hand side
+$\r = \lb 2, y \rb, -2\le y \le 2$.  On this side,
+$\F\cdot d\r = \dfrac {2\,dy}{\sqrt{4 + y^2}}$.   Hence, the
+answer is
+$$
+  4\int_{-2}^2 \frac {2\,dy}{\sqrt{4 + y^2}} = 16\ln(\sqrt 2 + 1).
+$$ 
+
+% 9
+\Exer Find the area bounded by each of the following curves by using
+the formula $\dfrac 12 \int_{\Cal C} -y\,dx + x\,dy $.  Compute the
+area by another method and compare the answers. \par
+(a)  $y = 0,\, x = 1, y = x^2$.  Hint:  You could parameterize the
+parabola by  $\r = \lb (1 -t), (1 - t)^2 \rb, \, 0\le t \le 1$. \par
+(b)  $\r = \lb t^2, t^3 \rb, \, -1 \le t \le 1$ and $x = 1$.  Hint:
+For an alternate method note that the parametric representation
+describes the two curves $y = \pm x^{3/2}$.
+\answer (a)  There are three subpaths to consider.  On the
+path from $(0,0)$ to $(1,0)$, we have $-y\,dx + x\,dy = 0$.
+On the path from $(1,0)$ to $(1,1)$, we have
+$-y\,dx + x\,dy = dy$ so the line integral is $\int_0^1dy = 1$.
+On the parabola from $(1,1)$ to $(0,0)$, using the suggested
+parameterization, we have the integral
+$$
+\int_0^1 -(1-t)^2(-dt) + (1 -t)(-2(1-t)dt) = -\frac 13.
+$$
+Hence, the total line integral is $\dfrac 23$ and half of this
+is $\dfrac 13$.   Check this by doing it the usual way.\par
+(b) The path has two parts.  Starting at $(1,1)$, we go along
+the curve to $(0,0)$ and then back down to $(1,-1)$ with
+$1\ge t \ge -1$.  We then continue on the line segment from
+$(1,-1)$ to $(1,1)$ to close the curve.
+The line integral is
+$$
+\int^{-1}_1 (-t^3)(2t\,dt) + (t^2)(3t^2dt) + \int_{-1}^1dy = -\dfrac 25 + 2
+ =\frac 85.
+$$
+Half of this is $\dfrac 45$.
+By the usual method the area is $2\int_0^1 x^{3/2}dx = \dfrac 45$.
+ 
+% 10
+\Exer  Let $P_0 = (0,0), P_1 = (x_1,y_1), P_2 = (x_2,y_2)$
+be the vertices of a triangle in the plane.   Derive a formula
+for its area using Green's Theorem.   Hint:   You should get
+the same answer as you would by taking half the cross product of
+the vectors from the origin to the other vertices.
+    
+% 11
+\Exer  Derive the first form of Green's theorem (\GTI) from the
+divergence theorem using the `pillbox argument' as follows.  Let $\F =
+\lb F_1, F_2, 0 \rb$ and assume it depends only on $x$ and $y$.  Let
+$D$ be a bounded region in the $x,y$-plane, and let $E$ be a `pillbox'
+produced by extending it upward one unit in the $z$-direction. (a) Show
+$\iint_{\partial E} \F\cdot\N\,dS = \int_{\partial D} \F\cdot\N\,ds$ as
+follows.  First note that the flux through the top and bottom are
+zero.  (Why?)  Then calculate the flux through the sides using an
+element of area of height 1 and base $ds$.  (b)  Show $\iiint_E
+\nabla\cdot\F\,dV = \iint_D \nabla\cdot\F\,dA$ by considering an
+element of volume which is a thin `column' of height 1 and base $dA$.
+

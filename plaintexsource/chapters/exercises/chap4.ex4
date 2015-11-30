@@ -1,0 +1,88 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 4
+\smallskip
+% 1
+\Exer Calculate the triple integral $\iiint_E f(x,y,z) dV$ for each
+ of the following:
+
+	(a) $f(x,y,z)= 2x+3y-z^2$, over the rectangular box with $0\leq x\leq 4$,
+            $0\leq y\leq 2$, and $0\leq z\leq 1$.
+
+	(b) $f(x,y,z) = yz \cos z$, over the cube with opposite vertices at
+            the origin and $(\pi,\pi,\pi)$.
+
+	(c) $f(x,y,z) = xyz$, over the region inside the
+cone $z^2=x^2+y^2$ and between the planes $z = 0$ and $z = 9$.
+
+	(d) $f(x,y,z) = 2z - 4y^2$, over the region between the
+cylinders $z=x^2$ and 
+            $z=x^3$ and between the planes  $y = -1$ and $y = 2$.\par
+\answer (a)$\dfrac{160}3$. (b) $-\pi^3$.  (c) 0.  (d) $-\dfrac{29}{35}$.
+
+% 2
+\Exer  Consider the tetrahedron bounded by the plane $2x + 3y + z = 6$
+and the coordinate planes.   There are six possible orders of integration
+for the triple integral representing its volume.  Write out iterated
+integrals for each
+of these and evaluate two of them. \par
+\answer $$\align
+\int_0^3\int_0^{(6-2x)/3}\int_0^{6-2x-3y}dz\,dy\,dx &=
+\int_0^2\int_0^{(6-3y)/2}\int_0^{6-2x-3y}dz\,dx\,dy \\
+= 
+\int_0^6\int_0^{(6-z)/2}\int_0^{(6-z-2x)/3}dy\,dx\,dz &=
+\int_0^3\int_0^{6-2x}\int_0^{(6-z-2x)/3}dy\,dz\,dx \\
+=
+\int_0^6\int_0^{(6-z)/3}\int_0^{(6-3y-z)/2}dx\,dy\,dz &=
+\int_0^2\int_0^{6-3y}\int_0^{(6-3y-z)/2}dx\,dz\,dy = 6.
+\endalign $$
+
+% 3
+\Exer Sketch the solid bounded by the given surfaces
+ and find its volume by triple integration.   If you see an
+easier way to find the same volume, use that to check your answer.
+	
+	(a) $3x-2y+4z=-2$, $x=0$, $y=0$, $z=0$.
+
+	(b) $y=x^2+z^2$, $y = 4$.
+
+	(c) $x^2+y^2+z^2 =1$, $x^2+y^2+z^2 =4$.
+
+	(d) $z = 2x^2 + 3y^2$, $z = 5 - 3x^2 - 2y^2$.  (Note that the
+two surfaces intersect in a circle of radius 1.)
+\answer (a) This is a pyramid in the quadrant with
+$x < 0, y > 0$, and $z < 0$,   Taking the base in the $x,y$-plane,
+the area of the base is $1/3$ and the height is $1/2$.  The
+volume is $1/18$.  Make sure you also set up the triple integral.\par
+(b) $8\pi$\par
+(c) This is the region between concentric spheres of radii
+1 and 2 respectively.  The volume is  $\dfrac 43\pi(8 - 1)
+= \dfrac{28\pi}3$.  Make sure you also set up the triple integral.
+You wil have to divide the region into parts.\par
+(d) $\dfrac{5\pi}2$.
+
+% 4
+\Exer  Use a triple integral to find the volume of the solid in
+the first octant bounded by the cylinders $x^2 + y^2 = 1$ and
+$x^2 + z^2 = 1$.   Do this both in the order `$dz\,dy\,dx$' and
+in the order `$dx\, dz\, dy$'.  (The latter order involves a
+complication you might not expect.)
+\answer  $\int_0^1\int_0^{\sqrt{1-x^2}}\int_0^{\sqrt{1 - x^2}}dz\,dy\,dx$.\par
+$2\int_0^1\int_0^y\int_0^{\sqrt{1-y^2}}dx\,dz\,dy$.\par
+Both of these give $\dfrac 23$.
+
+\Exer Find the centroid for each of the following objects. (Take $\delta=1$.)
+
+	(a) A solid hemisphere of radius $a$.
+
+	(b) A solid right cone of radius $a$ and height $h$.
+
+	(c) The solid bounded by
+the paraboloid $z=x^2+y^2$ and the plane $z=h>0$.
+\answer (a) $(0,0,3a/8)$.\par
+(b)  Assume the vertex is at the
+origin and the base is in the plane $z = h$.   The
+centroid is $(0,0,3h/4)$.  Thus the centroid is on the
+axis and $3h/4$ units from the vertex, $h/4$ units
+from the base.\par
+(c) $(0,0,2h/3)$.  
+

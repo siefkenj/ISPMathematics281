@@ -1,0 +1,133 @@
+%\nextsec{Geometry of Lines and Planes}
+\subhead Exercises for Section \sn \endsubhead
+%Section 5
+
+% 1
+\Exer  Find a vector (parametric) equation for the line that
+\par
+(a) passes through $(0, 0, 0)$ and is parallel to $\v = 3\i +4\j + 5\k$,
+\par
+(b) passes through $(1, 2, 3)$ and $(4, -1, 2)$,
+\par
+(c) passes through $(1, 1)$ and is perpendicular to $\v = \lb 3, 1 \rb$,
+\par
+(d) passes through $(9, -2, 3)$ and $(1, 2, 3)$.
+\answer (a) $r(t) = 3t\i + 4t\j + bt\k$  \par
+	(b) $r(t) = (1+3t)\i + (2-3t)\j + (3-t)\k$  \par
+	(c) $r(t) = (1-t)\i + (1+3t)\j$  \par
+	(d) $r(t) = (1+8t)\i + (2-4t)\j + 3\k$.
+
+
+% 2
+\Exer  Determine if the lines with the following vector equations intersect:
+  $\r = \lb 1, -1, 2 \rb + t\lb 2, 1, 1 \rb,\,
+  \r = \lb 0, 1, 1 \rb + t\lb 1, 0, -1 \rb$.
+\answer $ \lb 1,-1,2\rb+\lb 2,1,1\rb = \lb 0,1,1\rb+s\lb 1,0,-1\rb $
+$$
+\left.\vcenter{\halign{\hfil$#$ &$= #$\hfil\quad\cr
+  \iff\ \ \ 1+2t & s\cr -1+t &1\cr 2+t & 1-s\cr}}\right\}\qquad
+  \text{has a solution as a system.}
+$$
+Now (2) $\implies t=2$. Substitute in 
+\vtop{\hbox{(1) $1+4=s \implies s=5$}
+      \hbox{(3) $2+2=1-s \implies s=-3$}} \newline
+So the system is not consistent and thus the lines do {\it not\/}
+intersect.
+  
+
+% 3
+\Exer  Find an equation for the plane with the given normal vector
+and containing
+     the given point:
+     (a) $\N = \lb 2, -1, 3 \rb$, $P(1, 2, 0)$, \par
+     (b) $\N = \lb 1, 0, 3  \rb$, $P(2, 4, 5)$. \par
+\answer (a) $2(x-1) -  (y-2) + 3z =0$\par
+        (b) $ (x-2) + 3(z-5)      =0$
+
+
+% 4
+\Exer  Write parametric and symmetric equations for the line which\par
+   (a) passes through $(0, 1, 2)$ and is perpendicular to the yz-plane,
+       \par
+   (b) passes through $(5, 2, -1)$ and is perpendicular to the plane
+       with equation $3x + 4y - z = 2$, \par
+   (c) passes through $(1, 3, 0)$ and is parallel to the line with
+       parametric equations $x=t$, $y=t-1$, $z=2t+3$.
+\answer \halign{\indent(#)\quad & $#$\hfil & \quad$#$\hfil\cr
+\omit & \text{Parametric equation} & \text{Symmetric equations}\cr 
+a & r(t) = (t,1,2) & y=1\quad z=2 \quad x\ \text{varies} \cr
+b & r(t) = (5+3t,\,2+4t,\,-1-t) & \frac{x-5}{3}=\frac{y-2}{4} =-z-1\cr
+c & r(t) = (1,3,0) + t(1,1,2) & x-1=y-3=\frac z2 \cr}
+
+% 5
+\Exer  Write an equation for the plane that \par
+ (a) passes through $(1, 4, 3)$ and is perpendicular to the line
+with equation $\r = \lb  1 + t, 2 + 4t, t \rb$. \par
+ (b) passes through the origin and is parallel to the plane with
+equation $3x + 4y - 5z = -1$, \par
+ (c) passes through $(0, 0, 0)$, $(1, -2, 8)$, $(-2, -1, 3)$.
+\answer (a) $ x + 4y + z=20$ \par
+ (b) $3x + 4y -5z = 0$ \par
+ (c) $2x - 19y -5z = 0$.
+
+% 6
+\Exer  Find a vector (parametric) equation for the line of
+ intersection of the planes with equations
+ $2x + 3y - z = 1$ and $x - y - z = 0$.
+\answer $r(t) = (1-4t, t, 1-5t)$ is one solution.
+
+% 7
+\Exer  Find the angle between the normals to the following planes: \par
+  (a) the planes with equations $x + 2y -z = 2$ and $2x - y + 3z = 1$,
+\par
+  (b)  the plane with equation $2x+3y-5z=0$ and the plane containing
+the points $(1,3,-2)$, $(5,1,3)$, and $(1,0,1)$.
+\answer (a) $\theeta = \cos^{-1}\left(\frac{-3}{2\sqrt{21}}\right)$\par
+(b) $\theeta=\cos^{-1}\left(\frac{14}{(\sqrt{38})(\sqrt{41})}\right)$
+
+% 8
+\Exer  Use formula (3) %%Reference to formula in section.
+for the  perpendicular distance from the point $P_0(x_0,y_0,z_0)$ to
+the plane $ax+by+cz=d$ to find the distance from \par
+  (a) the origin to the plane $x-3z=-2$, \par
+  (b) the point $(-1, 2,1)$ to the plane $3x+4y-5z=-2$.
+\answer (a) $\frac{\sqrt{10}}{5}$; \quad (b) $\frac{\sqrt2}{5}$
+
+% 9
+\Exer  Show that the distance between the lines given 
+parametrically by equations $$\align
+   \r &= t\v_1 + \r_1  \\
+    \r &= t\v_2 + \r_2, \endalign $$
+is $$
+ \frac{|(\r_2 - \r_1)\cdot(\v_2\times\v_1)|}{|\v_2\times\v_1|}.  $$
+Hint: Consider the line segment $Q_1Q_2$ from one line to the other
+which is perpendicular to both.  Note that 
+$\frac 1{|\v_1\times\v_2|}\v_1\times\v_2$ is a unit vector parallel
+to $Q_1Q_2$.  Convince yourself that $Q_1Q_2$ is the projection
+of the line segment connecting the endpoints of $\r_1$ and $\r_2$
+onto this unit vector.
+\answer 
+
+% 10
+\Exer A projectile follows the path
+$$ \r = 1000 t\, \i + (1000 t - 16 t^2) \,  \j.  $$
+At $t_0 = 1$,  an anti-gravity ray zaps the projectile,  making it
+impervious to gravitation,  so it proceeds off on the tangent
+line at the point. 
+ In general,  the equation for the tangential motion would be
+$$ \r = (t - t_0)\v_0 + \r_0 $$
+where $\r_0$ is the position vector at $t_0$ and $\v_0$ is the
+instantaneous velocity vector there.
+Where will the projectile be after one additional second?
+\answer At $2000\i + 1952\j$. 
+
+%Ex  (a)  Suppose a line in the plane is given parametrically
+%Ex in the form   $\r = t\v + \r_0$.  Write an equation for the line
+%Ex in the form  $y = mx + b$.  In particular, relate the slope $m$
+%Ex to the components $\lb v_x, v_y \rb$ of $\v$.  Are there any
+%Ex assumptions one must make about $\v$ for this to work?
+%Ex (b)  Suppose a line in the plane is described by the equation
+%Ex $y = mx + b$.  Find a parametric equation for the line.  Hint:
+%Ex You can choose $x = t$ for the parameter.
+
+\endinput

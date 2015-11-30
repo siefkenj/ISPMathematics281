@@ -1,0 +1,4141 @@
+\documentstyle{book}
+\input extra.tex
+\input epsf.tex
+\input le2.sty
+\input chap4.lnk
+\maketoctrue
+\mardiagtrue
+\indextrue
+\openseg{chap5}
+\Monograph
+\topmatter
+\nextchap{Calculus of Vector Fields}
+\title\chapter{\chapno}Calculus of Vector Fields\endtitle
+\endtopmatter
+\document
+\nextsec{Vector Fields}
+\head Section \sn. Vector Fields \endhead
+
+Multidimensional calculus may be defined as the study of
+derivatives and integrals for functions $\R^n \to \R^m$ for
+various $n$ and $m$.   We have mostly studied scalar valued
+functions $\R^n \to \R$ (where $n =2$ or $n = 3$.)   In physics,
+such functions are called {\it scalar fields}.   We now want
+to study functions $\F:\R^n \to \R^n$ (again with $n = 2$ or
+$n = 3$.)  These are called {\it vector fields}.   In general,
+one wants to picture the set on which the function is defined
+(the domain) and the set in which it assumes values as being
+in different places, but in the case $m = n$, they are both
+in the
+same place, namely $\R^n$.   
+Hence, there is another way to view such a function,
+and it turns out to be quite useful in physics.   At each
+point in the domain of the function $\F$, imagine the
+vector $\F(\r)$ placed with its tail at the point. 
+
+\nextex
+\mar{s5-1.ps}
+\example{Example \en}  Consider the function $\F:\R^3 \to \R^3$
+defined by
+$$
+    \F(\r) = -\frac{GM}{|\r|^2}\u_\rho
+$$
+where $\u_\rho = \dfrac{\r}{|\r|}$ is a unit vector pointing
+directly away from the origin.  This function gives the gravitational
+force on a test particle at the point with position vector
+ $\r$ due to a mass $M$ at
+the origin.  It certainly makes sense in this case to view the
+vector $\F(\r)$ with its tail at the point, because that is where
+the force would act on a test particle.  Because of the minus
+sign, the force vector in fact points to the origin.  As we
+get closer to the origin its magnitude increases.  It is not
+defined at the origin, which should be excluded from the domain
+of the function $\F$.   
+
+This vector field can also be specified in rectangular coordinates
+by using $\r = \lb x, y, z \rb$ and $|\r| = (x^2 + y^2 + z^2)^{1/2}$.
+After some algebra, we get
+$$
+\F(x,y,z) = -GM\left\lb \frac x{(x^2 + y^2 + z^2)^{3/2}},
+\frac y{(x^2 + y^2 + z^2)^{3/2}},
+\frac z{(x^2 + y^2 + z^2)^{3/2}} \right\rb.
+$$
+One of the problems in dealing with vector fields is to see
+through complicated algebra to what is often quite simple
+geometry.  The above expression is a good example.
+\endexample
+
+You can always think of a vector field as specifying the
+{\it force\/} at each point in space, (or for plane vector
+fields at each point in the plane.)  Vector fields are used
+extensively in this way in the theory of gravitation and also
+in electromagnetic theory.
+
+\nextex
+\example{Example \en} Consider the vector field in $\R^2$  
+defined by
+$$
+\v(\r) = r\u_\theta
+$$
+where  $\u_\theta$  is the unit vector in the positive $\theta$
+direction as discussed previously.   This can also be expressed
+in rectangular coordinates
+$$
+  \v(x,y) = \lb -y, x \rb.
+$$
+To see this, note that 
+$$
+\lb -y, x \rb = \lb -r\sin\theta, r\cos\theta \rb
+= r\lb -\sin\theta, \cos\theta \rb = r\u_\theta.
+$$
+(See Chapter 1, Section 2.) 
+%R Back reference.
+
+\mar{s5-2.ps}
+At each point in the plane, the vector $\v(\r)$ is perpendicular
+to the position vector $\r$ for that point.  It is also tangent to
+a circle through the point with center at the origin, and it is
+directed counter-clockwise.   We have
+$|\v(\r)| = r$, so the magnitude increases as we move
+away from the origin (where $\v(\bold 0) = \bold 0$.)  One
+can get a physical picture of this vector field as follows.  
+Imagine a disk (such as a phonograph record) rotating with
+constant angular velocity $\omega$.   Suppose that, by a new photographic
+process, it is possible to snap a picture 
+which  shows the {\it
+velocity vector\/}  $\v$  of each element of the disk
+at the instant the picture is taken.   These velocity vectors
+will look like the vector field described above, except for
+a factor of proportionality.  They will
+be tangent to circles centered at the origin, and their magnitudes
+will be proportional to the distance to the center ($|\v| = \omega r$).   
+Note that in this model, the picture will be the same whenever the
+picture is snapped.  At a given point in the plane with
+position vector $\r$, the
+velocity vector $\v(\r)$ will just depend on $\r$, although the
+particular element of the disk which happens to be passing through
+that point will change (unless the camera, i.e., the coordinate
+system, rotates with the disk).   Of course, we could envision a
+somewhat more complicated situation in which the disk speeds up
+or slows down, and then $\v$ would be a function both of position
+$\r$ and time $t$.    
+\endexample
+
+\emar{s5-3.ps}{-150}
+The above discussion suggests a second physical model 
+ to picture vector fields, that of {\it fluid flow}.
+The example was of a 2-dimensional field, but the idea works
+just as well in $\R^3$.  Imagine a fluid flowing in a region
+of space, for example, Lake Michigan, or the atmosphere of
+the Earth.  In the example, the relative positions of the elements
+of the medium (a phonograph record) do not change, but in
+general, that won't be the case.   Imagine a super hologram
+which will show at each instant the velocity vector $\v$ of each
+element of the fluid.   This will generally be a function
+$\v = \v(\r, t)$ of position and of time.  If we ignore the
+dependence on time, we get a vector function $\v:\R^3 \to
+\R^3$, or vector field.   (In fluid dynamics, one often
+distinguishes between {\it steady flows\/} where $\v$
+does not depend on time and {\it time dependent\/}
+flows where it does.)   In fluid mechanics, one is actually
+more interested in the {\it momentum\/} field defined by 
+$\F(\r,t) =  \delta(\r,t)\v(\r,t)$, where $\delta(\r,t)$ is a scalar function
+giving the {\it density} of the fluid at position $\r$ at time $t$.    
+
+\subhead Streamlines \endsubhead
+Let $\F:\R^n \to \R^n$ ($n = 2$ or $n = 3$) denote a vector
+field. (Assume for simplicity that $\F$ does not also depend explicitly
+on another variable like time.)
+   Consider paths  $\r = \r(t)$ with the property that
+at each point of the path, the vector field $\F(\r(t))$
+at that point is tangent to the path.  Since the velocity
+vector is also tangent to the path, we can state this
+symbolically
+\nexteqn
+$$
+    \frac{d\r}{dt} = \F(\r).\tag\eqn
+$$
+(Actually, there should be a factor $c(\r)$ of proportionality
+since the vectors are only parallel.  However, we are ordinarily
+only interested in the geometry of the path, not how
+it is traced out in time.   By a suitable change
+of parameterization, we can arrange for $c$ to be 1.) 
+Such paths are called either {\it lines of force\/}
+or {\it streamlines\/} depending on which physical model
+we have in mind.  In the case of fluid flow, the term
+``streamline'' is self-explanatory.  It is supposed to
+be the path followed by an element of fluid as it moves
+with the flow.  
+ In the case of
+force fields, the concept, line of force, is a bit
+mysterious.  It was first introduced by Faraday in his work
+on electricity and magnetism.  He thought of the lines of
+force as having physical reality, behaving almost like
+elastic bands pulling the objects together (or pushing them
+apart in the case of repulsive forces.)   I will leave
+further discussion of the meaning to your physics professors. 
+
+\nextex
+\mar{s5-4.ps}
+\example{Example \en}
+We shall find the streamlines for the vector field
+in $\R^2$ defined by
+$$
+  \v(x,y) = \lb -y, x \rb.
+$$
+From the previous discussion of this field, it is clear that
+they will be circles centered at the origin, but let's see
+if we can that derive that from equation (\eqn).   We get
+$$
+   \left\lb \frac{dx}{dt}, \frac{dy}{dt}\right\rb
+     = \lb -y, x \rb,
+$$
+which may be rewritten
+in terms of components
+$$\align
+  \frac{dx}{dt} &= -y,\\
+\frac{dy}{dt} &= x.
+\endalign$$
+This is a {\it system\/} of differential equations, and we
+won't study general methods for solving systems until later.
+However, in the 2-dimensional case, there is a simple trick
+which usually allows one to find the curves.
+Namely, divide the second equation by the first to obtain
+$$
+   \frac{dy}{dx} = -\frac xy.
+$$
+This may be solved by separation of variables,
+$$\align
+     y\,dy &= -x\,dx \\
+\text{or}\qquad \frac{y^2}2 &= -\frac{x^2}2 + c \\
+\text{or}\qquad x^2 + y^2 &= 2c.
+\endalign$$
+
+\mar{s5-5.ps}
+These curves are circles centered at the origin as expected.
+Note that we don't learn how they are traced out as functions
+of $t$.
+\endexample
+\subhead Gradient Fields \endsubhead
+Given a scalar field $f:\R^n \to \R$, we may always form a
+vector field by taking the gradient.
+$$
+   \F(\r) = \nabla f(\r).
+$$
+\nextex
+\example{Example \en}
+Let $f(\r) = \dfrac{GM}\rho = \dfrac{GM}{\sqrt{x^2 + y^2 + z^2}}$
+for $\r \ne \bold 0$.  We in essence calculated the gradient of this
+function in Example 2, Section 7, Chapter III.  The answer
+is
+$$
+   \nabla f = -\frac{GM}{\rho^2}\u_\rho
+$$
+which is the gravitational field of a point mass at the origin.
+\endexample
+
+\nextex
+\mar{s5-6.ps}
+\example{Example \en}  A metal plate is heated so the
+temperature at $(x,y)$ is given by $T(x,y) = x^2 + 2y^2$.
+A heat seeking robot starts at the point $(1,2)$.  We shall
+find the
+path it follows.   
+``Heat seeking'' means that at any point, it will move in the
+direction of maximum increase of temperature, i.e., in the
+direction of $\nabla T = \lb 2x, 4y \rb$.  Since we
+aren't told how fast it responds to the temperature gradient,
+its equations of motion will be
+$$\align
+  \frac{dx}{dt} &= c(2x), \\
+    \frac{dy}{dt} &= c(4y),
+\endalign$$
+   where $c = c(x,y)$ is an unknown function.  We can't actually
+determine the  motion along the path, but using the same
+trick as above, we can determine its shape.
+$$\align
+   \frac{dy}{dx} &= 2\frac yx \\   
+\text{so}\qquad \frac{dy}y &= 2\frac{dx}x \\
+\text{and}\qquad \ln |y| &= \ln |x|^2 + c.
+\endalign$$
+If we exponentiate, we obtain
+$$
+    |y| = |x|^2 e^c = C|x|^2
+$$
+where $C = e^c$ is just another constant.  Putting $x = 1, y =2$
+(where the robot starts) yields  $C = 2$.   One can make a
+convincing argument that, considering the starting point and
+the nature of the possible path, we may take $x$ and $y$ positive,
+so the solution is
+$$
+    y = 2x^2,
+$$
+which describes a parabola.  Note that, as before, the method
+depends on this being a problem in the plane.
+If we had a $z$ to deal with, it wouldn't have worked.
+\endexample
+
+\mar{s5-7.ps}
+It should be noted that while gradient fields are quite important,
+not every field is a gradient.   As we shall see later, gradient
+fields must have the property that line integrals depend only
+on end points, and as we saw earlier, not every force field has
+that property.
+
+\bigskip
+%Section 1
+\input chap5.ex1
+\bigskip
+\nextsec{Surface Integrals for Vector Fields}
+\head Section \sn.  Surface Integrals for Vector Fields \endhead
+
+In this section, we shall use the notation $\F$ to denote a
+general vector field.   The mathematics won't care, but you may
+find it useful on occasion to think of it as either a force
+field or a momentum field for a fluid flow.   Also, 
+any dependence of $\F$ on time won't matter in what we do,
+so we shall assume $\F = \F(\r)$ is a function of position
+alone.
+
+\emar{s5-8.ps}{-100}
+Let $\F:\R^3 \to \R^3$ denote a vector field, and suppose
+$\Cal S$ is a surface in $\R^3$.   Suppose everything is
+reasonably smooth, so we don't have to worry about singularities
+or other bizarre behavior.  At each point on $\Cal S$, choose
+a unit vector $\N$ perpendicular to the surface.  (Hence, $\N$
+will usually vary from point to  point on $\Cal S$.)  Consider
+the scalar valued function of position  $\F\cdot \N$.  The
+integral of this function over the surface
+$$
+\iint_{\Cal S}\,\F\cdot\N\,dS
+$$
+is called the surface
+integral of the vector field $\F$ over the surface $\Cal S$.
+One must exercise care in choosing the normal vectors since
+at any given point on the surface, there will be {\it two\/}
+unit vectors perpendicular to the surface.  Clearly, the direction
+of the normal should not change precipitously between nearby
+points on the surface.  (The choice of the normals, called the
+{\it orientation\/} of the surface, can be a bit subtle, and we
+shall come back to this important point later.)  One often uses
+the notation
+$$
+     d\S = \N\,dS
+$$
+so that the element of surface area becomes a
+{\it vector quantity}.  Then the notation for the surface
+integral becomes
+$$
+   \iint_{\Cal S}\, \F\cdot d\S.
+$$
+\loadbold
+Other notational variations include using a single integral
+sign, $\int$, and using some other symbol, such as
+$d\boldsymbol\sigma$ or $d\bold A$, for the vector element of
+surface area.
+
+\nextex
+\mar{s5-9.ps}
+\example{Example \en}   Let $\F(\r) = -\dfrac{GM}{\rho^2}\u_\rho$
+and let $\Cal S$ be the surface of a sphere of radius $a$.
+Assume all the normals point outward from the origin.  Thus
+in this case, at each point on the surface, $\N = \u_\rho$.
+Hence, since $\rho = a$ on the sphere $\Cal S$, 
+$$
+   \F\cdot\N = -\frac{GM}{a^2}\u_\rho\cdot\u_\rho =
+    -\frac{GM}{a^2}.
+$$
+Thus,
+$$
+\iint_{\Cal S} \F\cdot\N\,dS = 
+    -\frac{GM}{a^2}\,\iint_{\Cal S}\, dS =
+    -\frac{GM}{a^2}\,(4\pi a^2) =
+    -4 \pi GM.
+$$
+Notice that most of the algebra is really superfluous here.  The vector
+field is parallel to the unit normal, so the dot product is
+just the magnitude of the vector field on the sphere, 
+   $ -\frac{GM}{a^2}$.  However, since this is constant, integrating
+it over the sphere just results in that constant times the surface
+area of the sphere.   With a bit of practice, you should be able
+to do such a simple example in your head.
+\endexample
+\smallskip
+\mar{s5-10.ps}
+\smallskip
+\subhead Interpretation for Fluid Flow \endsubhead
+Let $\F$ denote the momentum field of a steady fluid flow (i.e., $\F(\r)
+ = \delta(\r)\v(\r)$, where $\delta(\r)$ denotes density and $\v(\r)$
+ velocity
+at the point with position vector $\r$.)    Then it turns out that
+the surface integral $\iint_{\Cal S} \F\cdot\N\, dS$ gives the {\it rate
+of flow\/} or the {\it flux\/}  of the fluid through the surface.  To
+see this, consider first the special case where $\F, \delta$, and $\v$ are
+all constant, and the surface is a parallelogram spanned by vectors
+$\a$ and $\b$.   In one unit of time, each element of fluid is
+displaced by the vector $\v$, so all the fluid which flows through
+the parallelogram will lie within the parallelepiped spanned by
+$\a, \b$, and $\v$.   The volume contained therein is
+$\v\cdot(\a\times\b)$.  (See Chapter I, Section 4.)
+%R  Back reference to triple product.
+  Hence, the mass passing through
+the parallelogram per unit time is
+$$
+\delta\,\v\cdot(\a\times\b) = (\delta\v)\cdot(\a\times\b) =\F\cdot(\a\times\b).
+$$
+Since $A = |\a\times\b|$ is the area of the parallelogram, we may
+rewrite $\a\times\b = A\N$ where $\N$ is a unit vector perpendicular
+to the parallelogram.  Hence,
+$$
+\text{flux through parallelogram } = \F\cdot\N\,A.
+$$
+Note the significance of the direction of the normal vector in this
+context.  If $\F$ and $\N$ point to the same side of the parallelogram,
+the flux is positive, and if they point to opposite sides, the flux is
+negative.
+
+\mar{s5-11.ps}
+The above analysis may be extended to curved surfaces.   The
+quantity $\F\cdot\N\,dS$ represents the flux through a small element
+of surface area $dS$, and integrating gives the net flux through the
+entire surface.   
+
+It is common to use the term {\it flux\/} quite generally, even where
+the fluid flow model is not appropriate.   For example, in gravitational
+theory (and also the theory of electromagnetic fields), there is nothing
+``flowing'' in the ordinary sense.   In this case, the flux is interpreted
+as a measure of the ``number'' of lines of force passing through the
+surface.  Since this is a mathematics course, I will leave such matters
+for your physics professor to explain.
+
+\medskip
+
+\mar{s5-12.ps}
+We continue with further examples.
+
+\nextex
+\example{Example \en}  Let $\F(\r) = z\,\k$ and let 
+$\Cal S$ be the top hemisphere of the sphere of radius $a$
+centered at the origin.  Use outward normals.
+As above $\N = \u_\rho$.   On the surface of the sphere, we use
+$\phi, \theta$ as intrinsic coordinates as usual.  Then
+$\rho = a, z = a\cos\phi$, and $dS = a^2\sin\phi\,d\phi\,d\theta$.
+Moreover, $\N = \u_\rho$, and since the angle between $\N$ and $\k$
+is $\phi$, we have $\k\cdot\N = \cos\phi$ and
+$$
+  \F\cdot\N = z\k\cdot \N = a\cos\phi\,\cos\phi = a\cos^2\phi.
+$$
+Hence,
+$$
+\iint_{\Cal S}\F\cdot\N\,dS =
+ \int_0^{2\pi}\int_0^{\pi/2}\,a\cos^2\phi\,a^2\sin\phi\,d\phi\,d\theta
+$$
+where the limits were chosen to cover the hemisphere.  Thus,
+$$\align
+\iint_{\Cal S}\F\cdot\N\,dS &=
+a^3 \int_0^{2\pi}\int_0^{\pi/2}\,\cos^2\phi\,\sin\phi\,d\phi\,d\theta\\
+&= a^3 (2\pi)\,\left. -\frac{\cos^3\phi}3\right|_0^{\pi/2}\\
+&= \frac{2\pi a^3}3\,(1) = 
+\frac{2\pi a^3}3. 
+\endalign$$
+
+\mar{s5-13.ps}
+If the integration had been over the entire sphere, the answer
+would have been $4\pi a^3/3$.   Can you see why without actually
+doing the calculation?  (Try drawing a picture showing
+$\F$ and $\N$ on the bottom hemisphere and comparing with the
+picture on the top hemisphere.)
+\endexample
+
+It is worth remembering that on the surface of a sphere
+of radius $a$,
+$$
+d\S = \N\, dS = \u_\rho\, a^2\sin\phi\, d\phi\,d\theta.
+$$
+Similarly, on the {\it lateral\/} surface of a right circular cylinder
+of radius $a$ centered on the $z$-axis,
+ the outward unit normal vector $\N = \u_r$ points directly
+away from the $z$-axis, and $dS = a d\theta\,dz$, so 
+$$
+d\S = \N\,dS = \u_r\,a\,d\theta\,dz.
+$$
+
+\subhead Surface Integrals for Parametrically Defined Surfaces
+\endsubhead
+In the previous chapter,
+we calculated the {\it surface area\/}  of a parametrically defined
+surface as follows.  Each small  curvilinear rectangle on the surface
+was  approximated by
+a tangent parallelogram, the sides of which were the
+ vectors $\a = \dfrac{\partial \r}{\partial u}\Delta u$
+and $\b = \dfrac{\partial\r}{\partial v}\Delta v$. 
+The area of the latter  was then used as an
+approximation for the area of the former.  The same reasoning may be used to
+calculate flux.  The
+flux through a curvilinear rectangle on the surface
+ may be approximated by the
+flux through the (tangent) parallelogram, i.e., as above, by    
+ $\F\cdot (\a\times \b)$  where $\F$ is the value of the vector
+field at a corner of the parallelogram.   Expanding this out
+yields   
+$$
+\F(\r(u,v))\cdot (\frac{\partial \r}{\partial u}\times
+\frac{\partial\r}{\partial v})\,\Delta u\,\Delta v.
+$$
+Hence,
+\nexteqn
+$$
+\iint_{\Cal S}\F\cdot d\S
+= \iint_D
+\F(\r(u,v))\cdot
+(\frac{\partial \r}{\partial u}\times\frac{\partial\r}{\partial v})
+\,du\,dv \tag\eqn
+$$
+where $D$ is the domain of the parameterizing function
+$\r = \r(u,v)$.   Note that the normal vectors in this case are given
+by
+$$
+\N =
+\frac 1{|\frac{\partial \r}{\partial u}\times\frac{\partial\r}{\partial v}|}
+(\frac{\partial \r}{\partial u}\times\frac{\partial\r}{\partial v})
+$$
+so their directions are determined by the parametric representation.
+However, if those directions don't square with your expectations, it is
+easy enough to reverse them.   Just change the parametric representation
+by reversing the roles of the parameters, hence, the order in the cross
+product.
+
+It is seldom the case that one  wants to use formula (\eqn), although it
+underlies the other calculations.
+In most cases, the surface is a familiar one such as a sphere
+or a cylinder, in which case one can visualize the unit normals
+$\N$ directly, or it is the graph of a function.  (See the exercises for some
+examples where one must resort to the general formula.)
+
+\subhead Surface Integrals for the Graph of a Function \endsubhead
+Suppose the surface $\Cal S$ is the graph of a function $z = f(x,y)$.
+In that case, we use the parametric representation
+$\r = \r(x,y) = \lb x,y,f(x,y)\rb$, and some calculation shows
+$$
+  d\S = \frac{\partial\r}{\partial x}\times\frac{\partial\r}{\partial y}
+\,dx\,dy =
+ \lb -f_x, -f_y, 1 \rb \,dx\,dy.
+$$
+(See the corresponding discussion for the surface area of a graph
+in Section 9, Chapter IV.)
+%R Back Ref to surface area.
+Hence, if  the vector field is resolved in components,
+$\F = \lb F_x,F_y,F_z \rb$, the surface integral takes the form
+$$
+\iint_{\Cal S} \,\F\cdot d\S
+= \iint_D\, (-F_x\,f_x - F_yf_y + F_z)\,dx\,dy
+$$
+where $D$ is the domain of the function $f$ in the $x,y$-plane.
+Note that in this case the unit normal vector 
+$$
+    \N = \frac 1{\sqrt{f_x{}^2 + f_y{}^2 + 1}}\lb -f_x, -f_y, 1 \rb
+$$
+points generally upward.
+
+\example{Example \en, {\rm (revisited)}}  We use the same
+hemisphere but view it as the graph of the function
+$f(x,y) = \sqrt{a^2 - x^2 - y^2}$ with 
+   domain $D$ 
+a disk in the $x,y$-plane of radius $a$, centered at the origin.
+  Since $\F(x,y,z) = \lb 0,0, z\rb$,
+we need not calculate $f_x$ and $f_y$.  We have 
+$$
+\iint_{\Cal S}\,\F\cdot d\S = \iint_D
+\undersetbrace{z}\to{\sqrt{a^2 - x^2 - y^2}}\,dy\,dx.
+$$
+However, looking at this carefully reveals it to be the same
+integral as that for the volume under the hemisphere, which is
+$(1/2)(4\pi a^3)/3 = 2\pi a^2/3$.  
+Since the calculation of the double integral
+is so easy, this approach is simpler than the previous
+approach using the intrinsic coordinates $\phi$ and
+$\theta$ on the sphere.  However, in most cases the intrinsic approach
+is superior.
+\endexample
+
+Sometimes, the surface needs to be decomposed into pieces in order
+to calculate the flux.
+
+\nextex
+\example{Example \en}  Let $\F(\r) = \r = \lb x, y, z\rb$.  Let
+$\Cal S$ be the surface enclosing a right circular cylinder
+of radius $a$ and height $h$, centered on the $z$-axis, where this
+time we include both the top and bottom as well as the lateral
+surface.  We shall find the flux out of the cylinder, that is the
+normals will be chosen so as to point out of the cylinder.
+
+We decompose the surface into three parts: the bottom $\Cal S_1$,
+the lateral surface $\Cal S_2$, and the top $\Cal S_3$.
+
+The bottom surface is easiest.  The outward unit
+normal is $\N = -\k$, and $\F(\r) = \r = \lb x, y, 0 \rb$
+is perpendicular to $\N$ for points in the $x,y$-plane.
+Hence, $\F\cdot\N = 0$ for $\Cal S_1$, so the flux is
+zero.   
+
+\mar{s5-14.ps}
+The top surface is also not too difficult.  The unit normal
+is $\N = \k$, but in the plane $z = h$, we have
+$\F(\r) = \lb x, y, h \rb$.  Hence,  $\F\cdot\N = h$,
+and
+$$
+\iint_{\Cal S_3}\,\F\cdot\N\,dS = h \iint_{\Cal S_3}\,dS = h (\pi a^2)
+ = \pi a^2h
+$$
+since the top surface is a disk of radius $a$.
+
+Finally, we consider the lateral surface $\S_2$.  We may 
+resolve $\F$ into horizontal and vertical components
+by writing
+$$
+  \F(\r) = \lb x, y, z \rb = \lb x,y,0\rb + \lb 0,0,z \rb
+                   = r\u_r + z\k,
+$$
+but since $r = a$ on the cylinder, we have
+$$
+\F(\r) = a\u_r + z\k.
+$$
+On the other hand, the outward unit normal is $\N = \u_r$, so
+$\F\cdot\N = a\u_r\cdot\u_r + z\k\cdot\u_r = a$.  Hence,
+$$
+\iint_{\Cal S_2}\,\F\cdot\N\,dS = a\iint_{\Cal S_2}\,dS
+= a\,(2\pi a h) = 2\pi a^2 h.
+$$
+Here we used the fact that the surface area of the lateral
+surface of cylinder is the height times the circumference of
+the base. 
+Note that, in the above calculation,  the vertical
+component of the force is irrelevant since the normal is horizontal.
+Also, the horizontal component is normal to the
+lateral surface of the cylinder, and that makes calculating the
+dot product quite easy.
+ 
+The total flux is the sum for the three surfaces
+$$
+    0 + \pi a^2 h + 2\pi a^2 h = 3\pi a^2 h.
+$$
+\endexample
+
+\subhead Orientation \endsubhead
+As we noted, at each point of a surface, there are generally
+two possible directions for the unit normal vector.  Explaining
+how one goes about specifying those directions and seeing how
+they are related as one moves about the surface is a bit
+trickier than you might imagine.  The simplest case is that
+of a closed surface, i.e., a surface $\Cal S$,
+ bounding a solid region $E$
+in space.  In that case, there are two obvious {\it orientations\/}
+or ways of choosing the normal directions.  We may use the
+{\it outward\/} orientation, in which all the normals point
+away from the region, or we may use the {\it inward\/}
+orientation, in which they all point into the region.   If the
+solid region is something like a solid sphere, cylinder, cube,
+etc., this is quite easy to visualize.  However, the principle
+works even in regions a bit more complicated than this.
+Consider the for example, the solid region $E$ {\it between\/}
+two concentric spheres.  The boundary of
+that region consists of the two spheres.  (It comes in two
+pieces, or in technical jargon, it is not {\it connected}.) 
+The outward normals, relative to  
+$E$ point away from the origin on the outer sphere and towards
+the origin for the inner sphere.  The same sort of thing happens
+for any surface consisting of the (disconnected) boundary of
+any solid region having one or more holes.  (Imagine a hunk of
+swiss cheese.) 
+\medskip
+\centerline{\epsfbox{s5-15.ps}}
+\medskip
+For surfaces, which are not boundaries of solid regions, it is
+sometimes not so clear how to choose an orientation.  If the
+surface is given parametrically, $\r = \r(u,v)$, with the
+parameters given in some specified order, then this implies
+an orientation, since at each point 
+$$
+\frac{\partial\r}{\partial u}\times\frac{\partial\r}{\partial v}
+$$
+determines the direction of the normal.  Suppose however, the
+surface consists of separate pieces which are connected one to
+another, but such that no one parameterization works for
+the entire surface.  The closed surface bounding a solid
+cylinder, including top and bottom, is such an example.
+Another example, which is not closed, would be the 5 faces of
+a cubic box open at the top. There is a fairly straightforward
+way to specify an orientation for such a surface.  Suppose that
+such a surface is decomposed into separate patches, each 
+with a smooth
+parametric representation. That gives each
+patch a 
+specific orientation, but it can always be reversed by
+reversing the order of the parameters. 
+We hope to be able to choose the orientations for the
+parametric patches so that they are coherently related.
+If this is possible, we say the surface has an orientation. 
+The difficulty is that as one crosses an  edge which is
+the common boundary between two adjacent patches, the direction
+of the normal may change quite radically, so it is a bit
+difficult to make precise what we mean by saying the normals are
+coherently related.  Fortunately, in most interesting cases,
+it is fairly clear how the normals on adjacent patches
+{\it should be related}.   We will return to this point later
+during our discussion of Stokes's Theorem and related
+matters.  
+
+\mar{s5-17.ps}
+It is quite surprising that there are fairly simple
+surfaces in $\R^3$ without 
+coherent orientations.  The so called {\it Moebius
+band\/} is such a surface.  One can make a Moebius band
+by taking a long strip of paper, twisting it once
+and connecting the ends.  (Without the twist, we
+would get a long narrow ``cylinder''.)  See the
+diagram.  To see that the Moebius band is not
+orientable, start somewhere and choose a direction
+for the normals near the starting point.  Then continue
+around the band, as indicated, choosing
+normals in roughly the same direction as you progress.
+When you get all the way around the band, 
+ you will find that the normal direction
+you have ``dragged'' with you now points {\it
+opposite\/} to the original direction.  (To
+get back the original direction, you will have to
+go around the band once again.)  
+See the Exercises for a parametric representation of
+the Moebius band---less one segment---which exhibits
+this discontinuous reversal of the normal.
+\medskip
+\centerline{\epsfbox{s5-18.ps}}
+\medskip
+It does not make sense to try to calculate the flux through
+a non-orientable surface such as a Moebius band, since
+you won't be able to assign positive and negative
+signs for the contributions from different parts of the surface
+in a coherent fashion.
+
+\bigskip
+%Section 2
+\input chap5.ex2
+\bigskip
+\nextsec{Conservative Vector Fields}
+\head Section \sn.  Conservative Vector Fields \endhead
+
+Let $\F$ be a vector field defined
+on some open set in $\R^n$
+(where as usual $n = 2$ or $n = 3$).   For technical reasons, we
+also want to assume that the domain of the function is {\it
+connected\/}, i.e., it can't be decomposed into separate
+disjoint open sets.
+\outind{connected set}%
+    We say that $\F$ is
+ {\it conservative\/} if it is the gradient
+$\F = \nabla f$ of some scalar field $f$.
+%Removed this: $f$ is called a {\it potential function\/} for $\F$.
+\outind{conservative field}%
+   For example,
+in $\R^3$,
+if $f(\r) = 1/|\r|$, then $\F = -(1/|\r|^2)\u_{\rho}$ is conservative.
+This {\it inverse square law field\/} arises in gravitation and also
+in electrostatics.
+
+\mar{s5-19.ps}
+Note that the function $f$ is not generally unique.
+For, if $f$ is one such function, then for any constant $c$,
+we have
+$$
+   \nabla(f + c) = \nabla f + \nabla c = \nabla f = \F.
+$$
+Hence, $f + c$ is another such function.   The converse
+is also true.  If  $f_1$ and $f_2$ both work for  
+the same conservative field $\F$, then
+$$
+   \F = \nabla f_1 = \nabla f_2 \Rightarrow \nabla f_1 = \nabla f_2
+\Rightarrow \nabla (f_1 - f_2) = \bold 0.
+$$
+However, it is not hard to see that a (smooth) function with
+zero gradient must be constant.  (Can you prove it?  You need to
+use the fact that the domain is connected!)  It follows that
+$f_1 - f_2 = c$, i.e., {\it any two  functions with the
+same 
+gradient differ by a constant.}
+%Exer   Proof that grad = 0 implies constant.
+
+
+It is sometimes much easier to find the scalar function $f$ 
+and then take its gradient than it is is to find the 
+  vector field $\F$ directly.
+\goodbreak
+\nextex
+\xdef\ExOne{\en}
+\emar{s5-20.ps}{-200}
+\example{Example \en, {\rm (gravitational dipole)}}  Suppose two point masses 
+of equal mass $m$ are located at the points $(a,0,0)$ and $(-a,0,0)$.
+Let $\F_1$ denote the gravitational force 
+due to the first mass and $\F_2$ the force
+due to the second mass.
+To find the combined force $\F = \F_1 + \F_2$
+directly requires some complicated
+vector algebra.  However, 
+$\F_1 = \nabla f_1$ where 
+$$
+f_1(x,y,z) = \frac{Gm}{\sqrt{(x - a)^2 + y^2 + z^2}}.
+$$
+\outind{dipole}%
+Here, the expression in the denominator is the distance from
+$(x,y,z)$ to the first mass.  Similarly, the force due to
+the second mass is $\F_2 = \nabla f_2$ where
+$$
+f_2(x,y,z) =
+  \frac{Gm}{\sqrt{(x + a)^2 + y^2 + z^2}}.
+$$
+Hence, the combined force is 
+$$\F = \nabla f_1 + \nabla f_2 = \nabla (\undersetbrace f\to{f_1 + f_2}).
+$$ 
+Calculating $f = f_1 + f_2$ is much simpler than calculating $\F_1 + \F_2$.
+$$
+f(x,y,z) = Gm\left (\frac 1
+{\sqrt{(x - a)^2 + y^2 + z^2}} +
+ \frac 1{\sqrt{(x + a)^2 + y^2 + z^2}} \right ).
+$$
+Of course, you still have to find
+the gradient of this function to find  $\F = \nabla f$.
+
+\subhead Line Integrals for Conservative Fields \endsubhead
+Conservative fields are particularly nice to deal with when
+computing line integrals.   Suppose $\F = \nabla f$ is
+conservative, and $\Cal C$ is an oriented
+ path in its domain going from
+point $A$ to point $B$.  ($A$ and $B$ might be the same point,
+in which case the path would be a closed loop.)  We may
+calculate the line integral $\int_{\Cal C} \F\cdot d\r$
+as follows.  Choose a parametric representation $\r = \r(t),
+a \le t \le b$ for $\Cal C$.  Then
+$$
+\int_{\Cal C} \F\cdot d\r =
+  \int_a^b \F(\r(t))\cdot \r'(t) \, dt =
+  \int_a^b \nabla f(\r(t))\cdot \r'(t) dt.
+$$
+However, by the {\it chain rule\/}
+%Ref to chain rule
+$$
+   \nabla f(\r(t))\cdot \r'(t) = \frac d{dt}\,f(\r(t)).
+$$
+Hence,
+$$
+\int_{\Cal C} \F\cdot d\r =\int_a^b \frac d{dt}\,f(\r(t)) \, dt
+      = \left . f(\r(t))\right|_a^b
+$$
+so
+\nexteqn
+\xdef\EqOne{\eqn}
+$$
+\int_{\Cal C} \F\cdot d\r = f(\r(b)) - f(\r(a)) = f(B) - f(A). \tag\eqn
+$$
+
+\mar{s5-21.ps}
+In particular, the value of
+the line integral is {\it path independent\/} since it depends
+only on the endpoints of the path.
+
+\nextex
+\example{Example \en}  Consider the inverse square field
+ $\F = -(1/|\r|^2)\u_{\rho}$  which is the gradient of the function
+$f$ defined by
+$f(\r) = 1/|\r|$.  We have
+$$
+ \int_{\Cal C} \F\cdot d\r = \frac 1{|\r_B|} - \frac 1{|\r_A|}.
+$$
+Compare this with the calculation in the example at the end
+of Chapter I, Section 6, where the relevant integral in the
+plane case was calculated directly.
+\endexample
+
+It is important to note that {\it not every vector field is
+conservative}.  The easiest way to see this is to note that
+there are plenty of vector fields which do not have the
+path independence property for line integrals.   
+
+\nextex
+\example{Example \en}  Let $\F(x,y) = \lb -y, x \rb = r\u_{\theta}$.
+Let $\Cal C_1$ be the closed path which starts and ends at the
+point $(1,0)$ (so $A = B$) and traverses a circle of radius 1
+in the counter-clockwise direction.  This line integral has
+been calculated in exercises, and the answer is $2\pi$.  On the
+other hand, if we choose $\Cal C_2$ to be the same path but
+traversed clockwise, the answer will be $-2\pi$.  Finally,
+to emphasize the point, let $\Cal C_3$ be the trivial path
+which just stays at the point $(1,0)$.  The line integral for
+$\Cal C_3$ will clearly be zero.  The answer is certainly not
+path independent, so the field is not conservative.
+\endexample
+
+\mar{s5-22.ps}
+The {\it path independence\/} property for a vector field
+in fact ensures that it is conservative.  For suppose
+$\F$ is defined on some connected open set in $\R^n$
+and that $\int_{\Cal C} \F\cdot d\r$ depends only on the
+endpoints of $\Cal C$ for every oriented path $\Cal C$ in
+the domain of $\F$.   We can construct a function
+$f$ for $\F$ as follows.  Choose a base point $P_0$ in the
+domain of $\F$.   For any other point $P$ with position
+vector $\r$ in the domain of $\F$ choose any path
+$\Cal C$ in the domain from $P_0$ to $P$.  Define
+$$
+    f(\r) = \int_{\Cal C}\F\cdot d\r = \int_{P_0}^P \F\cdot d\r
+$$
+where the second form of the notation emphasizes that the result
+depends only on the endpoints of the path.  I claim that
+$\nabla f = \F$.   To see this, choose a parameterizing
+function 
+$\r(u), a \le u \le t$ for $\Cal C$ where $\r(a) = \r_0$ and
+$\r(t) = \r$.   Then by the fundamental theorem of calculus
+$$
+   \frac d{dt} f(\r(t)) = \frac d{dt}\int_a^t \F(\r(u))\cdot \r'(u) du
+    = \F(\r(t))\cdot \r'(t).
+$$
+On the other hand, by the chain rule
+$$
+    \frac d{dt} f(\r(t)) = \nabla f(\r(t))\cdot \r'(t),
+$$
+so
+$$
+    \nabla f(\r(t))\cdot \r'(t)
+    = \F(\r(t))\cdot \r'(t).
+$$
+However, since the path $\Cal C$ is entirely arbitrary, its velocity
+vector $\r'(t)$ at its endpoint is also entirely arbitrary.   That means
+that the dot products of $\nabla f$ and $\F$ with every possible vector
+(including $\i, \j$, and $\k$) are the same, and it follows that
+$\nabla f = \F$, as claimed.  This is an important enough fact to
+state formally.
+\smallskip
+\mar{s5-23.ps}
+\smallskip
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $\F$ be a vector field defined on
+some connected open set in $\R^n$.   $\F$ is conservative if either
+of the following conditions holds:  (i) $\F = \nabla f$ for some
+function $f$ or (ii) $\F$ satisfies the path independence
+condition for line integrals in its domain.
+\endproclaim
+
+It should be noted that if $\F$ is conservative, then {\it the 
+line integral for $\F$ around any closed loop is zero}.   For,
+the result is independent of the path, and we may assume the path
+is the trivial path which never leaves the starting point.   (See
+the diagram below.)
+%%% Move the diagram below up here
+
+The converse is also true.  If $\int_{\Cal C} \F\cdot d\r = 0$
+for any closed loop $\Cal C$ in the domain of $\F$, then $\F$
+must be conservative.   For, if $\Cal C_1$ and $\Cal C_2$ are two
+oriented paths which start and end at the same point, then we may
+consider the closed path $\Cal C$ formed by traversing first
+$\Cal C_1$, and then the opposite $\Cal C'_2$ of the second path.
+We have
+$$
+0 = \int_{\Cal C} \F\cdot d\r = \int_{\Cal C_1} \F\cdot d\r
+   - \int_{\Cal C_2}\F\cdot d\r
+$$
+whence $\int_{\Cal C_1}\F\cdot d\r = \int_{\Cal C_2} \F\cdot d\r$.
+Thus, $\F$ has the path independence property for line integrals.
+%%% Move this diagram up
+\medskip
+\centerline{\epsfbox{s5-24.ps}}
+\medskip
+\subhead Relation to the Work Energy Theorem in Physics \endsubhead
+For force fields, the notion of `conservative field' is
+intimately tied up with the law of conservation of energy.
+To see why, suppose a particle moves under the
+influence of a conservative force $\F = \nabla f$. 
+Then, by Newton's Second Law, we have
+$$
+m\frac{d^2\r}{dt^2} = \nabla f.
+$$
+Take the dot product of both sides with the velocity vector
+$\v = \dfrac{d\r}{dt}$.  We get
+\nexteqn
+$$
+m\frac{d\v}{dt}\cdot\v = \nabla f\cdot \v.\tag\eqn
+$$
+There is another way to obtain this equation.  Let
+$$
+E = \frac 12 m (\v\cdot \v) - f.
+$$
+Then
+$$\align
+\frac{dE}{dt} &= \frac 12 m( 2\frac{d\v}{dt}\cdot\v) -
+\frac{df}{dt} \\
+&= m\frac{d\v}{dt}\cdot\v - \nabla f\cdot\v.
+\endalign$$
+Thus, equation (\eqn) is equivalent to the assertion
+that $\dfrac{dE}{dt} = 0$, i.e., that $E$ is constant.   
+
+This discussion should be familiar to you from physics.  
+The quantity $T = \dfrac m2\v\cdot\v = 
+\dfrac m2 |\v|^2$ is called the {\it kinetic energy\/},  the quantity
+$V = -f$ is  usually called the {\it potential energy\/}, and
+their {\it sum\/} $E$ is called the {\it total energy}.    Under the
+above assumptions, the total energy is conserved.   
+
+Because of the above considerations, a function $V = -f$ 
+such that $\F = -\nabla V$
+ is often called a {\it potential function\/}
+for $\F$.  
+\outind{potential funtion}%
+\outind{potential, scalar}%
+(From
+a purely mathematical point of view, the minus sign is an unnecessary
+complication,  so mathematicians sometimes leave
+it out when using the term `potential'.   In this course, we
+shall follow the common usage in physics and keep the minus sign.)
+
+\medskip
+\subhead Finding Potential Functions \endsubhead
+If we are given a conservative vector field $\F$, we want a method
+for finding a function $f$ such that $\F = \nabla f$.
+($V = -f$ will be the associated potential function.)
+   We can of course use
+the line integral method described above.  To this end, it is
+easiest to choose the path in a straightforward standard way.
+One common choice is to choose a polygonal path with segments
+parallel to the coordinate axes.   For example, suppose
+$\F = \lb F_1, F_2 \rb$ is a vector field in the plane.  Fix
+a point $(x_0, y_0)$ in its domain, and for any other point
+$(x,y)$ in its domain, consider the path consisting of two
+segments, the first parallel to the $x$-axis from $(x_0,y_0)$
+to $(x, y_0)$ and the second parallel to the $y$-axis from
+$(x,y_0)$ to $(x,y)$.   It is easy to check that the line integral
+for this composite path is 
+\nexteqn
+$$
+ f(x,y) = \int_{x_0}^x F_1(x', y_0) dx' + \int_{y_0}^y F_2(x, y') dy'.\tag\eqn
+$$
+(Note that we have to use {\it dummy variables\/} $x', y'$ to avoid confusing
+the values of $x$ and $y$ at the endpoint from the values on the line
+segments.)    
+\medskip
+\centerline{\epsfbox{s5-26.ps}}
+\medskip
+This formula may not always apply because the domain of
+the function can have {\it holes\/} in it which may block one or the
+other of the vertical line segments for some values of $x$ or $y$.
+
+Formula (\eqn) can be a bit awkward to apply, but there is an equivalent
+method which uses indefinite integrals instead.  We illustrate it by
+an example.
+
+\nextex
+\example{Example \en}  Let $n = 2$ and let  $\F(x,y) = \lb x^2 + 2xy,
+x^2 + 2y \rb$.  We shall find a function $f$ as follows.
+If $\nabla f = \F$, then using components
+$$\align
+   \frac{\partial f}{\partial x} &= F_1(x,y) = x^2 + 2xy, \\
+   \frac{\partial f}{\partial y} &= F_2(x,y) = x^2 + 2y.
+\endalign $$
+Integrate the first equation with respect to $x$ to obtain
+$$
+  f(x,y) = \frac 13 x^3 + x^2y + C(y).
+$$
+Note that the indefinite integral as usual involves an arbitrary
+constant, but since this was a `partial integration' keeping $y$
+constant, this constant can in fact depend on $y$.   Now differentiate
+with respect to $y$ to obtain
+$$
+\frac{\partial f}{\partial y} = x^2 + C'(y).
+$$
+Comparing this with the previous expression for $\dfrac{\partial f}
+{\partial y}$ yields
+$$
+  x^2 + C'(y) = x^2  + 2y\qquad\text{or}\qquad C'(y) = 2y
+$$
+from which we conclude $C(y) = y^2 + E$, where $E$ is a constant 
+independent of both $x$ and $y$.  Hence,
+$$
+f(x,y) = \frac 13 x^3 + x^2y + y^2 + E
+$$
+is the most general function which will work.  If we
+just want one such function, we can take $E = 0$, for example.
+Checking that this works yields
+$$\align
+\frac{\partial f}{\partial x} &= x^2 + 2xy \\
+\frac{\partial f}{\partial y} &= x^2 + 2y 
+\endalign $$
+as required.
+
+It is very important to check the answer since you could easily
+make a mistake in integrating.  It might even be true that the
+field is not even conservative, but through an error, you have convinced
+yourself that you have found a function $f$ with the right
+properties.
+\medskip
+There is a variation of the method which sometimes is a little
+faster.
+
+As above, look for $f$ such that
+$$
+   \frac{\partial f}{\partial x} = F_1(x,y) = x^2 + 2xy, \qquad
+   \frac{\partial f}{\partial y} = F_2(x,y) = x^2 + 2y.
+$$
+Integrate the first equation with respect to $x$ to obtain
+$$
+  f(x,y) = \frac 13 x^3 + x^2y + C(y).
+$$
+Next integrate the second equation with respect to $y$ to obtain
+$$
+  f(x,y) = x^2y + y^2 + D(x).
+$$
+If we compare these expressions, we see that we may choose
+$C(y) = y^2$ and $D(x) = \dfrac 13 x^3$.  Hence,
+$$
+  f(x,y) = \frac 13 x^3 + x^2y + y^2
+$$
+is the desired function.
+\endexample
+
+\nextex
+\example{Example \en}  Let $n = 3$ and $\F(x,y,z) =
+\lb x + 2xy + z, x^2 + z, x + y \rb$.  We find a function $f$
+ as follows.  We want $\nabla f = \F$ or, in terms of components,
+$$
+\frac{\partial f}{\partial x} = x + 2xy + z,\quad
+\frac{\partial f}{\partial y} = x^2  + z,\quad
+\frac{\partial f}{\partial z} = x + y.
+$$
+Integrating the first equation with respect to $x$ yields
+$$
+f(x,y,z) = \frac 12 x^2 + x^2y + zx + C(y,z)
+$$
+where the constant of integration may depend on $y$ and $z$.
+Differentiating with respect to $y$ and comparing with the second
+equation yields
+$$
+\frac{\partial f}{\partial y} = x^2 + \frac{\partial C}{\partial y}
+ = x^2 +z.
+$$
+Hence, $\dfrac{\partial C}{\partial y} = z$ from which we conclude
+$$
+C(y,z) = zy + D(z)\quad\text{or}\quad f(x,y,z) = \frac 12 x^2 + x^2y
++ zx + zy + D(z).
+$$
+Differentiating with respect to $z$ and comparing with the third equation
+yields
+$$
+\frac{\partial f}{\partial z} = x + y + \frac{dD}{dz} = x + y
+$$
+from which we conclude $D'(z) = 0$ or $D(z) = E$ where $E$ is
+a constant independent of $x, y$, and $z$.  Hence, the most
+general function $f$ is given by
+$$
+f(x,y,z) = 
+ \frac 12 x^2 + x^2y
++ zx + zy + E.
+$$
+For simplicity, we may take $E = 0$.   You should check that the
+gradient of 
+$$f(x,y) = \dfrac 12 x^2 + x^2y + zx + zy$$
+ is the
+original vector field $\F$.
+\endexample
+
+\nextex
+\example{Example \en}  Let $n = 2$ and $\F(x,y) = \lb x + 1, y + x^2 \rb$.
+A function $f$ would have to satisfy
+$$
+ \frac{\partial f}{\partial x} = x + 1,\qquad
+ \frac{\partial f}{\partial y} = y + x^2.
+$$
+Integrating the first equation with respect to $x$ yields
+$$
+f(x,y) = \frac 12 x^2 + x + C(y).
+$$
+Differentiating with respect to $y$ and comparing with the
+second equation yields
+$$
+\frac{\partial f}{\partial y} =  C'(y) = y + x^2
+$$
+which is impossible since $C(y)$ is not supposed to depend on $x$.
+What went wrong here is that the field is not conservative,
+i.e., {\it there is  no such function\/} $f$, and the method
+for finding one breaks down.
+\endexample
+
+\subhead Screening tests \endsubhead
+It would be nice to have a way to check in advance if a vector
+field $\F$ is conservative before trying to find a function $f$
+with gradient $\F$.
+Fortunately, there are several ways to do this.  First consider
+the case of a plane field $\F = \lb F_1, F_2 \rb$.   If 
+$\nabla f = \F$ for some  function $f$, then
+$$
+\frac{\partial f}{\partial x} = F_1\qquad\text{and}\qquad
+\frac{\partial f}{\partial y} = F_2.
+$$
+If we differentiate the first equation with respect to $y$ and the
+second with respect to $x$, we obtain
+$$
+\frac{\partial^2 f}{\partial y\partial x} = \frac{\partial F_1}
+{\partial y}\qquad\text{and}\qquad
+\frac{\partial^2 f}{\partial x\partial y} = \frac{\partial F_2}
+{\partial x}.
+$$
+If the function $f$ is smooth enough (which we will normally want
+to be the case), the two mixed partials are equal, so we conclude
+that if the (smooth) field $\F$ is conservative, then it must
+satisfy the {\it screening test}
+\nexteqn
+$$
+ \frac{\partial F_1}{\partial y} = \frac{\partial F_2}{\partial x}.\tag\eqn
+$$
+\outind{screening test, two dimensions}%
+\example{Example \en\ again}  $F_1(x,y) = x +1$ and $F_2(x,y) = y + x^2$
+so
+$$
+ \frac{\partial F_1}{\partial y} = 0 \not= \frac{\partial F_2}{\partial x}
+= 2x
+$$
+so $\F$ does not pass the screening test and is not conservative.
+\endexample
+
+Unfortunately, it is possible for a vector field to pass the screening
+test but still not be conservative.  In other words, the test is
+a bit too loose.
+
+\nextex
+\example{Example \en}  Let 
+$\F(x,y) = \lb\dfrac{-y}{x^2 + y^2}, \dfrac x{x^2 + y^2} \rb$.
+$\F$ may also be represented in polar form as $\F = \dfrac 1r \u_\theta$.
+(Check that for yourself!)
+Notice that the domain of $\F$ excludes the origin since the
+common denominator $x^2 + y^2$ vanishes there.   We have
+$$\align
+ \frac{\partial F_1}{\partial y} &=
+\frac{(x^2 +y^2)(-1) - (-y)(2y)}{(x^2 + y^2)^2}
+ = \frac{y^2 - x^2}{(x^2 + y^2)^2}\\
+ \frac{\partial F_2}{\partial x} &=
+\frac{(x^2 +y^2)(1) - x(2x)}{(x^2 + y^2)^2}
+ = \frac{y^2 - x^2}{(x^2 + y^2)^2}
+\endalign
+$$
+so $\F$ passes the screening test.   However, $\F$ is certainly not
+conservative.  In fact, if $\Cal C$ is a circle of any radius centered
+at the origin, then $\int_{\Cal C} \F\cdot d\r = \pm 2\pi$ with the
+sign depending on whether the circle is traversed counter-clockwise
+or clockwise.  In any case, it is certainly not zero which would be
+the case for a conservative vector field.  (The calculation of the
+integral is quite routine and in fact has been done previously in
+exercises.  You should do it again now for practice.)
+\endexample
+
+\mar{s5-28.ps}
+It would be much better if we could be sure that any vector
+field which
+passes the screening test is in fact conservative.  We shall see
+later that this depends on the nature of the {\it domain\/}
+of the vector field.  In the present case, it is the `hole'
+created by omitting the origin that is the cause of the difficulty.
+It is important to note, however, that the issue we raise here
+is not 
+ a minor point of interest only to mathematicians
+who insist of splitting hairs.   The vector field in the example
+ is in fact of
+great physical significance, and plays an important role in
+electromagnetic theory.
+\medskip
+	There is a more complicated version of the screening
+test for vector fields in space.  Let $\F = \lb F_1, F_2, F_3 \rb$
+be a vector field defined on some connected open set in $\R^3$.
+If there is a function $f$ such that $\nabla f = \F$,
+then writing this out in components yields
+$$
+\frac{\partial f}{\partial x} = F_1,\qquad
+\frac{\partial f}{\partial y} = F_2,\qquad
+\text{and}\qquad
+\frac{\partial f}{\partial z} = F_3.
+$$
+By computing all the mixed partials (and assuming the order
+doesn't matter), we obtain
+$$
+\align
+\frac{\partial F_1}{\partial y} &= \frac{\partial^2 f}{\partial x\partial y}
+= \frac{\partial F_2}{\partial x} \\
+\frac{\partial F_1}{\partial z} &= \frac{\partial^2 f}{\partial x\partial z}
+= \frac{\partial F_3}{\partial x} \\
+\frac{\partial F_2}{\partial z} &= \frac{\partial^2 f}{\partial y\partial z}
+= \frac{\partial F_3}{\partial y} 
+\endalign
+$$
+so we get the more complicated screening test
+$$
+\align
+\frac{\partial F_2}{\partial z} &= 
+ \frac{\partial F_3}{\partial y} \\
+\frac{\partial F_1}{\partial z} &=
+ \frac{\partial F_3}{\partial x} \\
+\frac{\partial F_1}{\partial y} &= 
+ \frac{\partial F_2}{\partial x}.
+\endalign
+$$
+\outind{screening test, three dimensions}%
+The reason why we list the equations in this particular order will become
+clear in the next section.
+
+\nextex
+\example{Example \en}  Let $\F(x,y,z) = \lb y + z , x + z, x + y \rb$.
+Find $\int_{\Cal C}\F\cdot d\r$ for the straight line path which
+goes from $(1,-1,2)$ to $(0, 0, 3)$.   We first check to see if
+the field might be conservative.  We have
+$$
+\align
+\frac{\partial F_2}{\partial z} &= 1 = 
+ \frac{\partial F_3}{\partial y} \\
+\frac{\partial F_1}{\partial z} &= 1 =
+ \frac{\partial F_3}{\partial x} \\
+\frac{\partial F_1}{\partial y} &= 1 = 
+ \frac{\partial F_2}{\partial x}
+\endalign
+$$
+so it passes the screening test.  We now try to find a 
+function $f$.  The equation $\partial f/\partial x = y + z$
+yields  $f(x,y,z) = yx + zx + C(y,z)$.  Differentiate with
+respect to $y$ 
+to obtain $x + \partial C/\partial y = x + z$ or $\partial C/\partial y
+= z$.  This yields $C(y,z) = zy +D(z)$.  Hence, 
+$f(x,y,z) = yx + zx + zy + D(z)$.  Differentiating with respect to
+$z$ yields $x + y + D'(z) = x + y$ or $D'(z) = 0$.  Hence, $D(z) = E$,
+and $f(x,y,z) = xy + xz + yz + E$ gives the most general function $f$.
+For convenience take $E= 0$.   I leave it to you to check that
+$\nabla f = \F$ for $f(x,y,z) = xy + xz + yz$.   To find the
+integral, we need only evaluate the function $f$ at the
+endpoints of the path.
+$$
+\int_{(1,-1,2)}^{(0,0,3)}\F\cdot d\r = f(0,0,3) - f(1,-1,2) = 0 -(-4) = 4.
+$$
+\endexample
+
+\bigskip
+\input chap5.ex3
+\bigskip
+\nextsec{Divergence and Curl}
+\head \sn. Divergence and Curl \endhead
+
+In this section we deal only with vector fields in space.  
+
+The gradient of a scalar function
+$$
+ \nabla f = \lb \frac{\partial f}{\partial x},
+ \frac{\partial f}{\partial y},
+ \frac{\partial f}{\partial z}\rb
+=
+\i \frac{\partial f}{\partial x} +
+ \j \frac{\partial f}{\partial y} +
+ \k \frac{\partial f}{\partial z}
+$$
+may be viewed as the result of applying the vector operator
+$$
+ \nabla  = \lb \frac{\partial }{\partial x},
+ \frac{\partial }{\partial y},
+ \frac{\partial }{\partial z}\rb
+=
+\i \frac{\partial }{\partial x} +
+ \j \frac{\partial }{\partial y} +
+ \k \frac{\partial }{\partial z}
+$$
+\outind{$\noexpand\nabla f$ operator}%
+to the scalar field $f$.  It is natural ask then if we may apply this
+vector operator to a {\it vector\/} field $\F$.  There are two ways to
+do this. 
+
+ We may take the dot `product'
+$$
+\align
+\nabla\cdot \F &= 
+\lb \frac{\partial }{\partial x},
+ \frac{\partial }{\partial y},
+ \frac{\partial }{\partial z}\rb\cdot \lb F_1, F_2, F_3 \rb \\
+&= \frac{\partial F_1}{\partial x} + \frac{\partial F_2}{\partial y}
++ \frac{\partial F_3}{\partial z}.
+\endalign
+$$
+The result is a scalar field called the {\it divergence\/} of $\F$.
+It is also denoted $\text{div}\,\F$.
+\outind{divergence}%
+
+
+\nextex
+\example{Example \en}
+Let $\F(\r) = x^2\i + y^2\j + z^2\k$.   Then
+$$
+\nabla\cdot\F = 2x + 2y + 2z = 2(x + y + z).
+$$
+Note that the result is always a scalar field.
+\endexample
+
+We may also form the cross `product'
+$$\align
+\nabla\times \F &= 
+\lb \frac{\partial }{\partial x},
+ \frac{\partial }{\partial y},
+ \frac{\partial }{\partial z}\rb\times \lb F_1, F_2, F_3 \rb \\
+&= \lb \frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z},
+ \frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x},
+ \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\rb.
+\endalign
+$$
+The result is a vector field called the {\it curl\/} of $\F$.  It
+is also denoted $\text{curl}\,\F$.
+\outind{curl}%
+
+\nextex
+\example{Example \en}
+Let $\F = yz\i + xz\j = \lb yz, xz, 0 \rb$.   Then
+$$
+\nabla\times\F = \lb 0 - x, -(0 -y), z - z \rb = -x\i + y\j.
+$$
+Note that the result is always a vector field.
+\endexample
+If you refer back to the previous section, you will see that the
+three quantities which must vanish in the screening test for
+a conservative vector field in space are just the components of
+the curl.  Hence, the screening test can be written more simply
+$$
+\nabla \times \F = \bold 0.
+$$
+In particular, {\it every conservative vector field in space
+has zero curl}.   Still another way to say the same thing is
+that
+$$
+\nabla \times (\nabla f) = \bold 0
+$$
+for every scalar field $f$.
+\outind{conservative fields}%
+\outind{screening test, three dimensions}%
+
+%Exer  Show divergence of curl is 0.
+
+We shall investigate the significance of the divergence and curl
+in succeeding sections.
+
+The formalism of the operator $\nabla$ leads to some fascinating
+formulas and expressions, many of which have important
+applications.  You will have an opportunity to explore some
+of these in the exercises.   Probably the most important
+elaboration is the operator
+$$
+\nabla^2 = \nabla\cdot \nabla =
+\frac{\partial^2}{\partial x^2} +
+\frac{\partial^2}{\partial y^2} +
+\frac{\partial^2}{\partial z^2}
+$$
+which is called the {\it Laplace operator}.  If $f$ is a scalar
+field, then $\nabla^2 f$ is called the Laplacian of $f$.
+The Laplace operator appears in many of the important partial
+differential equations of physics.  Here are some
+$$\align
+\nabla^2 f &= 0\qquad\qquad\text{Laplace's Equation} \\
+\nabla^2 f &= \frac 1{c^2}\frac{\partial^2f}{\partial t^2}
+\qquad\qquad \text{Wave Equation}\\
+\nabla^2 f &= \kappa \frac{\partial f}{\partial t}
+\qquad\qquad\text{Diffusion or Heat Equation}
+\endalign
+$$
+
+\bigskip
+%Section 4
+\input chap5.ex4
+\bigskip
+\goodbreak
+\nextsec{The Divergence Theorem}
+\head \sn. The Divergence Theorem \endhead
+
+In the succeeding sections we shall discuss three important theorems
+about integrals of vector fields: the divergence theorem, Green's
+theorem, and Stokes's theorem.   These theorems play specially
+important roles in the theory of electromagnetic fields,
+ and we shall introduce
+the theorems in the order they are needed in that theory.
+We start with the divergence theorem, which is closely connected
+with the theories of static electric fields and gravitational fields
+which share many common mathematical features.
+
+Let $\F$ be a vector field defined on some open set in
+$\R^3$.  Moreover,
+suppose $\F$ is {\it smooth\/} in the sense that the partial
+derivatives of the components of $\F$ are all continuous.  Let
+$E$ be a solid region in the domain of $\F$ which is bounded
+by a finite collection of graphs of smooth functions.   Denote
+by $\partial E$ the {\it surface\/} bounding $E$.   {\it Orient\/}
+this boundary $\partial E$ by
+specifying that the normals point {\it away\/}
+from the solid region $E$.  Some simple examples of such regions
+would be rectangular boxes,  solid spheres, solid hemispheres,
+solid cylinders, etc.  However, we shall also allow more complicated
+regions such as a solid torus
+or the solid region between two spheres.  In the latter
+case the boundary $\partial E$ consists of two disconnected
+components.
+\smallskip
+\mar{s5-29.ps}
+\nextthm
+\proclaim{Theorem \cn.\tn{\rm\enspace (Divergence Theorem)}}
+Let $\F$ be a vector field in $\R^3$  and $E$ a solid region
+as above.  Then
+$$
+    \iint_{\partial E} \F\cdot d\S
+    = \iiint_E \nabla\cdot\F dV.
+$$
+\endproclaim
+\outind{divergence theorem}%
+Before trying to prove this theorem, we shall show how to use it
+and also investigate what it tells us about the physical meaning
+of the divergence $\nabla\cdot \F$.
+
+\subhead Using the Divergence Theorem 
+to Calculate Surface Integrals \endsubhead
+ It is generally true that the triple integral on the right is
+easier to calculate than the surface integral on the left.  That
+is the case first because volume integrals  of  scalar
+functions are easier to find than surface integrals and secondly
+because the divergence of $\F$ is often simpler than $\F$.
+
+\nextex
+\example{Example \en}  Consider $\iint_{\Cal S} \F\cdot d\S$
+where $\Cal S$ is a sphere of radius $R$ centered at the
+origin, and $\F(x,y,z) = x\,\i + y\,\j$.   If we let $E$ be
+the solid sphere enclosed by $\Cal S$, then $\Cal S = \partial E$.
+$\nabla\cdot \F = \partial x/\partial x + \partial y/\partial y = 2$.
+Hence,
+$$
+\iint_{\Cal S} \F\cdot d\S = \iiint_E 2\, dV = 2 \, \frac 43 \pi R^3
+ = \frac 83 \pi R^3.
+$$
+
+You were asked to do this surface integral previously by
+direct calculation in an exercise.   You should go back and review
+the calculation.  You will see that doing it by means of the
+divergence theorem is quite a bit easier.
+\endexample
+
+\nextex
+\mar{s5-30.ps}
+\example{Example \en}  Let $\F(x,y,z) = z^2 \k$ and let $\Cal S$
+be the hemispherical surface $x^2 + y^2 + z^2 = R^2, z \ge 0$.
+Use `upward' normals.   In this case the surface does not bound
+a solid region.  However, that is easy enough to remedy.
+Let $\Cal S'$ be the disk of radius $R$ in the $x,y$-plane.
+Then the solid hemisphere  $0 \le z \le \sqrt{R^2 - x^2 - y^2}$
+is bounded on the top by $\Cal S$ and on the bottom by $\Cal S'$.
+We may write $\partial E = \Cal S\cup \Cal S'$ where we use
+`upward' normals for $\Cal S$ and downward normals for
+$\Cal S'$.  Also, $\nabla \cdot \F = 2z$, and
+$$
+ \iint_{\Cal S\cup \Cal S'}\F\cdot d\S =
+   \iiint_E 2z \, dV.
+$$
+The triple integral on the right is quite straightforward to do.
+For example, we could switch to spherical coordinates and use
+$z = \rho \cos \phi$ to obtain
+$$
+\align
+\iiint_E 2z \,dV = 2 \int_0^{2\pi}\int_0^{\pi/2}
+\int_0^R \rho^3\cos\phi \sin\phi
+\, d\rho\,d\phi \,d\theta &= 4\pi \frac {R^4}4\, \left(\left. -\frac{\cos^2\phi}
+2\right|_0^{\pi/2}\right) \\
+&= \frac \pi 2 R^4.
+\endalign
+$$ 
+The surface integral on the left may be split up as as sum
+$$
+ \iint_{\Cal S\cup \Cal S'}\F\cdot d\S=
+ \iint_{\Cal S}\F\cdot d\S +
+ \iint_{\Cal S'}\F\cdot d\S
+$$
+where the first integral in the sum is the one we want to find.  However,
+the second integral is quite easy to calculate.  Namely, the field
+$\F = z\k = 0$ in the $x,y$-plane, so any surface integral over
+a flat surface in the $x,y$-plane will be zero for this field.
+Hence, the divergence theorem in this case comes down to
+$$
+\iint_{\Cal S}\F\cdot d\S + 0 =  \frac\pi 2 R^4
+$$
+or $\iint_{\Cal S}\F\cdot d\S =  \dfrac\pi 2 R^4$.
+\endexample
+
+\mar{s5-31.ps}
+The above example illustrates a common way to apply the divergence
+theorem to find the flux through a surface which is not closed.
+Namely, one tries to add one or more additional components
+so as to bound a solid region.  In this way one reduces the
+desired surface integral to a volume integral and other surface integrals
+which may be easier to calculate.
+
+\subhead Interpretation of the divergence \endsubhead
+The divergence theorem gives us a way to interpret the divergence
+of a vector field in a more geometric manner.  To this end
+consider a point $P$ with position vector $\r$ in the domain
+of a (smooth) vector field $\F$.  Let $E$ be a small element of
+volume containing the point $P$.  To be definite, picture $E$
+as a small cube centered at $P$, but in principle it could be
+of any shape whatsoever.  The quotient
+$$
+      \frac 1 {v(E)} \iint_{\partial E} \F\cdot d\S
+$$
+(where $v(E)$ denotes the volume of the set $E$
+and the surface integral is computed using outward orientation)
+is called the {\it flux per unit volume}.   I claim that
+the divergence of $\F$ at the point $P$ is given by
+\nexteqn
+$$
+   \nabla\cdot \F(\r) = \lim_{E \to P}
+\frac 1 {v(E)} \iint_{\partial E} \F\cdot d\S.\tag\eqn
+$$
+\outind{divergence, interpretation of}%
+ The importance of this formula is two-fold.  First of all,
+it relates the divergence directly to the concept of flux.
+In effect, it allows us to think of the divergence of $\F$
+as being a measure of the {\it sources\/} of the field.
+For example, for a gravitational or electrostatic field,
+we can think of the lines of force emanating from mass
+or charge, and the divergence of the field is related to
+the mass or charge density.  In the case of a momentum field
+for a fluid flow, the interpretation of divergence based on
+this formula is a bit more complicated, but similar considerations
+apply.   
+
+\mar{s5-32.ps}
+Secondly, the formula gives us a characterization of the divergence
+which does not depend on the use of a specific coordinate system.
+The same formula applies if we use different axes for rectangular
+coordinates or even if we use curvilinear coordinates such as
+cylindrical or spherical coordinates.   
+
+To derive formula (\eqn), we argue as follows.  By the average
+value property for triple integrals, we have
+$$
+    \nabla\cdot \F(\r') = \frac 1{v(E)} \iiint_E \nabla\cdot \F\,dV
+$$
+for an appropriate point $\r'$ in $E$.  (See Chapter IV, section
+11 where the corresponding property for double integrals was discussed.)
+By the divergence theorem, the volume integral may be replaced by
+a surface integral, so
+$$
+ \nabla\cdot \F(\r') = 
+\frac 1{v(E)} \iint_{\partial E} \F\cdot d\S.
+$$
+Now take the limit as $E \to P$.  Since $\r$ is the coordinate
+vector of $P$, it is clear that $\r' \to \r$.  Hence,
+$$
+\nabla\cdot \F(\r) =
+\lim_{E\to P}\nabla\cdot \F(\r')
+ = \lim_{E\to P} \frac 1{v(E)} \iiint_E \nabla\cdot \F\,dV
+$$
+as required.
+
+\emar{s5-33.ps}{-100}
+As an application of formula (1), we show that the inverse
+square law vector field $\F = (1/|\r|^2)\u_\rho$ has zero
+divergence.  (You should have done this directly in an
+exercise by doing
+the messy calculation in rectangular coordinates.)
+To see this, consider an element of volume $E$ centered at a point
+$P$ with position vector $\r \not= \bold 0$.  Assume 
+in particular that $E$ is a curvilinear spherical cell, i.e.,
+a typical element of volume for spherical coordinates. 
+(See Chapter IV, Section 6.) 
+$E$ is bounded
+on the inside and outside by spherical surfaces of radii $\rho_1$
+and $\rho_2$ respectively.
+It is bounded on either side by planes  ($\theta = \theta_1,\, \theta =
+\theta_2$)  and on `top' and `bottom' by conical surfaces ($\phi = \phi_1,\,
+\phi = \phi_2$), and each of those four bounding surfaces is
+{\it parallel to the field\/}  $\F$.   Hence, 
+the flux through the boundary $\partial E$ of $E$ is zero except
+possibly for the inner and outer surfaces, each of which is
+a spherical rectangle.  Let these two rectangles have areas
+$A_1$ and $A_2$ respectively.  Since $\F$ is parallel to the 
+normal $\N$ on each of these surfaces, and is otherwise constant,
+we get for the flux through the outer surface
+$$
+    \frac 1{\rho_2{}^2} A_2
+$$
+and similarly for the inner surface  with 1 replacing 2
+and with the sign reversed since
+the direction of the normal is reversed.  Hence, the
+net flux is
+$$
+   \frac 1{\rho_2{}^2} A_2
+-\frac 1{\rho_1{}^2} A_1
+$$
+However, both curvilinear rectangles, can be described by
+the same angular limits $\phi_1 \le \phi \le \phi_2,
+\theta_1 \le \theta \le \theta_2$---only the value of $\rho$
+changes.   Hence,
+$$
+A_1 = \int_{\theta_1}^{\theta_2}\int_{\phi_1}^{\phi_2}
+\rho_1^2\sin\phi \,d\phi\,d\theta
+=
+\rho_1{}^2 \int_{\theta_1}^{\theta_2}\int_{\phi_1}^{\phi_2}
+\sin\phi \,d\phi\,d\theta
+$$
+or
+$$
+ \frac{A_1}{\rho_1{}^2} =\int_{\theta_1}^{\theta_2}\int_{\phi_1}^{\phi_2}
+\sin\phi \,d\phi\,d\theta.
+$$
+Since the same calculation would work for $A_2/\rho_2^2$ and give
+exactly the same value, we conclude that the net flux through
+the boundary $\partial E$ is zero.  If we take the limit as 
+$E \to P$, we still get zero, so the divergence is zero.
+
+Note that the upshot of this argument is that since the inverse
+square law has its `source' at the origin, streamlines (lines
+of force) entering any element of volume not including the
+origin all leave and no new ones originate, so the net flux is
+zero.
+
+We note in passing that if $A$ is the area of any region on a
+sphere of radius $\rho$, the quantity $A/\rho^2$ is called the
+{\it solid angle\/} subtended by the region.  This quantity is
+independent of the radius $\rho$ of the sphere in the sense
+that if we consider a different (concentric) sphere and the
+projected region on the other sphere, the ratio of area to
+$\rho^2$ does not change.
+\outind{solid angle}%
+
+\bigskip
+\input chap5.ex5
+\bigskip
+\nextsec{Proof of the Divergence Theorem}
+\head \sn. Proof of the Divergence Theorem \endhead
+
+In this section, we shall give two proofs of the divergence theorem.
+The first is not really a proof but what is sometimes called a
+`plausibility argument'.   It clarifies some of the ideas and helps
+you understand why the theorem might be true.  The second proof is
+less enlightening but is mathematically correct.  Even if you
+are not interested in the rigorous details, you should study
+the first part of this section because it introduces arguments
+commonly used in applications.
+
+	The first argument goes as follows.   Since the right hand
+side of the formula in the theorem is a triple integral, consider
+a dissection of the solid region $E$ into small cells formed as
+usual by three mutually perpendicular families of planes.  
+\medskip
+\centerline{\epsfbox{s5-34.ps}}
+\medskip
+Most
+of these cells will be small rectilinear boxes, but some, those
+on the boundary, will have one curved side.  Let 
+$E_i$ be a typical cell.   Using the interpretation of divergence
+as the {\it limit\/} of flux per unit volume, we have for $E_i$
+small enough
+\nexteqn
+$$
+ \frac 1{\Delta V_i} \iint_{\partial E_i}\F\cdot d\S
+\approx
+      \nabla\cdot \F(\r_i)\tag\eqn 
+$$
+where $\Delta V_i$ is the volume of $E_i$ and $\r_i$ is the coordinate
+vector of a point in $E_i$.  If we cross multiply and add, we get
+$$
+    \sum_i\iint_{E_i} \F\cdot d\S
+ \approx
+\sum_i \nabla\cdot \F(\r_i)\,\Delta V_i.
+$$
+If we make the dissections finer and finer and take the limit, the
+sum on the right approaches $\iiint_E \nabla\cdot \F\,dV$.  The sum
+on the left merits further discussion.  Suppose that the numbering
+is such that  cells $E_i$ and $E_j$ are adjacent, so they share a
+common face.  On that face,
+the normal relative to $E_i$
+will point opposite to the normal relative to $E_j$.   (Each
+normal points away from one cell and into the other.)
+%D   Diagram of neighboring cells
+As a result, the common face will appear in both
+terms of the sum
+$$
+   \iint_{\partial E_i}\F\cdot d\S + \iint_{\partial E_j}
+\F\cdot d\S
+$$
+but with {\it opposite signs}.  As a result, all {\it internal\/}
+ components
+of the boundaries of the cells   appear {\it twice\/} in the sum
+so as to cancel, and the only components left are those associated
+with the external boundary $\partial E$.  In other words,
+$$
+   \sum_i\iint_{\partial E_i}\F\cdot d\S = \iint_{\partial E} \F\cdot d\S.
+$$
+Putting this all together, we get
+$$
+ \iint_{\partial E} \F\cdot d\S = \iiint_E \nabla\cdot \F\,dV
+$$
+as required.
+
+The above argument is not logically valid for the following
+reason.   The approximation (\eqn) comes from the formula
+\nexteqn
+$$
+\nabla\cdot \F(\r) = \lim_{E \to P}
+\frac 1 {v(E)} \iint_{\partial E} \F\cdot d\S\tag\eqn
+$$
+which was derived from the divergence theorem.  Clearly we can't
+use a consequence of the divergence theorem to prove the divergence
+theorem or we will get in a vicious logical circle.   To repair
+this argument, one would have to derive formula (\eqn) {\it
+without using the divergence theorem}.   This is not too hard
+to do if one assumes the solid $E$ always has some specific
+form such as a rectangular box.  However, since some of the
+cells in a dissection will have curved faces, that does not
+suffice.  It is necessary to derive formula (\eqn) for
+very general regions $E$.  To the best of my knowledge,
+there is no simple way to do that without in essence hiding
+a proof of the divergence theorem in the argument.
+
+\medskip
+A correct proof of the divergence theorem proceeds as follows.
+First write
+$$
+   \F = F_1\,\i + F_2\,\j + F_3\,\k.
+$$
+Suppose we can verify the three formulas
+$$
+\align
+\iint_{\partial E} F_1\i \cdot d\S &= \iiint_{E} \frac{\partial F_1}
+              {\partial x}\,dV \\
+\iint_{\partial E} F_2\j \cdot d\S &= \iiint_{E} \frac{\partial F_2}
+              {\partial y}\,dV \\
+\iint_{\partial E} F_3\k \cdot d\S &= \iiint_{E} \frac{\partial F_3}
+              {\partial z}\,dV.
+\endalign
+$$
+Then adding these up will give the divergence theorem.  Clearly,
+we need only verify one of the three formulas since the arguments
+will be basically the same in the three cases.  We shall verify
+the third formula.  In essence, that means we restrict to
+the case $\F = F_3\k, \nabla\cdot\F = \partial F_3/\partial z$.
+   Consider a dissection of the solid region
+$E$ such that each cell $E_i$ is either a rectangular box or
+at worst bounded on either the top or the bottom by the graph
+of a smooth function.   (It is believable that any region one
+is likely to encounter can be so decomposed, but in any case
+we can  prove the theorem only for such regions.)   As above,
+cancellation on internal interfaces yields
+$$
+ \sum_i\iint_{\partial E_i}\F\cdot d\S = \iint_{\partial E} \F\cdot d\S.
+$$
+Similarly,
+$$
+\sum_i \iiint_{E_i} \nabla\cdot\F\,dV = \iiint_{E}\nabla\cdot\F \,dV.
+$$
+Hence, it will suffice to prove
+$$
+\iint_{\partial E_i} \F\cdot d\S = \iiint_{E_i} \nabla\cdot\F\, dV
+$$
+for each of the cells $E_i$.  However, by assumption each of these
+cells is bounded on top and bottom by graphs  of smooth
+functions  $z = f(x,y)$ and $z = g(x,y)$.  For the
+cells which are just boxes, the two functions are constant
+functions, for a cell on the top boundary, the bottom function
+is constant, and for a cell on the bottom boundary, the top
+function is constant.  In any case, this reduces the problem
+to verifying the formula of the divergence theorem for a
+region which can be described by   $g(x,y) \le z \le f(x,y)$
+where $(x,y)$ ranges over some domain $D$ in the $x,y$-plane.
+(The domain $D$ will in most cases be just a rectangle.)
+We now compute the surface integral for such a region under
+the assumption, as above, that $\F = F_3\k$.  Since the field
+is vertical, it is parallel to the sides of the region, so
+the only contributions to the flux come from the top and bottom
+surfaces.  On the top surface, we have
+$$
+    d\S = \lb -f_x, -f_y, 1 \rb dy\,dx
+$$
+so the flux is
+$$
+   \iint_D F_3(x,y, f(x,y))\,dy\,dx.
+$$
+
+\emar{s5-36.ps}{-100}
+Similarly, on the bottom surface, we have
+$$
+    d\S = \lb g_x, g_y, -1 \rb dy\,dx
+$$
+where the signs are reversed because we need the downward
+pointing normals.  Hence, the flux is
+$$
+   -\iint_D F_3(x,y,g(x,y))\,dy\,dx,
+$$
+and the net flux through the boundary of the region is
+$$\multline
+   \iint_D F_3(x,y, f(x,y))\,dy\,dx
+   -\iint_D F_3(x,y,g(x,y))\,dy\,dx = \\
+   \iint_D (F_3(x,y, f(x,y))
+    - F_3(x,y,g(x,y)))\,dy\,dx.
+\endmultline
+$$
+Next we calculate the volume integral.
+$$\align
+\iiint_E \frac{\partial F_3}{\partial z}\,dV
+ &= \iint_{D} \int_{g(x,y)}^{f(x,y)}
+  \frac{\partial F_3}{\partial z}\,dz\,dy\,dx\\
+ &=  \iint_{D} \left. F_3(x,y,z)\right|_{g(x,y)}^{f(x,y)}\,dy\, dx \\
+ &= \iint_D (F_3(x,y,f(x,y)) - F_3(x,y,g(x,y)))\,dy\,dx.
+\endalign
+$$
+Comparing, we see that the answers are the same which proves
+that the surface integral equals the volume integral.  That
+completes the proof of the divergence theorem.
+
+Note that the second proof finally comes down to an application
+of basic integration theory and ends up using the fundamental
+theorem of calculus.   The divergence theorem may be viewed
+just as a higher dimensional extension of the fundamental theorem. 
+\bigskip
+\input chap5.ex6
+\bigskip
+\nextsec{Gauss's Law and the Dirac Delta Function}
+\head \sn. Gauss's Law and the Dirac Delta Function \endhead
+
+We return to our discussion of inverse square laws.  In particular,
+let $\F = (1/|\r|^2)\u_\rho$ and let $\Cal S$ be any surface
+bounding a solid region $E$ in $\R^3$.  Since $\F$ has a singularity
+at the origin, assume the surface does not pass through the origin.
+It is easy to calculate the flux through $\Cal S$ if the origin
+is not in $E$. 
+ For, since $\nabla\cdot\F = 0$
+everywhere in the region $E$, 
+the divergence theorem tells us
+$$
+\iint_{\Cal S} \F\cdot d\S = \iiint_E (0)\,dV = 0.
+$$
+
+\medskip
+\centerline{\epsfbox{s5-37.ps}}
+\medskip
+The situation is somewhat more complicated if the origin is
+in the solid region bounded by $\Cal S$.  Note that in this
+case the divergence theorem does not apply because the
+smoothness hypothesis on $\F$ fails at a point in $E$.
+However, we can calculate the flux by the following trick.
+Consider a small sphere $\Cal S'$
+ centered at the origin but otherwise
+entirely inside the surface $\Cal S$.  Let $E'$ be the
+solid obtained by removing the interior of the small sphere
+$\Cal S'$ from $E$.  Thus, $E'$ is the solid region
+{\it between\/} $\Cal S'$ and $\Cal S$.  The boundary of $E'$ consists
+of the two surfaces $\Cal S$ and $\Cal S'$.  Using `outward'
+normals (i.e., away from $E'$), the normals point outward
+on $\Cal S$ and {\it inward\/} on $\Cal S'$.  Since the
+field is smooth in $E'$, we may apply the divergence theorem
+to obtain
+$$
+\iint_{\Cal S\cup \Cal S'} \F\cdot d\S
+ = \iiint_{E'} \nabla\cdot\F\,dV = 0.
+$$
+On the other hand,
+$$\iint_{\Cal S\cup \Cal S'} \F\cdot d\S =
+ \iint_{\Cal S} \F\cdot d\S +
+\iint_{\Cal S'} \F\cdot d\S,
+$$
+so
+$$
+ \iint_{\Cal S} \F\cdot d\S =
+ -\iint_{\Cal S'} \F\cdot d\S.
+$$
+This reduces the calculation of the flux through the surface
+$\Cal S$ to the calculation of the flux through a sphere $\Cal S'$
+centered at origin.  The latter calculation was basically done
+in Example 1 of Section 2 of this chapter.   You should do it
+over again for practice.   The answer turns out to be $4\pi$
+if the sphere is given outward orientation.  In the present
+case the orientation is reversed which changes the sign, but
+the above formula gives one last change of sign, so we
+conclude for the original surface $\Cal S$,
+$$
+\iint_{\Cal S} \F\cdot d\S = 4\pi.
+$$ 
+ To summarize, for the field $\F = (1/|\r|^2)\u_\rho$, 
+$$
+\iint_{\Cal S}\F\cdot d\S = \left\{\aligned
+             0\qquad&\text{if $\bold 0$ is outside $\Cal S$}\\
+             4\pi\qquad&\text{if $\bold 0$ is inside $\Cal S$}
+\endaligned \right. .
+$$
+
+\subhead Gauss's Law \endsubhead
+The electric field of a point charge $q$ located at the point
+$\r_0$ is given by Coulomb's law
+\nexteqn
+\xdef\Coul{\eqn}
+$$
+  \bold E = \frac q{|\r - \r_0|^2} \u\tag\eqn
+$$
+where $\u$ is a unit vector pointing directly away from the point
+source.   (We have dropped some important physical
+constants for the sake of mathematical simplicity.)   
+Coulomb's law is analogous to Newton's law of gravitation for
+a point mass.   
+
+ The calculation of flux discussed above  applies just as well
+ well to such a field.  The flux out of any closed
+surface is either $0$ if the source is outside the surface
+and it is $4\pi q$ if the source is inside the surface.  (The
+only change is a shift of the source from the origin to the
+point $\r_0$ and multiplication by the magnitude of the charge.)
+More generally, suppose we have many point sources with
+charges $q_1, q_2,\dots, q_n$ located at
+position vectors $\r_1, \r_2, \dots, \r_n$.  Let $\bold E_i$ be
+the electric field of the $i$th charge, and let 
+$$
+\bold E = \bold E_1 + \bold E_2 + \dots + \bold E_n
+$$
+be the resulting field from all the charges.  If  $\Cal S$
+is any closed surface, we will have
+$$
+\iint_{\Cal S} \bold E\cdot d\S =  
+\iint_{\Cal S} \bold E_1\cdot d\S +  
+\iint_{\Cal S} \bold E_2\cdot d\S +  
+\dots +
+\iint_{\Cal S} \bold E_n\cdot d\S.   
+$$
+The $i$th integral on the right will be either $0$ or $4\pi q_i$
+depending on whether the $i$th source is outside or inside $\Cal S$.
+Hence, we get
+$$
+\iint_{\Cal S}\E\cdot d\S
+ = 4\pi \sum_{q_i\ \text{inside }\Cal S} q_i = 4\pi Q
+$$
+where $Q$ is the sum of the charges inside the surface.  This
+is a special case of Gauss's Law in electrostatics which asserts
+that for any electrostatic field, the flux out of
+a closed surface is  $4\pi Q$ where $Q$ is the total charge contained within.
+\outind{Gauss's law}%
+
+(The constant $4\pi$
+in Gauss's law depends on the form we adopted for
+ Coulomb's law, which
+is something of an oversimplification.  It is
+ convenient for a purely mathematical discussion, but
+in reality Coulomb's law involves some additonal constants which depend
+on the system of units employed.
+ For example, for one commonly used system of units,
+  Coulomb's law becomes 
+ $$
+\bold E = \frac 1{4\pi\epsilon}\frac q{|\r - \r_0|^2} \u
+$$
+where $\epsilon$ is the so-called permittivity.  In that case, the
+factor $4\pi$ disappears, and Gauss's law becomes
+$$
+\iint_{\Cal S}\E\cdot d\S = \frac Q\epsilon.
+$$
+We leave further discussion of such matters to your physics
+professor.)
+
+Gauss's law is very important in electrostatics, and is closely
+related to the divergence theorem, but you should avoid confusing
+the two.
+
+
+\smallskip
+\mar{s5-39.ps}
+\smallskip
+\subhead The Dirac Delta Function \endsubhead
+There is a way to recover the divergence theorem for solid regions
+in which the vector field has singularities.  It involves use of the
+Dirac Delta function which was discussed in Chapter IV, Section 11.
+\outind{Dirac delta function}%
+For example, for the inverse square law, we can write formally
+$$
+       \nabla\cdot (\frac 1{|\r|^2}\u_\rho) = 4\pi \delta(\r)
+$$
+where as previously $\delta(\r)$ is `defined' to be 0 except at
+$\r = \bold 0$, and it is required to satisfy
+$$
+   \iiint_E \delta(\r)\, dV = \left\{ \aligned
+                   0\qquad&\text{if $\bold 0$ is not in $E$} \\
+                   1\qquad&\text{if $\bold 0$ is in $E$}
+\endaligned \right. .
+$$
+With this interpretation, the divergence theorem 
+$$
+   \iint_{\partial E} \F\cdot d\S = \iiint_E \nabla\cdot\F\, dV
+$$
+{\it is true\/}, since both sides are either $0$ or $4\pi$ depending on whether
+the origin is outside or inside $E$.  Note however that if a normal
+function vanishes everywhere except at one point, its
+ triple integral 
+ is zero.  Thus, it is important to  remember that the
+Dirac Delta `function' is not a function in the usual sense.
+
+\bigskip
+\input chap5.ex7
+\bigskip
+\nextsec{Green's Theorem}
+\head \sn. Green's Theorem \endhead
+
+We consider the analogue of the divergence theorem in $\R^2$.
+
+Let $\F = \lb F_1, F_2 \rb = F_1\i + F_2\j$ be a (smooth)
+vector field defined on some open set in the plane.  Let
+$D$ be a plane region bounded by a curve $\Cal C = \partial D$.
+($D$ is analogous to $E$ and $\Cal C$ to $\Cal S = \partial E$.)
+The analogue of the flux is the integral over the curve $\Cal C$
+$$
+   \int_{\Cal C} \F\cdot\N\, ds
+$$
+where $\N$ denotes the {\it outward\/}
+unit normal to $\Cal C$ at each point
+of $\Cal C$ and $ds$ stands for the element of arc length.
+This flux integral can also be expressed in rectangular coordinates
+as follows.  If we write $d\r = dx\,\i + dy\,\j$, then the
+vector  $dy\,\i - dx \,\j$ is perpendicular to $d\r$.  Moreover,
+if we assume that $\C$ is traversed in such a way that the region $D$
+{\it is always on the left\/}, then this vector does point
+away from $D$.  (See the diagram.)  Since, its magnitude
+is $\sqrt{(dy)^2 + (-dx)^2} = ds$, we have
+$$
+     \N\,ds = dy\,\i - dx\,\j
+$$
+and
+$$
+\int_{\Cal C} \F\cdot\N\,ds = \int_{\Cal C} -F_2 dx + F_1 dy.
+$$ 
+\medskip
+\centerline{\epsfbox{s5-40.ps}}
+\medskip
+\nextex
+\example{Example \en}  Let $\F(x,y) = \lb x, y \rb = \r$, and let
+$D$ be a disk of radius $R$.  If the boundary $\Cal C = \partial D$
+is traversed in the counter-clockwise direction, the region will
+always be on the left.  We can see geometrically, that
+$$
+    \F\cdot\N \,ds = R\,R\,d\theta = R^2 d\theta
+$$
+so
+$$
+\int_{\Cal C}\F\cdot\N\, ds =  \int_0^{2\pi}R^2d\theta = 2\pi R^2.
+$$
+We could also calculate this analytically as follows.  Choose the
+parametric representation $\r = \lb R\cos\theta, R\sin\theta \rb$.
+Thus, 
+$$
+\align
+x &= R\cos\theta\qquad dx = -R\sin\theta\,d\theta\\
+y &= R\sin\theta\qquad dy = R\cos\theta\,d\theta.
+\endalign
+$$
+Hence,
+$$
+\multline
+\int_{\Cal C} -F_2 dx + F_1 dy = \int_0^{2\pi}
+       (-R\sin\theta)(-R\sin\theta\,d\theta) +
+      (R\cos\theta)(R\cos\theta\,d\theta)\\ = \int_0^{2\pi} R^2 d\theta
+   = 2\pi R^2.
+\endmultline
+$$
+\endexample
+
+\mar{s5-42.ps}
+Using the above definition for flux, the plane version of the
+divergence theorem looks very much like the version in
+space. 
+\nexteqn
+\xdef\GTI{\eqn}
+$$
+\int_{\partial D}\F\cdot\N\, ds = \iint_D \nabla\cdot\F\, dA.\tag\eqn
+$$
+\outind{divergence theorem, plane version}%
+\outind{Green's theorem, first form}%
+On the left, as noted above, the flux is an integral over a
+curve rather than a surface, and on the right, we have
+a double integral rather than a
+triple integral. In addition, since $\F = \lb F_1, F_2 \rb$,
+the divergence of $\F$ is
+$$
+\nabla\cdot\F = \frac{\partial F_1}{\partial x} + \frac{\partial F_2}
+{\partial y}.
+$$
+Formula (\eqn) is one form of {\it Green's Theorem\/} in the plane.
+It holds if the components of $\F$ have 
+continuous partial derivatives..
+
+\def\G{\bold G}
+The proof of Green's Theorem is very similar to the proof of the
+divergence theorem in space.  In fact, it is even easier since
+regions in the plane are easier to deal with than regions in space.
+We won't go over it again.
+%Exercise  Have them think through the derivation of Green's theorem
+%from the divergence theorem using the pill box argument.
+\medskip
+Green's Theorem is usually stated in another equivalent form.
+Let $\F = \lb F_1,F_2 \rb$ be a vector field in $\R^2$, and consider
+the {\it perpendicular field\/} $\bold G = \lb G_1, G_2 \rb$
+where $G_1 = F_2$ and $G_2 = -F_1$.  Applying (\eqn) to $\G$
+yields
+$$
+\int_{\partial D}\G\cdot\N\, ds = \iint_D \nabla\cdot\G\, dA.
+$$
+However,
+$$
+  \G\cdot\N\, ds = -G_2 dx + G_1 dy =
+ -(-F_1)dx + F_2 dy = F_1 dx + F_2 dy
+$$
+and this is nothing other than what we called $\F\cdot d\r$ when
+we were discussing line integrals.  Hence, the integral on the left
+becomes the line integral
+$$
+\int_{\Cal C}\F\cdot d\r.
+$$
+
+\mar{s5-45.ps}
+Similarly, the divergence of $\G$ is
+$$
+\align
+\frac{\partial G_1}{\partial x} + \frac{\partial G_2}{\partial y}
+  &=
+\frac{\partial F_2}{\partial x} + \frac{\partial (-F_1)}{\partial y}\\
+&=
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}.
+\endalign
+$$
+Hence, we get the following alternate form of the theorem.
+
+\nextthm
+\proclaim{Theorem \cn.\tn {\rm\enspace (Green's Theorem)}}
+Let $\F$ be a smooth vector field in the plane.  Suppose $D$ is a
+a region contained in the domain of $\F$ which is bounded by
+a finite collection of smooth curves.  Then
+\nexteqn
+\xdef\GTII{\eqn}
+$$
+\int_{\partial D} \F\cdot d\r = \iint_D 
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\,dA.
+\tag\eqn
+$$
+\endproclaim
+\outind{Green's theorem, second form}%
+\medskip
+\centerline{\epsfbox{s5-46.ps}}
+\medskip
+\subhead Applications of Green's Theorem \endsubhead
+Green's Theorem may be used to calculate line integrals by reducing
+to easier double integrals.  This is analogous to
+using the divergence theorem to calculate surface integrals
+in terms of volume integrals.
+
+\nextex
+\example{Example \en}  Let $\F(x,y) = \lb -y, x \rb$ and let
+$\Cal C$ be the rectangle with vertices $(1,2), (3,2),
+(3,3)$, and $(1,3)$.  Assume $\Cal C$ is traversed in the
+counter-clockwise direction.  We can use Green's theorem
+to calculate $\int_{\Cal C}\F\cdot d\r$ as follows.
+Let $D$ be the region enclosed by the rectangle, so
+$\Cal C = \partial D$.  Note that $\Cal C$ is traversed
+so that $D$ is always on the left.  Then,
+$$
+\align
+\int_{\Cal C}\F\cdot d\r &= \iint_D
+       \frac{\partial F_2}{\partial x} - 
+             \frac{\partial F_1}{\partial y}\,dA \\
+&= \iint (1 - (-1))\,dA = 2 A(D) = 2\times 2 = 4.
+\endalign $$   
+\endexample
+
+\nextex
+\mar{s5-43.ps}
+\example{Example \en}  Let
+$$
+\F(x,y) = \frac{-y}{x^2 + y^2}\i + \frac x{x^2 + y^2}\j =
+         \frac 1r \u_\theta\qquad\text{for } (x,y)\not= (0,0),
+$$
+and let $\Cal C$ be the ellipse  $\dfrac{(x - 1)^2}9 +
+\dfrac{y^2}4 = 1$.  Assume $\Cal C$ is traversed counter-clockwise.
+One is tempted to try to use Green's theorem for the
+region $D$ contained inside $\Cal C$.  Unfortunately,
+the vector field is not smooth at the origin, so the theorem
+does not apply to $D$.  However, we can attempt the same trick we
+used in the case of the inverse square field for a surface
+enclosing the origin.   (See Section 7.)
+%%%Backreference to Chap. V, section 7
+Namely, choose a circle $\Cal C'$ centered at the origin
+ with radius small enough to fit inside the ellipse $\Cal C$.
+Let $D'$ be the region lying {\it between\/} $\Cal C'$ and 
+$\Cal C$.  $\F$ is smooth in $D'$, so Green's theorem
+does apply.  The boundary of $D$ comes in two
+disconnected components:  $\partial D = \Cal C\cup\Cal C'$.
+Also, with $\Cal C$ traversed counter-clockwise, 
+$D'$ will be on its left as required, but $\Cal C'$ must be traversed
+{\it clockwise\/} for $D'$ to be on its left.
+\medskip
+\centerline{\epsfbox{s5-44.ps}}
+\medskip
+With these assumptions,
+$$
+\int_{\Cal C\cup\Cal C'} \F\cdot d\r = \iint_D
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\,dA.
+$$
+The integrand on the right was calculated in Example 7
+of Section 3.
+%%% Backreference
+There we showed that
+$$
+\frac{\partial F_2}{\partial x} = \frac{y^2 - x^2}{(x^2 + y^2)^2}
+= \frac{\partial F_1}{\partial y}
+$$
+so that the difference is zero.
+Hence, the integral on the right is zero.
+Expanding the integral on the left, we obtain
+$$
+\int_{\Cal C} \F\cdot d\r +
+ \int_{\Cal C'} \F\cdot d\r = 0.
+$$
+The second line integral has been done many times for this
+vector field in this
+course, and the answer is $-2\pi$.  The minus sign, of course,
+arises because the path is traversed clockwise, which is
+opposite to the usual direction.  Transposing, we obtain
+$$
+\int_{\Cal C} \F\cdot d\r = 2\pi.
+$$
+\endexample
+
+  Note that this same argument would have worked for any
+path $\Cal C$ which is the boundary of a region $D$ containing
+the origin.  In fact, for $\F = (1/r)\u_\theta$, we have
+$$
+\int_{\partial D} \F\cdot d\r = \left\{
+\aligned 0\qquad&\text{if the origin is not in } D\\
+         2\pi\qquad&\text{if the origin is in } D
+\endaligned \right . .
+$$
+The case in which $D$ contains the origin is covered by the
+argument used in the example---by excising a small disk from $D$.
+The case in which $D$ does not contain the origin follows directly
+from Green's theorem, since in that case the integrand on the
+right is continuous and is zero everywhere in $D$.
+
+One sometimes need the line integral $\int_{\Cal C} (1/r)\u_\theta\cdot
+d\r$ for a closed curve $\Cal C$ which goes around the origin more
+than once.  In that case, the curve must intersect itself (or overlap)
+and it cannot be the boundary of a bounded region $D$.   The integral
+is $\pm 2\pi n$, where $n$ is the number of times the curve goes around
+the origin, and the sign depends on whether it is traversed
+counter-clockwise or clockwise.  (Can you prove that?)  The case
+$n = 0$ corresponds to the curve not going around the origin at all.
+
+\mar{s5-47.ps}
+\subhead Area by Green's theorem \endsubhead
+Both Green's theorem and the divergence theorem are `normally'
+used to calculate the left hand side by reducing it to the right
+hand side.  However, there are occasions where one reverses this.
+For example, consider the vector field $\F(x,y) = \lb -y, x \rb$.
+The double integral in Green's theorem is
+$$
+\iint_D (1 - (-1)) \,dA = 2\iint_D dA = 2 A(D).
+$$
+Hence, Green's theorem gives us the following formula for the
+area of $D$
+\nexteqn
+$$
+	A(D) = \frac 12 \int_{\partial D} -y\,dx + x\,dy.\tag\eqn
+$$
+\outind{Green's theorem, area}%
+This seems a bizarre way to calculate an area, but it is sometimes
+useful.
+
+\nextex
+\mar{s5-48.ps}
+\example{Example \en}
+Let $D$ be the area inside
+the ellipse $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$.
+Parameterize  the ellipse $\partial D$ by
+$$
+x = a\cos\theta\qquad y = b\sin\theta\qquad 0\le \theta \le 2\pi.
+$$
+Then
+$$
+dx = -a \sin\theta d\theta\qquad dy = b\cos\theta d\theta
+$$
+so
+$$
+-y\,dx + x\,dy = -(b\sin\theta)(-a\sin\theta d\theta)
+       + (a\cos\theta)(b\cos\theta d\theta) = ab\,d\theta.
+$$
+It follows from (\eqn) that
+$$
+A(D) = \frac 12 \,ab(2\pi) = \pi ab.
+$$
+You should compare this with the usual way of calculating this area,
+and also the method using the change of variables formula and the
+Jacobian.
+\endexample
+
+It should be noted that the area can also be calculated using the
+line integral of the vector field $\F = \lb -y, 0 \rb$ or
+$\F = \lb 0, x \rb$  which give you the method you
+learned in your single variable calculus course.  (Why?)  Formula
+(\eqn) is more symmetric, and so has a better chance of simplifying
+the calculation.
+
+\bigskip
+\input chap5.ex8
+\bigskip
+\nextsec{Stokes's Theorem}
+\head \sn. Stokes's Theorem \endhead
+
+Stokes's theorem is a generalization of the second form of
+Green's theorem (for line integrals).  To motivate it, notice
+that the integrand
+$$
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+$$
+in the double integral looks like one of the components of the
+curl.  To make this more explicit,
+view the plane vector field $\F$ as a vector field
+in space with its third component zero, i.e., put
+$$
+\F = \lb F_1, F_2, 0 \rb.
+$$
+Then
+$$
+\align
+\nabla\times\F &= \lb 
+\frac{\partial F_3}{\partial y} - \frac{\partial F_2}{\partial z},
+\frac{\partial F_1}{\partial z} - \frac{\partial F_3}{\partial x},
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \rb \\
+&= \lb 0,0,
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+\rb.
+\endalign$$
+(The first two components are zero because 
+$F_3 = 0$ and $\F$ is a {\it plane\/}
+vector field  so its components $F_1$ and $F_2$ are functions only of
+$x$ and $y$.    However, we don't actually have to worry about that
+for the moment.)  If we treat $D$ as a surface which happens to
+lie in the $x,y$-plane, and if we use the upward pointing normal
+$\N = \k$, we have
+$$
+\int_{D} (\nabla\times\F)\cdot\N\,dS =
+\iint_D
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+\,dA.
+$$
+Hence, Green's theorem can be rewritten
+$$
+\int_{\partial D} \F\cdot d\r =
+\iint_{D} (\nabla\times\F)\cdot\N\,dS.
+$$
+\medskip
+\centerline{\epsfbox{s5-49.ps}}
+\medskip
+Stokes's theorem asserts that this same formula works for any
+surface in space and the curve bounding it.  That is, it works
+if we are careful to arrange the orientation of the surface and
+the curve carefully, so we will devote some attention to that
+point.
+
+	Suppose then that $\Cal S$ is an oriented surface in
+space.  That means that a unit normal vector $\N$ has been specified
+at each point of $\Cal S$, and that these normals
+are related to each other in some coherent way as we move
+around on the surface.  For example,
+if the surface is given parametrically by $\r = \r(u,v)$,
+then the formula
+$$
+	d\S = \frac{\partial \r}{\partial u}
+\times \frac{\partial \r}{\partial v}\,du\,dv
+$$
+gives a preferred normal direction at each point. More generally
+$\Cal S$ might consist of a finite collection  of such 
+surfaces which are joined together along smooth curves along
+their edges.   An example of such a surface would be 
+three faces of a cube with a common vertex.   In such cases,
+it is not so easy to explain how the unit normals should
+be related when you cross and edge, but in most cases it is
+intuitively clear what to do.  (We shall discuss how to
+do this rigorously later.)  
+
+\emar{s5-51.ps}{-100}
+Generally,
+ such a surface  $\Cal S$ will have a well 
+defined {\it boundary} $\partial \Cal S$,
+which will be  a smooth curve in space or a finite collection of such
+curves.  There will be two possible ways to traverse this boundary,
+and we specify one, i.e., we choose an orientation for the
+boundary.  In particular, that means that at each point, we specify
+a unit tangent vector $\T$.
+\outind{boundary of a surface, orientation}%
+At each point on the boundary consider the
+ cross-product $\N\times\T$ of the unit normal to the surface
+and the unit tangent vector to its boundary.  This
+cross-product will be tangent
+to the surface and
+ perpendicular to its boundary.  (See the diagram.)  Hence,
+it either points in towards the surface or out away from it.  We
+shall say that the orientation of the surface and the orientation
+of its boundary are {\it consistent\/} if $\N\times\T$ always points
+toward $\Cal S$.  This can be said more graphically as follows.
+If you imagine yourself---suitably reduced in size---walking
+around the edge of the surface in the preferred direction for
+$\partial \Cal S$,  with your head in the direction of
+the preferred normal, then the region will always be on your {\it
+left}.  As you see this is a natural generalization to a
+curved surface of the relationship we required for a plane
+region in Green's theorem.
+\medskip
+\centerline{\epsfbox{s5-52.ps}}
+\medskip
+\nextthm
+\proclaim{Theorem \cn.\tn.{\rm\enspace (Stokes's Theorem)}}
+Let $\F$ be a vector field in space with continuous partial
+derivatives.  Let $\S$ be a surface obtained by patching
+together smooth surfaces along a finite collection of smooth
+curves and such that $\partial \Cal S$  consists of
+a finite collection of smooth curves.  Assume finally that
+the orientations of $\Cal S$ and $\partial \Cal S$ are
+consistent. Then
+$$
+\int_{\partial \Cal S} \F\cdot d\r =
+\iint_{\Cal S} (\nabla\times\F)\cdot\N\,dS.
+$$
+\endproclaim
+\outind{Stokes's theorem}%
+
+We will discuss the proof of Stokes's theorem in the next
+section, but first we give some applications.
+
+\subhead Applications of Stokes's Theorem \endsubhead
+By now you should be beginning to get the idea.  Stokes's
+theorem is normally used to calculate a line integral by
+setting it equal to a surface integral.
+
+\nextex
+\example{Example \en}  Let  $\F(\r) = \lb -y, x, 0 \rb
+= r\u_\theta$, and let
+$\Cal C$ be the ellipse which is the intersection of the
+cylinder $x^2 + y^2 = 1$ with the plane $x + y + z = 2$.
+Assume $\Cal C$ is traversed in the counter-clockwise direction
+when viewed from above.  We shall use Stokes's theorem to
+calculate $\int_{\Cal C}\F\cdot d\r$.  To do this, we need
+to find a surface $\Cal S$ with boundary $\partial \Cal S
+= \Cal C$.  Since we are in space, there are in fact infinitely
+many such surfaces.  We shall do the problem two different ways,
+each of which is instructive.
+
+\emar{s5-53.ps}{-100}
+First, the portion of the plane $x + y + z = 2$ contained within
+the ellipse is one possible $\Cal S$.  To be consistent with the
+orientation of the curve $\Cal C$, we need to use the 
+`upward' pointing normals for $\Cal S$.  (See the diagram.)
+%D
+The curl of this vector field is easily calculated: 
+$\nabla\times\F = \lb 0, 0, 2\rb$.  Hence,
+$$
+\int_{\Cal C} \F\cdot d\r = \iint_S (\nabla\times\F)\cdot d\S
+                          = \iint_S (2\k)\cdot d\S.
+$$
+Thus to complete the calculation, we must evaluate the surface
+integral on the right.  The easiest way to do this is to
+treat the surface as the graph of the function given by
+$z = f(x,y) = 2 - x - y$ with domain $D$ the disk,
+$x^2 + y^2 \le 1$, in the $x,y$-plane.  Then
+$$
+d\S = \lb -f_x, -f_y, 1 \rb dy\,dx = \lb -1, -1, 1 \rb dy\,dx
+$$
+and the surface integral is
+$$
+\iint_S (2\k)\cdot d\S = \iint_D 2\, dA = 2\, A(D) = 2\pi 1^2 = 2\pi.
+$$
+Thus,
+$$
+\int_{\Cal C} \F\cdot d\r = 2\pi.
+$$
+
+Here is another way to do it.  Let $\Cal S$ be the surface made up by
+taking the part of the cylinder $x^2 + y^2 = 1$ between the ellipse
+and the $x,y$-plane together with the disk $x^2 + y^s \le 1$ in the
+$x,y$-plane.  You can think of $\Cal S$ as obtained by taking a
+tin can with bottom in the $x,y$-plane and cutting it off by
+the plane $x + y + z = 2$.  The result is an open can with a slanting
+elliptical top edge $\Cal C$.   It is a little difficult to see,
+but the proper direction for the normal vectors on the lateral
+cylindrical surface is {\it inward\/} toward the $z$-axis.  Then,
+as you cross the circular edge in the $x,y$-plane to the disk
+forming the bottom component of $\Cal S$, 
+you need to choose the {\it upward\/} pointing normal.   Since
+$\nabla\times\F = 2\k$ is parallel to the lateral surface, the
+flux through that is zero.  On the bottom surface, we have
+$(\nabla\times\F)\cdot\N = 2\k\cdot\k = 2$.  Hence, the flux through
+the bottom surface is 2 times the area of the disk, i.e., $2\pi$.
+Thus,
+$$
+\int_{\Cal C}\F\cdot d\r = \iint_{\Cal S} (\nabla\times\F)\cdot\N\,dS
+  = 0 + 2\pi = 2\pi.
+$$
+
+\mar{s5-54.ps}
+There is one interesting variation  of the above calculation. 
+ Let $\Cal S$ be just the lateral surface of the 
+cylinder between the plane $x + y + z = 2$ and the $x,y$-plane.
+Then $\partial \Cal S$ has two components: the top edge $\Cal C$
+and the bottom edge $\Cal C'$ which is the circle $x^2 + y ^2 = 1$
+in the $x,y$-plane.  Since we need to choose the inward pointing
+normals on the lateral surface (for consistency with the
+orientation of $\Cal C$), we need to choose the {\it clockwise\/}
+orientation of $\Cal C'$ for consistency with that inward normal.
+Then
+$$\int_{\Cal C\cup\Cal C'}\F\cdot d\r = \iint_S (\nabla\times\F)
+\cdot\N \, dS = 0
+$$
+since as above $\nabla\times\F = 2\k$ is parallel to $\Cal S$.
+Hence,
+$$\align
+\int_{\Cal C} \F\cdot d\r
+&+ \int_{\Cal C'} \F\cdot d\r = 0 \\
+\intertext{or}
+\int_{\Cal C} \F\cdot d\r &=
+-\int_{\Cal C'} \F\cdot d\r.
+\endalign
+$$
+However, 
+$\int_{\Cal C'} \F\cdot d\r$ is an integral we have done several
+times in the past, and it is equal to $-2\pi$.  (Actually, we did it
+with the opposite orientation and got $2\pi$.)  Hence, the final
+answer is $2\pi$.
+\endexample
+
+\mar{s5-55.ps}
+The above example illustrates the interesting ways
+geometric reasoning can help when applying Stokes's theorem.
+Sometimes you should look for a non-obvious surface which may
+allow you to simplify the calculation.  Also, it is sometimes
+useful to use Stokes's theorem to reduce the desired line integral
+to another line integral which is easier to calculate.
+The second principle is also illustrated by the next example.
+
+\nextex
+\example{Example \en}  Let
+$$
+\F(\r) = \frac 1r\u_\theta = \lb \frac{-y}{x^2 + y^2},
+\frac x{x^2 + y^2}, 0 \rb\qquad.
+$$
+Note that $\F$ blows up on the $z$-axis, so its domain
+is $\R^3$ with the $z$-axis deleted.
+This field, except for some constant, is the magnetic field
+intensity produced by a unit of current flowing in a thin
+wire along the $z$-axis.  The lines of force are circles
+centered on the $z$-axis.   Its curl is
+$\nabla\times\F = \bold 0$.  (You should do the calculation
+which is very
+similar to the one done for the analogous vector field in
+the plane in Section 7.)
+%%%% Check Backreference
+ Let $\Cal C$ be any closed curve which goes once around the
+$z$-axis in the counter-clockwise direction when viewed from
+above.  Since $\nabla\times\F = \bold 0$, you might think
+you could simply span the curve $\Cal C$ by any surface
+whatsoever and the resulting surface integral would be zero.
+Unfortunately, any surface spanning such a curve {\it must
+intersect the\/} $z$-axis.  Since $\F$ is singular on the
+$z$-axis, Stokes's theorem does not apply for such a
+surface.  Instead, we must proceed as indicated above.
+Let $\Cal C'$ be a small circle in the $x,y$-plane
+centered at the origin.  Let $\Cal S'$ be any surface extending
+from $\Cal C'$ to $\Cal C$.  If the normals on $\Cal S'$
+are consistent with the orientation of $\Cal C$, then 
+$\Cal C'$ must be traversed in the clockwise direction.
+$\int_{\Cal C'}\F\cdot d\r$ has been calculated several
+times (e.g., once in the previous section); it equals 
+$-2\pi$.  Thus, by Stokes's theorem
+$$\align
+\int_{\Cal C} \F\cdot d\r
+&+ \int_{\Cal C'} \F\cdot d\r = \iint_{\Cal S'}(\nabla\times\F)\cdot d\S = 0 \\
+\intertext{or}
+\int_{\Cal C} \F\cdot d\r &=
+-\int_{\Cal C'} \F\cdot d\r = -(-2\pi) = 2\pi.
+\endalign
+$$
+
+\mar{s5-56.ps}
+The line integral is zero if the curve $\Cal C$ does not go around
+the $z$-axis.  (Can you prove that?)  
+\endexample
+
+\subhead Physical interpretation of Curl \endsubhead
+As in the case of the divergence of a vector field, we can use
+Stokes's theorem to give an interpretation of $\nabla\times\F$
+which is independent of any coordinate system.
+
+Fix a point $P$ with position vector
+ $\r$ at which we want to calculate $\nabla\times\F$.
+Choose a normal direction $\N$ at $P$.  In the plane passing
+through $P$ perpendicular to $\N$, consider a small circle
+$\Cal C$ of radius $R$ centered at  $P$.  Traverse
+$\Cal C$ in the counter-clockwise direction when looked from
+the `top' relative to $\N$.  The line integral
+$\int_{\Cal C} \F\cdot d\r$
+is called the {\it circulation\/} of the vector field along the
+closed curve $\Cal C$.  If $\F$ is the momentum field of
+a fluid flow, you can think of the circulation as indicating the
+average twisting effect of the field along the curve.  By
+Stokes's theorem, we have
+$$
+\int_{\Cal C}\F\cdot d\r = \iint_{\Cal S} (\nabla\times\F)\cdot\N\,dS
+$$
+where $\Cal S$ is the disk spanning the circle $\Cal C$.
+However, by the average value property for integrals, we have
+$$
+\iint_{\Cal S} (\nabla\times\F)\cdot\N\,dS
+= (\nabla\times\F)(\r')\cdot\N\, A(\Cal S)
+$$
+where the curl has been evaluated at an appropriate point
+with position vector $\r'$ in the
+disk $\Cal S$.
+Thus,
+$$
+(\nabla\times\F)(\r')\cdot\N
+= \frac 1{A(\Cal S)}
+\int_{\Cal C}\F\cdot d\r. 
+$$
+If we take the limit as $R \to 0$, i.e., as $\Cal C$ shrinks to
+the point $P$, $\r'\to\r$, so
+$$
+(\nabla\times\F)(\r)\cdot\N
+= \lim_{\Cal C \to P}\frac 1{A(\Cal S)}
+\int_{\Cal C}\F\cdot d\r. 
+$$
+The quantity on the right is called the {\it limiting
+circulation  per unit area about the axis\/} $\N$. In 
+the fluid flow model, it can be thought of as the twisting effect
+on a small `paddle wheel' with axis $\N$.
+\outind{circulation}%
+\outind{curl, interpretation of}%
+  As its axis  is shifted, the paddle wheel
+ will spin faster or slower, and it may even 
+reverse direction.  This all depends on the relation between the curl
+$(\nabla\times\F)(\r)$ at the point and the axis $\N$ of the
+paddle wheel.
+%D  paddle wheels etc
+
+\mar{s5-57.ps}
+	In the above analysis, we used a family of small circles
+converging to $P$, but
+the analysis would work as well for any family of curves converging
+to $P$.  For example, they could be squares or triangles in
+the plane perpendicular to $\N$.  Indeed, the
+curves need not be plane curves perpendicular to the specified
+normal direction $\N$ as long as their normals all converge
+to $\N$.  
+
+	We can use this interpretation of the curl (in the
+most general form) to
+show that $\nabla\times\F = \bold 0$  for the
+field $\F(\r) = \dfrac 1r \u_\theta$ considered in Example
+\en\ above.  It is probably easier to do that by
+direct calculation from the formula, but the geometric
+method is instructive.  We base the calculation on 
+cylindrical coordinates.  Fix a point $P$ not on the $z$-axis.
+  To show $\nabla\times\F$ is
+zero at $P$, it suffices to show that its components in three
+mutually perpendicular directions are zero.  We shall show
+that
+$$
+(\nabla\times\F)\cdot\N = 0
+$$
+for $\N = \u_r$, (pointing radially away from the $z$-axis),
+$\N = \u_\theta$, (pointing tangent to circles centered on the
+$z$-axis), and $\N = \k$, (pointing parallel to the $z$-axis).
+For $\u_r$, consider a curvilinear rectangle centered
+at the point $P$ on a cylinder (of radius $r$)
+through the point $P$. You should examine the diagram carefully
+to make sure you understand the direction in which this rectangle
+must be traversed to be consistent with normal direction
+$\N = \u_r$.  In particular, note that the bottom edge is
+traversed in the direction of positive $\theta$ and the top
+edge in the direction of negative $\theta$.
+
+  The circulation (line integral) of
+$\F$ along this rectangle decomposes into 4 terms, one for
+each side of the rectangle.  $\F$ is perpendicular to each
+of the vertical edges, so the line integrals for those are
+zero.   The line integral for the bottom edge is easy to calculate
+because the vector field is tangent to the edge and constant
+on it.  (The answer is $\dfrac 1r\, r\Delta\theta = \Delta\theta$
+where $\Delta\theta$ is the angle subtended by the edge at the
+$z$-axis, but the actual value is not needed in the argument.)
+ The calculation of the line integral for the top edge is
+exactly the same except that the sign changes because it is
+traversed in the opposite direction.  Hence, the net circulation
+around the rectangle is zero.  If we divide by the area of
+the rectangle, and take the limit as the rectangle shrinks to
+the point, we still get zero.  It follows that 
+$(\nabla\times\F)\cdot\u_r = 0$.     
+
+\mar{s5-58.ps}
+The calculations showing that
+$(\nabla\times\F)\cdot\u_\theta = 0$ and     
+$(\nabla\times\F)\cdot\k = 0$ are similar, and are left to the
+student as exercises.  (The hardest one is the one for $\k$.)
+%Ex calculate curl of \nabla arctan y/x using cyl coords.
+
+\bigskip
+\input chap5.ex9
+\bigskip
+\nextsec{The Proof of Stokes's Theorem}
+\head \sn. The Proof of Stokes's Theorem \endhead
+
+We shall give two proofs.  The first is not really a proof but a
+plausibility argument.  You should study it because it will help
+you understand why the theorem is true.   The second is a correct
+proof, but you can probably skip it unless you are specially interested
+in seeing a rigorous treatment.
+
+The first argument is based on the `physical interpretation' of
+the curl.  Let $\F$ be a smooth vector field in space and let
+$\Cal S$ be a surface with boundary $\partial \Cal S$.  Imagine
+$\Cal S$ decomposed into many small curvilinear parallelograms
+$\Cal S_i$.   For each $\Cal S_i$, choose a point with position
+vector $\r_i$ inside $\Cal S_i$, and let $\N_i$ be the normal
+vector at that point.  
+\medskip
+\centerline{\epsfbox{s5-59.ps}}
+\medskip
+If $\Cal S_i$ is small enough,
+we can treat it as if it were an actual parallelogram passing through
+$\r_i$ and normal to $\N_i$.  Then, according to the physical interpretation
+of the curl, to a high degree of approximation we have
+$$
+(\nabla\times\F)(\r_i)\cdot\N_i \approx \frac 1{A(\Cal S_i)}\int_{\partial S_i}
+\F\cdot d\r.
+$$
+Hence,
+$$
+\int_{\partial S_i}\F\cdot d\r
+\approx 
+(\nabla\times\F)(\r_i)\cdot\N_i\, A(\Cal S_i),
+$$
+and, adding up, we obtain
+$$
+\sum_i \int_{\partial S_i} \F\cdot d\r
+\approx
+\sum_i (\nabla\times\F)(\r_i)\cdot\N_i \,A(\Cal S_i).
+$$
+If we take the limit as the number of curvilinear parallelograms goes
+to infinity, the sum on the right approaches the surface integral
+$\iint_{\Cal S}(\nabla\times\F)\cdot\N\,dS$.   Consider 
+the sum on the left.  Assume for each $\Cal S_i$ that the orientation
+of the boundary $\partial \Cal S_i$ is consistent with the
+unit normal $\N_i$.  Let $\Cal S_i$ and $\Cal S_j$ be two
+adjacent curvilinear parallelograms which meet along a common edge
+$\Cal C_{ij}$.   Look at the diagram.  
+If the normals $\N_i$ and
+$\N_j$ are `coherently related' to one another, then 
+the direction assigned to  the common edge
+$\Cal C_{ij}$ by $\partial \Cal S_i$ will
+be opposite to the direction assigned to it by $\partial \Cal S_j$.
+Hence, the two line integrals for this common edge will cancel one
+another.   That means that all internal segments of the boundaries
+of the curvilinear parallelograms will cancel, and the only portions
+left will be the external boundary $\partial \Cal S$.  Thus,
+$$
+\sum_i \int_{\partial S_i} \F\cdot d\r
+= \int_{\partial S}\F\cdot d\r.
+$$
+It follows that the line integral in Stokes's theorem equals the
+surface integral as required.
+
+Note that this argument is not valid in the form we presented it.
+The reason is that we derived the physical interpretation of
+the curl from Stokes's theorem.  Since that interpretation was
+a crucial step in the argument, the logic contains a vicious
+circle.  One way around this would be to derive the physical
+interpretation of the curl by an independent argument.  However,
+I know of no such argument which does not contain a hidden
+proof of Stokes's theorem.
+
+A closer examination of the argument helps us understand the
+idea of orientation for a surface.   We suppose the surface
+can be decomposed into patches,  each small enough so that
+it can be assigned a coherent set of unit normals.  (For example,
+ we can assume each patch is given by a parametric representation.)
+For any given patch, the normal directions will impose a
+consistent orientation on its boundary.   We say that the
+normals on the patches are {\it coherently related\/} if
+common boundary segments are traced in opposite directions
+for adjacent patches.  (See the diagram.)
+%D  adjacent patches.
+As we mentioned earlier in Section 2,
+%%% Reference to  first defn of  orientation
+it may not in fact be possible to assign a coherent set of
+normals to the entire surface.  The M\"obius band is an
+example of a surface for which that is not
+possible, i.e., it is {\it non-orientable}.  The diagram shows an attempt to decompose
+a M\"obius band into patches with coherent normals and
+boundaries.
+\medskip
+\centerline{\epsfbox{s5-61.ps}}
+\medskip
+It should also be noted that the method of forming a surface
+by putting together coherently related simple patches can lead to some
+fairly complicated results.  See the diagram for
+an example.  Stokes's theorem still applies to the more
+general surfaces.
+
+\subhead The Correct Proof {\rm(May Be Skipped)} \endsubhead
+Let $\Cal S$ be an oriented surface which can be decomposed into 
+smooth patches as described above.  By further decomposition,
+if necessary, we may assume that each patch is the {\it
+graph of a function}.   By arguing as above about mutual
+cancellation along common edges, the line integral
+along $\partial \Cal S$ may be expressed as the sum of the
+line integrals for the boundaries of the individual patches.
+Similarly the surface integral may be expressed as the sum of
+the surface integrals for the individual patches.  Thus it
+suffices to prove Stokes's theorem (that the line integral
+equals the surface integral) for each individual patch.
+Thus, we are reduced to proving the theorem for the
+graph of a function.
+	Suppose then that $\Cal S$ is the graph of the
+function expressed by $z = f(x,y)$ with domain $D$ in the
+$x,y$-plane.  (Essentially the same argument will work for
+graphs expressible by  $x = g(y,z)$ or $y = h(x,z)$.)
+Assume the orientation of $\Cal S$ is the one such that
+the $z$-component of $\N$ is always positive.  (For the reverse
+orientation, just reverse all the signs in the arguments
+below.)
+
+\medskip
+\centerline{\epsfbox{s5-63.ps}}
+\medskip
+First we calculate $\int_{\partial\Cal S}\F\cdot d\r$.
+Choose a parametric representation $x = x(t), y = y(t),
+a\le t \le b$ for $\partial D$, the boundary of the parameter
+domain.  Then, $x = x(t), y = y(t), z = f(x(t),y(t))$ will
+be a parametric representation of $\partial\Cal S$.  Moreover,
+if $\partial D$ is traversed so that $D$ is on the left, the
+resulting orientation of of $\partial\Cal S$ will be consistent
+with the generally upward orientation of $\Cal S$, as above.
+Then
+$$
+\F\cdot d\r =
+F_1dx +
+F_2dt +
+F_3dz.
+$$
+However,  $dz = f_xdx + f_ydy$ yields
+$$
+\align
+\F\cdot d\r 
+&=
+F_1dx +
+F_2 dy +
+F_3(f_x dx +
+f_y dy) \\
+&=
+(F_1 + F_3f_x)dx
++(F_2 + F_3f_y)dy.
+\endalign$$
+Hence,
+$$
+\int_{\partial\Cal S}\F\cdot d\r =
+\int_{\partial D} 
+(F_1 + F_3f_x)dx
++(F_2 + F_3f_y)dy =
+\int_{\partial D} G_1dx + G_2dy
+$$
+where
+$$
+\align
+G_1(x,y) &= F_1(x,y,f(x,y)) + F_3(x,y,f(x,y))f_x(x,y) \\
+G_2(x,y) &= F_2(x,y,f(x,y)) + F_3(x,y,f(x,y))f_y(x,y)
+\endalign
+$$
+Note that $\G = \lb G_1, G_2 \rb$ is a plane vector field obtained
+by putting $z = f(x,y)$ and so eliminating the explicit dependence
+on $z$. 
+Now, we may use Green's theorem in the plane to obtain
+$$
+\int_{\partial D} G_1dx + G_2dy =
+\iint_D  \frac{\partial G_2}{\partial x}
+ - \frac{\partial G_1}{\partial y}\,dy\,dx.
+$$
+The calculation of the partials on the right is a little tricky.
+By the {\it chain rule\/}
+$$\align
+\frac{\partial}{\partial x}F_2(x,y,f(x,y)) &= 
+\frac{\partial F_2}{\partial x}\frac{\partial x}{\partial x}
++ \frac{\partial F_2}{\partial y}\frac{\partial y}{\partial x}
++ \frac{\partial F_2}{\partial z}\frac{\partial z}{\partial x} \\
+&=\frac{\partial F_2}{\partial x}(1)
++ \frac{\partial F_2}{\partial y}(0)
++ \frac{\partial F_2}{\partial z} f_x \\
+&=
+\frac{\partial F_2}{\partial x} +\frac{\partial F_2}{\partial z} f_x .
+\endalign
+$$
+The notation is a little confusing.  On the left, we are taking
+the partial derivative with respect to $x$ {\it after\/}
+making the substitution $z = f(x,y)$.  The function being
+differentiated is thus a function of $x$ and $y$ alone.  On
+the right, the partial derivatives are taken {\it before\/}
+making the substitution, so at that stage $x, y$ and $z$ are
+treated as independent variables.
+Similar calculations yield
+$$
+\align
+\frac{\partial}{\partial x}F_3(x,y,f(x,y)) &= 
+\frac{\partial F_3}{\partial x} +\frac{\partial F_3}{\partial z} f_x \\
+\frac{\partial}{\partial y}F_1(x,y,f(x,y)) &= 
+\frac{\partial F_1}{\partial y} +\frac{\partial F_1}{\partial z} f_y \\
+\frac{\partial}{\partial y}F_3(x,y,f(x,y)) &= 
+\frac{\partial F_3}{\partial y} +\frac{\partial F_3}{\partial z} f_y .
+\endalign
+$$
+Thus, 
+$$
+\align
+\frac{\partial G_2}{\partial x}
+&=
+\frac{\partial F_2}{\partial x} +\frac{\partial F_2}{\partial z} f_x 
++
+\left(\frac{\partial F_3}{\partial x} +\frac{\partial F_3}{\partial z}f_x
+\right) f_y 
++ F_3f_{yx} \\
+\frac{\partial G_1}{\partial y}
+&=
+\frac{\partial F_1}{\partial y} +\frac{\partial F_1}{\partial z}f_y 
++
+\left(\frac{\partial F_3}{\partial y} +\frac{\partial F_3}{\partial z}f_y
+\right) f_x 
++ F_3f_{xy}. 
+\endalign
+$$
+(The product rule has been used for the second terms in the
+expressions for $G_1$ and $G_2$.)
+Hence, subtracting, we obtain for the integrand
+$$
+\frac{\partial G_2}{\partial x}
+-\frac{\partial G_1}{\partial y}
+= 
+\frac{\partial F_2}{\partial x}  - \frac{\partial F_1}{\partial y}
++\left(\frac{\partial F_2}{\partial z} - \frac{\partial F_3}{\partial y}
+\right)f_x
++ \left(\frac{\partial F_3}{\partial x} - \frac{\partial F_1}{\partial z}
+\right)f_y.
+$$
+
+Next we evaluate $\iint_{\Cal S} \F\cdot d\S$.   We have
+$$
+d\S  = \lb -f_x, -f_y, 1\rb \,dy\,dx.
+$$
+Also,
+$$
+\nabla\times\F =
+\left\lb
+\frac{\partial F_3}{\partial y}
+- \frac{\partial F_2}{\partial z},
+\frac{\partial F_1}{\partial z}
+- \frac{\partial F_3}{\partial x},
+\frac{\partial F_2}{\partial x}
+-\frac{\partial F_1}{\partial y} \right\rb
+$$
+so
+$$
+(\nabla\times\F)\cdot d\S
+=
+\left[\left(\frac{\partial F_3}{\partial y}
+- \frac{\partial F_2}{\partial z}\right)(-f_x) +
+\left(\frac{\partial F_1}{\partial z}
+- \frac{\partial F_3}{\partial x}\right)(-f_y) +
+\frac{\partial F_2}{\partial x}
+-\frac{\partial F_1}{\partial y}\right]\,dy\,dx,
+$$
+and it is not hard to check that the expression in brackets
+is the same integrand as above.  It follows that
+$$
+\int_{\partial\Cal S} \F\cdot d\r =
+       \int_{\partial D} G_1dx + G_2dy
+    = \iint_D \frac{\partial G_2}{\partial x} 
+- \frac{\partial G_1}{\partial y}\,dy\,dx
+       = \iint_{\Cal S} \nabla\times\F\cdot d\S.
+$$
+That completes the proof.
+
+\bigskip
+\input chap5.ex10
+\bigskip
+\nextsec{Conservative Fields, Reconsidered}
+\head \sn. Conservative Fields, Reconsidered \endhead
+
+Let $\F$ denote a vector field in $\R^n$ where $n = 2$ or
+$n = 3$.
+We shall look again at the screening tests to determine whether
+$\F$ might be conservative. 
+For a vector field in the plane ($n = 2$), the test is
+$$
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+ = 0
+$$
+(equation (2) in Section 3), and for a vector field in space
+($n = 3$), the test may be written
+$$
+\nabla\times\F = \bold 0
+$$
+(Section 4).  We pointed out in our earlier discussion that
+a vector field could pass the screening test but still not be
+conservative.  The most important example of such a field
+is $\F = \dfrac 1r \u_\theta$.  However, this can only happen
+if the geometry of the {\it domain\/} of the vector field is
+sufficiently complicated.   In this section we shall look into
+the matter in more detail.
+
+First consider the plane case ($n = 2$).   We said
+previously
+that an open set
+$D$ is  connected if it can't be decomposed
+into disjoint open sets, i.e., if it comes in `one piece'.
+There is a somewhat related but
+much subtler notion.   If a connected region $D$ in $\R^2$
+does not have any
+`holes' in it, it is called {\it simply connected}.   
+The diagram gives some examples of regions
+in the plane which are  simply connected and which are not
+simply connected. 
+\outind{simply connected plane regions}%
+\medskip
+\centerline{\epsfbox{s5-64.ps}}
+\medskip
+ A slightly more rigorous characterization of
+`simply connected' is as follows.  Consider a simple closed curve
+$\Cal C$ in the plane.  By that we mean that the curve does
+not cross itself anywhere.  It is intuitively clear that such
+a curve bounds a region in the plane which we call the
+{\it interior\/} of the curve.  The 
+region $D$ is {\it simply connected\/} if for any simple closed
+curve $\Cal C$ which lies entirely in $D$, the interior of
+$\Cal C$ also lies in $D$.   The idea is that if there were
+ a `hole' in $D$, even one consisting of a single
+missing point, then one could find a curve which goes around
+the hole and then the interior of that curve would contain
+at least one point not in $D$.  (The actual definition of
+the term `simply connected' is a bit more involved, but
+{\it for regions in the plane\/}, the above characterization
+is equivalent.)
+
+  Note that many common regions
+in the plane are simply connected.  For example, all rectangles,
+disks, etc. are simply connected connected. 
+
+
+\nextthm
+\mar{s5-65.ps}
+\proclaim{Theorem \cn.\tn}  Let $\F = \lb F_1, F_2 \rb$
+be a plane vector field which is smooth on its
+domain of definition $D$.  Suppose $D$ is simply connected.
+Then $\F$ is conservative if and only if it passes the
+screening test
+$$
+\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+ = 0.
+$$
+\endproclaim
+\outind{screening test, two dimensions}%
+
+\demo{Proof}  If  $\F$ is conservative, then we know it passes
+the screening test.
+
+	Suppose conversely that
+$\frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}
+ = 0$.  One way to show that $\F$ is conservative is to show that
+$\int_{\Cal C} \F\cdot d\r = 0$ for every closed curve
+$\Cal C$ in the domain $D$.  In principle,
+ we must show this for every closed
+curve, but in fact it is enough to show it for every simple
+closed curve, i.e., every closed curve with does not cross
+itself. 
+  Suppose then that $\Cal C$
+is a {\it simple\/} closed curve,
+ and let $D'$ denote the interior
+of $\Cal C$.  By hypothesis, $D'$ is entirely contained 
+within $D$ where the vector field $\F$ is assumed to be
+smooth.  Hence, Green's theorem applies and we may
+conclude that 
+$$
+\align
+   \int_{\Cal C} \F\cdot d\r &= \iint_{D'} \frac{\partial F_2}{\partial x}
+- \frac{\partial F_1}{\partial y}\, dA \\
+   &= \iint_{D'} (0) \, dA = 0
+\endalign
+$$
+as required.  
+\enddemo
+
+\emar{s5-66.ps}{-100}
+\noindent
+{\bf Remarks for those curious about the details}.  
+There are some tricky points which were
+glossed over in the above discussion.
+  First, the assertion that every simple closed
+curve bounds a region in the plane is actually a deep theorem
+called the {\it Jordan Curve Theorem}.  That theorem is 
+quite difficult to prove in full generality.  Fortunately,
+there are tricky ways to get around that for what we want here.
+Thus, to show $\F$ is conservative, it suffices to choose a
+base point $\r_0$ and to define
+a function $f$ with gradient $\F$ using the formula
+$$
+    f(\r) = \int_{\Cal C} \F\cdot d\r
+$$
+where $\Cal C$ is any path from  $\r_0$
+to  $\r$.  Since this can be any path, it might as
+well be a polygonal path with edges are parallel to one of
+the coordinate axes.   The Jordan Curve theorem is much easier 
+to verify for such paths.   Similarly, the reduction
+from curves which do cross themselves to curves which do
+not is not hard to justify for such polygonal paths.  See the
+diagram for a hint about how to do it.
+\medskip
+\centerline{\epsfbox{s5-67.ps}}
+\medskip
+\example{Example}   Let $\F(x,y) = \dfrac 1r\u_\theta
+= \dfrac 1{x^2 + y^2} \lb -y, x\rb$.  The domain of this
+function is the plane $\R^2$ with the origin deleted.  Hence,
+it is not simply connected.  Thus the theorem does not apply.  Indeed,
+the field is not conservative but does pass the screening test.
+However, we may choose simply connected subdomains and consider
+the vector field on such a subdomain.  For example, let
+$D$ be the part of the plane to the right of the $y$-axis and
+not including the $y$-axis.  This region is simply connected---i.e.,
+there are no holes---and $\F$ does pass the screening test, so
+the theorem tells us there must be a function $f$ such
+that $\F = \nabla f$ everywhere
+on $D$.   In fact, you showed previously in an exercise that
+the function defined by $f(x,y) = \tan^{-1}(y/x)$ is just such
+a function.  (Check again that $\nabla f = \F$ in
+case you don't remember the exercise.)  The natural question
+then---posed in the exercise---is why can't we use this same
+function for the original domain of $\F$?  Let's see what
+happens if we try.  Note first  that in the right
+half plane, we have  $\theta = \tan^{-1}(y/x)$ so there is
+an obvious way to try to extend the definition of the
+function $f$.  Let $f(x,y)$ be the polar coordinate
+$\theta$ of the point $(x,y)$.  Unfortunately, $\theta$ is not
+uniquely defined.  If we start working forward from the
+positive $y$-axis, $\theta$ starts at $\pi/2$ and increases.
+If we start working backward from the negative $y$-axis,
+$\theta$ starts at $-\pi/2$ and gets progressively more
+negative.  On the negative $x$-axis, these two attempts to
+extend the definition of $f(x,y)$ will run into a problem.
+If we approach from above the proper value will be $\pi$,
+but if we approach from below the proper value will be
+$-\pi$.   {\it There is no way around this difficulty.}  We know
+that because the field is not conservative.  Hence, there is
+no continuous function $f$ such that $\F = \nabla f$ on the entire domain
+of $\F$.  
+\endexample
+
+\mar{s5-69.ps}
+The above example illustrates a very important principle in
+mathematics and its applications.  We may have a problem
+(for example a system of differential equations) which,
+for every point where the problem makes sense, has a solution
+which works in a sufficiently small neighborhood of that point.
+In that case, we say that the problem is solvable {\it locally}.
+\outind{local properties}%
+\outind{global properties}%
+That does not guarantee, however, that the problem
+can be solved {\it globally\/}, i.e., that there is a single
+continuous solution which works everywhere.  Since every point
+has a simply connected neighborhood (a small rectangle or small disk),
+any vector field which passes the screening test is locally
+a gradient, but may not be globally a gradient.
+The issue of `local solutions' versus `global solution' has
+only recently entered the awareness of physicists and other
+scientists.  The reason is that much of physics was concerned
+with solving differential equations or systems of differential
+equations, and the solution methods tend to give local solutions.
+However, the importance of global solutions has become increasingly
+clear in recent years.
+\medskip
+\emar{s5-70.ps}{-150}
+The above ideas can be extended to vector fields in space, but
+the geometry is more complicated because the concept
+`hole' can be more complicated.   Let  $D$  be a connected
+open set in
+$\R^3$.  
+Suppose that
+ any simple closed curve $\Cal C$ in $D$ is the boundary of an
+orientable
+surface $\Cal S$ which also lies entirely in $D$. 
+In this case we shall say that {\it $D$ spans curves}.
+\outind{spans curves}%
+  Most common
+regions, e.g., solid spheres or rectangular boxes, have this
+property. 
+The region consisting of $\R^3$ with a single point deleted also
+has this property. 
+ For, if a curve $\Cal C$ goes around the missing point,
+it can be spanned by a surface which avoids the point.  On the
+other hand, the region obtained by deleting the entire $z$-axis
+from $\R^3$ does not have the property since any curve going
+around the $z$-axis cannot be spanned by a surface which is
+not pierced by the $z$-axis. 
+\medskip
+\centerline{\epsfbox{s5-71.ps}}
+\medskip
+%Ex   if delete a circle, is the result simply connected?
+The analogue of the above theorem holds in space:  {\it If $\F$
+is a smooth vector field on some open set $D$ in $\R^3$
+and $D$ spans curves, then  $\F$ is conservative if and only
+if it satisfies the screening test  $\nabla\times\F = \bold 0$.}
+The proof is very similar, but it uses Stokes's theorem instead
+of Green's theorem.  You should work it out for yourself.
+\medskip
+This notion is a bit more complicated than you might think at
+first.  A curve in $\R^3$ might not intersect itself but could still
+have quite complicated geometry.  For example, it might be knotted
+in such a way that it can not be straightened out without 
+being cut.  Also, we didn't go into how complicated the `surfaces'
+spanning such a curve may be.
+
+\mar{s5-70a.ps}
+The term `simply connected' may also be defined for regions $E$ in
+space, but the definition is not the same
+as that for `$E$ spans curves' given above. 
+However, the notions are fairly closely related, and a region which
+is simply connected does span curves (but not necessarily vice versa).
+\bigskip
+\input chap5.ex11
+\bigskip
+\nextsec{Vector Potential}
+\head \sn. Vector Potential \endhead
+
+Let $\F$ be a vector field in $\R^3$.  We said that $\F$
+is conservative if $\F = \nabla f$ for some scalar field
+$f$.  Electrostatic fields are conservative, so the previous
+mathematics is good to know if you are studying such fields.
+Magnetic fields, however, are not conservative, so a different
+but related kind of mathematics is appropriate for them.
+We go into that now.
+
+Let $\F$ be a vector field in space.  Another vector field
+$\bold A$ is called a {\it vector potential\/} for $\F$
+if 
+$$
+  \nabla\times\bold A = \F.
+$$
+\outind{vector potential}%
+\outind{potential, vector}%
+Note that such an $\bold A$ is not unique.  Namely,
+if $\bold U$ is any field satisfying $\nabla\times\bold U = \bold 0$,
+then
+$$
+   \nabla\times(\bold A + \bold U) =
+   \nabla\times\bold A +\nabla\times\bold U =\F + \bold 0 = \F.
+$$
+Hence, a vector potential for $\F$, if there is one, may always
+be modified by such a $\bold U$.   Since any conservative
+$\bold U$ satisfies $\nabla\times\bold U = \bold 0$, there
+is a very wide choice of possible vector potentials.  This
+is to be distinguished from the case of scalar potentials which
+are unique up to an additive constant.
+
+There is also a screening test to determine if $\F$ might
+have a vector potential $\bold A$.  Namely, you should have
+checked the identity
+$$
+  \nabla\cdot(\nabla\times\A) = 0,
+$$
+i.e.,  {\it divergence following curl is always\/} 0.  (If you
+didn't do that exercise, do it now!)   That means, if 
+$\nabla\cdot\F \not= 0$, then there is no point looking for
+a vector potential.  If it does vanish, then it is worth
+a try.
+
+\nextex
+\example{Example \en}   Let $\F(x,y,z) = \lb x, y, -2z \rb$.
+We have
+$$
+\nabla\cdot\F = 1 + 1 -2 = 0
+$$
+so $\F$ passes the screening test.  We look for a vector
+potential $\bold A$ as follows.  We try to find one with
+$A_3 = 0$.  This is plausible for the following reason.
+Suppose we found a vector potential with $A_3 \not= 0$.
+In that case, we could certainly find a scalar field $f$
+such that $A_3 = \partial f/\partial z$.  Then,
+$$
+\nabla\times(\bold A - \nabla f) = 
+    \nabla\times\bold A - \nabla\times(\nabla f) = \nabla\times\bold A.
+$$
+However, the third component of $\bold A - \nabla f$ is
+$A_3 - \partial f/\partial z = 0$.
+
+	Assume now that $\nabla\times\bold A = \F$ where
+$A_3 = 0$.  Then
+$$
+-\frac{\partial A_2}{\partial z} = x,\qquad
+\frac{\partial A_1}{\partial z} = y,\qquad
+\frac{\partial A_2}{\partial x}
+-\frac{\partial A_1}{\partial y} = -2z.
+$$
+Thus, from the first two equations
+$$
+\align
+A_2 &= -xz + C(x,y) \\
+A_1 &= yz + D(x,y). 
+\endalign
+$$
+  These can be substituted in the third equation to obtain
+$$
+-z + \frac{\partial C}{\partial x} -z - \frac{\partial D}{\partial y}
+= -2z
+$$
+or
+$$
+ \frac{\partial C}{\partial x} - \frac{\partial D}{\partial y} = 0.
+$$
+There are no unique solutions $C, D$ to this equation.  That
+reflects the great freedom we have in choosing a vector potential.
+There are a variety of methods one could use to come up with
+explicit solutions, but in the present case, it is clear by
+inspection that 
+$$
+  C(x,y) = D(x,y) = 0
+$$
+will work.  Hence, $A_1 = yz, A_2 = -xz, A_3 = 0$ is a solution
+and
+$$
+ \bold A = \lb yz, -xz, 0 \rb
+$$
+is a vector potential.  You should check that it works.
+\endexample
+
+Not every field $\F$ which passes the screening test $\nabla\cdot\F
+= 0$ has a vector potential.
+
+\nextex
+\xdef\ExTwo{\en}
+\example{Example \en}  
+Let $\F = \dfrac 1{\rho^2}\u_\rho$ be our friend the inverse
+square law.   We have remarked several times that
+$\nabla\cdot\F = 0$ for an inverse square law, so $\F$ passes
+the screening test.  However, $\F \not= \nabla\times\A$ for
+any possible $\A$.  Namely, we know from flux calculations
+made previously that for this inverse square law
+$$
+\iint_{\Cal S} \F\cdot d\S = 4\pi
+$$
+for any sphere $\Cal S$ centered at the origin.  On the other hand,
+it is not too hard to see that
+$$
+\int_{\Cal S} \nabla\times\A\cdot d\S 
+ = 0
+$$
+for any vector field $\A$.  To see this, divide the sphere into
+an upper hemisphere $\Cal S_1$ and a lower hemisphere
+$\Cal S_2$ which meet at the equator, which is a common boundary
+for both.   Note that $\partial\Cal S_1$
+is traversed in the {\it
+opposite direction\/}  from 
+$\partial\Cal S_2$, although they are the same curve if
+orientation is ignored.  By Stokes's theorem, we have
+$$\align
+   \int_{\partial\Cal S_1}\A\cdot d\r
+   &=\iint_{\Cal S_1}\nabla\times\A\cdot d\S, \\
+   \int_{\partial\Cal S_2}\A\cdot d\r
+   &=\iint_{\Cal S_2}\nabla\times\A\cdot d\S .
+\endalign$$
+If we add these two equations, we get zero on the left because
+the line integrals are for the same curve traced in opposite
+directions.  On the right, we get
+$$
+\iint_{\Cal S_1}\nabla\times\A\cdot d\S +
+   \iint_{\Cal S_2}\nabla\times\A\cdot d\S 
+=
+   \iint_{\Cal S}\nabla\times\A\cdot d\S 
+$$
+so it is zero.
+\endexample
+
+\mar{s5-72.ps}
+The property analogous to `$E$ spans curves'
+ is {\it $E$ spans surfaces}.
+A connected open set $E$ in $\R^3$ has this property if, for every
+simple closed surface $\Cal S$ 
+in $E$, the interior of $\Cal S$ is also in $E$. 
+The set $E$ consisting
+of $\R^3$ with the origin deleted does not span surfaces since the
+interior of any sphere
+centered at the origin is not entirely in $E$.
+On the other hand, the set $E$ consisting of $\R^3$ with the
+entire $z$-axis deleted does span surfaces.  Do you see why?
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $\F$ be a smooth vector field
+on an open set $E$ in $\R^3$ which spans surfaces.  Then
+$\F$ has a vector potential if and only if $\nabla\cdot\F = 0$.
+\endproclaim
+
+The proof of this theorem is much too difficult to attempt here.
+\medskip
+{\it Warning\/}!  The author has not been completely honest about
+the concept `$E$ spans surfaces' because the phrase `simple
+closed surface' was not defined.   This phrase evokes the idea
+of something straightforward like the surface of a sphere or
+a cube.  However, it is necessary for the above theorem
+to hold that we consider much more general
+surfaces.   For example, a toral surface, i.e., the surface of
+a doughnut shaped solid, is an example of a `simple closed
+surface'.   In general, any surface which may be viewed as
+the boundary of a plausible solid region (and to which the
+divergence theorem may be applied) is a possible candidate.
+(If you want to learn more about this  subject,
+you should plan someday to study {\it algebraic
+topology\/} and in particular a famous result called
+{\it DeRham's Theorem}.)   Probably the only cases you ever
+need to apply the theorem to are where $E$ is equal to all of
+$\R^3$ or at worst the interior of a {\it really\/} simple
+closed surface like a sphere or a cube.
+ 
+\subhead Summary of Relations among Fields in $\R^3$ \endsubhead
+Some the relations among scalar and vector fields in
+$\R^3$ described in the previous sections can be
+summarized in the following table.
+\bigskip
+$$
+\gather
+\text{Scalar Fields }  f, g, \dots \\
+\downarrow\quad \nabla\\
+\text{Vector Fields } \F, \E, \A, \dots \\
+\downarrow\quad \nabla\times \\
+\text{Vector Fields }\F, \bold B, \dots \\
+ \downarrow \quad \nabla\cdot \\
+\text{Scalar Fields}
+\endgather
+$$
+
+The way to interpret this table is as follows. The vertical
+arrows indicate operations.  The first, the gradient operation
+($\nabla$), takes scalar fields into vector fields.  The
+second, the curl operation ($\nabla\times$), takes vector fields
+into vector fields.  The third, the divergence operation
+($\nabla\cdot$), takes vector fields into scalar fields.
+
+The result of doing two successive operations is
+zero.  Thus, $\nabla\times(\nabla f) = \bold 0$ and
+$\nabla\cdot(\nabla\times\A) = 0$.   Moreover, at the second
+and third levels we have screening tests.  If a
+vector field at the given level passes the test (i.e., 
+the operation at that level takes it to zero),
+one may ask
+if the vector field comes from  a `potential' at
+the previous level.
+Under suitable connectedness
+assumptions, the answer will be yes.
+
+
+\bigskip
+\input chap5.ex12
+\bigskip
+\nextsec{Vector Operators in Curvilinear Coordinates}
+\head \sn.  Vector Operators in Curvilinear Coordinates \endhead
+
+This section is included here because it depends on what we
+have just done.  However, most of you should probably skip it
+for now and come back to it when you need the formulas given
+here, which is likely to  be the case at some point in your
+studies.  You should glance at some of the formulas, for
+future reference.   Of course, if you really want a challenging
+test of your understanding of the material in the previous
+sections, you should study this section in detail.
+\outind{vector operators}%
+
+\subhead Gradient in Cylindrical and Spherical Coordinates \endsubhead
+For a scalar field $f$ in the plane,
+we found 
+ in
+Chapter III, Section 7 that
+\nexteqn
+$$
+\nabla f = \u_r\frac{\partial g}{\partial r} + \u_\theta
+\frac 1r\frac{\partial g}{\partial\theta}.\tag\eqn
+$$  
+where on the right $g$ is the function of 
+ $r, \theta$ obtained  by 
+substituting $x = r\cos\theta, y = r\sin\theta$ in $f$,
+i.e., $f(x,y) = g(r,\theta)$.
+
+The corresponding formula in cylindrical coordinates is
+\nexteqn
+$$
+\nabla f = \u_r\frac{\partial g}{\partial r} + \u_\theta
+\frac 1r\frac{\partial g}{\partial\theta} 
++ \k \frac{\partial g}{\partial z}\tag\eqn
+$$
+where $f(x,y,z)=g(r,\theta,z)$.
+That is fairly clear because the change from rectangular
+coordinates $x,y,z$ to cylindrical coordinates $r,\theta,z$
+involves only the first two coordinates.
+
+There is a corresponding formula for spherical coordinates.
+\nexteqn
+$$ 
+\nabla f = \u_\rho\frac{\partial g}{\partial \rho} + \u_\phi
+\frac 1\rho\frac{\partial g}{\partial\rho} 
++ \u_\theta\frac 1{\rho\sin\phi}\frac{\partial g}{\partial \theta}.\tag\eqn
+$$
+where $f(x,y,z) = g(\rho,\phi,\theta)$.
+$\u_\rho, \u_\phi$, and $\u_\theta$ are unit vectors
+in the $\rho, \phi$, and $\theta$ directions respectively.
+At any point in space,
+$\u_\rho$ points directly away from the origin,
+$\u_\phi$ is tangent to the circle of longitude through the point,
+and points from north to south, and $\u_\theta$ is tangent to
+the circle of latitude through the point and points from west to
+east.
+ 
+To derive this formula, we argue as follows.
+$$
+df = \nabla f\cdot d\r.
+$$
+Assume
+$$
+   \nabla f = \u_\rho A_\rho + \u_\phi A_\phi + \u_\theta A_\theta.
+$$
+The trick is to  express
+$d\r$ in terms of these same unit vectors.   Consider a
+spherical cell with one corner at the point with spherical
+coordinates $(\rho,\phi,\theta)$ and dimensions
+$d\rho, \rho d\phi,$ and $\rho\sin\phi d\theta$.  
+\medskip
+\centerline{\epsfbox{s5-73.ps}}
+\medskip
+Then ignoring
+small errors due to the curvature of the sides, we have
+$$
+d\r = \u_\rho d\rho + \u_\phi \rho d\phi + \u_\theta \rho\sin\phi d\theta.
+$$
+Hence,
+$$
+ \nabla f\cdot d\r =
+   A_\rho d\rho + A_\phi \rho d\phi  + A_\theta \rho\sin\phi d\phi.
+$$
+However,
+$$
+dg = \frac{\d g}{\d\rho} d\rho + \frac{\d g}{d\phi} d\phi + \frac{\d g}
+{\d \theta} d\theta
+$$
+so putting $df = dg$ and comparing coefficients of $d\rho, d\phi$,
+and $d\theta$ gives  $A_\rho =  
+\dfrac{\d g}{\d\rho}$, $A_\phi =\dfrac 1\rho \dfrac{\d g}{d\phi}$,
+and $A_\theta = \dfrac 1{\rho\sin\phi}\dfrac{\d g}{\d \theta}$.
+
+All this can be summarized by saying that the gradient operation
+has the following form in each coordinate system:
+
+\noindent Polar Coordinates in the plane:
+$$
+\nabla = \u_r\frac{\d}{\d r} + \u_\theta \frac 1r \frac{\d}{\d \theta}.
+$$
+\outind{$\noexpand\nabla$ operator in polar coordinates}%
+Cylindrical Coordinates in space:
+$$
+\nabla = \u_r \frac{\d}{\d r} + \u_\theta \frac 1r \frac{\d}{\d \theta} +
+\k \frac{\d}{\d z}.
+$$
+\outind{$\noexpand\nabla$ operator in cylindrical coordinates}%
+Spherical Coordinates in space:
+$$
+\nabla = \u_\rho \frac{\d}{\d \rho} +  \u_\phi \frac 1\rho 
+\frac{\d}{\d \phi} + \u_\theta \frac 1{\rho\sin\phi}
+ \frac{\d}{\d \theta}. 
+$$
+\outind{$\noexpand\nabla$ operator in spherical coordinates}%
+\def\ur{\bold u_r}
+\def\ut{\bold u_{\theta}}
+\def\uf{\bold u_{\phi}}
+\def\urh{\bold u_{\rho}}
+\def\Fr{F_r}
+\def\Ft{F_{\theta}}
+\def\Frh{F_{\rho}}
+\def\Fz{F_z}
+\def\Ff{F_{\phi}}
+
+\subhead Divergence in Cylindrical Coordinates \endsubhead
+Let $\F = \u_r F_r + \ut F_\theta + \k F_z$ be the representation of
+the vector field in terms of cylindrical coordinates.  Then
+we have
+$$
+\nabla\cdot\F = 
+(\u_r\frac{\d}{\d r} + \ut\frac 1r\frac{\d}{\d\theta} + \k\frac{\d}{\d z})
+\cdot
+(\u_r F_r + \ut F_\theta + \k F_z).
+$$
+One may calculate this {\it formally\/} using the fact that the
+three vectors $\ur, \ut$, and $\k$ are mutually perpendicular,
+but one must be careful to use the product rule and apply the
+differentiation operators to these unit vectors.  
+We have
+$$\alignat 3
+\frac{\d}{\d r}\ur &= \bold 0 &\qquad \frac{\d}{\d\theta}\ur &= \ut
+  &\qquad \frac{\d}{\d z} \ur & = \bold 0 \\
+\frac{\d}{\d r}\ut &= \bold 0 &\qquad \frac{\d}{\d\theta}\ut &= -\ur
+&\qquad \frac{\d}{\d z}\ut & = \bold 0 \\
+\frac{\d}{\d r}\k &= \bold 0 &\qquad \frac{\d}{\d\theta}\k &= \bold 0
+&\qquad \frac{\d}{\d z}\k &= \bold 0.
+\endalignat
+$$
+(These rules can be derived by geometric visualization or by writing
+$\ur = \cos\theta\i + \sin\theta\j$ and $\ut = -\sin\theta\i
+ + \cos\theta \j$ and taking the
+indicated partial
+derivatives.)
+The result of the calculation, which you should check, is
+$$
+\align
+\nabla\cdot\F
+ &= 
+      \frac 1r\left(\frac{\d (rF_r)}{\d r} +
+      \frac{\d \Ft}{\d \theta} +
+      \frac{\d (r F_z)}{\d z}\right) \\
+&=
+      \frac 1r\frac{\d (rF_r)}{\d r} +
+      \frac 1r\frac{\d \Ft}{\d \theta} +
+      \frac{\d F_z}{\d z} .
+\endalign 
+$$
+
+The above calculation is done by following a plausible but
+arbitrary formal scheme.  Hence, there is no particular
+reason to believe that it gives the correct answer.  There
+are, after all, other formal schemes that one could employ.
+To show that the formula is correct, we need another argument,
+and we give that in what follows.
+
+The basic method is to calculate the divergence as {\it flux
+per unit volume\/} by picking an appropriate family of curvilinear
+boxes which shrink to a point.
+
+Consider a curvilinear box centered at the point with cylindrical
+coordinates  $(r, \theta, z)$.  It has the  
+following 6 faces. 
+
+  The top and bottom faces are circular
+wedges centered at $(r, \theta, z + dz)$ and $(r, \theta, z - dz)$;
+their common area is $r(2d\theta)(2dr)$, and the normals are
+$\pm\k$.   
+
+The far and near side faces are rectangles centered at
+$(r, \theta + d\theta, z)$ and $(r, \theta - d\theta, z)$; their
+common area is $(2dr)(2dz)$, and the normals are $\pm\ut$.
+
+The outer and inner faces are cylindrical rectangles centered
+at $(r + dr, \theta, z)$ and $(r - dr, \theta, z)$; their areas
+are respectively $(r + dr)(2d\theta)(2dz)$ and $(r - dr)(2d\theta)(2dz)$,
+and the normals are $\pm\ur$.
+
+To calculate the flux out of the surface $S$ of the box we argue as
+follows.   First, for any face only the component of $\F$ perpendicular
+to that face is relevant:  $F_z$ for the top and bottom faces,
+$\Ft$ for the side faces, and $F_r$ for the outer and inner faces.
+Secondly, to a first approximation, the flux through a face equals
+the value of the relevant component {\it at the center of the face\/}
+multiplied by its area and a {\it sign} depending on the direction of
+the normal.   (The reason why it suffices to use the value of the
+component at the center of the face, rather than attempting to integrate
+over the face, is that to a first approximation we may assume the
+component is a {\it linear\/} function of the coordinates so, if we
+did integrate, each positive variation from the value at the center
+would be canceled by a corresponding negative variation.)   
+
+We now perform this calculation for the faces of the box.
+
+For the top face the flux is
+$$
+     F_z(r,\theta,z + dz)(r 2d\theta)(2dr).
+$$
+However, to a first degree of approximation
+$$
+    F_z(r,\theta,z + dz) = F_z(r,\theta,z) + \frac{\d F_z}{\d z} dz
+$$
+so the flux is
+$$
+     (F_z(r,\theta,z) + \frac{\d F_z}{\d z} dz)r(2d\theta)(2dr).
+$$
+Similarly, the flux through the bottom face is
+$$
+     -(F_z(r,\theta,z) - \frac{\d F_z}{\d z} dz)r(2d\theta)(2dr).
+$$
+(Note the normal in that case is $-\k$.)  Hence, the total flux for
+the two faces is, after cancellation
+$$
+      (2 \frac{\d F_z}{\d z} dz)r(2d\theta)(2dr) =
+      \frac{\d F_z}{\d z}(2 dz)r(2d\theta)(2dr) =
+      \frac{\d F_z}{\d z} dV.
+$$    
+A comparable computation for the two side faces yields
+$$\multline
+      (2 \frac{\d \Ft}{\d \theta} d\theta) (2dr)(2dz) =
+      \frac{\d \Ft}{\d \theta}(2 d\theta) (2dr)(2dz)\\
+ = \frac 1r(\frac{\d \Ft}{\d \theta})(2rd\theta) (2dr)(2dz) =
+      \frac 1r(\frac{\d \Ft}{\d \theta}) dV.
+\endmultline
+$$
+Note that we had to multiply (and divide) by the extra factor of
+$r$ to change the $\theta$ increment to a distance.
+
+The flux computation for the outer and inner faces is a bit
+different because the area as well as the component $F_r$
+is a function of the radial variable $r$.  
+Thus for the outer face, the flux would be
+$$
+     F_r(r + dr,\theta,z)((r+ dr)2d\theta)(2dz).
+$$
+It is useful to rewrite this
+$$
+     ((r + dr)F_r(r + dr,\theta,z)) (2d\theta)(2dz)
+$$
+and consider the quantity in parentheses as a function of $r$.
+Then making the linear approximation, the flux is
+$$
+     (r F_r(r,\theta,z) + \frac{\d (rF_r)}{\d r} dr) (2d\theta)(2dz)
+$$
+and similarly for the inner face it is
+$$
+   -(r F_r(r,\theta,z) - \frac{\d (rF_r)}{\d r} dr) (2d\theta)(2dz).
+$$
+   Thus the net flux for the outer and inner faces is
+$$
+      (2\frac{\d (rF_r)}{\d r} dr) (2d\theta)(2dz) =
+     \frac 1r (\frac{\d (rF_r)}{\d r})(2dr)(r 2d\theta)(2dz) =
+     \frac 1r (\frac{\d (rF_r)}{\d r}) dV.
+$$
+If we add up the three net fluxes, we get
+$$
+     \frac 1r (\frac{\d (rF_r)}{\d r}) dV +
+      \frac 1r(\frac{\d \Ft}{\d \theta}) dV +
+      (\frac{\d F_z}{\d z}) dV =
+      (\frac 1r\frac{\d (rF_r)}{\d r} +
+      \frac 1r(\frac{\d \Ft}{\d \theta}) +
+      \frac{\d F_z}{\d z}) dV.
+$$
+If we now divide by $dV$ to get the {\it flux per unit volume}
+we get for the divergence
+$$
+\nabla\cdot\F =
+      \frac 1r\frac{\d (rF_r)}{\d r} +
+      \frac 1r(\frac{\d \Ft}{\d \theta}) +
+      \frac{\d F_z}{\d z} 
+$$
+as required.
+\medskip
+\noindent{\it Remark}.
+The formula (\eqn) for the divergence may
+  be described in words as follows.   For each coordinate
+there is a multiplier which changes the coordinate to a distance.
+In this case the $r$ and $z$ multipliers are 1 but the $\theta$
+multiplier is $r$.  To obtain the divergence, multiply each
+component by the {\it other two multipliers\/} and then take
+the partial with respect to the relevant coordinate.  Add up the
+results and then divide by the product of the multipliers.
+\medskip
+\subhead Divergence in Spherical Coordinates \endsubhead
+Let $\F =  \Frh\urh + \Ff\uf + \Ft\ut$  be a resolution of the vector
+field $\F$ in terms of unit vectors appropriate for spherical
+coordinates.  Then formally,
+$$
+\nabla\cdot\F = 
+(\urh\frac{\d}{\d \rho} +  \uf\frac 1\rho\frac{\d}{\d\phi}
++ \ut\frac 1{\rho\sin\phi}\frac{\d}{\d\theta} )
+\cdot
+(\u_\rho F_\rho + \uf F_\phi + \ut F_\theta).
+$$
+Again this should be computed formally using the product rule and
+the rules
+$$\alignat 3
+\frac{\d}{\d \rho}\urh &= \bold 0 &\qquad \frac{\d}{\d\phi}\urh &= \uf
+  &\qquad \frac{\d}{\d \theta} \urh & = \sin\phi \ut \\
+\frac{\d}{\d \rho}\uf &= \bold 0 &\qquad \frac{\d}{\d\phi}\uf &= -\urh
+&\qquad \frac{\d}{\d \theta}\uf & = \cos\phi\ut \\
+\frac{\d}{\d \rho}\ut &= \bold 0 &\qquad \frac{\d}{\d\phi}\ut &= \bold 0
+&\qquad \frac{\d}{\d \theta}\ut &= -\sin\phi\urh -\cos\phi\uf 
+\endalignat
+$$
+These formulas can be derived geometrically or by using
+$$\align
+\urh &= \lb \sin\phi\cos\theta, \sin\pi\sin\theta,\cos\phi \rb\\
+\uf & =  \lb \cos\phi\cos\theta, \cos\pi\sin\theta, -\sin\phi \rb\\
+\ut &= \lb \cos\theta, \sin\theta, 0 \rb.
+\endalign
+$$
+The resulting formula for the divergence, which you should check, is
+$$
+\nabla\cdot \F = \frac 1{\rho^2\sin\phi}
+\left(\frac{\d (\rho^2\sin\phi \Frh)}{\d \rho} +
+   \frac{\d (\rho\sin\phi \Ff)}{\d \phi} +
+       \frac{\d (\rho \Ft)}{\d \theta}\right).
+$$
+Again, this must be verified by an independent argument.
+The reasoning for that is pretty much the same as in the
+case of cylindrical coordinates, but the curvilinear
+box is the one appropriate for spherical coordinates and hence somewhat
+more complicated.  I leave it as a challenge for you to do
+the appropriate flux calculations. 
+
+The same rule works for interpreting this.  
+Use multipliers 
+1 for $\rho$, $\rho$ for $\phi$, and $\rho\sin \phi$ for $\theta$
+for the coordinates, and then
+multiply each
+component by the {\it other two multipliers\/} and then take
+the partial with respect to the relevant coordinate.  Add up the
+results and then divide by the product of the multipliers.
+\medskip
+\subhead Curl in Cylindrical Coordinates \endsubhead
+We have 
+$$
+\nabla\times\F
+=
+(\u_r\frac{\d}{\d r} + \ut\frac 1r\frac{\d}{\d\theta} + \k\frac{\d}{\d z})
+\times
+(\u_r F_r + \ut F_\theta + \k F_z).
+$$
+Again, this can be calculated formally using the appropriate rules,
+and the result is
+$$
+\nabla\times\F = \frac 1r(\frac{\d (F_z)}{\d \theta} -
+                    \frac{\d (rF_\theta)}{\d z}) \ur
+     + (\frac{\d F_r}{\d z} - \frac{\d F_z}{\d r})\ut 
+ + \frac 1r (\frac{\d (rF_\theta)}{\d r} - \frac{\d  F_r}{\d \theta}) \k.
+$$
+This may be thought of as the determinant of the matrix
+$$
+\bm (1/r)\ur &  \ut  & (1/r)\k \\
+    \d/\d r &    \d/\d\theta   &  \d/\d z \\
+     F_r      &   rF_\theta    &   F_z  \em.
+$$
+
+Again, the above formulas have been derived purely formally, so
+one must justify them by another argument.
+To do this we calculate the components of the
+curl as {\it circulation
+per unit area\/} by picking an appropriate family of curvilinear
+rectangles which shrink to a point.
+\medskip
+We first calculate  $\nabla\times\F\cdot \ur$.
+
+Consider the curvilinear rectangle which starts at the point with
+cylindrical coordinates 
+$(r, \theta - d\theta, z - dz)$,
+goes to 
+$(r, \theta + d\theta, z - dz)$,
+then to
+$(r, \theta + d\theta, z + dz)$,
+then to
+$(r, \theta - d\theta, z + dz)$,
+and then finally back to
+$(r, \theta - d\theta, z - dz)$.   This curvilinear rectangle is traced
+on a cylinder of radius $r$ and is centered at $(r, \theta, z)$.  Its
+dimensions are  $2dz$ and $r(2d\theta)$.
+We calculate the circulation for this path which you should note has
+the proper orientation with respect to the outward normal $\ur$ to
+the cylinder. 
+
+	On any side of this curvilinear rectangle we need only consider
+the component of $\F$ parallel to that side:  $F_\theta$ for the segments
+in the $\theta$-direction and $F_z$ for the segments in the $z$-direction.
+
+  To a first approximation, we may calculate the
+line integral $\displaystyle \int \F\cdot d\r$ for any side of the
+curvilinear rectangle by taking its value at the center of the side
+and multiplying by the length of the side.  The reason this works
+is that to a first approximation there is as much positive variation
+on one side of the center point as there is negative variation on
+the other side, so the two cancel out.
+
+This circulation is
+$$\align
+  F_\theta(r,\theta, z - dz)r(2 d\theta) &+ F_z(r, \theta + d\theta, z)(2dz)\\
+ -F_\theta(r,\theta, z + dz)r(2 d\theta) &- F_z(r, \theta - d\theta, z)(2dz)  
+\endalign
+$$
+We have the first order approximations
+$$\align
+  F_\theta(r,\theta, z - dz) &= F_\theta(r,\theta, z) - \frac{\d F_\theta}
+{\d z}dz, \\
+  F_\theta(r,\theta, z + dz) &= F_\theta(r,\theta, z) + \frac{\d F_\theta}
+{\d z}dz,
+\endalign
+$$
+and putting these in the first and third terms for the circulation yields
+the net result
+$$
+       -\frac{\d F_\theta}{\d z}(2dz)r(2d\theta) =
+       -\frac{\d F_\theta}{\d z}dA.
+$$
+Similarly, the first order approximations
+$$
+\align
+F_\theta(r,\theta + d\theta, z) 
+       &= F_z(r,\theta,z) + \frac{\d F_z}{\d \theta}d\theta \\
+F_z(r,\theta - d\theta, z) 
+       &= F_z(r,\theta,z) - \frac{\d F_z}{\d \theta}d\theta
+\endalign
+$$
+put in the second and fourth terms of the circulation yield the net
+result
+$$
+     \frac{\d F_z}{\d\theta}(2d\theta)(2dz) =
+    \frac 1r \frac{\d F_z}{\d\theta}r(2d\theta)(2dz) =
+    \frac 1r \frac{\d F_z}{\d\theta}\,dA.
+$$
+Combining these terms yields
+$$
+       -\frac{\d F_\theta}{\d z}dA +
+    \frac 1r \frac{\d F_z}{\d\theta}dA =
+    (\frac 1r \frac{\d F_z}{\d\theta}
+       -\frac{\d F_\theta}{\d z})dA.
+$$
+Now divide by the area $dA$ of the curvilinear rectangle to obtain
+$$
+\nabla\times \F\cdot\ur =
+    \frac 1r \frac{\d F_z}{\d\theta}
+       -\frac{\d F_\theta}{\d z} =
+    \frac 1r \left (\frac{\d F_z}{\d\theta}
+       -\frac{\d (rF_\theta)}{\d z}\right ).
+$$
+
+The calculation of $\nabla\times\F\cdot\ut$ is very similar.  Use
+the rectangle centered at $(r,\theta, z)$ which starts at
+$(r - dr,\theta, z + dz)$, goes to $(r + dr, \theta, z + dz)$,
+then to $(r + dr, \theta, z - dz)$, then to $(r - dr, \theta, z - dz)$
+and finally back to $(r - dr, \theta, z + dz)$.  The net result is
+$$
+\nabla\times\F\cdot\ut = \frac{\d F_r}{\d z} - \frac{\d F_z}{\d r}.
+$$
+
+The calculation of $\nabla\times\F\cdot\k$ is a bit more complicated.
+Consider the curvilinear `rectangle' centered at $(r, \theta, z)$
+which starts at $(r - dr, \theta - d\theta, z)$, goes to
+$(r + dr, \theta - d\theta, z)$, then to
+$(r + dr, \theta + d\theta, z)$, then to $(r - dr, \theta + d\theta, z)$
+and finally back to $(r - dr, \theta - d\theta, z)$.  Note that this
+is oriented properly with respect to the normal vector $\k$.
+
+To a first approximation,
+the circulation  $\displaystyle\int \F\cdot d\bold r$ is
+$$\align
+  F_r(r,\theta - d\theta, z)(2 dr) 
+&+ F_\theta(r + dr, \theta, z)(r + dr)(2d\theta)\\
+ -F_r(r,\theta+ d\theta, z)(2 dr) 
+&- F_\theta(r - dr, \theta, z)(r - dr)(2d\theta).  
+\endalign
+$$
+We have the first order approximations
+$$\align
+  F_r(r,\theta - d\theta,z) &= F_r(r,\theta, z) - \frac{\d F_r}
+{\d \theta}d\theta, \\
+  F_r(r,\theta + d\theta,z) &= F_r(r,\theta, z) + \frac{\d F_r}
+{\d \theta}d\theta, \\
+\endalign
+$$
+and putting these in the first and third terms for the circulation yields
+the net result
+$$
+       -\frac{\d F_r}{\d \theta}2d\theta\,(2dr) =
+       - \frac 1r\frac{\d F_r}{\d \theta}\,r(2d\theta)(2dr) =
+       - \frac 1r\frac{\d F_r}{\d \theta}\,dA.
+$$
+For the second and fourth terms, the reasoning is a bit more complicated.
+Since both $r$ and $F_\theta$ change, we
+also need to consider the variation of $r$.  Put $H(r,\theta,z) =
+rF_\theta)$.  Then the second and fourth terms in the circulation
+become 
+$$H(r + dr,\theta,z)(2d\theta) - H(r - dr,\theta,z)(2d\theta).$$
+  The relevant first order
+approximations are
+$$\align
+  H(r + dr,\theta,z)(r + dr) 
+&= rF_\theta(r,\theta, z) + \frac{\d (rF_\theta)}{\d r}dr, \\
+  H(r - dr,\theta,z)(r - dr) 
+&= rF_\theta(r,\theta, z)r - \frac{\d (rF_\theta)}{\d r}dr. 
+\endalign
+$$
+Put these in the second and fourth terms for the net result
+$$
+   \frac{\d(r F_\theta)}{\d r} 2dr (2d\theta) =
+   \frac 1 r\frac{\d(r F_\theta)}{\d r} (2dr) r(2d\theta) =
+   \frac 1 r\frac{\d(r F_\theta)}{\d r} dA.
+$$
+Combining yields the following first order approximation for the
+circulation
+$$
+       - \frac 1r\frac{\d F_\theta}{\d \theta}\,dA
+   +\frac 1 r\frac{\d(r F_\theta)}{\d r} dA =
+       \frac 1r \left (
+   \frac{\d(r F_\theta)}{\d r}
+-\frac{\d F_r}{\d \theta}
+\right ) dA,
+$$
+and dividing by $dA$ gives
+$$
+\nabla \times \F\cdot\k =
+   \frac 1r \left (\frac{\d(r F_\theta)}{\d r}
+       - \frac{\d F_r}{\d \theta}\right ).
+$$
+
+We may summarize this information finally by writing
+$$
+\nabla\times\F = \frac 1r(\frac{\d (F_z)}{\d \theta} -
+                    \frac{\d (rF_\theta)}{\d z}) \ur
+     + (\frac{\d F_r}{\d z} - \frac{\d F_z}{\d r})\ut 
+ + \frac 1r (\frac{\d (rF_\theta)}{\d r} - \frac{\d  F_r}{\d \theta} \k
+$$
+as we claimed above.
+\medskip
+\subhead Curl in Spherical Coordinates \endsubhead
+Formally, we have
+$$
+\nabla\times\F = 
+(\urh\frac{\d}{\d \rho} +  \uf\frac 1\rho\frac{\d}{\d\phi}
++ \ut\frac 1{\rho\sin\phi}\frac{\d}{\d\theta} )
+\times
+(\u_\rho F_\rho + \uf F_\phi + \ut F_\theta).
+$$
+The result of working this out is
+$$
+\multline
+\nabla\times\F =
+\frac 1{\rho^2\sin\phi} \left ( \frac{\d (\rho\sin\phi F_\theta)}{\d \phi}
+         - \frac{\d (\rho F_\phi)}{\d \theta} \right ) \urh
+\\+
+\frac 1{\rho\sin\phi} \left ( \frac{\d F_\rho}{\d \theta}
+         - \frac{\d (\rho \sin\phi F_\theta)}{\d \rho}\right ) \uf
+ +
+\frac 1{\rho} \left ( \frac{\d (\rho F_\phi)}{\d \rho}
+         - \frac{\d F_\phi}{\d \phi}\right ) \ut
+\endmultline
+$$
+which may also be expressed
+as the determinant of the matrix
+$$
+\bm  (1/(\rho^2\sin\phi))\urh & (1/(\rho\sin\phi))\ut & (1/\rho)\uf \\
+     \d/\d\rho    &    \d/\d\phi    &   \d/\d\theta \\
+     F_\rho    &   \rho F_\phi    &   \rho\sin\phi F_\theta \em .
+$$
+
+The analysis is pretty much the same as in the case for
+cylindrical coordinates.  The justification uses  curvilinear
+rectangles appropriate for spherical coordinates. 
+%Exercise  Derive formulas for Laplacian.
+
+\bigskip
+\input chap5.ex13
+\endchapter
+\closeseg{chap5}
+\enddocument

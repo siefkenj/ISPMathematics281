@@ -1,0 +1,187 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 1
+\smallskip
+
+% 1
+\Exer Find a general solution of $y'' + ty' + y = 0$ in the form
+$a_0y_1(t) + a_1y_2(t)$ where $y_1(t)$ and $y_2(t)$ are appropriate
+power series centered at $t_0 = 0$.  % Braun and Simmons
+\answer  We have
+$$\align
+y''+ty'+y &= \sum^\infty_{n=2} n(n-1)a_nt^{n-2} + \sum^\infty_{n=1} na_nt^n
+ + \sum^\infty_{n=0} a_nt^n \\
+&= \sum^\infty_{n=0} (n+2)(n+1)a_{n+2} t^n + \sum^\infty_{n=0}na_nt^n 
+ + \sum^\infty_{n=0}a_n t^n \\
+&= \sum^\infty_{n=0} \left((n^2+3n+2)a_{n+2} + (n+1)a_n\right) t^n \\
+&= 0
+\endalign $$
+This implies
+$a_{n+2} = -\dfrac{1}{n+2} a_n$.  For $n$ even, this yields
+$$a_n = (-1)^{n/2}\dfrac{1}{n(n-2)(n-4)\cdots 2} a_0
+= (-1)^m\frac 1{m! 2^m}a_0,\quad n = 2m.$$
+ For $n$ odd,
+$$a_n = (-1)^{(n-1)/2}\dfrac{1}{n(n-2)\cdots(1)} a_1.
+$$
+  So
+$$
+  y=a_0\sum^\infty_{n=0} (-1)^n\frac{t^{2n}}{n!2^n} +
+  a_1\sum^\infty_{n=0} (-1)^n\frac{t^{2n+1}}{(2n+1)(2n-1)\cdots(1)}
+$$
+Note $y_1$ and $y_2$ are clearly linearly independent.
+
+
+% 2
+\Exer The equation $y'' -2t y' + 2\alpha y = 0$ is called {\it
+Hermite's equation}.  (It arises among other places in the study of the
+quantum mechanical analogue of a harmonic oscillator.) Find a general
+series solution as above in the case $\alpha = 1$.  One of the two
+series is a polynomial.  % Simmons
+\answer We have
+$$\align
+  y'' - 2ty' + 2y &= \sum^\infty_{n=2} n(n-1)a_nt^{n-2} -
+    2\sum^\infty_{n=1}na_nt^n + \sum^\infty_{n=0} 2a_nt^n  \\
+  &=\sum^\infty_{n=0}
+    \left[(n+2)(n+1) a_{n+2}t^n - 2na_nt^n + 2a_nt^n\right]
+\endalign $$
+This implies
+$$a_{n+2} = \dfrac{2n-2}{(n+2)(n+1)} a_n\qquad n \ge 0$$
+so for $n$ odd,
+ $a_3=0\cdot a_1 = 0$ and hence $a_n = 0$ for all odd $n > 1$.
+For $n = 2m$ even, we get
+$$
+   a_{2m} = \frac{2^m(-1)(1)\dots(2m-3)}{(2m)!}a_0\qquad m > 0.
+$$
+So 
+$$ y = a_0\left(1 + \sum^\infty_{n=1}
+\frac{2^n(2n-3)(2n-5)\cdots(1)(-1)}{(2n)!} t^{2n}\right) + a_1t.
+$$
+
+% 3
+\Exer The equation $(1 - t^2)y'' - ty' + \alpha^2 y = 0$ is called {\it
+Chebyshev's equation.}  Its solutions are used in algorithms for
+calculating functions in computers and electronic calculators.  Find a
+general series solution as above for $\alpha = 1$.  One of the two
+series is a polynomial.  % Simmons
+\answer We have
+$$ \multline
+ (1-t^2)y''-ty'+y = \sum^\infty_{n=2} n(n-1) a_nt^{n-2} -
+   n(n-1)a_nt^n - \sum^\infty_{n=1}n a_n t^n + \sum^\infty_{n=0}a_n t^n \\
+ = \sum^\infty_{n=0} [(n+2)(n+1)a_{n+2} - n(n-1)a_n - na_n + a_n]t^n. 
+\endmultline
+$$
+This
+ implies 
+$$a_{n+2} = \dfrac{n^2-1}{(n+2)(n+1)} a_n = \dfrac{n-1}{n+2} a_n
+$$
+Hence,   $a_3 = 0\cdot a_1 = 0$ which implies that
+    $a_{2k+1} = 0$ for $k\ge 1$.
+For $n> 0$ even, $a_n=\dfrac{(n-3)(n-5)\cdots(-1)}{(n)(n-2)\cdots 2} a_0$.
+So 
+$$ y=a_0\left( 1+\sum_{n=1}^\infty
+\frac{(2n-3)(2n-5)\cdots(1)(-1)}{2^n(n)!}t^{2n}\right) +a_1t.$$
+
+
+% 4
+\Exer Write a computer program which computes the coefficients
+$a_n$ from the recurrence relation
+$$
+  a_{n+2} = 2\dfrac{(n+1)a_{n+1} + (n-1)a_n}{(n+2)(n+1)}\qquad n \ge 0.
+$$
+Use the program to determine $a_{100}$ given $a_0 =1, a_1 = 0$.
+\answer  I used a simple C program to calculate this numerically,
+and I got the numerical approximation  $-1.268728\times 10^{-61}$.
+(The C program uses floating point arithmetic, so it only gives
+an approximation.)  I also wrote a simple Maple program which gave
+the exact fractional value \par
+\noindent
+-2124551700111184866546717571851207511388944452353325280100295\par
+\noindent 
+5418180012366495853\par
+\noindent over \par
+\noindent
+16745521323150654328106742495409595636974298152351095693813645\par
+\noindent
+18622260652240502984768073730351952320884764065061142528000000\par
+\noindent
+00000000000000000.
+
+% 5
+\Exer (a) Show that
+$$
+  1 - \frac t2(\ln(1 + t) - \ln(1 -t)) = 1 -\sum_{k=1}^\infty
+  \dfrac {t^{2k}}{2k-1}.
+$$
+The right hand side is the series for one of the solutions of
+Legendre's Equation with $\alpha = 1$.  (The other solution is
+$t$, and the left hand side is the solution obtained from $t$
+by reduction of order.) \par
+(b)  Show that the radius of convergence of the above series is 1.
+\par
+(c)  Using the recurrence relation for Legendre's equation, show that
+both the even and odd series have radius of convergence 1 except in the
+case that $\alpha$ is a positive integer, in which case one of the two
+is a polynomial.
+\answer (a) Recall from Section 6 (Chapter VIII) that
+$$   \ln(1+t) = \sum^\infty_{n=1}\frac{(-1)^{n+1}}{n} t^n.   $$
+So $\dsize \ln(1-t) = \sum^\infty_{n=1}\frac{(-1)^{2n+1}}{n} t^n$ both 
+for $|t|<1$.  Thus 
+$$
+\align
+  1-\frac t2(\ln(1+t) - \ln(1-t)) &= 1-\frac t2\biggl(\sum^\infty_{n=1}
+    \frac{(-1)^{n+1}}{n} t^n - \sum^\infty_{n=1}\frac{(-1)^{2n+1}}{n} t^n
+    \biggr) \\
+  &= 1-\frac t2 \sum\Sb n\text{ odd}\\n\ge 1\endSb \frac{2t^n}{n} \\
+  &= 1-\frac t2 \sum^\infty_{k=1} \frac{2t^{2k-1}}{2k-1} \\
+  &= 1-\sum^\infty_{k=1} \frac{t^{2k}}{2k-1}. 
+\endalign
+$$ \par
+(b)  It is enough to show that the radius of convergence of
+$\sum^\infty_{k=1} \frac{t^{2k}}{2k-1}$ is 1; but by the ratio test we
+have\ \ 
+$ \dsize
+  \lim_{k\to\infty}
+    \left|\frac{\frac{t^{2k+2}}{2k+1}}{\frac{t^{2k}}{2k-1}}\right| = 
+  \lim_{k\to\infty}
+    \left|\frac{2k-1}{2k+1}\right|\ |t^2| < 1
+$ \quad only for $|t|<1$. Thus the radius of convergence is 1. \par
+(c) One has $a_{n+2} = \dfrac{(n+\alpha+1)(n-\alpha)}{(n+2)(n+1)} a_n$. \par
+If $\alpha$ is not a postive integer, then $\dfrac{(n+\alpha+1)(n-\alpha)}
+{(n+2)(n+1)}$ never vanishes and hence
+$$ \multline
+  \lim_{n\to\infty}
+    \frac{a_{n+2}}{a_n}\frac{t^{n+2}}{t^n}
+    \lim_{n\to\infty}
+    \left| \frac{(n+\alpha+1)(n-\alpha)}{(n+2)(n+1)}\right|\ |t|^2 \\
+  = \lim_{n\to\infty}
+    \left| \frac{(1+\frac\alpha n+\frac1n)(1-\frac\alpha n)}
+    {(1+\frac2n)(1+\frac1n)}\right|\ |t|^2
+  = |t^2|
+\endmultline $$
+This is $ < 1$ for $|t|< 1$.  So the radius of convergence = 1.\par
+If $\alpha$ is a positive integer say $k$ then for $n=k$, $n-\alpha=0$ and
+so $a_{k+2} =0$ and all further $a_{k+2l} = 0$ for $l >0$.
+Thus, one of the two series is actually a polynomial and has infinite
+radius of convergence.  (Which is a polynomial depends
+on whether $\alpha= k$ is  even or odd.)   The other series does not
+terminate since $n - \alpha$ is never zero, and the above reasoning
+applies to it, so its radius of convergence is 1.
+
+
+
+% 6 
+\Exer  Without finding the solutions, find a lower bound on the radius
+of convergence of a power series solution for each of the following
+equations with the series centered at the indicated point. \par
+(a) $(2 + t)(3 - t)y'' + 2y' + 3t^2y = 0$ at $t_0 = 0$. \par
+(b) $(2 + t^2)y'' - ty' - 3y = 0$ at $t_0 = 1$.
+\answer (a) $R=2$ \par (b) $dist(1,\sqrt{2}i) = dist(1,-\sqrt{2}i) = \sqrt{3}$
+
+
+% 7 
+\Exer  Let $y_1(t)$ be the power series solution to
+$y'' + p(t)y' + q(t)y'' = 0$ obtained at an ordinary point by setting
+$a_0 = 1,\, a_1 = 0$.  Similarly, let $y_2(t)$ be the solution
+obtained by setting $a_0 = 0, \, a_1 = 1$.  How can you conclude that
+the pair $\{y_1, y_2\}$ is linearly independent?
+\answer The Wronskian at $t = 0$ is $1\cdot 1 - 0\cdot 0 = 1 \not = 0$.
+

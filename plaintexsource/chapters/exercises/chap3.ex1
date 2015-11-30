@@ -1,0 +1,100 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 1
+\medskip
+You are encouraged to make use of the available computer software
+(e.g., Maple, Mathematica, etc.) to help you picture the graphs
+in the following problems.
+\smallskip
+
+% 1
+\Exer  State the largest possible domain for the function \par
+        (a) $f(x,y) =  e^{ x^2-y^2}$ \par
+        (b) $f(x,y) = \ln (y^2-x^2-2)$ \par
+        (c) $f(x,y) = \dfrac {x^2-y^2}{x-y}$ \par
+        (d) $f(x,y,z) = \dfrac {1}{xyz}$ \par
+        (e) $f(x,y,z) = \dfrac {1}{\sqrt {z^2-x^2-y^2}}$ \par
+\answer (a) $\R^2$\par
+	(b) $(x,y) \in \R^2 \ni:\ \ y^2-x^2> 2$ (see graph) \par
+	(c) $(x,y) \in \R^2 \ni:\ \ x\ne y$ \par
+	(d) $(x,y,z) \in \R^3 \ni:\ \ x\ne 0,\ y\ne 0,\ z\ne 0$ i.e.\
+		minus all 3 axes\par
+	(e) $(x,y,z) \in \R^3 \ni:\ \ z^2-x^2-y^2 > 0$
+
+
+% 2
+\Exer  Describe the graph of the function described by \par
+        (a) $f(x,y) = 5$ \par
+        (b) $f(x,y) = 2x - y$ \par
+        (c) $f(x,y) = 1-x^2-y^2$ \par
+        (d) $f(x,y) = 4 - \sqrt {x^2+y^2}$ \par
+        (e) $f(x,y) = \sqrt {24 - 4x^2 - 6y^2}$ \par
+\answer (a) a plane;\ \ (b) a plane; \ \ (c) a paraboloid;\ \ (d) a cone
+(bottom half);\ \ (e) top half of an ellipsoid.
+
+% 3
+\Exer  Sketch selected level curves for the functions given by\par
+        (a) $f(x,y) = x+y$\par
+        (b) $f(x,y) = x^2 + 9y^2$\par
+        (c) $f(x,y) = x - y^2$\par
+        (d) $f(x,y) = x - y^3$\par
+        (e) $f(x,y) = x^2 + y^2 + 4x + 2y +9$\par
+\answer (For a future edition of answers.) % Need diags
+
+% 4
+\Exer  Describe selected level surfaces for the functions
+given by \par
+        (a) $f(x,y,z) = x^2 + y^2 - z$ \par
+        (b) $f(x,y,z) = x^2 + y^2 + z^2 + 2x - 2y + 4z$ \par
+        (c) $f(x,y,z) = z^2 - x^2 - y^2$ \par
+\answer (a) for $f=c$: elliptic paraboloid, facing up, with vertex at
+	    $(0,0,-c)$ \par
+	(b) for $f=c$, $c>-6$: sphere; for $c=-6$ the point $(-1,1,-2)$ \par
+	(c) for $f=c$, $c=0$: a cone \par\blank
+	    for $f=c$, $c>0$: a hyperboloid of two sheets\par\blank
+	    for $f=c$, $c<0$: a hyperboloid of one sheet
+
+% 5
+\Exer  Describe the quadric surfaces which are loci in $\R^3$
+of the following equations. \par
+        (a) $x^2 + y^2 = 16$ \par
+        (b) $z^2 = 49x^2 + y^2$ \par
+        (c) $z= 25 - x^2 - y^2$ \par
+        (d) $x=4y^2-z^2$ \par
+        (e) $4x^2 + y^2 + 9z^2 = 36$ \par
+        (f) $x^2 + y^2 - 4z^2 = 4$ \par
+        (g) $9x^2 + 4y^2 -z^2 = 36$ \par
+        (h) $9x^2 - 4y^2 - z^2 = 36$
+\answer (a) a cylinder;
+	(b) a cone;
+	(c) ellptic paraboloid;
+	(d) hyperbolic paraboloid; \newline
+	(e) ellipsoid;
+	(f) hyperboloid of one sheet;
+	(g) hyperboloid of one sheet;\newline
+	(h) hyperboloid of two sheets.
+
+% 6
+\Exer  Describe the traces of the following functions in the given planes
+\par
+        (a) $z=xy$, in horizontal planes  $z = c$ \par
+        (b) $z=x^2+9y^2$ in vertical planes $x = c$ or $y = c$ \par
+        (c) $z=x^2+9y^2$ in horizontal planes  $z = c$
+\answer (a) projected to the $xy$-plane this would be the graph of the
+	    equation $x=c/y$ (hyperbola) \par
+	(b) in either case it will be a parabola \par
+	(c) ellipse
+
+% 7
+\Exer  Describe the intersection of the cone $x^2 + y^2 = z^2$ with
+the plane $z = x + 1$.  
+\answer Parabola.
+
+% 8
+\Exer  Let $\f:\R^2 \to \R^2$.  \par
+	(a) Try to invent a definition of `graph' for such a function.   For
+	    what $n$ would it be a subset of $\R^n$? \par
+	(b) Try to invent a definition of `level set' for such a function.
+	    For what $n$ would it be a subset of $\R^n$?
+\answer (a) $n=4$; (b) $n=2$
+
+\endinput

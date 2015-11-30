@@ -1,0 +1,103 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 3
+\smallskip
+% 1
+\Exer  The equation $y'' + 6y' + 9y = 0$ has solutions
+$y_1 = e^{-3t}$ and $y_2 = te^{-3t}$.   Find a solution
+$y(t)$ satisfying $y(0) = 1, y'(0) = 0$.
+\answer Solve
+$$\align
+   c_1(1) + c_2(0) &= 1\\
+   c_1(-3) + c_2(1) &= 0
+\endalign
+$$
+to obtain $c_1 = 1, c_2 = 3$.  Hence, the solution is
+$y = e^{-3t} + 3te^{-3t}$.
+
+% 2
+\Exer
+Consider the differential equation
+$t^2y'' + 4ty' + 2y = 0$.
+
+(a)  Show that  $y_1(t) = \dfrac 1t$ and $y_2(t) = \dfrac 1{t^2}$
+are solutions for $0 < t < \infty$.
+
+(b)  Show that the pair of solutions $\{y_1, y_2\}$ is
+linearly independent.
+
+(c)  Compute the Wronskian  $W(t)$ for this pair of solutions
+and note that it doesn't vanish for $0 < t < \infty$.
+
+(d)  What happens to the Wronskian $W(t)$ as $t \to 0$?
+\answer  (a)  Just plug theses expressions into the equation and
+see that it is satisfied.\par
+(b)  $\dfrac {y_1(t)}{y_2(t)} = t$ which is not a constant. \par
+(c)  $W(t) = -\dfrac 1{t^4}$ which does not vanish for $0 < t < \infty$.\par
+(d)  $W(t) \to -\infty$ as $t \to 0, t > 0$.
+
+% 3
+\Exer  For each of the following pairs of functions, calculate
+the Wronskian $W(t)$ on the interval $-\infty < t < \infty$.
+In each case, see if you have enough information
+to decide whether the pair can be a linearly independent
+pair of solutions of a second order linear homogeneous differential
+equation on the interval $-\infty < t < \infty$.
+
+(a) $\{\sin 3t, \cos 3t\}$.
+
+(b) $\{e^{2t}, e^{-t}\}$.
+
+(c) $\{ t^2 -t, 3t\}$.
+
+(d) $\{te^{-t}, e^{-t}\}$.
+\answer (a) $W(t) = -3$.  (b) $W(t) = -3e^t$.  (c) $W(t) = -3t^2$.
+Since $W(0) = 0$, this pair of functions cannot be a linearly independent
+pair of solutions of a second order linear differential equation
+defined on $-\infty < t < \infty$.  (d) $W(t) = -e^{-2t}$.\par
+In cases (a), (b), and (d), the Wronskian does not vanish on the
+interval $-\infty < t < \infty$, so the theory presented in the
+section does not preclude the pair being a linearly independent
+pair of solutions of a  second order linear differential equation
+on that interval.   It is in fact true that whenever the
+Wronskian does not vanish, there is such a differential equation:
+$$
+\det\bm y & y_1 & y_2 \\  y' & y'_1 & y'_2 \\  y'' & y''_1 & y''_2 \em = 0.
+$$
+Can you see why the nonvanishing of the Wronskian is needed?
+
+% 4
+\Exer  Suppose $\{y_1(t), y_2(t)\}$ is a linearly independent
+pair of solutions of
+$$
+y'' + \frac{2t}{1 + t^2} y' + \frac 1{1 +t^2} y = 0
+$$
+defined on the interval $-1 < t < 1$.  Suppose
+$y_1(0) = 1, y_1{}'(0) = 2, y_2(0) = 2, y_2{}'(0) = 1$.
+Find $W(t)$.   Is the pair of solutions linearly independent?
+\answer  $W(t) = Ce^{-\int \frac{2t}{1 + t^2}dt} = \dfrac C{1 + t^2}$.
+$W(0) = y_1(0)y_2'(0) - y'_1(0)y_2(0) = -3$.   Hence, $C = -3$
+and $W(t) = -\dfrac 3{1 + t^2}$.  This never vanishes, so the
+pair of solutions is linearly independent.
+
+% 5
+\Exer Suppose $\{u_1, u_2\}$ is a linearly independent pair
+of solutions of a second order linear homogeneous differential
+equation.  Let  $y_1(t) = u_1(t) + u_2(t)$ and
+$y_2(t) = u_1(t) - u_2(t)$.
+
+(a)  Show that the Wronskian  $W_y(t)$ of the pair $\{y_1, y_2\}$
+is related to the Wronskian $W_u(t)$ of the pair
+$\{u_1, u_2\}$ by $W_y(t) = -2 W_u(t)$.   Conclude that
+$\{y_1, y_2\}$ is also a linearly independent pair of solutions.
+
+(b)  Show that $\{y_1, y_2\}$ is a linearly independent pair of
+solutions without using the Wronskian.   Hint:  Assume
+$y_1 = cy_2$ and derive a similar equation for $u_1$ and $u_2$.
+\answer  (a)  $W_y(t) = (u_1 + u_2)(u_1' - u'_2) - (u'_1 + u'_2)
+(u_1 - u_2) = \dots = -2 W_u(t)$.\par
+(b)  From $y_1 = cy_2$, we get $u_1 + u_2 = cu_1 - cu_2$
+or $(c-1)u_1 = (c +1)u_2$.  Since $\{u_1, u_2\}$ is a linearly
+independent pair of solutions, this can only happen if
+$c -1 = c+ 1 = 0$.   However, that is impossible.   (A similar
+contradiction would arise by assuming $y_2 = cy_1$.)
+

@@ -1,0 +1,333 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Find $D\f$ for the functions
+$\f:\R^n \to \R^m$ given below.   The function is given in
+a different form in each case, but you should assume it has
+been rewritten in standard form
+\[
+\f = \bm f_1\\ f_2\\ \vdots \\ f_m \em.
+\]
+
+(a)  $f_1(x,y) = x^2 + y^2, f_2(x,y) = 2xy$.
+
+(b)  $\f(x_1, x_2) = \bm x_1x_2 + x_2{}^2 \\
+                        x_2{}^3 \\
+                        x_1 + 3x_2 \em $
+
+(c)  $\f(r,\theeta) = \lb r\cos\theeta, r\sin\theeta \rb$.
+
+(d)  $\f(x,y,z) = \dfrac 1{\rho^2} \u_\rho$.
+
+\answer{\par
+(a) \[D\f = \bm 2x & 2y \\ 2y & 2x \em \] \par
+(b) \[D\f = \bm x_2 & x_1 + 2x_2 \\
+0 & 3x_2{}^2 \\
+1 & 3 \em \]\par
+(c) \[ D\F = \bm \cos\theeta & -r\sin\theeta \\
+      \sin\theeta & r\cos\theeta \em\]\par
+(d) $\f(x,y,z) = \dfrac 1{\rho^3}\lb x,y,z\rb =
+ \dfrac 1{(x^2 + y^2 + z^2)^(3/2)}\lb x, y, z \rb$.   The answer is
+much neater if you leave it partly in terms of $\rho$.
+\[
+D\f =\frac 1{rho^5}\bm \rho^2 - 3x^2 & -3xy & -3xz \\
+                        -3xy & \rho^2 - 3y^2 & -3yz \\
+                       -3xy & -3yz & \rho^2 - 3z^2 \em
+\]
+To get this, use the second form of $\f$ above and relations like
+$\dfrac{\d\rho}{\d x} = \dfrac x\rho$.
+
+
+
+}
+
+\item   Let $\F:\R^3 \to \R^3$ denote a vector field on $\R^3$.
+Show that the divergence of $\F$ is the sum of the diagonal
+entries of the $3\times 3$ derivative matrix $D\F$.  Relate
+the curl of $\F$ to the entries of the matrix
+$D\F - (D\F)^t$.
+
+Note that the sum of the diagonal entries of a square matrix
+$A$ is usually called the {\it trace\/} of $A$.
+
+\answer{  If $C = D\F - (D\F)^t$, then
+\[
+\nabla\times\F = \lb c_{21}, - c_{31}, c_{23} \rb =
+ \lb -c_{12}, c_{13}, - c_{23} \rb.
+\]
+Note that $C$ is an anti-symmetric matrix, i.e., $c_{ij} = - c_{ji}$,
+so its diagonal entries are zero, and it is completely determined by
+the three entries below the diagonal (or the three entries above the
+diagonal).   It is a fortuitous accident that the vector space
+of anti-symmetric $3\times 3$ matrices has dimension 3.   In general,
+the vector space of anti-symmetric $n\times n$ matrices has dimension
+$\dfrac{n(n-1)}2$, and the {\it only case\/} in which that is $n$
+again is $n = 3$.   Hence, the fact that the usual notion of curl
+is so useful in physics depends on the fact that physical space is three
+dimensional.  If we lived in a universe in which there were four
+space dimensions, one time dimensions, ( and ? other micro dimensions),
+the mathematics used to describe the laws of physics would have had to
+develop differently.
+
+
+
+}
+
+\item 
+For each of the following $2\times 2$ linear systems, first solve the
+system, and then sketch the phase portrait in the vicinity
+of the origin (which is the critical point).  You may have to change
+coordinates to get a good picture.
+
+(a) $x_1' = -x_2,\, x_2' = 6x_1 - 5x_2$.
+
+(b)  $x_1' = 3x_1 - 2x_2,\, x_2' = 5x_1 -3x_2$.
+
+(c)  $x_1' = 2x_1 + x_2,\, x_2' = -7x_1 -3x_2$.
+
+\answer{ One solves the system by finding the eigenvalues and
+eigenvectors (generalized where necessary) for the system.  Since
+there is some latitude in the choice of (generalized) eigenvectors,
+your answers need not look exactly the same as ours.\par
+The change of coordinates is obtained from the eigenvectors as
+appropriate in each case.  See the examples in the text for guidance.\par
+  (a)  Make the change of coordinates
+\[
+  \x = \bm{} 1 & 1 \\ 2 & 3 \em \z.
+\]
+In the new coordinate system the solution is $z_1 = c_1e^{-2t},
+z_2 = c_2e^{-3t}$.   The eigenvalues are both negative and unequal,
+and the origin is a stable node. \par
+(b)  The eigenvalues are $\pm i$.  For $\lambda = i$, an
+eigenvector is
+\[
+\bm 2\\ 3 - i\em.
+\]
+As in Example 4, take its real and imaginary parts to form
+a change of basis matrix.
+\[
+  \x = \bm {} 2 & 0 \\ 3 & -1 \em \z
+\]
+The origin is a center.   In the new coordinates, the solutions
+have the form  $z_1 = A\cos (t - \delta), z_2 = -A\sin (t - \delta)$.
+However, the orientation of the new axes is opposite to the orientation
+of the original axes.  Hence, in the original coordinates, the orbits
+are ellipses traversed in the counterclockwise direction.\par
+(c)  The eigenvalues are $\lambda = -\dfrac 12 \pm \dfrac{\sqrt 3}2 i$.
+The origin is a stable focus.  Making the change of variables
+\[
+\x = \bm{} -2 & 0 \\ 5 & -\sqrt 3\em \z
+\]
+the solution has the form  $z_1 = Ae^{-\frac 12 t}\cos (\sqrt 3/2 t -\delta),
+z_2 = -Ae^{-\frac 12 t}\sin (\sqrt 3/2 t -\delta)$.   The orientation
+of the new axes is the same as that of the original axes, so the
+orbits spiral in towards the origin in the clockwise direction.
+
+
+
+
+}
+
+\item  Sketch the phase portrait of the system in Example \ExX.
+
+
+\item   Consider the system  $x_1' = 2x_1 - x_1{}^2 - x_1x_2,
+\, x_2' = 3x_2 - x_2{}^2 - 2x_1x_2$.
+
+(a)  Find the critical points.
+
+(b)  Find $D\f$ at each critical point.
+
+(c)  Solve the linear system  $\dfrac{d\x}{dt} = D\f(\a)\x$
+at each critical point.
+
+(d)  Sketch the phase portraits resulting from part (c), and
+try to piece these together into a coherent phase portrait
+for the original non-linear system.
+
+\answer{  (a)  To find the critical points, solve
+\begin{align*} 
+2x_1 - x_1{}^2 - x_1x_2 &= x_1(2 - x_1 - x_2) = 0 \\
+3x_2 - x_2{}^2 - 2x_1x_2 &= x_2(3 - x_2 - 2x_1) = 0
+\end{align*}
+One solution is $(0,0)$,
+i.e., $x_1 = x_2 = 0$.  If $x_1 = 0$ but $x_2 \not= 0$,
+the second equation gives $x_2 = 3$, so  $(0,3)$ is a solution.
+Similarly, $(2,0)$ is a solution.  Finally, if neither of
+$x_1, x_2$ are zero, then we need to solve the pair
+of linear equations $x_1 + x_2 = 2, 2x_1 + x_2 = 3$ which
+has the solution  $(1,1)$.\par
+(b)
+\[
+(0,0): \bm 2 & 0 \\ 0 & 3 \em,\quad
+(2,0): \bm {} -2 & -2 \\ 0 & -1 \em,\quad
+(0,3):  \bm {} -1 & 0 \\ -6 & -3 \em,\quad
+(1,1):  \bm {} -1 & -1 \\ -2 & -1 \em.
+\]\par
+(c)  See the remarks for problem 3.\par
+ At $(0,0)$, the solution of the linear system (in the translated
+coordinates) is  $y_1 = c_1e^{2t}, y_2 = c_2e^{3t}$.   The critical
+point is an unstable node.\par
+At $(2,0)$, use the change of coordinates matrix
+$P = \bm {} 1 & -1\\ 0 & 1\em$.
+In the `$z$' coordinates (as in the text), the solution is
+$z_1 = c_1e^{-2t}, z_2 = c_2e^{-t}$.   The critical point is a stable
+node.\par
+At $(0,3)$, use the change of coordinates matrix
+$P = \bm{} -1 & 0 \\ 2 & 1 \em$.   In the `$z$'
+coordinates, the solution is $z_1 = c_1e^{-t}, z_2 = c_2e^{-3t}$.
+The critical point is a stable node.\par
+At $(1,1)$, the eigenvalues are $-1 \pm \sqrt 2$.  Corresponding
+eigenvectors are
+\[
+\bm {} -1\\ \sqrt 2 \em\qquad \bm {} 1\\ \sqrt 2\em.
+\]
+Put these together to get a change of basis matrix
+\[
+P = \bm{} -1 & 1 \\ \sqrt 2 & \sqrt 2 \em
+\]
+In the new `$z$' coordinates, the solution is
+$z_1 = c_1e^{(\sqrt 2 - 1)t}, z_2 = c_2e^{-(\sqrt 2 + 1)t}$.
+Since the eigenvalues have opposite signs, the critical point
+is a saddle.\par
+(d)  In each of these cases, the solution of the linear approximation
+gives a good idea of the solution of the non-linear system near the
+critical point.  Your diagram should show most orbits approaching
+either $(2,0)$ or $(0,3)$ asymptotically.   There are two special
+orbits which approach $(1,1)$.
+
+
+
+}
+
+\item   Repeat the above steps for the system
+$x_1' = x_1{}^2 + x_2{}^2 - 2, \, x_2' = x_1x_2 - 1$.
+
+\answer{  (a)  The critical points are $(1,1)$ and $(-1,-1)$.\par
+(b)
+\[
+(1,1): \bm 2 & 2\\ 2 & 2 \em\qquad (-1,-1): \bm -2 & -2 \\ -2 & -2 \em.
+\]\par
+(c)  Both critical points are degenerate, i.e.,  zero is an
+eigenvalue.  (In each case the other eigenvalue is 4.)   The phase
+portraits for the linear approximations look something like those
+in Example 6. \par
+(d)  The theory breaks down and there isn't much you can conclude
+from the solutions of the linear approximations about the phase
+portrait of the original system.
+
+
+
+}
+
+\item   Consider the system $dx_1/dt = x_2,
+dx_2/dt = -(g/L)\sin x_1 - ax_2$ for the damped pendulum described
+in Section 1.   Find the linear approximation at $(0,0)$.  Show
+that if $a$ is a sufficiently small positive
+quantity, then $(0,0)$ is a stable focus.   What conclusion can you draw about
+the phase portrait of the nonlinear system near $(0,0)$?
+Compare with the analysis in Section 1.
+
+\answer{ At $(0,0)$, $D\f$ is
+\[
+\bm 0 & 1 \\ -\frac gL & -a \em.
+\]
+The roots of the characteristic equation are
+\[
+\frac{-a \pm \sqrt{a^2 - 4g/L}}2
+\]
+If $0 < a < 2\sqrt{g/L}$, then these are complex with negative
+real part.   Hence, the critical point is a stable focus.   This is
+not one of the exceptional cases in which the phase portrait changes
+when you go from linear approximation to the actual system.
+
+
+
+}
+
+\item  Two populations compete for the same resources and the
+competition is destructive to both.   The following system
+provides a model governing
+their interaction.
+\begin{align*}
+\frac{dx}{dt} &= 10x - x^2 -6xy \\
+\frac{dy}{dt} &= 5y - y^2 - xy.
+\end{align*}
+Note that if $y = 0$, then $x$ obeys a logistic law and similarly
+for $y$ if $x = 0$.
+
+(a)  Find the critical points.
+
+
+(b) Determine the linear system approximating
+the nonlinear system near each critical point.
+
+(c)  Solve each linear system at least as far as determining the
+eigenvalues  of the coefficient matrix.
+
+(d)  Sketch the phase portrait of each of these linear systems.
+You can look in the text to determine  the
+general form of the phase portrait from the signs of the
+eigenvalues,
+but you
+may still have to figure out other details.
+ You could do this by finding the
+general solution of each linear system  in
+an appropriate new coordinate system, but
+other methods may  suffice.
+
+(e)  Check that each critical point is one of the types for which the
+phase portrait of the linear system is a good approximation of
+the phase portrait of the nonlinear system.
+Try to sketch the
+phase portrait of the nonlinear system in the first
+quadrant.   Does your diagram tell you anything about
+the growth or decline  of the two populations?
+
+\answer{  (a) The critical points are $(0,0), (10,0), (0,5), (4,1)$.\par
+(b) The matrices $D\f$ are
+\begin{gather*}
+(0,0): \bm 10 & 0 \\ 0 & 5\em,\quad
+(10,0): \bm{} -10 & -60 \\ 0 & -5\em,\\
+(0,5): \bm{} -20 & 0 \\ -5 & -5\em,\quad
+(4,1): \bm{} 0 & -24 \\ -1 & -1\em.
+\end{gather*}\par
+(c)  At $(0,0)$, the eigenvalues are $10,5$.  At $(10,0)$,
+the eigenvalues are $-10,-5$.  At $(0,5)$, the eigenvalues
+are $-20,-5$.  At $(4,1)$, the eigenvalues are
+$\dfrac {-1 \pm \sqrt{97}}2$.\par
+(d)  There is an unstable node at $(0,0)$, stable nodes at
+$(10,0)$ and $(0,5)$ and a saddle at $(4,1)$.\par
+(e)  From the phase portrait, we would conclude that one
+or the other of the two populations would most likely ultimately
+approach zero, i.e., the orbits geneally approach either
+$(10,0)$ or $(0,5)$.
+
+
+}
+
+\item  With reference to Example 7,  find those values
+of $t$ for which the solution $r = 1/\sqrt{1 - Ce^{-2t}}$ is defined.
+Assume $C > 0$.   What significance does this have?
+
+\answer{  We need $1 - Ce^{-2t} > 0$, i.e.,  $e^{-2t} < \dfrac 1C$
+or
+\[
+t > \frac{\ln C}2.
+\]
+As $t$ approaches $\dfrac{\ln C}2$ from above, $r \to \infty$.  We
+can interpret this as the particle `starting' at $t = \dfrac{\ln C}2$ at
+$\infty$ and spiralling in toward the circle as $t \to \infty$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

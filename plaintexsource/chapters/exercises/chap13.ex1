@@ -1,0 +1,60 @@
+\subhead  Exercises for Section \sn \endsubhead
+% Section 1
+\smallskip
+% 1
+\Exer  In each case find the critical points of the indicated system.
+
+(a) $x_1' = x_1 - x_1x_2,\, x_2' = -3x_2 + 2x_1x_2$.
+
+(b) $x_1' = -x_1 + 2x_1x_2,\, x_2' = x_2 - x_2{}^2  + x_1x_2$.
+
+(c) $x_1' = x_1 - x_1x_2,\, x_2' = -x_2 + x_1x_2,\, x_3'
+= x_3 + x_1x_2$.
+\answer (a) $(0,0), (3/2, 1)$.   (b) $(0,0), (0,1), (-1/2, 1/2)$.
+(c) $(0,0,0), (1,1,-1)$.
+
+% 2
+\Exer  Consider the general $2\times 2$ linear system
+$\x' = A\x$.   Show that $x_1 = 0, \, x_2 = 0$  gives the only
+critical point if $\det A \not= 0$.    What happens if
+$\det A = 0$?   How does this generalize to an $n\times n$
+linear system?
+\answer $A\x = \bold 0$ has only the solution $\x = 0$, i.e.,
+$x_1 = x_2 = 0$, if $\det A \not = 0$.   If $\det A = 0$,
+then there are non-zero solutions of the system $A\x = 0$ and
+each of these is a solution.  If $A \not = 0$, then the set
+of solutions forms a subspace of dimension one, and every point
+in this subspace is a critical point.   In general, the
+critical points form the solution space of the homogeneous
+system $A\x = \bold 0$.  The dimension of this solution space
+is $n$ less the rank of $A$.  If $\det A = 0$, then $(0,0)$
+is the only critical point. 
+
+% 3
+\Exer  For each of the following systems, first find the critical
+points.  Then eliminate $t$, solve the ensuing first order
+differential equation in $x_1$ and $x_2$ and sketch some orbits.
+Use the system to determine the direction of `flow' at typical
+points along the orbits.
+
+(a)  $x_1' = -x_2, \, x_2' = 2x_1$.
+
+(b)  $x_1' = 2x_1 + x_2, \, x_2' = x_1 - 2x_2$.
+
+(c)  $x_1' = x_1 - x_1x_2, \, x_2' = -x_2 + x_1x_2$.
+\answer (a) $(0,0)$ is the only  critical point.  The orbits form the
+system of ellipses given by $2x_1{}^2 + x_2{}^2 = C$.  (The critical
+point arises by taking $C = 0$.)   In the first qudrant, $dx_1/dt < 0$
+and $dx_2/dt > 0$, so the flow is in the counterclockwise direction
+around the ellipses.\par
+(b) $(0,0)$ is the only critical point.  The first order equation comes
+down to $(x_1 - 2x_2)dx_1 - (2x_1 + x_2)dx_2 = 0$.   This is an exact
+equation, and the solution is the family of hyperbolas given by
+$x_1{}^2 - 4x_1x_2 - x_2{}^2 = C$.   (How do we know these are
+hyperbolas?  See Section 7 or Chapter XII.)\par
+(c) The critical points are $(0,0)$ and $(1,1)$.  The first order
+equation can be put in the form $(1 - 1/x_1)dx_1 + (1 - 1/x_2)dx_2 = 0$
+and the general solution is $x_1 + x_2 - \ln(x_1x_2) = C$.
+You might have some problems sketching the solution curves without
+help from a computer.
+

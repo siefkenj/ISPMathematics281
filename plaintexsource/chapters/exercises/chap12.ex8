@@ -1,0 +1,230 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 8
+\smallskip
+% 1
+\Exer  Find the maximum value of $f(x,y) = 2x + y$ subject to
+the constraint  $x^2 + y^2 = 4$.
+\answer The Lagrange condition yields the equations
+$$
+1 = \lambda x, 1 = 2\lambda y, x^2 + y^2 = 4.
+$$
+The solutions are $(4/\sqrt 5, 2/\sqrt 5), (-4/\sqrt 5, -2/\sqrt 5)$.
+$x + 2y$ assumes its maximum value $8/\sqrt 5$ at the first of
+these points.
+
+% 2
+\Exer  Find the mimimum value of $f(x,y,z) = x^2 + y^2 + z^2$
+given the constraint  $x + y + z = 10$.
+\answer The equations are
+$$
+x = y = z = \frac{\lambda}2, x+ y + z = 10.
+$$
+The unique solution is $(10/3,10/3,10/3)$.  The value of
+$f(x,y,z)$ at that point is $100/3$.  It is fairly clear that
+this function does assume a minimum value.  In fact, it occurs
+where the sphere of radius $10/\sqrt 3$ centered at the origin
+is tangent to the plane  $x + y + z = 10$.
+
+%%  More non quadric problems
+
+% 3
+\Exer Find the maximum and minimum values of the function
+$f(x,y) = x^2 + y^2$ given the constraint  $x^2 + xy + y^2 = 1$.
+\answer Compare this with Exercise 1 in Section 7.\par
+The equations are
+$$
+\align
+2x &= \lambda(2x + y) \\
+2y &= \lambda(x + 2y) \\
+x^2 + xy + y^2 &= 1
+\endalign
+$$
+This in effect says that $(x,y)$ give the components of an
+eigenvector for the matrix
+$$
+\bm 2 & 1 \\ 1 & 2 \em
+$$
+with $\dfrac 2\lambda$ as eigenvalue.  However, since we already
+classified the conic in the aforementioned exercise, it is
+easier to use that information here.  In the new coordinates
+the equation is $(x')^2 + 3(y')^2 =2$.  The maximum distance to
+the origin is at $x' = \pm\sqrt 2, y' = 0$ and the minimum
+distance to the origin is at $x' = 0, y' = \pm \sqrt{2/3}$.
+Since the change of coordinates is orthogonal, we may still
+measure distance by $\sqrt{(x')^2 + (y')^2}$.
+Hence, the maximum square distance to the orgin is 2 and
+the mimimum square distance to the origin is $2/3$.  \par
+Note that the problem did not ask for the locations in the
+original coordinates where the maximum and minimum are attained.
+
+% 4
+\Exer Find the maximum and/or minimum value of
+$
+f(x,y,z) = x^2 - y^2 + z^2 - 4xy - 4yz
+$
+subject to $x^2 + y^2 + z^2 = 1$.
+\answer  Compare this with Section 7, Exercise 4.\par
+The equations are
+$$
+\bm \format\r&&\quad\r\\
+    1 & -2 & 0 \\
+   -2 & -1 & -2 \\
+   0 & -2 & 1 \em
+\bm x\\ y \\ z \em = \lambda \bm x\\ y \\ z\em,\quad
+x^2 + y^2 + z^2 = 1.
+$$
+Thus we need to find eigenvectors of length 1 for the given matrix.
+  However, we already did this in the aforementioned
+exercise.   The answers are
+$$
+\pm \frac 1{\sqrt 6}(1, 2, 1),\quad
+\pm\frac 1{\sqrt 2}(-1, 0, 1),\quad
+\pm\frac 1{\sqrt 3}(1, -1, 1).
+$$
+The values of the function at these three points are respectively
+$-3, 1, 3$.   Since a continuous function on a closed bounded set
+must attain both a maximum and minimum values, the maximum is 3  at
+the third point and the minimum is $-3$ at the first point.
+
+% 5
+\Exer   The derivation of the Lagrange multiplier condition
+$\nabla f = \lambda \nabla g$ assumes that the $\nabla g \not = 0$,
+so there is a well defined tangent `plane' at the potential
+maximum or minimum point.   However, a maximum
+or minimum could occur at a point where $\nabla g = 0$,
+so all such points should also be checked.  (Similarly,
+either $f$ or $g$ might fail to be smooth at a maximum or
+minimum point.)    With these remarks in mind, find where
+$f(x,y,z) = x^2 + y^2 + z^2$ attains its minimum value
+ subject to the constraint
+$g(x,y,z) = x^2 + y^2 - z^2 = 0$.
+\answer  The Lagrange multiplier condition yields the equations
+$$
+\align
+  x &= \lambda x \\
+y  &=  \lambda y \\
+z &= -\lambda z \\
+x^2 + y^2 &= z^2.
+\endalign
+$$
+If $\lambda \not=1$, then the first two equations show that $x = y = 0$.
+From this, the last equation shows that $z = 0$.  Hence, $(0,0,0)$
+is one possible maximum point.   If $\lambda = 1$, then the third
+equation shows that $z = 0$, and then the last equation shows that
+$x = y = 0$.   Hence, that gives the same point.   Finally, we
+have to consider all points where $\nabla g = \lb 2x, 2y, -2z\rb
+= \bold 0$.  Again, $(0,0,0)$ is the only such point.  Since
+$x^2 + y^2 + z^2 \ge 0$ and it does attain the value 0 on the
+given surface, it follows that 0 is its minimum value. \par 
+Note that in this example $\nabla g = \bold 0$ didn't give us
+any other candidates to examine, but in general that might not
+have been the case.
+
+% 6
+\Exer   Consider as in Example 2 the problem of maximizing
+$f(x,y) = x^2 + 4xy + y^2$ given the constraint $x^2 + y^2 = 1$.
+This is equivalent to maximizing $F(x,y) = xy$ on the circle
+$x^2 + y^2 = 1$.  (Why?)  Draw a diagram showing the circle
+and selected level curves $F(x,y) = c$ of the function $F$.
+Can you see why $F(x,y)$ attains its maximum at $(1/\sqrt 2,
+1/\sqrt 2)$ and $(-1/\sqrt 2, -1/\sqrt 2)$  without using
+any calculus?   Hint: consider how the level curves of $F$
+intersect the circle and decide from that where $F$ is increasing,
+and where it is decreasing on the circle.
+\answer  On the circle $x^2 + y^2 =1,  f(x,y) = 1 + 4xy$,
+so maximizing $f(x,y)$ is the same as maximizing $xy$.
+The level sets $xy = c$ are hyperbolas.  Some of these
+intersect the circle $x^2 + y^2 = 1$ and some don't intersect.
+The boundary between the two classes are the level curves
+$xy = 1$ and $xy = -1$.  The first is tangent to the circle
+in the first and third quadrants and the second is tangent
+in the second and fourth quadrants.  As you move on the
+circle toward one of these points of tangency, you cross
+level curves with either successively higher values of $c$
+or successively lower values of $c$.   Hence, the points of
+tangency are either maximum or minimum points for $xy$.
+The maximum points occur in the first and third quadrants
+with $xy$ attaining the value 1 at those points.  \par
+ Note also that the points of tangency are exactly where the
+normal to the circle and the normal to the level curve are
+parallel.
+
+
+% 7
+\Exer  Find the maximum and minimum values (if any) of the
+function $f(x,y,z) = x^2 + y^2 + z^2$ on the line of intersection
+of the two planes  $x + y + 2z = 2$ and  $2x - y + z = 4$.
+\answer  The Lagrange multiplier conditions give
+$$
+\align
+2x &= \lambda_1 + 2\lambda_2 \\
+2y &= \lambda_1  - \lambda_2 \\
+2z &= 2\lambda_1  + \lambda_2 \\
+x + y + 2z &= 2 \\
+2x - y + z &= 4
+\endalign
+$$
+This is a linear system of equations and the unique solution
+is $x = y = 1/3, z = 2/3, \lambda_1 = 2/3, \lambda_2 = 0$.
+In fact the curve is a line and the problem is to find the
+point on it closest to the origin.  This geometric problem
+has a solution, and our only candidate is $(1/2,1/3,2/3)$
+so that must be it.   \par
+(Note that in this case, the simple geometry makes clear that
+there are no `singular points' to worry about.)
+
+
+% 8
+\Exer  Find the highest point, i.e., maximize $f(x,y,z) = z$,
+on the ellipse which is the intersection of the cylinder
+$x^2 + 2y^2 = 2$ with the plane  $x + y - z = 10$.
+\answer  The equations are
+$$
+\align
+ 1& = \lambda_1(2x) + \lambda_2 \\
+ 0 &= \lambda_1(4y) + \lambda_2 \\
+ 0 &= 0 - \lambda_2 \\
+x^2 + 2y^2 &= 2 \\
+x + y - z &= 10.
+\endalign
+$$
+Hence, $\lambda_2 = 0$.  Then, from the first equation,
+$\lambda_1 \not=0$, whence, from the second equation, $y = 0$.
+Thus from the fourth equation $x = \pm \sqrt 2$.  Hence, from the
+fifth equation, $z = \pm \sqrt 2 - 10$.  Thus, the two candidates
+we have to consider are $(\sqrt 2, 0, \sqrt 2 - 10)$ and
+$(-\sqrt 2, 0, -\sqrt 2 - 10)$.   Clearly, $z$ attains its
+maximum value at the first of these points and its mimimum value
+at the other.\par
+It is fairly clear on geometric grounds that there are not singular
+points to consider, but to be sure, consider the two gradients
+of the constraint functions
+$\lb  2x, 4y, 0\rb$ and $\lb 1, 1, -1 \rb$.  We would expect
+potential problems where their cross product
+$$
+\lb -2y, 2x, 2x - 2y \rb = \bold 0.
+$$
+This occurs at $(0,0,0)$ but that is not a point on the ellipse,
+so indeed we see that there are no singular points to worry about.
+
+
+
+%%% Need more such problems.
+
+\Exer   For the problem of maximizing (minimizing) $f(x_1, \dots, x_n)$
+subject to constraints
+$g_i(x_1, \dots, x_n)) = c_i,\,
+i = 1, 2, \dots, m$, how many equations in how many unknowns does
+the method of Lagrange multipliers yield?
+\answer The method yields $n+m$ equations in $n+m$ unknowns.
+There are $n$ equations from the Lagrange condition and $m$ equations from
+the constraints.   The unknowns are $x_1,\dots,x_n, \lambda_1,
+\dots,\lambda_m$.\par
+These equations can be very complicated, and generally there won't
+be a unique solution, but often there are only finitely many solutions.
+There is no straightforward method to solve non-linear systems of
+equations, so often finding exact solutions requires a great
+deal of creativity, if indeed it is possible at all.   There are many
+methods for finding approximate solutions.  One such is a multi-dimensional
+analogue of Newton's method.
+

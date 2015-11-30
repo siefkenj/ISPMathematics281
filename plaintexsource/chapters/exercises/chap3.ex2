@@ -1,0 +1,27 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 2
+\smallskip
+% 1
+\Exer  Use the examples of limits and the definition of continuity in this
+section to find the following, if they exist. \par
+	(a) $\displaystyle{\lim_{(x,y) \to (-1,1)} e^{-xy}}$ \par
+	(b) $\displaystyle{\lim_{(x,y) \to (0,0)} \sin \sqrt{1 - x^2 - y^2}}$
+	    \par
+	(c) $\displaystyle{\lim_{(x,y,z) \to (0,0,0)} 
+	    e^{-\frac {1}{x^2+y^2+z^2}}}$ \par
+	(d) $\displaystyle{\lim_{(x,y,z) \to (0,0,1)} 
+	    \ln\frac{xyz}{\sqrt{1-x^2-y^2-z^2}}}$
+\answer (a) $e$;\quad (b) $\sin 1$;\quad (c) $0$;\quad (d) $DNE$
+
+% 2
+\Exer  Change from rectangular to polar coordinates to determine the following
+limits when they exist. \par
+	(a) $\displaystyle{\lim_{(x,y) \to (1,0)} (x^2+y^2)\sqrt{x^2+y^2}}$\par
+	(b) $\displaystyle{\lim_{(x,y)\to (0,0)} \frac{x y}{\sqrt{x^2+y^2}}}$\par
+	(c) $\displaystyle{\lim_{(x,y) \to (0,0)} \frac{x^2-y^2}{x^2+y^2}}$\par
+\answer (a) $\displaystyle \lim_{r\to 1} r^{3/2}=1$; \par
+	(b) $\displaystyle \lim_{r\to 0} \frac{r^2\cos\theeta\sin\theeta}{r}=0$;\par
+	(c) $\displaystyle \lim_{r\to 0} \frac{r^2(\cos^2\theeta- \sin^2\theeta)}{r^2}=
+\cos^2\theeta - \sin^2\theeta$, so $DNE$.
+
+\endinput

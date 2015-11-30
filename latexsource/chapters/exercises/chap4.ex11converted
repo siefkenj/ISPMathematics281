@@ -1,0 +1,29 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item  Use 
+\[
+     -|f(\r)| \le f(\r)  \le |f(\r)|
+\]
+and rule (iv) in this section to prove
+\[
+    \left| \iint_D \, f\, dA\right| \le \iint_D\, |f|\, dA.
+\]
+
+\answer{ Since $-|f| \le f \le |f|$, we get
+\[
+-\iint_D |f|\,dA \le \iint_D f\,dA\le \iint_D |f|\,dA
+\]
+which gives the desired result.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

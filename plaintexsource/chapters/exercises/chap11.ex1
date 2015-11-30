@@ -1,0 +1,82 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 1
+\smallskip
+% 1
+\Exer  Verify that
+$$
+ \x_1 = e^{0t}\bm 1\\1\em = \bm 1\\ 1\em\qquad\text{and}\qquad
+ \x_2 = e^{-2t}\bm\format\r\\-1\\1\em
+$$
+are solutions of the $2\times 2$ system
+$$
+\frac{d\x}{dt} = \bm\format\r&\quad\r\\
+                         -1 & 1 \\ 1 & -1 \em\x.
+$$
+Find the solution satisfying $\x(0) = \bm 1\\ 3 \em$.
+\answer  Verifying that they are solutions is left to you.
+To find a solution matching the initial condition, solve
+$$\bm\format\r&\quad\r\\ 1 & -1 \\ 1 & 1 \em \bm c_1\\ c_2 \em
+= \bm 1 \\ 3\em.
+$$
+The solution is $c_1 = 2, c_2 = 1$.  The desired solution of
+the system is
+$$
+\x = 2\bm 1\\ 1\em + e^{-2t}\bm -1\\ 1\em.
+$$
+
+% 2
+\Exer  Show that
+$$
+\x_1 = e^t\bm 1\\1\\1\em,\qquad
+\x_1 = e^{2t}\bm 1\\2\\4\em,\qquad
+\x_1 = e^{-2t}\bm 1\\-2\\4\em
+$$
+are solutions of
+\nexteqn
+$$
+\frac{d\x}{dt} = \bm\format\r&&\quad\r\\
+                   0 & 1 & 0 \\
+                   0 & 0 & 1 \\
+                   -4 & 4 & 1 \em \x.\tag\eqn
+$$
+Show that they form a linearly independent set of solutions by
+finding the rank of $\bm \x_1(0) & \x_2(0) & \x_3(0) \em$.
+Finally, find the solution of (\eqn) satisfying
+$$
+\x(0) = \bm 1\\0\\2\em.
+$$
+\answer  Find the rank by Gaussian reduction of the coefficient
+matrix.  The rank is three.   To find the desired solution, solve
+$$
+\bm 1 & 1 & 1\\1 & 2 & -2\\1 & 4 & 4 \em\c =
+ \bm 1\\0\\2\em.
+$$
+The solution is  $c_1 = 2/3, c_2 = 0, c_3 = 1/3$.   Hence, the
+desired solution is
+$$
+\x = \frac 23  e^t\bm 1\\1\\1\em +
+\frac 13 e^{-2t}\bm 1\\-2\\4\em.
+$$
+
+% 3
+\Exer  The vector functions
+$$
+\x_1 = e^{2t}\bm 1 \\ 1 \\ 0 \em,\quad
+\x_2 = e^{3t} \bm 3\\  2 \\ 1 \em, \quad
+\x_3 = e^{-t}\bm 2 \\ 1 \\ 1 \em
+$$
+are solutions of a system of the form $d\x/dt = A\x$
+where $A$ is an appropriate $3\times 3$ constant matrix.
+Do these functions constitute a basis for the solution space
+of that system?
+\answer  No.  Putting $t = 0$, we get the vectors
+$$
+\x_1(0) = \bm 1 \\ 1 \\ 0 \em,\quad
+\x_2(0) = \bm 3\\  2 \\ 1 \em, \quad
+\x_3(0) = \bm 2 \\ 1 \\ 1 \em
+$$
+which form a linearly dependent set since $x_2(0) = x_1(0) + x_3(0)$.
+If you hadn't noticed that, you could have determined the rank of
+the $3\times 3$ matrix with these vectors as columns.  Its rank is
+2.
+

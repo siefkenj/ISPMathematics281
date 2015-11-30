@@ -1,0 +1,67 @@
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item  In each case find the Jacobian of the indicated transformation.
+
+(a)  $x = uv, y = u^2 + v^2$.
+
+(b)  $x = au + bv, y = cu + dv$ where $a, b, c, d$ are
+constants.
+
+(c)  $x = r\cos\theta, y = 2r\sin\theta$.
+
+\answer{ (a) $2(v^2 - u^2)$.  (b)  $ad - bc$.  (c) $2r$.
+
+
+}
+
+\item   The transformation given by $x = 2u + 3v, y = u + 2v$
+carries the unit square $0\le u \le 1, 0\le v \le 1$ into
+a parallelogram.   Show that the parallelogram has area 1.
+
+\answer{ The Jacobian is $2\cdot 2 - 1\cdot 3 = 1$.
+Integrating this over the unit square yields 1.
+
+
+}
+
+\item   Use the transformation $x = ar\cos\theta,
+y = br\sin \theta$ to evaluate the integral
+$\iint_D (x^2 + y^2) dA$ where $D$ is the region inside the
+ellipse  $x^2/a^2 + y^2/b^2 = 1$.  
+
+\answer{  The Jacobian is $abr$.  
+\[
+\int_0^{2\pi}\int_0^1 abr\,
+r^2(a^2\cos^2\theta + b^2\sin^2\theta) \,dr\,d\theta = 
+= \frac{\pi a b(a^2 + b^2)}4.
+\]
+
+
+}
+
+\item   Use the transformation $x = au, y = bv, z = cw$ to
+show that the volume inside the ellipsoid
+$x^2/a^2 + y^2/b^2 + z^2/c^2 = 1$ is $(4/3)\pi abc$.
+
+\answer{ The Jacobian is $abc$.  Integrate this over the unit sphere
+centered at the origin in $u,v,w$-space.
+
+
+}
+
+\item   Show that the Jacobian of the transformation
+\begin{align*}
+x &= \rho \sin\phi \cos\theta \\
+y &= \rho \sin\phi \sin\theta \\
+z &= \rho \cos\phi
+\end{align*}
+is $\rho^2\sin\phi$. 
+
+
+
+\end{enumerate}
+\endinput

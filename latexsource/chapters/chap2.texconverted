@@ -1,0 +1,279 @@
+\nextsec{Some Elementary Differential Equations}
+\head \sn. Some Elementary Differential Equations \endhead
+
+Later in this course, you will study differential equations in
+a systematic way, but before that you are likely to encounter
+some simple differential equations in Physics and other courses.
+Hence, we shall give a brief introduction to the subject here.
+
+A differential equation is an equation involving an independent
+variable, a dependent variable, and derivatives of the latter.
+The {\it order\/} of a differential equation is the highest order
+\outind{differential equation, order of}
+\outind{order of a differential equation}
+of any derivative which appears in it.
+\nexteqn
+\xdef\FirstEx{\eqn}
+For example,
+\[
+\frac{dx}{dt} = ax\tag{\eqn}
+\]
+is an example of a {\it first order\/} differential equation,
+while
+\nexteqn
+\xdef\SecondEx{\eqn}
+\[
+\frac{d^2x}{dt^2} = -Kx\tag{\eqn}
+\]
+is an example of a {\it second order\/} differential equation.
+
+To solve a differential equation, you must find a {\it function\/}
+$x = x(t)$, expressing the dependent variable in terms of the
+independent variable, which when substituted in the equation
+yields a true identity.
+For example, substituting $x = Ce^{at}$ (where $C$ is any constant)
+and $dx/dt = Cae^{at}$ in equation (\FirstEx) yields
+\[
+      Cae^{at} = a(Ce^{at})
+\]
+which is true.   Hence, the function given by $x(t) = Ce^{at}$ is
+a solution.   Note the following very important point.  If someone
+is kind enough to suggest a solution to you, it is not necessary
+to go through any procedure to ``find'' that solution.  All you
+need to do is to check that it works.
+
+	If you don't have any idea of what a solution to a given
+differential equation might be, then you need some method to try
+to find a solution.  How one goes about this is a vast subject,
+and we shall go into it later, as mentioned above.  For the moment,
+we describe only the method of {\it separation of variables\/} which
+\outind{separation of variables for ordinary differential equation}
+works in many simple examples.  We illustrate it by solving
+equation (\FirstEx).
+\begin{align*}
+    \frac{dx}{dt} & = ax \\
+   \frac{dx}x & = adt\qquad\text{Variables are separated formally}\\
+   \int \frac{dx}x &= \int a dt \qquad\text{Take antiderivatives}\\
+    \ln |x| &= at + c \\
+    |x| &= e^{at + c} = e^{at}e^c\qquad\text{Exponentiate} \\
+     x  &= \pm e^ce^{at}.
+\end{align*}
+However, $\pm e^c$ is just some constant which we may call $C$.  
+Thus we find that $x = Ce^{at}$ is a solution.   
+
+Note that when integrating  there should be an
+undetermined constant on each side of the equation.  However, these
+constants can be combined in one by transposition, and that is what
+we did by putting the $+ c$ only on the right side of the equation
+in the fourth line.
+
+Whenever the variables can be so separated, the above procedure
+produces a {\it general solution\/} of the equation.
+There are some technical difficulties with the method.
+(For example, a denominator might vanish after the variables
+have been separated.
+ Also, the
+formal separation procedure needs some rigorous justification.)
+However, these difficulties can usually be resolved and one can
+make a convincing argument
+that {\it any solution\/} will be of the form obtained
+by the method.
+
+Note that in the example, the solution produced one {\it arbitrary\/}
+constant  $C$, i.e., one constant which is not otherwise determined
+by the equation.  ($a$ is also a constant, but it was assumed known
+in the original equation.)   You can think of that constant arising
+from integration.   To complete the solution, it is necessary to
+determine the constant.  There are many ways to do this, depending
+on the formulation of the problem giving rise to the
+differential equation.  One of the easiest is to
+give the value $x_0$ of the dependent variable  for one specified value
+$t_0$ of the independent variable and then solve the resulting equation
+for the constant $C$.  (This is called satisfying an
+{\it initial condition}.)  For example, suppose we are given that
+\outind{initial conditions for a differential equation}
+$x = 10$ when $t = 0$.  Substituting these values yields
+\[
+    10 = Ce^{a(0)} = Ce^0 = C
+\]
+or $C = 10$.  With that initial condition, the solution is
+$x = 10e^{at}$.   
+
+Equation (\FirstEx) describes processes of growth or decay.  $x$
+might represent the size of a population, the number of radioactive
+atoms, or something similar.   The equation asserts that the
+growth rate (decay rate if $a < 0$) is proportional to the amount
+present.  In the case of population growth, $a$ is often called the
+``birth rate''.  In the case of radioactive decay, $a <0$, so
+we put $a = -\gamma$,
+and $\gamma$ tells us the
+ {\it proportion\/} of atoms present at a given
+time which will decay at that time.   In that case,  $\gamma$ is often expressed in
+terms of the {\it half life\/} $T$ which is the time for the
+$x$ to decrease to half its initial value.  You might check
+your proficiency in the use of exponentials and logarithms by
+checking the following formula.
+\[
+     \gamma = \frac{\ln 2}T.
+\]
+
+Equation (\SecondEx),
+$\dfrac{d^2x}{dt^2} = -Kx$,
+  arises in studying {\it simple harmonic motion}.
+\outind{harmonic oscillator, simple}
+\outind{oscillator}
+For example, the motion of a particle of mass $m$
+ oscillating at the end of 
+a spring with spring constant $k$ is governed by
+such an equation with $K = k/m$, if we ignore friction.
+(\SecondEx) is much harder to solve than (\FirstEx).  
+One must distinguish the cases
+$K > 0$ and $K < 0$, but the former has more interesting applications
+(as in simple harmonic motion), so we shall assume $K > 0$.
+The solution proceeds by
+ separation of variables as follows.
+First, put $v = dx/dt$.  Then the equation becomes
+\begin{align*}
+   \frac{dv}{dt} &= -Kx \\
+    \frac{dv}{dx}\frac{dx}{dt} &= -Kx\qquad\text{using the chain rule}\\
+ \text{or}\qquad   \frac{dv}{dx}v &= -Kx \\
+     v\, dv &= -Kx\,dx \qquad\text{separating the variables} \\
+    \frac{v^2}2 &= -K\frac{x^2}2 + c \\
+    v^2 &= -Kx^2 + 2c.
+\end{align*} 
+
+\mar{s2-1.ps}
+However, we might just as well rename the constant $2c$ and call it
+$C_1$. Note that since $K > 0$, we have $C_1 = v^2 + Kx^2 \ge 0$.  If
+$C_1 = 0$, it follows that $v = x = 0$ for all $t$.   That is certainly
+possible, but it isn't very interesting, so we assume $C_1 > 0$.
+  Now, recalling that $v = dx/dt$, we obtain
+\begin{align*}
+    v &= \frac{dx}{dt} = \pm\sqrt{C_1 - K x^2} \\
+     \frac{dx}{\sqrt{C_1 - K x^2}} &= \pm dt\qquad\text{separating variables}\\
+\int\frac{dx}{\sqrt{C_1 - K x^2}} &= \pm t + C_2\qquad\text{integrating}\\
+\frac 1{\sqrt K}\cos^{-1}(\sqrt{\frac K{C_1}} x) &= \pm t + C_2.
+\end{align*}
+Note that we need $K > 0$ and $C_1 > 0$ for the last integration to
+be valid.  Continuing, we have
+\begin{align*}
+\cos^{-1}(\sqrt{\frac K{C_1}} x) &= \pm \sqrt K t + \sqrt K C_2\qquad\text{or}\\
+x &= \sqrt{\frac{C_1}K}\cos(\pm \sqrt K t + \sqrt K C_2) \\
+ &= \sqrt{\frac{C_1}K}\cos(\sqrt K t \pm \sqrt K C_2) .
+\end{align*}
+However, we may define 
+$A = \sqrt{\dfrac{C_1}K}$ (so $A > 0$)
+ and $\delta = \pm \sqrt K C_2$  to obtain
+the general solution
+\nexteqn
+\xdef\SHSol{\eqn}
+\[
+  x = A\cos(\sqrt K t + \delta).\tag{\eqn}
+\]
+Note that this solution has {\it two\/} arbitrary constants arising
+from the two integrations which had to be performed.  Generally,
+the solution of an 
+$n$th order equation involves $n$ arbitrary constants.
+
+The above derivation depended strongly on the assumption $K > 0$.
+For $K < 0$, we would not be able to conclude that
+$C_1 > 0$, and the integration step which resulted in 
+$\cos^{-1}(\sqrt{\frac K{C_1}} x)$ on the left would not be valid. 
+If you are ambitious, you might try doing the
+integration under the assumpition $K < 0$ to see what you get.
+Later in
+this course, we shall derive other methods to solve this equation whatever
+the sign of $K$.  
+
+To determine the constants, one may again specify initial conditions.
+However, specifying the value $x_0$ at $t_0$ will yield only one
+equation for the two constants.  Hence, one needs an additional
+condition to obtain another equation.  To get that, one commonly
+specifies the derivative $v_0$ at $t_0$.  For example, suppose
+$K = 3$, and suppose  $x = 1, dx/dt = -1$ at $t = 0$.  Then
+(\SHSol) yields the two equations
+\begin{align*}
+  1 &= A\cos(\delta) \\
+  -1 &= -A\sqrt 3\sin(\delta).
+\end{align*}  
+Dividing the second equation by the first, yields
+\[
+  \tan\delta = \frac 1{\sqrt 3}
+\]
+from which we conclude  $\delta = \pi/6$ or $-5\pi/6$.  Since both
+$\sin \delta$ and $\cos\delta$ are positive, this yields $\delta =
+\pi/6$.   Putting this in the
+first equation yields
+\[
+   1 = A\cos(\frac\pi 6) = A\frac {\sqrt 3}2
+\]
+so $A = 2/\sqrt 3$.   We conclude that the solution satisfying these
+initial conditions is
+\[
+   x = \frac 2{\sqrt 3}\cos(\sqrt 3 t + \frac\pi 6).
+\]
+
+The quantity $A$ in equation (\SHSol) is called the {\it amplitude\/}
+\outind{amplitude of a harmonic oscillator}
+of the solution, and $\delta$ is called the {\it phase}.   One way
+to visualize the solution  is as follows.   Consider a
+point moving on a circle of radius $A$ centered at the origin.
+\medskip
+\centerline{\epsfbox{s2-2.ps}}
+\medskip
+\noindent
+The projection of that point on the $x$-axis oscillates back according
+to  (\SHSol).   $\delta$ gives the angle the position vector of
+the point makes
+with the $x$-axis at $t = 0$.  The quantity $\omega = \sqrt K$
+gives the angular velocity of the point on the circle.  $\omega$
+is also called the {\it angular frequency\/} of the oscillation.
+\outind{angular frequency}
+\outind{frequency, angular}
+\outind{frequency}
+    The {\it period\/} $T = 2\pi/\omega$ 
+\outind{period of an oscillator}
+is the time required for one circuit (one complete oscillation).
+The frequency $f = 1/T = \omega/2\pi$ is the number of circuits
+(oscillations) per unit time.   The frequency is usually measured
+in Hertz (Hz), i.e., oscillations per second.
+
+
+ One
+often sees the solution written differently in the form obtained
+by expanding  (\SHSol) as follows.
+\begin{align*}
+  x &= A\cos(\omega  t + \delta) \\
+    &= A\cos(\omega t)\cos\delta - A\sin(\omega t)\sin\delta \\
+  x &= C\cos(\omega t) + D\sin(\omega t)
+\end{align*}
+where $C = A\cos\delta$ and $D = -A\sin\delta$.   
+
+You should note that had you suspected
+ that $x = A\cos(\omega t + \delta)$
+is a solution, you could have checked it by substituting
+into (\SecondEx), and avoided most of the
+work in the derivation above.  You might argue that one would have
+little reason to suspect such a solution might work.  That is
+true if one is thinking in purely mathematical terms, but given that
+one knows the differential equation arises from a physical problem
+in which one observes oscillatory behavior, it is not entirely
+unreasonable to guess at a solution like (\SHSol).  Of course, without
+going through a more refined analysis, you
+could not be absolutely sure that (\SHSol) encompasses all possible
+solutions (i.e., that it is sufficiently general), but the fact
+that it involves {\it two\/} arbitrary constants would strongly
+suggest that such is the case.  
+
+Remember the moral of the above discussion.  If somehow or other
+a solution to a problem is suggested to you, you don't have to
+bother ``deriving'' that solution by a ``mathematical'' procedure.
+If the solution works, and if in addition, you have reason to
+believe there is only one solution which can work, then the one
+you have must be it.
+
+\bigskip
+
+\includeexercises{chap2.ex1}
+
+\endinput

@@ -1,0 +1,84 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 2
+\smallskip
+
+% 1
+\Exer
+Find a general solution of each of the following equations.
+(The differential forms are closed.)
+
+(a) $e^t\cos y\, dt + (2y - e^t\sin y)\,dy = 0$.
+
+(b) $(x^2 - y^2)dx + (y^2 - 2xy)dy = 0$.
+\answer (a) $f(t,y) = y^2 + e^t\cos y = c$.\par
+(b) $f(x,y) = \dfrac{x^3}3 - y^2x + \dfrac{y^3}3 = c$.
+
+% 2
+\Exer (a) By rewriting as a problem about differential
+forms,  find a general solution of the differential equation
+$$
+   \frac{dy}{dt} = \frac{2t - 6y}{6t + 3y}.
+$$
+You need not express the answer in the form $y = y(t)$.
+A relation between $t$ and $y$ will suffice.
+
+(b)  What is the form of the solution in (a) if
+$y(1) = 2$?
+
+(c)  Express the solution found in part (b) in the form
+$y = y(t)$.   What should the domain of this function be?
+\answer (a)  $(6t + 3y)dy -(2t - 6y)dt = 0$ is the translation
+into an equation using differential forms.  The form is closed
+and exact, and the general
+ solution is $f(t,y) = \dfrac 32 y^2 + 6ty - t^2 = c$.
+(b) Evaluating this at $(1,2)$ yields $c = 17$.  (c)
+Use the quadratic formula to solve for $y$ in terms of $t$.
+The formula involves a $\pm$, but checking that $y(1) = 2$
+allows us to select the $+$ sign.   The answer is
+$$
+ y = \frac{-6t + \sqrt{42t^2 + 102}}3.
+$$
+
+% 3
+\Exer
+Find a general solution of each of the following equations.
+(You will need to find integrating factors.)
+
+(a)  $(1 + 6 \dfrac t{y^2})dt + 2\dfrac ty dy = 0$.
+
+(b)  $(y + e^{-x})dx + dy = 0$.
+
+(c) $(1 + t + y)dt - (1 + t)dy = 0$. 
+\answer (a)  Using equation (6), we get
+$$
+\frac 1\mu \left(\mu_t(2\frac ty) - \mu_y(1 + 6\frac t{y^2})\right)
+= -\frac {12t}{y^3} -\frac 2y.
+$$
+Try $\mu = \mu(y)$.   The above becomes
+$$
+-\frac{\mu '(y)}{\mu(y)} (1 + 6\frac t{y^2}) = -\frac 2y(6\frac t{y^2} + 1).
+$$
+Cancelling the common factor yields $\dfrac {\mu'}\mu = \dfrac 2y$
+so $\mu = y^2$ is one integrating factor.   Hence, we need to find
+$f(t,y)$ such that
+$$
+df = (y^2 + 6ty)dt + 2ty\,dy.
+$$
+The solution is $f(t,y) = ty^2 + 3t^2 = c$.\par
+(b) An integrating factor is $\mu(x) = e^x$ and the solution
+is $f(x,y) = ye^x + x = c$.\par
+(c)  An integrating factor is $\mu(t) = (1 + t)^{-2}$, and
+the solution is $f(t,y) = -\dfrac y{1+t} + \ln |1 + t| = c$.
+
+
+% 4
+\Exer Solve $\dfrac{dx}{dt} = t - x$ given  $x = 2$ when
+$t = 0$.   Do this by rewriting as a problem in differential
+forms and finding an appropriate integrating factor.
+\answer Rewrite the equation in the form  $dx +(x -t)dt = 0$.
+An integrating factor is $\mu(t) = e^t$.  A general solution
+is $f(t,x) = xe^t + (1-t)e^t = c$.  $t= 0, x=2$ yields $c = 3$.
+The solution is $xe^t +(1-t)e^t = 3$ or
+$x = 3e^{-t} - 1 + t$.
+
+

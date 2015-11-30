@@ -1,0 +1,2947 @@
+\nextsec{Systems of Differential Equations}
+\head \sn.  Systems of Differential Equations \endhead
+
+Usually, in physical problems there are several variables, and
+ the rate of change of each variable depends not only on
+it, but also on the other variables.   This gives rise to
+a {\it system of differential equations}. 
+\outind{system of differential equations}
+
+\nextex
+\example{Example \en}  Suppose that in a chemical reaction there
+are two substances $X$ and $Y$ that we need to keep track of.
+Suppose the {\it kinetics\/} of the reaction is such that
+$X$ decomposes into $Y$ at a rate proportional to the amount
+of $X$ present, and suppose $Y$ decomposes into
+uninteresting byproducts $U$ at a rate proportional to the amount
+of $Y$ present.    We may indicate this schematically by
+\[
+   X\overset{k_1}\to\to Y \overset{k_2}\to\to U
+\]
+where $k_1$ and $k_2$ are rate constants.   We may translate the
+above description into mathematics as follows.  Let $x(t)$
+and $y(t)$ denote the amounts of $X$ and $Y$ respectively present
+at time $t$.   Then
+\begin{align*}
+\frac{dx}{dt} &= -k_1x \\
+\frac{dy}{dt} &= k_1x - k_2y.
+\end{align*}
+This is simple example of a system of differential equations.
+It is not very hard to solve.  The first equation involves only
+$x$, and its solution is $x = x_0e^{-k_1t}$ where $x_0 = x(0)$
+is the amount of $X$ present initially.   This may be substituted
+in the second equation to obtain
+\[
+\frac{dy}{dt} + k_2y = k_1x = k_1x_0e^{-k_1t},
+\]
+which is a first order linear equation which
+ may be solved by the method in Chapter VI, Section 3.
+
+
+Not every system is so easy to solve.  Suppose for example
+that the substance $Y$ in addition to decomposing into uninteresting
+substances also recombines with a substrate to form $X$ at a
+rate depending on $y$.   We would then have to modify the
+above system to one of the form
+\begin{align*}
+\frac{dx}{dt} &= -k_1x + k_3y \\
+\frac{dy}{dt} &= k_1x - (k_2 + k_3)y.
+\end{align*}
+It is not immediately clear how to go about solving this system!
+\endexample
+
+\nextex
+\xdef\Couple{\en}
+\example{Example \en}  Consider two identical
+ masses $m$ on a track connected
+by springs as indicated below.   Suppose all the springs have
+the same spring constant $k$.
+\medskip
+\centerline{\epsfbox{s10-1.ps}}
+\medskip
+The masses will be at rest in certain equilibrium positions,
+but if they are displaced from those positions, the resulting
+system will oscillate in some very complicated way.  Let
+$x_1$ and $x_2$ denote the displacements of the masses from
+equilibrium.   The force exerted on the first mass by the
+spring to its left will be $-kx_1$ since that spring will be
+stretched by $x_1$.   On the other hand, the spring in the
+middle will be stretched by $x_1 - x_2$, so the force it
+exerts of the first mass is $-k(x_1 - x_2)$.  Thus the
+total force on the first particle is the sum, so by
+Newton's Second Law
+\[
+m\frac{d^2x_1}{dt^2} = -kx_1 -k(x_1 - x_2).
+\]
+By a similar argument, we get for the second mass
+\[
+m\frac{d^2x_2}{dt^2} = -kx_2 -k(x_2 - x_1).
+\]
+(You should check both these relations to be sure you agree the
+forces are being exerted in the proper directions.)   These
+equations may be simplified algebraically to yield
+\nexteqn
+\begin{align*}
+m\frac{d^2x_1}{dt^2} &= -2kx_1 + kx_2 \\
+m\frac{d^2x_2}{dt^2} &= kx_1 - 2kx_2.
+\tag{\eqn}
+\label{Pair}
+\end{align*}
+Of course, to determine the motion completely, it is necessary
+to specify the initial positions $x_1(t_0), x_2(t_0)$
+and the initial velocities  $x_1'(t_0), x_2'(t_0)$ of {\it both\/}
+masses.
+\endexample
+
+The above example is typical of many interesting physical systems.
+For example, a molecule consists of several atoms with attractive
+forces between them which to a first approximation may be treated
+mathematically
+as simple springs.
+\outind{molecular oscillations}
+
+\subhead Higher Order Equations as Systems \endsubhead  There is
+a simple trick which, by introducing new variables, allows us to
+reduce a differential equation of {\it any order\/} to a
+{\it first order system}.
+\outind{higher order equations}
+
+\nextex
+\example{Example \en}
+Consider the differential equation
+\nexteqn
+\[
+y''' + 2y'' + 3y' -4y = e^t.\tag{\eqn}
+\]
+There is an elaborate theory of such equations which generalizes
+what we did in Chapter VII for
+second order equations.   However, there is another
+ approach which replaces the
+equation by a {\it first order system\/}.
+  Introduce new variables as follows:
+\begin{align*}
+x_1 &= y \\
+x_2 &= y' = x_1' \\
+x_3 &= y'' = x_2'.
+\end{align*}
+From the differential equation,
+\[
+x_3' = y''' = 4y - 3y' - 2y'' + e^t.
+\]
+
+Hence, we may replace the single equation (\eqn) by the
+system
+\begin{align*}
+x_1' &= x_2 \\
+x_2' &= x_3 \\
+x_3' &= 4x_1  - 3x_2 - 2x_3 + e^t.
+\end{align*}
+\endexample
+
+The same analysis may in fact be applied to any system 
+of any order in any number of variables. 
+
+\example{Example \Couple, revisited}
+Introduce additional variables $x_3 = x_1'$ and $x_4 = x_2'$.
+Then from (\ref{Pair}), we have
+\begin{align*}
+x_3' &= x_1'' = -\frac{2k}m x_1 + \frac km x_2 \\
+x_4' &= x_2'' = \frac km x_2 - \frac{2k}m x_2.
+\end{align*}
+Putting this all together yields the first order system in
+4 variables
+\begin{align*} 
+x_1' &= x_3\\
+x_2' &= x_4 \\
+x_3' &=  -\frac{2k}m x_1 + \frac km x_2\\
+x_4' &= \frac km x_2 - \frac{2k}m x_2.
+\end{align*}
+To completely specify the solution, we need (in the new notation)
+to specify the 4 initial values $x_1(0), x_2(0), x_3(0) = x_1'(0)$
+and $x_4(0) = x_2'(0)$.
+\endexample
+
+By similar reasoning, any system may be reduced to a first order
+system involving variables $x_1, x_2, \dots, x_n$ each of
+which is a function of the independent variable $t$.   Using the
+notation of $\R^n$, such a collection of variables may be
+combined in a single {\it vector\/} variable
+\[
+\x = \lb x_1, x_2, \dots, x_n \rb
+\]
+which is assumed to be a vector valued function 
+$\x(t)$  of $t$.  For each component $x_i$, its derivative
+is supposed to be a function
+\[
+\frac{dx_i}{dt} = f_i(x_1,x_2,\dots,x_n,t) = f_i(\x,t).
+\]
+We may summarize this in a single vector equation
+\[
+\frac{d\x}{dt} = \f(\x,t)
+\]
+where the vector valued function $\f$ has components the
+scalar functions $f_i$ for $i=1,2,\dots, n$.
+
+The most important special case is that of {\it linear
+systems}.   In this case the component functions have
+the special form
+\[
+f_i(x_1,x_2,\dots,x_n,t) = a_{i1}(t)x_1 + a_{i2}(t)x_2 + 
+\dots +a_{in}(t)x_n + g_i(t)
+\]
+for $i = 1,2,\dots,n$.  That is, each component function
+depends {\it linearly\/} on the dependent variables
+$x_1, x_2, \dots, x_n$ with coefficients  $a_{ij}(t)$
+which as indicated may depend on $t$.    In this case, the
+system $\dfrac{d\x}{dt} = \f(\x, t)$ may be written out
+in `longhand' as
+\begin{align*} 
+\frac{dx_1}{dt} &= a_{11}(t)x_1 + a_{12}(t)x_2 + \dots + a_{1n}(t)x_n + g_1(t) \\
+\frac{dx_2}{dt} &= a_{21}(t)x_1 + a_{22}(t)x_2 + \dots + a_{2n}(t)x_n  + g_2(t)\\
+             &\vdots \\
+\frac{dx_n}{dt} &= a_{n1}(t)x_1 + a_{n2}(t)x_2 + \dots + a_{nn}(t)x_n + g_2(t) .
+\end{align*}
+You should compare this with each of the examples discussed in this
+section.   You should see that they are all linear systems.
+
+The above notation is quite cumbersome, and clearly it will be
+easier to follow if we use the notation of vectors in $\R^n$
+as above.  To exploit this fully for linear systems we need
+additional notation and concepts.   To this end, we shall study
+some
+{\it linear algebra\/}, one purpose of which is to make
+higher dimensional problems look one-dimensional. 
+  In the next sections we shall introduce
+notation so that the above {\it linear system\/} 
+may be rewritten
+\[
+\frac{d\x}{dt} =  A(t)\x + \g(t).
+\]
+With this notation, much of what we discovered about first
+order equations in Chapter VI will apply
+to systems.  
+\bigskip
+\includeexercises{chap10.ex1}
+\bigskip
+
+\nextsec{Matrix Algebra}
+\head \sn. Matrix Algebra \endhead
+
+A rectangular array
+\[
+\bm a_{11} & a_{12} &\dots & a_{1n} \\
+a_{21} & a_{22} &\dots & a_{2n} \\
+\vdots & \vdots &\dots &\vdots \\
+ a_{m1} & a_{m2} &\dots & a_{mn} \em
+\]
+is called an $m\times n$ {\it matrix}.   It has $m$ {\it rows\/}
+and $n$ columns.  The quantities $a_{ij}$ are called the {\it
+entries\/} of the matrix.  The first index $i$ tells you which 
+{\it row\/} it is in, and the second index $j$ tells you which
+{\it column\/} it is in.
+\outind{matrix}
+
+\example{Examples}
+\begin{align*}
+\bm -2k & k \\
+     k & -2k \em
+\qquad &\text{is a $2\times 2$ matrix} \\
+\vspace{10pt}
+\bm 1 & 2 & 3 & 4 \\
+    4 & 3 & 2 & 1 \em
+\qquad&\text{is a $2\times 4$ matrix} \\
+\vspace{10pt}
+\bm x_1 & x_2 & x_3 & x_4 \em
+\qquad&\text{is a $1\times 4$ matrix}\\
+\bm x_1 \\ x_2 \\ x_3 \\ x_4 \em
+\qquad&\text{is a $4\times 1$ matrix}\\
+\end{align*}
+\endexample
+
+Matrices of various sizes and shapes arise in many situations.
+For example, the first matrix listed above is the {\it matrix
+of coefficients\/} on the right hand side of the system
+\begin{align*}
+m\frac{d^2x_1}{dt^2} &= -2kx_1 + kx_2 \\
+m\frac{d^2x_2}{dt^2} &= kx_1 - 2kx_2.
+\end{align*}
+in Example \Couple\  of the previous section.
+
+In computer programming, a matrix is called a {\it 2-dimensional array}
+and the entry in row $i$ and column $j$ is usually denoted
+$a[i,j]$ instead of $a_{ij}$.   As in programming, it is
+useful to think of the entire array as a single entity, so
+we use a single letter to denote it
+\[
+A =
+\bm a_{11} & a_{12} &\dots & a_{1n} \\
+a_{21} & a_{22} &\dots & a_{2n} \\
+\vdots & \vdots &\dots &\vdots \\
+a_{m1} & a_{m2} &\dots & a_{mn} \em .
+\]
+
+There are various different special arrangements which play important
+roles.   A matrix with the same number of rows as columns is called
+a {\it square\/} matrix.   
+Matrices of coefficients for linear systems of
+differential equations are usually square.
+A $1\times 1$ matrix
+\[
+\bm a \em
+\]
+is not logically distinguishable from a {\it scalar\/}, so we
+make no distinction between the two concepts.
+A matrix with one row
+\[
+\a = \bm a_1 & a_2 & \dots & a_n \em
+\]
+is called a {\it row vector\/} and a matrix with one column
+\[
+\a = \bm a_1 \\ a_2 \\ \vdots \\ a_n \em
+\]
+is called a {\it column vector}.
+Logically, either a $1\times n$ row vector or an $n\times 1$ column
+with real entries
+is just an $n$-tuple, i.e., an element of $\R^n$.   However, as we
+shall see, operations with row vectors are sometimes different than
+with column vectors.   We may identify either the set of all row
+vectors with real entries {\it or\/} the set of all column vectors with
+real entries with the set $\R^n$.    For reasons that will become
+clear shortly, we shall usually make the latter choice.  That is, we shall
+ordinarily think of an element of $\R^n$ as a column vector
+\[
+\x = \bm x_1\\ x_2\\ \vdots \\ x_n \em.
+\]
+More generally, it should be noted that the information contained in
+any $m\times n$ matrix has two parts.  There are the $mn$ entries
+which, in the real case, specify, in some order,
+ an element of $\R^{mn}$, and
+there is also the arrangement of the entries in rows and columns.
+
+Matrices are denoted in different ways by different authors.  Most
+people use ordinary (non-boldface) capital letters, e.g., $A, B, X, Q$.
+However, one sometimes wants to use boldface for row or column
+vectors, as above, when the relationship to $\R^n$ is being emphasized.
+One may also use lower case non-boldface letters for row vectors
+or column vectors.   Since there is no consistent rule about this,
+you should make sure you know when a symbol represents a matrix
+which is not a scalar.
+
+Matrices may be combined in various useful ways.   Two matrices
+{\it of the same size and shape\/} are added by adding corresponding
+entries.   You are not allowed to add matrices with different shapes.
+
+\example{Examples}
+\begin{gather*}
+\bm{} 1 & -1 \\ 2 & 1 \\ 0 & 1 \em
++ \bm{} 1 & 1 \\ 0 & 3 \\ -1 & -2 \em
+= \bm{} 2 & 0 \\ 2 & 4 \\ -1 & -1 \em \\
+\\
+\bm x+y \\ y \\ 0 \em + \bm -y \\ -y \\ x\em = \bm x \\ 0 \\ x \em.
+\end{gather*}
+\endexample
+The $m\times n$ matrix with zero entries is called a {\it zero matrix}
+and is usually just denoted $0$.   Since zero matrices with different
+shapes are not the same, it is sometimes necessary to indicate the
+shape by using subscripts, as in  `$0_{mn}$', but usually the context makes it
+clear which zero matrix is needed.   The zero matrix of a given shape
+has the property that if you add it to any matrix $A$ of the same shape,
+you get the $A$ again as the result.
+
+A matrix may also be multiplied by a scalar by multiplying each entry
+of the matrix by that scalar.   More generally, we may multiply
+several matrices with the same shape by different scalars and add up
+the result:  
+\[
+c_1A_1 + c_2A_2 + \dots + c_kA_k
+\]
+where $c_1, c_2, \dots, c_k$ are scalars and $A_1, A_2, \dots, A_k$
+are $m\times n$ matrices with the same $m$ and $n$.   This process is
+called {\it linear combination}.
+
+\example{Example}
+\[
+2\bm 1 \\ 0\\ 1\\0 \em + (-1)\bm 0 \\ 1\\ 0 \\ 1 \em
++ 3\bm 1\\ 1\\ 1\\ 1 \em =
+\bm 2 \\ 0\\ 2\\0 \em + \bm {}0 \\ -1\\ 0 \\ -1 \em
++ \bm 3\\ 3\\ 3\\ 3 \em = \bm 5 \\ 2 \\ 5 \\ 2 \em.
+\]
+\endexample
+
+Sometimes it is convenient to put the scalar on the other side
+of the matrix, but the meaning is the same: each entry of the
+matrix is multiplied by the scalar.
+\[
+cA = Ac.
+\]
+\medskip
+
+We shall also have occasion to consider matrix valued {\it
+functions\/} $A(t)$ of a scalar variable $t$.  That means that
+each entry $a_{ij}(t)$  is a function of $t$.   Such functions
+are differentiated or integrated entry by entry.  
+
+\example{Examples}
+\begin{align*}
+\frac{d}{dt}\bm e^{2t} & e^{-t} \\ 2e^{2t} & -e^{-t} \em
+ &= \bm 2e^{2t} & -e^{-t} \\ 4e^{2t} & e^{-t} \em \\
+\vspace{10pt}
+\int_0^1 \bm t \\ t^2 \em \,dt = \bm 1/2 \\ 1/3 \em
+\end{align*}
+\endexample
+There are various ways to {\it multiply\/} matrices.  For example, one
+sometimes multiplies matrices of the same shape by multiplying
+corresponding entries.   This is useful only in very special circumstances.
+Another kind of multiplication generalizes the {\it dot product\/}
+of vectors.   If 
+\[
+\bm a_1 & a_2 & \dots & a_n \em
+\]
+is a row vector of size $n$, and 
+\[
+\bm b_1 \\ b_2 \\ \vdots \\ b_n \em
+\]
+is a column vector of the same size $n$, the row by column product
+is defined to
+be the sum of the products of corresponding entries
+\[
+\bm a_1 & a_2 & \dots & a_n \em
+\bm b_1 \\ b_2 \\ \vdots \\ b_n \em
+= a_1b_1 + a_2b_2 + \dots + a_nb_n = \sum_{i=1}^n a_ib_i.
+\]
+This product is of course a {\it scalar\/}, and except for the
+distinction between row and column vectors, it is the same as the
+notion of dot product for elements of $\R^n$ introduced in
+Chapter I, Section 3.
+You should be familiar with its properties.
+\outind{matrix product}
+\outind{product of matrices}
+
+More generally, let $A$ be an $m\times n$ matrix and $B$ an
+$n\times p$ matrix.  Then each row of $A$ has the same size as
+each column of $B$.   The {\it matrix product\/}  $AB$ is
+defined to be the $m\times p$ matrix with $i,j$ entry the
+row by column product of the $i$th row of $A$ with the
+$j$th column of $B$.  Thus, if $C = AB$, then $C$ has the same
+number of rows as $A$, the same number of columns as $B$, and
+\[
+c_{ij} = \sum_{r=1}^n a_{ir}b_{rj}.
+\]
+
+\example{Examples}
+\begin{align*}
+\undersetbrace{2\times 2}\to
+{\bm 2 & 1 \\ 1 & 0 \em}
+\undersetbrace{2\times 3}\to
+{\bm 1 & 0 & 1 \\ -1 & 2 &  1 \em}
+ &= \undersetbrace{2\times 3}\to
+{\bm 2-1 & 0+2 & 2+1 \\ 1 - 0 & 0 + 0 & 1 + 0 \em} \\
+ &= \bm 1 & 2 & 3 \\ 1 & 0 & 1 \em \\
+\vspace{10pt}
+\undersetbrace{3\times 2}\to
+{\bm 1 & -1 \\ 1 & 0 \\  2 & 1 \em}
+\undersetbrace{2\times 1}\to
+{\bm x \\ y \em} &=
+\undersetbrace{3\times 1}\to{\bm x - y \\ x \\ 2x + y \em}
+\end{align*}
+\endexample
+
+The most immediate use for matrix multiplication is a simplification
+of the notation used to describe a linear system.
+We have
+\smallskip
+\[
+\bm a_{11} & a_{12} &\dots & a_{1n} \\
+a_{21} & a_{22} &\dots & a_{2n} \\
+\vdots & \vdots &\dots &\vdots \\
+ a_{n1} & a_{n2} &\dots & a_{nn} \em
+\bm x_1 \\ x_2 \\ \vdots \\ x_n \em
+=
+\bm
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n  \\
+ a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n \\
+             \vdots \\
+ a_{n1}x_1 + a_{n2}x_2 + \dots + a_{nn}x_n \em.
+\]
+\smallskip
+\noindent
+(Note that the matrix on the right is an $n\times 1$ column vector
+and each entry, although expressed as a complicated sum, is a scalar.)
+With this notation, the linear system
+\begin{align*} 
+\frac{dx_1}{dt} &= a_{11}(t)x_1 + a_{12}(t)x_2 + \dots + a_{1n}(t)x_n + g_1(t) \\
+\frac{dx_2}{dt} &= a_{21}(t)x_1 + a_{22}(t)x_2 + \dots + a_{2n}(t)x_n  + g_2(t)\\
+             &\vdots \\
+\frac{dx_n}{dt} &= a_{n1}(t)x_1 + a_{n2}(t)x_2 + \dots + a_{nn}(t)x_n + g_2(t) .
+\end{align*}
+may be rewritten
+\[
+\frac{d\x}{dt} = A(t)\x + \g(t)
+\]
+where
+\begin{align*}
+\x = \x(t) &= \bm x_1(t) \\ x_2(t)\\ \vdots \\ x_n(t) \em \\
+\vspace{10pt}
+A(t) &=
+\bm a_{11}(t) & a_{12}(t) &\dots & a_{1n}(t) \\
+a_{21}(t) & a_{22}(t) &\dots & a_{2n}(t) \\
+\vdots & \vdots &\dots &\vdots \\
+ a_{n1}(t) & a_{n2}(t) &\dots & a_{nn}(t) \em \\
+\vspace{10pt}
+\g(t) &=  \bm g_1(t) \\ g_2(t)\\ \vdots \\ g_n(t) \em
+\end{align*}
+\nextex
+\example{Example \en}
+The system
+\begin{align*}
+x_1' &= x_2 \\
+x_2' &= x_3 \\
+x_3' &= 4x_1  - 3x_2 - 2x_3 + e^t.
+\end{align*}
+may be rewritten
+\[
+\frac{d}{dt} \bm x_1 \\ x_2 \\ x_3 \em
+=
+\bm{} 0 & 1 & 0  \\
+    0 & 0 & 1  \\
+    4 & -3 & -2 \em
+\bm x_1 \\ x_2 \\ x_3 \em
++ \bm 0 \\ 0 \\ e^t \em . 
+\]
+\endexample
+\bigskip
+Another important
+application of matrices occurs in 
+the analysis of  large systems of 
+simultaneous linear algebraic equations.   We shall have much more
+to say about this later in this chapter.   In addition, matrices
+and linear algebra are used extensively in practically every branch
+of science and engineering.   
+
+
+
+\bigskip
+\includeexercises{chap10.ex2}
+\bigskip
+\nextsec{Formal Rules}
+\head \sn. Formal Rules \endhead
+
+The {\it usual rules of algebra\/} apply to matrices with a few
+exceptions.   Here are {\it some\/} of these rules and
+warnings about when they apply.
+
+The {\it associative law\/} 
+\[
+A(BC) = (AB)C
+\]
+works as long as the shapes of the matrices match.  That means that
+the length of each row of $A$ must be the same as the length of each
+column of $B$ and the length of each row of $B$ must be the same as
+the length of each column of $C$.  Otherwise, none of the products
+in the formula will be defined.   The proof of the associative law
+requires some fiddling with indices and is left for the Exercises.
+\outind{associative law for matrices}
+
+For each positive integer $n$, the $n\times n$ matrix
+\[
+I = \bm 1 & 0 & \dots & 0 \\
+        0 & 1 & \dots & 0 \\
+        \vdots & \vdots & \dots & \vdots \\
+        0 & 0 & \dots & 1 \em
+\]
+is called the {\it identity matrix\/} of degree $n$.  As in the case of the
+zero matrices, we get a different identity matrix for each $n$, and
+if we need to note the dependence on $n$, we shall use the notation
+$I_n$.   The identity matrix of degree $n$
+ has the property  $IA = A$ for any matrix $A$ with $n$ rows and
+the property $BI = B$ for any matrix $B$ with $n$ columns.   The entries
+of the identity matrix are usually denoted $\delta_{ij}$.
+$\delta_{ij} = 1$ if $i = j$ (the {\it diagonal entries\/}) and
+$\delta_{ij} = 0$ if $i\not= j$.   The indexed expression
+$\delta_{ij}$ is often called the {\it Kronecker $\delta$}.
+\outind{identity matrix}
+
+The {\it commutative law\/}  $AB = BA$ is {\it not generally true\/} for
+matrix multiplication.   First of all, the products won't be defined
+unless the shapes match.   Even if the shapes match on both sides,
+the resulting products may have different sizes.  Thus, if $A$
+is $m\times n$ and $B$ is $n\times m$, then $AB$ is $m\times m$
+and $BA$ is $n\times n$.  Finally, even if the shapes match
+and the products have the same sizes (if both $A$ and $B$ are
+$n\times n$), it may still be true that the products are different.
+\outind{commutative law, fails for matrix product}
+
+\nextex
+\example{Example \en}
+Suppose
+\[
+A = \bm 1 & 0 \\ 0 & 0 \em\qquad B = \bm 0 & 0 \\ 1 & 0 \em.
+\]
+Then
+\[
+AB = \bm 0 & 0 \\ 0 & 0 \em = 0 \qquad  BA = \bm 0 & 0 \\ 1 & 0 \em \not= 0
+\]
+so $AB \not= BA$.   Lest you think that this is a specially concocted
+example, let me assure you that it is the exception rather than the
+rule for the commutative law to hold for a randomly chosen pair of
+square matrices.
+\endexample
+
+Another rule of algebra which
+holds for scalars but {\it does not generally hold\/} for matrices is the
+{\it cancellation law}.   
+
+\nextex
+\example{Example \en}
+Let
+\[
+A = \bm 1 & 0 \\ 0 & 0 \em\qquad B = \bm 0 & 0 \\ 1 & 0 \em
+\qquad C = \bm 0 & 0 \\ 0 & 1 \em.
+\]
+Then
+\[
+AB =  0\qquad\text{and}\qquad AC = 0
+\]
+so we cannot necessarily conclude from $AB = AC$ that $B = C$.
+\endexample
+
+The {\it distributive laws\/}
+\begin{align*}
+A(B + C) &= AB + AC \\
+(A + B)C &= AC + BC
+\end{align*}
+do hold as long as the operations are defined.  Note however
+that since the commutative law does not hold in general, the
+distributive law must be stated for both possible orders of
+multiplication.
+
+Another useful rule is
+\[
+c(AB) = (cA)B = A(cB)
+\]
+where $c$ is a scalar and $A$ and $B$ are matrices whose shapes
+match so the products are defined.
+
+The rules of calculus apply in general to matrix valued functions
+except that you have to be careful about orders whenever products
+are involved.   For example, we have
+\[
+\frac{d}{dt}(A(t)B(t)) = \frac{d A(t)}{dt}B(t) + A(t)\frac{d B(t)}{dt}
+\]
+for matrix valued functions $A(t)$ and $B(t)$ with matching shapes.
+
+We have just listed {\it some\/} of the rules of algebra and calculus,
+and we haven't discussed any of the proofs.   Generally, you can
+be confident that matrices can be manipulated like scalars if you
+are careful about matters like commutativity discussed above.
+However, in any given case, if things don't seem to be working
+properly, you should look carefully to see if some operation you
+are using is valid for matrices.
+
+\bigskip
+\includeexercises{chap10.ex3}
+\bigskip
+
+\nextsec{Linear Systems of Algebraic Equations}
+\head \sn.  Linear Systems of Algebraic Equations \endhead
+
+Before studying the problem of solving a linear system of
+differential equations, we tackle the simpler problem
+of solving a linear system of simultaneous algebraic equations.
+This problem is important in its own right, and, as we shall see,
+we need to be able to solve linear algebraic systems in order
+to be able to solve linear systems of differential equations.
+\outind{linear system of algebraic equations}
+
+We start with a problem you ought to be able to solve from what
+you learned in high school
+
+\nextex
+\example{Example \en}  Consider the algebraic system
+\nexteqn
+\begin{align*}
+x_1 + 2x_2 - x_3 &= 1 \\
+x_1 - x_2 + x_3 &= 0 \\
+x_1 + x_2 + 2x_3 & = 1
+\tag{\eqn}
+\end{align*}
+which is a system of 3 equations in 3 unknowns $x_1, x_2, x_3$.
+This system may also be written more compactly as a matrix
+equation
+\[
+\bm 1 & 2 & -1 \\ 1 & -1 & 1 \\ 1 & 1 & 2 \em \bm x_1 \\ x_2 \\ x_2 \em
+= \bm 1 \\ 0 \\ 1 \em.
+\]
+
+The method we shall use to solve (\eqn) is the method of {\it elimination\/}
+of unknowns.    Subtract the first equation from each of the
+other equations to eliminate $x_1$ from those equations.
+\begin{align*}
+x_1 + 2x_2 - x_3 &= 1 \\
+\hskip 30pt -3x_2 + 2x_3 &= -1 \\
+\hskip 30pt -x_2  + 3x_3 &= 0 
+\end{align*}
+Now subtract 3 times the third equation from the second equation.
+\begin{align*}
+x_1 + 2x_2 - x_3 &= 1 \\
+   -7x_3 &= -1 \\
+ -x_2  + 3x_3 &= 0 
+\end{align*} 
+ which may be reordered to obtain
+\begin{align*}
+x_1 + 2x_2 - x_3 &= 1 \\
+ -x_2  + 3x_3 &= 0 \\
+      7x_3 &= 1 .
+\end{align*} 
+We may now solve as follows.  According to the last equation
+$x_3 = 1/7$.  Putting this in the second equation yields
+\[
+-x_2 + 3/7 = 0\qquad\text{or}\qquad x_2 = 3/7.
+\]
+Putting $x_3 = 1/7$ and $x_2 = 3/7$ in the first equation yields
+\[
+x_1 +2(3/7) -1/7 = 1\qquad\text{or}\qquad x_1 = 1 -5/7 = 2/7.
+\]
+Hence, we get 
+\begin{align*}
+x_1 &= 2/7 \\
+x_2 &= 3/7 \\
+x_3 &= 1/7 
+\end{align*}
+
+To check, we calculate
+\[
+\bm 1 & 2 & -1 \\ 1 & -1 & 1 \\ 1 & 1 & 2 \em \bm 2/7 \\ 3/7 \\ 1/7 \em
+= \bm 1 \\ 0 \\ 1 \em.
+\]
+The above example illustrates the general procedure which may be applied
+to any system of $m$ equations in $n$ unknowns
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n  &= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n  &= b_2 \\
+&\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n & = b_m
+\end{align*}
+or, using matrix notation,
+\[
+A\x = \b
+\]
+with 
+\begin{align*}
+A &= \bm
+a_{11}& a_{12} & \dots & a_{1n} \\
+a_{21} & a_{22} & \dots & a_{2n} \\
+\vdots &\vdots & \hdots & \vdots \\
+a_{m1} & a_{m2} & \dots & a_{mn} \em
+\\
+\vspace{10pt}
+\x &= \bm x_1 \\ x_2 \\ \vdots \\ x_n \em \\
+\vspace{10pt}
+\b &= \bm b_1 \\ b_2 \\ \vdots \\ b_m \em.
+\end{align*}
+
+As in Example \en,  a
+sequence of elimination steps
+yields a set of equations each involving
+at least one fewer unknowns than the one above it.   This
+process is called {\it Gaussian reduction\/} after the famous
+19th century German mathematician C. F. Gauss.   To complete the
+\outind{Gaussian reduction}
+solution, we start with the last equation and substitute back
+recursively in each of the previous equations.   This process is
+called appropriately {\it back-substitution}.   The combined
+\outind{back substitution}
+process will generally
+lead to a complete solution, but, as we shall see later, there can
+be some difficulties.
+
+\medskip
+\subhead Row Operations and Gauss-Jordan reduction\endsubhead
+We now consider the general process of solving a system of
+equations of the form
+\[
+AX = B
+\]
+where $A$ is an $n\times n$ matrix, $X$ is an $n\times p$
+ matrix
+of {\it unknowns\/}, and $B$ is an $n\times p$ matrix of known quantities.
+Usually, $p$ will be 1, so $X$ and $B$ will be column vectors, but
+the procedure is basically the same for any $p$.  For the moment we
+emphasize the case in which the coefficient matrix $A$ is {\it square\/},
+but we shall return later to the general case ($m$ and $n$ possibly
+different).   
+   
+If you look carefully at Example \en, you will see that we employed
+three basic types of operations:
+
+\roster
+\item adding or subtracting a multiple of one equation from another,
+\item multiplying or dividing an equation by a non-zero scalar,
+\item interchanging two equations.
+\endroster
+
+These operations correspond when using matrix notation to applying
+the following operations to the matrices on both sides of the
+equation $AX = B$:
+
+\roster
+\item adding or subtracting one row of a matrix to another,
+\item multiplying or dividing one row of a matrix by a non-zero
+scalar,
+\item interchanging two rows of a matrix.
+\endroster
+
+These operations are called {\it elementary row operations\/}.
+\outind{row operations, elementary}
+\outind{elementary row operations}
+
+An important principle about row operations that we shall use
+over and over again is the following:   {\it To apply a row operation
+to a product $AX$, it suffices to apply the row operation to
+$A$ and then to multiply the result by $X$}.  It is easy to convince
+yourself that this rule is valid by looking at examples.  Thus,
+for the product,
+\[
+\bm a & b \\ c & d \em \bm x \\ y \em  = \bm ax + by \\ cx + dy \em
+\]
+adding the first row to the second yields
+\[
+\bm ax + by \\ ax + by + cx + dy \em =
+\bm ax + by \\ (a + c)x + (b + d) y \em.
+\]
+On the other hand, adding the rows of the coefficient matrix yields
+\[
+\bm a & b \\ c & d \em \to \bm a & b \\ a + c & b + d \em,
+\]
+and multiplying the transformed matrix by $\displaystyle{\bm x \\ y \em}$
+yields
+\[
+\bm ax + by \\ (a + c)x + (b + d) y \em
+\]
+as required.
+(See the appendix to this section for a general proof.)
+
+It is now clear how to proceed in general to solve a system of
+the form 
+\[
+AX = B.
+\]
+Apply row operations to both sides until we obtain a system which
+is easy to solve (or for which it is clear there is no solution.)
+Because of the principle just enunciated, we may apply the row
+operations on the left just to the matrix $A$ and omit reference
+to $X$ since that is not changed.   For this reason, it is usual
+to collect $A$ on the left and $B$ on the right 
+in a so-called {\it augmented matrix}
+\[
+[A\,| \,B]
+\]
+where the `$|$' (or other appropriate divider) separates the two
+matrices.    We illustrate this by considering another system
+of 3 equations in 3 unknowns.
+\nextex
+\example{Example \en}
+\begin{align*}
+ x_1 + x_2 - x_3 & = 0 \\
+2 x_1 {\hskip 25pt} + x_3 & = 2 \\
+x_1 - x_2 + 3x_3 &= 1 \\
+\intertext{or}
+\bm 1 & 1 & -1 \\ 2 & 0 & 1 \\ 1 & -1 & 3 \em
+\bm x_1 \\ x_2 \\ x_2 \em &= \bm 0 \\ 2 \\  1 \em
+\end{align*}
+We first do the Gaussian part of the reduction but for the
+augmented matrix rather than the original set of equations.
+\begin{align*}
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 2 & 0 & 1 & | & 2 \\ 1 & -1 & 3 & | & 1\em
+&\to
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 0 & -2 & 3 & | & 2 \\ 1 & -1 & 3 & | & 1\em
+\qquad -2[r1] + r2 \\
+&\to
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 0 & -2 & 3 & | & 2 \\ 0 & -2 & 4 & | & 1\em
+\qquad -[r1] + r3 \\
+&\to
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 0 & -2 & 3 & | & 2 \\ 0 & 0 & 1 & | & -1\em
+\qquad -[r2] + r3 
+\end{align*}
+At this point the corresponding system is
+\begin{align*}
+x_1 + x_2 - x_3  &= 0 \\
+     -2 x_2 + 3x_3 &= 2 \\
+              x_3 &= -1 
+\end{align*}
+so we could now apply back-substitution to find the solution.   However,
+it is better for matrix computation to use an essentially equivalent
+process.  Starting with the last row, use the leading non-zero entry
+to eliminate the entries above it.  (That corresponds to substituting
+the value of the corresponding unknown in the previous equations.)
+This process is called {\it Jordan reduction}.
+\outind{Jordan reduction}
+\begin{align*}
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 0 & -2 & 3 & | & 2 \\ 0 & 0 & 1 & | & -1\em
+&\to
+\bm
+{}
+ 1 & 1 & -1& | & 0 \\ 0 & -2 & 0 & | & 5 \\ 0 & 0 & 1 & | & -1\em
+\qquad -3[r3] + r2 \\ 
+&\to
+\bm
+{}
+ 1 & 1 & 0& | & -1 \\ 0 & -2 & 0 & | & 5 \\ 0 & 0 & 1 & | & -1\em
+\qquad [r3] + r1 \\ 
+&\to
+\bm
+{}
+ 1 & 1 & 0& | & -1 \\ 0 & 1 & 0 & | & -5/2 \\ 0 & 0 & 1 & | & -1\em
+\qquad -(1/2)[r2]\\ 
+&\to
+\bm
+{}
+ 1 & 0 & 0& | & -3/2 \\ 0 & 1 & 0 & | & -5/2 \\ 0 & 0 & 1 & | & -1\em
+\qquad -[r2] + r1 
+\end{align*}
+This corresponds to the system
+\[
+\bm 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \em X = 
+\bm 
+{}-3/2 \\ -5/2 \\ -1 \em
+\qquad\text{or}\qquad X = 
+\bm {}-3/2 \\ -5/2 \\ -1 \em
+\]
+which is the desired solution:  $x_1 = -3/2, x_2 = -5/2, x_3 = -1$.
+(Check it by plugging back into the original matrix equation.)
+\endexample
+
+The combined method employed in the previous example is called
+{\it Gauss-Jordan reduction}.   The strategy is clear.  Use a sequence
+\outind{Gauss--Jordan reduction}
+of row operations to reduce the coefficient matrix $A$ to the identity
+matrix I.   {\it If this is possible\/}, the same sequence of row operations
+will transform the matrix $B$ to a new matrix $B'$, and the corresponding
+matrix equation will be
+\[
+IX = B' \qquad\text{or}\qquad X = B'.
+\]
+
+It is natural at this point to conclude that $X = B'$ is the
+solution of the original system, but there is a subtlety
+involved here.
+The method  outlined above shows the following: {\it if there
+is a solution\/}, and if it is possible to reduce $A$ to $I$ by a sequence
+of row operations, then the solution is $X = B'$.   In essence, this says
+that if the solution exists, then it is unique.   It does not demonstrate
+that any solution exists.    Why are we justified in concluding
+that we do in fact have a solution when the reduction is possible?
+	To understand
+that, first note that {\it every possible row operation is reversible}.
+Thus, to reverse the effect of adding a multiple of one row to another,
+just subtract the same multiple of the first row from the (modified)
+second row.   To reverse the effect of multiplying a row by a non-zero
+scalar, just multiply the (modified) row by the reciprocal of that
+scalar.  Finally, to reverse the effect of interchanging two rows,
+just interchange them back.  Hence, the effect of any sequence of
+row operations on a system of equations is to produce
+an {\it equivalent\/} system of equations.   Anything which is
+a solution of the initial system is necessarily a solution
+of the transformed system and vice-versa.
+Thus, the system  $AX = B$ is equivalent to the system
+$X = IX = B'$, which is to say $X = B'$ is a solution
+of $AX = B$.
+\outind{row operations, reversibility of}
+
+
+\subhead Elementary Matrices and the Effect of Row Operations on Products
+\endsubhead
+Each of the elementary row operations may be accomplished by multiplying
+by an appropriate square matrix on the left.   Such matrices of course
+should have the proper size for the matrix being multiplied.
+\outind{elementary matrices}
+
+To add $c$ times the $j$th row of a matrix to the $i$th row (with $i\not = j$),
+multiply that matrix on the left by the matrix $E_{ij}(c)$ which has diagonal
+entries 1, the $i,j$-entry $c$, and all other entries 0.   This
+matrix may also be obtained by applying the specified row operation
+to the identity matrix.   You should try out a few examples to convince
+yourself that it works.  
+
+\example{Example} For $n = 3$,
+\[
+E_{13}(-4) = \bm {}
+         1 & 0 & -4 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \em.
+\]
+\endexample
+
+To multiply the $i$th row of a matrix by $c \not= 0$, multiply that matrix 
+on the left by the matrix $E_i(c)$ which has diagonal entries 1 except for
+the $i,i$-entry which is $c$ and which has all other entries zero.   $E_i(c)$
+may also be obtained by multiplying the $i$th row of the identity matrix by
+$c$.
+
+\example{Example}  For $n = 3$,
+\[
+E_2(6) = \bm 1 & 0 & 0 \\ 0 & 6 & 0 \\ 0 & 0 & 1 \em.
+\]
+\endexample
+
+To interchange the $i$th and $j$th rows of a matrix, with 
+$i\not = j$, multiply by the matrix on the left by the matrix $E_{ij}$
+which is obtained from the identity matrix by interchanging its
+$i$th and $j$th rows.   The diagonal entries of $E_{ij}$ are 1 except
+for its $i,i,$ and $j,j$-entries which are zero.   Its $i,j$ and
+$j,i$-entries are both 1, and all other entries are zero.
+
+\example{Examples}
+For $n = 3$,
+\[
+E_{12} = \bm 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \em
+\qquad\qquad E_{13} = \bm 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \em.
+\]
+
+Matrices of the above type are called {\it elementary matrices}.
+
+The fact that row operations may be accomplished by matrix multiplication
+by elementary matrices
+has many important consequences.   Thus, let $E$ be an elementary matrix
+corresponding to a certain elementary row operation.   The associative
+law tells us
+\[
+  E(AB) = (EA)B
+\]
+as long as the shapes match.   However, $E(AB)$ is the result of
+applying the row operation to the product $AB$ and $(EA)B$ is the
+result of applying the row operation to $A$ and then multiplying
+by $B$.   This establishes the important principle enunciated earlier
+in this section and upon which Gauss-Jordan reduction is based.
+\bigskip
+\includeexercises{chap10.ex4}
+\bigskip
+
+\nextsec{Singularity, Pivots, and Invertible Matrices}
+\head \sn.   Singularity, Pivots, and Invertible Matrices \endhead
+Let $A$ be a square coefficient matrix.   Gauss-Jordan reduction 
+will work  as indicated in the previous section
+ if $A$ can be reduced by
+a sequence of elementary row operations to the identity matrix $I$.
+A square matrix with this property is called {\it non-singular\/}
+or {\it invertible}.   (The reason for the latter terminology will
+be clear shortly.)  If it cannot be so reduced, it is called 
+{\it singular}.  Clearly, there are singular matrices.   For example,
+\outind{singular matrix}
+\outind{matrix, singular}
+\outind{matrix, non-singular}
+\outind{non-singular matrix}
+the matrix equation
+\[
+\bm 1 & 1 \\ 1 & 1 \em \bm x_1 \\ x_2 \em = \bm 1 \\ 0 \em
+\]
+is equivalent to the system of 2 equations in 2 unknowns
+\begin{align*}
+x_1 + x_2 &= 1 \\
+x_1 + x_2 & = 0
+\end{align*}
+which is {\it inconsistent\/} and has no solution.   Thus Gauss-Jordan
+reduction certainly can't work on its coefficient matrix.
+\outind{system, inconsistent}
+\outind{inconsistent system}
+
+To understand how to
+tell if a square matrix $A$ is non-singular or not, we
+look more closely at the Gauss-Jordan reduction process.   The
+basic strategy is the following.   Start with the first row, and
+ use type (1) row operations
+to eliminate all entries in the first column below the $1,1$-position.   A
+leading non-zero entry when used in this way is called a
+{\it pivot}.   
+There is one problem with this course of action: the leading
+non-zero entry in the first row may not
+be in the $1,1$-position.  In that case, 
+ {\it first\/}
+ interchange the first row with  a
+succeeding row which does have a non-zero entry in the
+first column. 
+ (If you think about it, you may still see
+a problem.  We shall come back to this and related issues later.)
+
+ After the first
+reduction, the coefficient matrix will have been transformed to
+a matrix of the form
+\[
+\bm p_1 & * & \hdots & * \\ 0 & * & \hdots & * \\
+\vdots & \vdots & \hdots & \vdots \\
+0 & * & \hdots & * \em
+\]
+where $p_1$ is the (first) pivot.  We now do something mathematicians
+\outind{pivot}
+(and computer scientists) love: repeat the same process for the
+submatrix consisting of the second and subsequent rows.   If we
+are fortunate, we will be able to transform $A$ ultimately by
+a sequence of elementary row operations into matrix  of the form
+\[
+\bm p_1 & * & *  &\hdots & * \\ 0 & p_2 & * & \hdots & * \\
+ 0 & 0 & p_3 &\hdots & * \\
+\vdots  &\vdots & \vdots & \hdots & \vdots \\
+0 & 0 & 0 & \hdots & p_n \em
+\]
+with pivots on the diagonal and nonzero-entries in those pivot
+positions.  (Such a matrix is also called
+an {\it upper triangular matrix\/} because it has zeroes below
+\outind{upper triangular matrix}
+the diagonal.) 
+  We may now start in the lower right hand
+corner and apply the Jordan reduction process.   In this way
+each of the entries above the diagonal pivots may be eliminated,
+so we obtain a diagonal matrix
+\[
+\bm p_1 & 0 &   0 &\hdots & 0 \\ 0 & p_2 & 0 & \hdots & 0 \\
+ 0 & 0 & p_3 &\hdots & 0 \\
+\vdots  &\vdots & \vdots & \hdots & \vdots \\
+0 & 0 & 0 & \hdots & p_n \em
+\]
+with non-zero entries on the diagonal.  We may now finish off the
+process by applying type (2) operations to the rows as needed
+and finally obtain the identity matrix $I$ as required.
+
+The above analysis makes clear that the placement of the pivots
+is what is essential to non-singularity.  What can go wrong?
+It may happen for a given row that the leading non-zero entry
+{\it is not in the diagonal position\/}, and there is no way to
+remedy this by interchanging with a subsequent row.  In that
+case, we just do the best we can.  {\it We use a pivot  as far to
+the left as possible (after suitable row interchange with a 
+subsequent row where necessary)}. 
+ In the
+extreme case, it may turn out that the submatrix we are working
+with consists only of zeroes, and there are no possible pivots
+to choose, so we stop.  For a square matrix, this
+extreme case must occur, since we will run out of
+pivot positions before we run out of rows.   Thus, the
+Gaussian reduction will still transform $A$ to an upper triangular
+matrix $A'$, but some of the diagonal entries will be zero and
+some of the last rows (perhaps only the last row) will consist
+of zeroes.   That is the singular case.
+
+\nextex
+\example{Example \en} 
+\begin{align*}
+\bm {}
+1 & 2 & -1 \\ 1 & 2 & 0 \\ 1 & 2 & -2 \em
+&\to 
+\bm{}
+1  & 2 & -1 \\ 0 & 0  & 1 \\ 0 & 0 & -1\em
+\qquad\text{clear 1st column}
+\\
+&\to 
+\bm{}
+1  & 2 & 0 \\ 0 & 0  & 1 \\ 0 & 0 & 0\em
+\qquad\text{no pivot in $2,2$ position}
+\end{align*}
+Note that the last row consists of zeroes.
+\endexample
+
+We showed in the previous section that if the $n\times n$ matrix $A$ is
+non-singular, then every equation of the form  $AX = B$ (where
+both $X$ and $B$ are $n\times p$ matrices) has a
+solution and also that the solution $X = B'$ is {\it unique}.
+On the other hand, if $A$ is {\it singular\/}, an equation of the form
+$AX = B$ {\it may\/} have a solution, but {\it there will certainly
+be matrices $B$ for which $AX = B$ has no solutions}.  
+This is best illustrated by an example.
+
+\nextex
+\example{Example \en}
+Consider the system
+\[
+\bm {}
+1 & 2 & -1 \\ 1 & 2 & 0 \\ 1 & 2 & -2 \em\x = \b
+\]
+where $\x$ and $\b$ are $3\times 1$ column vectors.  Without specifying
+$\b$, the reduction of the augmented matrix for this system
+would follow the scheme
+\[
+\bm 
+{}
+1 & 2 & -1 & b_1 \\ 1 & 2 & 0 & b_2 \\ 1 & 2 & -2 & b_3 \em
+\to 
+\bm
+{}
+1  & 2 & -1 & * \\ 0 & 0  & 1 & *\\ 0 & 0 & -1 & *\em
+\to 
+\bm
+{}
+1  & 2 & 0 & b_1' \\ 0 & 0  & 1 & b_2' \\ 0 & 0 & 0 & b_3'\em.
+\]
+Now simply choose $b_3' =1$ (or any other non-zero value), so
+the reduced system is inconsistent.  (Its last equation would be
+$0 = b_3' \not= 0$.)  Since, the two row operations may be reversed,
+we can now work back to a system with the original coefficient
+matrix which is also inconsistent.  (Check in this case that if you
+choose $b_1' = 0, b_2' = 1, b_3' = 1$, then reversing the
+operations yields $b_1 = -1, b_2 = 0, b_3 = -1$.)
+
+The general case is completely analogous.  Suppose
+\[
+  A \to \dots \to A'
+\]
+is a sequence of elementary row operations which transforms $A$ to a matrix
+$A'$ for which the last row consists of zeroes.   Choose any
+$n\times p$ matrix $B'$ for which the last row {\it does not\/}
+consist of zeroes.   Then the equation
+\[
+A'X = B'
+\]
+cannot be valid since the last row on the left will necessarily consist
+of zeroes.  Now reverse the row operations in
+the sequence which transformed $A$ to $A'$.  Let
+$B$ be the effect of this reverse sequence on $B'$.
+\begin{gather*}
+    A \leftarrow \dots \leftarrow A' \\
+    B \leftarrow \dots \leftarrow B'
+\end{gather*}
+Then the equation
+\[
+AX = B
+\]
+cannot be consistent because the equivalent system $A'X = B'$
+is not consistent.
+
+	We shall see later that when $A$ is a singular $n\times n$
+matrix, if $AX = B$ has a solution $X$ for a particular $B$,
+then it has infinitely many solutions.
+
+There is one unpleasant possibility we never mentioned.  It is
+conceivable that the standard sequence of elementary row operations
+transforms $A$ to the identity matrix, so we decide it is
+non-singular, but some other bizarre sequence of elementary
+row operations transforms it to a matrix with some rows consisting
+of zeroes, in which case we should decide it is singular.  Fortunately
+this can never happen because singular matrices and non-singular
+matrices have diametrically opposed properties.  For example,
+if $A$ is non-singular then $AX = B$   has a solution for
+every $B$, while if $A$ is singular, there are many $B$ for
+which $AX = B$ has no solution.  This fact does not depend on
+the method we use to find solutions.
+
+\subhead Inverses of Non-singular Matrices \endsubhead
+Let $A$ be a non-singular $n\times n$ matrix.   According to the
+above analysis, the equation 
+\[
+AX = I
+\]
+(where we take $B$ to be the $n\times n$ identity matrix $I$)
+has a unique   $n\times n$ solution matrix  $X = B'$.
+This $B'$ is called the {\it inverse of $A$}, and it is usually
+denoted $A^{-1}$.   That explains
+why non-singular matrices are also called {\it invertible}.
+\outind{invertible matrix}
+\outind{matrix, invertible}
+\outind{inverse of a matrix}
+\outind{matrix inverse}
+
+\nextex
+\example{Example \en}  Consider
+\[
+A = \bm
+{}
+ 1 & 0 & -1 \\
+ 1 & 1 & 0 \\
+ 1 & 2 & 0 \em
+\]
+To solve $AX = I$, we reduce the augmented matrix $[A\,|\,I]$.
+\begin{align*}
+\bm{}
+ 1 & 0 & -1&|& 1 & 0 & 0 \\
+ 1 & 1 & 0&|& 0 & 1 & 0 \\
+ 1 & 2 & 0&|& 0 & 0 & 1 \em
+&\to
+\bm{}
+ 1 & 0 & -1&|& 1 & 0 & 0 \\
+ 0 & 1 & 1&|& -1 & 1 & 0 \\
+ 0 & 2 & 0&|& -1 & 0 & 1 \em \\
+&\to
+\bm{}
+ 1 & 0 & -1&|& 1 & 0 & 0 \\
+ 0 & 1 & 1&|& -1 & 1 & 0 \\
+ 0 & 0 & -1&|& 1 & -2 & 1 \em
+ \\
+&\to
+\bm{}
+ 1 & 0 & -1&|& 1 & 0 & 0 \\
+ 0 & 1 & 1&|& -1 & 1 & 0 \\
+ 0 & 0 & 1&|& -1 & 2 & -1 \em\\
+&\to
+\bm{}
+ 1 & 0 & 0&|& 0 & 2 & -1 \\
+ 0 & 1 & 0&|& 0 & -1 & 1 \\
+ 0 & 0 & 1&|& -1 & 2 & -1 \em .
+\end{align*}
+(You should make sure you see which row operations were used in
+each step.)   Thus, the solution is
+\[
+X = A^{-1} =  \bm{}
+  0 & 2 & -1 \\
+  0 & -1 & 1 \\
+  -1 & 2 & -1 \em.
+\]
+Check the answer by calculating
+\[
+A^{-1}A = 
+ \bm{}
+  0 & 2 & -1 \\
+  0 & -1 & 1 \\
+  -1 & 2 & -1 \em
+\bm
+{}
+ 1 & 0 & -1 \\
+ 1 & 1 & 0 \\
+ 1 & 2 & 0 \em 
+ =
+\bm 1 & 0 & 0 \\ 
+    0 & 1 & 0 \\
+    0 & 0 & 1 \em.
+\]
+\endexample
+
+There is a subtle point about the above calculations.   The
+matrix inverse  $X = A^{-1}$ was derived as the {\it unique\/}
+solution of the equation $AX = I$, but we checked it by calculating
+$A^{-1}A = I$.   The definition of $A^{-1}$ told us only that
+$AA^{-1} = I$.   Since matrix multiplication is not generally
+commutative, how could we be sure that the product {\it in the
+other order\/} would also be the identity $I$?  The answer is
+provided by the following tricky argument.   Let $Y = A^{-1}A$.
+Then
+\[
+   AY = A(A^{-1}A) = (AA^{-1})A = IA = A
+\]
+so that $Y$ is the {\it unique\/} solution of the equation
+$AY = A$.  However, $Y=I$ is {\it also\/} a solution of
+that equation, so we may conclude that $A^{-1}A = Y = I$.
+The upshot is that for a non-singular square matrix $A$, we have
+{\it both\/}  $AA^{-1} = I$ and $A^{-1}A = I$.
+
+The existence of matrix inverses for non-singular square matrices
+suggests the following scheme for solving matrix equations of the
+form
+\[
+  AX = B.
+\]
+First, find the matrix inverse $A^{-1}$, and then take $X = A^{-1}B$.
+This is indeed the solution since
+\[
+  AX = A(A^{-1}B) = (AA^{-1})B = IB = B.
+\]
+However, as easy as this looks, one should not be misled by the formal
+algebra.   Note that the only method we have for finding the
+matrix inverse is to apply Gauss-Jordan reduction to the augmented
+matrix $[A \,|\, I]$.   If $B$ has fewer than $n$ columns,
+then applying Gauss-Jordan reduction directly to $[A\,|\, B]$
+would ordinarily involve less computation that finding
+$A^{-1}$.  Hence, in the most common cases, applying Gauss-Jordan
+reduction  to the original system of equations is the best strategy.   
+\medskip
+\subhead Numerical Considerations in Computation \endsubhead
+The examples we have chosen to illustrate the principles employ
+small matrices for which one may do exact arithmetic.  The worst
+that will happen is that some of the fractions may get a bit
+messy.  In real applications, the matrices are often quite
+large, and it is not practical to do exact arithmetic.   The
+introduction of rounding and similar numerical approximations
+complicates the situation, and computer programs for solving
+systems of equations have to deal with problems which arise
+from this.  If one is not careful in designing such a program,
+one can easily generate answers which are very far off, and even deciding
+when an answer is sufficiently accurate sometimes involves rather
+subtle considerations.   Typically, one encounters problems
+for matrices where the entries differ radically in size.  Also,
+because of rounding, few matrices are ever {\it exactly\/}
+singular since one can never be sure that a very small numerical
+value at a potential pivot would have been  zero if the
+calculations had been done exactly.  On the other hand, it
+is not surprising that matrices which are close to being singular
+can give computer programs indigestion.
+
+If you are interested in such questions, there are many introductory
+texts which discuss numerical linear algebra.   
+Two such are {\it Introduction to Linear Algebra\/} by Johnson, Riess,
+and Arnold  and
+{\it Applied Linear Algebra\/} by Noble and Daniel.   One of the
+computer assignments in your programming course is concerned
+with some of the problems of numerical linear algebra.
+\bigskip
+\includeexercises{chap10.ex5}
+\bigskip
+\nextsec{Gauss-Jordan Reduction in the General Case}
+\head \sn.  Gauss-Jordan Reduction in the General Case \endhead
+
+Gauss-Jordan reduction works just as well if the coefficient
+matrix $A$ is singular or even if it is not a square matrix.
+Consider the system
+\[
+  A\x = \b
+\]
+where the coefficient matrix $A$ is an $m\times n$ matrix.
+We shall concentrate on the case that $\x$ is an $n\times 1$
+column vector of unknowns and $\b$ is a given $m\times 1$
+column vector.  (This illustrates the principles, and the
+case $AX=B$ where $X$ and $B$ are $n\times p$ matrices with
+$p > 1$ works in a similar manner.)  The method is to apply
+elementary row operations to the augmented matrix
+\[
+[A\,|\,\b] \to \dots \to [A'\, |\, \b']
+\]
+making the best of it with the coefficient matrix $A$.
+We may not be able to transform $A$ to the identity matrix,
+but we can always pick out a set of pivots, one in each non-zero
+row, and otherwise mimic what we did in the case of a square
+non-singular $A$.   If we are fortunate, the resulting system
+$A'\x = \b'$ will have solutions.
+
+\nextex
+\example{Example \en} Consider
+\[
+\bm{}
+1 & 1 & 2 \\
+-1 & -1 & 1 \\
+1 & 1 & 3 \em
+\bm x_1\\ x_2\\ x_3 \em
+=
+\bm{}
+1\\5\\3\em .
+\]
+Reduce the augmented matrix as follows
+\[
+\bm{}
+1 & 1 & 2 &| & 1\\
+-1 & -1 & 1& | & 5 \\
+1 & 1 & 3 & | & 3 \em
+\to
+\bm{}
+1 & 1 & 2 &| & 1\\
+0 & 0 & 3 & | & 6 \\
+0 & 0 & 1 & | & 2 \em
+\to
+\bm{}
+1 & 1 & 2 &| & 1\\
+0 & 0 & 3 & | & 6 \\
+0 & 0 & 0 & | & 0 \em
+\]
+This completes the `Gaussian' part of the reduction with pivots
+in the $1,1$ and $2,3$ positions, and the last row of the
+transformed coefficient matrix consists of zeroes.
+Let's now proceed with the `Jordan' part of the reduction.
+Use the last pivot to clear the column above it.
+\[
+ \bm{}
+1 & 1 & 2 &| & 1\\
+0 & 0 & 3 & | & 6 \\
+0 & 0 & 0 & | & 0 \em
+\to 
+ \bm{}
+1 & 1 & 2 &| & 1\\
+0 & 0 & 1 & | & 2 \\
+0 & 0 & 0 & | & 0 \em
+\to 
+ \bm{}
+1 & 1 & 0 &| & -3\\
+0 & 0 & 1 & | & 2 \\
+0 & 0 & 0 & | & 0 \em
+\]
+and the resulting augmented matrix corresponds to the system
+\begin{align*}
+x_1 + x_2 \hphantom{+ x_3} &= -3 \\ 
+                      x_3  &= 2 \\
+0 &= 0
+\end{align*}
+Note that the last equation could just as well have read
+$0 = 6$ (or some other non-zero quantity) in which case the
+system would be inconsistent and not have a solution.  Fortunately,
+that is not the case in this example.  The second equation
+tells us $x_3 = 2$, but the first equation only gives a relation
+$x_1 = -3 - x_2$ between $x_1$ and $x_2$.   That means that the
+solution has the form
+\[
+\x = \bm x_1 \\ x_2 \\ x_3 \em
+ = \bm -3 - x_2 \\ x_2 \\ 2 \em = \bm{} -3\\ 0 \\ 2 \em
++ x_2\bm{}-1\\ 1\\ 0\em
+\]
+where $x_2$ can have {\it any value whatsoever}.   We say that
+$x_2$ is a free variable, and the fact that it is arbitrary means
+that there are {\it infinitely many solutions}.   $x_1$ and
+$x_3$ are called {\it bound\/} variables.
+
+It is instructive to reinterpret this geometrically in
+$\R^3$.  The original system of equations may be written 
+\begin{align*}
+x_1 + x_2 + 2x_3  &= 1\\
+-x_1  - x_2 + x_3 &= 5 \\
+x_1 + x_2 + 3x_3 &= 3 
+\end{align*}
+which are equations for 3 planes in $\R^3$.   Solutions 
+\[
+\x = \bm x_1\\ x_2 \\x_3 \em
+\]
+correspond to points lying in the common
+intersection of those planes.   Normally, we would expect
+three planes to intersect in a single point.   That would have
+been the case had the coefficient matrix been non-singular.
+However, in this case the planes intersect in a line,
+and the solution obtained above may be interpreted as the
+vector equation of that line. 
+If we put $x_2 = s$ and rewrite the equation using vector notation,
+we obtain
+\[
+\x = \lb  -3, 0, 2 \rb + s\lb -1, 1, 0 \rb.
+\]
+\endexample
+
+Example \en\ illustrates many features of the general procedure.
+Gauss-Jordan reduction of the coefficient matrix is always
+possible, but the pivots don't always end up on the diagonal.
+In any case, the Jordan part of the reduction will yield
+a 1 in each pivot position with zeroes above and below the
+pivot in that column.   In any given row of the reduced
+coefficient matrix, the pivot will be
+on the diagonal or to its right, and  all entries {\it to the left
+of the pivot\/} will be zero.  (Some of the entries to the right
+of the pivot may be non-zero.)   
+If the number of pivots is smaller than the number of rows
+(which will always be the case for a singular square matrix),
+then some rows of the reduced coefficient matrix will
+ consist entirely of zeroes.
+If there are non-zero entries in those rows 
+to the right of the
+divider {\it in the augmented matrix\/}, the system is inconsistent and
+has no solutions.  Otherwise, the system does have solutions.
+Such solutions are obtained by writing out the corresponding
+system, and transposing all terms {\it not associated with the
+pivot position\/} to the right side of the equation.  Each
+unknown in a pivot position is then expressed in terms of
+the non-pivot unknowns (if any). The pivot unknowns
+are said to be {\it bound}.  The non-pivot unknowns may
+be assigned any value and are said to be {\it free}.
+
+
+\nextex
+\xdef\HomEx{\en}
+\example{Example \en}  Consider
+\nexteqn
+\[
+\bm{}
+  1& 2& -1& 0\\
+  1& 2& 1& 3 \\
+  2& 4& 0& 3 \em
+\bm x_1\\x_2\\x_3\\x_4\em = \bm 0\\0\\0 \em.\tag{\eqn}
+\]
+Reducing the augmented matrix yields
+\begin{align*}
+\bm{}
+  1& 2& -1& 0&|&0\\
+  1& 2& 1& 3&|&0 \\
+  2& 4& 0& 3&|&0 \em
+&\to
+\bm{}
+  1& 2& -1& 0&|&0\\
+  0& 0& 2& 3&|&0 \\
+  0& 0& 2& 3&|&0 \em
+\to
+\bm{}
+  1& 2& -1& 0&|&0\\
+  0& 0& 2& 3&|&0 \\
+  0& 0& 0& 0&|&0 \em\\
+&\to
+\bm{}
+  1& 2& -1& 0&|&0\\
+  0& 0& 1& 3/2&|&0 \\
+  0& 0& 0& 0&|&0 \em
+\to
+\bm{}
+  1& 2& 0& 3/2&|&0\\
+  0& 0& 1& 3/2&|&0 \\
+  0& 0& 0& 0&|&0 \em.
+\end{align*}
+(Note that since there are zeroes to the right of the divider,
+we don't have to worry about possible inconsistency
+in this case.)
+The system corresponding to the reduced augmented matrix is
+\begin{align*}
+x_1 + 2x_2 \hphantom{+ x_3} + (3/2)x_4 &= 0 \\
+               x_3          + (3/2)x_4 &= 0 \\
+0 &= 0
+\end{align*}
+Thus,
+\begin{align*}
+x_1 &= -2x_2 - (3/2)x_4 \\
+x_3 &= \hphantom{-2x_2} -3(/2)x_4
+\end{align*}
+with $x_1$ and $x_3$ {\it bound\/} and $x_2$ and $x_4$ {\it free}.
+   A general solution has the
+form
+\begin{align*}
+\x &= \bm x_1\\x_2\\x_3\\x_4\em
+  = \bm -2x_2 - (3/2)x_4 \\
+       \hphantom{-2}x_2\hphantom{- (3/2)x_4}\\
+       \hphantom{-2x_2} -(3/2)x_4 \\
+       \hphantom{-2x_2 -} x_4 \em
+  = \bm {}-2x_2\\ x_2\\ 0\\ 0 \em +
+   \bm{}-(3/2)x_4\\ 0\\-(3/2)x_4\\ 0 \em \\ 
+\x &= 
+   x_2\bm {}-2\\ 1\\ 0\\ 0 \em +
+   x_4\bm{}-3/2\\ 0\\-3/2\\ 0 \em \\ 
+\end{align*}
+where $x_2$ and $x_4$ can assume any value.
+
+This solution may also be interpreted geometrically in $\R^4$.
+Introduce two vectors
+\begin{align*}
+\v_1 &= \lb -2, 1, 0, 0 \rb \\
+\v_2 &= \lb -3/2, 0, -3/2, 0 \rb
+\end{align*}
+in $\R^4$.   Note that neither of these vectors is a multiple of
+the other.  Hence, we may think of them as spanning a (2-dimensional)
+plane in $\R^4$.  Putting $s_1 = x_2$ and $s_2 = x_4$, we
+may express the general  solution vector as 
+\[
+ \x = s_1\v_1 + s_2\v_2,
+\]
+so the solution set of the system (\eqn) may be identified with the
+plane spanned by $\{\v_1, \v_2\}$.
+\endexample
+
+Make sure you understand
+ the procedure used in the above examples to express the
+general solution vector $\x$  entirely in terms of the free
+variables.  We shall use it quite generally.
+
+Any system of equations with real coefficients may be interpreted
+as defining a locus in $\R^n$, and studying the structure---in
+particular, the dimensionality---of such a locus is something
+ which will concern us later.
+
+\nextex
+\example{Example \en}  Consider 
+\[
+\bm{}
+    1 & 2 \\
+    1 & 0 \\
+    -1 & 1 \\
+    2 & 0 \em
+\bm x_1\\ x_2 \em =
+\bm{} 1 \\ 5 \\ -7 \\ 10 \em.
+\]
+Reducing the augmented matrix yields
+\[\begin{split}
+\bm{}
+    1 & 2& | & 1 \\
+    1 & 0& | & 5 \\
+    -1 & 1 & | & -7\\
+    2 & 0 & | & 10 \em
+\to
+\bm{}
+    1 & 2& | & 1 \\
+    0 & -2& | & 4 \\
+    0 & 3 & | & -6\\
+    0 & -4 & | & 8 \em
+\to
+\bm{}
+    1 & 2& | & 1 \\
+    0 & -2& | & 4 \\
+    0 & 0 & | & 0\\
+    0 & 0 & | & 0 \em \\
+\to
+\bm{}
+    1 & 2& | & 1 \\
+    0 & 1& | & -2 \\
+    0 & 0 & | & 0\\
+    0 & 0 & | & 0 \em
+\to
+\bm{}
+    1 & 0& | & 5 \\
+    0 & 1& | & -2 \\
+    0 & 0 & | & 0\\
+    0 & 0 & | & 0 \em
+\end{split}\]
+which is equivalent to
+\begin{align*}
+x_1 &= 5 \\
+x_2 &= -2.
+\end{align*}
+Thus the unique solution vector is
+\[
+\x = \bm{}5\\-2\em.
+\]
+\endexample
+
+These examples and the preceding discussion lead us to certain
+conclusions about a system of the form
+\[
+A\x = \b
+\]
+where $A$ is an $m\times n$ matrix, $\x$ is an $n\times 1$
+column vector of unknowns, and $\b$ is an $m\times 1$ column
+vector that is given.
+
+  The number $r$ of pivots of $A$
+is called the {\it rank\/} of $A$, and clearly it plays
+\outind{rank of a matrix}
+\outind{matrix, rank of}
+an crucial role.  It is the same as the number of non-zero rows
+at the end of the Gauss-Jordan reduction since there is exactly
+one pivot in each non-zero row.  The rank is certainly not greater than 
+either the number of rows $m$ or the number of columns $n$ of $A$.
+
+If $m = n$, i.e., $A$ is a square matrix, then $A$ is
+non-singular when its rank is $n$ and it is singular when its
+rank is smaller than $n$. 
+
+  More generally for an $m\times n$ matrix $A$, if the  rank $r$ is smaller
+than the number of rows $m$, then there are $m\times 1$
+column vectors $\b$ such that the system $A\x = \b$  {\it does not
+have any solutions}.  The argument is basically the same
+as for the case of a singular square matrix.  Transform $A$ by
+a sequence of elementary row operations to a matrix $A'$
+with its last row consisting of zeroes, choose $\b'$ so that
+$A'\x = \b'$ is inconsistent, and reverse the operations to
+find an inconsistent $A\x = \b$.
+ 
+If for a given $\b$, the system $A\x = \b$
+does have solutions, then the unknowns
+$x_1, x_2, \dots, x_n$ may be partitioned into two sets:
+$r$ bound unknowns and  $n - r$
+free unknowns.  The bound unknowns are
+expressed in terms of the free unknowns.  The number $n - r$
+of free unknowns is sometimes called the {\it nullity\/} of
+the matrix $A$.  If the nullity $n - r > 0$, i.e., $n > r$,
+then (if there are any solutions at all) there are infinitely
+many solutions.
+    
+Systems of the form
+\[
+A\x = 0
+\]
+are called {\it homogeneous}.  Example \HomEx\ is a homogeneous
+\outind{homogeneous system}
+\outind{system, homogeneous}
+system.    Gauss-Jordan reduction of a homogeneous system always
+succeeds since the matrix $\b'$ obtained from $\b = 0$ is
+also zero.  If $m = n$, i.e., the matrix is square, and $A$
+is non-singular, the {\it only solution} is 0, but if $A$
+is singular, i.e., $r < n$, then there are definitely non-zero
+solutions since there are some free unknowns which can be assigned
+non-zero values.   This rank argument works for any $m$ and $n$:
+if $r < n$, then there are definitely non-zero solutions for
+the homogeneous system  $A\x = 0$.  One special case of interest
+is $m < n$.  Since $r \le m$, we must have $r < n$ in that case.
+That leads to the following important principle:  {\it a
+homogeneous system of linear algebraic equations for which there
+are more unknowns than equations always has some non-trivial
+solutions.} 
+
+
+
+
+
+
+\medskip
+\subhead Pseudo-inverses \endsubhead   It some applications, one
+needs to try to find `inverses' of non-square matrices.   Thus,
+if $A$ is a $m\times n$ matrix, one might need to find an
+$n\times m$ matrix $A'$ such that
+\[
+AA' = I\qquad\text{the $m\times m$ identity}.
+\]
+Such an $A'$ would be called a {\it right pseudo-inverse}.   Similarly,
+an $n\times m$ matrix $A''$ such that
+\[
+A''A = I\qquad\text{the $n\times n$ identity}
+\]
+is called a left pseudo-inverse.
+\outind{pseudo-inverse of a matrix}
+
+If $m > n$, i.e., $A$ has  more rows
+than columns, then {\it no
+ right pseudo-inverse is possible}.  For, suppose we could find an
+$n\times m$ matrix $A'$ such that
+$AA' = I$ (the $m\times m$ identity matrix).
+Then for any $m\times 1$ column vector $\b$, $\x = A'\b$
+is a solution of $A\x = \b$ since
+\[
+A\x = A(A'\b) = (AA')\b = I\b = \b.
+\]
+On the other hand, we know that since $m > n \ge r$, there is
+at least one $\b$ such that $A\x = \b$ does not have a solution.
+
+\medskip
+On the other hand,
+if $m < n$ and the rank of $A$ is $m$
+(which is as large as it can get in any case),
+ then it is  always possible to find a right pseudo-inverse.
+ To see this, 
+let
+\[
+ X = \bm x_{11} & x_{12} & \hdots & x_{1m} \\
+         x_{21} & x_{22} & \hdots & x_{2m} \\
+       \vdots & \vdots & \hdots & \vdots \\
+         x_{n1} & x_{n2} & \hdots & x_{nm} \em
+\]
+and consider the matrix equation
+\[
+AX = I.
+\]
+It may be viewed as $m$ separate equations of the form
+\[
+A\x = \bm 1\\0\\\vdots \\0\em,
+A\x = \bm  0\\1\\\vdots \\0\em,
+\dots,
+A\x = \bm 0\\0\\\vdots \\1\em,
+\]
+one 
+for each column of $I$.   Since $r = m$, each of these
+equations has a solution.  (In fact it will generally have
+infinitely many solutions.)  
+\bigskip
+\includeexercises{chap10.ex6}
+\bigskip
+
+\nextsec{Vector Spaces}
+\head \sn.  Vector Spaces \endhead
+
+Many of the notions we encountered when studying linear differential
+equations have interesting analogues in the theory of solutions
+of systems of algebraic equations.   Both these theories have
+remarkable similarities to the theory of vectors in two and three
+dimensions.    We give some examples.
+\outind{vector space}
+
+The general solution of a first order linear equation
+\[
+y' + a(t)y = b(t)
+\]
+has the form
+\[
+y = y_p + c h
+\]
+where  $y_p$ is  one solution, $h$ is a solution of
+the corresponding homogeneous equation,  and $c$ is a scalar
+which may assume any value.  Similarly, we saw in Example 1 in the
+previous section that the general solution of the system of equations
+had the form
+\[
+\x = \x_0 + s \v
+\]
+where $\x_0 = \lb -3, 0, 2 \rb$ is one solution (for $s = 0$),
+$\v = \lb -1, 1, 0 \rb$, and $s$ is a scalar which may assume
+any value.   Each of these is reminiscent of
+the equation of a line in $\R^3$
+\[
+\r = \r_0 + s\v
+\]
+where $\r_0$ is the position vector of a point on the line,
+$\v$ is a vector parallel to the line, and $s$ is a scalar which
+may assume any value.
+
+Furthermore, we saw that the general solution of the second order
+linear homogeneous differential equation
+\[
+y'' + p(t)y' + q(t)y = 0
+\]
+has the form
+\[
+y = c_1y_1 + c_2y_2
+\]
+where $\{y_1, y_2\}$ is a linearly independent pair of solutions
+and $c_1$ and $c_2$ are two scalars which may assume any values.
+Similarly, we saw in Example 2 in the previous section that
+the general solution of the system had the form
+\[
+\x = s_1\v_1 + s_2\v_2
+\]
+where $\v_1 = \lb -2, 1, 0, 0 \rb, \; \v_2 =  \lb -3/2, 0, -3/2, 0 \rb$
+and $s_1$ and $s_2$ are scalars which may assume any values.
+Note that the pair $\{\v_1, \v_2\}$ is {\it linearly independent\/}
+in exactly the same sense that a pair of solutions of a differential
+equation is linearly independent, i.e.,
+ {\it neither vector is a scalar multiple of the other}.
+Both these situations are formally similar to what happens for
+a plane in $\R^3$ which passes through the origin.   If $\{\v_1, \v_2\}$
+is a pair of vectors in the plane, and neither is a multiple of the
+other, then a general vector in that plane can be expressed
+as a linear combination
+\[
+\v = s_1\v_2 + s_2\v_2.
+\]
+
+As one studies these different theories, more and more similarities
+arise.   For example,  we just remarked that
+the general solution of the differential
+equation
+\[
+y'' + p(t)y' + q(t)y = f(t)
+\]
+has the form
+\[
+y = y_p + \text{a general solution of the corresponding homogeneous equation}
+\]
+where $y_p$ is  particular solution of the inhomogeneous equation.
+Exactly the same rule applies to the general solution of
+the inhomogeneous algebraic system
+\[
+A\x = \b.
+\]
+Namely, suppose  $\x_p$ is {\it one particular solution\/}
+ of this inhomogeneous
+\outind{inhomogeneous system, particular solution}
+system, and $\x$ is any other solution.  Then,
+\begin{align*}
+A\x &= \b \\
+A\x_p &= \b
+\end{align*}
+and subtraction yields
+\[
+A\x - A\x_p = A(\x - \x_p) = 0,
+\]
+i.e., $\z = \x - \x_p$ is a solution of the homogeneous system
+$A\z = 0$.   Thus
+\[
+\x = \x_p + \z = \x_p + \text{a general solution of the homogeneous system}.
+\]
+The important point to note is that not only is the conclusion the
+same, but the argument used to derive it is also essentially the same.
+
+Whenever mathematicians notice that the same phenomena are observed
+in different contexts, and that the same arguments are used to
+study those phenomena, they
+look for a common way to describe what is happening.   One of the
+major accomplishments of the late nineteenth and early twentieth
+centuries was the realization among mathematicians that there
+is a single concept, that of an {\it abstract vector space\/}, which
+may be used to study many diverse mathematical phenomena, including
+those mentioned above.  They discovered
+that the common aspects of all such theories were based on
+the fact that they share certain  {\it operations\/},
+and that these operations, although defined differently in each
+individual case, {\it all obey common rules}.   Any
+argument which uses only those rules will be valid in all cases.
+
+
+
+
+There are two basic operations which must be present for a collection
+of objects to constitute a vector space.  (Additional
+operations  may also be present, but for the moment we ignore
+them.)  First, there should be an operation of addition which
+obeys the usual rules you are familiar with for addition of
+vectors in space.  Thus, addition should be an associative operation,
+it should obey the commutative law, and there should be an element
+called zero ($0$) which added to any other element results in
+the same element.
+ Finally, every element must have a
+{\it negative\/} which when added to the original element yields zero.
+
+For  example, in $\R^n$, addition $\x + \y$
+ is  done by
+adding corresponding entries of the two $n$-tuples.  The
+zero element is the $n$-tuple $\bold 0$ for which all entries are
+zero.  For any $\x$ in $\R^n$, the negative of $\x$ is just
+the $n$-tuple $-\x$.
+
+Alternatively, let $\bold S$ denote the set of all solutions of
+the second order homogeneous linear differential equation
+\[
+y'' + p(t)y' + q(t)y = 0.
+\]
+In this case, the addition operation $y_1 + y_2$ is just the
+ordinary addition of functions, and the zero element is the
+function which is identically zero.   The negative of a function
+is defined as expected by the rule $(-y)(t) = -y(t)$. 
+Since the equation is homogeneous, the sum of two solutions is
+again a solution, the zero function is also a solution, and
+the negative of a solution is a solution.
+If such were not the case, the set $\bold S$ would not be
+{\it closed\/} under the operations, so it would not be a
+vector space.
+
+To have a vector space, we also need a second operation:
+we must be able to multiply objects by scalars.   This operation must also
+obey the usual rules of vector algebra.  Namely, it must satisfy
+the associative law, distributive laws, and multiplying an object by the
+scalar 1 should not change the object.
+ 
+For example, in $\R^n$, we multiply a vector $\x$ by a scalar
+$c$ in the usual way.
+
+For $\S$, the vector space of solutions of a 2nd order homogeneous
+linear differential equation, 
+ a function (solution) is multiplied by a
+scalar by the rule $(cy)(t) = cy(t)$.  Again, since the differential equation
+is homogeneous, any scalar multiple of a solution is a solution,
+so the set $\S$ is closed under the operation. 
+
+In courses in abstract algebra, one studies in detail the list of
+rules (or axioms) which govern the operations in a vector space.
+In particular, one derives all the usual rules of vector algebra
+from the properties listed above.  In this course, we shall assume
+all that has been done, so you may safely manipulate objects
+in any vector space just the way you would manipulate ordinary
+vectors in space.   Note the different levels of abstraction
+you have seen in this course for the concept `vector'.   First
+a vector was just a quantity in the plane or in space with a magnitude
+and a direction.   Vectors were added or multiplied by scalars using
+simple geometric rules.  Later, we introduced the concept of a
+`vector' in $\R^n$ which was an $n$-tuple of real numbers.  Such
+`vectors' were added or multiplied by scalars by doing the same to
+their components.  Finally, we are now considering `vectors' which
+are {\it functions}.  Such `vectors' are added or multiplied by
+scalars by doing the same to the function values.   As noted above,
+what is important is not the nature of the individual object
+we call a `vector', but the properties of the operations we define
+on the {\it set\/} of all such `vectors'.
+\outind{vector space}
+
+There are many other important examples of vector spaces.   Often
+they
+are {\it function spaces\/}, that is, their elements are functions
+defined on some common domain.  Here are a few examples of
+such vector spaces.
+\outind{function space}
+
+Let  $I$ be a real interval.   The set $\Cal F(I)$ of all
+real valued functions
+defined on $I$ is vector space if we use the operations of adding
+functions and multiplying them by scalars.  The set $\Cal C(I)$
+of all {\it continuous real valued functions\/} defined on $I$ is also a vector
+space because the sum of two continuous functions is continuous
+and any scalar multiple of a continuous function is continuous.
+Similarly, the set
+$\Cal C^2(I)$ of all {\it twice differentiable real valued functions\/}
+defined on $I$ {\it with continuous second derivatives\/} is a
+vector space.   As mentioned before,
+ the set of all such differentiable functions which are solutions of
+a specified second order homogeneous linear differential equation
+is a vector space.  Finally, the set of all real valued analytic functions
+defined on $I$ is also a vector space.
+
+	Not every set of `vector' like objects is a vector space.
+We have already seen several such examples.   For example, the
+vector equation of a line in $\R^3$ has the form
+\[
+\r = \r_0 + s\v
+\]
+where $\r$ is the position vector connecting the origin to a general
+point on the line, $\r_0$ is the position vector of one particular
+point on the line, and $\v$ is a vector parallel to the line.
+If the line does not pass through the origin, the sum of two
+position vectors with end points on the line won't be a vector
+with endpoint on the line.   Hence, the set is not closed under
+addition.  It is also not closed under multiplication by scalars.
+\medskip
+\centerline{\epsfbox{s10-2.ps}}
+\medskip
+Similarly, while the set of solutions of the homogeneous
+first order equation
+\[
+y' + a(t) y = 0
+\]
+is a vector space, the set of solution of the (inhomogeneous)
+first order equation
+\[
+y' + a(t) y = b(t)
+\]
+is not a vector space if $b(t)$ is not identically 0.   
+ This rule holds in general.  The
+set of solutions of a homogeneous linear equation (of any kind)
+is a vector space, but the set of solutions of an inhomogeneous
+linear equation is not a vector space.
+
+
+
+
+
+
+\medskip
+\subhead The Domain of Acceptable Scalars \endsubhead    In the
+previous discussion,  we assumed
+implicitly that all scalars were {\it real}.   However, there are
+circumstances where it would be more appropriate to allow scalars
+which are either real or {\it complex}.  For example, we know that
+it is easier to study solutions of a second order linear equation
+with constant coefficients if we allow {\it complex valued\/}
+solutions and use complex scalar constants when writing out the
+general solution.   Thus, one must specify in any given case
+whether one is talking about a {\it real\/} vector space, where
+the set of possible scalars is restricted to $\R$, or a 
+{\it complex\/} vector space, where the set of possible
+scalars is the larger domain $\CC$. 
+\outind{scalar, complex}
+\outind{complex scalar}
+
+One important complex vector space is the set $\CC^n$ of all
+$n\times 1$ column vectors with {\it complex\/} entries.
+Another is the set of all complex valued solutions of a given
+homogeneous linear differential equation.
+\outind{$\CC^n$}
+
+One confusing point is that every complex vector space may also
+be considered to be a real vector space simply by agreeing to
+allow only real scalars in any expression in which a `vector'
+is multiplied by a scalar.  For example, the set $\CC$ of all
+complex numbers may itself be viewed as a real vector
+space in this way.  If we do so, then, since any complex number
+$a + bi$ is determined by the pair $(a,b)$ of its real and
+imaginary parts, as a real vector space $\CC$ is essentially
+the same as $\R^2$.
+\medskip
+\subhead Subspaces \endsubhead   You may have noticed that in
+many of the examples listed previously, some vector spaces
+were {\it subsets\/} of others.   If $\V$ is a vector space,
+and $\W$ is a non-empty subset, then we call $\W$
+a {\it subspace\/} of $\V$ if whenever two elements of $\V$
+\outind{subspace of a vector space}
+are in $\W$ so is their sum and whenever an element of $\V$
+is in $\W$ so is any scalar multiple of that element.   This  
+means that $\W$ becomes a vector space in its own right under
+the operations it inherits from $\V$.
+
+For $\V = \R^3$, most subspaces are what you would expect.
+Any line passing through the origin yields a subspace, but a
+line which does not pass through the origin does not.
+Similarly, any plane passing through the origin yields a subspace
+but a plane which does not pass through the origin does not.
+A less obvious subspace is the {\it zero subspace\/}
+which consists of the single vector $\bold 0$.   Also, in
+general mathematical usage, any set is considered to be
+a subset of itself, so $\R^3$ is also a subspace of $\R^3$.
+
+For any vector space $\V$,
+ the zero subspace and the whole vector
+space are subspaces of $\V$. 
+
+
+For a less obvious example, let $\Cal C^2(I)$ be
+the vector space of all functions, defined on the real interval
+$I$, with continuous second derivatives.    Then the
+set of solutions of the homogeneous differential equation
+\[
+y'' + p(t)y' + q(t)y = 0
+\]
+is a subspace. 
+In essence, we know this from earlier work, but let's derive it again by
+a general argument.
+  Consider the {\it operator\/} 
+\[
+L = \frac{d^2}{dt^2} + p(t)\frac{d}{dt} + q(t)
+\]
+acting on twice differentiable functions $y(t)$, i.e., let
+\[
+L(y) = y'' + p(t)y' + q(t)y.
+\]
+With this notation,
+the differential equation may be written $L(y) = 0$.
+
+$L$ is what we call a {\it linear operator\/} because it
+obeys the following rules:
+\outind{linear operator}
+\nexteqn
+\xdef\eqnone{\eqn}
+\nexteqn
+\xdef\eqntwo{\eqn}
+\begin{align*}
+L(y_1 + y_2) &= L(y_1) + L(y_2) \qquad\text{for functions }
+y_1, y_2 \tag{\eqn}one \\
+L(cy) &= cL(y) \qquad\text{for a function } y\ \text{
+and a scalar } c. \tag{\eqn}two
+\end{align*}
+The fact that the set of solutions of $L(y) = 0$
+ is a subspace is a direct
+consequence of these rules.  Namely, if $L(y_1) = 0$ and
+$L(y_2) = 0$, then rule (\eqnone) immediately gives
+$L(y_1 + y_2) = L(y_1) + L(y_2) = 0$.  Similarly, if
+$L(y) = 0$, rule (\eqntwo) immediately gives
+$L(cy) = cL(y) = 0$ for any scalar $c$.
+
+This same argument would work {\it for any linear operator\/},
+and we shall see that
+one of the most common ways to obtain
+a subspace is as the solution set or {\it null space\/}
+of a linear operator.
+\outind{null space of a linear operator}
+For example, 
+the solution set of a homogeneous system of algebraic
+equations
+\[
+A\x = \bold 0
+\]
+is also a subspace because it is the null space
+of an appropriate linear operator.  (See the Exercises.)
+
+
+\bigskip
+\includeexercises{chap10.ex7}
+\bigskip
+
+\nextsec{Linear Independence, Bases, and Dimension}
+\head \sn.  Linear Independence, Bases, and Dimension \endhead
+
+Let $\V$ be a vector space.   In general, $\V$ will have
+infinitely many elements, but it is often possible to specify
+$\V$ in terms of an appropriate finite subset.  For example,
+we know that the vector space of solutions of a homogeneous
+second order linear differential equation consists of all
+linear combinations
+\[
+c_1y_1 + c_2y_2
+\]
+where $\{y_1, y_2\}$ is a linearly independent pair of solutions,
+and $c_1, c_2$ are arbitrary scalars.   We say in this case that
+the pair $\{y_1, y_2\}$ is a {\it basis\/} for the
+ space of solutions. 
+We want to generalize this to `bases' with more than two elements. 
+
+As before, let $\V$ be any vector space and let 
+$\{\v_1, \v_2, \dots, \v_k\}$ be a non-empty finite subset
+of elements of $\V$.   Such a {\it set\/}
+is called {\it linearly independent\/} if 
+\outind{linear independence}
+\outind{independence, linear}
+no element of the set can be expressed
+as a {\it linear combination\/} of the other elements in the
+\outind{linear combination}
+set.  For a set $\{\v_1, \v_2\}$
+ with two vectors, this subsumes the
+previous definition: neither vector should be a scalar
+multiple of the other.   For a set $\{\v_1, \v_2, \v_3 \}$
+with three elements it means that {\it no\/} relation of
+any of the following forms is possible:
+\begin{align*}
+\v_1 &= a_2\v_2 + a_3\v_3 \\    
+\v_2&= b_1\v_1 + b_3\v_3 \\
+\v_3 &= c_1\v_1 + c_2\v_2.
+\end{align*}
+The opposite of `linearly independent' is `linearly dependent'.
+
+
+  To get a better hold on the concept,
+consider the (infinite) set of all
+{\it linear combinations}
+\nexteqn
+\[
+c_1\v_1 + c_2 \v_2 + \dots + c_k\v_k = \sum_{i=1}^k c_i\v_i\tag{\eqn}
+\]
+where each coefficient $c_i$ is allowed to range
+arbitrarily over the domain of scalars.   It is not very
+hard to see that this infinite set is a {\it subspace\/} of $\V$.
+It is called the {\it subspace spanned by\/}
+$\{\v_1, \v_2, \dots, \v_k\}$.  You can think of the elements
+of this subspace as forming a general solution of some
+(homogeneous)
+problem. 
+We would normally want to be sure
+that there aren't any {\it redundant elements\/} in the
+spanning set $\{\v_1,\v_2, \dots, \v_k\}$.
+If one  $\v_i$ could be
+expressed linearly in terms of the others, that expression 
+for $\v_i$
+could be substituted in (\eqn), and the result could be
+simplified by combining terms.  We could thereby omit
+$\v_i$ and  express
+the general element in 
+(\eqn) as a linear combination of the other elements in the
+spanning set. 
+
+\nextex
+\example{Example \en}
+Consider the set consisting of the following four vectors in $\R^4$.
+\[
+\v_1 = \bm 1\\ 0 \\ 0 \\ 0 \em,\;
+\v_2 = \bm 1\\ -1 \\ 0 \\ 0 \em,\;
+\v_3 = \bm 0\\ 1 \\ 0 \\ 0 \em,\;
+\v_4 = \bm 0\\ 1 \\ 1 \\ -1 \em.
+\]
+This set is not linearly independent since
+\nexteqn
+\[
+\v_2 = \v_1 - \v_3.\tag{\eqn}
+\]
+Thus, any element is the subspace spanned by $\{\v_1,\v_2,\v_3,\v_4\}$
+can be rewritten
+\begin{align*}
+c_1\v_1 + c_2\v_2 + c_3\v_3 + c_4\v_4
+&= c_1\v_1 + c_2(\v_1 - \v_3) + c_3\v_3 + c_4\v_4\\
+&= (c_1 + c_2)\v_1 + (c_3 - c_2)\v_3 + c_4\v_4 \\
+ &= c_1'\v_1 + c_3'\v_3
++ c_4\v_4.
+\end{align*} 
+
+On the other hand, if we delete the element $\v_2$,
+the set consisting of the vectors
+\[
+\v_1 = \bm 1\\ 0 \\ 0 \\ 0 \em,\;
+\v_3 = \bm 0\\ 1 \\ 0 \\ 0 \em,\;
+\v_4 = \bm 0\\ 1 \\ 1 \\ -1 \em.
+\]
+is linearly independent.
+To see this, just look carefully at the pattern of zeroes. For
+example, $\v_1$ has first component 1, and the other two have
+first component 0, so $\v_1$ could not be a linear combination
+of $\v_2$ and $\v_3$.  Similar arguments eliminate the other
+two possible relations.  (What are those arguments?)
+
+
+
+In the above example, we could just as well have written
+\[
+\v_1 = \v_2 + \v_3
+\]
+and eliminated $\v_1$ from the spanning set without loss.
+   In general, there are many possible ways to delete
+redundant vectors from a spanning set.
+
+A linearly independent subset $\{\v_1,\v_2, \dots, \v_n\}$
+of  a vector space $\V$ which also spans $\V$ 
+is called a {\it basis} for $\V$.  Many of the algorithms we
+\outind{basis of a vector space}
+have for solving homogeneous problems yield bases for the
+ solution space.   For example, as noted above, any
+linearly independent pair of solutions of a second order homogeneous
+linear equation is a basis for its solution space.   Much of
+what we do later will be designed to generalize that to higher
+order differential equations and to systems of differential
+equations.  
+
+	Let $A$ be an $m\times n$ matrix, and
+let $\W$ be the solution space of the homogeneous system
+\[
+A\x = 0.
+\]
+(To be definite, assume the matrix has real entries and that
+$\W$ is the solution subspace of $\R^n$.  However, the corresponding theory
+for a complex matrix with solution subspace in $\CC^n$ is basically
+the same.)    The Gauss-Jordan reduction method always generates
+a basis for $\W$.    We illustrate this with an example.
+(You should also go back and look at Example 2 in Section 6.)
+
+
+\nextex
+\example{Example \en}  Consider
+\[
+\bm 
+{}
+1 & 1 & 0 & 3 & -1 \\
+1 & 1 & 1 & 2 & 1 \\
+2 & 2 & 1 & 5 & 0 \em
+\bm{}x_1\\x_2\\x_3\\x_4\\x_5 \em
+= 0.
+\]
+To solve it, apply Gauss-Jordan reduction
+\begin{align*}
+\bm 
+{}
+1 & 1 & 0 & 3 & -1 &|&0 \\
+1 & 1 & 1 & 2 & 1 &|&0 \\
+2 & 2 & 1 & 5 & 0  &|&0\em
+&\to
+\bm{}
+1 & 1 & 0 & 3 & -1 &|&0 \\
+0 & 0 & 1 & -1 & 2 &|&0 \\
+0 & 0 & 1 & -1 & 2 &|&0 \em\\
+&\to
+\bm{}
+1 & 1 & 0 & 3 & 0 &|&0 \\
+0 & 0 & 1 & -1 & 2 &|&0 \\
+0 & 0 & 0 & 0 & 0  &|&0\em.
+\end{align*}
+  The last matrix is fully reduced with pivots in the $1,1$ and
+$2,3$ positions.  The corresponding system is
+\begin{align*}
+x_1 + x_2 \hphantom{+ x_3} + 3x_4 \hphantom{+ 2x_5} & = 0 \\
+                       x_3  -\hphantom{3}x_4 + 2x_5 & = 0 
+\end{align*}
+with $x_1, x_3$ bound and $x_2, x_4$, and $x_5$ free. Expressing
+the bound variables in terms of the free variables yields
+\begin{align*}
+x_1 &=  - x_2 - 3x_4 \\
+x_3 &=  \hphantom{-x_2} +\hphantom{3}x_4 - 2x_5.
+\end{align*}
+The general solution vector, when expressed in terms of the
+free variables, is
+\begin{align*}
+\x = 
+\bm{}x_1\\x_2\\x_3\\x_4\\x_5 \em
+= \bm  -x_2 - 3x_4 \\ x_2 \\
+x_4 - 2x_5\\ x_4 \\x_5 \em
+&= \bm{} -x_2\\x_2\\0\\0\\0\em
++ \bm{} -3x_4\\0\\x_4\\x_4\\0\em
++\bm{} 0\\ 0\\-2x_5\\0\\x_5\em \\
+&= x_2\bm{} -1\\1\\0\\0\\0\em
++ x_4\bm{} -3\\0\\1\\1\\0\em
++x_5\bm{} 0\\ 0\\-2\\0\\1\em .
+\end{align*}
+If we put
+\[
+\v_1 = 
+\bm{} -1\\1\\0\\0\\0\em,\quad
+\v_2 =\bm{} -3\\0\\1\\1\\0\em,\quad
+\v_3 =\bm{} 0\\ 0\\-2\\0\\1\em,
+\]
+and $c_1 = x_2,\, c_2 = x_4$, and $c_3 = x_5$, then the general
+solution takes the form
+\[
+\x = c_1\v_1 + c_2\v_2 + c_3\v_3
+\]
+where the scalars $c_1, c_2, c_3$ (being new names for the free
+variables) can assume any values.
+Also, the set $\{\v_1, \v_2, \v_3\}$ is linearly independent.
+This is clear for the following reason.  Each vector is associated
+with one of the free variables and has a 1 in that position where
+the other vectors necessarily have zeroes.  Hence, none of the
+vectors can be linear combinations of the others.
+It follows that $\{\v_1, \v_2, \v_3\}$ is a basis for the
+solution space.
+\endexample
+
+The above example illustrates all the important aspects of the
+solution process for a homogeneous system
+\[
+A\x = 0.
+\]
+We state the important facts about the solution without going
+through the general proofs since they are just the same as what
+we did in the example but with a lot more confusing notation.
+The general solution has the form
+\[
+\x = c_1 \v_1 + c_2\v_2 + \dots + c_k\v_k
+\]
+where $\v_1, \v_2, \dots, \v_k$ are {\it basic
+solutions\/} obtained {\it by successively setting each free
+variable equal to 1 and the other free variables equal to
+zero}.  $c_1, c_2 \dots, c_k$ are just new names for the
+free variables.  The set $\{\v_1  , \v_2, \dots, \v_k\}$
+is linearly independent because of the pattern of 1's and
+0's at the positions of the free variables, and since it
+spans the solution space, it is a basis for the solution
+space.
+
+There are some special cases which are a bit confusing.
+First, suppose there is only one basic solution $\v_1$.
+Then, the set $\{\v_1\}$ with one element is indeed a basis.
+In fact, in any vector space, the set $\{\v\}$ consisting
+of a single {\it non-zero vector\/} is linearly independent.
+Namely, there are no other vectors in the set which it
+could be a linear combination of.   In this case, the subspace
+spanned by $\{\v\}$ just consists of all multiples $c\v$
+where $c$ can be any scalar.   A much more confusing case
+is that in which the spanning set is the {\it empty set\/},
+i.e., the set with no elements.   (That would arise, for example,
+ if the zero solution were the unique solution of the 
+homogeneous system, so there would be no free variables and no
+basic solutions.)  This is dealt with as follows.   First, the
+empty set is taken to be linearly  independent by convention.
+Second, again by convention, we take every linear
+combination of {\it no vectors\/} to be  zero.  It follows that
+the empty set spans the zero subspace $\{0\}$, and is a basis for it.
+(Can you see why the above conventions imply that the set
+$\{0\}$  is {\it not\/} linearly independent?)
+
+Let $\V$ be a vector space.   If $\V$ has a basis
+$\{\v_1, \v_2,\dots, \v_n\}$ with $n$ elements, then we
+say that $\V$ is $n$-dimensional.   That is, the dimension
+\outind{dimension of a vector space}
+of a vector space is the number of elements in a basis.
+
+  For example,
+since the solution space of a 2nd order homogeneous linear
+differential equation has a basis with two elements,
+that solution space is 2-dimensional.  
+
+Not too surprisingly, the dimension of $\R^n$ is $n$.  To
+see this we note that the set consisting of the vectors
+\[
+\e_1 = \bm 1\\0\\0\\\vdots\\0\em,\quad
+\e_2 = \bm 0\\1\\0\\\vdots\\0\em,\quad
+\dots,
+\e_n = \bm 0\\0\\0\\\vdots\\1\em,\quad
+\]
+is a basis.   For, the set is certainly linearly independent
+because the pattern of 0's and 1's precludes any dependence
+relation.  It also spans $\R^n$ because any vector $\x$
+in $\R^n$ can be written
+\begin{align*}
+\x = \bm x_1\\x_2\\\vdots\\x_n \em
+ &= x_1\bm 1\\0\\0\\\vdots\\0\em
++ x_2\bm 0\\1\\0\\\vdots\\0\em
++
+\dots
++ x_n\bm 0\\0\\0\\\vdots\\1\em\\
+&= x_1 \e_1 + x_2\e_2 + \dots + x_n\e_n.
+\end{align*}
+$\{\e_1, \e_2, \dots, \e_n\}$ is called the {\it standard basis\/}
+\outind{standard basis}
+\outind{basis, standard}
+for $\R^n$.
+Note that in $\R^3$ the vectors $\e_1, \e_2$, and $\e_3$ are
+what we previously called $\i, \j$, and $\k$.
+
+In this chapter we have defined the concept 
+dimension only for vector spaces, but the notion is considerably
+more general.  For example, a plane in $\R^3$ should be considered
+two dimensional even if it doesn't pass through the origin.  Also,
+a surface in $\R^3$, e.g., a sphere or hyperboloid, should also
+be considered two dimensional.  (People are often confused about
+curved objects because they seem to extend in extra dimensions.
+The point is that if you look at a small part of a surface,
+it normally looks like a piece of a plane, so it has the
+same dimension. Also, as we have seen, a surface can normally
+be represented parametrically with only two parameters.)  
+Mathematicians have develped a very general theory of
+dimension which applies to almost any type of set.  In cosmology,
+one envisions the entire universe as a certain type of
+four dimensional object.    Certain
+bizarre sets can even have a fractional dimension, and that
+concept is useful in what is called `chaos' theory.
+\medskip
+\subhead Coordinates \endsubhead
+Let $\V$ be a vector space and suppose  $\{\v_1, \v_2, \dots, \v_n\}$
+is a linearly independent subset of $\V$.
+  Suppose $\v$  is in the subspace spanned by $\{\v_1, \v_2, \dots, \v_n\}$,
+i.e.,
+\[
+\v = c_1\v_1 + c_2\v_2 + \dots + c_n\v_n
+\]
+for appropriate coefficients $c_1, c_2, \dots, c_n$.
+{\it The coefficients in such a linear combination are unique}.
+For, suppose we had
+\[
+\v = c_1\v_1 + c_2\v_2 + \dots + c_n\v_n
+   = c'_1\v_1 + c'_2\v_2 + \dots + c'_n\v_n.
+\]
+Subtract one expression from the other to obtain
+\[
+   (c_1 - c'_1)\v_1 + (c_2 - c'_2)\v_2 + \dots + (c_n - c'_n)\v_n = 0.
+\]
+We would like to conclude that all these coefficients are
+zero, i.e., that
+\begin{align*}
+c_1 &= c_1'\\
+c_2 &= c_2'\\
+&\vdots \\
+c_n &= c_n'.
+\end{align*}
+If that were not the case, one of the coefficients would be
+non-zero, and we could divide by it and transpose, thus
+expressing one of the vectors $\v_i$ as a linear combination
+of the others.  But since, the set is linearly independent, we
+know that is impossible.   Hence, all the coefficients are
+zero as required.
+
+
+Suppose $\{\v_1, \v_2, \dots, \v_n\}$ is a basis for $\V$.
+The above argument
+shows that {\it any\/} vector $\v$ in $\V$ may be expressed {\it uniquely\/}
+\[
+\v = c_1\v_1 + c_2\v_2 + \dots + c_n\v_n,
+\]
+and the coefficients $c_1, c_2, \dots, c_n$ are called the
+{\it coordinates\/} of the vector $\v$ with respect to the
+\outind{coordinates with respect to a basis}
+basis $\{\v_1, \v_2, \dots, \v_n\}$.   A convenient way to
+exhibit the relationship between a vector and its coordinates
+is as follows.  Put the coefficients $c_i$
+on the other side of the basis vectors, and write
+\[
+\v  = \v_1c_1 + \v_2c_2 + \dots \v_nc_n 
+    = \bm \v_1 & \v_2 & \dots &\v_n\em
+       \bm c_1\\c_2\\ \vdots \\ c_n\em.
+\]
+The column vector on the right is a bona-fide 
+element of $\R^n$
+(or of $\CC^n$ in the case of complex scalars), but the
+`row vector' on the left is not really an $n\times 1$
+matrix since its entries are vectors, not scalars.
+
+\nextex
+\example{Example \en}   Consider the vector space $\S$
+of all real solutions
+of the differential equation
+\[
+  y'' + k^2y = 0.
+\]
+The solutions $y_1 = \cos kt$ and $y_2 = \sin kt$ constitute
+a linearly independent pair of solutions, so that gives a basis
+for $\S$.   On the other hand
+\[
+y = \cos(kt + \delta)
+\]
+is also a solution, so it should be expressible as a linear
+combination of the basis elements.  Indeed, by trigonometry,
+we have
+\begin{align*}
+y = \cos(kt + \delta) &= \cos(kt)\cos\delta - \sin(kt)\sin\delta \\
+             &= y_1\cos\delta + y_2(-\sin\delta) \\
+     & \bm y_1 & y_2 \em \bm {} \cos\delta\\-\sin\delta \em.
+\end{align*}
+Thus
+\[
+ \bm {}\cos\delta\\-\sin\delta \em
+\]
+is a vector in $\R^2$ giving the coordinates of $\cos(kt + \delta)$
+with respect to the basis $\{y_1, y_2 \}$.
+\endexample
+
+Given a basis for a vector space $\V$, one may think of the
+elements of the basis as unit vectors pointing along coordinate
+axes in $\V$.   The coordinates with respect to the basis
+then are the coordinates relative to these axes.  If one
+starts (as one does normally in $\R^n$) with some specific
+set of axes, then the axes associated with a new basis need
+not be mutually perpendicular, and also the unit of length
+may be altered, and we may even have different units of
+length on each axis.
+
+
+\subhead Invariance of Dimension \endsubhead
+There is a subtle point involved in the definition of dimension.
+The dimension of $\V$ is the number of elements in a basis for
+$\V$, but it is at least conceivable that two different bases
+have different numbers of elements.  If that were the case,
+$\V$ would have two different dimensions, and that does not
+square with our idea of how such words should be used.
+\outind{dimension, invariance of}
+
+In fact it can never happen that two different bases have different
+numbers of elements.      To see this, we shall prove something
+slightly different.  Suppose $\V$ has a basis with $m$ elements.
+We shall show that 
+
+{\narrower\it any linearly independent subset of $\V$
+has at most $m$ elements.}
+
+   This would suffice for what we 
+want because if we had two bases one with $n$ and the other with
+$m$ elements, either could play the role of the basis and the
+other the role of the linearly independent set.  (Any basis is
+also linearly independent!)  Hence, on the one hand we would have
+$n \le m$ and on the other hand $m\le n$, whence it follows that
+$m = n$.
+
+Here is the proof
+of the above assertion about linearly independent subsets,
+(but you might want to skip it your first time through the subject).
+
+Let $\{\u_1, \u_2, \dots, \u_n\}$ be a linearly independent subset. 
+  Each
+$\u_i$ can be expressed uniquely in terms of the basis
+\begin{align*}
+\u_1 = \sum_{j=1}^m \v_j p_{j1} &= 
+\bm \v_1 & \v_2 & \dots & \v_m \em 
+\bm p_{11}\\ p_{21}\\ \vdots \\ p_{m1} \em \\
+\u_2 = \sum_{j=1}^m \v_j p_{j2} &= 
+\bm \v_1 & \v_2 & \dots & \v_m \em 
+\bm p_{21}\\ p_{22}\\ \vdots \\ p_{m2} \em \\
+&\vdots \\
+\u_n = \sum_{j=1}^m \v_j p_{jn} &= 
+\bm \v_1 & \v_2 & \dots & \v_m \em 
+\bm p_{1n}\\ p_{2n}\\ \vdots \\ p_{mn} \em .
+\end{align*}
+Each of these equations represents one column of the complete
+matrix equation
+\[
+\bm \u_1 & \u_2 & \hdots & \u_n \em
+=
+\bm \v_1 & \v_2 & \dots & \v_m \em
+\bm p_{11} & p_{12} & \hdots & p_{1n} \\
+    p_{21} & p_{22} & \hdots & p_{2n}\\
+   \vdots & \vdots & \hdots & \vdots \\
+    p_{m1} & p_{m2} & \hdots & p_{mn} \em.
+\]
+Note that the  matrix on the right is an $m\times n$ matrix.
+Consider the homogeneous system
+\[
+\bm p_{11} & p_{12} & \hdots & p_{1n} \\
+    p_{21} & p_{22} & \hdots & p_{2n}\\
+   \vdots & \vdots & \hdots & \vdots \\
+    p_{m1} & p_{m2} & \hdots & p_{mn} \em
+\bm x_1\\x_2\\ \vdots \\ x_n \em = 0.
+\]
+Assume, contrary to what we hope, that $n > m$. Then,
+ we know by the theory of homogeneous
+linear systems, that there is a non-trivial solution to this system,
+i.e., one with at least one $x_i$ not zero.   Then
+\begin{multline*}
+ \bm \u_1 & \u_2 & \hdots & \u_n \em
+\bm x_1\\x_2\\ \vdots \\ x_n \em
+= \\ 
+\bm \v_1 & \v_2 & \dots & \v_m \em
+\bm p_{11} & p_{12} & \hdots & p_{1n} \\
+    p_{21} & p_{22} & \hdots & p_{2n}\\
+   \vdots & \vdots & \hdots & \vdots \\
+    p_{m1} & p_{m2} & \hdots & p_{mn}\em
+\bm x_1\\x_2\\ \vdots \\ x_n \em = 0.
+\end{multline*}
+Thus,  $0$ has a non-trivial representation
+\[
+ 0 = \u_1x_1 + \u_2x_2 + \dots + \u_nx_n
+\]
+which we know can never happen for a linearly independent set.
+Thus, the only way out of this contradiction is to believe that
+$n \le m$ as claimed.
+
+One consequence of this argument is the following fact.  {\it The
+dimension of a subspace cannot be larger than the dimension
+of the whole vector space.}  The reasoning is that a basis
+for a subspace is necessarily a linearly independent set
+and so it cannot have more elements than the dimension of
+the whole vector space.
+  
+It is important to note that two different bases of the same
+vector space might have no elements whatsoever in common.
+All we can be sure of is that they have the same size.
+
+
+
+
+\medskip
+\subhead Infinite Dimensional Vector Spaces \endsubhead
+Not every vector space has a finite basis.   We shall not prove it
+rigorously
+here, but it is fairly clear that the vector space of
+all continuous functions $\Cal C(I)$  cannot have a finite basis
+$\{f_1, f_2 \dots, f_n\}$.   For, if it did, then that would mean
+{\it any\/} continuous function $f$ on $I$ could be written
+as a finite linear combination 
+\[
+ f(t) = c_1f_1(t) + c_2f_2(t) + \dots + c_n f_n(t),
+\]
+and it is not plausible that any  finite set of continuous functions
+could capture the full range of possibilities of continuous functions
+in this way.   
+
+If a vector space has a finite basis, we say that it is {\it finite
+dimensional\/}; otherwise we say it is {\it infinite dimensional}.
+
+Most interesting function spaces 
+are infinite dimensional.   Fortunately, the subspaces of these
+spaces which are solutions of homogeneous linear differential
+equations are finite dimensional, and these are what we shall
+spend the next chapter studying.
+
+We won't talk much about infinite dimensional vector spaces in
+this course, but you will see them again in your course on
+Fourier series and partial differential equations, and you will
+also encounter such spaces when you study quantum mechanics.
+
+
+
+\bigskip
+\goodbreak
+\includeexercises{chap10.ex8}
+\bigskip
+\nextsec{Calculations in $\R^n$ or $\CC^n$}
+\head \sn. Calculations in $\R^n$ or $\CC^n$ \endhead
+
+\outind{linear independence in $\R^n$}
+Let  $\{\v_1, \v_2, \dots, \v_k\}$ be a collection of vectors in
+$\R^n$  (or $\CC^n$ in the case of complex scalars.)  It is
+often useful to have a way to pick out a linearly independent
+{\it subset\/} which spans the same subspace, i.e., which is
+a basis for that subspace.   The basic idea (no pun intended)
+is to throw away redundant vectors until that is no longer
+possible, but there is a systematic  way to do this all at once.
+  Since the vectors $\v_i$ are elements of
+$\R^n$, each may be realized as a  $n\times 1$ column vector.
+Put these vectors together to form an $n\times k$ matrix
+\[
+A = \bm \v_1 & \v_2 & \hdots & \v_k \em.
+\]
+(This is the same notation we used in the previous section,
+but now since the $\v_i$ are column vectors, rather than elements
+of some abstract vector space, we really do get a
+matrix.)  To find a basis, apply Gaussian reduction to the matrix
+$A$,  and pick out the columns
+of  $A$ which in the transformed reduced matrix end up with pivots.
+
+\nextex
+\example{Example \en}
+Let 
+\[
+\v_1 = \bm{}1\\0\\1\\1\em,\quad
+\v_2 = \bm{}2\\2\\4\\0\em,\quad
+\v_3 = \bm{}-1\\1\\0\\-2\em,\quad
+\v_4 = \bm{}0\\1\\1\\0\em .
+\]
+Form the matrix $A$ with these columns and apply Gaussian reduction
+\begin{align*}
+\bm {}
+    1 & 2 & -1 & 0 \\
+    0 & 2 & 1 & 1 \\
+    1 & 4 & 0 & 1 \\
+    1 & 0 & -2 & 0 \em
+&\to
+\bm {}
+    1 & 2 & -1 & 1 \\
+    0 & 2 & 1 & 1 \\
+    0 & 2 & 1 & 1 \\
+    0 & -2 & -1 & 0 \em \\
+&\to
+\bm {}
+    1 & 2 & -1 & 1 \\
+    0 & 2 & 1 & 1 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \em\\
+&\to
+\bm {}
+    1 & 2 & -1 & 1 \\
+    0 & 2 & 1 & 1 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \em.
+\end{align*}
+This completes the Gaussian reduction, and the pivots are in the
+first, second, and fourth columns.  Hence, the vectors
+\[
+\v_1 = \bm{}1\\0\\1\\1\em,\quad
+\v_2 = \bm{}2\\2\\4\\0\em,\quad
+\v_4 = \bm{}0\\1\\1\\0\em 
+\]
+   form a basis for the subspace spanned by $\{\v_1, \v_2, \v_3, \v_4 \}$.
+\endexample
+
+Let's look more closely at this example to see why the subset 
+is linearly independent and also spans the same subspace as the
+original set.  The
+proof that the algorithm works in the general case is more complicated
+to write down but just elaborates the ideas exhibited in the example.
+Consider the homogeneous system
+$A\x = 0$.    This may also be written
+\[
+A\x = \bm \v_1 & \v_2 & \v_3 & \v_4 \em \bm x_1\\x_2\\x_3\\x_4 \em
+   = \v_1x_1 + \v_2x_2 + \v_3x_3 + \v_4x_4 = 0.
+\]
+In the general solution, $x_1, x_2$, and $x_4$ will be bound variables
+(from the pivot positions) and $x_3$ will be free.   That means we can
+set $x_3$ equal to anything, say $x_3 = -1$ and the other variables will
+be determined.   For this choice, the relation becomes
+\[
+  \v_1x_1 + \v_2x_2 - \v_3 + \v_4x_4 = 0
+ \]
+which may be rewritten
+\[
+\v_3 = x_1\v_1 + x_2\v_2 + x_4\v_4.
+\]
+Thus, $\v_3$ is redundant and may be eliminated from the set without
+changing the subspace spanned by the set.  On the other hand, the
+set  $\{\v_1, \v_2, \v_4 \}$  is linearly independent, since if
+we were to apply Gaussian reduction to the matrix
+\[
+A' = \bm \v_1 & \v_2 & \v_4 \em
+\]
+the reduced matrix would have a pivot in every column, i.e., it
+would have rank 3.  Thus, the system
+\[
+ \bm \v_1 & \v_2 & \v_4 \em \bm x_1 \\ x_2 \\ x_4 \em =
+\v_1x_1 + \v_2x_2 + \v_4x_4 = 0
+\]
+has only the trivial solution.    That means that no one of the
+three vectors can be expressed as a linear combination of the other
+two.  For example, if $\v_2 = c_1\v_1 + c_4\v_4$, we have
+\[
+   \v_1c_1 + \v_2(-1) + \v_4c_4 = 0.
+\]
+It follows that the set is linearly independent.
+\medskip
+\subhead Column Space and Row Space \endsubhead
+Let $A$ be an $m\times n$ matrix.   Then the columns
+$\v_1, \v_2, \dots, \v_n$ of
+$A$ are vectors in $\R^m$ (or $\CC^m$ in the complex case),
+and $\{\v_1, \v_2,\dots, \v_n\}$
+ spans a subspace of $\R^m$ called the {\it column
+space of\/}  $A$.   The column space plays a role in the
+\outind{column space of a matrix}
+the theory of 
+inhomogeneous systems  $A\x = \b$ in the following
+way.  A vector $\b$ is in the column space if and only if it
+is expressible as a linear combination
+\[
+\b = \v_1x_1 + \v_2x_2 + \dots +\v_nx_n
+   = \bm \v_1 & \v_2 & \dots & \v_n\em
+\bm x_1\\x_2\\ \vdots \\ x_n \em
+   = A\x. 
+\]
+Thus, {\it the column space of $A$ consists of all vectors $\b$
+in $\R^m$ for
+which the system $A\x = \b$ has a solution}.
+
+Note that the method outlined in the beginning of this section
+gives a basis for the column space, and the number of elements
+in this basis is the rank of $A$.  (The rank is the number of
+pivots!)  Hence, {\it the rank of an $m\times n$ matrix $A$ is
+the dimension of its column space}.
+
+There is a similar concept for rows;  the row space of an
+$m\times n$ matrix $A$ is the subspace of $\R^n$ spanned by
+the rows of $A$.   It is not hard to see that {\it the dimension
+of the row space of $A$ is also the rank of $A$}.  For,
+since each row operation is reversible, applying a row operation
+does not change the subspace spanned by the rows.  Hence, the
+row space of the matrix $A'$ obtained by Gauss-Jordan reduction
+from $A$ is the same as the row space of $A$.   However, the
+ set of non-zero rows of the reduced matrix is a basis for this subspace.
+To see this, note first that it certainly spans (since leaving
+out zero rows doesn't cost us anything).   Moreover, it is also
+a linearly independent set because each non-zero row has a 1 in
+a pivot position where all the other rows are zero.
+\outind{row space of a matrix}
+
+The fact that both the column space and the row space have the
+same dimension is sometimes expressed by saying
+``the column rank equals the row rank''.
+
+The column space also has an abstract interpretation.
+Consider the linear operator $L:\R^n \to \R^m$ defined by
+$L(\x) = A\x$.    The {\it image\/} of this operator is defined
+to be the set of all vectors $\b$ in $\R^m$ of the form
+$\b = L(\x)$ for some $\x$ in $\R^n$.  Thus, the image of $L$
+is just the set of $\b = A\x$, which by the above reasoning is
+the column space of $A$, and its dimension is the rank $r$.   
+On the other hand, you should recall that the dimension of
+the null space of $L$ is the number of basic solutions, i.e.,
+$n - r$.    Since these add up to $n$, we have
+\[
+\dim \text{Image of }L + \dim \text{Null Space of }L = \dim
+\text{Domain of }L.
+\]
+
+\medskip
+\subhead A Note on the Definition of Rank \endsubhead
+The rank of $A$ is defined as the number of pivots
+in the reduced matrix obtained from $A$ by
+an appropriate sequence of elementary row operations.   Since we
+can specify a standard procedure for performing such row operations,
+that means the rank is a well defined number.   On the other hand,
+it is natural to wonder what might happen if $A$ were reduced by
+an alternative, perhaps less systematic, sequence of row operations.
+The above analysis shows that we would still get the same answer
+for the rank.  Namely, the rank is the dimension of the column
+space  of $A$, and that number depends only on
+ the column space itself, not on any particular basis for it.
+(Or you could use the same argument using the row space.)
+
+The rank is also the number of non-zero rows in the
+reduced  matrix, so it
+follows that this number does not depend on the particular sequence
+of row operations used to reduce $A$  to Gauss-Jordan reduced form. 
+In fact, the entire matrix obtained  at the end (as
+long as it is in Gauss-Jordan reduced form)  depends
+only on the original matrix $A$ and not on the particular sequence
+or row operations used to obtain it.
+The proof of this fact is not so easy, and we omit it here.
+\bigskip
+\goodbreak
+\includeexercises{chap10.ex9}
+\endinput

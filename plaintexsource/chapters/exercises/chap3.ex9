@@ -1,0 +1,145 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 9
+\smallskip
+
+% 1
+\Exer Calculate  $f_{xy}$ and $f_{yx}$ and show that they are equal.\par
+        (a) $f(x,y)= x^2\cos y$. \par
+        (b) $f(x,y)= x \ln(x+2y)$. \par
+        (c) $f(x,y)= x^3-5x^2y+7xy^2-y^3$. \par
+\answer (a) $f_{xy}=f_{yx}= -2x\sin y$ \par
+	(b) $f_{xy}=f_{yx}= 4y/(x+2y)^2$ \par
+	(c) $f_{xy}=f_{yx}= 14y-10x$
+
+% 2
+\Exer Suppose $f(x,y)$ denotes a twice differentiable function with
+equal mixed partials.  Show that if $f(x,y) = -f(y,x)$ then
+$f_{xy}(x,y) = 0$ at any point on the line $y = x$.   Why does this
+show that the function considered in the Example in the section cannot
+have equal mixed partials at the origin?
+\answer  It is better to use the notation $f_1$ in this case
+to indicate differentiation with respect to the first variable.
+Then, differentiating the left hand side with respect to $x$
+uses  $f_1$ while differentiating the right hand side with
+respect to $x$ requires $f_2$.  Thus,
+ $$\align
+	f(x,y) = -f(y,x) &\Rightarrow f_1(x,y)=-f_2(y,x) \\
+	 &\Rightarrow f_{12}(x,y)=-f_{21}(y,x)
+\endalign$$
+So $y=x \Rightarrow f_{12}(x,x)=-f_{21}(x,x)$.  Now since $f_{21}=f_{12}$ this
+implies $f_{12}(x,x)=-f_{12}(x,x)$, i.e.,  $f_{12}(x,x) =0$.
+
+% 3
+\Exer  For the function $f(x,y) =e^{x+y}$, show that all partials
+$\dfrac{\partial^{m+n} f} {\partial y^m\partial x^n}$  are the same.
+What are they?
+\answer For any $n,m$,  $\dfrac{\d^{m+n} f}{\d y^m\d x^n}=e^{x+y}$.
+
+
+% 4
+\Exer  The vertical displacement $y(x,t)$  of a point on a vibrating
+string (as a function of position $x$ and time $t$) is governed by the
+{\it wave equation\/} $$\frac{\partial^2 y}{\partial t^2} = c^2
+\frac{\partial^2 y}{\partial x^2}.$$ (This is an approximation which is
+only accurate for small displacements.) Show that there are solutions
+of the form: \par
+        (a) $y=\sin(kx+at)$. \par
+        (b) $y=\sin kx \cos at$. \par
+What are $k$ and $a$?
+\answer (a)  
+$\dfrac{\d y}{\d t}=a\cos(kx+at)$ so
+$\dfrac{\d^2y}{\d t^2} = -a^2\sin(kx+at)$. 
+Similarly,$\dfrac{\d^2y}{\d x^2}=-k^2\sin(kx+at)$.
+Hence for $a$ chosen so that $k^2c^2=a^2$ we have
+what we need. \par
+(b) $\dfrac{\d^2 y}{\d x^2} = \dfrac{\d}{\d x}(k\cos kx\cos at)
+= -k^2\sin kx \cos at$.  Also, $\dfrac{\d^2y}{\d t^2} =
+-a^2\sin kx \cos at$.
+So,  $k^2c^2=a^2$ is the desired relation.
+	
+
+% 5
+\Exer  Laplace's Equation $$\nabla^2 u = 0$$ governs many physical
+phenomena, e.g., the potential energy of a gravitational field. \par
+Which of the following functions satisfy Laplace's Equation?  Use
+$\nabla^2 u = \dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}
+{\partial y^2}$ for a function $u(x,y)$ of two variables. \par
+        (a) $u = \ln(x+y)$ \par
+        (b) $u = 2x - 3y + 4x^2 - 4y^2 + xy$ \par
+        (c) $u = \sqrt{x^2+y^2}$ \par
+\answer (a) No; (b) yes; (c) no.
+
+
+% 6
+\Exer  Suppose $w = f(x,y)$.  Then, in polar coordinates,
+$w = f(r\cos \theeta, r\sin\theeta) = h(r,\theeta)$. Show that
+$$
+\frac{\d^2 f}{\d x^2} + \frac{\d^2 f}{\d y^2} =
+\frac{\d^2 h}{\d r^2} + \frac 1r\frac{\d h}{\d r} +
+ \frac 1{r^2}\frac{\d^2 h}{\d \theeta^2}.
+$$
+\answer Just compute $\dfrac{\d^2 h}{\d r^2}$ and $\dfrac{\d^2h}{\d \theeta^2}$
+and then observe the relationship. To compute these, first find
+$\dfrac{\d h}{\d r}$, $\dfrac{\d h}{\d \theeta}$.   
+We have $h(r,\theeta) =
+f(x(r,\theeta),\, y(r,\theeta))$, 
+so
+$$\align
+\frac{\d h}{\d r}=\frac{\d f}{\d x}\frac{\d x}{\d r}
++ \frac{\d f}{\d y}\frac{\d y}{\d r}
+&= \frac{\d f}{\d x}\cos\theeta + \frac{\d f}{\d y}\sin\theeta \\
+&= \frac{\d f}{\d x}(x(r,\theeta),\, y(r,\theeta)) \cos\theeta +
+   \frac{\d f}{\d y}(x(r,\theeta),\, y(r,\theeta)) \sin\theeta.
+\endalign$$
+So 
+$$
+\frac{\d^2 h}{\d r^2} = \frac{\d^2f}{\d x^2}\cos^2\theeta +
+\frac{\d^2f}{\d y\d x}\cos\theeta\sin\theeta 
++\frac{\d^2f}{\d x\d y}\sin\theeta\cos\theeta
++ \frac{\d^2 f}{\d y^2}\sin^2\theeta.
+$$
+Similarly $\dfrac{\d h}{\d\theeta}
+=\dfrac{\d f}{\d x}\dfrac{\d x}{\d\theeta}
++ \dfrac{\d f}{\d y}\dfrac{\d y}{\d\theeta} = \dfrac{\d f}{\d x}r(-\sin\theeta)
++\dfrac{\d f}{\d y}r\cos\theeta$.
+So
+$$\align
+\frac{\d^2h}{\d\theeta^2}
+&=	 \left(\frac{\d^2f}{\d x^2}\frac{\d x}{\d\theeta} +
+	  \frac{\d^2f}{\d y\d x}\frac{\d y}{\d\theeta}\right)(-r\sin\theeta) +
+	  \left(\frac{\d f}{\d x}\right)(-r\cos\theeta) \\
+&\qquad	+
+\left(
+	  \frac{\d^2f}{\d x\d y}\frac{\d x}{\d\theeta}
+ +
+\frac{\d^2f}{\d y^2}\frac{\d y}{\d\theeta}
+\right)(r\cos\theeta) +
+	  \left(\frac{\d f}{\d y}\right)(-r\sin\theeta) \\
+&=	\frac{\d^2f}{\d x^2} r^2\sin^2\theeta 
+	  -\frac{\d^2f}{\d y\d x} r^2\sin\theeta\cos\theeta 
+- \left(\frac{\d f}{\d x}\right) r\cos\theeta\\
+&\qquad
+	  -\frac{\d^2f}{\d x\d y} r^2\sin\theeta\cos\theeta
+	+ \frac{\d^2f}{\d y^2}r^2\cos^2\theeta 
+ - \left(\frac{\d f}{\d y}\right)r\sin\theeta
+\endalign
+$$
+So $\displaystyle\frac1{r^2}\frac{\d^2h}{\d\theeta^2} + \frac{\d^2h}{\d r^2}
++\frac1r\frac{\d h}{\d r} = \frac{\d^2f}{\d x^2} + \frac{\d^2f}{\d y^2}.$
+
+
+% 7
+\Exer  Given the thermodynamic relation $$ du = T\,ds - p\,dv $$
+derive the Maxwell relation
+$$
+ \left(\frac{\d T}{\d v}\right)_s = - \left(\frac{\d p}{\d s}\right)_v.
+$$
+\answer From the equation, $\dfrac{\d u}{\d s} = T$ and
+$\dfrac{\d u}{\d v} = -p$.   Hence,
+$$
+\frac{\d^2u}{\d s\d v} = \left(\frac {\d T}{\d v}\right)_s.
+$$
+A similar argument applied to $\dfrac{\d^2u}{\d v \d s}$ gives the
+expression on the right of the desired equation.
+
+\endinput

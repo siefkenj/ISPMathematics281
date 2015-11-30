@@ -1,0 +1,1998 @@
+\documentstyle{book}
+\input extra.tex
+\input epsf.tex
+\input le2.sty
+\input chap6.lnk
+\maketoctrue
+\indextrue
+\mardiagtrue
+\openseg{chap7}
+\Monograph
+\topmatter
+\nextchap{Second Order Linear Differential Equations}
+\title\chapter{\chapno}Second Order Linear Differential Equations\endtitle
+\endtopmatter
+\document
+\nextsec{Second Order Differential Equations}
+\head \sn. Second Order Differential Equations \endhead
+
+The general second order differential equation may be put in the
+form
+$$
+\frac{d^2y}{dt^2} = f(t, y, y'),
+$$
+and a solution is a function $y = y(t)$ defined on some $t$-interval
+$t_1 < t < t_2$ and satisfying
+$$
+y''(t) = f(t, y(t), y'(t))\qquad\text{for } t_1 < t < t_2.
+$$
+Note that the function $f$ on the right is a function of three
+independent variables, for which $t$, the function $y(t)$,
+and its derivative $y'(t)$ are substituted to check a
+solution.
+
+As we saw in specific cases in Chapter II, a general solution of
+a second order equation involves two arbitrary constants,
+so you need two conditions to determine a solution completely.
+The fundamental existence theorem asserts that if $f(t,y,y')$
+is continuous on its domain, then there exists a solution
+satisfying initial conditions of the form
+$$
+\align
+y(t_0) &= y_0\\
+y'(t_0) &= y'_0.
+\endalign
+$$
+(Note that {\it both\/} the solution and its derivative are specified
+at $t_0$.)
+The fundamental uniqueness theorem
+asserts that if $f_y(t,y',y')$ and $f_{y'}(t,y,y')$ exist and are
+continuous, then on any given interval containing $t_0$
+there is at most one solution satisfying
+the given initial conditions.   
+
+\nextex
+\emar{s7-1.ps}{-100}
+\example {Example \en}  As you saw earlier in this course and in
+your physics course, the differential equation governing
+the motion of a weight at the end of spring has the form
+$$
+  \frac{d^2y}{dt^2} = -\frac km y
+$$
+where $y$ denotes the displacement of the weight from equilibrium.
+Similar differential equations govern other examples of
+{\it simple harmonic motion}.  The general solution
+\outind{harmonic oscillator, undamped}%
+can be written
+$$\gather
+  y = C_1 \cos(\sqrt{k/m}\,t) + C_2\sin(\sqrt{k/m}\, t) \\
+\text{or}\qquad\qquad y = A\cos(\sqrt{k/m}\,t + \delta)
+\endgather $$
+and in either case there are two constants which may be
+determined by specifying an initial displacement $y(t_0)= y_0$
+and an initial velocity $y'(t_0) = y'_0$.
+
+In physics, you may also have encountered the equation for
+{\it damped simple harmonic motion\/} which has the form
+\outind{harmonic oscillator, damped}%
+\outind{damped harmonic oscillator}%
+$$
+\frac{d^2y}{dt^2} = -\frac km y - \frac bm \frac{dy}{dt}.
+$$
+You may also have seen a discussion of solutions of this
+equation.  Again, two arbitrary constants are involved.
+\endexample
+
+\mar{s7-2.ps}
+We solved the equation for undamped simple harmonic motion
+in 
+Chapter II by means of a trick which will always work if
+the function $f(t,y,y') = f(y,y')$ does not depend explicitly
+on the independent variable $t$.  In that case, you can put $u = y'$
+and then by the chain rule
+$$
+\frac{d^2y}{dt^2} = \frac{du}{dt} = \frac{du}{dy}\frac{dy}{dt}
+   = \frac{du}{dy} u,
+$$
+so the equation can be put in the form
+$$
+  u\frac{du}{dy} = f(y,u).
+$$
+This equation can then be solved to express $u = dy/dt$
+in terms of $y$, and then the resulting first order equation
+may be solved for $y$.  This method would also work for the
+equation for damped simple harmonic motion.  (Try it!).
+
+There is one other circumstance in which a similar trick
+will work: if $f(t,y,y') = f(t,y')$ does not actually
+involve the dependent variable $y$.  Then we can put $u = y'$
+and we have a first order equation of the form
+$$
+\frac{du}{dt} = f(t,u).
+$$
+
+Except for these special cases, there are no good methods for
+solving general second order differential equations.  However,
+for linear equations, which we shall consider in the rest
+of this chapter, there are powerful methods.  Fortunately,
+many important second order differential equations arising
+in applications are linear.
+\bigskip
+\input chap7.ex1
+\bigskip
+
+\nextsec{Linear Second Order Differential Equations}
+\head \sn. Linear Second Order Differential Equations \endhead
+
+A second order differential equation is called {\it linear\/} if
+\outind{linear second order differential equation}%
+it can be put in the form
+$$
+\frac{d^2y}{dt^2} + p(t)\frac{dy}{dt} + q(t) y = f(t)
+$$
+where $p(t), q(t)$, and $f(t)$ are known functions.
+This may be put in the form $d^2y/dt^2 = f(t,y,y')$
+with $f(t,y,y') = f(t) - q(t)y - p(t)y'$.
+
+\nextex
+\emar{s7-3.ps}{-200}
+\example{Example \en}  The equation for {\it forced,
+damped harmonic motion\/} has the form
+$$
+\frac{d^2y}{dt^2} + \frac bm\frac{dy}{dt} + \frac km y = \frac{F_0}m 
+\cos \omega t.
+$$
+The term on the right represents a periodic driving force with
+period $2\pi/\omega$.
+\endexample
+
+\nextex
+\example{Example \en}  The equation
+$$
+\frac{d^2y}{dt^2} - \frac{2t}{1 - t^2}\frac{dy}{dt} + 
+\frac{\alpha(\alpha + 1)}{1 - t^2}y = 0,
+$$
+where $\alpha$ is some constant,
+is called {\it Legendre's equation}.  Its solutions are used
+to describe the shapes of the electron `clouds' in pictures
+of atoms you see in chemistry books.
+\endexample
+
+\nextex
+\example{Example \en}  The equations
+$$\gather
+\frac{d^2y}{dt^2} +2\left(\frac{dy}{dt}\right)^2 + t y = 0 \\
+\frac{d^2y}{dt^2}  +\frac g L \sin y  = 0
+\endgather $$
+are non-linear equations.  The second of these is the equation
+for the motion of a pendulum.  This is usually simplified by
+making the approximation $\sin y \approx y$.
+\endexample
+
+Existence and uniqueness for linear differential equations is
+a bit easier.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Le $p(t), q(t)$, and
+$f(t)$ be continuous functions on the interval
+$t_1 < t < t_2$ and let $t_0$ be a point in that
+interval.   Then there is a unique solution of
+$$
+y'' + p(t)y' + q(t) y = f(t)
+$$
+on that
+same interval which satisfies specified initial conditions
+$$
+\align
+y(t_0) &= y_0 \\
+y'(t_0) &= y'_0 .
+\endalign
+$$
+\endproclaim.
+\outind{existence theorem for second order linear equations}%
+\outind{uniqueness theorem for second order linear equations}%
+
+Note that the new element in the statement is that the solution
+is defined and unique on the same interval that the differential
+equation is defined and continuous on.   In the general case,
+for a non-linear differential equation,
+we might have to take a smaller interval.
+
+We won't try to prove this theorem in this course.
+
+\medskip
+The basic strategy for solving a linear second order differential
+equation is the same as the strategy for solving a linear first
+order differential equation.  
+\roster
+\item"(i)"  Find a general solution of the homogeneous equation
+\nexteqn
+\def\AA{\eqn}
+$$
+ y'' + p(t) y' + q(t) y = 0.\tag\eqn
+$$
+Such a solution will involve {\it two\/} arbitrary constants.
+\item"(ii)"  Find one {\it particular\/} solution of the inhomogeneous
+equation
+\outind{homogeneous linear second order differential equation}%
+\outind{inhomogeneous linear second order differential equation}%
+\outind{particular solution, second order linear differential equation}%
+\nexteqn
+$$
+y'' + p(t) y' + q(t) y = f(t).\tag\eqn
+$$
+Then a general solution of the inhomogeneous equation can be obtained
+by adding the general solution of the homogeneous equation to the
+particular solution.
+\item"(iii)"  Use the initial conditions to determine the constants.
+Since there are two initial conditions and two constants, we
+have enough information to do that. 
+\endroster
+
+Let's see why this strategy should work.  Suppose $y_p$ is
+one particular solution of the inhomogeneous equation, i.e.,
+$$
+y''_p + p(t) y'_p + q(t) y_p = f(t).
+$$
+Suppose that $y$ is any {\it other\/} solution of the
+inhomogeneous equation, i.e.,
+$$
+y'' + p(t) y' + q(t) y = f(t).
+$$
+If we subtract the first of these equations from the second
+and regroup terms, we obtain
+$$
+y'' - y''_p + p(t)(y' - y'_p) + q(t)(y - y_p) = f(t) - f(t) = 0.
+$$
+Thus if we put $u = y - y_p$, we get
+$$
+u'' + p(t) u' + q(t) u = 0,
+$$
+so $u$ is a solution of the homogeneous equation, and
+$$
+y(t) = y_p(t)  + u(t).
+$$
+Note how important the linearity was in making this argument
+work.
+\outind{homogeneous linear second order differential equation}%
+
+\nextex
+\example{Example \en}  Consider
+$$
+y'' + 4y = 1\qquad\text{where } y(0) = 0,\, y'(0) = 1.
+$$
+
+The homogeneous equation
+$$
+y'' + 4 y = 0
+$$
+has the general solution
+$$
+y = C_1\cos(2t) + C_2\sin(2t).
+$$
+(This is the equation for simple harmonic motion discussed in
+the previous section.)
+
+To find a particular solution of the inhomogeneous equation,
+we note by inspection that a constant solution $y = A$ should work.
+Then,
+$$
+  y'' + 4y = 0 + 4A = 1
+$$
+so $A = 1/4$.  Hence, $y_p = 1/4$ is a particular solution.
+Hence, the general solution of the inhomogeneous equation is
+$$
+y = \undersetbrace\text{particular}\to{\frac 14} +
+\undersetbrace\text{general, homogeneous}\to{ C_1\cos(2t) + C_2\sin(2t)}.
+$$
+
+Finally, we determine the constants as follows.  First note that
+$$
+y' = -2 C_1\cos 2t + 2 C_2\cos 2t.
+$$
+Then at $t = 0$,
+$$
+\align
+  y = 0 &= \frac 14 + C_1 \cos 0 + C_2 \sin 0 = \frac 14 + C_1 \\
+  y' = 1 &=  - 2C_1\sin 0 + 2C_2 \cos 0 = 2C_2.
+\endalign
+$$
+Thus, $C_1 = -1/4$ and $C_2 = 1/2$, and
+the solution matching the given initial conditions is
+$$
+y = \frac 14 - \frac 14 \cos 2t + \frac 12 \sin 2t.
+$$
+\endexample
+
+\bigskip
+\input chap7.ex2
+\bigskip
+
+\nextsec{Homogeneous Second Order Linear Equations}
+\head \sn. Homogeneous Second Order Linear Equations \endhead
+
+To solve
+$$
+y'' + p(t) y' + q(t) y = 0
+$$
+we need to come up with a solution with two arbitrary
+constants in it.   Suppose that somehow or other, we have
+found two different solutions $y_1(t)$ and $y_2(t)$ defined on
+a common $t$-interval $t_1 < t < t_2$. 
+
+\nextex
+\example{Example \en}
+Two solutions of the equation
+$$
+  y'' + 4 y = 0
+$$
+are $y_1(t) = \cos (2t)$ and $y_2(t) = \sin (2t)$.
+\endexample
+
+The important insight on which the whole theory is based
+is that anything of the form
+\nexteqn
+$$
+ y(t) = c_1 y_1(t) + c_2 y_2(t),\tag\eqn
+$$
+where $c_1$ and $c_2$ are constants, is {\it again\/}
+a solution.  
+To see why, we calculate as follows.
+We have
+$$\align
+y''_1 + p(t)y'_1 +  q(t) y_1 &= 0 \\
+y''_2 + p(t)y'_2 +  q(t) y_2 &= 0 
+\endalign $$
+so multiplying the first equation by $c_1$, the second by
+$c_2$ and adding, we obtain
+$$
+\multline
+c_1y''_1 + c_2y''_2 + p(t)(c_1y'_1 + c_2y'_2)
+ + q(t)(c_1y_1 + c_2 y_2)
+=\\
+(c_1y_1 + c_2y_2)'' + p(t)(c_1y_1 + c_2y_2)'
+ + q(t)(c_1y_1 + c_2 y_2) = 0,
+\endmultline
+$$
+which says exactly that $y = c_1y_1 + c_2y_2$ is a solution.
+Note that this argument depends very strongly on the fact that
+the differential equation is linear.
+
+The function $y = c_1y_1 + c_2y_2$ is called a {\it linear
+combination\/} of $y_1$ and $y_2$. 
+    Thus, we may restate the
+above statement as follows: {\it any linear combination  of solutions of
+a linear homogeneous differential equation is again a solution}.
+\outind{linear combination of solutions of a linear differential equation}%
+
+The above analysis provides a method for finding a general solution
+of the homogeneous equation: find a pair of solutions $y_1(t), y_2(t)$
+and use $y = c_1y_1(t) + c_2y_2(t)$.   However, there is one problem
+with this; the two solutions might be essentially the same.
+For example, suppose $y_1 = cy_2$ (i.e., $y_1(t) = cy_2(t)$ for
+all $t$ in their common domain).  Then
+$$
+ y = c_1y_1 + c_2 y_2 = c_1c\,y_2 + c_2 y_2 = (c_1 c +  c_2)y_2
+= c'y_2
+$$
+so the solution does not involve two {\it arbitrary\/} constants.
+Without two such constants, we won't necessarily be able to match
+arbitrary initial values for $y(t_0)$ and $y'(t_0)$.
+
+With the above discussion in mind we make the following definition.
+A pair of functions $\{y_1, y_2\}$, defined on a common domain, is
+called {\it linearly independent\/} if neither is a constant
+\outind{linear independence of solutions of a linear differential equation}%
+\outind{linear dependence of solutions of a linear differential equation}%
+multiple of the other.  Otherwise, the pair is called {\it linearly
+dependent}.   There are a couple of subtle points in this definition.
+First, linear independence (or its negation linear dependence) is
+a property of the {\it pair\/} of functions, not of the functions
+$y_1$ and $y_2$ themselves.  Secondly, if $y_1 = cy_2$ then
+we also have $y_2 = (1/c)y_1$ {\it except in the case $y_1$
+is identically zero}.   In the exceptional case, $c = 0$.  Thus,
+a pair of functions, one of which is identically zero, is
+always linearly dependent.  On the other hand, if $y_1 = cy_2$,
+and neither $y_1$ nor $y_2$ vanishes identically on the
+domain,  then $c$
+won't be zero.
+
+Assume now that $y_1, y_2$ constitute a linearly independent
+pair of solutions of 
+$$
+y'' + p(t) y' + q(t) y = 0,
+$$
+defined on an interval  $t_1 < t < t_2$ on which the coefficients
+$p(t)$ and $q(t)$ are continuous.  Suppose  $t_0$ is a point
+in that interval, and we want to match initial conditions
+$y(t_0) = y_0,\, y'(t_0) = y'_0$ at $t_0$.   {\it We shall
+show that this is always possible with a general solution of the form
+$y = c_1y_1 + c_2y_2$}. 
+
+\example{Example \en, continued}  As above, consider
+$$
+  y'' + 4 y = 0.
+$$
+with solutions
+$y_1(t) = \cos 2t$ and $y_2(t) = \sin 2t$.
+Their quotient is $\tan 2t$, which is not constant, so
+neither is a constant multiple of the other, and they constitute
+a linearly independent pair.  Let's try to match
+the initial conditions
+$$
+\align
+y(\pi/2) &= 1 \\
+y'(\pi/2) &= 2.
+\endalign $$
+Let
+\nexteqn
+\xdef\EqFcn{\eqn}
+$$
+y = c_1y_1(t) + c_2y_2(t) = c_1\cos 2t + c_2\sin 2t\tag\eqn
+$$
+so
+\nexteqn
+\xdef\EqDer{\eqn}
+$$
+y' = c_1y_1'(t) + c_2y_2'(t) = -2c_1\sin 2t + 2c_2\cos 2t.\tag\eqn
+$$
+Putting $t = \pi/2$, we need to find $c_1$ and $c_2$ such that
+$$\align
+y(\pi/2) &= c_1 \cos \pi + c_2 \sin \pi = -c_1 = 1 \\
+y'(\pi) &= -2c_1\sin \pi + 2c_2\cos \pi = -2c_2 = 2.
+\endalign $$
+The solution is $c_1 = -1, \, c_2 = -1$.
+Thus the solution of the differential equation
+ matching the desired initial conditions is
+$$
+y = -\cos 2t - \sin 2t.
+$$
+(You should check that it works!)
+\endexample
+
+Let's see how this would work in general.
+Using (\EqFcn) and (\EqDer), matching initial conditions
+at $t = t_0$ yields
+$$\align
+y(t_0) = c_1y_1(t_0) + c_2y_2(t_0)  &= y_0 \\
+y'(t_0) = c_1y'_1(t_0) + c_2 y'_2(t_0) & = y'_0.
+\endalign
+$$
+Solve this pair of equations for $c_1$ and $c_2$ by the
+usual method you learned in high school. 
+ To find $c_1$, multiply the first equation
+by $y'_2(t_0)$, multiply the second equation by $y_2(t_0)$
+and subtract.  This yields
+$$
+c_1[y_1(t_0)y'_2(t_0) - y'_1(t_0)y_2(t_0)]
+= y_0y'_2(t_0) - y'_0y_2(t_0).
+$$
+Hence, provided the coefficient of $c_1$ is not zero, we obtain
+$$
+c_1 = \frac{y_0y'_2(t_0) - y'_0y_2(t_0)}
+{y_1(t_0)y'_2(t_0) - y'_1(t_0)y_2(t_0)}.
+$$
+Similarly, multiplying the second equation by $y_1(t_0)$ and
+the first by $y'_1(t_0)$ and subtracting yields
+$$
+c_2 = \frac{y'_0y_1(t_0) - y_0y'_1(t_0)}
+{y_1(t_0)y'_2(t_0) - y'_1(t_0)y_2(t_0)}.
+$$
+
+Note that the denominators are the same.  
+Also,  the above method will work only if this common denominator
+does not vanish.
+(In Example \en, the
+denominator was $(-1)(-2) = 2$.) 
+ Define
+$$
+W(t) = y_1(t)y_2'(t) - y_1'(t)y_2(t) 
+= \det \bm y_1(t) & y_2(t) \\ y'_1(t) & y'_2(t) \em .
+$$
+This function is called the {\it Wronskian\/} of the pair of
+\outind{Wronskian for second order linear differential equations}%
+functions $\{y_1, y_2\}$.   Thus, we need to show that the
+Wronskian  $W(t_0) \not= 0$ at the initial point $t_0$.   To this
+end, note first that the Wronskian cannot vanish identically for all $t$ in
+the domain of the differential equation.
+For, 
+$$
+\frac{d}{dt}\frac{y_2(t)}{y_1(t)} = \frac{y_2'(t)y_1(t) - y_2(t)y_1'(t)}{y_1(t)^2}
+        = \frac {W(t)}{y_1(t)^2},
+$$
+so if $W(t)$ vanishes for all $t$, the quotient $y_2/y_1$ is constant, and
+$y_2$ is a constant multiple of $y_1$.  That contradicts the
+\outind{linear independence of solutions of a linear differential equation}%
+linear independence of the pair $\{y_1, y_2\}$.  (Actually, the
+argument is a little more complicated because of the possibility
+that the denominator $y_1$ might vanish at some points.   See
+the appendix at the end of this section for the details.)
+
+There is still the possibility that $W(t)$ vanishes at the
+initial point $t = t_0$, but $W(t)$
+does not vanish identically.  We shall show that can't ever
+happen for functions $y_1, y_2$ which are solutions of the same
+homogeneous linear differential equation, i.e., the Wronskian
+is either {\it never zero or always zero\/} in the domain of
+the differential equation.  To see this, first calculate
+$$
+\align
+W'(t) &=
+(y_1(t)y_2'(t) - y_1'(t)y_2(t))' \\ 
+&= y_1'(t)y_2'(t) + y_1(t)y_2''(t) - (y_1''(t)y_2(t) + y_1'(t)y_2'(t)) \\
+&= 
+y_1(t)y_2''(t) - y_1''(t)y_2(t). 
+\endalign
+$$
+On the other hand, using the differential equation, we can express
+the second derivatives of the solutions
+$$\align
+y_1''(t) &= -p(t)y_1'(t) - q(t)y_1(t) \\
+y_2''(t) &= -p(t)y_2'(t) - q(t)y_2(t) .
+\endalign $$
+Putting these in the above formula yields
+$$
+\align
+W'(t) &= 
+y_1(t)(-p(t)y_2'(t) - q(t)y_2(t))
+ - (-p(t)y_1'(t) - q(t)y_1(t))y_2(t) \\ 
+&= -p(t)(y_1(t)y_2'(t) - y_1'(t)y_2(t)) = - p(t) W(t).
+\endalign $$
+This shows that the Wronskian satisfies the first order differential
+equation 
+$$
+\frac{dW}{dt} = -p(t) W,
+$$
+and we know how to solve such equations.  The general solution
+is
+\nexteqn
+$$
+W(t) = Ce^{-\int p(t) dt}.\tag\eqn
+$$
+The important thing about this formula is that the exponential
+function never vanishes.  Hence, the only way $W(t)$ can vanish
+for any $t$ whatsoever is if $C = 0$, in which case $W(t)$ vanishes
+identically.
+
+We summarize the above discussion as follows.  { \it A pair $\{y_1, y_2\}$
+of solutions of the homogeneous linear equation
+$$
+y'' + p(t)y' + q(t) y = 0
+$$
+is linearly independent if and only if the Wronskian
+never vanishes}.
+
+\example{Example \en, again}  The Wronskian of the
+pair $\{y_1 = \cos 2t, \, y_2 = \sin 2t\}$  is
+$$
+ \det \bm  \cos 2t & \sin 2t \\
+           -2\sin 2t & 2\cos 2t \em = 2\cos^2 2t + s\sin^2 2t = 2.
+$$
+ According to the theory, it is not really necessary to find
+$W(t)$ for all $t$.   It would have sufficed to find it
+just at $t_0 = \pi/2$, as in essence we did before,
+ and see that it is not zero.  
+
+It sometimes seems a bit silly to calculate the Wronskian
+to see if a pair of solutions is independent since one feels
+it should be obvious whether or not one function
+ is a multiple of another.   However, 
+for complicated functions, it may not be so obvious. 
+ For example,
+for the functions $y_1(t) = \sin 2t$ and $y_2(t) = \sin t\,\cos t$
+it might not be clear that the first is twice the second if we
+did not know the trigonometric identity
+$\sin 2t = 2\sin t\,\cos t$.  For more complicated functions, there
+may be all sorts of hidden relations we just don't know.
+
+\nextex
+\example{Example \en}  Consider the equation
+$$
+y'' + \frac{2t}{1 - t^2} y' + \frac{6}{1 - t^2} y = 0
+\qquad -1 < t < 1.
+$$
+To find the form of the Wronskian, calculate
+$$
+\int p(t)\,dt = \int \frac{2t}{1 - t^2} dt = -\ln(1 - t^2).
+$$
+Thus,
+$$
+W(t) = Ce^{\ln(1 - t^2)} = C(1 - t^2).
+$$
+\endexample
+
+\noindent
+{\bf Warning}:   We have remarked that the Wronskian never vanishes.
+ That
+conclusion is valid only on intervals for which the coefficient
+function $p(t)$ is continuous.   If $p(t)$ has a singularity,
+it is quite possible to have the antiderivative $\int p(t) dt$
+approach $\infty$ as $t$ approaches the singularity.  In that
+case the exponential
+$$
+e^{-\int p(t) dt}
+$$
+would approach 0 as $t$ approaches the singularity.  That is the
+case
+ in the previous example  at  $t = 1$ and $t = -1$
+which are singularities of
+$p(t) = 2t/(1 - t^2)$.  Hence, the fact that $W(t) = C(1 - t^2)$
+vanishes at those points does not contradict the validity of
+the general theory.  
+
+\medskip
+An alternate form of the formula for the Wronskian using
+definite integrals with dummy variables is sometimes useful.
+\nexteqn
+$$
+W(t) = W(t_0)e^{-\int_{t_0}^t p(s) ds}.\tag\eqn
+$$
+\medskip
+
+\subhead Appendix on the Vanishing of the Wronskian \endsubhead
+Suppose the Wronskian $W(t) = y_1(t)y_2'(t) - y_1'(t)y_2(t)$
+\outind{Wronskian for second order linear differential equations}%
+vanishes identically, but $y_1(t_1) = 0$ for some specific
+value $t_1$ in the interval where $y_1$ and $y_2$
+are defined.  Then the argument showing $y_2(t)/y_1(t)$ is
+constant fails because there will be a zero in the denominator
+when applying the quotient rule.  Let's see what we can do
+in that case.   
+$y_1'(t_1) \not= 0$ because otherwise
+$$
+\align
+ y_1(t_1) &= z(t_1) = 0 \\
+y_1'(t_1) &=  z'(t_1) = 0,
+\endalign
+$$
+where $z(t)$ is the function with is identically zero for all
+$t$.  
+By the uniqueness theorem, that would mean that
+$y_1$ is identically zero, which is not the case.
+Hence, using the fact that $y_1'(t_1) \not= 0$, we can
+conclude from
+$$
+ W(t_1) =  y_1(t_1)y_2'(t_1) - y_1'(t_1)y_2(t_1) =
+ - y_1'(t_1)y_2(t_1) = 0
+$$
+that $y_2(t_1) = 0$.   Thus, by the same reasoning
+$y_2'(t_1) \not= 0$.    Let $c = y_2'(t_1)/y_1'(t_1)$.  Then
+$$
+\align
+y_2(t_1) &=  cy_1(t_1) = 0 \\
+y_2'(t_1) &=  cy_1'(t_1) \qquad\text{by the definition of } c
+\endalign $$
+Hence, by the uniqueness theorem, $y_1(t) = cy_2(t)$ for all $t$
+in the common interval on which the solutions are defined.
+
+Note that this is actually quite subtle.  In case one of the two
+functions never vanishes, the quotient rule suffices to show that
+the identical vanishing of the Wronskian implies the pair of functions is
+linearly dependent.  However, if both functions vanish at some points,
+we must use the fact that they are both solutions of a 
+homogeneous linear differential equation and apply the basic uniqueness
+theorem!  Solutions of such equations frequently vanish at isolated
+points so the subtle part of the argument is necessary.
+
+\bigskip
+\input chap7.ex3
+\bigskip
+
+\nextsec{Homogeneous Equations with Constant Coefficients}
+\head \sn. Homogeneous Equations with Constant Coefficients \endhead
+
+Consider the differential equation
+$$
+y'' + p y' + q y = 0
+$$
+where $p$ and $q$ are {\it constants}.   In this case, we
+\outind{homogeneous linear second order equation, constant coefficients}%
+can solve the homogeneous equation completely.  Since the
+differential equations arising in some
+important applications fall in this category, this is
+quite fortunate.   For example, as indicated in Section 1,  % Reference
+the equation for damped harmonic motion has constant coefficients.  
+
+The essential idea behind the solution method is to search
+for solutions of the form
+$$
+   y = e^{rt}
+$$
+where $r$ is a constant to be determined.   This seems a bit
+arbitrary, but we rely here on the experience of generations
+of mathematicians who have worked with differential equations.
+Thus, we take advantage of their discoveries, so we don't
+have to rediscover everything ourselves.
+
+We have
+$$\align
+y &= e^{rt} \\
+y'&= re^{rt} \\
+y''&= r^2e^{rt}
+\endalign
+$$
+so
+$$
+y'' + py' + qy = r^2 e^{rt} + pr e^{rt} + q e^{rt}
+           = (r^2 + pr + q) e^{rt}.
+$$
+Since $e^{rt}$ never vanishes, it follows that $y = e^{rt}$
+is a solution of the differential equation if and only if
+\nexteqn
+$$ 
+            r^2 + pr + q = 0.\tag\eqn
+$$
+This converts the problem of solving a differential equation
+into a problem of solving an algebraic equation of the same
+order.   The roots of equation (\eqn)
+are
+$$\align
+  r_1 &= -\frac p2 + \frac 12\sqrt{p^2 - 4q},\\
+  r_2 &= -\frac p2 - \frac 12 \sqrt{p^2 - 4q}.
+\endalign $$
+Note that these will be different as long as $p^2 - 4q \not= 0$.
+Corresponding to these roots  are the two solutions
+of the differential equation:
+$y_1 = e^{r_1t}$ and $y_2 = e^{r_2t}$.   Moreover, if
+$r_1 \not= r_2$, then linear independence
+is no problem since the ratio $e^{r_1t}/e^{r_2t} = e^{(r_1 - r_2)t}$
+is not constant.
+Then,
+$$
+y = c_1e^{r_1t} + c_2e^{r_2t}
+$$
+is a general solution.
+
+\nextex
+\example{Example \en}   Consider
+$$
+y'' + 3y' - 4y = 0.
+$$
+The corresponding algebraic equation is
+$$
+r^2 + 3r - 4 = 0.
+$$
+The roots of this equation are easy to determine by factoring:
+$r^2 + 3r - 4 = (r +4)(r - 1)$.  They are $r_1 = -4, r_2 = 1$.
+Hence, the general solution is
+$$
+y = c_1e^{-4t} + c_2e^t.
+$$
+The exact shape of the graph of such a solution will depend
+on the constants $c_1$ and $c_2$.
+\medskip
+\centerline{\epsfbox{s7-4.ps}}
+\medskip
+\endexample
+
+Suppose the roots of the equation $r^2 + pr + q = 0$ are equal,
+i.e.,  $p^2 - 4q = 0$.
+Then, by the quadratic formula, $r = r_1 = r_2 = -p/2$.
+The method only gives {\it one solution\/} $y_1= e^{rt}$.
+Hence, we need to find an additional independent solution.
+The trick is to know that in this case
+$y = te^{rt}$ is another solution.   For,
+$$
+\align
+y &= te^{rt} \\
+y' &= e^{rt} + tre^{rt} \\
+y'' &= re^{rt} + re^{rt} + tr^2e^{rt} = r^2te^{rt} + 2re^{rt},
+\endalign
+$$
+so
+$$
+\align
+y'' + py' + qy &= (r^2t + 2r + pt + p + qt)e^{rt} \\
+&=  [(r^2 + pr + q)t + 2r + p]e^{rt} = 0.
+\endalign $$
+(Note that these calculations only work in the case
+$r = -p/2$ is a {\it double root\/} of the quadratic
+equation $r^2 + pr + q = 0$.)  The general solution is
+$$
+y = c_1e^{rt} + c_2te^{rt} = (c_1 + c_2t)e^{rt}.
+$$
+\nextex
+\example{Example \en}  Consider
+$$
+y'' + 4y' + 4y = 0.
+$$
+The corresponding algebraic equation is
+$$
+r^2 + 4r + 4 = (r + 2)^2 = 0
+$$
+so $r = -2$ is a double root.  Hence, $y_1 = e^{-2t}$ and
+$y_2 = te^{-2t}$ constitute an independent pair of solutions,
+and
+$$
+y = c_1 e^{-2t} c_2 te^{-2t} = (c_1 + c_2t)e^{-2t}
+$$
+is the general solution.
+\medskip
+\centerline{\epsfbox{s7-5.ps}}
+\medskip
+There is one problem with the method in the case of
+unequal roots $r_1, r_2$.  Namely, if $p^2 - 4q < 0$, the
+solutions will be {\it complex numbers}.
+
+\nextex
+\example{Example \en}  Consider
+$$
+y'' + y' + y = 0.
+$$
+The algebraic equation is
+$$
+r^2 + r + 1 = 0
+$$
+and its roots are
+$$
+\align
+r_1 &= -\frac 12 + \frac 12 \sqrt{1^2 - 3} = -\frac 12
+  + \frac 12 \sqrt 3\,i \\
+r_2 &= -\frac 12 - \frac 12 \sqrt 3\,i 
+\endalign
+$$
+where $i^2 = -1$.  This would suggest that the two basic
+solutions should be
+$$
+y_1 = e^{(-1/2 +\sqrt 3\,i/2)t}\qquad\text{and}
+\qquad
+y_2 = e^{(-1/2 -\sqrt 3\,i/2)t}.
+$$
+Unfortunately, you probably have never seen complex exponentials,
+so we shall make a detour to review complex numbers and talk
+about their exponentials.
+\bigskip
+\input chap7.ex4
+\bigskip
+
+\nextsec{Complex Numbers}
+\head \sn.   Complex Numbers \endhead
+
+A complex number is an expression of the form
+$$
+\alpha = a + bi
+$$
+\outind{complex number}%
+where $a$ and $b$ are real numbers.  $a$ is called the {\it
+real part of $\alpha$}, and is often denoted $\text{Re}(\alpha)$.
+$b$ is called the {\it imaginary part of $\alpha$}, and it is
+often denoted $\text{Im}(\alpha)$.   The set of all complex
+numbers is usually denoted $\C$. 
+\outind{complex number, real part}%
+\outind{real part of a complex number}%
+\outind{complex number, imaginary part}%
+\outind{imaginary part of a complex number}%
+Complex numbers are added, subtracted, and  multiplied 
+by the usual rules of algebra with the additional rule $i^2 = -1$.  
+Here are some examples of such calculations.
+$$
+\gather
+a + bi + c + di = a + c + (b + d)i, \\
+(a + bi)(c + di) = ac + ad i + bc i + bdi^2 =
+          ac - bd + (ad + bd)i.
+\endgather
+$$
+
+Complex numbers may be represented geometrically by points
+(or vectors)
+in $\R^2$:  the point $(a, b)$ corresponds to the
+complex number $\alpha = a + bi$.  The horizontal axis is
+called the {\it real axis\/} because all numbers of the
+form $a = a + 0\,i$ correspond to points $(a,0)$ on it.
+  Similarly, the vertical
+axis is called the {\it imaginary axis\/} because all
+numbers of the form $ib$ correspond to points $(0,b)$
+on it.  This geometric picture
+of complex numbers is sometimes  called the  {\it Argand
+diagram}.   The length of the vector $\lb a, b \rb$
+\outind{Argand diagram}%
+\outind{complex number, modulus}%
+\outind{modulus of a complex number}%
+is called the {\it modulus\/} or {\it absolute value\/}
+\outind{complex number, absolute value}%
+\outind{absolute value of a complex number}%
+of the complex number and is denoted $|\alpha|$.  Thus,
+$$
+|\alpha| = \sqrt{a^2 + b^2}.
+$$
+Similarly, the angle $\theta$ that the vector makes with the
+real axis is called the {\it argument\/} of $\alpha$.
+\outind{complex number, argument}%
+\outind{argument of a complex number}%
+Of course, the modulus and argument of a complex number
+are just the polar coordinates of the corresponding point
+in $\R^2$.
+
+\emar{s7-6.ps}{-50}
+If $\alpha = a + bi$ is a complex number, $\overline \alpha
+= a - bi$ is called its {\it complex conjugate}.   Geometrically,
+\outind{complex conjugate}%
+\outind{conjugate of a complex number}%
+the complex conjugate of $\alpha$ 
+is obtained by reflecting $\alpha$ in the real axis.
+Note that the two solutions of the quadratic equation
+$$
+ r^2 + pr + q = 0
+$$
+are conjugate complex numbers in the case $p^2 - 4q < 0$.
+
+The following rules apply for complex conjugation.
+
+\roster
+\item  $\overline{\alpha + \beta} = \overline\alpha + \overline\beta$.
+\item  $\overline{\alpha\beta} = \overline\alpha \overline\beta$.
+\item  $|\alpha|^2 = \alpha \overline\alpha$.
+\endroster
+
+\emar{s7-7.ps}{-200}
+The proofs of these rules are done by calculating both
+sides and checking that they give the same result.  For example,
+$$
+\gather
+|\alpha|^2 = a^2 + b^2 \qquad \text{and} \\
+\alpha\overline\alpha = (a + bi)(a - bi) = a^2 -abi + abi - b^2 i^2
+         = a^2 + b^2.
+\endgather
+$$
+
+Complex numbers may also be divided.  Thus, if $\alpha =
+a + bi$ and $\beta = c + di \not=0$, then
+$$\align
+\frac \alpha\beta &=
+\frac\alpha\beta\frac{\overline\beta}{\overline\beta}
+= \frac{\alpha\overline\beta}{|\beta|^2}\\
+&= \frac{(a + bi)(c - di)}{c^2 + d^2} = \frac{ac + bd}{c^2 + d^2}
+  + \frac{bc - ad}{c^2 + d^2}i.
+\endalign $$
+For example, 
+$$
+\frac 1i = \frac 1i \frac{-i}{-i} = \frac{-i}1 = -i.
+$$
+(That is also clear from $i^2 = -1$.)
+
+The next problem is to
+make an appropriate definition
+for $e^\alpha$ where $\alpha$ is a complex number.  
+We will use this to consider possible solutions of
+a differential equation of the form
+$u(t) = e^{\rho t}$ where $\rho$ is complex and $t$
+is a real variable.
+Such a function $u$ has domain a $t$-interval on the real line
+and
+takes complex values.  That is denoted schematically
+by $u:\R \to \C$.  Since we may identify $\C$ with
+$\R^2$ by means of the Argand diagram, this is not really
+anything new.  We suppose that we have available
+all the usual tools we need for such functions, i.e.,
+differentiation, integration, etc.  
+
+Here are some properties we expect the complex exponential to have.
+\roster
+\item"{(a)}"  $e^{\alpha + \beta} = e^\alpha e^\beta$.
+\item"{(b)}" $\dfrac{ d}{dt} e^{\alpha t} = \alpha e^{\alpha t}$.
+\item"{(c)}"  It should agree with the ordinary exponential
+for $\alpha$ real.
+\endroster
+
+Let's apply these rules and see how far they take us in
+determining a possible definition.   First, let $\alpha = a + bi$.
+Then by  (a)
+$$
+e^\alpha = e^{a + bi} = e^a e^{bi}.
+$$
+Since by (c) we already know what $e^a$ is, we need only define
+$e^{bi}$.   Suppose, as a function of the real variable $b$
+$$
+   e^{ib} = c(b) + i s(b)
+$$
+where $c(b)$ and $s(b)$ denote real valued functions.
+Since $e^{i0} = e^0 = 1$, we know that the functions $c(b)$
+and $s(b)$ must satisfy
+$$
+   c(0) = 1\qquad s(0) = 0.
+$$
+Also, by (b), we must have
+$$\gather
+\frac{d}{db} e^{ib} = i e^{ib} \\
+\text{or}\qquad c'(b) + i s'(b) = i (c(b) + i s(b)) = -s(b) + i c(b).
+\endgather $$
+Comparing real and imaginary parts yields
+$$
+\align
+c'(b) &=  -s(b) \\
+s'(b) &= c(b).
+\endalign
+$$
+It is clear how to choose functions with these properties:
+$$
+\align
+c(b) &= \cos b \\
+s(b) &= \sin b,
+\endalign
+$$
+so the proper choice for the definition of $e^{ib}$
+is
+$$
+e^{ib} = \cos b + i\sin b,
+$$
+and the proper definition of $e^\alpha$ with $\alpha = a + bi$
+is
+\nexteqn
+$$
+e^{a + bi} = e^a\cos b + i e^a\sin b.\tag\eqn
+$$
+%Ex  Show that $|e^{ib}| = 1$.  Show that $\alpha = |\alpha|e^{i\theta}$
+%Ex  where $\theta$ is the argument of $\alpha$.
+
+It is not hard to check from the
+definition (\eqn) that properties (a), (b), and (c) are true.
+%Ex  Verify (a), (b), and (c).
+Also, this exponential has the property that $e^\alpha$ never
+vanishes for any complex number $\alpha$.  For,
+$$
+e^{a + bi} = e^a\cos b + ie^a\sin b = 0
+$$
+only if its real and imaginary parts vanish, i.e.,
+$e^a\cos b = e^a\sin b = 0$.  Since $e^a$ never vanishes, this
+can happen only if $\cos b = \sin b = 0$.   However, the cosine
+function and the sine function don't have any common vanishing
+points, so there is no such $b$.
+
+Finally, here are some useful formulas we shall use repeatedly.
+$$
+ \frac 1{e^{ib}} = e^{-bi} = \cos(-b) + i\sin(-b) = \cos b - i\sin b
+$$
+which tells us that the inverse of $e^{ib}$ is the same as the
+complex conjugate.   This may also be seen from the fact
+that the product of $e^{bi}$ and its conjugate is $|e^{ib}|^2$, since 
+$$
+|e^{ib}|^2 = \cos^2 b + \sin^2 b = 1.
+$$
+
+\bigskip
+\input chap7.ex5
+\bigskip
+
+\nextsec{Complex Solutions of a Differential Equation}
+\head \sn.  Complex Solutions of a Differential Equation \endhead
+
+In our previous discussion of the differential equation
+\nexteqn
+\xdef\AA{\eqn}
+$$
+y'' + py' + q y = 0\tag\eqn
+$$
+we considered solutions $y = y(t)$ which were functions
+$\R \to \R$.   However, our analysis of the method
+of solution suggests that we try to extend this by looking
+\outind{complex solutions of a second order differential equation}%
+for solutions which are functions $\R \to \C$.   Any such
+function may be expressed 
+\nexteqn
+$$
+  y = y(t) = u(t) + iv(t)\tag\eqn
+$$
+where the real and imaginary parts $u(t)$ and $v(t)$ define
+real valued functions.  Putting (\eqn) in (\AA)
+yields
+$$
+\gather
+u'' + iv'' + p(u' + iv') + q(u + iv) = 0 \\
+\text{or}\qquad
+ u'' + pu' + qu + i(v'' + pv' + qv) = 0\\
+\text{or}\qquad
+u'' + pu' + qu = 0 \quad\text{and}\qquad v'' + pv' + qv = 0.
+\endgather $$
+   Thus, a single complex solution
+really amounts to a {\it pair\/} of real valued solutions.
+From this perspective, the previous theory of purely real
+valued solutions appears as the special case where the
+imaginary part is zero, i.e., $y = u(t) + i0 = u(t)$.
+Also, all the rules of algebra and calculus still apply
+for the more general functions, so we may proceed
+just as before except that we have the advantages of
+using complex algebra.   The  only tricky point is to
+remember that all constants in the extended theory are
+potentially {\it complex\/}
+numbers whereas previously they were real.
+ In particular, if 
+$$
+r^2 + pr + q = 0
+$$
+has two conjugate complex roots $r_1, r_2$ (which is the case
+if $p^2 - 4q < 0$), then  $y_1 = e^{r_1t}$ and $y_2 = e^{r_2t}$
+form a linearly independent pair of functions, and a general
+(complex) solution has the form
+$$
+y = c_1e^{r_1t} + c_2e^{r_2t},
+$$
+where $c_1, c_2$ are arbitrary {\it complex\/} constants.
+
+\nextex
+\example{Example \en}
+Consider 
+$$
+y'' + 4y=0\qquad\qquad\text{where } y(\pi/2) = 1, y'(\pi/2) = 2.
+$$
+First we solve
+$$
+r^2 + 4 = 0
+$$
+to obtain the two conjugate complex roots  $r_1 = 2i, r_2 = -2i$.
+The general solution is
+$$
+y = c_1e^{2it} + c_2e^{-2it}.
+$$
+To match the given initial conditions, note that
+$y ' = 2ic_1e^{2it} - 2ic_2e^{-2it}$.   At $t = \pi/2$, we have
+$$e^{i\pi} = e^{-i\pi} = -1,$$ so
+$$\align
+y(\pi/2) &= c_1e^{\pi i} + c_2 e^{-\pi i} =  -c_1 - c_2 = 1 \\
+y'(\pi/2) &= 2ic_1e^{\pi i} - 2ic_2 e^{-\pi i} = -2ic_1 + 2ic_2 =  2.
+\endalign
+$$
+Multiply the first equation by $2i$ and add to obtain
+$$
+\gather
+-4ic_1 = 2i + 2\\
+\text{or}\qquad c_1 = -\frac {1 + i}{2i}= -\frac {1 - i}2.
+\endgather
+$$
+Here we used  
+$$
+\frac{1 + i}i = \frac 1i + 1 = -i + 1.
+$$
+Similarly, subtraction yields
+$$
+\gather
+-4ic_2 = 2i - 2\\
+\text{or}\qquad c_2 = -\frac{i - 1}{2i} = -\frac{1 + i}2.
+\endgather
+$$
+Hence, the solution matching the given initial conditions is
+$$
+y = -\frac 12 [ (1 - i)e^{2it} + (1 + i) e^{-2it}].
+$$
+If you recall, we solved this same problem with real valued functions
+earlier, and this answer does not look at all the same.  However,
+if we expand the exponentials, we get
+$$\align
+(1 - i)e^{2it} &= (1 - i)(\cos 2t + i\sin 2t) = \cos 2t + \sin 2t
+                                         +i(\sin 2t - \cos 2t) \\
+(1 + i)e^{-2it} &= (1 + i)(\cos 2t - i\sin 2t) = \cos 2t + \sin 2t
+                                + i(\cos 2t - \sin 2t).
+\endalign
+$$
+Hence, adding these and multiplying by $-1/2$ yields
+$$
+y = -\cos 2t - \sin 2t
+$$
+which is indeed the same solution obtained before.  Notice
+that the solution is entirely real---its imaginary part is
+zero---although initially it did not look that way.
+\endexample
+
+The fact that we ended up with a real solution in the above
+example is not an accident.  That will always be the case
+when $p, q$ and the initial values $y_0$ and $y_0'$ are
+real.  The reason is that if we write the solution
+$$
+  y = u(t) + iv(t),
+$$
+then the imaginary part $v(t)$ satisfies the initial conditions
+$v(t_0) = 0, v'(t_0) = 0$, so, by the uniqueness theorem,
+it must be identically zero.
+
+It is quite common in applications to use complex
+exponentials to describe oscillatory phenomena.   For
+example, electrical engineers have for generations preferred
+to represent
+alternating currents, voltages, and impedances by
+complex quantities.   However, it is sometimes easier
+to work with real functions.  Fortunately, there
+is a simple way to convert.   If $r = a + bi$ is
+one of a pair of complex conjugate roots of the
+equation
+$$
+r^2 + pr + q = 0
+$$
+then
+$$
+e^{rt} = e^{at + ibt} = e^{at}\cos bt + ie^{at}\sin bt
+$$
+is a solution, and
+$$
+y_1 = e^{at}\cos bt\qquad\text{and}\qquad y_2 = e^{at}\sin bt
+$$
+are two real solutions.   They form a linearly independent pair since
+their quotient is not constant.  Hence,
+$$
+y = c_1e^{at}\cos bt + c_2e^{at}\sin bt
+$$
+(where the constants $c_1$ and $c_2$ are real) is a 
+general real solution.   Note that in this analysis, we only used
+one of the two roots (and the corresponding $e^{rt}$).
+However, the other root is the complex conjugate $\overline r =
+a - bi$, so it yields real solutions
+$$
+e^{at}\cos(-bt) = e^{at}\cos(bt)\qquad\text{and}\qquad e^{at}\sin(-bt)  
+= -e^{at}\sin(bt)
+$$
+which are the same functions except for sign.
+
+\example{Example \en, again}  The roots are $2i$ and $-2i$.
+So taking $a = 0, b = 2$ yields the solutions
+$$
+ e^{0t}\cos 2t = \cos 2t\qquad\text{and}\qquad e^{0t}\sin 2t
+$$
+which confirms what we already know.
+\endexample
+\bigskip
+\input chap7.ex6
+\bigskip
+\nextsec{Oscillations}
+\head \sn. Oscillations \endhead
+
+The differential equation governing
+the motion of a mass at the end of spring may be written
+\nexteqn
+\xdef\MechEqn{\eqn}
+$$
+m\frac{d^2y}{dt^2} + b \frac{dy}{dt} + k y = 0,\tag\eqn
+$$
+where $m > 0$ is the mass, $b \ge 0$ represents a coefficient of friction,
+and $k > 0$ is the spring constant.   The equation governing the
+\outind{harmonic oscillator}%
+charge $Q$ on a capacitor in a simple oscillatory circuit is
+\nexteqn
+\xdef\ElecEqn{\eqn}
+$$
+L\frac{d^2Q}{dt^2} +  R \frac{dQ}{dt} + \frac 1{C}Q = 0,\tag\eqn
+$$
+where $L$ is the inductance, $R$ is the resistance, and
+$C$ is the capacitance in the circuit.  Both these equations
+are of the form $y'' + py' + qy = 0$ with $p \ge 0$
+and $q > 0$, and we now have
+the tools in hand to completely solve that equation.
+We shall do that in the context of (\MechEqn) for mechanical
+oscillations, but the theory applies equally well to
+electrical oscillations.  Hence, we may take $p = b/m$ and
+$q = k/m$, but many of the formulas are a bit neater
+if we multiply everything through by $m$ as in (\MechEqn).
+
+As we saw in the previous sections, the first step is to
+solve the quadratic equation
+$$
+mr^2 + br + k = 0.
+$$
+There are three cases:
+\roster
+\item"(a)" $b^2 - 4km > 0$.   The roots are real and unequal.
+\item"(b)" $b^2 - 4km = 0$.  The roots are real and equal.
+\item"(c)" $b^2 - 4km < 0$.  The roots are complex conjugates and
+unequal.
+\endroster
+We treat each in turn.
+
+{\it Case (a)}.   Assume $b^2 > 4km$, and put
+$\Delta = \sqrt{b^2 - 4km}$.   Then according to the quadratic
+formula, the roots are
+$$
+\align
+r_1 &= \frac{-b + \Delta}{2m} \\
+r_2 &= \frac{-b - \Delta}{2m},
+\endalign
+$$
+so the general solution is
+$$
+y = c_1e^{\frac 1{2m}(-b + \Delta)t} + c_2e^{\frac 1{2m}(-b - \Delta)t}.
+$$
+Some typical solutions for different values of the constants are
+indicated in the diagram.
+\medskip
+\centerline{\epsfbox{s7-8.ps}}
+\medskip
+%D  overdamped diagram
+Note that since $\Delta = \sqrt{b^2 - 4km} < \sqrt{b^2} = b$,
+\outind{overdamped harmonic oscillator}%
+both roots are negative.  Hence, both exponentials
+approach zero as $t\to \infty$.   If the signs of the constants
+differ, then the solution will vanish for precisely one value
+of $t$, but otherwise it will never vanish.  Thus, the
+solution dies out without actually oscillating.  This is called
+the {\it overdamped case}.
+\medskip
+{\it Case (b)}.   Suppose $b^2 = 4km$.   Then the quadratic equation
+has two equal roots $r = r_1 = r_2 = -b/2m$.   The general
+solution is
+$$
+ y = c_1e^{-\frac b{2m}t} + c_2te^{-\frac b{2m}t}
+  = (c_1 + c_2t)e^{-\frac b{2m}t}.
+$$ 
+This solution also vanishes for exactly one value of $t$ and
+approaches zero as $t \to \infty$.  This is called the
+{\it critically damped case}.
+\outind{critically damped harmonic oscillator}%
+\medskip
+\centerline{\epsfbox{s7-9.ps}}
+\bigskip
+{\it Case (c)}.   Suppose $b^2 < 4km$.  The roots are
+$$
+r = \frac{-b + \sqrt{b^2 - 4km}}{2m} = -\frac b{2m} + i \frac
+{\sqrt{4km - b^2}}{2m}
+$$
+and its complex conjugate $\overline r$.  Put 
+$$
+\omega_1 =
+\frac{\sqrt{4km - b^2}}{2m} = \sqrt{\frac km - \left(\frac b{2m}\right)^2}.
+$$
+We may obtain two
+linearly independent real solutions by taking the real
+and imaginary parts of
+$$
+  e^{rt} = e^{(-\frac b{2m} + i\omega_1)t}
+        = e^{-\frac b{2m}t}(\cos \omega_1t + i \sin \omega_1t).
+$$
+These are $y_1 = e^{-\frac b{2m}t}\cos \omega_1t$ and
+ $y_2 = e^{-\frac b{2m}t}\sin \omega_1t$ so the general real
+solution is
+$$
+\align
+y &= c_1e^{-\frac b{2m}t}\cos \omega_1t  + c_2e^{-\frac b{2m}t}\sin \omega_1t \\
+ &= e^{-\frac b{2m}t}(c_1 \cos \omega_1t  + c_2\sin \omega_1t ).
+\endalign $$
+The expression in parentheses oscillates with angular
+frequency $\omega_1$
+while the exponential approaches zero as $t\to \infty$.
+This is called the {\it underdamped case}.
+\outind{underdamped harmonic oscillator}%
+\medskip
+\centerline{\epsfbox{s7-10.ps}}
+\medskip
+%D
+If $b = 0$, then the system will oscillate indefinitely with
+angular frequency  $\omega_0 = \sqrt{k/m}$.
+$\omega_0/2\pi$ is called
+the resonant frequency of the system, even in the case
+$b \not= 0$.  If $k/m$ is much larger
+than $(b/2m)^2$, then $\omega_0 \approx \omega_1$ and the
+system will oscillate for quite a long time before noticeably dying
+out.  See the Exercises for more discussion of these points.
+%Ex  Show that $\omega_1 \ge \omega_0$.
+%Ex  Exercise estimating the number of cycles before the
+%Ex amplitude is reduced in half.
+
+
+\bigskip
+\input chap7.ex7
+\bigskip
+
+\nextsec{The Method of Reduction of Order}
+\head \sn. The Method of Reduction of Order \endhead
+
+In the case of equal roots, the equation
+\outind{reduction of order for second order linear equations}%
+with constant coefficients
+$$
+y'' + py' + qy = 0
+$$
+has the solution
+$e^{rt}$ and also a second solution $te^{rt}$
+not dependent on the first.   This is a fairly common situation.
+We have a method to find one solution $y_1(t)$
+of 
+$$
+y'' + p(t)y' + q(t)y = 0,
+$$
+but we need to find another solution which is not a constant
+multiple of $y_1(t)$.  To this end, we look for solutions
+of the form $y = v(t)y_1(t)$ with $v(t)$ not constant.
+We have
+$$
+\align
+y &= vy_1 \\
+y' &= v'y_1 + vy_1' \\
+y'' &= v''y_1 + v'y_1' + v'y_1' + vy_1''
+       = v''y_1 + 2v'y_1' + vy_1''.
+\endalign
+$$
+Thus
+$$\align
+y'' + p(t)y' + q(t)y &=
+   v''y_1 + 2v'y_1' + vy_1'' + pv'y_1 + pvy_1' + qvy_1 \\
+   &= v''y_1 + (2y_1' + py_1)v' + v(y_1'' + py_1' + qy_1).
+\endalign $$
+Since $y_1$ is a solution, we have $y_1'' + py_1' + qy_1 = 0$.
+Hence, $y'' + py' + qy = 0$ amounts to the requirement
+$$
+v'' + a(t)v' = 0\qquad\text{where }
+ a(t) =\frac{2y_1'(t) + p(t)y_1(t)}{y_1(t)} = 2\frac{y_1'(t)}{y_1(t)} + p(t). 
+$$
+This may be treated as a first order equation in $v'$, and the
+general 
+solution is
+$$
+v' = Ce^{-\int a(t)dt}.
+$$
+Since we need only one solution, we may take $C = 1$.  Moreover,
+$$
+\align
+\int a(t)dt &= 2 \int \frac{y_1'(t)}{y_1(t)}dt + \int p(t)dt \\
+  &= 2\ln|y_1(t)| + \int p(t) dt = \ln y_1(t)^2 + \int p(t)dt.
+\endalign $$
+Hence,
+\nexteqn
+$$\align
+v' &= e^{-\int a(t)dt} = e^{-\ln y_1(t)^2}e^{-\int p(t)dt}\qquad\text{or}\\
+v' &= \frac 1{y_1(t)^2} e^{-\int p(t) dt}.\tag\eqn
+\endalign
+$$
+Equation (\eqn)
+may be integrated once more to determine $v$ and ultimately
+another solution $y_2 = vy_1$.
+
+\nextex
+\example{Example \en}  Consider
+$$
+y'' + py' + qy = 0
+$$
+where $p$ and $q$ are constant and $r = -p/2$ is a double
+root.  Take $y_1 = e^{rt}$.   Then
+$$
+a(t) = 2\frac{re^{rt}}{e^{rt}} + p = 2r + p = 0.
+$$
+Hence, $v'$ satisfies
+$$
+v'' = 0
+$$
+from which we derive $v' = c_1, v = c_1t + c_2$.  Again, since
+we need only one solution, we may take $c_1 = 1, c_2 = 0$ to
+obtain $v = t$.  This yields finally a second solution
+$y_2 = ty_1 = te^{rt}$, which is what we decided to try before.
+\endexample
+
+\nextex
+\example{Example \en}  Consider Legendre's equation
+for $\alpha = 1$
+$$
+y'' - \frac{2t}{1 - t^2}y' + \frac 2{1 - t^2}y = 0.
+$$
+You can check quite easily that $y_1(t) = t$ defines
+a solution.   We look for a linearly independent solution
+of the form $y = v(t)t$.  In this case $p(t) = -2t/(1 - t^2)$
+so 
+$$
+\int p(t) dt = \ln (1 - t^2)
+$$
+and by (\eqn)
+$$
+v' = \frac 1{t^2}e^{-\ln(1 - t^2)} = \frac 1{t^2(1 - t^2)}.
+$$
+The right hand side may be integrated by partial fractions to obtain
+$$
+v = -\frac 1t + \frac 12\ln\left(\frac{1+t}{1-t}\right)
+$$
+so we end up ultimately with
+$$
+y_2 = vt =  -1 +  \frac t2\ln\left(\frac{1+t}{1-t}\right).
+$$
+You would not be likely to come up with that by trial and error!
+\endexample
+\bigskip
+\input chap7.ex8
+\bigskip
+
+\nextsec{The Inhomogeneous Equation. Variation of Parameters}
+\head \sn.  The Inhomogeneous Equation. Variation of Parameters \endhead
+
+We now investigate methods for finding a {\it particular\/} solution
+\outind{inhomogeneous linear second order differential equation}%
+\outind{particular solution, linear second order differential equation}%
+of the {\it inhomogeneous\/} equation
+$$
+y'' + p(t)y' + q(t)y = f(t).
+$$
+The first method is called {\it variation of parameters}.  Let
+\outind{variation of parameters, linear second order differential equation}%
+$\{y_1, y_2\}$ be a linearly independent pair of solutions of the
+homogeneous equation.   We look for particular solutions of
+the inhomogeneous equation of the form
+\nexteqn
+\xdef\Axx{\eqn}
+$$
+y = u_1y_1 + u_2y_2\tag\eqn
+$$
+where $u_1$ and $u_2$ are functions to be determined.  (The idea is
+that $c_1y_1 + c_2y_2$ would be a general solution of the homogeneous
+equation, and maybe we can get a solution of the inhomogeneous
+equation by replacing the constants by functions.)  We have
+$$
+y' = u_1'y_1 + u_1y_1' + u_2'y_2 + u_2y_2'.
+$$
+In order to simplify the calculation, look for $u_1, u_2$ satisfying
+\nexteqn
+\xdef\B{\eqn}
+$$
+ u_1'y_1 +  u_2'y_2  = 0\tag\eqn
+$$
+so
+\nexteqn
+\xdef\Ce{\eqn}
+$$
+y' =  u_1y_1' + u_2y_2'.\tag\eqn
+$$
+Then
+\nexteqn
+\xdef\D{\eqn}
+$$
+y'' = u_1'y_1' + u_1y_1''+ u_2'y_2' + u_2y_2''.\tag\eqn
+$$
+Hence, using (\Axx), (\Ce), and (\D), we have
+$$\align
+y'' + py' + qy &=
+u_1'y_1' + u_1y_1''+ u_2'y_2' + u_2y_2''
++  p(u_1y_1' + u_2y_2')
++ q(u_1y_1 + u_2y_2) \\
+&= u_1'y_1' + u_2'y_2' + u_1(y_1'' +  py_1' + qy_1)
+      + u_2(y_2'' + py_2' + qy_2) \\
+&=  u_1'y_1' + u_2'y_2' 
+\endalign $$
+because $y_1'' + py_1' + qy_1 = y_2'' + py_2' + qy_2 = 0$.
+(Both $y_1$ and $y_2$ are solutions of the homogeneous equation.)
+It follows that $y'' + p(t)y' + q(t)y = f(t)$ if and only if
+$$
+ u_1'y_1' + u_2'y_2'  = f(t).
+$$
+Putting this together with (\B) yields the pair of equations
+\nexteqn
+\xdef\E{\eqn}
+$$
+\align
+ u_1'y_1 +  u_2'y_2  &= 0 \\
+ u_1'y_1' + u_2'y_2'  &= f(t)
+ \tag\eqn
+\endalign
+$$
+These can be solved for $u_1'$ and $u_2'$
+by the usual methods.  The solutions are
+$$
+u_1' = \frac{-y_2f}{y_1y_2' - y_1'y_2}\qquad u_2' = \frac{y_1f}{y_1y_2' - y_1'y_2}.
+$$
+The denominator in each case is of course just the Wronskian $W(t)$ of
+the pair $\{y_1, y_2\}$, so we know it never vanishes.  
+We may now integrate to obtain
+$$
+u_1 = - \int \frac{y_2(t)f(t)}{W(t)}dt\qquad u_2 = \int\frac{y_1(t)f(t)}
+{W(t)} dt.
+$$
+Finally, we obtain the particular solution
+\nexteqn
+$$
+\align
+y_p(t) &= y_1(t)u_1(t) + y_2(t)u_2(t)\\
+&=
+-y_1(t)\int \frac{y_2(t)f(t)}{W(t)}dt + y_2(t)\int \frac{y_1(t)f(t)}{W(t)} dt.
+\tag\eqn
+\endalign
+$$
+\endexample
+\nextex
+\example{Example \en}  Consider the equation
+$$
+y'' - \frac 4t y' + \frac 6{t^2} y = t\qquad\text{for } t > 0.
+$$
+The homogeneous equation
+ is a special case of Euler's equation as discussed in
+the exercises. 
+%Ref.
+It has the solutions $y_1 = t^2$ and $y_2 =t^3$ and it is clear
+that these form a linearly independent pair.   Let's apply
+the above method to determine a particular solution.
+$$
+W(t) = \det \bm y_1 & y_2 \\ y_1' & y_2' \em
+     = \det \bm t^2 & t^3 \\ 2t & 3t^2 \em = 3t^4 - 2t^4 = t^4.
+$$
+Hence,  taking $f(t) = t$, the variation of parameters formula
+gives
+$$
+\align
+y_p &= -t^2\int \frac{t^3\,t}{t^4} dt + t^3\int \frac{t^2\,t}{t^4} dt\\
+    &= -t^2\,t + t^3\ln t = t^3(\ln t - 1).
+\endalign $$
+ Thus the general solution is
+$$
+y = y_p + c_1y_1 + c_2y_2 = t^3(\ln t - 1) + c_1t^2 + c_2 t^3.
+$$
+\endexample
+
+The variation of parameters formula
+ may also be expressed  using definite integrals with a dummy
+variable. 
+\nexteqn
+$$
+\align
+y_p &=
+-y_1(t)\int_{t_0}^t \frac{y_2(s)f(s)}{W(s)}ds + 
+y_2(t)\int_{t_0}^t \frac{y_1(s)f(s)}{W(s)} ds \\
+&= \int_{t_0}^t \frac {y_1(t)y_2(s) - y_2(t)y_1(s)}{W(s)} f(s)\, ds.\tag\eqn
+\endalign
+$$
+\bigskip
+\input chap7.ex9
+\bigskip
+
+\nextsec{Finding a Particular Solution by Guessing}
+\head \sn.  Finding a Particular Solution by Guessing \endhead
+
+The variation of parameters method is quite general, but it often
+involves a lot of unnecessary calculation.  For example,
+\outind{particular solution by guessing, linear second order equation}%
+\outind{undetermined coefficients, linear second order equation}%
+the equation
+$$
+y'' + 5y' + 6y = e^{4t}
+$$
+has the linearly independent pair of solutions $y_1 = e^{-2t}, y_2 =
+e^{-3t}$. Because of all the exponentials appearing in the
+variation of parameters formula, there
+is quite a lot of cancellation, but it is apparent
+only after considerable calculation.  You should try it out
+to convince yourself of that.  On the other hand, a bit of
+experimentation suggests
+that something of the form  $y = Xe^{4t}$ might work, and if
+we put this in the equation, we get
+$$
+\gather
+16Xe^{4t} + 5(4Xe^{4t}) + 6Xe^{4t} = e^{4t}\\
+\text{or}\qquad 42Xe^{4t} = e^{4t}
+\endgather
+$$
+from which we conclude that $X = 1/42$.  Thus, $y_p = (1/42)e^{4t}$
+is a particular solution, and
+$$
+y = \frac 1{42}e^{4t} + c_1e^{2t} + c_2e^{3t}
+$$
+is the general solution.
+
+Of course, guessing won't work in complicated cases---see the previous
+section for an example where guessing would be difficult---but
+fortunately it often does work in the cases important in
+applications.  For this reason, it is given a name:
+{\it the method of undetermined coefficients}.   The idea is that
+we know by experience that guesses of a certain form will work
+for certain equations, so we try something of that form and all that
+is necessary is to determine some coefficient(s), as in the
+example above.  In this section, we shall consider appropriate
+guesses for the equation
+\nexteqn
+$$
+y'' + py' + qy = Ae^{\alpha t},\tag\eqn
+$$
+where $p, q$ and $A$ are real constants, and $\alpha$ is a (possibly)
+complex constant.  This covers applications to oscillatory 
+\outind{harmonic oscillator, forced}%
+phenomena.   There is a lot more known about appropriate guesses
+in other cases, and if you ever need to use it, you should refer
+to a good book on differential equations.  (See Section 2.5 of
+{\it Braun\/} for a start.)
+
+The appropriate guess for a particular solution of (\eqn) is
+$y = Xe^{\alpha t}$ where $X$ is a (complex) constant to be
+determined.  We have
+$$
+\align
+y &= Xe^{\alpha t} \\
+y' &= X\alpha e^{\alpha t} \\
+y'' &= X\alpha^2e^{\alpha t} 
+\endalign
+$$
+so we need to solve
+$$
+y'' + py' + qy = (\alpha^2 + p\alpha + q)Xe^{\alpha t} = Ae^{\alpha t}
+$$
+for $X$.  It is obvious how to do that {\it as long as the expression
+in parentheses does not vanish}.  That will be the case when
+$\alpha$ is not a root of $r^2 + pr + q = 0$, i.e., the
+exponential on the right is {\it not a solution of the homogeneous
+equation}.  
+
+Hence, if $\alpha$ {\it is not a root of the equation\/}
+$r^2 + pr + q = 0$,  then
+$X = A/(\alpha^2 + p\alpha + q)$, and a particular solution of
+the inhomogeneous equation (\eqn) is given by
+\nexteqn
+\xdef\AN{\eqn}
+$$
+y_p = \frac A{\alpha^2 + p\alpha + q}e^{\alpha t}. \tag\eqn
+$$
+
+We still have to deal with the case that $\alpha$ is a root
+of the equation $r^2 + pr + q = 0$.   Exactly what to do in
+this case depends on the nature of the roots of that equation.
+Assume first that {\it the roots $r_1, r_2$ are unequal}, and
+$\alpha = r_1$.  In that case, the appropriate guess is
+$y = Xte^{\alpha t}$.  We have
+$$
+\align
+y &= Xte^{\alpha t}\\
+y' &= Xe^{\alpha t} + Xt\alpha e^{\alpha t} \\
+y'' &= 2X\alpha e^{\alpha t} + Xt\alpha^2 e^{\alpha t}
+\endalign
+$$
+so we need to solve
+$$
+y'' + p y' + qy =
+X(2\alpha + p)e^{\alpha t} + Xt(\alpha^2 + p\alpha + q)e^{\alpha t}
+= Ae^{\alpha t}.
+$$
+Since $\alpha$ is a root, the second term in parentheses vanishes,
+so we need to solve
+$$
+X(2\alpha + p) = A.
+$$
+Since $\alpha$, by assumption is not a double root, $\alpha \not= -p/2$,
+so the coefficient does not vanish, and we have $X = A/(2\alpha + p)$.
+Hence, the particular solution is
+\nexteqn
+\xdef\AYI{\eqn}
+$$
+y_p = \frac{At}{2\alpha + p} e^{\alpha t}.\tag\eqn
+$$
+
+The final case to consider is that in which $\alpha = -p/2$ {\it
+is a double root of\/} $r^2 + pr + q = 0$.  Then the appropriate
+guess is $y = Xt^2e^{\alpha t}$.   We shall omit the details
+here, but you should work them out to see that you understand
+the process.  The answer is $X = A/2$, and
+$$
+y_p = \frac {At^2}2 e^{\alpha t}
+$$
+is a particular solutions.
+
+Do you see a rule for what the denominators should be ?
+%Exer  What is the rule.  Partial derivatives with respect to
+%Exer   r.
+
+The above analysis has wide ramifications because of the
+fact that $\alpha$ can be complex.   In particular,
+the equation
+\nexteqn
+\xdef\CxEqn{\eqn}
+$$
+y'' + py' + qy = Ae^{i\omega t} = A\cos \omega t + i A\sin\omega t,\tag\eqn
+$$
+where $\omega$ is a positive real constant,
+may be thought of as a pair of real equations
+\nexteqn\xdef\RealEqn{\eqn}
+\nexteqn\xdef\ImEqn{\eqn}
+$$
+\align
+u'' + p u' + q u &= A\cos \omega t\tag\RealEqn \\
+v'' + p v' + q v &= A\sin \omega t \tag\ImEqn
+\endalign
+$$
+where $u$ and $v$ are respectively the real and imaginary parts of
+$y$.  That suggests the following strategy for solving an equation
+of the form (\RealEqn).  Solve (\CxEqn) instead, and then take the
+real part.   We shall now do that under the various assumptions on
+whether or not $\alpha = i\omega$ is a root of $r^2 + pr + q = 0$.
+
+Assume first that $i\omega$ is not a root of $r^2 + pr + q = 0$.
+That will always be the case, for example, if $p \not=0$ since
+the roots are of the form $-p/2 \pm \sqrt{p^2 - 4q}/2$.
+Then the particular solution of (\CxEqn) is
+$$
+y_p = \frac A{-\omega^2 + ip\omega + q}e^{i\omega t}.
+$$
+Let $Z = q - \omega^2 + ip\omega$.   Then we can write the denominator
+in the form
+$$
+Z = |Z|e^{i\delta}
+$$
+where 
+$$
+|Z| = \sqrt{(q - \omega^2)^2 + p^2\omega^2}
+$$
+and $\delta$ is the argument of $Z$, so
+$$
+\tan \delta = \frac{p\omega}{q - \omega^2}.
+$$
+(If $q = \omega^2$, interpret the last equation as asserting that
+$\delta = \pm \pi/2$ with the sign depending on the sign of $p$.)
+Then the particular solution may be rewritten
+$$
+y_p = \frac A{|Z|e^{i\delta}}e^{i\omega t} 
+=  \frac A{|Z|}e^{i(\omega t - \delta)}.
+$$
+If we take the real part of this, we obtain the following particular
+solution of the equation $u'' + pu' + qu = A\cos \omega t$:
+\nexteqn
+$$
+u_p = \frac A{|Z|} \cos(\omega t - \delta).\tag\eqn
+$$
+
+\mar{s7-11.ps}
+We still have to worry about the case in which $i\omega$ is a
+root of $r^2 + pr + q = 0$.  As mentioned above, we must have
+$p = 0$ and $\omega^2 = q$. The roots $\pm i\omega$ are 
+unequal, so the particular
+solution of (\CxEqn) in this case is
+$$
+\align
+y_p &= \frac{At}{p +2i\omega}e^{i\omega t}\\
+&= \frac{At}{2\omega}(-i)(\cos \omega t + i\sin\omega t) \\
+&= \frac{At}{2\omega} (\sin \omega t -i\cos \omega t).
+\endalign
+$$
+Taking the real part of this yields the following particular
+solution of $u'' + pu' +  qu = A\cos \omega t$ in the case $\omega^2 = q$:
+\nexteqn
+$$
+u_p = \frac{At}{2\omega} \sin\omega t.\tag\eqn
+$$
+\bigskip
+\input chap7.ex10
+\bigskip
+\nextsec{Forced Oscillations}
+\head \sn. Forced Oscillations \endhead
+
+Consider the equation for a mass at the end of a spring being
+driven by a periodic force
+\nexteqn
+$$
+m\frac{d^2y}{dt^2} + b\frac{dy}{dt} + k y = F_0\cos \omega t\tag\eqn
+$$
+where $m,b, k$, and $F_0$ are positive constants. 
+
+\emar{s7-3.ps}{50}
+
+\emar{s7-12.ps}{-150}
+The electrical analogue of this is the equation
+\nexteqn
+\xdef\ElecEq{\eqn}
+$$
+L\frac{dI}{dt} + RI + \frac QC = E_0\cos \omega t\tag\eqn
+$$
+holding for the circuit indicated in the diagram,
+where
+$Q$ is the charge on the capacitor $C$, $I = \dfrac {dQ}{dt}$ is
+the current, $R$ is the resistance, and $L$ is the inductance.
+The term on the right represents a periodic driving voltage. 
+
+As previously, we shall analyze the mechanical case, but the
+conclusions are also valid for the electric circuit.  The fact that
+the same differential equation may govern different physical
+phenomena was the basis of the idea of an {\it analogue
+computer}.
+
+Dividing through by $m$, we may write equation (\eqn)
+\nexteqn
+$$ 
+\frac{d^2y}{dt^2} + \frac bm\frac{dy}{dt} + \frac km y = 
+\frac {F_0}m \cos \omega t\tag\eqn
+$$
+Its general solution will have the form
+$$
+y = y_p(t) + h(t)
+$$
+where $y_p(t)$ is one of the particular solutions considered
+in the previous section and $h(t)$ is a general solution of
+the homogeneous equation considered in Section 7.   If you
+refer back to Section 7, you will recall that {\it provided
+$b > 0$}, $h(t) \to 0$ as $t \to \infty$.   Hence, if
+we wait long enough, the particular solution will predominate.
+For this reason, the solution of the homogeneous equation
+is called the {\it transient part\/} of the solution,
+and the particular solution is called the {\it steady state\/}
+part of the solution.   In most cases, all you can observe is
+the steady state solution.  Since we have assumed that
+$b > 0$, (i.e., $p \not=0$), we are in the case where $i\omega$
+is not a root of $r^2 + pr + q = 0$.  Hence, the desired
+steady state solution is, from (15) in the previous section,
+$$
+y =  \frac A{|Z|} \cos (\omega t - \delta)
+$$
+where
+$$\align
+A &= \frac{F_0}m \\
+|Z| &= \sqrt{(q - \omega^2)^2 + p^2\omega^2}
+      = \sqrt{(\frac km - \omega^2)^2 + \frac{b^2}{m^2}\omega^2}\\
+  &= \frac 1m \sqrt{(k - m\omega^2)^2 + b^2\omega^2} \\
+\tan \delta &= \frac{p\omega}{q - \omega^2} =
+          \frac{(b/m)\omega}{k/m - \omega^2}\\
+  &= \frac{b\omega}{k - m\omega^2}.
+\endalign $$
+Hence, the steady state solution is
+$$
+y = \frac {F_0}{\sqrt{(k - m\omega^2)^2 + (b\omega)^2}}
+\cos (\omega t - \delta).
+$$
+where $\tan\delta = \dfrac{b\omega}{k - m\omega^2}$.
+\medskip
+\centerline{\epsfbox{s7-13.ps}}
+\medskip
+%D response to driving force.
+Note that the response to the driving force lags by a phase
+angle $\delta$.   This lag is a fundamental aspect of forced
+oscillators, and it is difficult to understand without a thorough
+understanding of the solution of the differential equation.
+
+The amplitude of the steady state solution
+$$
+A(\omega) = \frac {F_0}{\sqrt{(k - m\omega^2)^2 + (b\omega)^2}}
+$$
+may be plotted as a function of the angular frequency
+$\omega$.
+\medskip
+\centerline{\epsfbox{s7-14.ps}}
+\medskip
+%D  Response as a function of frequency
+Its maximum occurs for the value
+$$
+\omega_2 = \sqrt{\frac km - \frac {b^2}{2m^2}}.
+$$
+(This is derived by the usual method from calculus: set the
+derivative with respect to $\omega$ equal to zero and calculate.
+See the Exercises.)  If you recall, the quantity $\omega_0
+= \sqrt{k/m}$ is called the resonant frequency of the system.
+\outind{resonant frequency, harmonic oscillator}%
+\outind{harmonic oscillator, resonant frequency}%
+Using that, the above expression may be rewritten
+$$
+\omega_2 = \sqrt{\omega_0{}^2 - \frac {b^2}{2m^2}}. 
+$$
+In Section 7, we introduced one other quantity:
+$$
+\omega_1 = \sqrt{\omega_0{}^2 - \frac{b^2}{4m^2}},
+$$
+which is the angular frequency of the damped, unforced
+oscillator.   We have the inequalities
+$$
+  \omega_0 > \omega_1 > \omega_2.
+$$
+If $b$ is small, all three of these will be quite close
+together.
+
+For many purposes, it is more appropriate to consider the
+square of the velocity
+$v^2 = (dy/dt)^2$ instead of the displacement $y$.  For example, 
+the kinetic energy of the system is $(1/2)mv^2$.  (Similarly,
+in the electrical case the quantity $RI^2$ gives a measure of
+the power requirements of the system.)  If as above we ignore
+the transient solution, we may take
+$$
+\frac{dy}{dt}
+ = -\frac{F_0\omega}{\sqrt{(k - m\omega^2)^2 + (b\omega)^2}}
+\sin (\omega t - \delta).
+$$
+and the square of its amplitude is given by
+$$
+B(\omega) = \frac{F_0{}^2\omega^2}
+{(k - m\omega^2)^2 + (b\omega)^2}.
+$$
+If we divide through by $\omega^2$, this may be rewritten
+$$
+B(\omega) =  \frac{F_0{}^2}{(k/\omega - m\omega)^2 + b^2}.
+$$
+It is easy to see where $B(\omega)$ attains its maximum,
+even without calculus.  The maximum occurs when the
+denominator is at a minimum, but since the denominator
+is a sum of squares, its minimum occurs when its first
+term vanishes, i.e., when
+$$
+\gather 
+\frac k\omega - m\omega = 0 \\
+\text{i.e.,}\qquad \omega^2 = \frac km.
+\endgather $$
+Thus, the maximum of $B(\omega)$ occurs for $\omega = \omega_0
+ = \sqrt{k/m}$.    This is one justification for calling
+$\omega_0$ the resonant frequency.
+\outind{resonant frequency, harmonic oscillator}%
+\outind{harmonic oscillator, resonant frequency}%
+
+\bigskip
+\input chap7.ex11
+\endchapter
+\closeseg{chap7}
+\enddocument
+

@@ -1,0 +1,232 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 8
+\smallskip
+\Exer  In each of the following cases, determine if the indicated
+set is linearly independent or not.
+
+(a)$\left\{\bm 1\\2\\3\em, \bm 0\\1\\1\em, \bm 1\\1\\2\em\right\}$.
+
+(b)$\left\{\bm 1\\0\\0\\0\em, \bm 0\\1\\0\\0\em, \bm 0\\0\\1\\0\em\right\}$.
+\answer (a) Row reduction of the matrix with these columns shows that
+the matrix has rank 2.   Hence, the set is not linearly independent.\par
+(b)  Yes.
+
+\Exer  Determine if each of the following sets of functions is linearly
+independent.
+
+(a) $\{1, t, t^2, t^3\}$.
+
+(b) $\{e^{-t}, e^{2t}, e^t\}$.
+
+(c) $\{\cos t \sin t, \sin 2t, \cos 2t\}$.
+\answer (a)  Yes.  Suppose for example that
+$1 = c_1t + c_2t^2 + c_3t^3$.  Then we would have 
+$$
+c_2t^3 + c_2t^2 + c_1t - 1 = 0
+$$
+for all t.  However, such a polynomial expression has at most a
+finite number of roots, so it can't vanish for all $t$.
+A similar argument shows that no power of $t$ in the set can
+be expressed as a linear combination of the others. \par
+(b)  Yes.  To see this, suppose for example that
+$e^{-t} = c_1 e^{2t} + c_2 e^t$.  Differentiating this yields
+$-e^{-t} = 2c_1e^{2t} + c_2e^t$ and differentiating yet again
+yields $e^{-t} = 4e^{2t} + c_2e^t$.   Set $t = 0$ in these
+three equations.  We get
+$$
+\align
+1 &= c_1 + c_2 \\
+-1&= 2c_1 + c_2 \\
+1 &= 4c_1 + c_2
+\endalign
+$$
+It is easy to check that this system has no solution.  Similar
+arguments work for other linear combinations.\par
+(c)  No.   We have the relation $\sin 2t = 2(\cos t \sin t)$
+so the second function in the set is a multiple of the first
+function in the set.
+
+\Exer  Let  $\V$ be the vector space of all polynomials of
+degree at most 2.   (You may assume it is known that $\V$
+is a vector space.)
+
+(a)  Show that $\{1, t, t^2\}$ is a basis for $\V$ so that
+the dimension of $\V$ is 3.
+
+(b)  The first three Legendre polynomials (solutions of Legendre's
+equation $(1 - t^2)y'' - 2ty' + \alpha(\alpha + 1)y = 0$
+for $\alpha = 0, 1, 2$) are $P_0(t) = 1, P_1(t) = t$, and
+$P_2(t) = \dfrac 12(3t^2 - 1)$.  Show that $\{P_0, P_1, P_2\}$
+is a linearly independent set of functions.  It follows that
+it is a basis.  Why?
+\answer (a)  The set is linearly independent since any relation
+among the powers $1, t, t^2$ would yield a quadratic polynomial
+which vanishes identically, and there aren't any such except
+the zero polynomial.  Since any polynomial of degree two may
+be written as $c_1(1) + c_2(t) + c_3(t^2)$, it follows that
+the set $\{1,t,t^2\}$ is a basis for $\V$.\par
+(b)  Suppose for example that we had  $P_0 = c_1P_1 + c_2P_2$.
+That means
+$1 = c_1(t) + c_2(\frac 12 (3t^2 - 1))$
+which can be rewritten
+$$
+\frac{3c_2}2 t^2  + c_1 t - \frac{c_2}2 -1 = 0.
+$$
+If this holds for all $t$, the coefficients must be zero, i.e.,
+$$
+3c_2 = c_1 = -c_2/2 - 1 = 0
+$$
+which is impossible.  Similar arguments may be used to exclude the
+possiblities $P_1 = c_1P_0 + c_2P_2$ and $P_2 = c_1P_0 + c_2P_1$.
+This shows the set is linearly independent.  In a vector space of
+dimension $n$, any linearly independent set with $n$ elements must
+be a basis.
+
+\Exer  Find a basis for the solution space of the differential
+equation  $y'' - k^2y = 0$.
+\answer  The general solution of the differential equation
+is $y = c_1e^{kt} + c_2e^{-kt}$.   A basis for the solution
+space is $\{e^{kt}, e^{-kt}\}$.
+
+\Exer  Find a basis for the subspace of $\R^4$ consisting of
+solutions of the homogeneous system
+$$
+\bm\format\r&\quad\r&\quad\r&\quad\r\\
+      1 & -1 & 1 & -1 \\
+      1 & 2 & -1 & 1 \\
+      0 & 3 & -2 & 2 \em \x = 0.
+$$
+\answer\par
+$$
+\left\{ \bm -1/3\\ 2/3\\ 1\\0\em, \bm 1/3\\ -2/3\\ 0\\ 1\em\right\}
+$$
+
+\Exer Find the dimension of the solution space of $A\x = 0$
+in each of the following cases.
+ (See the Exercises for Section 6.)
+
+$$
+\text{(a) }
+  A= \bm\format\r&\quad\r&\quad\r&\quad\r\\
+                   1 & 0 & 1 & 2 \\
+                   2 & -1 & 1 & 0 \\
+                  -1 & 4 & -1 & -2 \em
+\qquad\text{(b) }
+A = \bm \format\r&\quad\r&\quad\r&\quad\r&\quad\r\\
+          1 & 3 & 4 & 0 & 2 \\
+          2 & 7  & 6 & 1 & 1 \\
+         4 &  13 & 14 & 1 & 3 \em
+$$
+\answer (a) One.  (b) Two.
+
+\Exer Show that a set of vectors $\{\v_1, \v_2, \dots, \v_n\}$
+is linearly independent if and only if the equation
+$$
+c_1\v_1 + c_2\v_2 + \dots + c_n\v_n = \bold 0
+$$
+has only the solution $c_1 = c_2 = \dots = c_n = 0$.
+\answer See below.  This problem was inadvertently included twice.
+
+\Exer 
+Let $\{\v_1, \v_2, \dots,\v_n\}$ be a subset of a vector
+space $\V$.   Show that the set is linearly independent
+if and only if the equation
+$$
+  0 = c_1\v_2 + c_2\v_2 + \dots + c_n\v_n
+$$
+has only the trivial solution, i.e.,  all the coefficients
+$c_1 = c_2 = \dots = c_n = 0$.
+
+This characterization is very convenient to use when proving
+a set is linearly independent.  It is often taken as the
+{\it definition\/} of linear independence in books on
+linear algebra.
+\answer  Suppose first that the set is linearly independent.  If
+there were such a relation without all the coefficients $c_i$
+being zero, then one of the coefficients, call it $c_i$ would
+not be zero.  Then we could divide by that coefficient and solve
+for the $i$th vector in the set in terms of the others.  That
+contradicts the assumption of linear independence. \par
+Suppose conversely that there is no such relation.  Suppose we
+could solve for  $\v_1$ in terms of the other vectors
+$$
+v_1 = c_2v_2 + c_3v_3 + \dots + c_n\v_n.
+$$
+This could be rewritten
+$$
+-v_1 + c_2v_2 + c_3v_3 + \dots + c_n\v_n = 0.
+$$
+which would be a relation of the form
+$$
+c_1v_1 + c_2v_2 + c_3v_3 + \dots + c_n\v_n = 0
+ $$
+with $c_1 = -1 \not= 0$.  By assumption there are no such relations.
+A similar argument shows that none of the vectors could be
+expressed as a linear combination of the others.
+
+\Exer (Optional.)  It is assumed implicitly
+at various points in our development that interesting vector
+spaces do in fact have bases.  In most cases, we have
+an explicit  method for constructing a basis,
+but this is not always possible.
+
+(a) Let $\V$ be a finite dimensional
+vector space with basis $\{\v_1, \v_2, \dots, \v_n\}$, and let
+$\W$ be a subspace.  Show that $\W$ has a finite basis.  Hint.  Construct
+a sequence of elements in $\W$
+as follows.   Start by choosing $\w_1\not=0$ in $\W$.
+Assume $\w_1, \w_2, \dots, \w_k$ have been chosen in $\W$ so that
+$\{\w_1, \w_2, \dots, \w_k\}$ is a linearly independent set.  Show
+that either this set is a basis for $\W$ or it is possible to choose
+$\w_{k+1}$ in $\W$ such that $\{\w_1, \w_2, \dots, \w_k, \w_{k+1}\}$
+is linearly independent.  (This is a bit harder than you might
+think.)   This process can't go on forever.  Look at the
+discussion of invariance of dimension to see why not.
+
+Note that the argument won't work if $\W$ is the zero subspace.
+What is the basis in that case?
+
+(b)  Use part (a) to conclude that any subspace of $\R^n$
+(or $\C^n$ in the complex case) has a finite basis.
+
+\Exer  The set of all infinite sequences
+$$ \bold x = (x_1, x_2, \dots, x_n, \dots ) $$
+forms a vector space if two sequences are added by
+by adding corresponding entries and a sequence is
+multiplied by a scalar by multiplying each entry by
+that scalar.  If the scalars are assumed to be real, it
+would be appropriate to denote this vector space $\R^\infty$.
+Let $\e_i$ be the vector with $x_i = 1$ and all other entries
+zero.
+
+(a)  Show that the set $\{\e_1, \e_2, \dots, \e_n\}$
+of the first
+$n$ of  these  is a linearly independent set for each $n$.  Thus
+there is no upper bound on the size of a linearly independent
+subset of $\R^\infty$.
+
+(b)  Does the set of all possible
+$\e_i$ span $\R^\infty$?  Explain.
+\answer (a)  You can see you can't have a non-trivial linear
+relation among these vectors because of the pattern of zeroes
+and ones.  Each has a one where the others are zero.\par
+(b)  This set of vectors does not span $\R^\infty$.  For example,
+the `vector'
+$$
+(1,1,1,\dots,1,\dots)
+$$
+with all entries 1 cannot be written a linear combination of
+{\it finitely many\/} of the $\e_i$.   Generally, the only
+vectors you can get as such finite linear combinations are the
+ones which have all components zero past a certain point.
+
+\Exer (Optional)
+We know from our previous work that $\{e^{ikt}, e^{-ikt}\}$
+is a basis for the set of complex valued solutions of the
+ differential equation $y'' + k^2 y = 0$    However,
+$\{\cos kt, \sin kt\}$ is also a basis for that complex vector
+space.   What are the coordinates of $e^{ikt}$ and $e^{-ikt}$
+with respect to the second basis?   What are the coordinates
+of $\cos kt$ and $\sin kt$ with respect to the first basis?
+ In each case express the answers as column vectors in $\C^2$.
+

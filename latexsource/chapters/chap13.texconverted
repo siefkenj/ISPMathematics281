@@ -1,0 +1,1289 @@
+\nextsec{Introduction}
+\head \sn. Introduction \endhead
+
+So far we have concentrated almost entirely on linear differential
+equations.   This is appropriate for several reasons.  First, most of
+\outind{non-linear system}
+\outind{system, non-linear}
+classical physics is described by linear equations, so knowing how
+to solve them is fundamental in applying the laws of physics.
+Second, even in situations where nonlinear equations are necessary
+to describe phenomena, it is often possible to begin to understand
+the solutions by making linear approximations.  Finally, linear
+equations are usually much easier to study than nonlinear
+equations.  Be that as it may, nonlinear equations and nonlinear
+systems have become increasingly important in applications, and
+at the same time a lot of progress has been made in understanding
+their solutions.  In this chapter we shall give a very brief
+introduction to the subject.
+
+We start with a couple of typical examples.
+
+\nextex
+\example{Example \en}  In your physics class you studied the
+behavior of an undamped pendulum. 
+\outind{pendulum, exact equation}
+  To make our analysis easier, we shall assume that the
+pendulum consists of a point mass $m$
+ connected to a fixed pivot by a massless rigid rod
+of length $L$.
+
+\mar{s13-1.ps}
+\noindent
+  Then, using polar coordinates to describe the
+motion, we have for the tangential acceleration
+\[
+a_\theta = r\frac{d^2\theta}{dt^2} + 2\frac{dr}{dt}\frac{d\theta}{dt}.
+\]
+(Refer to Chapter I, Section 2 for acceleration in polar coordinates.)
+Since $r = L, dr/dt = 0$, we obtain
+\[
+a_\theta = L\theta''.
+\]
+On the other hand, the component of acceleration in the tangential
+direction is $-g\sin\theta$, so we obtain the second order differential
+equation
+\nexteqn
+\[
+\theta'' = -\frac gL\sin\theta.\tag{\eqn}
+\]
+This is a second order nonlinear equation.   It is usually solved
+as follows.   {\it Assume $\theta$ is small.}   Then
+\[
+\sin\theta = \theta + O(\theta^3)
+\]
+so (\eqn) may be approximated by the second order linear equation
+\[
+\theta'' = -\frac gL \theta.
+\]
+It is easy to solve this equation:
+\[
+\theta = A\cos \left(\sqrt{\frac gL}\,t + \delta \right).
+\]
+However, this approximation is certainly not valid if $\theta$
+is large.   For example, if you give the mass a big enough shove,
+it will revolve about the pivot through a complete circuit and in
+the absence of friction will continue to do that indefinitely.
+We clearly need another approach if we want to understand what happens
+in general.
+
+Unfortunately equation (\eqn) can't be solved explicitly in terms of
+known functions.  However, it is possible to get a very good qualitative
+understanding of its solutions.   To explore this, we consider
+the equivalent first order system.   Let $x_1 = \theta$ and
+$x_2 = \theta'$.   Then $x_2' = \theta'' = -(g/L) \sin \theta = 
+-(g/L)\sin x_1$.  Hence, the desired system is
+\nexteqn
+\xdef\VecEq{\eqn}
+\begin{align*}
+x_1' &= x_2 \\
+x_2' &= -\frac gL \sin x_1\\
+\intertext{or, in vector form}
+\x' &= \f(\x) = \bm x_2\\ -\frac gL \sin x_1 \em.\tag{\eqn}
+\end{align*}
+
+As noted earlier, we can't find $\x = \x(t)$ explicitly as a function
+of $t$, but it is possible to learn quite a lot about the
+the solutions by looking at the geometry of the solution curves.  In this
+case, we can describe the geometry by eliminating
+$t$ from the differential equations.   We have
+\[
+\frac{dx_2}{dx_1} = \frac {dx_2/dt}{dx_1/dt} = -\frac gL \frac{\sin x_1}{x_2}.
+\]
+This equation may be solved by separation of variables.   I leave
+the details to you, but the general solution is
+\nexteqn
+\[
+Lx_2{}^2 - 2g\cos x_1 = C.\tag{\eqn}
+\]
+This equation may also be derived quite easily
+from
+the law of {\it conservation of energy}.  Namely, multiplying
+by
+\outind{conservation of energy}
+\outind{energy, conservation of}
+$mL/2$ and expressing everything in terms of $\theta$ yields
+$\dfrac 12 m (L\theta')^2 - mgL\cos \theta = C$.
+The first term on the
+left represents the kinetic energy and the second the
+potential energy.
+
+(\eqn) gives a family of curves called the {\it orbits}
+\outind{orbit}
+of the system.   (The term `orbit' arises from celestial mechanics
+which has provided much of the motivation for the study of nonlinear
+systems.)  You can sketch these orbits by hand, but a computer
+program will make it quite a bit easier.
+Such a diagram is called a  {\it phase portrait\/} of
+the system.  (The term `phase' is used because the $x_1, x_2$-plane
+is called the {\it phase plane\/} for historical reasons.)
+\outind{phase plane}
+\outind{phase portrait}
+Note that (\eqn) exhibits the orbits as the level curves of a function
+but it does not tell you the directions that solutions `flow' along
+those orbits.   
+It is  easy to
+determine these   directions by examining the vector $\dfrac{d\x}{dt}$
+at typical points.   For example, if $0< x_1 < \pi$ and $x_2 > 0$,
+then from (\VecEq), we see that $\dfrac{dx_1}{dt} = x_2 > 0$
+and $\dfrac{dx_2}{dt} = -\dfrac gL \sin x_1 < 0$.   It follows that
+the solutions move along the orbits downward and to the right in
+that region.
+\medskip
+\centerline{\epsfbox{s13-2.ps}}
+\medskip
+Examination  of the phase portrait exhibits some interesting
+phenomena.  
+First look at the vaguely elliptical orbits which circle the origin.
+These represent periodic solutions in which the pendulum swings back
+and forth.   (To see that, it suffices
+to follow what happens to $\theta = x_1$ as the solution moves
+around an orbit 
+in the phase plane.) 
+\medskip
+\centerline{\epsfbox{s13-3.ps}}
+\medskip
+  Next look at
+the origin.   This represents the constant solution
+$x_1 = 0, x_2 = 0$,  in which the pendulum does not move
+at all  ($\x'(t) = 0$ for all $t$). 
+This may be obtained from (\eqn) by taking
+$C = -2g$.  There are two other constant solutions represented
+in the phase portrait: for $C = 2g$ we obtain $x_1 = \pi, x_2 = 0$
+or $x_1 = -\pi, x_2 = 0$.   These represent the same physical
+situation; the pendulum is precariously balanced on top of the rod
+($\theta = \pi$ or $\theta = -\pi$).   This physical situation is an
+example of an {\it unstable equilibrium}.   Given a slight change in
+its position $\theta$ or velocity $\theta'$, the pendulum
+ will move off
+the balance point, and the corresponding solution
+ will eventually move quite far from the equilibrium point.
+On the other hand,
+the constant solution $x_1 = x_2 = 0$ represents a
+{\it stable\/} equilibrium.
+\outind{equilibrium, stable}
+\medskip
+\centerline{\epsfbox{s13-4.ps}}
+\medskip
+
+Consider the two orbits which appear to connect the two
+unstable equilibrium points.  {\it Neither of the equilibrium
+points is actually part of either orbit.}   For, once the pendulum
+is in equilibrium it will stay there forever, and if it is not
+in equilibrium, it won't ever get there.  You should think this
+out carefully for yourself and try to understand what actually
+happens to the pendulum for each of these solutions.
+
+The remaining orbits represent motions in
+which the pendulum swings around the pivot in circuits which
+repeat indefinitely.  
+ (The orbits don't appear to repeat in the phase plane, but you
+should remember that
+values of $x_1 = \theta$ differing by $2\pi$
+ represent the same physical configuration
+of the pendulum.)
+
+
+   It should be noted in passing that different solutions of
+the system of differential equations can produce the same
+orbit.  Indeed, we can start a solution off at $t = t_0$ at
+any point $\x_0$ on an orbit, and the resulting solution will trace out
+that orbit.
+Solutions obtained this way
+are the same except for a shift in the time scale.   
+ 
+\endexample
+
+\nextex
+\example{Example \en} In the study of ecological systems, one
+is often interested in the dynamics of populations.   Earlier
+\outind{prey--predator problem}
+\outind{population}
+in this course we considered the growth or  decline of a single
+population.  Consider now two populations $x$ and
+$y$  where the size of each depends on the other.  For example,
+$x$ might represent the number of caribou present in a given
+geographical region and $y$ might represent the number of wolves which 
+prey on the caribou.   This is a so-called
+{\it prey--predator\/} problem.   The mathematical model for
+such an interaction is often expressed as a system of
+differential equations of the form
+\nexteqn
+\begin{align*}
+\frac{dx}{dt} &= px  -qxy \\
+\frac{dy}{dt} &= -ry + sxy
+\tag{\eqn}
+\end{align*}
+where $p, q, r, s$ are {\it positive\/} constants.   The justification
+for such a model is as follows.  In absence of predators, the prey
+will follow a Malthusian law  $dx/dt = px$ where $p$ is the birthrate
+of the prey.  However, in the presence of predators, there will be
+an additional term limiting the rate of growth of 
+$x$ which depends on the likelihood of an encounter between prey
+and predator.   This likelihood is assumed to be proportional to
+the product $xy$ of the two population sizes.   Similarly,
+without prey, it is assumed that the population of predators
+will decline according to the Malthusian law $dy/dt = -ry$, but
+then the term $sxy$ is added to account for the rate of population
+growth for the predators which can be supported from the existing prey.
+Note that this model is derived from rather simple minded considerations.
+Even so, the predictions of such a model may correspond quite well
+with observations.   However, one should bear in mind that there
+may be other models which work just as well. 
+
+As in the previous example, the system (\eqn) can't be solved
+explicitly at a function of $t$, but we can get a pretty good
+description of its phase portrait.
+\[
+\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{-ry + sxy}{px - qxy}
+\]
+yields
+\begin{gather*}
+(ry - sxy)dx + (px - qxy)dy = 0\\
+(r - sx)\frac{dx}x + (p - qy)\frac{dy}y = 0 \\
+r\ln x - sx + p\ln y - qy = C \\
+\ln x^r y^p - (sx + qy) = C.
+\end{gather*}
+
+ These curves may be graphed (after choosing
+plausible values of the constants $p, q, r, s$).   
+
+\medskip
+\centerline{\epsfbox{s13-6.ps}}
+\medskip
+
+We only included orbits in the first quadrant since those are
+the only ones that have significance for population problems.
+
+Note that there  are two constant solutions.  First, 
+$x = y = 0$ is certainly an equilibrium point.   
+  The other constant solution
+may be determined from (\eqn) by setting
+\begin{align*}
+\frac{dx}{dt} &= px  -qxy = 0\\
+\frac{dy}{dt} &= -ry + sxy = 0.
+\end{align*}
+For, anything obtained  this way will certainly be constant
+and also a solution of (\eqn).   In this case, we get
+\begin{align*}
+x(p - qy) &=0 \\
+y(r - sx) &= 0.
+\end{align*}
+From the first equation $x = 0$ or $y = p/q$.  From the second
+$y = 0$ or $x = r/s$.   However, $x = 0$ is not consistent with
+$x = r/s$ and similarly $y = 0$ is not consistent with $y = p/q$,
+so 
+we obtain a second constant solution
+$x = r/s, y = p/q$.   It represents an equilibrium
+in which both populations stay fixed at non-zero values.    
+
+The positive $x$ axis is an orbit, and it corresponds
+to the situation where there are no predators ($x = Ce^{pt}, y = 0$). 
+Note that this orbit does not contain
+the origin, but  $\lim_{t \to -\infty} x(t) = 0$.
+Similarly, the positive $y$ axis represents the situation
+with no prey ($x = 0, y = Ce^{-rt}$).   This shows that the
+origin represents an unstable equilibrium.  On the other hand, the
+point $(r/s, p/q)$ represents a stable equilibrium.  (Can you see
+why?)
+
+The remaining orbits correspond to solutions in which each population
+varies periodically.   However, the exact relation between the
+times of maximum population for prey and predator may be quite
+subtle.
+
+\medskip
+\centerline{\epsfbox{s13-7.ps}}
+\medskip
+
+\endexample
+
+The general nonlinear first order system has the form
+\[
+\frac{d\x}{dt} = \f(\x, t)
+\]
+where $\f(\x,t)$ is vector valued function taking values in
+$\R^n$ and $\x = \x(t)$ is a ($n$-dimensional)
+ vector valued solution.  It is often the case, as in
+both examples, that $\f$ doesn't depend explicitly on $t$.
+Such systems are called {\it time independent\/} or {\it autonomous}.
+\outind{autonomous system}
+\outind{system, autonomous}
+ The {\it critical
+points\/} of a system are those points $\a$ satisfying
+\outind{critical point of a system}
+\outind{system, critical point of}
+$\f(\a, t) = 0$ for all $t$, or, in the autonomous case,
+just $\f(\a) = 0$.  Each critical point corresponds to
+a constant solution, $\x(t) = \a$ for all $t$.   The
+behavior of solutions near a critical point in the phase portrait
+of the system tell us something about the stability of the
+equilibrium represented by the critical point.   In the
+examples we noted at least two different types of behavior
+near a critical point.  
+\medskip
+\centerline{\epsfbox{s13-8.ps}}
+\medskip
+In the above case, called a {\it saddle point\/},
+The above situation occurred in the pendulum example
+at the unstable equilibria.   Some solutions approach the critical
+point and then depart, some solutions approach the critical point
+asymptotically as $t \to \infty$, some solutions do the reverse
+for $t \to -\infty$.
+Such a critical point is called a {\it saddle point\/},
+\outind{saddle point in phase portrait}
+\outind{critical point, saddle}
+\medskip
+\centerline{\epsfbox{s13-9.ps}}
+\medskip
+The above situation occurred in both examples.  Nearby solutions
+repeat periodically.  Such a critical point is called a
+{\it center}.
+\outind{center in phase portrait}
+\outind{critical point, center}
+
+There are many other possibilities.  
+
+\nextex
+\example{Example \en}
+Consider a
+\outind{pendulum, damped, exact equation}
+\outind{damped pendulum, exact equation}
+damped rigid pendulum with
+damping dependent on velocity.   Newton's second law results in
+a differential equation of
+the form
+\[
+\theta'' =  -\frac gL \sin\theta  - a\theta'
+\]
+where $a > 0$.   It is fairly clear how the damping will affect
+the behavior of such a pendulum.   There will still be unstable
+equilibria in the phase plane which correspond to the pendulum
+precariously balanced on end ($\x_1 = \theta$ equal to an odd multiple
+of $\pi$ and $x_2 = \theta' = 0$).   There will be stable equilibria in the phase plane
+which correspond to the pendulum hanging downward at rest  ($x_1 = \theta$
+equal to an even multiple of $\pi$ and $x_2 = \theta' = 0$).   Near the stable
+equilibrium, the pendulum will oscillate with decreasing amplitude
+(and velocity), so the corresponding orbits in the phase plane will
+spiral inward toward the equilibrium point and approach it asymptotically. 
+Here is what the phase portrait looks like in general.
+\medskip
+\centerline{\epsfbox{s13-10.ps}}
+\medskip
+
+The above physical reasoning is convincing, but it is also
+useful
+to have a more mathematical approach.
+To this end. we convert the
+second order equation for $\theta$ to the system
+\nexteqn
+\begin{align*}
+x_1' &= x_2 \\
+x_2' &= -\frac gL \sin x_1 - ax_2.
+\tag{\eqn}
+\end{align*}
+The critical points are $(n\pi, 0)$ where $n = 0, \pm 1,
+\pm 2, \dots$.
+ The method we used for sketching the phase portrait of
+the undamped pendulum
+doesn't work in this case, but we can use what we learned previously
+to guide us to an understanding of the
+behavior near the critical point $(0,0)$ as follows.
+Let
+\[
+U = \frac 12 x_2{}^2 -\frac gL\cos x_1.
+\]
+This quantity was {\it constant\/} in the undamped case by
+the law of conservation of energy.  Since some energy is lost
+because of the damping term, $U$ is no longer constant.
+Indeed,   we have
+\begin{align*}
+\frac {dU}{dt} &= \frac 12 2x_2x_2' + \frac gL\sin x_1\, x_1'\\
+     &= x_2(-\frac gL \sin x_1 - ax_2) + \frac gL \sin x_1\, x_2 \\
+     &= -ax_2{}^2.
+\end{align*}
+Thus, $dU/dt < 0$ except where the path crosses the $x_1$-axis
+(i.e., $x_2 = 0$).   However, at points on the $x_1$-axis, the
+velocity $d\x/dt$ (given by (\eqn)) is directed off the axis. 
+Using this information, it is possible to see that $U$
+decreases steadily
+along any orbit
+of the damped system
+as the orbit
+descends inward crossing the level curves
+\[
+L x_2{}^2 - 2g\cos x_1 = 2LU = C
+\]
+of the undamped system.
+In the limit, the orbit
+approaches the critical point at the origin.
+This confirms
+the physical interpretation described above
+near the critical point  $x_1 = \theta = 0, \, x_2 = \theta' = 0$.
+Here is what the phase portrait looks like in general.
+\medskip
+\centerline{\epsfbox{s13-10a.ps}}
+\medskip
+
+As noted above, the orbits around the critical point at the origin
+spiral in toward the critical point and approach it asymptotically.
+In general, such a critical point is called a {\it focus\/}.  In this case,
+\outind{focus in phase portrait}
+\outind{critical point, focus}
+the critical point represents a stable equilibrium, but, in general,
+ the reverse situation where  the orbits
+spiral out from the origin is possible.  Then the critical point
+represents an unstable equilibrium, but is still called
+a focus.
+
+\endexample 
+
+Generally, we may summarize the phenomena illustrated
+above by calling a critical point {\it stable\/}
+if any solution which comes sufficiently close to the critical point
+\outind{critical point, stability of}
+\outind{stability of critical point}
+for one time $t$ stays close to it for all subsequent time.
+Otherwise, we shall call the critical point {\it unstable}.
+If {\it all nearby\/} solutions  approach the critical point asymptotically
+ as
+$t \to \infty$, it is called {\it asymptotically\/} stable.
+\outind{asymptotic stability for a critical point}
+\outind{critical point, asymptotic stability of}
+
+As we shall see, the behavior of the phase portrait
+near a critical point can often be
+reduced to a problem in linear algebra.
+\bigskip
+\includeexercises{chap13.ex1}
+\bigskip
+
+\nextsec{Linear Approximation}
+\head \sn. Linear Approximation Again \endhead
+
+Suppose we want to study the behavior of a system
+\[
+\frac{d\x}{dt} = \f(\x)
+\]
+near a critical point $\x = \a$.  (We assume the system is
+time independent for simplicity.)  One way to do this is to
+approximate $\f(\x)$ by a {\it linear\/} function in the
+vicinity of the point $\a$.   In order to do this, we need
+a short digression about multidimensional calculus.
+
+\subhead The Derivative of a Function $f:\R^n \to \R^m$ \endsubhead
+Let $\f:\R^n \to \R^m$ denote a smooth function.  Since $\f$
+is an $m$-dimensional vector valued function, it may be
+specified by 
+$m$ component functions
+\[
+\f = \bm f_1\\ f_2 \\ \vdots \\ f_m \em
+\]
+where each component is a scalar function
+$f_i(x_1,x_2,\dots, x_n)$ of $n$ variables.  Fix a point
+$\a = (a_1, a_2, \dots, a_n)$ in the domain of $\f$.
+   For each component,
+we have the linear approximation
+\[
+f_i(\x) = f_i(\a) + \nabla f_i(\a)\cdot (\x - \a) + o(|\x - \a|). 
+\]
+(See Chapter III, Section 4.)  We may put these together in a
+single vector equation
+\[
+\f(\x) = \bm f_1(\x)\\ f_2(\x)\\ \vdots \\ v_m(\x) \em
+  = \bm f_1(\a)\\ f_2(\a)\\ \vdots \\ v_m(\a) \em
+ + \bm \nabla f_1(\a)\\ \nabla f_2(\a) \\ \vdots \\ \nabla f_m(\a)\em
+(\x - \a) + o(|\x - \a|).
+\]
+Let
+\[
+D\f = \bm \nabla f_1 \\ \nabla f_2 \\ \vdots \\ \nabla f_m \em
+\]
+be the $m\times n$ matrix with rows the gradients of the component
+functions $f_i$.    The $i,j$ entry of $D\f$ is
+$\dfrac{\d f_i}{\d x_j}$.    Then the above equation may be
+written more compactly
+\nexteqn
+\[
+\f(\x) = \f(\a) + D\f(\a)(\x - \a) + o(|\x - \a|).\tag{\eqn}
+\]
+\outind{linear approximation}
+The matrix $D\f$ is called the {\it derivative\/} of the function
+$\f$.  It plays the same role for vector valued functions that the
+\outind{derivative of a vector function}
+\outind{$D\f$}
+gradient plays for scalar valued functions.
+
+\nextex
+\example{Example \en}
+Let $m = n = 2$ and suppose
+\[
+\f(x_1, x_2) = \bm x_2\\ -\sin x_1 \em.
+\]
+ Let's consider the behavior of this function near  $\a = (0,0)$.
+
+First calculate the derivative.
+\begin{align*}
+\nabla f_1 &= \bm 0 & 1 \em \\
+\nabla f_2 &= \bm -\cos x_1 & 0 \em\\
+\intertext{so}
+D\f(0,0) &= \bm 0 & 1 \\ -1 & 0 \em.
+\end{align*}
+Hence, formula (\eqn) yields
+\begin{align*}
+\f(x_1, x_2) &= \f(0,0) + D\f(0,0)\x + o(|x|)\\
+&\approx  \bm 0\\ 0 \em + \bm 0 & 1\\ -1 & 0 \em \bm x_1\\ x_2 \em 
+  =\bm x_2 \\ -x_1 \em.
+\end{align*}
+\endexample
+
+\nextex
+\example{Example \en}
+Let $m =2, n = 3$ and take
+\[
+\f(x_1, x_2, x_3) = \bm x_1 + 2x_2 + x_3 \\ x_1{}^2 + x_2{}^2 + x_3{}^2 \em.
+\]
+Then
+\[
+D\f(x_1, x_2, x_3) =
+\bm 1 & 2 & 1 \\ 2x_1 & 2x_2 & 2x_3 \em.
+\]
+Suppose we want to study the behavior of $\f$ near the point
+$(1,2,-4)$.  We have
+\[
+f(1, 2, -4) = \bm{} 1\\ 21 \em
+\]
+and
+\[
+D\f(1, 2, -4) = \bm{} 1 & 2 & 1 \\ 2 & 4 & -8 \em 
+\]
+ so, according to (\eqn),
+\[
+\f(x_1, x_2, x_3) \approx \bm{} 1\\ 21 \em + 
+\bm{} 1 & 2 & 1 \\ 2 & 4 & -8 \em
+\bm x_1 - 1 \\ x_2 - 2 \\ x_3 + 4 \em.
+\]
+\endexample
+
+The linear approximation is an invaluable tool for the study
+of functions $\R^n \to \R^m$.   We have already seen its
+use in a variety of circumstances for scalar valued functions.
+It also arose implicitly when we were studying change of
+variables for multiple integrals.  For example, a change
+of variables in $\R^2$ may be described by a function
+$\g:\R^2 \to \R^2$ and the Jacobian determinant used in
+the correction factor for
+double integrals is just   
+\[
+\det D\g = \det \bm \dfrac{\d g_1}{\d x_1} & \dfrac{\d g_1}{\d x_2} \\
+                         \dfrac{\d g_2}{\d x_1} & \dfrac{\d g_2}{\d x_2}\em.
+\]
+A similar remark applies in $\R^3$, and indeed the change of
+variable rule may be generalized to integrals in $\R^n$ by
+using the correction factor  $|\det D\g|$ where $\g:\R^n \to \R^n$
+\outind{Jacobian}
+is the function giving the change of variables.
+
+\subhead Analysis of Non-Linear Systems near Critical Points
+\endsubhead
+We want to apply the above ideas to the analysis of an autonomous
+nonlinear system
+\nexteqn
+\xdef\NonLin{\eqn}
+\[
+\frac{d\x}{dt}  = \f(\x)\tag{\eqn}
+\]
+near a critical point $\a$.  Here, $m = n$ and $\f:\R^n \to \R^n$.
+  By definition, $\f(\a) = 0$
+at a critical point, so the linear approximation gives
+\[
+\f(\x) = \f(\a) + D\f(\a)(\x - \a) + o(|\x - \a|)
+       =  D\f(\a)(\x - \a) + o(|\x - \a|).
+\]
+If we put this in (\eqn) and drop the error term, we obtain 
+\[
+\frac{d\x}{dt} = D\f(\a)(\x -\a).
+\]
+This may be simplified further by the change of variables
+$\y = \x - \a$ which in essence moves the critical point to
+the origin.  Since $\dfrac{d\y}{dt} = \dfrac{d\x}{dt}$,
+this yields
+\nexteqn
+\xdef\Lin{\eqn}
+\[
+\frac{d\y}{dt} = A\y\tag{\eqn}
+\]
+where $A = D\f(\a)$ is the derivative matrix at the critical point.
+In this way, we have replaced the nonlinear system (\NonLin)
+by the {\it linear system\/} (\Lin), at least near the critical
+point.   If dropping the error term $o(|\x - \a|)$
+ doesn't affect things
+too severely, we expect the behavior of solutions of the linear system
+to give a pretty good idea of what happens to  solutions of the nonlinear
+system near the critical point.
+At least in principle, we know how to solve
+ linear systems.
+
+\nextex
+\example{Example \en}
+Consider the pendulum system
+\begin{align*}
+\frac{dx_1}{dt} &= x_2 \\
+\frac{dx_2}{dt} &= -\sin x_1
+\end{align*}
+where the units have been chosen so $g = L$.   Consider the critical point
+$(\pi, 0)$ corresponding to the unstable equilibrium discussed earlier.
+We have
+\[
+D\f = \bm 0 & 1 \\ -\cos x_1 & 0 \em = \bm 0 & 1 \\ 1 & 0 \em
+\qquad\text{at } (\pi, 0).
+\]
+Hence, putting $y_1 = x_1 - \pi, y_2 = x_2$, 
+near the critical point, the system is approximated by the linear system
+\[
+\frac{d\y}{dt} = \bm 0 & 1\\1 & 0 \em \y.
+\]
+(In the `$y$' coordinates, the critical point is at the origin.)
+This system is quite easy to solve.  I leave the details to you.   The eigenvalues
+are $\lambda = 1, \lambda = -1$.   A basis of eigenvectors is given by
+\begin{align*}
+\v_1 &= \bm -1\\ 1\em\qquad\text{corresponding to } \lambda = 1\\
+\v_2 &= \bm{}1 \\ 1 \em \qquad\text{corresponding to } \lambda = -1.
+\end{align*}
+The general solution of the linear system is
+\nexteqn
+\[
+\y = c_1e^t\v_1 + c_2e^{-t}\v_2\tag{\eqn}
+\]
+or
+\begin{align*}
+y_1 &= -c_1e^t + c_2e^{-t}\\
+y_2 &= c_1e^t  + c_2e^{-t}
+\end{align*}
+The phase portrait for the solution near $(0,0)$
+can be worked out by trying various $c_1$ and $c_2$ and sketching the
+resulting orbits.   However, it is easier to see what it looks like
+if we put $P = \bm \v_1 &\v_2 \em$ and make the change of coordinates
+$\y = P\z$.    As in Chapter XII, Section  6, this will have
+the effect of diagonalizing the coefficient matrix and yielding the
+system
+\begin{align*}
+\frac{dz_1}{dt} &= z_1 \\
+\frac{dz_2}{dt} &= -z_2
+\end{align*}
+with solutions
+\nexteqn
+\[
+z_1 = c_1 e^t\qquad z_2 = c_2e^{-t}.\tag{\eqn}
+\]
+From this, it is clear that the orbits are the family of hyperbolas
+given by
+\[
+z_1z_2 = c_1c_2 = c.
+\]
+This includes the case $c = 0$ which
+gives the degenerate `hyperbola' consisting of the  lines $z_1 = 0$
+and $z_2 = 0$.   (The degenerate case actually consists of  five orbits:
+ the critical
+point $(0,0)$ and the positive and negative half lines on each axis.)
+\medskip
+\centerline{\epsfbox{s13-11.ps}}
+\medskip
+The $z_1$ and $z_2$ axes in this diagram are directed 
+respectively along the vectors $\v_1$ and $\v_2$.
+The direction in which each orbit is traversed
+may be determined from the 
+explicit solutions (\eqn).
+
+You should compare the above picture 
+with the phase portrait derived in Section 1 for the pendulum
+problem.    
+In this example, the local analysis merely confirms
+what we already knew from the phase portrait that was derived in
+Section 1. 
+ However, in general,  sketching the
+phase portrait of the nonlinear system may be very difficult
+or even impossible.   Hence, deriving
+a picture near each critical point by  linear analysis 
+is a useful first step in understanding the whole picture.
+\endexample
+
+The previous example illustrates generally what happens for a
+$2$ dimensional system when the eigenvalues  are {\it real\/}
+and {\it of opposite signs}.   In this case the critical
+point is called a {\it saddle point\/}, and it is 
+clearly unstable.     
+
+\nextex
+\example{Example \en}
+Consider the prey-predator problem described by the system
+\begin{align*}
+\frac{dx_1}{dt} &= x_1 - x_1x_2\\
+\frac{dx_2}{dt} &= -x_2 + x_1x_2.
+\end{align*}
+This assumes that the populations are being measured in bizarre
+units, and with respect to these units the constants $p, q, r,s$
+are all 1.   This is  rather unrealistic,
+but it does simplify the algebra quite a lot.     As before,
+there are two critical points in the first quadrant:
+$(0,0)$ and
+$(r/s, p/q) = (1, 1)$.   Let's study the linear approximation
+near $(1,1)$.  We have
+\[
+D\f = \bm 1 -x_2 & -x_1\\ x_2 & -1 + x_1 \em
+ = \bm{} 0 & -1\\ 1 & 0 \em\qquad\text{at } (1,1).
+\]
+Hence, the approximating linear system is
+\[
+\frac{d\y}{dt} = 
+\bm{} 0 & -1\\ 1 & 0 \em \y
+\]
+where $y_1 = x_1 - 1, y_2 = x_2 - 1$.
+I leave it to you to work out the solutions of this system.
+The eigenvalues are $\lambda = \pm i$, so we need to use
+complex solutions.   An eigenvector for $\lambda = i$ is
+\[
+\u = \bm i\\ 1\em
+\]
+and a corresponding complex solution is
+\[
+e^{it}\u.
+\]
+As usual, we can find a linearly independent pair of real solutions
+by taking real and imaginary parts.
+To help you work similar problems in homework, we shall do this in
+slightly greater generality than necessary in the particular case.
+\[
+\u = \v + i\w\qquad\text{where } \v = \bm 0\\ 1\em\quad\text{and}\quad
+\w =\bm 1 \\ 0 \em. 
+\]
+Then
+\[
+e^{it}\u = (\cos t + i\sin t)(\v + i\w) =
+     \v \cos t - \w \sin t + i(\v \sin t + \w \cos t).
+\]
+Taking real and imaginary parts yields the two solutions
+\begin{align*}
+\v\cos t - \w \sin t &= \bm \v & \w \em \bm{} \cos t\\ -\sin t\em \\
+\v\sin t + \w \cos t &= \bm \v & \w \em \bm \sin t \\ \cos t \em.
+\end{align*}
+This suggests that we put  $P = \bm \v & \w \em$ (so that its columns
+are the real and imaginary parts of the eigenvector $\u$), and
+make the change of variables $\y = P\z$.   Then, in the `$z$'
+coordinate system, we obtain two linearly independent solutions
+\[
+ \bm{} \cos t \\ -\sin t \em
+\qquad\text{and}\qquad  \bm \sin t\\ \cos t \em.
+\]
+Any solution is then a linear combination
+\[
+\z = c_1 \bm{} \cos t \\ -\sin t \em + 
+c_2 \bm \sin t\\ \cos t \em
+= \bm c_1\cos t + c_2\sin t \\ -c_1\sin t + c_2 \cos t \em.
+\]
+Now put $c_1 = A\cos\delta, c_2 = A\sin\delta$.   The above solution
+takes the form
+\[
+\z = \bm{} A\cos(t - \delta)\\-A\sin(t - \delta) \em.
+\]
+This gives a family of {\it circles\/} which are traversed
+clockwise with respect to the $z_1$ and $z_2$ axes.  
+However, the $z_1$ and $z_2$ axes have orientation opposite to
+that of the original axes.  (Look at  
+$\v = \e_2$ and $\w = \e_1$ which are `unit' vectors along
+the new axes.)  Thus, 
+  with respect to the $y_1, y_2$ axes, the motion is
+counter-clockwise.
+\medskip
+\centerline{\epsfbox{s13-12.ps}}
+\medskip
+Note that the phase portrait we derived in Section 1 for the prey-predator
+system gives a similar picture near the critical point  $(\pi,0)$.
+\endexample
+
+A similar analysis applies to any
+ 2-dimensional  real system if the eigenvalues are complex.  If
+the eigenvalues are purely imaginary, i.e., of the form $\pm i\omega$,
+then  the results are similar to what we got in Example \en.
+In the
+`$z$' coordinate system, the orbits look like
+circles and they are traversed clockwise.  However, the change 
+from the `$y$' coordinates to the `$z$' coordinates may
+introduce  changes of scale, different for the two axes.
+Hence, the orbits are really
+ellipses when viewed in the original coordinate system.  Also,
+as in Example \en, the change of coordinates may introduce a reversal
+of orientation.  A critical point of this type is called
+a {\it center}.
+\outind{critical point, center}
+
+If the eigenvalues are not purely imaginary, then they are of
+the form $a \pm bi$ with $a\not=0$, and  all solutions
+have the
+additional factor $e^{at}$. 
+   This has the
+effect of turning the `ellipses' into spirals.   If
+$a < 0$, $e^{at} \to 0$
+as $t\to \infty$, so all solutions spiral in towards the origin.  If
+$a > 0$, they all spiral out. In either case, the critical point is called
+a {\it focus}.  If $a < 0$ the critical point is stable, and if
+\outind{critical point, focus}
+$a > 0$ it is not.
+\medskip
+\centerline{\epsfbox{s13-13.ps}}
+\medskip
+The above examples by no means exhaust all the possibilities
+even in the 2-dimensional case.  In the remaining cases,
+the eigenvalues $\lambda_1, \lambda_2$ are real and of the same sign. 
+ The exact nature of the phase portrait
+will depend on the how the linear algebra works out,
+but in all these cases the critical point is called a {\it node}.
+\outind{node}
+\outind{critical point, node}
+Here are some pictures of nodes:
+\medskip
+\centerline{\epsfbox{s13-14.ps}}
+\medskip
+
+
+\centerline{\epsfbox{s13-15.ps}}
+\medskip
+
+
+\centerline{\epsfbox{s13-16.ps}}
+\medskip
+
+\outind{generalized eigenvectors}
+
+Note that in each case the critical point is stable if the eigenvalues
+are negative.
+
+
+
+\nextex
+\example{Example \en}
+Consider the linear system
+\[
+\frac{d\x}{dt} = 
+\bm{}
+ -3 & -1 \\ 1 & -1 \em \x.
+\]
+The only critical point is the origin, and of course the linear
+approximation there is just the original system.
+
+It turns out that there is no basis of eigenvectors in this
+case, so we must use the method of generalized eigenvectors.
+In fact, this example was worked out in Chapter XI, Section 8,
+Example 2.
+We found there that
+\begin{align*}
+\x_1 &= e^{-2t}(\e_1 + t\v_2) = \bm \e_1 & \v_2 \em\bm e^{-2t}\\ te^{-2t}\em \\
+\x_2 &= e^{-2t}\v_2 = \bm \e_1 & \v_2 \em \bm 0\\ e^{-2t}\em
+\end{align*}
+form a basis for the solution space, where
+\[
+\e_1 = \bm 1\\ 0\em\qquad\text{and}\qquad \v_2 = (A +2I)\e_1 = 
+\bm{}-1\\ 1\em.
+\] 
+The general solution is
+\[
+\x = c_1\x_1 + c_2\x_2 = 
+\bm \e_1 & \v_2 \em\bm c_1e^{-2t}\\c_1te^{-2t} + c_2 e^{-2t}\em.
+\]
+This suggests making the change of coordinates  $\x = P\z$
+where 
+\[
+P = \bm \e_1 & \v_2 \em = \bm{} 1 & -1 \\ 0 & 1 \em.
+\]
+In the new coordinates, the general solution is given by
+\[
+\z = \bm  c_1e^{-2t}\\ c_1te^{-2t} + c_2 e^{-2t} \em 
+\]
+which in components is
+\begin{align*}
+z_1 &= c_1e^{-2t} \\
+z_2 &= c_1te^{-2t} + c_2 e^{-2t}.
+\end{align*}
+As $t\to \infty$, both $z_1$ and $z_2$ approach zero because of
+the factor $e^{-2t}$.
+Also,
+\[
+\frac{z_2}{z_1} = t + \frac{c_2}{c_1}
+\]
+so for large $t$, both $z_1$ and $z_2$ have the same sign.
+ On the other hand, for $t$
+sufficiently negative, $z_1$ and $z_2$ have opposite signs, i.e.,
+$\z$ starts off either in the fourth quadrant or the second
+quadrant.
+(Note that this argument required $c_1 \not= 0$.  What does
+the orbit look like if $c_1 = 0$?)
+
+We leave it as an challenge for you to sketch the orbits of
+this system.  You should get one of the diagrams sketched
+above.   You should first do it in the $z_1, z_2$ coordinate
+system.  However, to interpret this in the original $x_1, x_2$
+coordinates, you should notice that the '$z$' axes are not
+perpendicular.  Namely, the $z_1$-axis is the same as the
+$x_1$ axis, but the $z_2$-axis points along the vector
+$\v_2$, so it makes an angle of $3\pi/4$ with the positive
+$x_1$ axis.
+\endexample
+
+If the {\it matrix $D\f(\a)$ is singular\/}, the theory utilized
+above breaks
+down.  The following example indicates how that might occur.
+
+\nextex
+\example{Example \en}  Consider the system
+\[
+\frac{d\x}{dt}  = \bm{}
+                       -1 & 1\\
+                       1 & -1 \em \x.
+\]
+The origin is a critical point, and since the system is linear,
+the linear approximation there is the same as the system itself.
+
+The eigenvalues turn out to be $\lambda = -2$ and $\lambda = 0$.
+For $\lambda = -2$ a basic eigenvector is
+\[
+\v_1 = \bm -1\\ 1\em.
+\]
+For $\lambda = 0$, a basic eigenvector is
+\[
+\v_2 = \bm{}1\\1\em.
+\]
+Put these together to form a change of basis matrix
+\[
+P = \bm{}
+        -1 & 1\\ 1 & 1 \em.
+\]
+Then, by our theory
+\[
+P^{-1}\bm -1 & 1\\ 1 & -1 \em P = \bm -2 & 0 \\ 0 & 0 \em
+\]
+and the change of variables $\x = P\z$ yields the `uncoupled'
+system
+\begin{align*}
+\frac{dz_1}{dt} &= -2z_1\\
+\frac{dz_2}{dt} &= 0.
+\end{align*}
+The solution is
+\[
+z_1 = C_1e^{-2t}\qquad z_2 = C_2
+\]
+This is a family of half lines perpendicular to the $z_2$ axis.
+Every point on the $z_2$-axis is a critical point and is approached
+asymptotically from either side as $t \to \infty$.
+\medskip
+\centerline{\epsfbox{s13-17.ps}}
+\medskip
+\endexample
+
+In the above discussion, we have been assuming that the behavior
+of a non-linear system near a critical point may be determined
+from the behavior of the
+linear approximation. 
+  Unfortunately, that is not always the case.
+First of all, if the matrix $D\f(\a)$ is singular, the behavior
+near the critical point depends strongly on the higher
+order terms which were ignored in forming the linear approximation.
+Even if $D\f(\a)$ is non-singular, in some cases,
+the higher order terms can
+exert enough influence to change the nature of the critical
+point.   
+\nextex
+\xdef\ExX{\en}
+\example{Example \en}
+Consider the nonlinear system
+\nexteqn
+\begin{align*}
+\frac{dx_1}{dt} &=  x_2 -x_1(x_1{}^2 + x_2{}^2)\\
+\frac{dx_2}{dt} &=  -x_1 -x_2(x_1{}^2 + x_2{}^2).
+\tag{\eqn}
+\end{align*}
+$(0,0)$ is clearly a critical point.  (Are there any more?)
+Also,
+\[
+D\f = \bm -3x_1{}^2 -x_2{}^2 & 1 - 2x_1x_2 \\
+      -1 -2x_1x_2 & -x_1{}^2 - 3x_2{}^2 \em
+= \bm{} 0 & 1 \\ -1 & 0 \em\qquad\text{at } (0,0).
+\]
+Hence, the approximating linear system is
+\[
+\frac{d\x}{dt} =
+\bm{} 0 & 1 \\ -1 & 0 \em \x.
+\]
+The eigenvalues are $\lambda = \pm i$, so the critical point is
+a center.   The phase portrait of the linear system consists of
+a family of closed loops centered at the origin.
+
+On the other hand, we can solve the nonlinear system exactly in
+this case if we switch to polar coordinates in the $x_1, x_2$-plane.
+Put $x_1 = r\cos\theta,\, x_2 = r\sin\theta$ in (\eqn).  We get
+\begin{align*}
+\frac{dr}{dt}\cos\theta -r\sin\theta \frac{d\theta}{dt}
+  &= r\sin\theta -r^3\cos\theta\\
+\frac{dr}{dt}\sin\theta +r\cos\theta \frac{d\theta}{dt}
+  &= -r\cos\theta -r^3\sin\theta.
+\end{align*}
+Multiply the first equation by $\cos\theta$, the second by $\sin\theta$
+and add to obtain
+\begin{gather*}
+\frac{dr}{dt} = -r^3 \\
+-\frac{dr}{r^3} = dt \\
+\frac 1{2r^2} = t + c \\
+r = \frac 1{\sqrt{2t + c_1}}
+\end{gather*}
+Similarly, multiplying the first equation by $\sin\theta$, the
+second by $\cos\theta$ and subtracting the first from the second
+yields
+\[
+r\frac{d\theta}{dt} = -r.
+\]
+However, $r = 0$ is the critical point which we already know yields
+a constant solution, so we may assume $r\not=0$.  Hence, we get
+\begin{gather*}
+\frac{d\theta}{dt} = -1 \\
+\theta = -t + c_2.
+\end{gather*}
+This clearly represents a family of solutions which spiral in towards
+the origin, approaching it asymptotically at $t \to \infty$.
+Thus, {\it the additional nonlinear terms turned a center into a focus}.
+In this case, it is a stable focus with the orbits spiraling in
+toward the critical point.   In other cases, the non-linear terms
+might perturb things in the other direction so that the orbits
+\outind{critical point, center to focus}
+would spiral out from the origin
+\medskip
+\centerline{\epsfbox{s13-18.ps}}
+\medskip
+\endexample
+
+In general, for a two dimensional system, a center for the linear
+approximation can stay a center or can become a focus in the non-linear
+system.
+Fortunately, for a two dimensional system,
+if  $f$ is sufficiently smooth (i.e., $C^2$),
+and $Df$ is non-singular
+at the critical point, {\it this is the only case\/} in which the nonlinear
+ terms
+can significantly affect the structure of the phase portrait.
+
+In every other non-singular case, 
+i.e., a node, a saddle point,
+or a focus, a theorem of Poincar\'e
+\outind{Poincare\'e}
+assures us that the linear approximation gives a true picture of the
+phase portrait near the critical point.
+
+Note that in the previous examples, the signs of the eigenvalues
+of the linear systems (or the signs of the real parts of complex
+eigenvalues) played an important role.   It is clear why that
+would be the case.  A basic solution will have a factor
+of the form $e^{at}$ and if $a < 0$, the basic solution will
+necessarily converge to zero at $t \to \infty$.  Hence, if 
+these signs are negative for both basic solutions,
+ every solution will converge to
+zero as $t \to \infty$, so the corresponding critical point
+will be asymptotically stable.  On the other hand, if one eigenvalue
+is negative and one is positive (a saddle point), the situation is
+more complicated.  (What if both signs are positive?)
+
+Needless to say the situation is even more complicated for higher dimensional
+systems.  It is still true
+that if all the eigenvalues of the linear approximation
+ are negative, or, if complex,
+have negative real parts, then all solutions near the critical point
+ converge to it as $t \to \infty$, i.e., the corresponding equilibrium
+is  asymptotically stable.  However, the basic linear algebra
+is considerably more complicated, so it is not so easy to classify
+exactly what happens even in the linear case.   
+\medskip
+\subhead Stable orbits and Attractors \endsubhead
+The behavior of a nonlinear system near its critical points  
+helps us to understand the  system, but it is certainly not the only
+thing of interest.   For example, the solution of the
+prey-predator problem yields many periodic solutions.  The orbits
+traced out by such solutions are 
+ stable in the following sense:  any  solution
+which at some time $t$ comes close to the orbit remains close to it
+\outind{orbit, stability of}
+\outind{stability of an orbit}
+for all subsequent $t$.   That means that if we stray a little from
+such an orbit, we won't ever get very far from it.   From this
+perspective, a critical point is just a stable orbit which happens
+to be a point.  We should be interested in finding all
+stable orbits, but of course it is much harder to find the
+non-constant ones.
+
+Much of the theory of nonlinear systems was motivated by questions
+in celestial
+mechanics.   The general mathematical problem in that subject is
+the so-called $n$-body problem where we attempt to describe the
+motion of an arbitrary number of point masses subject to 
+the gravitational forces between them.   A complete solution
+of that problem still eludes us despite intense study over several
+centuries.   Even fairly simple questions remain unanswered.
+For example, one would assume that the Solar System as a whole
+will continue to behave more or less as it does now as long as it is
+not disturbed by a significant perturbation such as a
+star passing nearby.   However, no one has been able to prove, for
+example, that the entire system is `stable' in the
+sense that it remains bounded
+for all time.
+Thus, it is conceivable that at some point in time a
+  planet might cease to follow its normal orbit and leave the solar
+system altogether.  (At least, it is conceivable to mathematicians,
+who generally believe that something may happen until they 
+prove that it can't happen!)
+
+Modern developments in the study of nonlinear systems are often
+concerned with  `stability' questions such  as
+those mentioned above.   One such result is a famous theorem of
+Poincar\'e and Bendixson.   It asserts the following:  if
+\outind{Poincar\'e--Bendixson Theorem}
+an orbit of a 2 dimensional nonlinear system enters a bounded region in
+the phase
+plane
+and remains there forever, and if that bounded region contains no
+critical points, then either the orbit
+is periodic itself, or it approaches a periodic orbit asymptotically.
+(If critical points were not excluded from the bounded region,
+the constant solutions represented by those points
+would violate the conclusion of the theorem.
+Also, the presence of critical points could `disrupt' the behavior
+ of other paths
+in rather subtle ways.)
+The following example illustrates  this phenomenon.
+
+\nextex
+\example{Example \en}  Consider the system
+\begin{align*}
+\frac{dx}{dt} &= -y + x(1 - x^2 - y^2)\\
+\frac{dy}{dt} &= x + y(1 - x^2 - y^2).
+\end{align*}
+This system can be solved explicitly if we switch to polar
+coordinates.    
+Putting $x = r\cos\theta, \, y = r\sin\theta$ in the above system
+yields
+\begin{align*}
+\frac{dr}{dt}\cos\theta - r\sin\theta \frac{d\theta}{dt}
+ &= -r\sin\theta + r\cos\theta(1 - r^2) \\
+\frac{dr}{dt}\sin\theta + r\cos\theta \frac{d\theta}{dt}
+ &= r\cos\theta + r\sin\theta(1 - r^2).
+\end{align*}
+Multiply the first equation by $\sin\theta$ and subtract it
+from $\cos\theta$ times the second equation to obtain
+\[
+r\frac{d\theta}{dt} = r.
+\]
+Thus, either $r = 0$ or 
+\begin{gather*}
+\frac{d\theta}{dt} = 1\\
+\theta = t + D,
+\end{gather*}
+where $D$ is an arbitrary constant.
+Similarly, multiplying the first equation by $\cos\theta$
+and adding it to $\sin\theta$ times the second equation yields
+\[
+\frac{dr}{dt} = r(1 - r^2).
+\]
+We see from this that $r = 0$ and $r = 1$ are solutions in which
+$dr/dt = 0$.  ($r = -1$ is not a solution because by definition
+$r \ge 0$.)  $r = 0$ yields a critical point at the origin. 
+$r = 1$ (together with $\theta = t + D$) yields a periodic
+solution for which the orbit is a circle of radius 1 centered
+at the origin.   If we exclude these solutions, we may
+separate variables to obtain
+\[
+\int \frac{dr}{r(1 - r^2)} = t + c_1.
+\]
+The left hand side may be computed by the method of partial fractions
+which yields
+\[
+\ln r - \frac 12 \ln|1 - r| - \frac 12 \ln ( 1 + r) = t + c_1.
+\]
+I did it instead using Mathematica which neglected to include
+the absolute values in the second term, but fortunately
+I remembered them.   (The absolute values
+are not necessary for the other terms since $r, r+1 > 0$.)
+ This may be further simplified as follows.
+\begin{gather*}
+\ln \frac r{\sqrt{|1 - r^2|}} = t + c_1 \\
+ \frac r{\sqrt{|1 - r^2|}} = c_2e^t \\
+  \frac {r^2}{|1 - r^2|} = c_3e^{2t}.
+\end{gather*}
+Note that the constant necessarily satisfies $c_3 > 0$.
+We now consider two cases.   If $0 < r < 1$, we have
+\begin{gather*}
+ \frac {r^2}{1 - r^2} = c_3e^{2t}\\
+r^2 =  c_3e^{2t}(1 - r^2)\\
+ r^2(1 + c_3e^{2t}) = c_3e^{2t}\\
+r^2 = \frac{c_3e^{2t}}{1 + c_3e^{2t}}
+\end{gather*}
+Divide both numerator and denominator by $c_3e^{2t}$
+ and take the square root
+to obtain
+\nexteqn
+\xdef\RLT{\eqn}
+\[
+r = \sqrt{\frac 1{Ce^{-2t}+1}}.\tag{\eqn}
+\]
+If you follow what happened to the constant at each stage, you will
+see that the constant we end up with satisfies $C > 0$.
+
+If $r > 1$, we may continue instead
+as follows.
+\begin{gather*}
+ \frac {r^2}{r^2-1} = c_3e^{2t}\\
+r^2 =  c_3e^{2t}(r^2-1)\\
+ r^2(c_3e^{2t} - 1) = c_3e^{2t}\\
+r^2 = \frac{c_3e^{2t}}{c_3e^{2t} - 1}.
+\end{gather*}
+Divide numerator and denominator by $c_3e^{2t}$ to obtain
+\nexteqn
+\xdef\RGT{\eqn}
+\[
+r = \sqrt{\frac 1{1 - Ce^{-2t}}}.\tag{\eqn}
+\]
+As above $C > 0$.
+
+We may summarize all the above cases except the critical point
+$r = 0$ by writing
+\nexteqn
+\begin{align*}
+r &= \frac 1{\sqrt{1 + Ce^{-2t}}}\\
+\theta &= t + D
+\tag{\eqn}
+\end{align*}
+where $C > 0$ for $r < 1$, $C = 0$ for $r = 1$,
+ and $C < 0$ for $r > 1$.
+Note that for $C > 0$, the solution spirals outward from the
+origin and approaches the periodic orbit $r = 1$ asymptotically
+as $t \to \infty$.   Similarly, for $C < 0$, the solution spirals
+inward and approaches the periodic orbit $r =1$ asymptotically
+as $t \to \infty$.    All these paths behave as the Poincar\'e--Bendixson
+Theorem predicts. 
+\medskip
+\centerline{\epsfbox{s13-19.ps}}
+\medskip
+ You can choose for the bounded region any
+annular (ring shaped) region containing the circle $r = 1$.  
+You can't allow the critical point at the origin in the bounded
+region because then the constant solution $\x(t) = 0$ would
+violate the conclusion of the theorem.   
+
+\endexample
+
+A periodic orbit that is asymptotically stable (i.e., all
+solutions which get sufficiently near it approach it asymptotically)
+is called
+an {\it attractor}.   In the above example the orbit $r = 1$ is
+\outind{attractor}
+an attractor.  On the other hand, the critical point $r = 0$
+exhibits the opposite kind of behavior, so it might aptly be
+called a {\it repeller}.
+\bigskip
+\includeexercises{chap13.ex2}
+
+\endinput

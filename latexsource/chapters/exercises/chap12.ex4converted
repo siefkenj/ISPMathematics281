@@ -1,0 +1,159 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   (a)  Find a basis for the subspace of $\R^4$ of all vectors
+perpendicular to $\v = \lb 1, 2, -1, 4\rb$.   It need not
+be an orthonormal basis.
+
+(b) Find a basis for the subspace of $\C^3$ of all vectors
+perpendicular to $\v = \lb i, -i, 1 \rb$.   It need not be
+an orthonormal basis.
+
+\answer{ (a)  Just solve the equation $x_1 + 2x_2 - x_3 + 4x_4 = 0$.
+The general solution vector is
+\[
+\x = \bm -2x_2 + x_3 - 4x_4\\ x_2\\ x_3 \\ x_4 \em
+ = x_2\bm{}-2\\1\\ 0 \\ 0 \em
++ x_3\bm 1\\ 0\\ 1\\ 0 \em + x_4\bm{} -4\\ 0\\ 0 \\ 1\em.
+\]
+The following vectors form a basis
+\[
+\bm{}-2\\1\\ 0 \\ 0 \em,\quad
+\bm 1\\0\\ 1 \\ 0 \em,\quad
+\bm{}-4\\0\\ 0 \\ 1 \em.
+\]\par
+(b)  $(\v,\x) = \overline {\v}^t\x = 0$ yields the equation
+$-ix_1 + ix_2 + x_3 = 0$.   The solution is
+$x_1 = x_2 -ix_3$ with $x_2, x_3$ arbitrary.   The following vectors
+form a basis for the solution space
+\[
+\bm 1\\ 1\\ 0 \em,\quad \bm{} -i\\ 0 \\ 1 \em.
+\] 
+
+
+
+}
+
+\item   (Optional)  Derive the following properties of the dot product
+in $\C^n$.   Use the rules of matrix algebra derived
+earlier and
+the additional rules $\overline{B + C} = \overline B +
+\overline C$, $\overline{BC} = \overline B\,\,\overline C$,
+and $(B + C)^t = B^t + C^t$.  Note also that
+$(\u^t\v)^t = \u^t\v$ since either is a scalar.
+
+(a) $(\u + \v, \w) = (\u,\v) + (\u,\w),\ (\u,\v +\w) =
+(\u,\v) + (\u,\w)$.
+
+(b) $(c\u,\v) = \overline c(\u,\v),\ (\u,c\v) = c(\u,\v)$.
+
+(c) $(\u,\v) = \overline{(\v, \u)}$.
+
+
+\item   Let $A$ be Hermitian.  Prove the {\it self-adjoint
+property}
+\[
+   (A\u, \v) = (\u, A\v).
+\]
+Note.  This formula was used implicitly at several points in
+the text.  See if you can find where.
+
+\answer{  $(A\u, \v) = (\overline{A\u})^t\v$ and
+$(\u, A\v) = \overline{\u}^tA\v$. However,  $\overline{A\u}
+= \overline A\overline{\u}$, so $(\overline{A\u})^t
+= \overline{\u}^t\overline A^t$.  Since $A$ is hermitian,
+we have $\overline A^t = A$, so this shows that the two
+sides are equal.
+
+
+
+
+}
+
+\item   Let $\{\u_1, \u_2, \dots, \u_k\}$ be a set of mutually
+perpendicular non-zero vectors.  Show that the set is
+linearly independent.  Hint.  Assume there is a dependence
+relation which after renumbering takes the form
+\[
+\u_1 = c_2\u_2 + \dots + c_k\u_k
+\]
+and take the dot product of both sides with $\u_1$.
+
+\answer{  Suppose
+\[
+\u_1 = c_2\u_2 + \dots + c_k\u_k.
+\]
+Take the dot product of both sides with $\u_2$.   Since
+$(\u_i,\u_2) = 0$ for $i \not= 2$, we get
+\[
+0 = c_2(\u_2,\u_2) + \dots + 0 = c_2(\u_2,\u_2).
+\]
+Since $(\u_2,\u_2) = |\u_2|^2 \not= 0$, it follows that $c_2 = 0$.
+A similar argument shows all the other $c_i = 0$.  Hence,
+$u_1 = 0$, which is false.   Hence, there can be no linear
+dependence relation.
+
+
+
+}
+
+\item   (a)  Show that the matrix
+$A = \bm{}
+      0 & 3i & 0 \\
+      -3i & 0 & 4i \\
+     0 & -4i & 0 \em$
+is Hermitian.
+
+(b)  Find the eigenvalues and eigenvectors for $A$.
+
+(c)  Find an orthonormal basis of eigenvectors for $A$.
+
+\answer{ (a)
+\[
+\overline A^t = \bm 0 & -3(-i) & 0 \\
+             3(-i) & 0 & -4(-i) \\
+           0 & 4(-i) & 0 \em = A.
+\]\par
+(b) The eigenvalues with corresponding basic eigenvectors are
+\begin{align*}
+\lambda_1 &= -5,\qquad \v_1 = \bm -\frac 35i\\ 1 \\ \frac 45 i \em\\
+\lambda_2 &= 5,\qquad \v_2 = \bm \frac 35i\\ 1 \\ -\frac 45 i \em\\
+\lambda_3 &= 0,\qquad \v_3 = \bm \frac 43 \\ 0 \\ 1 \em.
+\end{align*}\par
+(c)  The above vectors are necessarily orthogonal since the eigenvalues
+are distinct.  Hence, we need only divide them by their lengths.
+\[
+\u_1 = \frac 1{\sqrt 2}\v_1, \u_2 = \frac 1{\sqrt 2}\v_2, \u_3
+= \frac 35\v_3
+\]
+form an orthonormal basis.
+
+
+
+}
+
+\item   (a)  Find a basis of eigenvectors for
+$A = \bm 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \em$.
+
+(b)  Find an orthonormal basis of eigenvectors for $A$.
+
+\answer{  The eigenvalues are $0, 1, 2$.  An orthonormal   
+basis is
+\[
+\left\{ \frac 1{\sqrt 2}\bm{}-1\\ 0\\ 1 \em,
+  \bm 0\\ 1\\ 0 \em, 
+\frac 1{\sqrt 2}\bm 1\\ 0\\ 1\em\right\}.
+\]
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

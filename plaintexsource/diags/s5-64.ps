@@ -1,0 +1,124 @@
+%!
+%%Title: /tmp/xfig-export019622
+%%Creator: fig2dev
+%%CreationDate: Sat Dec 28 10:48:28 1991
+%%For: len@schur (Len Evens)
+%%BoundingBox: 0 0 391 155
+%%Pages: 0
+%%EndComments
+/$F2psDict 64 dict def 
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y translate xrad yrad scale 0 0 1 startangle endangle arc
+	savematrix setmatrix
+	} def newpath 0 0 0 0 0 1 DrawEllipse stroke
+
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+	/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+	/$F2psEnd {$F2psEnteredState restore end} def
+	%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-30 8 translate
+0.0 155.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Ellipse
+n 329 87 48 48 0 360 DrawEllipse gs 0.70 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 328 88 8 8 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 427 87 40 57 0 360 DrawEllipse gs 0.70 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 415 70 11 11 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 445 67 9 9 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 431 115 18 18 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 422 92 3 3 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 441 88 5 5 0 360 DrawEllipse gs 1.00 setgray fill gr
+gs col-1 s gr
+% Ellipse
+n 147 119 42 42 0 360 DrawEllipse gs 0.70 setgray fill gr
+gs col-1 s gr
+n 327 23 m 327 23 l gs col-1 s gr
+% Polyline
+n 263 13 m 263 178 l gs 0.70 setgray fill gr
+gs col-1 s gr
+% Polyline
+n 172 65 m 172 8 l  92 8 l  92 65 l 
+ clp gs 0.70 setgray fill gr
+gs col-1 s gr
+% Polyline
+n 67 16 m 62 64 l  38 60 l  34 89 l 
+ 59 81 l  33 139 l  73 150 l  65 103 l  79 122 l 
+ 91 78 l  120 79 l  119 70 l  73 72 l  77 15 l 
+ clp gs 0.70 setgray fill gr
+gs col-1 s gr
+% Closed spline
+n 190.500 65.000 m
+	190.500 65.000 158.000 70.000 179.000 81.500 DrawSplineSection
+	179.000 81.500 200.000 93.000 211.000 122.500 DrawSplineSection
+	211.000 122.500 222.000 152.000 233.500 116.500 DrawSplineSection
+	233.500 116.500 245.000 81.000 251.000 59.000 DrawSplineSection
+	251.000 59.000 257.000 37.000 226.000 23.500 DrawSplineSection
+	226.000 23.500 195.000 10.000 209.000 35.000 DrawSplineSection
+	209.000 35.000 223.000 60.000 190.500 65.000 DrawSplineSection closepath gs 0.70 setgray fill gr
+gs col-1 s gr
+/Times-Roman findfont 14.00 scalefont setfont
+90 181 m 
+gs 1 -1 scale (simply connected) col-1 show gr
+/Times-Roman findfont 14.00 scalefont setfont
+291 176 m 
+gs 1 -1 scale (not simply connected) col-1 show gr
+$F2psEnd

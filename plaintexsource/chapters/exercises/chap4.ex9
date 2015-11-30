@@ -1,0 +1,148 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 9
+\smallskip
+\Exer Calculate $\int_{\Cal C} f(\r)\,ds$ for each 
+indicated function over the curve given by the indicated
+parametriztion.
+
+(a)  $f(x,y) = x - y$, $\r = \lb t^2, t^3\rb,\, -1\le t\le 1$.
+
+(b)  $f(x,y,z) = x + 2y +z$, $\r = \lb \cos \theta, \sin\theta, 1 \rb,\,
+0\le \theta \le 2\pi$.
+
+(c)  $f(x,y) = x$, $\r = \lb x, x^2 \rb, \, 0\le x \le 1$.  ($\Cal C$
+is the graph of $y = x^2$.) 
+\answer (a) This is messy.  Maple was used to calculate the integral.
+$$ 
+\int_{-1}^1 (t^2 - t^3)\sqrt{4t^2 + 9t^4}\,dt = 
+\dfrac 4{23}\ln\left (\dfrac{\sqrt{13} -3}{\sqrt{13} +3}\right )
+  - \dfrac{28\sqrt{13}}{81}.
+$$\par
+(b) $2\pi$.  (c) $\dfrac{\sqrt{125} -1}{12}$. 
+
+\Exer  A mass is distributed over a thin wire in the shape of
+the semi-circle  $x^2 + y^2 = a^2, \, y \ge 0$.   If the density
+is given by $\delta = y$, find the center of mass.
+\answer  Use polar coordinates. $y = a\sin\theta$ and $ds = a\,d\theta$.
+$M = 2a^2$.  The center of mass is at $(0, (\pi a)/4)$.
+
+\smallskip
+In each of the problems that follow, if the surface is a sphere or
+a cylinder or the graph of a function, use the appropriate element
+of surface area.  Otherwise, find an appropriate parametric representation
+or use the one suggested.
+
+\Exer  Show that the surface area of a right circular cylinder
+of radius $a$ and height $h$ is $2\pi ah$.
+\answer $\int_0^{2\pi} \int_0^h a\,dz\,d\theta$.
+
+\Exer  Find the surface area of the indicated surface.
+
+(a)  The part of the plane
+$2x + 3y + z = 2$ contained inside the cylinder $x^2 + y^2 = 4$.
+
+(b)  The part of the paraboloid $z = 4 - x^2 - y^2$
+above the $x,y$-plane.
+
+(c)  The part of the sphere $x^2 + y^2 + z^2 = a^2$ above the
+plane $z = h$ where $0 \le h \le a$.
+
+ (d) The surface parametrized by $\r = \lb u^2, v^2, uv \rb,
+\, 0\le u \le 1, 0\le v \le 1$.
+\answer (a) Treat this as the graph of $z = 2 - 2x - 3y$.
+The answer is $4\pi\sqrt{14}$.\par
+(b) $\int_0^{2\pi}\int_0^2 r\sqrt{1 + 4r^2}\,dr\,d\theta$
+or $\dfrac{\pi(17^{3/2} -1)}6$.\par
+(c) Use the element of area on a sphere. 
+$$
+\int_0^{2\pi}\int_0^{\cos^{-1}(h/a)}a^2\sin\phi\,d\phi\,d\theta
+ = 2\pi a(a - h).
+$$ \par
+(d)  $\r_u\times \r_v = \lb -2v^2,-2u^2,4uv \rb$.
+$$
+S = \int_0^1\int_0^1 \sqrt{4u^4 + 4v^4 + 16u^2v^2}\,du\,dv.
+$$
+Maple was unable to evaluate this integral exactly.
+A simple numerical integration program yielded the approximate
+value $2.4$.
+
+\label{myprobforlater}
+
+\Exer Let a sphere of radius $a$ be intersected by two parallel
+planes.  Show that the area of the portion of
+the sphere between the planes
+depends only on the distance between the planes.   Hint:  Use
+part (c) above. 
+\answer The area above $z = h_1$ is $2\pi a(a-h_1)$ and
+the area above $z = h_2$ is $2\pi a(a-h_2)$.  Subtract.
+
+\Exer Evaluate  $\iint_{\Cal S} z\, dS$ for each of the
+surfaces in Problem (\ref{myprobforlater}).
+\answer (a)  $8\pi\sqrt{14}$.  (b) $\dfrac{\pi(289\sqrt{17} -41)}{60}$.
+(c) $\pi a(a^2 - h^2)$.\par
+(d) $$ \int_0^1\int_0^1 uv\sqrt{4u^4 + 4v^4 + 16u^2v^2}\,du\,dv. $$
+
+\Exer  Find the centroid of the hemisphere $x^2 + y^2 + z^2 = a^2,\,
+0\le z$.   
+\answer $(0,0, a/2)$.
+
+\Exer  Consider the cone described parametrically by
+$\r = \lb r\cos\theta, r\sin\theta, mr \rb, \, 0\le r\le a,
+0\le\theta\le 2\pi$.   Show that its surface area is
+$\pi a L$ where $L = a\sqrt{1 + m^2}$ is its `slant height'.
+What is the geometric significance of $L$?
+\answer $\r_\theta \times \r_r = \lb mr\cos\theta, mr\sin\theta, -r \rb$.
+$S = \int_0^a\int_0^{2\pi} r\sqrt{m^2 + 1}\, d\theta\, dr$.
+$L$ is the distance on the cone from the vertex to the circumference
+of the circle at the base.
+
+\Exer  Find the surface area of that part of the cylinder $x^2 + y^2 = 1$
+
+(a) under the plane $z = y$ and above the $x,y$-plane,
+
+(b) cut off by the cylinder $x^2 + z^2 = 1$.
+\answer  (a)  Use the element of area $dS = a\,dz\,d\theta$ with
+$a = 1$.  $0\le z \le y$
+translates to $0 \le z \le \sin\theta$.  The integral is
+$$
+\int_0^{\pi}\int_0^{\sin\theta} dz\, d\theta = 2.
+$$
+This could also be done as the graph of $x = \sqrt{1 - y^2}$ by
+projecting into the triangle $0\le z \le y, 0 \le y \le 1$ in
+the $y,z$-plane.\par
+(b)  The answer is four times that in part (a) since the two cylinders
+intersect in the planes  $z = \pm y$.
+
+\Exer  Find the surface area of that part of the sphere
+$x^2 + y^2 + z^2 = 4a^2$ inside the cylinder
+$(x - a)^2 + y^2 = a^2$.   (Break the surface into two
+symmetrical parts and double the answer.
+This is a sphere, but you can also
+treat each part as the graph of a function.)
+\answer Use $dS = 4a^2\sin\phi\, d\phi\,d\theta$.
+The intersection of the sphere and the cylinder is given in
+spherical coordinates by $2a \sin\phi = r = 2a\cos\theta$ or
+for the top half $\phi = \sin^{-1}(\cos \theta)$.
+The surface area is
+$$
+   2\int_{-\pi/2}^{\pi/2}\int_0^{\sin^{-1}(\cos \theta)}
+ 4a^2\sin\phi\, d\phi\,d\theta = 8a^2\pi.
+$$
+
+\Exer  Find the surface area of the torus obtained by rotating
+the circle $(x - b)^2 + z^2 = a^2$ about the $z$-axis.  Hint:
+Use the parametric representation in Example \TorEx.
+\answer $4\pi^2 a b$.
+
+%%%  Surface area of a surface of revolution.
+
+\Exer  A mass of density $\delta$ is uniformly distributed over
+the surface of the cylinder $x^2 + y^2 = a^2,\, 0\le z \le h$.
+Find the gravitation force on a test mass at the origin.
+\answer  $F_x = F_y = 0$.   
+$$dF_z = 
+\frac{G\delta a\,dz\,d\theta}{a^2 + z^2}\frac z{\sqrt{a^2 + z^2}}.$$
+ The answer is 
+$$F_z = 2\pi G\delta\left(1 - \frac a{\sqrt{a^2 + h^2}}\right ). $$
+
+

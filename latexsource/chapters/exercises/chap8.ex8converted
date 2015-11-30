@@ -1,0 +1,246 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Using the expansion
+\[
+\tan^{-1}(t) = \sum_{n=0}^\infty\frac {(-1)^nt^{2n+1}}{2n+1}\qquad
+\text{for} \qquad -1 < t < 1
+\]
+calculate  $\tan^{-1}(.01)$ to within $5\times 10^{-4}$.   (Note that
+the series is an alternating series, so you can use the next
+term criterion to estimate the error after $n$ terms.)
+
+\answer{ Need $\dfrac{.01^{2n + 3}}{2n + 3} < 5\times 10^{-4}$,
+i.e., $(2n+3)10^{2n+6} > 2\times 10^3$.  $n = 0$ will clearly
+do, so one term suffices.  Hence, $\tan^{-1} .01 = .010$ is
+accurate to three decimal places.  In this particular case we
+can be sure no rounding problems will arise.  Can you see why?
+
+
+
+}
+
+\item   Find Taylor series expansions by the methods of this section
+in each of the following cases.
+
+(a)  $e^{-t^2}$ at $t_0 = 0$.
+
+(b)  $e^t$ at $t_0 = 1$.  Hint:  $e^t = e^1e^{t-1}$.
+
+(c)  $(1 + t)^{1/2}$ at $t_0 = 0$.
+
+(d)  $(1 - t)^{-3}$ at $t_0 = 0$.
+
+(e)  $\dfrac{\ln (1+ t)}t$ at $t_0 = 0$.
+
+(f)  $\dfrac{\tan^{-1}(t)}t$ at $t_0 = 0$.
+
+(g)  $t^2e^{-t}$ at $t_0 = 0$.
+
+(h)  $\dfrac{1 + t}{1 - t}$ at $t_0 = 0$.
+
+\answer{ (a) $e^{-t^2} = \sum_{n=0}^\infty \dfrac{(-1)^n}{n!}t^{2n}$ which
+is valid for all $t$.\par
+(b) $e^t = \sum_{n=0}^\infty \dfrac e{n!}(t-1)^n$ which is valid for all $t$.\par
+(c) We have
+\[(1 + t)^{1/2} =
+\sum_{n=0}^\infty \binom {1/2}n t^n =
+\sum_{n=0}^\infty (-1)^{n+1}\dfrac{(2n-3)(2n-5)\dots (3)(1)}{2^nn!}t^n\]
+which is valid for $-1 < t < 1$.\par 
+(d) We have
+\begin{align*}
+(1 - t)^{-3} &= \sum_{n=0}^\infty \binom {-3}n (-t)^n 
+ = \sum_{n=0}^\infty\dfrac{(-1)^n(n+2)!/(2\cdot 1)} {n!}(-1)^n t^n \\
+ &= \sum_{n=0}^\infty \dfrac{(n+2)(n+1)}2t^n
+\end{align*}
+ which is valid for $-1 < t < 1$.\par
+(e) $\dfrac{\ln (1+ t)}t = \sum_{n=0}^\infty \dfrac{(-1)^n}{n+1}t^n$
+which is valid for $-1 < t < 1$.  This was done in the text in
+Section 6.\par
+(f)  $\dfrac{\tan^{-1}(t)}t = \sum_{n=0}^\infty \dfrac{(-1)^n}{(2n+1)}t^{2n}$
+which is valid for $-1 < t < 1$.\par
+(g) $t^2e^{-t} = \sum_{n=2}^\infty \dfrac{(-1)^n}{(n-2)!}t^n$
+which is valid for all $t$.\par
+(h) $\dfrac{1 + t}{1 - t} = 1 + \sum_{n=1}^\infty 2t^n$ which is
+valid for $-1 < t < 1$.\par
+Note that in each of the above problems, we gave the assured range
+of validity from the principles enunciated in the text.   The
+expansions could also be valid at one or the other endpoints of the
+given interval in special cases.
+
+
+
+}
+
+\item  Calculate $\int_0^{0.1} e^{-t^2}dt$ accurately to
+within $5\times 10^{-5}$.
+
+\answer{ We have
+\[
+\int_0^{0.1} e^{-t^2}dt = \sum_{n=0}^\infty \int_0^{0.1}\frac{(-1)^n}{n!}t^{2n}
+dt
+ = \sum_{n=0}^\infty \frac{(-1)^n}{n!}\frac{0.1^{2n+1}}{2n+1}.
+\]
+This is an alternating series.   For four places accuracy, we need
+$\dfrac{0.1^{2n+3}}{(2n+3)(n+1)!} < 5\times 10^{-5}$.
+$n = 1$ will work (when the above expression is $10^{-6}$),
+ so two terms will do.
+\[
+\int_0^{0.1} e^{-t^2}\approx  0.1 - \frac{0.1^3}{3\cdot 1!} \approx .0997.
+\] \par
+Note that rounding is a serious issue here.
+The calculation
+gives $.09966766667$ rounded off to 11 decimal places, but
+the error is negative, so taking it into account, we see that the
+true answer after rounding might be 
+$.0996$  instead of $.0997$.
+However, the estimate of the absolute error was
+$10^{-6}$, so it isn't large enough to reduce the 5th decimal place
+below 5.  We 
+can avoid this kind of confusion
+by giving the answer as $.09967 \pm .00005$. 
+ This
+is not exactly the same as being sure of the last decimal place
+after rounding, but it is probably what is needed in most cases.
+
+
+
+}
+
+\item  Calculate $\int_0^1 \dfrac{1 - \cos t}{t^2} dt$ accurately
+to within $5\times 10^{-4}$.
+
+\answer{   The series to use is
+\[
+\int_0^1 \dfrac{1 - \cos t}{t^2} dt = \sum_{n=0}^\infty\frac{(-1)^n}
+{(2n+2)!(2n+1)}.
+\]
+For $n = 1$, the error is bounded by $\dfrac 1{3600} < .000278 < 5\times 10^{-4}$.  Hence,
+we should use two terms to obtain
+\[
+\int_0^1 \dfrac{1 - \cos t}{t^2} dt \approx \frac 12 - \frac 1{18}
+\approx .44444444.
+\]
+Note in this case the next term $\dfrac 1{3600}$ is positive and 
+if we add it on,
+we get
+\[
+\int_0^1 \dfrac{1 - \cos t}{t^2} dt \approx \frac 12 - \frac 1{18}
++ \frac 1{3600} \approx  .4447222222.
+\]
+Now with $n = 2$, the error is bounded by $\dfrac 1{8!7} \approx
+3.543\times 10^{-6}$ so we can be sure now that the answer
+$.445$ is in fact correct to three decimal places.   As mentioned
+above, however, the rounding issue is often not relevant.  It would
+be good enough to give the answer as  
+$.44472 \pm .0005$.
+
+
+
+
+}
+
+\item   A very thin tunnel is drilled in a straight line through
+the Earth connecting two points $1/4$ mile apart (great circle
+distance).  Assume the
+Earth is a perfect sphere with radius exactly 4000 miles.
+Find the maximum depth of the tunnel in feet accurately to 10
+significant figures.  Hint: The distance is
+$R(1 - \cos(\theta/2))$ where $\theta$ is the angle in
+radians at the center of the sphere subtended by the great
+circle arc.
+
+\answer{  I presume you have studied the concept of
+`significant figures' in your physics classes.  If a number
+is expressed in the form $.ddddd... \times 10^n$ then
+the number of decimal points is the same as the number of
+significant figures.  If it is expressed in the
+form $d.ddd...\times 10^m$ then the number of decimal points is
+one less than the number of significant figures.\par
+ $\theta =\dfrac{1/4}{4000} = \dfrac 1{16000}$
+so $u = \dfrac\theta 2  = \dfrac 1{32000} = 3.125\times 10^{-5}$ radians.
+(This is exact!)
+Doing calculations up with 12 place accuracy, we have
+\begin{align*}
+1 - \cos u &= \frac {u^2} 2 - \frac{u^4}{4!} + \frac{u^6}{6!} - \dots \\ 
+ &=  4.882812500000\times 10^{-10} - 3.973642985026\times 10^{-20} + \dots
+\end{align*}
+Clearly, we can ignore all terms past the first if we only want 10 significant
+figures.   Multiplying by $R = 4000$ yields
+$1.953125000\times 10^{-4}$ which is accurate to 10 significant figures.
+(This is approximately $1/4$ inch.)   
+
+
+
+
+}
+
+\item   The quantity $\sqrt{1 - \dfrac{v^2}{c^2}}$ plays an
+important role in the special theory of relativity.
+
+(a) Using the first order term in 
+the binomial expansion, derive the approximation
+\[
+\sqrt{1 - \dfrac{v^2}{c^2}} \approx 1 - \frac{v^2}{2c^2}.
+\]
+
+(b)  If $v$ is 1\
+accurate the above approximation is.
+
+(c)  Does a similar analysis work for
+\[
+\frac 1{\sqrt{1 - \dfrac{v^2}{c^2}}} \approx 1 + \frac{v^2}{2c^2}\text{?}
+\] 
+
+\answer{ (a)  We have the binomial series 
+\[
+(1 + t)^{1/2} =
+1 + \frac 12 t - \frac 12 \frac 12 \frac 1{2!}t^2 + \dots 
+\approx 1 + \frac 12 t.
+\]
+Using only  up to the first order terms and putting $t = - \dfrac {v^2}{c^2}$
+gives the desired formula.   Notice that for $t < 0$, the binomial
+series is not an alternating series.   We would have to use the
+estimate for the remainder $R_1$ from Taylor's formula to
+estimate the error made in stopping with the first order term.\par
+(b)  The linear approximation  gives $1 - \dfrac 12(.01)^2 = .99995$.
+On the other hand, Maple tells us that
+ $\sqrt{1 - .01^2} \approx .9999499987$  to 10 decimal places.\par
+(c)  A similar analysis works for the reciprocal.  Again the
+binomial series does not yield an alternating series in this
+case, so the remainder from Taylor's formula would have to be
+estimated.
+
+
+
+
+}
+
+\item   (Optional)   Try to obtain a power series expansion for $\sec t$
+by putting 
+$ u = \dfrac{t^2}2 - \dfrac{t^4}{4!} + \dfrac{t^6}{6!} - \dots
+$
+in
+\[
+\frac 1{1 - u} = 1 + u + u^2 + u^3 + \dots
+\]
+Try to include at least terms up to degree 6.
+
+\answer{ Maple gave me
+\[
+1 + \frac 12 t^2 + \frac 5{24} t^4 + \frac{61}{720}t^6 + \dots
+\]
+In the `good old days'. I would have done this by hand!
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

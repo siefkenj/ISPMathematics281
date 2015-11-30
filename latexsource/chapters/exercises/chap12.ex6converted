@@ -1,0 +1,109 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   An inclined plane makes an angle of 30 degrees with
+the horizontal.   Change to a coordinate system with $x_1'$
+axis parallel to the inclined plane and $x_2'$ perpendicular
+to it.   Use the change of variables formula derived in the section
+to find the components of the gravitational acceleration vector
+$-g\j$
+in the new coordinate system.
+Compare this with what you would get by direct geometric reasoning.
+
+\answer{ The `$P$' matrix is
+\[
+\bm \frac{\sqrt 3}2 & -\frac 12\\ \frac 12 & \frac{\sqrt 3}2 \em.
+\]
+Its inverse is its transpose, so the components of $-g\j$ in the
+new coordinate system are given by
+\[
+\bm \frac{\sqrt 3}2 & \frac 12\\ -\frac 12 & \frac{\sqrt 3}2 \em
+\bm{} 0\\ -g\em = -g\bm{} \frac 12\\ \frac{\sqrt 3}2 \em.
+\]
+
+
+
+}
+
+\item     Show that the product of two orthogonal matrices
+is orthogonal.   Show that the product of two unitary
+matrices is unitary.  How about the inverse of an orthogonal or
+unitary matrix?
+
+\answer{  Let  $A, B$ be orthogonal, i.e., they are invertible
+and $A^t = A^{-1}, B^t = B^{-1}$.   Then $AB$ is invertible
+and
+\[
+(AB)^t = B^tA^t = B^{-1}A^{-1} = (AB)^{-1}.
+\]
+The argument for unitary matrices is the same except that you have
+to put bars (for complex conjugation) over the transposes.\par
+The inverse of an orthogonal matrix is orthogonal.   For, if
+$A^t$  is the inverse of $A$, then $A$ is the inverse of $A^t$.
+But $(A^t)^t = A$, so $A^t$ has the property that its transpose
+is its inverse.  A similar argument works for unitary matrices.
+
+
+}
+
+\item  Let $A = \bm{} 1 & -i \\i & 1 \em$.
+Find an orthonormal basis for $\C^2$ consisting of eigenvectors
+for $A$.  Use this to find a unitary matrix $P$ such
+that $P^{-1}AP$ is diagonal.  (The diagonal entries should be
+the eigenvalues.)
+
+\answer{ The eigenvalues are $\lambda = 0, 2$.  An orthonormal basis of
+eigenvectors corresponding to these eigenvalues
+is given by
+\[
+\left\{ \frac 1{\sqrt 2}\bm i\\ 1 \em, \frac 1{\sqrt 2}\bm -i\\ 1\em\right\}.
+\]
+The matrix $P$ is
+\[
+\frac 1{\sqrt 2}\bm{} i & -i \\ 1 & 1\em.
+\]
+ 
+
+}
+
+\item   Let $A = \bm 1 & 2\\ 2 & 1 \em$.  Find a $2\times 2$ orthogonal
+matrix $P$ such that $P^tAP$ is diagonal.  What are the diagonal
+entries?
+
+\answer{ Such a matrix is
+\[
+\frac 1{\sqrt 2} \bm{} -1 & 1 \\ 1 & 1 \em.
+\]
+The diagonal entries are $-1, 3$.
+
+
+}
+
+\item   Let $A = \bm 1 & 4 & 3 \\ 4 & 1 & 0 \\ 3 & 0 & 1 \em$.
+Find a $3\times 3$ orthogonal matrix $P$ such that $P^tAP$ is diagonal.
+What are the diagonal entries?
+
+\answer{  Such a matrix is
+\[
+\bm{} 
+-\frac 5{\sqrt 2} & 0 & \frac 5{\sqrt 2}\\
+  \frac 4{\sqrt 2} & 3 & \frac r{\sqrt 2} \\
+   \frac 3{\sqrt 2}& -4 & \frac 3{\sqrt 2} \em
+\]
+The diagonal entries are $-4, 1, 6$.
+
+
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,205 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   In each case, find the eigenvalues and eigenvectors of the
+given matrix.  In case the characteristic equation is cubic,
+use the method described in the previous section to find a
+real (integer) root.   The roots of the remaining quadratic equation will
+be complex.
+
+(a)  $\bm{} 0 & -1 \\ 1 & 0 \em$. 
+
+(b)  $\bm{} 1 & 1 \\ -2 & 3 \em$. 
+
+(c)  $\bm{} 0 & 0 & 4 \\ 1 & 0 & -1\\ 0 & 1 & 4 \em$. 
+
+(d)  $\bm{} -1 & 1 & 7 \\ -1 & 2 & 3\\ 0 & -1 & 2 \em$. 
+
+(e)  $\bm{} 2 & 2i \\ -3i & 1 \em$. 
+
+\answer{ (a)
+\[
+\lambda = i,\bm i\\ 1\em\qquad \lambda = -i, \bm{} -i\\ 1\em.
+\]\par
+(b)
+\[
+\lambda = 2+i,\bm 1-i\\2\em\qquad \lambda = 2-i, \bm 1+i\\2\em.
+\]\par
+(c)
+\[
+\lambda = 4, \bm 1\\ 0\\ 4\em,\qquad
+\lambda = i, \bm -4i\\ -4 + i\\ 1\em,\qquad
+\lambda = -i, \bm 4i\\ -4-i\\ 1\em.
+\]\par
+(d)
+\[
+\lambda=1,\bm 4\\ 1\\ 1\em,\qquad
+\lambda = 1 + i, \bm 3 - 2i\\ 1-i \\ 1\em,\qquad
+\lambda = 1-i, \bm 3 + 2i\\ 1+ i \\ 1\em.
+\]\par
+(e)
+\[
+\lambda = 4,\bm i\\ 1\em,\qquad \lambda = -1, \bm -2i\\ 3\em.
+\]
+
+
+
+}
+
+\item   For $A$ equal to each of the matrices in the previous problem,
+find the general complex solution of the system
+$\dfrac{d\x}{dt} = A\x$.
+
+\answer{ (a)
+$\x(t) = c_1e^{it}\bm i\\ 1\em + c_2e^{-it} \bm{} -i\\ 1\em$.\par
+(b)  $\x(t) =
+c_1 e^{(2+i)t}\bm 1-i\\2\em + c_2e^{(2-i)t}\bm 1+i\\2\em$.\par
+(c)  $\x(t) =
+c_1 e^{4t}\bm 1\\ 0\\ 4\em +
+c_2e^{it} \bm -4i\\ -4 + i\\ 1\em +
+c_3 e^{-it} \bm 4i\\ -4-i\\ 1\em$.\par
+(d)  $\x(t) =
+c_1e^t\bm 4\\ 1\\ 1\em + c_2e^{(1 +i)t}\bm 3 - 2i\\ 1-i \\ 1\em
++ c_3 e^{(1 -i)t}\bm 3 + 2i\\ 1+ i \\ 1\em$.\par
+(e)  $\x(t) = c_1e^{4t}\bm i\\ 1\em + c_2e^{-t}\bm -2i\\ 3\em$.
+
+
+
+}
+
+\item  For $A$ equal to each of the matrices in parts (a) through (d)
+of the previous problem, find a general real solution of the
+system $\dfrac{d\x}{dt} = A\x$.
+
+\answer{ (a) 
+$\x(t) = c_1\bm -\sin t\\ \cos t\em + c_2 \bm \cos t\\ \sin t\em$.\par
+(b)  $\x(t) =
+c_1e^{2t}\bm \cos t + \sin t \\ 2\cos t\em + c_2e^{2t}
+\bm \sin t - \cos t \\ 2\sin t\em$.\par
+(c)  $\x(t) = c_1e^{4t}\bm 1\\ 0 \\ 4\em
+ + c_2\bm 4\sin t\\ -4\cos t -\sin t\\ \cos t\em
++ c_3\bm -4\cos t \\ \cos t - 4\sin t\\ \sin t\em$.\par
+(d)  $\x(t) =
+c_1 e^t\bm 4\\ 1\\ 1\em +
+c_2e^t\bm 3\cos t + 2\sin t\\ \cos t + \sin t \\ \cos t \em
++ c_3e^t\bm 3\sin t - 2\cos t\\ \sin t - \cos t\\ \sin t \em$.
+
+
+
+
+}
+
+\item   Find the solution to the initial value problem
+\[
+\frac{d\x}{dt} = \bm{}
+                     0 & 0 & 8 \\
+                   1 & 0 & -4 \\
+                   0 & 1 & 2 \em \x
+\qquad\text{where } \x(0) = \bm 1 \\ 1 \\ 2 \em.
+\]
+Since the system is real, the final answer should be expressed
+in terms of real functions.
+
+\answer{ The eigenvalues of the matrix are $2, 2i, -2i$.  A general
+complex solution can be written
+\[
+\x(t) = c_1 e^{2t}\bm 1\\ 0 \\ 4\em +
+c_2e^{2it}\bm -4i \\ -2 + 2i \\ 1\em
++ c_3 e^{-2it}\bm 4i \\ -2 - 2i \\ 1\em.
+\]
+The initial condition gives
+\[
+\bm 1 & -4i & 4i \\ 0 & -2 + 2i & -2 -2i \\ 4 & 1 & 1 \em
+\bm c_1\\ c_2 \\ c_3\em = \bm 1\\ 1\\ 2\em.
+\]
+The solution is  $c_1 = \dfrac {11}{17},
+c_2 = \dfrac{-20 + 3i}{68}, c_3 = \dfrac{-20 -3i}{68}$. 
+Thus, after some complex algebra,
+\begin{align*}
+\x(t) &= \dfrac {11}{17} e^{2t}\bm 1\\ 0 \\ 4\em +
+\dfrac{-20 + 3i}{68}e^{2it}\bm -4i \\ -2 + 2i \\ 1\em
++ \dfrac{-20 -3i}{68} e^{-2it}\bm 4i \\ -2 - 2i \\ 1\em \\
+&= \dfrac {11}{17} e^{2t}\bm 1\\ 0 \\ 4\em 
++ \frac 1{34}\bm 12\cos 2t - 80\sin 2t \\
+       34\cos 2t + 46\sin 2t \\
+     -20\cos 2t - 3\sin 2t \em.
+\end{align*}
+I used the fact that if $\v$ is a complex vector, then
+$\v + \overline\v$ is just twice the real part of $\v$.  Note that
+the sum of the second two vector expressions in the complex
+form for the solution is the sum of a vector and its complex
+conjugate.  
+
+
+
+}
+
+\item   Suppose $\w$ is a vector in $\C^n$, and
+write
+$\w = \u + i\v$ where
+$\u$ and $\v$ are vectors in $\R^n$.  (Then $\overline\w = \u - i\v$.)
+
+(a)  Show that if
+ $\{\w, \overline\w\}$
+is a linearly independent pair in $\C^n$, then
+  $\{\u, \v\}$ is
+a linearly independent pair in $\R^n$.
+
+(b) Conversely, show that if $\{\u, \v\}$ is a linearly independent
+pair in $\R^n$, then $\{\w, \overline\w\}$ is a linearly independent
+pair in $\C^n$.
+
+Note that for a pair of vectors in $\R^n$,
+you need only consider real scalars as
+multipliers in a dependence relation, but for a pair of
+vectors in $\C^n$, you would normally need to consider complex
+scalars as multipliers in a dependence relation.
+
+(c)  Can you invent a generalizations of (a) and (b) for sets
+with more than two elements?
+
+\answer{ (a)  Suppose $x\u + y\v = 0$ with $x$ and $y$ real scalars.
+We want to show that $x = y = 0$.   Expressing $\u$ and $\v$ in terms
+of $\w$ yields
+\[x\dfrac{\w +\overline\w}2 + y\dfrac{\w - \overline\w}{2i} = \bold 0.\]
+Some algebra yields
+\[
+\frac{x -iy}2\w + \frac{x + iy}2\overline\w = \bold 0.
+\] 
+Since  $\{\w,\overline\w\}$ is indepenedent over $\C$, we have
+$\dfrac{x -iy}2 = \dfrac{x + iy}2 = 0$, whence $x = y = 0$.\par
+(b)  Suppose $\alpha \w + \beta \overline\w = \bold 0$ where
+$\alpha, \beta$ are complex scalars.  Then
+\begin{gather*}
+\alpha(\u + i\v) + \beta(\u - i\v) = \bold 0 \\
+(\alpha + \beta)\u + i(\alpha - \beta)\v = \bold 0.
+\end{gather*}
+Let  $\alpha = p + iq, \beta =  r + si$ where $p,q,r,s$ are real.
+Then the above yields the two equations (from the real and imaginary
+parts)
+\begin{align*}
+(p + r )\u + (q - s)\v &= \bold 0 \\
+(q + s) \u + (p - r) \v & = \bold 0.
+\end{align*}
+ Since $\{\u,\v\}$ is independent over $\R$, it follows that
+$p + r = q - s = q + s = p - r = 0$.   But these equations have
+only the solution $p = q = r = s = 0$.  Hence, $\alpha = \beta = 0$.\par
+(c) Let $\{\w_1,\dots,\w_k\}$ be a set of $k$ vectors in $\C^n$.
+Write $\w_j = \u_j + i\v_j$ where $\u_j,\v_j$ are vectors in
+$\R^n$.   Then $\{\w_1,\overline\w_1,\dots,\w_k,\overline\w_k\}$
+is linearly independent over $\C$ if and only if
+$\{u_1,\dots,\u_k,\v_1,\dots,\v_k\}$ is linearly independent over
+$\R$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

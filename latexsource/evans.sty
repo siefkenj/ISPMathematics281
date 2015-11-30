@@ -1,0 +1,175 @@
+% this is my first package
+% 
+% (c) Leonard Evans, Jason Siefken
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{evans}
+  [2011/01/11 v0.01 LaTeX package for the evans textbook]
+
+% original definitions of math operators
+\def\Ger#1{{\frak #1}}
+
+\def\Z{\bold Z}
+\def\Q{\bold Q}
+\def\R{\bold R}
+\def\V{\bold V}
+\def\lcm{\operatorname{lcm}}
+\def\grad{\operatorname{grad}}
+\def\deg{\operatorname {deg}}
+\def\e{\bold e}
+\def\C{\mathbf{C}}
+\def\CC{\mathbf{C}}
+\def\dim{\operatorname {dim}}
+\def\Ker{\operatorname {Ker}}
+\def\Im{\operatorname {Im}}
+\def\Coker{\operatorname {Coker}}
+\def\Hom{\operatorname {Hom}}
+\def\Sgn{\operatorname {Sgn}}
+\def\Id{\operatorname {Id}}
+\def\Tr{\operatorname {Tr}}
+%\def\bm{\bmatrix}
+%\def\em{\endbmatrix}
+\def\bm{\begin{bmatrix}}
+\def\em{\end{bmatrix}}
+
+\def\s{\sigma}
+\def\S{\bold S}
+\def\F{\bold F}
+\def\rad{\operatorname {rad}}
+\def\res{\operatorname {res}}
+\def\inf{\operatorname {inf}}
+\def\spec{\operatorname {spec}}
+\def\Ext{\operatorname {Ext}}
+\def\Tor{\operatorname {Tor}}
+\def\cor{\operatorname {cor}}
+\def\Aut{\operatorname {Aut}}
+\def\overdarrow#1{\overset \longleftrightarrow \to {#1}}
+\def\overlarrow#1{\overset \longleftarrow \to {#1}}
+\def\overrarrow#1{\overrightarrow{#1}}
+\def\overarrow#1{\overrightarrow{#1}}
+
+\def\Wr{\smallint}
+\def\lb{\langle}\def\rb{\rangle}
+
+\def\i{\bold i}\def\j{\bold j}\def\k{\bold k}
+\def\u{\bold u}\def\v{\bold v}\def\w{\bold w}
+\def\b{\bold b}\def\a{\bold a}\def\c{\bold c}
+\def\n{\bold n}
+\def\r{\bold r}
+\def\f{\bold f}
+\def\g{\bold g}
+\def\N{\bold N}
+\def\T{\bold T}
+\def\x{\bold x}
+\def\y{\bold y}
+\def\z{\bold z}
+\def\E{\bold E}
+\def\G{\bold G}
+\def\A{\bold A}
+\def\d{\partial}
+\def\W{\bold W}
+\def\U{\bold U}
+\def\L{\bold L}
+\def\theeta{\theta}
+\def\phii{\phi}
+
+
+% compatability
+\newcommand{\bold}{\mathbf}
+\newcommand{\Cal}{\mathcal}
+\newcommand{\remark}[1]{\par{\it Remark.}}
+\newcommand{\loadbold}{}
+
+\newcommand{\PNo}{} 	%XXX fix...
+
+% copied from old amstex
+\def\eqalign#1{\null\,\vcenter{\openup\jot\m@th
+  \ialign{\strut\hfil$\displaystyle{##}$&$\displaystyle{{}##}$\hfil
+      \crcr#1\crcr}}\,}
+\def\undersetbrace#1\to#2{\underbrace{#2}_{#1}}
+\def\textfontii{\the\textfont\tw@}
+\def\AmSTeX{{\textfontii A\kern-.1667em%
+  \lower.5ex\hbox{M}\kern-.125emS}-\TeX}
+
+
+\def\align #1 \endalign { \begin{align*}#1\end{align*}}\relax
+\def\block #1 \endblock { \begin{quote}\it #1 \end{quote} }\relax
+\def\nextsec #1 {\section{#1}}
+\def\head #1 \endhead {}\relax
+\newenvironment{subheadenv}{\bf}{}
+\def\subhead {\begin{subheadenv}}
+\def\endsubhead {\end{subheadenv}}
+
+\def\endexample {\par}
+\def\example#1{\par{\bf #1}}\relax
+
+\def\proclaim{\begin{proclaimenv}}\relax
+\def\endproclaim{\end{proclaimenv}}\relax
+\def\demo #1 {\begin{proof}}\relax
+\def\enddemo {\end{proof}}\relax
+\def\roster {\begin{enumerate}}
+\def\endroster {\end{enumerate}}
+
+
+
+% compatability with old index format
+\newcommand{\outind}[1]{\index{#1}}
+\newcommand{\sn}{\thesection}
+
+% obeylines is used for computer code; it should be redefined to limit the paragraph spacing
+{\catcode`\^^M=\active%
+\gdef\obeylines{\catcode`\^^M=\active \def^^M{\par} \parskip=1pt}}\relax
+
+% recrate the figure commands using
+% more modern commands
+\def\renamefigure #1.ps{#1.pdf}
+\def\epsfbox #1{\includegraphics{\renamefigure #1}}
+%\def\epsfbox #1{\par \expandafter\unhbox\includegraphics{\renamefigure #1}\par}
+\newenvironment{myquote}{\setlength{\leftmargini}{0em}\quotation}{\endquotation}
+\def\centerline #1{ {\begin{myquote}\centering #1\end{myquote}} }
+\def\leftline #1{ {\begin{myquote} #1\end{myquote}} }
+\def\mar#1{\marginpar{\includegraphics{\renamefigure #1}}}
+\def\emar#1#2{\marginpar{\includegraphics{\renamefigure #1}}}
+
+\def\endremark{}
+
+
+\newcounter{eqnno}
+\setcounter{eqnno}{0}
+\newcommand{\nexteqn}{\addtocounter{eqnno}{1}}
+\def\eqn{{\theeqnno}}\relax
+
+\newcounter{exno}
+\setcounter{exno}{0}
+\newcommand{\en}{\theexno}
+\newcommand{\nextex}{\addtocounter{exno}{1}}
+\def\exno=#1 {\setcounter{exno}{#1}}\relax
+
+\newcounter{thmno}
+\setcounter{thmno}{0}
+\newcommand{\tn}{\thethmno}
+\newcommand{\nextthm}{\addtocounter{thmno}{1}}
+\def\thmno=#1 {\setcounter{thmno}{#1}}\relax
+\newenvironment{proclaimenv}[1]{{\bf #1}}{}
+
+
+\newcommand{\cn}{\thechapter}
+
+% some macros for the problems
+\newcounter{probno}
+\setcounter{probno}{0}
+\newcommand{\nextprob}{\addtocounter{probno}{1}}
+\def\probno=#1 {\setcounter{probno}{#1}}\relax
+\newcommand{\Exer}{\nextprob\par\smallskip {\bf \theprobno.}\hskip 1pc} %\noindent{\bf \theprobno.}\hskip{1pc}}
+
+\newcommand{\includeexercises}[1]{%
+	{\par \bf Exercises for \thesection.} %
+	\input chapters/exercises/#1converted %
+}
+\newcommand{\answer}[1]{} %{\begin{quote}#1\end{quote}}
+
+\endinput

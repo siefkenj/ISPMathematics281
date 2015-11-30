@@ -1,0 +1,92 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 4
+\smallskip
+% 1
+\Exer  Find a general solution for each of the following
+differential equations.
+
+(a) $y'' - 4y = 0$.
+
+(b) $y'' - 5y' + 6y = 0$.
+
+(c) $4y'' - 2y' - 2y = 0$.
+
+(d) $y'' + 6y' + 9y = 0$.
+
+(e) $4y'' - 4y' - y = 0$.
+\answer (a) $y = C_1e^{2t} + C_2e^{-2t}$.\par
+(b) $y = C_1e^{2t} + C_2e^{3t}$.\par
+(c) $y = C_1e^{t} + C_2e^{-\frac t2}$.\par
+(d) $y = C_1e^{-3t} + C_2te^{-3t}$.\par
+(e) $y = C_1e^{(2+2\sqrt 2)t} + C_2e^{(2-\sqrt 2)t}$.
+
+% 2
+\Exer Solve each of the following initial value problems.
+
+(a) $y'' - 2y' -  3y = 0$ given $y(0) =  0, y'(0) = 2$.
+
+(b) $y'' - 4y' + 4y = 0$ given $y(0) = 0, y'(0) = -1$.
+\answer $y = C_1e^{3t} + C_2e^{-t}$.  The initial conditions
+yield
+$$
+ \align 
+c_1 + c_2 &= 0\\
+3c_1 - c_2 &= 2
+\endalign $$
+or $c_1 = \dfrac 12, c_2 = -\dfrac 12$.
+The solution is $y =\dfrac 12(e^{3t} - e^{-t})$.\par
+(b) $y = -\dfrac 12 te^{2t}$.
+
+
+% 3
+\Exer  Calculate the Wronskian of the pair $\{e^{r_1t}, e^{r_2t}\}$.
+Show that it is never zero
+as long as $r_1 \not= r_2$.   Apply a similar analysis to the
+pair  $\{e^{rt}, te^{rt}\}$.
+\answer For $\{e^{r_1t}, e^{r_2t}\}$, we have $W(t) = (r_1-r_2)e^{(r_1+r_2)t}$.
+For  $\{e^{rt}, te^{rt}\}$, we have $W(t) = e^{2rt}$. In both cases,
+the Wronskian never vanishes.
+
+% 4
+\Exer  Suppose $r_1 \not= r_2$ are two real numbers.  Investigate
+circumstances under which $y = C_1e^{r_1t} + C_2e^{r_2t}$ can
+be zero.   Is it possible that it never vanishes?   What
+is the maximum number of values of $t$ for which such a function
+can vanish if the constants $C_1$ and $C_2$ are not zero? 
+\answer  If $C_1$ and $C_2$ have the same sign or if one is zero
+and the other is not, then $y(t)$ never
+vanishes.   If they have opposite signs, then $y(t)$ vanishes
+for $t = \dfrac{\ln |C_2/C_1|}{r_1 - r_2}$.
+
+% 5
+\Exer  Show that $y = C_1e^{rt} + C_2te^{rt}$ vanishes for
+at most one value of $t$ if $C_1$ and $C_2$ are not both zero.
+\answer  $C_1 + C_2t = 0$ for $t = -C_1/C_2$ provided
+$C_2 \not=0$.   If $C_2 = 0$ and $C_1 \not=0$, then it never
+vanishes.
+
+% 6
+\Exer  The differential equation
+$t^2y'' + \alpha ty' + \beta y = 0$
+is called {\it Euler's Equation\/}.   
+
+(a)  Show that $y = t^r$ is a solution if and only if
+$r$ is a root of the quadratic equation
+$r^2 + (\alpha - 1)r + \beta = 0$.
+
+(b)  Show that if the quadratic equation has two different
+real roots $r_1$ and $r_2$, then  $\{ t^{r_1}, t^{r_2}\}$
+is a linearly independent pair of solutions defined on the
+interval $0 < t < \infty$.
+Hence, in this case the general solution of Euler's
+equation has the form  $y = C_1 t^{r_1} + C_2 t^{r_2}$.
+
+(c)  Find a general solution of $t^2y'' - 4ty' + 6y = 0$.
+\answer (a) Substitution in the differential equation yields
+$$
+t^2\,r(r-1)t^{r-2} + \alpha t r t^{r-1} + \beta t^r
+= t^r(r^2 - r + \alpha r + \beta) = 0.
+$$
+This vanishes for all $t$ if and only if
+$r^2 +(\alpha - 1)r + \beta = 0$.
+

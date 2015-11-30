@@ -1,0 +1,89 @@
+
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item  Determine if each of the following series converges.
+
+(a) $\sum_{n=1}^\infty \dfrac{(-1)^{n+1}}{n^2}$.
+
+(b) $\sum_{n=1}^\infty \dfrac{(-1)^nn}{n + 1}$.  
+
+(c) $\sum_{n=0}^\infty \dfrac{(-1)^nn}{n^2 + 1}$.
+
+(d) $\sum_{n=2}^\infty \dfrac{(-1)^n}{\ln n}$.
+
+(e) $\sum_{n=1}^\infty \dfrac{(-1)^{n+1}}{n^{1/n}}$.
+
+\answer{ (a) Converges. (b) Diverges since general term does not
+go to zero.  (c) Converges.  (d) Converges.
+(e) Diverges since general term does
+not go to zero.
+
+
+
+}
+
+\item   How many terms of the series $\sum_{n=1}^\infty \dfrac{(-1)^{n+1}}n$
+are needed to be sure that the answer is accurate to  within $5\times
+10^{-11}$.
+(The series actually adds up to $\ln 2$.)
+
+\answer{  Using the alternating series test for the error, we have
+$|R_n| < \dfrac 1{n+1}$ (the next term) so we need $\dfrac 1{n+1} < 5\times
+10^{-11}$.   This will hold if $n > 2\times 10^{10}$.   This is
+an enormous number of terms, so computing the sum by adding up that many
+terms might not be very practical.
+
+
+
+}
+
+\item   We shall see later that 
+\[
+  \frac 1e = 1 - \frac 12 + \frac 1{3!} + \dots = \sum_{n=0}^\infty
+\frac {(-1)^n}{n!}.
+\]
+
+(a) How many terms of this series are necessary to calculate $1/e$ to
+within $5\times 10^{-5}$.
+
+(b)  Do that calculation.  (You may want to program it.)
+
+(c)  Compare with $1/e$ as evaluated on your calculator or by
+computer.
+
+\answer{ (a) We need $\dfrac 1{(n+1)!} < 5\times 10^{-5}$ or
+$(n+1)! > 2\times 10^4$.   There is a fornula called 
+Stirling's Formula for estimating
+$n!$ for large $n$, but in this case it is easier just to determine
+the smallist $n$ by trial and error.   With a little help
+from Maple, I discovered that for $n = 7$, $n+1! = 8! > 2\times 10^4$,
+and $n = 6$ does not work. \par
+(b)  My simple C program with 8 terms ($n = 7$) yielded
+$.367857$.   (c)  Maple says $1/e$ is $.3678794412$ to ten 
+decimal places.
+
+
+
+}
+
+\item  Calculate $\sum_{n=1}^\infty \dfrac {(-1)^{n+1}}{n^2}$
+to with $5\times 10^{-3}$.   (The sum of the series is actually
+$\pi^2/12$.)   
+
+\answer{ We need $\dfrac 1{(n+1)^2} < 5\times 10^{-3}$ or
+$n+1 > \sqrt 2\times 10$.  Thus $n = 14$ should do.
+Maple summed 14 terms to give $.8201$ and it thought
+$\pi^2/12 = .8225$, in each case to four decimal places.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

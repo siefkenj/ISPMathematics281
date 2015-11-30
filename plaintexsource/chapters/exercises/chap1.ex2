@@ -1,0 +1,210 @@
+%\nextsec{Kinematics and Vector Functions}
+\subhead Exercises for Section \sn \endsubhead
+%Section 2
+
+% 1
+\Exer  Suppose a projectile follows the path described in Example 1 of
+in this section.  Show that the {\it range\/} (i.e.,  the
+$x$-coordinate of the point of impact) is given by
+$2\dfrac{v_{x0}v_{y0}}g$.   Hint:  Find the time at which impact
+occurs.
+\answer $y = v_{y0} t - \frac 12 gt^2 = 0$ when $t(v_{y0} - \frac
+12gt) = 0$
+
+
+% 2 
+\Exer  Find the velocity and acceleration vectors at the indicated
+times if the position
+vector is given by:
+
+        (a) $\r (t) = 4\i + 5\j - 3\k$, $t=2$;
+
+        (b) $\r (t) = 3\i \cos t - 4\j \sin t$, $t=0$;
+
+        (c) $\r (t) = -2\i e^{3t} + \j t$, $t=1$;
+
+        (d) $\r (t) = (2t - 5)\i + (3t + 1)\j + 2\k$, $t=-2$;
+
+        (e) $\r (t) = \lb \cos t, 0 \rb$, $t$ arbitrary.
+\answer \halign{\indent#&\quad#& \hfil$#$\hfil & \quad#& \hfil$#$\hfil\cr
+&&\text{\sl velocity vector}&&
+   \text{\sl acceleration vector}\cr
+\noalign{\smallskip}
+(a) && 0 && 0 \cr
+(b) && -4\j && -3\i \cr
+(c) && -6e^3\i + \j && -18e^3\i \cr
+(d) && 2\i + 3\j && 0 \cr
+(e) && \lb-\sin t,0\rb && \lb-\cos t,0\rb \cr}
+
+
+% 3
+\Exer  Calculate the following. (Integrate each component separately.)
+
+        (a) $\int_0^{\pi} ((1 + \cos t)\i - 2\j \sin t)\, dt$
+
+        (b) $\int_0^1 ((3 + 2x)\i + x^2 \j - 5\k)\, dx$
+
+        (c) $\int_0^{2\pi} (3\i \sin \theeta - 4\j \cos \theeta)\, d\theeta$.
+\answer (a) $\pi\i - 4\j$ \par
+	\indent (b) $4\i + \frac13\j - 5\k$ \par
+	\indent (c) 0
+
+
+% 4
+\Exer  Given the parametric equations $x = -2\sin t$, $y = 7$, and
+     $z = 4\cos t$, find the particle's position, velocity, speed, and
+     acceleration at $t = 2\pi$.
+\answer \openup1\jot\halign{\indent \sl #&\hfil#\hfil &:\quad $#$\hfil \cr
+position & $(t=2\pi)$ & \lb 0,7,4\rb \cr
+velocity & " & \lb -2,0,0\rb \cr
+speed    & " & 2 \cr
+acceleration & " & \lb 0,0,-4\rb \cr}
+
+
+% 5
+\Exer  Using the method in Example 4 of this section, find the general
+     velocity and position vectors if
+
+        (a) $\a = 2\i$, $\r_0 = \i + 2\j$, $\v_0 = 0$.
+
+        (b) $\a = \bold 0$, $\r_0 = 3\i + 4\j + 5\k$, $\v_0 = 5\i$.
+
+        (c) $\a = \i \sin t - \j \cos t$, $\r_0 = \i$, $\v_0 = \j$
+\answer \nobreak\halign{\indent\hfil#\quad & \hfil$#$&$#$\hfil \cr
+(a) & \v &= 2t\i \cr 
+    & \r &= (t^2 + 1)\i + 2\j \cr
+\noalign{\medskip}
+(b) & \v &= 5\i \cr
+    & \r &= (5t+3)\i + 4\j + 5\k \cr
+\noalign{\medskip}
+(c) & \v &= (-\cos t)\i + (1-\sin t)\j \cr
+    & \r &= (1-\sin t)\i + (t+\cos t)\j \cr}
+
+
+% 6
+\Exer  Show that the path described by the equation
+ $\r = \dfrac  12 t^2\a + t\v_0 + \r_0$ is  a parabola.  Hint:
+ This is not too hard to see
+ if you choose your coordinate system properly.  Suppose
+ first that the origin is the position of the particle at $t = 0$.
+ Then $\r_0 = 0$.  Suppose,  moreover that the $y$-axis is chosen
+ in the direction of $\a$.  Then,  $\a = a\j$.  Finally,  choose the
+ $z$-axis so that it is perpendicular both to $\a$ and to the
+ initial velocity $\v_0$.  Then $\v_0 = v_{x0}\i + v_{y0}\j$.  Write
+ out the equations for $x$ and $y$ with these assumptions.
+\answer Since the property of being a parabola is invariant with
+respect to the choice of a coordinate system, we may take the suggested
+assumptions and our position equation reduces to:
+$$
+	\r = \frac12 t^2{\a} + t\overarrow{\v_0} +
+	\overarrow{\r_0} = \a \frac{t^2}{2}\j + \v_{x0}t\i + 
+	\v_{y0}t\j
+$$
+\par
+$$
+  \text{i.e.}\cases
+  y = \frac{\a t^2}2 + \v_{y_0}t \\
+  x = \v_{x_0}t \\
+  z=0 \endcases
+  \text{are the set of parametric equations describing $\r(t)$}
+$$
+\par
+Since $x=\v_{x_0}t \implies t=\dfrac{x}{\v_{x_0}}$ the points $(x,y,z)$
+described by this set of parametric equations satisfy the equations
+$$
+\align
+	y &= \frac a2\left(\frac x{\v_{x_0}}\right)^2 +
+	  \v_{y_0}\left(\frac x{\v_{x_0}}\right) = 
+	  \left(\frac a{2\v_{x_0}^2}\right) x^2 +
+	  \left(\frac{\v_{y_0}}{\v_{x_0}}\right) x  \\
+	z &= 0
+\endalign
+$$
+which is the locus of a parabola in the $x$-$y$ plane.
+
+
+% 7
+\Exer Consider the path in the plane described by the
+equation $\r = \lb a\cos \omega t, b\sin \omega t\rb$.
+
+(a)  Show that the particle traces out the ellipse
+$\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$.   How much time must
+elapse for the particle to trace the ellipse exactly once?
+
+(b)  Show that the acceleration is directed towards the
+origin. 
+\answer (a) Points on the path $\r=\lb a\cos\omega t,\,b\sin\omega t\rb$
+satisfy the equation
+$$
+	\frac{x^2}{a^2} + \frac{y^2}{b^2} = 
+	\frac{a^2\cos^2\omega t}{a^2} + \frac{b^2\sin^2\omega t}{b^2}
+	=\cos^2\omega t + \sin^2\omega t = 1
+$$
+which is the locus of an ellipse. \par
+The time needed to trace the ellipse once is $\dfrac{2\pi}{\omega}$.
+\smallskip
+(b) $\vcenter{\epsfbox{c1s2ex7.ps}}$ For each value of $t$, ${\r}(t)$ is a vector pointing
+away from the origin, so we need to show ${\a}=-k{\r}$
+(where $k$ is a positive constant). \par
+But ${\a}(t) = {\r}''(t)$ and ${\r}(t) =
+\lb a\cos\omega t,\,b\sin\omega t\rb$
+$$
+\align
+	&\implies {\r}'(t) = \lb-a\omega\sin\omega t,\,
+	  b\omega\cos\omega t\rb \\
+	&\implies {\r}''(t) = \lb-a\omega^2\cos\omega t,\, 
+	  -b\omega^2\cos\omega t\rb = -\omega^2{\r}
+\endalign
+$$
+and we are done.
+
+
+% 8
+\Exer  Find $\v (t)$ and $\r (t)$ in terms of $\u_r$ and $\u_\theeta$ if
+
+        (a)  $r=2(\sin t)$ and $\theeta = 2t$
+
+        (b)  $r=a$ and $\theeta = 2t$
+
+        (c)  $r=t$ and $\theeta = t$
+\answer \halign{\indent #\quad &#$\overline{\v}(t)=$& $#$\hfil 
+&\qquad#&#${\r}(t)=$& $#$\hfil\cr
+(a) && 2\cos t\overarrow{\u_r} + 4\sin t\overarrow{\u_\theeta} &&& 
+    2\sin t\overarrow{\u_r} \cr
+(b) && 2a\overarrow{\u_\theeta} &&& a\overarrow{\u_r} \cr
+(b) && \overarrow{\u_r}+ t\overarrow{\u_\theeta} &&& t\overarrow{\u_r}\cr}
+
+
+% 9
+\Exer  Show that $\dfrac{d\u_\theeta}{dt} = -\dfrac{d\theeta}{dt} \u_r$.
+(This is equation (4) in this section.)
+\answer $\frac{d\u_\theeta}{dt}=-\cos\theeta\frac{d\theeta}{dt}\i -
+\sin\theeta\frac{d\theeta}{dt}\j = \frac{-d\theeta}{dt}(cos\theeta\i +
+\sin\theeta\j) = \frac{-d\theeta}{dt}\u_r$.
+
+
+% 10
+\Exer  (Optional) Verify formula (5) in this section.
+
+
+% 11
+\Exer  A bead is on a spoke of a wheel 20 inches in diameter.  The wheel
+rotates at a rate of 2 revolutions per second.  At the same time,  the
+bead moves uniformly out from the center at 2 inches per second.
+Assume the bead starts at the center at $t = 0$.  (a) Find expressions
+for $r$ and $\theeta$ as functions of $t$.  (b)  Find the velocity and
+acceleration vectors at each point between the center and the rim.
+\answer (a) $r=2t \qquad \theeta=4\pi t\qquad 0\le t\le 5$\par
+(b) ${\v} = 2\u_r + 8\pi t\u_\theeta
+\qquad{\a}=-32\pi^2 t\u_r + 16\pi\u_\theeta$
+
+
+% 12
+\Exer  A billiard ball bounces off the side of a billiard table
+at an angle.   What can you say about the velocity vector at
+the point of impact?   Is there a well defined tangent direction?
+Note that since this question involves making some assumptions
+about the physics of the collision, it does not have
+a single mathematical answer.
+
+\endinput

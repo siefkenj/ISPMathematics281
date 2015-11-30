@@ -1,0 +1,3140 @@
+\documentstyle{book}
+\input extra.tex
+\input le2.sty
+\input epsf.tex
+\input chap11.lnk
+\maketoctrue
+\indextrue
+\mardiagtrue
+\openseg{chap12}
+\Monograph
+\topmatter
+\nextchap{More about Linear Systems}
+\title
+\chapter{\chapno}More about Linear Systems
+\endtitle
+\endtopmatter
+\document
+\nextsec{The Fundamental Solution Matrix}
+\head \sn.  The Fundamental Solution Matrix \endhead
+
+Let $A$ be an $n\times n$ matrix and consider the problem of solving
+\nexteqn
+$$
+\frac{dX}{dt} = AX\tag\eqn
+$$
+where $X = X(t)$ is an $n\times n$ {\it matrix valued\/} function
+of the real variable $t$.   If $X = \bm \x_1(t) & \x_2(t) & \hdots
+&\x_n(t) \em$, then (\eqn) amounts to the simultaneous consideration
+of $n$ equations, one for each column of $X$,
+$$
+\frac{d\x_1}{dt} = A\x_1,\quad \frac{d\x_2}{dt}= A\x_2,\quad\dots,
+ \frac{d\x_n}{dt} = A\x_n.
+$$
+Much of our previous discussion of systems still applies.  In particular,
+if the entries of $A$ are continuous functions on an interval 
+$a < t <b$, then there is a unique solution of (\eqn) defined on that
+interval which assumes a specified initial value $X(t_0)$ at some
+point $t_0$ in the interval.
+
+This formalism gives us a way to discuss a basis
+ $\{\x_1(t), \x_2(t), \dots, \x_n(t)\}$
+for the vector space of solutions of the homogeneous linear system
+\nexteqn
+$$
+\frac{d\x}{dt} = A\x\tag\eqn
+$$
+in one compact notational package.   Clearly, if we want the columns of $X$ to
+form such a basis, we need to assume that they constitute a linearly
+independent set.   An $X = X(t)$ with these properties is called
+a {\it fundamental solution matrix\/} for the system (\eqn).  Finding
+a fundamental solution matrix is equivalent to finding a basis for the
+\outind{fundamental solution matrix}%
+solution space of (\eqn).
+
+A fundamental solution matrix may also be used to express the
+general solution
+$$\align
+\x &= \x_1(t)c_1 + \x_2(t)c_2 + \dots + \x_n(t)c_n
+ = \bm \x_1(t)&\x_2(t)&\hdots &\x_n(t) \em\bm c_1\\c_2\\ \vdots \\c_n\em \\
+\intertext{or}
+\x &= X(t)\c\qquad\text{where } \c = \bm c_1\\c_2\\\vdots\\c_n\em.
+\endalign$$
+
+\nextex
+\example{Example \en}
+As in Example 1a of Section 8 of Chapter XI,
+%Back reference
+consider the system
+$$
+\frac{d\x}{dt} = \bm 1 & 2 & 0 \\
+                      2 & 1 & 0 \\
+                      0 & 1 & 3 \em \x.
+$$
+Form the fundamental solution matrix by putting together the
+basic solutions in a $3\times 3$ matrix
+$$\align
+X(t) &= \bm e^{3t}\bm 1\\ 1\\ t\em & e^{3t}\bm 0\\ 0 \\ 1 \em &
+e^{-t}\bm\format\r\\ 4\\-4\\1\em \em \\
+ &= \bm\format\r&\quad\r&\quad\r\\
+     e^{3t} & 0\hphantom{e} & 4e^{-t} \\
+     e^{3t} & 0\hphantom{e} & -4e^{-t} \\
+     te^{3t}& e^{3t} & e^{-t} \em.
+\endalign
+$$
+Suppose we want a solution $\x(t)$ satisfying 
+$$
+\x(0) = \bm\format\r\\ 1\\ 0\\ 0\em.
+$$
+This amounts to solving  $X(0)\c = \x(0)$ or
+$$
+\bm\format\r&\quad\r&\quad\r\\
+           1 & 0 & 4 \\
+           1 & 0 & -4\\
+           0 & 1 & 1  \em \c = \bm 1\\ 0\\ 0 \em.
+$$
+for $\c$.   We leave the details of the solution to you.  The
+solution is $c_1 = 1/2, c_2 = -1/8$, and $c_3 = 1/8 $.   The desired solution
+is
+$$
+\x = \frac 12 e^{3t}\bm 1\\ 1\\ t\em - \frac 18  e^{3t}\bm 0\\ 0 \\ 1 \em
++ \frac 18 e^{-t}\bm\format\r\\ 4\\-4\\1\em.
+$$
+\endexample
+
+If $A$ is a constant $n\times n$ matrix, 
+then
+$$
+X = e^{At}.
+$$
+is always a fundamental solution matrix.
+Indeed, one way to characterize the exponential $e^{At}$
+is as the unique solution of $\dfrac{dX}{dt} = AX$ satisfying
+\outind{exponential of a matrix}%
+$X(0) = I$.  However, the exponential matrix is defined as the sum of
+a series of matrices which is not usually easy to compute.   Instead, 
+it is usually easier to find
+a fundamental solution matrix $X(t)$ by some other method, and then
+use $X(t)$ to find $e^{At}$.  
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $A$ be an $n\times n$
+matrix.  If $X(t)$ is a fundamental solution matrix for
+the system $\dfrac{d}{dt}\x = A\x$, then for any initial
+value $t_0$,
+$$
+   X(t) = e^{A(t - t_0)}X(t_0).
+$$
+In particular, for $t_0 = 0$,
+\nexteqn
+\xdef\Exp{\eqn}
+$$
+  X(t) = e^{At}X(0)\qquad\text{or}\qquad e^{At} = X(t)X(0)^{-1}.\tag\eqn
+$$
+\endproclaim
+
+\demo{Proof}
+By assumption,
+$Y = X(t)$ satisfies the matrix equation $\dfrac{dY}{dt} = AY$.
+However,  $Y = e^{A(t - t_0)}X(t_0)$ also satisfies that equation
+since
+$$
+\frac{dY}{dt} = \frac{d}{dt}e^{A(t - t_0)}X(t_0)
+              = Ae^{A(t - t_0)}X(t_0) = AY.
+$$
+Moreover, at $t = t_0$, these two functions agree since
+$$
+  e^{A(t_0 - t_0)}X(t_0) = I X(t_0) = X(t_0).
+$$
+Hence, by the uniqueness theorem,  $X(t) = e^{A(t - t_0)}X(t_0)$
+for all $t$.
+\enddemo
+
+\example{Example \en, continued}
+Let 
+$$
+ X = \bm\format\r&\quad\r&\quad\r\\
+     e^{3t} & 0\hphantom{e} & 4e^{-t} \\
+     e^{3t} & 0\hphantom{e} & -4e^{-t} \\
+     te^{3t}& e^{3t} & e^{-t} \em
+$$
+be the fundamental solution matrix obtained above.
+We may calculate by the usual method
+$$
+X(0)^{-1} =
+\bm\format\r&\quad\r&\quad\r\\
+           1 & 0 & 4 \\
+           1 & 0 & -4\\
+           0 & 1 & 1  \em^{-1} 
+= \bm\format\r&\quad\r&\quad\r\\
+     \frac 12 & \frac 12 & 0 \\
+    -\frac 18 & \frac 18 & 1 \\
+   \frac 18 &-\frac 18 & 0 \em
+$$
+so
+$$\align
+e^{At} &= \bm\format\r&\quad\r&\quad\r\\
+     e^{3t} & 0\hphantom{e} & 4e^{-t} \\
+     e^{3t} & 0\hphantom{e} & -4e^{-t} \\
+     te^{3t}& e^{3t} & e^{-t} \em
+\bm\format\r&\quad\r&\quad\r\\
+     \frac 12 & \frac 12 & 0 \\
+    -\frac 18 & \frac 18 & 1 \\
+   \frac 18 &-\frac 18 & 0 \em\\
+&= \bm \frac 12e^{3t}+\frac 12e^{-t} & \frac12e^{3t} -\frac12e^{-t}
+      & 0 \\
+    \frac 12e^{3t} - \frac12e^{-t} & \frac12e^{3t} + \frac12e^{-t}
+     & 0 \\
+    \frac 12te^{3t} -\frac 18e^{3t} +\frac 18e^{-t}
+    & \frac12te^{3t} + \frac 18e^{3t} -\frac 18e^{-t}
+    & e^{3t} \em.
+\endalign$$
+\endexample
+
+\nextex
+\example{Example \en}  Consider the system
+$$
+\frac{d\x}{dt} = \bm\format\r&\quad\r\\
+                           0 & 1 \\
+                          -1 & 0 \em \x.
+$$
+The characteristic equation of the coefficient matrix is
+$\lambda^2 + 1 = 0$ which has roots $\lambda = \pm i$.   That
+means that we start by finding complex valued solutions.  The
+eigenvalues are distinct in this case, so the eigenvalue-eigenvector
+method will suffice; 
+we don't need to use generalized eigenvectors.
+
+For $\lambda = i$, we need to solve $(A - iI)\v = 0$.  
+We have
+$$
+\bm\format\r&\quad\r\\
+        -i & 1 \\
+         -1 & -i \em
+\to \bm\format\r&\quad\r\\
+         1 & i \\ 0 & 0 \em
+$$
+so the general solution is $v_1 = -iv_2$ with $v_2$ free.  The
+general solution vector is
+$$
+\v = v_2 \bm\format\r\\ -i\\ 1\em,
+$$
+so 
+$$
+\v_1 = \bm\format\r\\ -i\\ 1\em
+$$
+is a basic eigenvector.   The corresponding solution of the
+differential equation is
+$$\align
+\x_1 &= e^{it}\v_1 = \bm \format\r\\ -ie^{it}\\ e^{it}\em\\
+     &= \bm\format\r\\ \sin t - i\cos t \\
+                   \cos t + i\sin t \em.
+\endalign$$
+To find independent real solutions, take the real and imaginary
+parts of this complex solution.  They are
+$$
+\u= \bm \sin t \\ \cos t \em,\qquad \v = \bm -\cos t \\ \sin t \em.
+$$
+Hence, a fundamental solution matrix for this system is
+$$
+X(t) = \bm\format\r&\quad\r\\
+         \sin t & -\cos t \\
+         \cos t & \sin t \em.
+$$
+Thus,
+$$\align
+e^{\bm \format\r&\quad\r\\ 0 & t\\ -t & 0 \em}
+&= \bm\format\r&\quad\r\\
+         \sin t & -\cos t \\
+         \cos t & \sin t \em
+ \bm\format\r&\quad\r\\
+      0 & -1 \\
+      1 & 0 \em^{-1}\\
+&= \bm\format\r&\quad\r\\
+         \sin t & -\cos t \\
+         \cos t & \sin t \em
+ \bm\format\r&\quad\r\\
+      0 & 1 \\
+      -1 & 0 \em\\
+&= \bm\format\r&\quad\r\\
+             \cos t & \sin t \\
+             -\sin t & \cos t \em.
+\endalign$$
+We computed this earlier in Chapter XI, Section 7, Example 2
+by adding up the series.
+\endexample
+
+\subhead  Wronskians \endsubhead
+%Advice to Instructor.  Skip this.
+Let $\{\x_1(t), \x_2(t), \dots, \x_n(t) \}$ be a set of solutions
+of the system $d\x/dt = A(t)\x$ where $A(t)$ is an $n\times n$
+matrix which is not necessarily constant.  Let
+$$
+X(t) = \bm \x_1(t)&\x_2(t) & \dots & \x_n(t) \em.
+$$
+The quantity $W(t) = \det X(t)$ is called the {\it Wronskian\/},
+and it generalizes the Wronskian for second order linear
+equations in one variable.
+\outind{Wronskian of a system}%
+It is not hard to see that $W(t)$ never vanishes if $X(t)$
+is a fundamental solution matrix.  For, if it vanished for a
+given $t = t_0$, the columns of $X(t_0)$ would form a dependent
+set of vectors,
+and this in turn would imply that the columns of
+$X(t)$ form a  
+dependent set of functions of $t$.  
+
+It is possible to show that the Wronskian satisfies the first
+order differential equation
+$$
+\frac{dW}{dt} = a(t)W,
+$$
+where
+$$
+a(t) = \sum_{i=1}^n a_{ii}(t)
+$$
+is the sum of the diagonal entries of $A(t)$. (The sum of
+the diagonal entries of an $n\times n$ matrix $A$ is
+called the {\it trace\/} of the matrix.) 
+
+We shall not use the Wronskian, but you may encounter it
+if you do further work with linear systems of differential
+equations.
+\bigskip
+\input chap12.ex1
+\bigskip
+\nextsec{Inhomogeneous Systems}
+\head \sn.  Inhomogeneous Systems \endhead 
+
+Having thoroughly explored methods for solving homogeneous
+systems, we now consider inhomogeneous systems
+$$
+\frac{d\x}{dt} = A(t)\x + \f(t)
+$$
+where $A(t)$ is a given $n\times n$ matrix, $\f(t)$ is a given 
+vector function, and $\x = \x(t)$ as before is an
+vector solution to be found.  
+\outind{inhomogeneous system}%
+\outind{system, inhomogeneous}%
+
+The analysis is similar to that we
+went through for  second order inhomogeneous linear equations 
+$y'' + p(t)y' + q(t)y = f(t)$.
+We proceed by
+ first finding the general solution of the
+homogeneous equation
+$$
+\frac{d\x}{dt} = A\x
+$$
+to which is added a {\it particular\/} solution of the
+inhomogeneous equation.
+\outind{particular solution of a system}%
+(Indeed, second order inhomogeneous linear equations may be reformulated
+as $2\times 2$ inhomogeneous systems in the usual way.)  
+
+ To find a particular
+solution of the inhomogeneous equation, we appeal to methods
+that worked for second order equations.
+
+The simplest method, if it works, is guessing.
+
+\nextex
+\example{Example \en}  Consider the system
+\nexteqn
+$$
+\frac{d\x}{dt} = \bm\format\r&\quad\r\\
+                    0 & 1 \\
+                   -1 & 0 \em\x + \bm 1\\ 0 \em.\tag\eqn
+$$
+In Example 2 in the previous section, we found a general solution
+of the corresponding homogeneous system.  Using the fundamental
+solution matrix $e^{At}$, it may be expressed
+$$
+\x_h = \bm\format\r&\quad\r\\ \cos t & \sin t \\ -\sin t & \cos t \em
+\bm c_1 \\ c_2 \em.
+$$
+To find a particular solution of (\eqn), try a constant solution
+$$
+\x_p = \bm a_1\\a_2 \em
+$$
+where $a_1$ and $a_2$ are to be determined.   Putting this in
+the differential equation, we have
+$$
+0 = \bm\format\r&\quad\r\\
+                    0 & 1 \\
+                   -1 & 0 \em \bm a_1\\a_2 \em + \bm 1\\ 0 \em
+$$
+or
+$$
+\bm\format\r&\quad\r\\
+                    0 & 1 \\
+                   -1 & 0 \em \bm a_1\\a_2 \em = \bm \format\r\\-1\\ 0 \em.
+$$
+This is a $2\times 2$ algebraic system which is not very difficult
+to solve.  The solution is $a_1 = 0, a_2 = -1$.   Hence, the
+general solution of the inhomogeneous equation is
+$$
+\align
+\x &= \bm\format\r\\ 0\\-1\em + \bm\format\r&\quad\r\\
+          \cos t & \sin t \\ -\sin t & \cos t\em\bm c_1\\c_2\em\\
+&= \bm\format\r\\ 0\\-1\em + c_1\bm\format\r\\ \cos t\\ -\sin t\em
++ c_2\bm \sin t\\ \cos t \em.
+\endalign$$
+\endexample
+
+There is another method for finding a
+particular solution  which is based on the
+method of `variations of parameters'. 
+ Unfortunately, it usually leads to extremely complex
+calculations, even when the answer is relatively simple.
+However, it is useful in many theoretical discussions.
+To apply the system version of {\it variation of parameters\/}
+\outind{variation of parameters for systems}%
+we look for a particular solution 
+of the form
+$$
+\x = X(t)\u(t)
+$$
+where $X(t)$ is a fundamental solution matrix of the
+corresponding homogeneous system and $\u(t)$ is a
+ vector valued function to be determined.
+Substituting in the inhomogeneous equation yields
+$$
+\gather
+\frac{d}{dt}(X\u) = AX\u + \f \\
+  \frac{dX}{dt}\u + X\frac{d\u}{dt} = AX\u + \f
+\endgather$$
+However, $\dfrac{dX}{dt} = AX$ so the first term on each side
+may be canceled, and we get
+$$
+\gather
+X\frac{d\u}{dt} = \f\\
+\frac{d\u}{dt} = X^{-1}\f.
+\endgather$$ 
+We may now determine $\u$ by integrating both sides with respect
+to $t$.   This could be done using indefinite integrals, but
+it is usually done with a dummy variable
+ as follows.  Let $t_0$ be an initial value of $t$.
+$$
+\gather
+    \frac{d\u}{ds} = X(s)^{-1}\f(s)\\
+\left. \u(t)\right|_{t_0}^t = \int_{t_0}^t X(s)^{-1}\f(s)\,ds \\
+\u(t) - \u(t_0) = \int_{t_0}^t X(s)^{-1}\f(s)\,ds\\
+\u(t) = \u(t_0) + \int_{t_0}^t X(s)^{-1}\f(s)\,ds.
+\endgather$$
+If we multiply this by $X(t)$ to obtain $\x$, we get the
+particular solution
+$$
+\x = X(t)\u(t) =  X(t)\u(t_0) + X(t) \int_{t_0}^t X(s)^{-1}\f(s)\,ds.
+$$
+Since we only need one particular
+solution, we certainly should be free to choose $\u(t_0)$
+any way we want.  If we set it equal to 0, then the second
+term gives us the desired particular solution
+\nexteqn
+\xdef\VarPar{\eqn}
+$$
+\x_p =  X(t) \int_{t_0}^t X(s)^{-1}\f(s)\,ds.\tag\eqn
+$$
+On the other hand, we may also write 
+$$
+\u(t_0) = \c = \bm c_1 \\c_2 \em.
+$$
+where $\c$ is a vector of arbitrary constants.  
+Then the above equation becomes
+\nexteqn
+$$
+\x =  X(t)\c + X(t)\int_{t_0}^t X(s)^{-1}\f(s)\,ds
+\tag\eqn
+$$
+which is the {\it general solution\/} of the inhomogeneous
+equation.
+
+\example{Example \en, again}   Use the same fundamental solution
+$$
+X(t)  = \bm \format\r&\quad\r\\ \cos t & \sin t \\ -\sin t & \cos t \em
+$$
+as before, and take $t_0 = 0$.   Then
+$$\align
+X(s)^{-1} &= \bm\format\r&\quad\r\\
+ \cos s & \sin s \\ -\sin s & \cos s \em^{-1} = 
+\frac 1{\cos^2 s + \sin^2 s}\bm\format\r&\quad\r\\
+                          \cos s & -\sin s \\ \sin s & \cos s \em\\
+ &= \bm\format\r&\quad\r\\
+                          \cos s & -\sin s \\ \sin s & \cos s \em.
+\endalign$$
+Thus,
+$$
+\align
+\x_p  &= \bm \format\r&\quad\r\\ \cos t & \sin t \\ -\sin t & \cos t \em
+\int_0^t  \bm\format\r&\quad\r\\
+                          \cos s & -\sin s \\ \sin s & \cos s \em
+\bm 1\\ 0 \em ds.
+\endalign$$
+The integral is
+$$\align 
+\int_0^t \bm \cos s\\ \sin s \em ds 
+&= \left. \bm \format\r\\ \sin s \\ -\cos s \em\right|_0^t \\
+&= \bm\format\r\\ \sin t \\  -\cos t \em - \bm\format\r\\ 0\\ -1 \em.
+\endalign
+$$
+Multiplying this by $X(t)$ yields
+$$
+\align
+\x_p &= \bm \format\r&\quad\r\\ \cos t & \sin t \\ -\sin t & \cos t \em
+\left(\bm\format\r\\ \sin t \\  -\cos t \em - \bm\format\r\\ 0\\ -1 \em
+\right)\\
+&= \bm \cos t \sin t - \sin t \cos t \\ -\sin^2 t - \cos^2 t \em
+   + \bm -\sin t \\ -\cos t\em \\
+&= \bm\format\r\\ 0 \\ -1 \em - \bm \sin t \\ \cos t \em.
+\endalign$$ 
+The second term is a solution of the homogeneous equation.  (In
+fact, except for the sign, it is the second column of the
+fundamental solution matrix.)   Hence, we can 
+drop that term, and we are left with
+$$
+\x_p = \bm\format\r\\0\\ -1\em,
+$$
+which is the same particular solution we obtained previously
+by guessing.
+\endexample
+
+If $A$ is a constant $n\times n$ matrix, then
+$X(t) = e^{At}$ is always a fundamental solution matrix for
+$d\x/dt = A\x$.   Also,
+$$
+X(s)^{-1} = (e^{As})^{-1} = e^{-As}.
+$$
+Hence, the general solution of the inhomogeneous equation
+is
+$$\align
+\x &= e^{At}\c + e^{At}\int_{t_0}^t e^{-As}\f(s)\,ds \\
+   &= e^{At}\c +\int_{t_0}^t e^{At}e^{-As}\f(s)\,ds \\
+   &= e^{At}\c + \int_{t_0}^t e^{A(t - s)}\f(s)\,ds.
+\endalign
+$$
+Moreover, if $\x(t)$ assumes the initial value $\x(t_0)$
+at $t = t_0$, we have
+$$
+\x(t_0) = e^{At_0}\c +\int_{t_0}^{t_0}(\dots)\,ds = e^{At_0}\c,
+$$
+so $\c = e^{-At_0}\x(t_0)$.   Thus, 
+$$\align
+\x &= e^{At}e^{-At_0}\x(t_0) +  \int_{t_0}^t e^{A(t - s)}\f(s)\,ds \\
+   &= e^{A(t - t_0)}\x(t_0) +  \int_{t_0}^t e^{A(t - s)}\f(s)\,ds
+\endalign
+$$
+is a solution of the inhomogeneous equation satisfying the
+desired initial condition at $t = t_0$.   This formula
+sums everything up in a neat package, but it is not specially
+easy to use for a variety of reasons.  First, $e^{At}$ is
+not usually easy to calculate, and in addition, the integration
+may not be specially easy to do.  
+
+(See if you can simplify the calculations
+in the previous example  by exploiting the fact that we were
+using $e^{At}$ as our fundamental solution matrix.)
+\bigskip
+\input chap12.ex2
+\bigskip
+
+\nextsec{Normal Modes}
+\head \sn. Normal Modes \endhead
+
+\nextex
+\xdef\ExA{\en}
+\example{Example \en}
+Recall the {\it second order system\/}
+$$
+\align
+m\frac{d^2x_1}{dt^2} &= -2kx_1 + kx_2 \\
+m\frac{d^2x_2}{dt^2} &= kx_1 - 2kx_2
+\endalign$$
+which was discussed in
+Chapter X, Section 1, Example 2.
+This system arose from the configuration of particles and springs
+indicated below, where $m$ is the common mass of the two particles
+and $k$ is the common spring constant of the three springs.
+\medskip
+\centerline{\epsfbox{s10-1.ps}}
+\medskip
+The system  may also be rewritten in
+matrix form
+$$
+m\frac{d^2\x}{dt^2} = \bm\format\r&\quad\r\\
+                        -2k & k \\ k & -2k \em\x.
+$$
+\endexample
+
+Systems of this kind abound in nature.   For example,
+a molecule may be modeled as a system of particles connected
+by springs {\it provided one assumes all the displacements from
+equilibrium are small}.  One is often very interested in determining the
+ways in which such a molecule may oscillate and in particular
+what the oscillatory frequencies are.  These will tell us
+something about the spectral response of the molecule to
+\outind{molecular oscillation}%
+infrared radiation.   This {\it classical\/} model of a molecule 
+ is only an approximation, of course.
+and one must use quantum mechanics to get a more accurate
+picture of what happens.   However, the classical model often
+illustrates important features of the problem, and it is usually
+more tractable mathematically.
+ 
+\nextex
+\xdef\ExB{\en}
+\example{Example \en}  A CO$_2$ molecule may be represented
+as two Oxygen atoms connected by springs to a Carbon atom.
+In reality, the interatomic forces are quite complicated,
+but to a first approximation, they may be thought of as
+linear restoring forces produced by imaginary springs.
+Of course, the atoms in a real CO$_2$ molecule may be oriented
+relative to each other in space in quite complicated ways,
+but for the moment we consider only configurations
+in which all three atoms lie in a line.
+\medskip
+\centerline{\epsfbox{s12-2.ps}}
+\medskip
+If $m$ is the mass of each Oxygen atom and $m'$ is the mass of
+the Carbon atom then we have  $m'/m \approx 12/16 = 3/4$.
+As in the diagram, let $x_1$ and $x_3$ denote the linear displacements
+of the two Oxygen atoms from some equilibrium position and
+let $x_2$ be the linear displacement of the Carbon atom.  Then
+Newton's Second Law and an analysis of the forces yields the
+equations
+$$\align
+m\frac{d^2x_1}{dt^2} &= -k(x_1 - x_2) = -kx_1 + k x_2 \\
+m'\frac{d^2x_2}{dt^2} &= -k(x_2 - x_1) - k(x_2 - x_3) = kx_1 - 2kx_2 + k x_3 \\
+m\frac{d^2x_3}{dt^2} &= -k(x_3 - x_2) = kx_2 - k x_3 
+\endalign$$
+which may be put in the following matrix form
+$$
+\bm m & 0 & 0 \\
+    0 & m' & 0 \\ 
+    0 & 0 & m \em
+\frac{d^2}{dt^2}
+\bm x_1\\x_2\\x_3\em
+= \bm\format\r&\quad\r&\quad\r\\
+    -k & k & 0 \\
+    k & -2k & k \\
+    0 & k & -k \em
+\bm x_1\\x_2\\x_3\em.
+$$
+This may be written more compactly as
+\nexteqn
+\xdef\Prob{\eqn}
+$$
+M\x'' = K\x\tag\eqn
+$$
+where
+$$
+M =
+\bm m & 0 & 0 \\
+    0 & m' & 0 \\ 
+    0 & 0 & m \em
+$$
+is a {\it diagonal matrix\/} of masses, and
+$$
+K =
+ \bm\format\r&\quad\r&\quad\r\\
+    -k & k & 0 \\
+    k & -2k & k \\
+    0 & k & -k \em
+$$
+is a matrix of spring constants.   Note that $K$ is a {\it symmetric
+matrix\/}, i.e. $K$ is equal to its transpose $K^t$.
+\endexample
+
+It will be the object of this and ensuing sections to solve second
+order systems of the form (\eqn).   Of course, we already have
+a method for doing that: convert to a first order system of twice
+the degree and solve that by the methods we developed in the
+previous chapter.   It is more enlightening, however, to start
+from the beginning and apply the same principles directly to
+the second order system.  As in the eigenvalue-eigenvector method
+for first order systems, we proceed by looking for complex
+vector valued solutions of
+the form
+\nexteqn
+$$
+\x = e^{i\omega t}\v\tag\eqn
+$$
+where $\omega$ and $\v\not= 0$ are to be determined.   (The rationale for
+replacing $\lambda$ by $i\omega$ is that because of the nature of
+the physical problem it makes sense to look for oscillatory
+real solutions, and we know from our previous study of simple harmonic
+motion that the complex expression of such solutions will involve
+exponentials of the form $e^{i\omega t}$.)   Then
+$$
+\frac{d\x}{dt} = i\omega e^{i\omega t}\v\qquad\text{and}
+\frac{d^2\x}{dt} = (i\omega)^2e^{i\omega t}\v = -\omega^2e^{i\omega t}\v.
+$$
+Hence,
+ putting (\eqn) in (\Prob) yields
+$$
+M( -\omega^2e^{i\omega t}\v) =  Ke^{i\omega t}\v.
+$$
+Factoring out the (non-zero) term $e^{i\omega t}$
+yields in turn $-\omega^2M\v = K\v$, which may be rewritten
+\nexteqn
+$$
+K\v = \mu M\v\qquad\text{where}\quad \mu = -\omega^2\quad\text{and }
+ \v \not= \bold 0. \tag\eqn
+$$
+This equation should look familiar.
+ The quantity
+$\mu = -\omega^2$ looks like an eigenvalue for $K$, and the
+vector $\v$ looks like an eigenvector, except of course
+for the presence of the diagonal matrix $M$.  As previously, (\eqn) may
+be rewritten as a system
+\nexteqn
+\xdef\EqnC{\eqn}
+$$
+(K -\mu M)\v = 0\qquad\tag\eqn
+$$
+and since we need to find non-zero solutions, we need to
+require
+\nexteqn
+$$
+\det(K - \mu M) = 0.\tag\eqn
+$$
+This equation is similar to the characteristic equation for
+$K$ except that the identity matrix $I$ has been replaced
+by the diagonal matrix $M$.
+It is called the {\it secular equation\/} of the system.
+\outind{secular equation}%
+
+The strategy then is first to find the possible values of
+$\mu$ by solving (\eqn), and for each such $\mu$ to find
+the possible $\v\not=0$ by solving the system (\EqnC).
+The corresponding oscillatory (complex) solutions will be
+$e^{i\omega t}\v$ where
+$\omega = \sqrt{|\mu|}$. 
+
+\example{Example \ExA, continued}  We have
+$$
+M = m I = \bm m & 0 \\  0 & m \em
+\qquad K = k\bm\format\r&\quad\r\\
+                       -2 & 1 \\
+                       1 & -2 \em = \bm\format\r&\quad\r\\
+                       -2k & k \\
+                       k & -2k\em
+$$
+so the secular equation is
+$$\align
+\det \bm -2k - m\mu & k \\
+          k  & -2k - m\mu \em
+&= (-2k - m\mu)^2 - k^2 \\
+ &= m^2\mu^2 + 2km\mu + 4k^2 - k^2\\
+&=  m^2\mu^2 + 4km\mu + 3k^2 \\
+  &= (m\mu + k)(m\mu + 3k) = 0.
+\endalign
+$$
+Hence, the roots are 
+$\mu = -k/m$ ($\omega = \sqrt{k/m}$)
+ and $\mu = -3k/m$ ($\omega = \sqrt{3k/m}$).   
+
+For $\mu = -k/m$  ($\omega = \sqrt{k/m}$), we need to solve
+$(K + (k/m)M)\v = 0$.  But   
+$$
+K + \frac km M = \bm -2k +k & k \\
+                     k & -2k + k \em =
+          k\bm\format\r&\quad\r\\ -1 & 1 \\ 1 & -1 \em
+\to \bm\format\r&\quad\r\\ 1 & -1 \\0 & 0 \em.
+$$
+Hence, the solution is $v_1 = v_2$ with $v_2$ free.
+A basic solution vector for the subspace of solutions is
+$$
+\v_1 = \bm 1\\ 1  \em.
+$$
+The corresponding complex solution is
+$$
+ e^{i\sqrt{k/m}\,t}\bm 1 \\ 1\em.
+$$
+If we take the real and imaginary parts, we get {\it two\/}
+real solutions.
+$$
+\cos \sqrt{k/m}\,t\bm 1 \\ 1 \em\qquad\text{and}\qquad
+\sin \sqrt{k/m}\,t \bm 1 \\ 1 \em.
+$$
+If we write the components out explicitly, we get
+$$
+x_1 = \cos \sqrt{k/m}\,t,\quad x_2 =  \cos \sqrt{k/m}\,t
+$$
+for the first real solution, and
+$$
+x_1 = \sin \sqrt{k/m}\,t,\quad x_2 =  \sin \sqrt{k/m}\, t
+$$
+for the second real solution.  In either case, we have
+$x_1(t) = x_2(t)$ for all $t$, and the two particles move together
+in tandem
+with the same angular frequency $\sqrt{k/m}$.   Note the 
+behavior of the particles is a consequence of the fact
+that the components of the basic vector $\v_1$ are equal.
+Indeed, the same would be true for any linear combination
+$$\multline
+c_1\cos \sqrt{k/m}\,t\bm 1 \\ 1 \em + c_2\sin \sqrt{k/m}\,t \bm 1 \\ 1 \em
+ \\ =
+(c_1\cos \sqrt{k/m}\,t + c_2\sin \sqrt{k/m}\,t) \bm 1 \\ 1 \em
+\endmultline
+$$
+of the two real solutions obtained above.  This two dimensional
+real subspace of solutions is called the {\it normal mode\/}
+of angular frequency $\sqrt{k/m}$.
+\outind{normal mode}%
+
+Similarly, for $\mu = -3k/m$ ($\omega = \sqrt{3k/m}$), we have 
+$$
+K + 3k/m M = \bm -2k +3k & k \\ k & -2k +3k \em 
+= k\bm 1 & 1\\ 1 & 1\em \to \bm 1 & 1 \\ 0 & 0\em.
+$$
+The solution is $v_1 = -v_2$ with $v_2$ free, and a basic solution
+vector for the system is
+$$
+\v_2 = \bm\format\r\\ -1\\1\em.
+$$
+The corresponding solution of the differential equation
+is
+$$
+e^{i\sqrt{3k/m}\,t}\bm\format\r\\-1\\1\em.
+$$
+The corresponding normal mode is encompassed by the set of
+all real solutions of the form
+$$
+(c_3\cos \sqrt{3k/m}\,t
++c_4\sin \sqrt{3k/m}\,t)\bm\format\r\\-1\\1\em
+$$
+which oscillate with angular frequency  $\sqrt{3k/m}$.
+
+The general real solution of the differential equation has
+the form
+$$
+\multline
+\x = c_1\cos \sqrt{k/m}\,t\bm 1 \\ 1 \em + c_2\sin \sqrt{k/m}\,t \bm 1 \\ 1 \em
+\\+ c_3\cos \sqrt{3k/m}\,t\bm\format\r\\-1\\1\em
++c_4\sin \sqrt{3k/m}\,t\bm\format\r\\-1\\1\em.
+\endmultline
+$$
+\endexample
+
+This example illustrates some features which need further
+discussion.  First, we assumed implicitly in writing out the
+general solution that the 4 functions
+$$
+\cos \sqrt{k/m}\,t\bm 1 \\ 1 \em,
+\sin \sqrt{k/m}\,t \bm 1 \\ 1 \em,
+\cos \sqrt{3k/m}\,t\bm\format\r\\-1\\1\em,
+\sin \sqrt{3k/m}\,t\bm\format\r\\-1\\1\em
+$$
+constitute a basis for the vector space of solutions.   For this
+to be true we need to know first of all that the space of solutions
+is 4 dimensional, and secondly that the above functions form
+a linearly independent set.   The first conclusion is clear if
+we recall that the second order system in 2 variables which we
+are considering  
+  is equivalent to
+a first order system of twice the size.  Hence,  the dimension of
+the solution space is 4.  (In general, for a normal mode problem,
+ the solution space should have
+dimension $2n$ where $n$ is the number of variables.)   It is not
+so obvious that the functions form a linearly independent set.
+We shall address this question in detail at the end of this
+section.  Note, however, that the rule which worked for
+first order systems does not work here.  If we evaluate the
+above vector functions at $t = 0$, we don't get a linearly
+independent set; in fact, two of the vectors so obtained are zero.
+
+Another point is that we could have determined the two vectors
+$\v_1$ and $\v_2$ by inspection.  The first corresponds to motion
+in which the particles move in tandem and
+the spring between them experiences no net change in length.  
+The second corresponds to motion in which the particles move back
+and forth
+equal amounts in opposite directions but with the same
+frequency.  In fact, it is often true that careful consideration
+of the physical arrangement of the particles, with particular
+attention to any symmetries that may be present, may suggest
+possible normal modes with little or no calculation.
+\medskip
+\centerline{\epsfbox{s12-3.ps}}
+\medskip
+\example{Example \en, continued}
+In this case, the secular equation is
+$$
+\align
+\det(K -\mu M)
+&= \det\bm -k -m\mu & k & 0 \\
+          k & -2k -\mu m' & k \\
+         0 & k & -k-\mu m \em \\
+ &= (-m\mu - k)((-m'\mu - 2k)(-m\mu -k) -k^2)
+   -k(k(-m\mu  -k)) \\
+ &= (-m\mu  - k)((-m'\mu - 2k)(-m\mu - k) - 2k^2)\\
+ &= (-m\mu - k)(mm'\mu^2 + k(2m + m')\mu + 2k^2 - 2k^2)\\
+ &= -(m\mu + k)(mm'\mu + k(2m + m'))\mu = 0.
+\endalign$$
+This has 3 roots.  (Don't worry about multiplicities at this point.)
+They are
+$$
+\mu = -\frac km, \quad \mu = -\frac{k(2m + m')}{mm'},\quad \mu = 0
+$$
+with corresponding angular frequencies
+$$
+\omega = \sqrt{\frac km},\quad \omega = \sqrt{\frac{k(2m + m')}{mm'}},
+\quad\omega = 0.
+$$
+
+Let's find a pair of real solutions for each of these.  That should
+provide an independent set of 6 basic real solutions, which is what
+we should expect since the solution space is 6 dimensional.
+
+Start with $\mu = -k/m$ ($\omega = \sqrt{k/m}$).   If we make the
+approximation $\dfrac {m'}m = \dfrac 34$,  the coefficient matrix
+of the system $(K +k/mM)\v = 0$ becomes
+$$\align
+\bm -k + k & k & 0 \\
+      k & -2k+(k/m)m' & k \\
+     0 & k & 0 \em
+&= \bm 0 & k & 0 \\
+    k & -2k +k(3/4) & k \\
+     0 & k & 0 \em\\
+ &= \bm 0 & k & 0 \\
+   k  &-(5/4)k & k \\
+   0 & k & 0 \em 
+\to \bm 1 & 0 & 1 \\
+      0 & 1 & 0 \\
+     0 & 0 & 0 \em.
+\endalign
+$$
+The general solution is $v_1 = - v_3, v_2 = 0$ with $v_3$ free.
+A basic solution is
+$$
+\v_1 = \bm\format\r\\ -1\\ 0 \\ 1 \em.
+$$
+The corresponding complex solution is
+$$
+e^{i\sqrt{k/m}\, t}\bm\format\r\\ -1\\ 0 \\ 1 \em.
+$$
+The corresponding normal mode is describe in real terms by
+$$
+(c_1\cos \sqrt{k/m}\,t + c_2\sin \sqrt{k/m}\,t)
+\bm\format\r\\ -1\\ 0 \\ 1 \em.
+$$
+The physical interpretation is clear.  The two Oxygen atoms move
+in equal and opposite directions while the Carbon atom stays fixed. 
+\medskip
+\centerline{\epsfbox{s12-4.ps}}
+\medskip
+For $\mu = - k(2/m' + 1/m)$ ($\omega = \sqrt{k(2/m' + 1/m)}$),
+ the coefficient matrix
+of the relevant system is
+$$
+\multline
+\bm -k +mk(2/m' + 1/m) & k & 0 \\
+   k  & -2k + m'k(2/m' + 1/m) & k \\
+   0 & k & -k +mk(2/m' + 1/m) \em  \\
+ = \bm -k + k(8/3 + 1) & k & 0 \\
+      k  & -2k + k(2 + 3/4) & k \\
+      0 & k & -k + k(8/3 + 1) \em  \\
+= k\bm 8/3 & 1 & 0 \\
+     1 & 3/4 & 1 \\
+      0 & 1 & 8/3 \em \\
+\to \bm 1 & 3/8 & 0 \\
+         0 & 3/8 & 1 \\
+         0 & 0 & 0 \em
+\to \bm 1 & 0 & -1 \\
+        0 & 1 & 8/3 \\
+        0 & 0 & 0 \em.
+\endmultline
+$$
+The corresponding solution is $v_1 = v_3, v_2 = -(8/3)v_3$
+with $v_3$ free.  The corresponding basic vector is
+$$
+\v_2 = \bm 1 \\ -8/3 \\ 1 \em,
+$$
+and the corresponding normal mode is described in real terms
+by
+$$
+(c_3\cos \sqrt{k(2/m' +1/m)}\,t + c_4\sin \sqrt{k(2/m' +1/m)}\,t)
+\bm 1 \\ -8/3 \\ 1 \em.
+$$
+The physical interpretation is that the two Oxygen atoms move
+together in tandem while the Carbon atom moves in the opposite
+direction in such a way that the center of mass always stays
+fixed.
+\medskip
+\centerline{\epsfbox{s12-5.ps}}
+\medskip
+
+Finally, consider $\mu = 0$.  This does not correspond to
+an oscillatory solution at all since in this case
+$\omega = 0$ and  $e^{i\omega t} = 1$.
+Let's solve the system
+$(K -\mu M)\v = K\v = 0$ in any case, although it
+is not exactly clear what the physical interpretation should be.
+$$
+\bm \format\r&&\quad\r\\ -k & k & 0 \\
+     k & -2k & k \\
+     0 & k & -k \em
+\to \bm\format\r&&\quad\r\\ -1 & 1 & 0 \\
+                            1 & -2 & 1 \\
+                            0 & 1 & -1 \em
+\to \bm  \format\r&&\quad\r\\1 & -1 & 0 \\
+        0  & -1 & 1 \\
+        0 & 1 & -1 \em
+\to \bm \format\r&&\quad\r\\ 1 & 0 & -1 \\
+        0 & 1 & -1 \\
+        0 & 0 & 0 \em.
+$$
+The corresponding solution is $v_1 = v_3, v_2 = v_3$ with $v_3$
+free.  The corresponding basic vector is
+$$
+\v_3 = \bm 1\\1\\1\em,
+$$
+but all we get this way for a real solution is
+$$
+c_5\bm 1\\1\\1\em.
+$$
+What does this mean and where is the second real solution in this
+case?  Since
+all three displacements are equal, it appears that the particles
+are displaced an equal distance in the same direction and there
+is no oscillation.   A little thought suggests that what this
+corresponds to is a uniform motion of the center of mass and
+no relative motion of the individual particles about the center
+of mass.   This tells us that we should add the
+additional solution
+$t\v_3$,
+and the corresponding `normal mode' is
+$$
+(c_5 + c_6t)\bm 1\\1\\1\em,
+$$    
+which is a mathematical description of such uniform motion.
+We now have
+a set of 6 independent real solutions.
+\endexample
+
+This example also illustrates the principle that understanding
+the physical nature of the problem and the underlying
+symmetries can often lead to appropriate
+guesses for the vectors $\v$.  Note also that once you have
+picked out such a vector, you can check if you are right and also
+determine the corresponding root $\mu = -\omega^2$ of the secular equation
+by using the relation
+$$
+K\v = \mu M\v.
+$$
+
+\subhead Some General Remarks \endsubhead
+The whole method depends on the fact that the roots $\mu$
+of the secular equation
+$$
+\det(K - \mu M) = 0
+$$
+can be represented $\mu = -\omega^2$ where $\omega \ge 0$.   This
+is the same as assuming all the roots $\mu$ are {\it negative\/}
+or at worst zero.
+However, if you pick a random symmetric $n\times n$ matrix and
+a random diagonal matrix $M$---even assume the diagonal entries of
+$M$ are positive---there is no way to be sure that 
+some of the roots $\mu$ may not be positive.  Hence, for the problem
+to be a bona-fide normal mode problem, we must impose this as
+an additional assumption.   This is not entirely arbitrary,
+however, because it can be shown from energy considerations that
+if some of the roots are positive, then the physical configuration
+will tend to fly apart instead of oscillating about a stable
+equilibrium.  
+
+As in Example 2, solutions associated with the root zero
+correspond to non-oscillatory uniform motions.  However, if we
+allow more than one spatial dimension, the situation is much
+more complicated.   Consider, for example, plane
+motions of the CO$_2$ molecule.  For each of the three
+particles, there are two spatial coordinates, and so there
+are altogether 6 displacement variables.  Thus the vector
+space of all solutions is 12 dimensional,
+and it has 6 possible basic `normal modes'.  Some
+of these will involve two dimensional oscillations---see the
+diagram---but others will be uniform motions corresponding to
+a zero root of the secular equation.   
+Some non-oscillatory solutions will consist of
+  motion of the center of mass in some
+direction at a constant velocity with no relative motion of the
+particles about the center of mass.  
+The problem is that other solutions will correspond to uniform
+{\it rotations\/} about the center of mass, but that won't be apparent from
+the mathematical representation.   The point is that in our analysis
+of the problem, we assumed that the components of the vector $\x(t)$
+are small, since we were concentrating on oscillations.  Consider
+for example the motion in which the two Oxygen atoms rotate at a constant
+rate about the Carbon atom which stays fixed at the center of mass
+of the system.  {\it For small displacements\/}, this is not distinguishable
+from a solution in which each Oxygen atom starts moving 
+perpendicular to the line between the two Oxygen atoms 
+(passing through  the Carbon atom) but in opposite directions. 
+This is
+what the mathematical solution $\x = (a + bt)\v$ will appear to
+describe, but it is only valid `infinitesimally'.
+\medskip
+\centerline{\epsfbox{s12-6.ps}}
+\medskip
+
+\subhead Relation to Eigenvectors and Eigenvalues \endsubhead
+The normal mode problem may be restated as follows.  Solve
+$$
+\det(K - \mu M) = 0
+$$
+and, for each root $\mu$, find all solutions of the system
+\nexteqn
+$$
+K\v = \mu M\v.\tag\eqn
+$$
+($\mu = -\omega^2$, but that doesn't matter here.)   We noted that
+this looks very
+much like an eigenvalue-eigenvector problem, and by an appropriate
+change of variables, we can reduce it exactly to such a problem.
+\outind{normal mode, relation to eigenvectors}%
+Let
+$$
+M = \bm m_1 & 0 & \hdots & 0 \\
+         0 & m_2 & \hdots & 0 \\
+        \vdots & \vdots &\hdots & \vdots \\
+          0 & 0 & \hdots & m_n \em.
+$$
+Let 
+$$v_j = \frac 1{\sqrt{m_j}}u_j\qquad\text{for }j = 1, 2, \dots, n.$$
+Thus, $u_j  = \sqrt{m_j}v_j$
+is weighted by the mass of the corresponding particle.
+This may be written in compact matrix form as
+$$
+\v = (\sqrt M)^{-1} \u
+$$
+where $\sqrt M$ is the matrix with diagonal entries $\sqrt{m_j}$.
+Putting this in (\eqn) yields
+$$
+K(\sqrt M)^{-1} \u = \mu M(\sqrt M)^{-1}\u = \sqrt M \mu \u
+$$
+or
+$$
+(\sqrt M)^{-1}K(\sqrt M)^{-1} \u = \mu \u.
+$$
+This says that $\u$ is an eigenvector for the matrix
+$A = (\sqrt M)^{-1}K(\sqrt M)^{-1}$ with $\mu$ as the eigenvalue.
+It is not hard to see that $A$ is also a real symmetric matrix,
+so we see that the normal mode problem is really a special case
+of the problem of finding eigenvalues and eigenvectors of real symmetric
+matrices. 
+\nextex
+\example{Example \en}
+Consider a normal mode problem similar to that in Example 1
+except that the second particle has mass $4m$ rather than $m$.
+Then the matrix $K$ is the same, but 
+$$
+M = \bm m & 0 \\ 0 & 4m \em.
+$$
+Hence,
+$$
+\sqrt M = \bm \sqrt m & 0 \\ 0 & 2\sqrt{m} \em
+$$
+and
+$$
+\align
+A &= (\sqrt M)^{-1}K(\sqrt M)^{-1} \\
+    &= \bm 1/\sqrt m & 0 \\ 0 & 1/(2\sqrt{m}) \em
+ \bm\format\r&&\quad\r\\-2k & k \\ k & -2k \em
+\bm 1/\sqrt m & 0 \\ 0 & 1/(2\sqrt{m}) \em \\
+ &=  \bm\format\r&&\quad\r\\-2k/m & k/(2m) \\ k/(2m) & -k/(2m)\em
+\endalign
+$$
+\medskip
+\subhead Linear Independence of the Solutions \endsubhead
+Suppose that in solving the $n\times n$ normal mode problem
+$M\x'' = K\x$
+ we obtained a basis $\{\v_1, \v_2, \dots, \v_n\}$ for
+$\R^n$ such that 
+$$
+K\v_j = -\omega_j{}^2\v_j\qquad j = 1, 2, \dots, n,
+$$
+where each angular frequency $\omega_j$ is a non-negative root of
+the secular equation.  We don't assume that the $\omega_j$ are
+distinct, and, as in Example \en, some of them may be zero.
+We want to show that the set of $2n$ real solutions of the normal
+mode problem 
+$$
+\gather
+\cos \omega_jt\,\v_j,\quad \sin\omega_jt\,\v_j\qquad\text{if }\omega_j\not= 0\\
+\text{or }\qquad
+\v_j,\quad t\v_j\qquad\text{if } \omega_j = 0 \\
+\text{for } j \ \text{between } 1\ \text{and } n
+\endgather
+$$
+is  linearly independent.
+
+Suppose not.  Then there is a dependence relation of some sort.
+By transposing, we may assume this has the form
+\nexteqn
+$$
+\sum_{j = 1}^n (a_j\cos \omega_jt + b_j\sin \omega_jt)\v_j = 0,\tag\eqn
+$$
+and at least one of the coefficients $a_1, b_1, a_2, b_2, \dots,
+a_n, b_n$ is 1.  (If $\omega_j = 0$, the
+appropriate term in the sum should be $(a_j + b_jt)\v_j$, but,
+as you will see, that will not affect the nature of the argument.)
+
+Put $t = 0$ in (\eqn).  We obtain
+$$
+\sum_{j=1}^n a_j\v_j = 0.
+$$
+However, the set $\{\v_1, \v_2, \dots, \v_n\}$ is linearly independent
+so the only such relation is the trivial one, i.e., we must have
+$a_j = 0$ for $j = 1, 2, \dots, n$.   Rewrite (\eqn)
+\nexteqn
+$$
+\sum_{j=1}^n b_j\sin \omega_jt\, \v_j = 0.
+$$
+(Again, if $\omega_j = 0$, the corresponding term will be $b_jt\v_j$
+instead.)   Differentiate (\eqn) and set $t = 0$.  We obtain
+$$
+\sum_{j=1}^n b_j\omega_j\cos\omega_jt\, \v_j = 0.
+$$
+(Note that if $\omega_j = 0$, the differentiated term would be
+$b_j\v_j$ without the factor of $\omega_j$.)   Again by linear
+independence, all the coefficients are zero.  It follows that
+$b_j = 0$ for $j = 1, 2, \dots, n$.   (Either $\omega_j \not = 0$
+or the factor $\omega_j$ is not there.)   This contradicts the
+assumption that we had a dependence relation in the first place.
+\bigskip
+\input chap12.ex3
+\bigskip
+
+\nextsec{Real Symmetric and Complex Hermitian Matrices}
+\head \sn.  Real Symmetric and Complex Hermitian Matrices \endhead
+
+We saw in the previous section that finding the normal modes of
+a system of particles is mathematically a special case of finding
+the eigenvalues and eigenvectors of a real symmetric matrix.
+\outind{symmetric matrices, eigenvalues of}%
+Many other physical problems reduce mathematically to the
+same problem.
+In this section we investigate that problem in greater detail.
+
+Let $A$ be a real symmetric matrix.   The first thing we want
+to show is that {\it the roots of its characteristic equation\/}
+$$
+\det(A - \lambda I) = 0
+$$
+{\it are all real}.  This is important in modern physics because
+we have to boil the predictions of a theory down to some numbers
+which can be checked against experiment, and it is easier if
+these are real.   Many physical theories generate such numbers
+as the eigenvalues of a matrix.
+
+It is not true that the characteristic
+equation of a real matrix must have real roots.  (Try
+$A = \bm\format\r&\quad\r\\0 & -1 \\ 1 & 0 \em$, for example,
+as in Chapter XI, Section 6.) Hence, the fact that the
+matrix is symmetric must play an important role.   
+In order to see how this comes into play, we need a short digression.
+
+The {\it dot product in $\R^n$\/} was defined by the formula
+\nexteqn
+\xdef\EqReal{\eqn}
+$$
+(\u, \v) = \u^t\v = \bm u_1 & u_2 & \hdots & u_n \em
+              \bm v_1\\v_2\\\vdots\\v_n \em =
+\sum_{j=1}^nu_jv_j.\tag\eqn
+$$
+(Note that we introduced a new notation $(\u, \v)$ for the dot
+product $\u\cdot \v$.  Another notation you will often see is
+$\lb \u, \v \rb$.)  In order to discuss complex eigenvalues,
+even if only to show there aren't any, we have to allow
+the possibility of complex eigenvectors, i.e., we need to
+work in $\C^n$, so we want to generalize the notion of
+dot product to that domain.  One's first thought is to
+just use the same formula (\eqn), but there is a problem
+with that.   In $\R^n$, the length of a vector is
+given by
+$$
+|\v|^2 = (\v, \v) = \sum_{j=1}^m v_j{}^2
+$$
+and this has all the properties you expect from a good `length
+function'.   Unfortunately, in the complex case, the quantity
+$\sum_{i=1}^nv_i{}^2$ can vanish {\it without\/} $\v$ being
+zero.  For example, with $n = 2$, for
+$$
+\v = \bm i\\ 1\em,\quad\text{we have } v_1{}^2 + v_1{}^2 =
+  i^2  + 1 = 0.
+$$
+Clearly, it would be much better to use the formula
+\nexteqn
+\xdef\EqLen{\eqn}
+$$
+|\v|^2 = \sum_{j=1}^n |v_j|^2\tag\eqn
+$$
+where $|v_j|^2 = \overline v_j v_j$ is the square of the absolute
+value of the complex number $v_j$.   Unfortunately, this is not
+consistent with the definition (\EqReal) of the dot product, but it
+is easy to remedy that.  Define
+\nexteqn
+\xdef\EqHerm{\eqn}
+$$
+(\u, \v) = \overline\u^t\v = \sum_{j=1}^n\overline u_jv_j\tag\eqn
+$$
+for two vectors $\u$ and $\v$ in $\C^n$.   If the vectors 
+are real this gives the same dot product as before, but it
+also gives
+$$
+|\v|^2 = (\v, \v)
+$$
+if the left hand side is defined by (\EqLen).
+\outind{dot product}%
+\outind{inner product in $\noexpand C^n$}%
+
+
+We may now use this extended dot product to derive the promised
+result.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $A$ be a real symmetric matrix.
+The roots of $\det(A - \lambda I) = 0$ are all real.
+\endproclaim
+\demo{Proof}
+Let $\lambda$ be a possibly complex eigenvalue for $A$, i.e.,
+assume there is a non-zero $\v$ in $\C^n$ such that
+$A\v = \lambda \v$.  
+Consider the expression 
+$$(A\v,\v)  = \overline{A\v}^t\v.
+$$
+We have
+\nexteqn
+$$
+\overline{(A\v)}^t = (\overline A\overline\v)^t =
+ \overline\v^t\overline A^t,\tag\eqn
+$$
+but since $A$ is real and symmetric, we have
+\nexteqn
+$$
+ \overline A^t = A^t = A.\tag\eqn
+$$
+Hence,
+$$
+\overline{(A\v)}^t\v = \overline\v^t A\v.
+$$
+Now put $A\v = \lambda\v$ in the last equation to get
+$$\gather
+\overline{(\lambda\v)}^t\v = \overline\v^t\lambda\v \\
+       \overline\lambda\overline\v^t\v =\lambda\overline\v^t\v
+\endgather$$
+However, $\overline\v^t\v = (\v, \v) = |\v|^2 \not = 0$ since
+$\v\not= 0$.  Hence,
+$$
+\overline\lambda = \lambda.
+$$
+That tells us $\lambda$ is real.
+
+Note that paradoxically we have to consider the {\it possibility\/}
+that $\lambda$ is complex in order to show it is real.   It is
+possible to prove this result without mentioning $\C^n$, but
+the argument is much more difficult.   We will mention it again
+when we discuss the subject of Lagrange multipliers.
+\qed \enddemo
+
+One crucial step in the above argument was in (\eqn)
+where we concluded that
+$$
+\overline A^t  = A
+$$
+from the fact that $A$ is real and symmetric.   However, the
+proof would work just as well if $A$ were complex and satisfied
+$\overline A^t  = A$.  Such matrices are called {\it Hermitian\/}
+\outind{Hermitian matrix}%
+(after the 19th century French mathematician Hermite).  Thus,
+we may extend the previous result to
+
+\nextthm
+\proclaim{Theorem  \cn.\tn}  Let $A$ be a complex Hermitian
+$n\times n$ matrix.  Then the eigenvalues of $A$ are real.
+\endproclaim
+
+\nextex
+\example{Example \en}  The matrix
+$$
+A = \bm\format\r&\quad\r\\0&i\\ -i&0\em
+$$
+which is used in quantum mechanics is Hermitian since
+$$
+\overline A = \bm\format\r&\quad\r\\0 & -i \\i & 0 \em,
+\qquad
+\overline A^t = \bm\format\r&\quad\r\\0 & i \\-i & 0 \em = A.
+$$
+Its eigenvalues are the roots of
+$$
+\det\bm -\lambda & i \\ -i& -\lambda \em = \lambda^2 - 1 = 0,
+$$
+which are $\lambda = \pm 1$ so they are certainly real.
+\endexample
+
+Note that a real $n\times n$  matrix $A$ is  Hermitian matrix 
+if and only if it is symmetric.  (The conjugation has no effect
+so the condition becomes $\overline A^t = A^t = A$.)
+\medskip
+
+\subhead More about the dot product in $\C^n$ \endsubhead
+The new dot product $(\u, \v) = \overline\u^t\v$
+ has all the usual properties we expect
+of a dot product except that because of the complex conjugation
+\outind{dot product}%
+\outind{inner product in $\noexpand\C^n$}%
+of the first factor, it obeys the rule
+\nexteqn
+\xdef\FirstFactor{\eqn}
+$$
+(c\u, \v) = \overline c (\u, \v).\tag\eqn
+$$
+However, for the second factor it obeys the usual rule
+$(\u, c\v) = c(\u, \v)$.   It is also not commutative,
+but obeys the following rule when the factors are switched.
+$$
+(\u, \v) = \overline{(\v, \u)}.
+$$
+(These formulas follow easily from the definition $(\u, \v) = 
+\overline\u^t\v$.  See the Exercises.)
+
+In $\R^3$ we chose the basis vectors $\e_1, \e_2, \e_3$
+(formerly called $\i, \j, \k$) by picking unit vectors
+along the coordinate axes.   It is usual in $\R^3$ to pick
+mutually perpendicular coordinate axes, so the basis vectors
+are {\it mutually perpendicular unit vectors}.   It makes sense to
+do the same thing in $\R^n$ (or in the complex case
+$\C^n$).  That is, we should attach special significance to
+bases $\{\u_1, \u_2, \dots, \u_n\}$ satisfying
+$$\align
+(\u_i, \u_j) &= 0\qquad\text{for } i\not= j \\
+|\u_i|^2 &= (\u_i, \u_i) = 1\qquad\text{otherwise}.
+\endalign$$   
+Such a basis is called an {\it orthonormal basis}.  The `ortho' part
+\outind{orthonormal basis}%
+\outind{basis, orthonormal}%
+of `orthonormal' refers to the fact that the vectors are
+mutually {\it orthogonal\/}, i.e., perpendicular, and the `normal'
+part refers to the fact that they are unit vectors.
+
+Orthogonality plays an important role for eigenvectors of
+Hermitian matrices.
+\nextthm
+\proclaim{Theorem \cn.\tn} Let $A$ be a real symmetric
+$n\times n$ matrix
+or, in the complex case,  a Hermitian matrix.  Then eigenvectors
+of $A$ associated with different eigenvalues are perpendicular.
+\endproclaim
+
+\demo{Proof} Assume
+$$
+A\u = \lambda\u\qquad\text{and}\qquad A\v = \mu\v\qquad\text{where }
+\lambda\not=\mu.
+$$
+We have
+$$
+   \overline{(A\u)}^t\v = \overline\u^t\overline A^t \v = 
+      \overline\u^t (A\v) 
+$$
+since $\overline A^t = A$.   Hence,
+$$\gather
+\overline{\lambda\u}^t\v = \overline\u^t(\mu\v) \\
+  \overline\lambda\overline\u^t\v = \mu \overline\u^t\v .
+\endgather$$
+But the eigenvalues of $A$ are real, so $\overline\lambda =
+\lambda$, and
+$$
+\gather
+\lambda\overline\u^t\v = \mu \overline\u^t\v \\
+ (\lambda - \mu)\overline u^t\v = 0 \\
+ (\lambda - \mu)(\u, \v) = 0.
+\endgather
+$$
+Since, $\lambda \not= \mu$, this implies that $(\u, \v) = 0$
+as required.
+\qed\enddemo
+
+Because of the above theorems, orthogonality plays an important
+role in finding the eigenvectors of a real symmetric 
+(or a complex Hermitian) $n\times n$ matrix $A$.  Suppose first of all
+that $A$ has $n$ distinct eigenvalues.  Then we know in any case
+that we can choose a basis for $\R^n$ (or $\C^n$ in the complex case)
+consisting of eigenvectors for $A$.   However, by Theorem \cn.\tn,
+we know in addition in the symmetric (Hermitian) case
+ that these basis vectors are mutually
+perpendicular.  To get an orthonormal basis, it suffices to
+{\it normalize\/} each basic eigenvector by {\it dividing it by
+its length}. 
+
+\example{Example \en, continued}
+We saw that the eigenvalues of 
+$$
+A = \bm\format\r&\quad\r\\0&i\\ -i&0\em
+$$
+are $\lambda = \pm 1$.
+
+For $\lambda = 1$, we find the eigenvectors by reducing
+$$
+A -I = \bm\format\r&\quad\r\\-1&i\\ -i&-1\em
+\to 
+\bm\format\r&\quad\r\\1&-i\\ 0&0\em.
+$$
+The general solution is $v_1 = iv_2$ with $v_2$ free, and
+a basic eigenvector is
+$$
+\v_1 = \bm\format\r\\i\\ 1\em.
+$$
+To get a unit vector, divide this by its length
+$|\v_1| = \sqrt{|i|^2 + 1^2} = \sqrt 2$; this gives
+$$
+\u_1 = \frac 1{\sqrt 2}\bm i \\ 1 \em.
+$$
+
+Similarly, for $\lambda = -1$, reduce
+$$
+A+I = \bm\format\r&\quad\r\\1&i\\ -i&-\em
+\to \bm\format\r&\quad\r\\1&i\\ 0&0\em
+$$
+which yields as above the unit basic eigenvector
+$$
+\u_2 = \frac 1{\sqrt 2}\bm\format\r\\ -i \\ 1 \em.
+$$
+Note that 
+$$(\u_1, \u_2) = \frac 12 ((-i)(-i) + (1)(1)0 = 0
+$$
+as expected.
+\endexample
+\bigskip
+\input chap12.ex4
+\bigskip
+
+\nextsec{The Principal Axis Theorem}
+\head \sn.  The Principal Axis Theorem \endhead
+
+One of the most important results in linear algebra asserts that
+{\it if $A$ is a real symmetric (a complex Hermitian) $n\times n$ matrix 
+then there is an
+orthonormal basis for $\R^n$ (\/$\C^n$) consisting of eigenvectors
+for $A$}.   This is usually called the {\it Principal Axis Theorem}.
+The reason for the name is that the case $n = 2,3$ may be used to
+find the orientation or `principal axes' of an arbitrary conic in
+the plane or  quadric
+\outind{Principal Axis Theorem}%
+\outind{principal axes}%
+surface in space.   There is an important generalization of the result to
+infinite dimensional spaces which is called the {\it Spectral
+Theorem\/}, so the Principal Axis Theorem is also called the
+`finite dimensional Spectral Theorem'.
+
+In this section we shall work an example and also explore
+some concepts related to the use of the theorem.   The proof will
+be deferred for the moment.
+
+Let $A$ be a complex Hermitian $n\times n$ matrix.   (If it is
+real it will automatically be symmetric, so we don't need to discuss
+the real case separately.)  As we saw in the previous section,
+if the eigenvalues of $A$ are distinct, then we already know
+that there is a basis consisting of eigenvectors and they are
+automatically perpendicular to one another.   Hence, the
+Principal Axis Theorem really only tells us something new
+in case of repeated eigenvalues.
+
+\nextex
+\example{Example \en}
+Consider
+$$
+A = \bm \format\r&\quad\r&\quad\r\\
+              -1 & 1 & 1 \\
+              1 & -1 & 1 \\
+              1 & 1 & -1 \em.
+$$
+This example is real, so we shall work in $\R^3$.
+
+The characteristic equation is
+$$\multline
+\det \bm  -1-\lambda & 1 & 1 \\
+              1 & -1-\lambda & 1 \\
+              1 & 1 & -1-\lambda \em\\
+= -(1 + \lambda)((1 + \lambda)^2 - 1)
+    - 1(-1 - \lambda - 1) + 1(1 + 1 + \lambda) \\
+= -(1 + \lambda)(\lambda^2 + 2\lambda) + 2(\lambda + 2)\\
+= -(\lambda^3 + 3\lambda^2 - 4) = 0.
+\endmultline$$
+Using the method suggested at the end of Chapter XI, Section 5,
+we may find the roots of this equation by trying the factors of
+the constant term.  The roots are $\lambda = 1$, which has multiplicity 1,
+and $\lambda = -2$, which has multiplicity 2.
+
+For $\lambda = 1$, we need to reduce
+$$
+A - I = \bm\format\r&\quad\r&\quad\r\\
+              -2 & 1 & 1 \\
+              1 & -2 & 1 \\
+              1 & 1 & -2 \em
+ \to \bm\format\r&\quad\r&\quad\r\\
+              1 & 1 & -2 \\
+              0 & -3 & 3 \\
+              0 & 3 & -3 \em 
+\to 
+\bm\format\r&\quad\r&\quad\r\\
+              1 & 0 & -1 \\
+              0 & 1 & -1 \\
+              0 & 0 & 0 \em.
+$$
+The general solution is $v_1 = v_3, v_2 = v_3$ with $v_3$ free.
+A basic eigenvector is
+$$
+\v_1 = \bm 1\\1\\1\em
+$$
+but we should normalize this by dividing it by 
+$|\v_1| = \sqrt 3$.   This gives
+$$
+\u_1 = \frac 1{\sqrt 3}\bm 1\\1\\1\em.
+$$
+
+For $\lambda = -2$, the situation is more complicated.  Reduce
+$$
+A + 2I = \bm 1 & 1 & 1\\1 & 1 & 1 \\1 & 1 & 1 \em
+\to \bm 1 & 1 & 1\\ 0 & 0 & 0 \\0 & 0 & 0 \em
+$$
+which yields the general solution $v_1 = -v_2 - v_3$ with
+$v_2, v_3$ free.   This gives basic eigenvectors
+$$
+\v_2 = \bm\format\r\\-1\\1\\0\em,\qquad
+\v_3 = \bm\format\r\\-1\\ 0 \\ 1\em.
+$$
+Unfortunately, $\v_2$ and $\v_3$ are {\it not perpendicular\/},
+but this is easy to remedy.  All we have to do is pick
+{\it another basis\/} for the subspace spanned by $\{\v_2, \v_3\}$.
+The eigenvectors with eigenvalue $-2$ are exactly the non-zero
+vectors in this subspace, so any basis will do as well.
+
+   It is easy to construct the new basis.  Indeed
+we need only replace one of the two vectors.
+Keep $\v_2$, and let $\v_3' = \v_3 - c\v_2$ where $c$ is chosen
+so that  
+$$
+(\v_2, \v_3') = (\v_2, \v_3) - c(\v_2, \v_2) = 0, 
+$$
+i.e., take $c = \dfrac{(\v_2,\v_3)}{(\v_2,\v_2)}$.  (See the
+diagram to get some idea of the geometry behind this calculation.)
+We have
+$$
+\gather
+\frac{(\v_2,\v_3)}{(\v_2,\v_2)} = \frac 12 \\
+\v_3' = \v_3 - \frac 12 \v_2 = \bm\format\r\\-1\\0\\1\em
+      -\frac 12\bm\format\r\\-1\\1\\0\em
+= \bm\format\r\\-\frac 12\\-\frac 12\\1\em.
+\endgather$$
+
+\mar{s12-6a.ps}
+We should also normalize this basis by choosing
+$$
+\u_2 = \frac 1{|\v_2|}\v_2 = \frac 1{\sqrt 2} \bm\format\r\\-1\\1\\0\em,
+\qquad
+\u_3 =\frac 1{|\v_3'|}\v_3'
+ = \sqrt{\frac 23}\bm\format\r\\-\frac 12\\-\frac 12\\1\em.
+$$
+
+Putting this all together, we see that 
+$$
+\u_1 =  \frac 1{\sqrt 3}\bm 1\\1\\1\em,\qquad
+\u_2 = \frac 1{\sqrt 2} \bm\format\r\\-1\\1\\0\em,
+\qquad
+\u_3  = \sqrt{\frac 23}\bm\format\r\\-\frac 12\\-\frac 12\\1\em
+$$
+form an orthonormal basis for $\R^3$ consisting of eigenvectors
+for $A$.   Notice that $\u_1$ is automatically perpendicular
+to $\u_2$ and $\u_3$ as the theory predicts.
+\endexample
+\subhead The Gram--Schmidt Process \endsubhead
+In Example \en, we used a special case of a more general
+algorithm in order to construct an orthonormal basis of
+eigenvectors.   The algorithm, called the {\it Gram--Schmidt
+Process\/} works as follows.   Suppose 
+\outind{Gram--Schmidt Process}%
+$$
+\{\v_1, \v_2, \dots, \v_k\}
+$$
+is a {\it linearly independent set\/} spanning a certain
+subspace $W$.  We construct an orthonormal basis for $W$
+as follows.  Let
+$$\align
+\v_1' &= \v_1 \\
+\v_2' &= \v_2 - \frac{(\v_1',\v_2)}{(\v_1',\v_1')}\v_1'\\
+\v_3' &= \v_3 - \frac{(\v_1',\v_3)}{(\v_1',\v_1')}\v_1'
+ - \frac{(\v_2',\v_3)}{(\v_2',\v_2')}\v_2' \\
+ &\vdots \\
+\v_k' &= \v_k - \sum_{j=1}^{k-1}\frac{(\v_j',\v_k)}{(\v_j',\v_j')}\v_j'.
+\endalign$$
+
+It is not hard to see that each new $\v_j'$ is perpendicular
+to those constructed before it.   For example,
+$$
+(\v_1',\v_3') = (\v_1',\v_3) - \frac{(\v_1',\v_3)}{(\v_1',\v_1')}
+(\v_1',\v_1') - \frac{(\v_2',\v_3)}{(\v_2',\v_2')}(\v_1',\v_2'). 
+$$
+However, we may suppose that we already know that $(\v_1',\v_2') = 0$
+(from the previous stage of the construction), so the above becomes
+$$
+(\v_1',\v_3') = (\v_1',\v_3) - (\v_1',\v_3) = 0.
+$$
+The same argument works at each stage.
+
+It is also not hard to see that at each stage, replacing
+$\v_j$ by $\v_j'$ 
+in
+$$\{\v_1', \v_2', \dots, \v_{j-1}', \v_j\}$$
+does not change the subspace spanned by the set.  
+Hence, for $j = k$, we conclude that $\{\v_1', \v_2', \dots,
+\v_k'\}$ is a basis for $W$ consisting of mutually perpendicular
+vectors.   Finally, to complete the process simply divide
+each $\v_j'$ by its length
+$$
+\u_j = \frac 1{|\v_j'|}\v_j'.
+$$
+Then $\{\u_1,\dots, \u_k\}$ is an orthonormal basis for $W$.
+
+\nextex
+\example{Example \en}  Consider the subspace of $\R^4$ spanned by
+$$
+\v_1 = \bm\format\r\\-1\\1\\0\\1\em,
+\v_2 =  \bm\format\r\\-1\\1\\1\\0\em,
+\v_3 =  \bm\format\r\\1\\0\\0\\1\em.
+$$
+Then
+$$\align
+\v_1' &= \bm\format\r\\-1\\1\\0\\1\em \\
+\v_2' &= \bm\format\r\\-1\\1\\1\\0\em - \frac 23\bm\format\r\\-1\\1\\0\\1\em
+      = \bm\format\r\\ -\frac 13\\ \frac 13 \\ 1\\ -\frac 23 \em \\
+\v_3' &= \bm\format\r\\1\\0\\0\\1\em - \frac 03\bm\format\r\\-1\\1\\0\\1\em
+   - \frac {-1}{\frac {15}9}\bm\format\r\\ -\frac 13\\ \frac 13 \\ 1\\ -\frac 23 \em
+    = \bm\format\r\\ \frac 45\\ \frac 15\\ \frac 35\\ \frac 35 \em.
+\endalign$$
+Normalizing, we get
+$$\align
+\u_1 &= \frac 1{\sqrt 3}\bm\format\r\\-1\\1\\0\\1\em \\
+\u_2 &= 
+\frac 3{\sqrt{15}}\bm\format\r\\ -\frac 13\\ \frac 13 \\ 1\\ -\frac 23 \em 
+=
+\frac 1{\sqrt{15}}\bm\format\r\\ -1\\ 1 \\ 3\\ -2 \em \\
+\u_3 &= \frac 5{\sqrt {35}}
+\bm\format\r\\ \frac 45\\ \frac 15\\ \frac 35\\ \frac 35 \em
+= \frac 1{\sqrt {35}}
+\bm\format\r\\ 4\\ 1\\ 3\\ 3 \em.
+\endalign$$
+\bigskip
+\input chap12.ex5
+\bigskip
+
+\nextsec{Change of Coordinates and the Principal Axis Theorem}
+\head \sn.  Change of Coordinates and the Principal Axis
+Theorem \endhead
+
+One way to understand the Principal Axis Theorem and other such theorems
+about a special choice of basis is to think of how a given problem
+ would be expressed relative to that basis.
+For example, if we look at the linear operator $L$ defined by
+$L(\x) = A\x$, then if $\{\v_1,\v_2,\dots,\v_n\}$ is a basis
+of eigenvectors for $A$, we have by definition $L(\v_i) = \lambda_i\v_i$.
+Thus, for any vector $\x$, its coordinates
+$x_1', x_2', \dots, x_n'$ with respect to this basis
+are the coeffcients in 
+$$
+\x = \v_1x_1' +\v_2x_2' + \dots +\v_nx_n' =
+\bm \v_1 & \v_2 & \hdots &\v_n\em \bm x_1'\\x_2'\\\vdots\\x_n'\em,
+$$
+so we have
+$$
+\align
+L(\x) &= L(\v_1)x_1' + L(\v_2)x_2' + \dots + L(\v_n)x_n'\\
+&= \v_1\lambda_1x'_1 + \v_2\lambda_2x'_2 + \dots + \v_n\lambda_nx'_n
+=\bm \v_1 &\v_2 &\hdots &\v_n\em \bm \\\lambda_1x'_1\\\lambda_2x'_2\\
+\vdots\\\lambda_nx'_n\em.
+\endalign
+$$
+Thus, the effect of $L$ on the {\it coordinates\/} of a vector
+{\it with respect to such a basis\/} is quite simple: each coordinate is
+just multiplied by the corresponding eigenvalue.  (See Chapter X,
+Section 8
+%Back reference
+to review the concept of coordinates with respect to a basis.)
+\outind{coordinates, change of}%
+
+To study this in greater detail, we need to talk a bit more about
+changes of coordinates.  Although the theory is quite general, we
+shall concentrate on $\R^n$ and $\C^n$.  In either of these vector
+spaces, we start implicitly with the standard basis
+$\{\e_1, \e_2, \dots, \e_n\}$.   The entries 
+ in a vector
+$\x$ may be thought of as the coordinates $x_1, x_2, \dots, x_n$
+of the vector with respect to that basis.  Suppose  $\{\v_1,\v_2,\dots,
+\v_n\}$ is another basis.  
+As above, the coordinates of $\x$ with respect to
+the new basis are obtained by solving
+\nexteqn
+$$
+\x = \bm \v_1 & \v_2 & \hdots &\v_n \em \x'\tag\eqn
+$$
+for
+$$
+\x' = \bm x_1' \\ x_2' \\ \vdots \\ x_n' \em.
+$$
+Let 
+$$
+P = \bm \v_1 &\v_2 & \hdots &\v_n\em.
+$$
+Then the relation (\eqn) becomes
+\nexteqn
+$$
+\x = P \x'\tag\eqn
+$$
+which may be thought of as a rule relating the `old' coordinates
+of a vector to its `new' coordinates.  $P$ is called the
+{\it change of coordinates matrix}, and its $j$th column is
+$\v_j$ which may also be thought of as {\it the set of
+`old' coordinates of the $j$th `new' basis vector}.
+
+ (\eqn) is backwards in
+that the `old' coordinates are expressed in terms of the `new'
+coordinates.   However, it is easy to turn this around.  Since the
+columns of $P$ are linearly independent, $P$ is invertible and
+we may write instead
+\nexteqn
+$$
+\x' = P^{-1}\x.
+$$
+These rules have been stated for the case in which we change from
+the standard basis to some other basis, but they work quite
+generally for any change of basis.  (They even work in cases
+where there is no obvious `standard basis'.)   Just use
+the rule enunciated above: the $j$th column of $P$ is
+the  set of
+`old' coordinates of the $j$th `new' basis vector.
+
+\nextex
+\example{Example \en}  Suppose in $\R^2$ we pick a new set of
+coordinate axes  by rotating each of the old axes through angle
+$\theta$ in the counterclockwise direction.  Call the old coordinates
+$(x_1, x_2)$ and the new coordinates $(x_1', x_2')$.   According
+to the above discussion, the columns of the 
+change of basis matrix $P$  come from the old coordinates of the
+new basis vectors, i.e., of unit vectors along the new axes.
+From the diagram, these are
+$$
+\bm \cos\theta\\ \sin\theta \em\qquad \bm\format\r\\-\sin\theta\\cos\theta\em.
+$$
+\medskip
+\centerline{\epsfbox{s12-9.ps}}
+\medskip
+Hence,
+$$
+\bm x_1\\ x_2 \em = 
+\bm\format\r&\quad\r\\
+       \cos\theta & -\sin\theta \\
+       \sin\theta & \cos\theta \em 
+\bm x_1'\\ x_2'\em.
+$$
+The change of basis matrix is easy to invert in this case.
+(Use the special rule which applies to $2\times 2$ matrices.)
+$$
+\bm\format\r&\quad\r\\
+       \cos\theta & -\sin\theta \\
+       \sin\theta & \cos\theta \em ^{-1}
+= \frac 1{\cos^2\theta + \sin^2\theta}
+\bm\format\r&\quad\r\\
+       \cos\theta & \sin\theta \\
+       -\sin\theta & \cos\theta \em 
+=
+\bm\format\r&\quad\r\\
+       \cos\theta & \sin\theta \\
+       -\sin\theta & \cos\theta \em 
+$$
+(You could also have obtained this by using the matrix for
+rotation through angle $-\theta$.)
+Hence, we may express the `new' coordinates in terms of the `old'
+coordinates through the relation
+$$
+\bm x'_1\\ x'_2 \em = 
+\bm\format\r&\quad\r\\
+       \cos\theta & \sin\theta \\
+       -\sin\theta & \cos\theta \em 
+\bm x_1\\ x_2\em.
+$$
+\endexample
+\medskip
+The significance of the Principal Axis Theorem is clarified
+somewhat by thinking in terms of changes of coordinates.
+Suppose  $A$ is diagonalizable and
+$\{\v_1, \v_2, \dots, \v_n\}$ is a basis of
+eigenvectors for $A$.  Suppose
+$P = \bm \v_1 &\v_2 & \hdots &\v_n\em$ is the
+corresponding change of basis matrix.  We
+%have
+%$$
+%\align
+%A\v_1 &= \v_1\lambda_1 
+%= \bm \v_1 &\v_2 &\hdots &\v_n\em \bm\lambda_1 \\ 0\\\vdots\\0\em\\
+%A\v_2 &= \v_2\lambda_2
+%= \bm \v_1 &\v_2 &\hdots &\v_n\em \bm 0 \\\lambda_2 \\\vdots\\0\em\\
+%&\vdots \\
+%A\v_n &= \v_n\lambda_n
+%= \bm \v_1 &\v_2 &\hdots &\v_n\em \bm 0 \\ 0\\\vdots\\\lambda_n\em
+%\endalign
+%$$
+%where some eigenvalues $\lambda_j$   for different eigenvectors
+%might be repeated.  These equations can be written in a single
+%matrix equation
+%$$
+%A\bm \v_1 & \v_2 & \hdots &\v_n\em
+% = \bm \v_1 & \v_2 & \hdots &\v_n\em\bm \lambda_1 & 0 & \hdots & 0\\
+%0 & \lambda_2 &\hdots & 0 \\ \vdots & \vdots &\hdots &\vdots \\
+%   0 & 0 & \hdots & \lambda_n \em
+%$$
+%or
+%$$
+%AP = PD
+%$$
+%where $D$ is a diagonal matrix with eigenvalues (possibly repeated)
+%on the diagonal.  This may also be written
+showed in Chapter 11, Section 8 that
+\nexteqn
+$$
+P^{-1}AP = D\tag\eqn
+$$
+where  $D$ is a diagonal matrix  with the eigenvalues of $A$ on
+the diagonal.
+To see how this might be used,  consider 
+a second order system of the form
+$$
+\frac{d^2\x}{dt^2} = A\x.
+$$
+Assume we make the change of coordinates
+$$
+\x = P\x'.
+$$
+Then
+$$\gather
+\frac{d^2P\x'}{dt^2} = AP\x'\\
+P\frac{d^2\x'}{dt^2} = AP\x'\\
+\frac{d^2\x'}{dt^2} = P^{-1}AP\x' = D\x'.
+\endgather$$
+However, since $D$ is diagonal, this last equation may be written
+as $n$ scalar equations
+$$
+\frac{d^2x_j'}{dt^2} = \lambda_j x_j'\qquad j = 1, 2, \dots, n.
+$$
+In the original coordinates, the motions of the particles
+are `coupled' since the motion of each particle
+may affect the motion of the other particles.   In the new coordinate
+system,
+these motions are `decoupled'. 
+If we do this for a normal modes problem,
+  the new coordinates are called {\it normal\/}
+\outind{normal mode}%
+\outind{normal coordinates}%
+\outind{coordinates, normal}%
+coordinates. Each $x_j'$ may be thought of as the displacement
+of one of $n$ fictitious particles, each of which oscillates
+independently of the others in one of
+$n$  mutually perpendicular directions.  The physical significance
+in terms of the original particles of each normal coordinate is
+a but murky, but they presumably represent underlying structure
+of some importance. 
+
+\nextex
+\example{Example \en}  Recall the normal modes problem in
+Section 3, Example 1.
+%Back reference
+\medskip
+\centerline{\epsfbox{s10-1.ps}}
+\medskip
+Since the masses are equal, the problem
+ can be reformulated as
+$$
+\frac{d^2\x}{dt^2} = \frac km \bm \format\r&\quad\r\\-2 & 1\\ 1 & -2 \em\x.
+$$
+ This doesn't change anything in the solution process, and a basis
+of eigenvectors for the coefficient matrix is as before
+$$
+\left\{\v_1 = \bm 1\\1\em, \, \v_2 =\bm\format\r\\ -1\\1\em\right\}.
+$$
+If we divide the vectors by their lengths, we obtain the orthonormal
+basis
+$$
+\left\{\frac 1{\sqrt 2}\bm 1\\1\em,\, 
+\frac 1{\sqrt 2}\bm\format\r\\ -1\\1\em\right\}.
+$$
+This in turn leads to the change of basis matrix
+$$
+P = \bm\format\r&\quad\r\\
+      \frac 1{\sqrt 2} & -\frac 1{\sqrt 2}\\
+      \frac 1{\sqrt 2} & \frac 1{\sqrt 2} \em
+$$
+\medskip
+\centerline{\epsfbox{s12-11.ps}}
+\medskip
+If you look carefully, you will see this represents a rotation of
+the original $x_1, x_2$-axes through an angle $\pi/4$.  However,
+this has nothing to do with the original geometry of the problem.
+$x_1$ and $x_2$ stand for displacements of two different particles
+along the same one dimensional axis.   The $x_1,x_2$ plane is
+a fictitious configuration space in which a single point represents
+the pair of particles.   It is not absolutely clear what a rotation
+of axes means for this plane, but the new normal coordinates $x_1', x_2'$
+obtained thereby give us a formalism in which the normal modes appear
+as decoupled oscillations.
+\endexample
+
+\medskip
+\subhead Orthogonal and Unitary Matrices \endsubhead
+You may have noticed that the matrix $P$ obtained in Example \en\ %
+has the property $P^{-1} = P^t$.   This is no accident.  It is
+a consequence of the fact that its columns are mutually perpendicular
+unit vectors.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $P$ be an $n\times n$ real matrix.
+Then the columns of $P$ form an orthonormal basis for $\R^n$
+if and only if $P^{-1} = P^t$.  Similarly if $P$ is an $n\times n$
+complex matrix, its columns form an orthonormal basis for
+$\C^n$ if and only if $P^{-1} = \overline P^t$.
+\endproclaim
+
+A matrix with this property is called {\it orthogonal\/} in
+the real case and {\it unitary\/} in the complex case.  The complex
+case subsumes the real case since a real matrix is unitary if and
+only if it is orthogonal.
+\outind{orthogonal matrix}%
+\outind{unitary matrix}%
+
+\demo{Proof of the Theorem}  We consider the real case.
+(The argument in the complex case is similar except that dot
+products need a complex conjugation on the first factor.)  
+ Let
+$$
+P = \bm \v_1 & \v_2 & \hdots & \v_n \em.
+$$
+Then
+$$
+ P^t = \bm \v_1{}^t\\
+                    \v_2{}^t \\
+                     \vdots \\
+                    \v_n{}^t \em.
+$$
+Hence, the $j,k$-term of the product $P^tP$ is
+$$
+ \v_j{}^t\v_k = (\v_j, \v_k)
+$$
+Thus, $P^tP = I$ if and only if
+$$
+(\v_j, \v_k) = \delta_{jk}
+$$
+where $\delta_{jk}$, the `Kronecker $\delta$', gives the entries of
+the identity matrix.   However, this just says that the vectors
+are mutually perpendicular (for $j\not=k$) and have length
+1 (for $j = k$).
+\qed\enddemo
+
+Since the Principal Axis Theorem asserts that there is an
+{\it orthonormal\/} basis consisting of eigenvectors
+for the Hermitian matrix $A$, that means that the corresponding
+change of basis matrix is always unitary (orthogonal in the
+real case).  Putting this in (\eqn), we get the following
+equivalent form of the Principal Axis Theorem.   
+
+\nextthm
+\proclaim{Theorem \cn.\tn} 
+If $A$ is a complex Hermitian $n\times n$ matrix, there is
+a unitary matrix $P$ such that
+$$
+	\overline P^tAP = P^{-1}AP = D
+$$
+is diagonal.  If $A$ is real symmetric, $P$ may be chosen
+to be real orthogonal. 
+\endproclaim
+
+\subhead The Proof of the Principal Axis Theorem \endsubhead
+\demo{}
+We know that we can always find a basis for $\C^n$ of generalized
+eigenvectors for a complex $n\times n$ matrix $A$.    The point of the
+Principal Axis Theorem is that if $A$ is Hermitian, ordinary
+eigenvectors suffice.   The issue of orthogonality may be dealt with
+\outind{Principal Axis Theorem, proof}%
+separately  since, for a Hermitian matrix,
+ eigenvectors for different eigenvalues are
+perpendicular and the Gram--Schmidt Process is available for repeated
+eigenvalues.   Unfortunately there does not seem to be a simple
+direct way to eliminate the possibility of generalized eigenvectors
+which are not eigenvectors.   The proof we shall give proceeds by
+induction, and it shares with many inductive proofs the feature that,
+while you can see that it is correct, you may not find it too
+enlightening. 
+  You might want to skip the proof the first time you
+study this material.
+
+We give the proof in the real case.  The only difference in the
+complex case is that you  need to put complex conjugates over
+the appropriate terms in the formulas.
+
+Let $A$ be an $n\times n$ symmetric matrix.   We shall show that
+there is a real orthogonal $n\times n$ matrix $P$ such that
+$$
+AP = PD\qquad\text{or equivalently}\qquad P^tAP = D
+$$
+where $D$ is a diagonal matrix with the eigenvalues of $A$
+(possibly repeated) on its diagonal.
+
+If $n = 1$ there really isn't anything to prove.  (Take $P = \bm 1 \em$.)
+Suppose the theorem has been proved for $(n-1)\times(n-1)$ matrices.
+Let $\u_1$ be a unit eigenvector for $A$ with eigenvalue $\lambda_1$.
+Consider the subspace $W$ consisting of all vectors perpendicular
+to $\u_1$.  It is not hard to see that $W$ is an $n-1$ dimensional
+subspace.   Choose (by the Gram--Schmidt Process) an orthonormal
+basis $\{\w_2, \w_2\dots, \w_n\}$ for $W$.   Then
+$\{\u_1,\w_2, \dots, \w_n\}$ is an orthonormal basis for $\R^n$,
+and
+$$
+A \u_1 = \u_1\lambda_1 =
+\undersetbrace{P_1}\to{\bm \u_1 &\w_2 &\hdots &\w_n\em}
+\bm\lambda_1\\0\\\vdots\\0\em.
+$$
+This gives the first column of $AP_1$, and we want to say something
+about its remaining columns 
+$$
+A\w_2, \quad A\w_2,\dots, A\w_n.
+$$
+To this end, note that if $\w$ is any vector in $W$, then
+$A\w$ is also a vector in $W$.  For, starting with the
+{\it self adjoint property\/} (Section 4, Problem A3),
+%Reference to HW problem
+we have
+$$
+   (\u_1, A\w) = (A\u_1, \w) = (\lambda_1\u_1, \w) = \lambda_1(\u_1, \w)
+       = 0,
+$$
+which is to say, $A\w$ is perpendicular to $\u_1$ if $\w$ is
+perpendicular to $\u_1$.    It follows that each $A\w_j$ is a
+linear combination just of $\w_2, \w_3, \dots, \w_n$, i.e.,
+$$
+A\w_j = \bm \u_1 & \w_2 & \hdots & \w_n\em
+        \bm 0 \\ * \\ \vdots \\ * \em
+$$
+where `$*$' denotes some unspecified entry.  Putting this all
+together, we see that
+$$ 
+AP_1 = P_1\undersetbrace{A_1}\to{
+\bm \lambda_1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & A' & {}\\
+     0 & {}& {}& {} \em}
+$$
+where $A'$ is an $(n-1)\times(n-1)$ matrix.   $P_1$ is orthogonal
+(since its columns form an orthonormal basis) so
+$$
+P_1{}^tA P_1 = A_1,
+$$
+and it  is not hard to derive from this the fact that $A_1$
+is symmetric.   Because of the structure of $A_1$, this
+implies that $A'$ is symmetric.   Hence, by induction we
+may assume there is an $(n-1)\times(n-1)$ orthogonal matrix
+$P'$ such that
+$A'P' = P'D'$ with $D'$ diagonal.   It follows that
+$$\align
+A_1
+\undersetbrace{P_2}\to{\bm 1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & P' & {}\\
+     0 & {}& {}& {} \em}
+&= \bm \lambda_1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & A' & {}\\
+     0 & {}& {}& {} \em
+\bm 1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & P' & {}\\
+     0 & {}& {}& {} \em \\
+&= \bm \lambda_1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & A'P' & {}\\
+     0 & {}& {}& {} \em 
+ = \bm \lambda_1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & P'D' & {}\\
+     0 & {}& {}& {} \em \\
+&= 
+\undersetbrace{P_2}\to{\bm 1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & P' & {}\\
+     0 & {}& {}& {} \em}
+\undersetbrace{D}\to{\bm \lambda_1 & 0 & \hdots & 0 \\
+    0 & {} & {} & {} \\
+    \vdots &{} & D' & {}\\
+     0 & {}& {}& {} \em}
+= P_2 D.
+\endalign
+$$
+Note that $P_2$ is orthogonal and $D$ is diagonal.
+Thus,
+$$
+\gather
+A\undersetbrace{P}\to{P_1P_2} = P_1A_1P_2 = 
+\undersetbrace{P}\to{P_1P_2}D\\
+\text{or}\qquad AP = PD.
+\endgather
+$$
+However, a product of orthogonal matrices is orthogonal---see
+the Exercises---so $P$ is orthogonal as required.
+\qed\enddemo
+\bigskip
+\input chap12.ex6
+\bigskip
+
+\nextsec{Classification of Conics and Quadrics}
+\head \sn.  Classification of Conics and Quadrics \endhead
+
+As mentioned earlier, the Principal Axis Theorem derives its name
+from its relation to classifying conics, quadric surfaces,
+and their higher dimensional analogues.
+
+A level curve in $\R^2$ defined by an equation of the form
+$$
+f(\x) = a_{11}x_1{}^2 + 2a_{12}x_1x_2 + a_{22}x_2{}^2 = C
+$$
+is called a {\it central conic\/}.   (The reason for the 2
+will be clear shortly.)  
+   As we shall see, a central conic
+is either an ellipse or a hyperbola  (for which the principal axes
+need not be the coordinate axes) or a degenerate `conic'
+consisting of a pair of lines.
+\outind{conic, central}%
+\outind{central conic or quadric}%
+\outind{quadric, central}%
+
+The most general conic
+is the locus of an arbitrary quadratic equation which may have
+linear as well as quadratic terms.   Such
+curves may be studied by applying the methods
+discussed
+in this section to the
+quadratic terms and then completing squares to
+eliminate linear terms.   Parabolas are included  in the
+theory in this way.
+
+  To study a central conic,
+it is convenient to express the function $f$ as follows.
+$$\align
+f(\x) &= (x_1a_{1,1} + x_2a_{21})x_1 + (x_1a_{12} + x_2a_{22})x_2\\
+      &= x_1(a_{11}x_1 + a_{12}x_2) + x_2(a_{21}x_1 + a_{22}x_2),
+\endalign$$
+where we have introduced $a_{21} = a_{12}$.   
+The above expression may also be written in matrix form
+$$
+  f(\x) = \sum_{j,k=1}^2 x_ja_{jk}x_k = \x^tA\x
+$$
+where $A$ is the symmetric matrix of coefficients.
+
+This may be generalized to $n > 2$ in a rather obvious manner.
+Let $A$ be a real symmetric $n\times n$ matrix, and define  
+$$
+f(\x) = \sum_{j, k = 1}^n x_ja_{jk}x_k = \x^tA\x. 
+$$
+For $n=3$ this may be written explicitly 
+$$\align
+f(\x) &= (x_1a_{11} + x_2a_{21} + x_3a_{31})x_1 \\
+      &\hphantom{=} + (x_1a_{12} + x_2a_{22} + x_3a_{32})x_2\\
+      &\hphantom{=} + (x_1a_{13} + x_2a_{23} + x_3a_{33})x_3\\
+  &= a_{11}x_1{}^2 + a_{22}x_2{}^2 + a_{33}x_3{}^2 \\ 
+  &\hphantom{=} + 2a_{12}x_1x_2 + 2a_{13}x_1x_3 + 2a_{23}x_2x_3.
+\endalign$$
+
+The level set defined by 
+$$
+f(\x) = C
+$$
+is called a {\it central hyperquadric}.  It should be visualized
+\outind{hyperquadric}%
+as an $n-1$ dimensional curved object in $\R^n$.  For $n = 3$
+it will be an ellipsoid or a hyperboloid (of one or two sheets)
+or perhaps a degenerate `quadric' like a cone.   (As in the case
+of conics, we must also allow linear terms 
+to encompass paraboloids.)
+
+If the above contentions are true, we expect the locus of
+the equation $f(\x) = C$ to have certain axes of symmetry
+which we shall call its {\it principal axes}.   It turns out
+that these axes are determined by an {\it orthonormal
+basis of eigenvectors\/} for the coefficient matrix $A$.
+To see this, suppose $\{\u_1, \u_2, \dots, \u_n\}$ is
+such a basis and $P = \bm \u_1 & \u_2 & \hdots & \u_n \em$
+is the corresponding orthogonal matrix.  By the Principal
+Axis Theorem,  $P^tAP = D$ is diagonal with the eigenvalues,
+$\lambda_1, \lambda_2, \dots, \lambda_n$,
+of $A$
+ appearing on the
+diagonal.    Make the change of coordinates  $\x = P\x'$
+where $\x$ represents the `old' coordinates and
+$\x'$ represents the `new' coordinates.   Then
+$$
+f(\x) = \x^tA\x = (P\x')^tA(P\x') = (\x')^tP^tAP\x' = (\x')^tD\x'.
+$$
+Since $D$ is diagonal, the quadratic expression on the right has
+no cross terms, i.e.
+$$
+\align
+(\x')^tD\x' &= \bm x_1'& x_2' & \cdots x_n' \em
+ \bm \lambda_1 & 0 & \cdots & 0 \\
+    0 & \lambda_2 & \cdots & 0 \\
+    \vdots & \vdots & \cdots & \vdots \\
+     0 & 0 & \cdots & \lambda_n \em \bm x_1' \\ x_2' \\ \vdots \\ x_n'\em \\
+   &= \lambda_1(x_1')^2 + \lambda_2(x_2')^2 + \dots + \lambda_n(x_n')^2.
+\endalign $$ 
+In the new coordinates, the equation takes the form
+$$
+\lambda_1(x_1')^2 + \lambda_2(x_2')^2 + \dots + \lambda_n(x_n')^2 = C
+$$
+and its graph is usually quite easy to describe.
+
+\nextex
+\xdef\ConEx{\en}
+\example{Example \en} 
+We shall determine the level curve  $f(x,y) = x^2 + 4xy + y^2 = 1$.  
+First rewrite the equation
+$$
+\bm x & y \em \bm 1 & 2 \\ 2 & 1 \em \bm x\\ y \em = 1.
+$$
+Next,
+ find the eigenvalues of the coefficient matrix by solving
+$$
+\det \bm 1 - \lambda & 2 \\ 2 & 1 - \lambda \em
+= (1 - \lambda)^2 - 4 = \lambda^2 - 2\lambda -3 = 0.
+$$
+This equation is easy to factor, and the roots are
+$\lambda = 3, \lambda = -1$.
+
+For $\lambda = 3$, to find the eigenvectors,  we need to solve
+$$
+\bm\format\r&\quad\r\\-2 & 2 \\ 2 & -2 \em\bm v_1\\ v_2 \em = 0.
+$$
+Reduction of the coefficient matrix yields 
+$$
+\bm\format\r&\quad\r\\-2 & 2 \\ 2 & -2 \em \to
+\bm\format\r&\quad\r\\1 & -1 \\ 0 & 0 \em 
+$$
+with the general solution $v_1 = v_2$,  $v_2$ free.   
+A basic {\it normalized\/} eigenvector is
+$$
+\u_1 = \frac 1{\sqrt 2}\bm 1 \\ 1 \em.
+$$
+
+For $\lambda = -1$,  a similar calculation (which you should
+make) yields the basic normalized eigenvector
+$$
+\u_2 = \frac 1{\sqrt 2}\bm\format\r\\ -1 \\ 1 \em.
+$$
+(Note that $\u_1 \perp \u_2$ as expected.)
+
+From this we can form the corresponding orthogonal
+matrix $P$ and make the change of coordinates
+$$
+\bm x \\ y \em = P\bm x'\\ y' \em,
+$$
+and, 
+according to the above analysis, the equation of the level curve
+in the new coordinate system
+is
+$$
+3(x')^2 - (y')^2 = 1.
+$$
+It is clear that this is a hyperbola with principal axes pointing along
+the new axes.  
+\medskip
+\centerline{\epsfbox{s12-16h.ps}}
+\medskip
+\endexample
+\nextex
+\example{Example \en}
+Consider the quadric surface defined by
+$$
+x_1{}^2 + x_2{}^2 + x_3{}^2 - 2x_1x_3 = 1.
+$$
+We take 
+$$
+f(\x) = 
+x_1{}^2 + x_2{}^2 + x_3{}^2 - 2x_1x_3 
+ = \bm x_1 & x_2 & x_3 \em
+ \bm\format\r&\quad\r&\quad\r\\
+             1 & 0 & -1\\ 
+             0 & 1 & 0 \\
+             -1 & 0 & 1 \em
+\bm x_1\\ x_2 \\ x_3 \em.
+$$
+The characteristic equation of the coefficient matrix is
+$$
+\det 
+ \bm 1-\lambda & 0 & -1\\
+     0 & 1-\lambda & 0 \\
+    -1 & 0 & 1-\lambda \em
+= (1 - \lambda)^3 - (1 - \lambda) = -(\lambda - 2)(\lambda - 1)\lambda = 0
+$$
+Thus, the eigenvalues are $\lambda = 2, 1, 0$.   
+
+For $\lambda = 2$, reduce
+$$
+\bm\format\r&\quad\r&\quad\r\\
+     -1 & 0 & -1 \\
+     0 & -1 & 0 \\
+    -1 &  0 & -1 \em 
+\to \bm\format\r&\quad\r&\quad\r\\
+     1 & 0 & 1 \\
+     0 & 1 & 0 \\
+    0 & 0 & 0 \em
+$$
+to obtain $v_1 = -v_3, v_2 = 0$ with $v_3$ free.
+Thus,
+$$
+\v_1 = \bm\format\r\\ -1 \\ 0 \\ 1\em
+$$
+is a basic eigenvector for $\lambda = 2$, and
+$$
+\u_1 = \frac 1{\sqrt 2}\bm\format\r\\ -1 \\ 0 \\ 1\em
+$$
+is a basic unit eigenvector.
+
+Similarly, for $\lambda = 1$ reduce
+$$
+\bm\format\r&\quad\r&\quad\r\\
+     0 & 0 & -1 \\
+     0 & 0 & 0 \\
+    -1 &  0 & 0 \em 
+\to \bm\format\r&\quad\r&\quad\r\\
+     1 & 0 & 0 \\
+     0 & 0 & 1 \\
+    0 & 0 & 0 \em
+$$
+which yields $v_1 = v_3 = 0$ with $v_2$ free.  Thus a basic unit
+eigenvector for $\lambda = 1$ is
+$$
+\u_2 = \bm 0\\1\\ 0\em.
+$$
+
+Finally, for $\lambda = 0$, reduce
+$$
+\bm\format\r&\quad\r&\quad\r\\
+     1 & 0 & -1 \\
+     0 & 1 & 0 \\
+    -1 &  0 & 1 \em 
+\to \bm\format\r&\quad\r&\quad\r\\
+     1 & 0 & -1 \\
+     0 & 1 & 0 \\
+    0 & 0 & 0 \em.
+$$
+This yields $v_1 = x_3, v_2 = 0$ with $v_3$ free.  Thus, a
+basic unit eigenvector for $\lambda = 0$ is
+$$
+\u_3 = \frac 1{\sqrt 2}\bm 1\\ 0 \\ 1\em.
+$$
+
+The corresponding orthogonal change of basis matrix is   
+$$
+P = \bm \u_1 &\u_2 & \u_3 \em = 
+\bm\format\r&\quad\r&\quad\r\\
+     -\frac 1{\sqrt 2} & 0 & \frac 1{\sqrt 2} \\
+          0         & 1 &   0 \\
+      \frac 1{\sqrt 2} & 0 & \frac 1{\sqrt 2}\em.
+$$
+Moreover, putting
+$\x = P\x'$,
+we can express the
+equation of the quadric surface in the new coordinate system
+\nexteqn
+$$
+  2x_1'{}^2 + 1x_2'{}^2 + 0x_3'{}^2
+   =  2x_1'{}^2 + x_2'{}^2 = 1.\tag\eqn
+$$
+Thus it is easy to see what the level surface is: an elliptical cylinder
+perpendicular to the $x_1', x_2'$ plane.    The three `principal
+axes' in this case are the two axes of the ellipse in the
+$x_1', x_2'$ plane and the $x_3'$ axis, which is the central
+axis of the cylinder.
+
+Representing the graph in the new coordinates makes it easy to
+understand its geometry.   Suppose, for example, that we want
+to find the points on the graph which are closest to the origin.
+These are the points at which the $x_1'$-axis intersects the
+surface.   
+These are the points with new coordinates
+$x_1' = \pm \dfrac 1{\sqrt 2}, x_2' = x_3' = 0$. 
+If you want the coordinates of these points in the original
+coordinate system, use the change of coordinates formula
+$$
+\x = P\x'.
+$$
+Thus, the old coordinates of the minimum point with
+new coordinates  $(1/\sqrt 2, 0, 0)$ are given by
+$$
+\bm\format\r&\quad\r&\quad\r\\
+     -\frac 1{\sqrt 2} & 0 & \frac 1{\sqrt 2} \\
+          0         & 1 &   0 \\
+      \frac 1{\sqrt 2} & 0 & \frac 1{\sqrt 2}\em
+\bm \frac 1{\sqrt 2}\\ 0 \\ 0 \em
+= \bm\format\r\\ -\frac 12\\ 0\\ \frac 12\em.
+$$
+\endexample
+
+% These examples are typical.   Let  $A$ be a real symmetric $n\times n$
+% matrix, $\{\u_1,\u_2,\dots,\u_n\}$ an orthonormal basis of
+% eigenvectors, and $P = \bm \u_1 &\u_2 &\hdots &\u_n\em$.  
+% Make the change of coordinates
+% $\x = P\x'$. In the new coordinate system,
+%  the level set defined by $f(\x) = \x^tA\x = C$ has the equation
+% $$
+% \lambda_1x_1'{}^2 + \lambda_2x_2'{}^2 + \dots +\lambda_nx_n'{}^2 = C.
+%  $$
+% The coefficients are the eigenvalues associated with the basis vectors
+% $$\u_1, \u_2, \dots, \u_n,$$
+% in the order given.  In the new coordinate system, it is 
+%  easy to understand the geometry of the conic or quadric or
+% hyperquadric.  Finally, you may use the equation $\x = P^t\x'$
+% to express information so obtained in the original coordinates.
+
+\bigskip
+\input chap12.ex7
+\bigskip
+
+\nextsec{A Digression on Constrained Maxima and Minima}
+\head \sn.  A Digression on Constrained Maxima and Minima \endhead
+
+There is another approach to finding the principal axes of a
+conic, quadric, or hyperquadric.   Consider for an example
+an ellipse in $\R^2$ centered at the origin.  One of the
+principal axes intersects the conic in the two points
+at greatest distance from the origin, and the other
+intersects it in the two points at least distance from the origin.
+Similarly, two of the three principal axes of a central ellipsoid in
+$\R^3$ may be obtained in this way.   Thus, if we didn't know about
+eigenvalues and eigenvectors, we might try to find the
+principal axes by
+ maximizing (or minimizing) the
+function  giving the distance to the origin
+ {\it subject to\/} the quadratic equation
+defining the conic or quadric.   In such a problem, we need to
+minimize a function assuming there are one or more relations
+or {\it constraints\/} among the variables.   In this section
+\outind{constraint}%
+we shall consider problems of this kind in general.   
+
+
+We start by considering the case of a single constraint.
+  Suppose we want to maximize (minimize)
+\outind{maxima and minima with constraints}%
+the real valued function  $f(\x) = f(x_1,x_2,\dots,x_n)$
+subject to the constraint $g(\x) = g(x_1,x_2,\dots,
+x_1) = c$.   For $n = 2$, this has a simple geometric interpretation.
+The locus of the equation $g(x_1, x_2) = c$ is a level curve of the function $g$,
+and we want to maximize (minimize) the function $f$ {\it on that
+curve.}   Similarly, for $n = 3$, the level set  $g(x_1,x_2.x_3) = c$
+is a surface in $\R^3$, and we want to
+maximize (minimize) $f$ {\it on that surface}.  In $\R^n$, we call the
+level set defined by $g(x_1,x_2,\dots, x_n) = c$ a 
+{\it hypersurface\/}, and the problem is to maximize (minimize) the function
+\outind{hypersurface}%
+$f$ {\it on that hypersurface}.
+\medskip
+\centerline{\epsfbox{s12-12.ps}}
+\medskip
+\example{Examples}
+Maximize $f(x,y) = x + 3y$ on the hyperbola  $g(x,y) = x^2 - y^2 = 1$.
+
+Maximize $f(x,y) = x^2 + y^2$ on the ellipse $g(x,y) = x^2 + 4y^2 = 3$.  (This is
+easy if you draw the picture.) 
+
+Minimize $f(x,y,z) = 2x^2 + 3xy + y^2 + xz - 4z^2$ on the sphere
+$g(x,y,z) = x^2 + y^2 + z^2 = 1$.
+
+Minimize $f(x,y,z,t) = x^2 + y^2 + z^2 - t^2$ on the hypersphere
+$g(x,y,z,t) = x^2 + y^2 + z^2 + t^2 = 1$.
+\endexample
+
+
+We shall concentrate on the case of $n = 3$ variables,
+but the reasoning for any $n$ is similar.
+We want to maximize (or minimize) $f(\x)$
+on a level set  $g(\x) = c$ in $\R^3$, where as usual we 
+abbreviate 
+$\x = (x_1, x_2, x_3)$.
+ Assume that both $f$ and $g$ are smooth functions
+defined on open sets in $\R^3$,
+and that the level set $g(\x) = c$ has a well defined
+tangent plane at a potential maximum point.
+The latter assumption means that the normal vector $\nabla g$
+does not vanish at the point.   It follows from this
+assumption that every vector $\v$
+perpendicular to $\nabla g$ at the point is a tangent vector
+for some curve in the level set passing through the point.  (Refer back
+to the discussion of tangent planes and the implicit function theorem
+in Chapter III, Section 8.)
+% Back reference
+  Suppose such a curve is given by the parametric
+representation $\x = \x(t)$.
+\medskip
+\centerline{\epsfbox{s12-13.ps}}
+\medskip
+   By the chain rule we have
+$$
+\frac{df}{dt} = \nabla f\cdot\frac{d\x}{dt} = \nabla f\cdot\v
+$$
+where $\v = d\x/dt$.   If the function attains a maximum on the level set
+at the given point, it also attains a maximum along this curve, so
+we conclude that
+$$
+\frac{df}{dt} = \nabla f\cdot \v = 0.
+$$
+As above, we can arrange that the vector $\v$ is any possible
+vector in the tangent plane at the point.    Since there is a
+unique direction perpendicular to the tangent plane, that of $\nabla g$,
+we conclude that $\nabla f$ is parallel to $\nabla g$, i.e.,
+\nexteqn
+$$
+\nabla f(\x) = \lambda \nabla g(\x)\tag\eqn
+$$
+for some scalar $\lambda$.
+\medskip
+\centerline{\epsfbox{s12-14.ps}}
+\medskip
+   (\eqn) is a {\it necessary condition\/}
+which must hold at any maximum point where $f$ and $g$ are smooth
+and $\nabla g \not= 0$.  (It doesn't by itself guarantee
+that there is a maximum at the point.   There could be a minimum
+or even no extreme value at all at the point.)  Taking components, 
+we obtain 3 scalar equations
+for the 4 variables  $x_1, x_2, x_3, \lambda$.   We would not expect,
+even in the best of circumstances to get a unique solution from this,
+but the defining equation for the level surface
+\nexteqn
+$$
+g(\x) = c
+$$
+provides a 4th equation.   We still won't generally get a unique
+solution, but we will usually get at most a finite number of possible
+solutions.   Each of these can be examined further to see if $f$
+attains a maximum (or minimum) at that point in the level set.
+Notice that the variable $\lambda$ plays an auxiliary role since
+we really only want the coordinates of the point $\x$.  (In some
+applications, $\lambda$ has some significance beyond that.)
+This method
+is due to the 19th century French mathematician Lagrange and
+$\lambda$ is called a {\it Lagrange multiplier}.
+\outind{Lagrange multiplier}%
+
+\nextex
+\example{Example \en}
+Suppose we want to
+maximize the function $f(x,y,z) = x + y - z$ on the
+sphere $x^2 + y^2 + z^2 = 1$.  We take $g(x,y,z) = x^2 + y^2 + z^2$.
+Then, $\nabla f = \lb 1, 1, -1 \rb$ and $\nabla g = \lb 2x, 2y, 2z \rb$,
+so the relation $\nabla f = \lambda \nabla g$ yields
+$$
+\align
+1 &= \lambda(2x)\\
+1 &= \lambda (2y) \\
+-1 &= \lambda (2z)\\
+\intertext{to which we add the equation}
+x^2 + y^2 + z^2 &= 1. 
+\endalign$$
+From the first three equations, we obtain
+$$\gather
+x =\frac 1{2\lambda} \quad y = \frac 1{2\lambda}
+\quad z = -\frac 1{2\lambda} \\
+\frac 1{4\lambda^2} + \frac 1{4\lambda^2} + \frac 1{4\lambda^2} = 1 \\
+   \frac 34 = \lambda^2 \\
+  \lambda = \pm \frac{\sqrt 3}2.
+\endgather$$
+Thus we have two possible solutions.  For $\lambda = \sqrt 3/2$,
+we obtain  the point 
+$$(1/\sqrt 3, 1/\sqrt 3, -1/\sqrt 3)
+\qquad\text{at which }f = x + y -z = \sqrt 3.$$
+   For $\lambda = -\sqrt 3/2$,
+we obtain the point 
+$$(-1/\sqrt 3, -1/\sqrt 3, 1/\sqrt 3)
+\qquad\text{at which }f = -\sqrt 3.$$
+\medskip
+\centerline{\epsfbox{s12-15.ps}}
+\medskip
+    Since the level
+set $x^2 + y ^2 + z^2 = 1$ is a closed bounded set, and since
+the function $f$ is continuous, both maximum and minimum values
+must be attained somewhere on the level set.  The only two candidates
+we have come up with are the two points given above, so it is
+clear the first is a maximum point and the second is a minimum
+point.
+\endexample
+
+The method of Lagrange multipliers often leads to a set of equations
+which is difficult to solve.  
+Sometimes a great deal of ingenuity is required, so you should
+treat each problem as unique and expect to have to be creative
+about solving it.
+
+\nextex
+\xdef\Eex{\en}
+\example{Example \en} 
+Suppose we want to minimize the function $f(x,y) = x^2 + 4xy + y^2$  
+on the circle $x^2 + y^2 = 1$.  For this problem $n = 2$,
+and the level set is a curve.   Take $g(x,y) = x^2 + y^2$.
+Then $\nabla f = \lb 2x + 4y, 4x + 2y \rb$, $\nabla g
+= \lb 2x, 2y \rb$, and $\nabla f = \lambda \nabla g$
+yields the equations
+$$\align
+2x + 4y &= \lambda(2x) \\
+ 4x + 2y &= \lambda(2y)\\
+\intertext{to which we add}
+x^2 + y^2 = 1.
+\endalign$$
+After canceling a common factor of
+2, the first two equations may be written in matrix form
+$$
+\bm 1 & 2 \\ 2 & 1 \em \bm x\\y\em
+ = \lambda \bm x\\ y\em
+$$
+which says that 
+$$
+\bm x \\ y \em
+$$
+is an {\it eigenvector\/} for the 
+ eigenvalue $\lambda$, and the 
+equation $x^2 + y^2 = 1$ says it is a {\it unit
+eigenvector}.   You should know how to
+solve such problems, and we leave it to you to make the
+required calculations.
+(See also Example \ConEx\ in the previous section where we made 
+these  calculations in another context.)
+The eigenvalues are
+$\lambda = 3$ and $\lambda = -1$.
+For $\lambda = 3$,  
+a basic unit eigenvector is
+$$
+\u_1 = \frac 1{\sqrt 2}\bm 1\\ 1\em,
+$$
+and every other eigenvector is of the form $c\u_1$.   The latter
+will be a {\it unit\/} vector if and only $|c| = 1$, i.e.,
+$c = \pm 1$.
+We conclude that $\lambda = 3$ yields 
+ two solutions of the Lagrange mulitplier problem:
+ $(1/\sqrt 2, 1/\sqrt 2)$ and
+ $(-1/\sqrt 2, -1/\sqrt 2)$.   At each of these points
+$f(x,y) = x^2 + 4xy + y^2 = 3$.
+
+For $\lambda = -1$,  we obtain the basic unit eigenvector
+$$
+\u_2 = \frac 1{\sqrt 2} \bm\format\r\\-1\\ 1\em,
+$$
+and a similar analysis (which you should
+do) yields
+the two points:  $(1/\sqrt 2, -1/\sqrt 2)$ and
+ $(-1/\sqrt 2, 1/\sqrt 2)$.   At each of these points
+$f(x,y) = x^2 + 4xy + y^2 = -1$. 
+\medskip
+\centerline{\epsfbox{s12-16.ps}}
+\medskip
+Hence, the function attains its maximum value at  the first
+two points and its minimum value at  the second two.
+\endexample
+\nextex
+\example{Example \en} 
+Suppose we want to minimize the function 
+$g(x,y) = x^2 + y^2$ (which is the square of the distance to the origin)
+on the conic
+$f(x,y) = x^2 + 4xy + y^2 = 1$. 
+Note that this is basically the same as the previous example
+except that the roles of the two functions are reversed.   The
+Lagrange mulitplier condition
+$\nabla g = \lambda \nabla f$ is the same
+as the condition $\nabla f = (1/\lambda)\nabla g$
+provided $\lambda \not=0$.  ($\lambda \not= 0$ in this
+case since otherwise $\nabla g = 0$,
+which yields  $x = y = 0$.  However, $(0, 0)$ is
+not a point on the conic.)   We just solved that problem
+and found  eigenvalues $1/\lambda = 3$ or $1/\lambda = -1$. In this
+case, we don't need unit eigenvectors, so to avoid square roots
+we choose 
+basic eigenvectors 
+$$
+\v_1 = \bm 1\\ 1\em\qquad\text{and}\qquad\bm\format\r\\ -1\\ 1 \em
+$$
+corresponding respectively to $\lambda = 3$ and $\lambda = -1$.
+The endpoint of $\v_1$ does not lie on the conic, but any other
+eigenvector for $\lambda = 3$ is of the form $c\v_1$, so
+all we need to do is adjust $c$ so that the point satisfies
+the equation
+$f(x,y) = x^2 +4xy + y^2 = 1$.   Substituting $(x, y) = (c, c)$
+yields
+$6c^2 = 1$  or $c = \pm 1/\sqrt 6$.   Thus, we obtain
+ the two points
+$(1/\sqrt 6, 1/\sqrt 6)$ and
+$(-1/\sqrt 6, -1/\sqrt 6)$.
+For $\lambda = -1$, substituting $(x,y) = (-c, c)$ in
+the equation yields
+ $-2c^2 = 1$ which has no solutions.
+
+Thus, the only candidates for a minimum (or maximum) are the
+first pair of points:  $(1/\sqrt 6, 1/\sqrt 6)$ and
+$(-1/\sqrt 6, -1/\sqrt 6)$.   A simple calculation shows these
+are both
+ $1/\sqrt 3$ units from the origin, but without further analysis,
+we can't tell if this is the maximum, the minimum,
+or neither.
+However, it is not hard to classify this conic---see the previous
+section---and discover that it is a hyperbola.  Hence, the two
+points are minimum points.
+\medskip
+
+\subhead The Rayleigh-Ritz Method \endsubhead
+   Example \Eex\ above is typical of a certain class of
+Lagrange multiplier problems.
+Let  $A$ be
+ a real symmetric $n\times n$ matrix, and consider the problem
+of maximizing (minimizing)
+  quadratic
+function  $f(\x) = \x^tA\x$ subject to
+the constraint $g(\x) = |\x|^2 = 1$.
+This is called the {\it Rayleigh--Ritz problem}.
+\outind{Rayleigh--Ritz problem}%
+For $n = 2$ or $n = 3$, the level set $|\x|^2 = 1$ is a circle or
+sphere, and for $n > 3$, it is called a {\it hypersphere}.
+
+Alternatvely, we could reverse
+the roles of the functions $f$ and $g$, i.e., we could try to maximize
+(minimize)
+the square of the distance to the origin
+$g(\x) = |\x|^2$
+on the level set
+$f(\x) = 1$.
+Because the Lagrange multiplier condition in either case asserts
+that the two
+gradients $\nabla f$ and $\nabla g$  are parallel,
+these two problems are very closely related.
+The latter problem---finding the points on a conic, quadric, or
+hyperquadric furthest from (closest to) the origin---is easier
+ to visualize, but the
+former
+ problem---maximizing or minimizing the quadratic function
+ $f$ on the hypersphere $|\x| = 1$---is easier to compute with. 
+
+Let's go about applying the Lagrange Multiplier
+method to the Rayleigh--Ritz
+problem.
+The components
+of $\nabla g$ are easy:
+$$\frac{\d g}{\d x_i} =  2x_i,\qquad i = 1, 2, \dots n.$$
+The calculation of $\nabla f$ is harder.   
+First write
+$$
+f(\x) = \sum_{j=1}^nx_j(\sum_{k=1}^n a_{jk}x_k)
+$$
+and then carefully apply the product rule together with
+$a_{jk} = a_{kj}$.   The result is
+$$
+\frac{\d f}{\d x_i} = 2\sum_{j=1}^n a_{ij}x_j\qquad i = 1, 2, \dots, n.
+$$
+(Work this out explicitly in the cases $n = 2$ and $n = 3$ if you
+don't believe it.)
+Thus, the Lagrange multiplier condition $\nabla f = \lambda \nabla g$
+yields the equations
+$$
+2 \sum_{j=1}^n a_{ij}x_j = \lambda(2x_i)\qquad i = 1, 2, \dots, n
+$$
+which may be rewritten in matrix form (after canceling the 2's)
+\nexteqn
+$$
+A\x = \lambda \x.\tag\eqn
+$$
+To this we must add the equation of the level set
+$$
+g(\x) = |\x|^2 = 1.
+$$
+Thus, any potential solution $\x$ is a {\it unit\/} eigenvector for the
+matrix $A$ with eigenvalue $\lambda$.   
+Note also that for such a unit eigenvector, we have
+$$
+f(\x) = \x^tA\x = \x^t(\lambda\x) = \lambda\x^t\x = \lambda|\x|^2 =
+\lambda.
+$$
+Thus the eigenvalue is the extreme value of the quadratic function at the
+point on the (hyper)sphere given by the unit eigenvector. 
+
+The upshot of this discussion is that for a real symmetric matix
+$A$, the Rayleigh--Ritz problem is equivalent to the problem
+of finding an orthonormal basis of eigenvectors for $A$.
+
+\medskip
+The Rayleigh--Ritz method may be used to show that a real
+symmetric matrix has real eigenvalues without invoking the use
+of complex vectors as we did previously in Section 4.  (See
+Theorem 12.1.)
+Here is an outline of the argument.
+The hypersphere $g(\x) = |\x|^2 = 1$ is a closed bounded set in
+$\R^n$ for any $n$. 
+It follows from a basic theorem in analysis that any continuous
+function, in particular the quadratic function
+ $f(\x)$, must attain both maximum and minimum values on the
+hypersphere.
+Hence, the Lagrange multiplier problem always has solutions,
+which by the above algebra amounts to the
+assertion that the real symmetric matrix
+$A$ must have at least one eigenvalue.   This suggests a general
+procedure for showing that all the eigenvalues are real.
+First find the largest eigenvalue by maximizing the quadratic
+function $\f(\x)$ on the set
+$|\x|^2 = 1$.   Let $\x = \u_1$ be the corresponding eigenvector.  
+Change coordinates by choosing an orthonormal basis
+starting with $\u_1$.  Then the additional basis elements will span
+the subspace perpendicular to $\u_1$ and we may obtain a lower dimensional
+quadratic function by restricting $f$ to that subspace.   We can now
+repeat the process to find the next smaller real eigenvalue.
+Continuing in this way, we will obtain an orthonormal basis of
+eigenvectors for $A$ and each of the corresponding eigenvalues
+will be real.
+
+    The Rayleigh--Ritz Method generalizes
+nicely for complex Hermitian matrices
+and also for  infinite dimensional analogues.   In quantum mechanics,
+for example, one considers complex valued functions $\psi(x,y,z)$
+defined on $\R^3$ satisfying the condition
+$$
+\iiint_{\R^3}|\psi(x,y,z)|^2 dV < \infty.
+$$
+Such functions are called {\it wave functions\/}, and the
+set of all such functions form a complex vector space.  Certain
+operators $A$ on this vector space represent observable
+quantities, and the eigenvalues of these operators represent
+the possible results of measurements of these observables.
+Since the vector space is infinite dimensional, one can't represent
+these operators by finite matrices, so the usual method of
+determining eigenvalues and eigenvectors breaks down.  However,
+one can generalize many of the ideas we have developed here.
+For example, one may define the inner product of two wave functions
+by the formula
+$$
+     \langle\psi | \phi\rangle = \iiint_{\R^3}\overline{\psi(x,y,z)}
+\phi(x,y,z)\, dV.
+$$
+Then, one may determine the eigenvalues of a Hermitian operator
+$A$ by the studying the optimization problem for the quantity
+$$
+     \langle\psi | A\psi\rangle 
+$$
+subject to the condition $\langle \psi | \psi \rangle = 1$.
+
+
+\subhead Lagrange Multipliers with More Than One Constraint \endsubhead
+ In $\R^n$, suppose we want to maximize (minimize) a function 
+$f(\x)$ subject to $m$ constraints
+$$
+g_1(\x)  = c_1,\quad g_2(\x) = c_2, \dots, g_r(\x) = c_m.
+$$
+We can make the scalar functions $g_i(\x)$ the components of
+a {\it vector\/} function $\g:\R^n \to \R^m$.   Then the $m$
+constraining equations may be summarized by a single vector
+constraint
+$$
+\g(\x) = \c = \lb c_1,c_2,\dots, c_m\rb.
+$$
+In this way, we may view the constraint as defining a level set
+(for $\g$) in $\R^n$, and the problem is to maximize $f$ on this
+level set.   The level set may also be viewed as the {\it intersection\/}
+of the $m$ hypersurfaces in $\R^n$ which are  level sets of the
+component scalar functions $g_i(\x) = c_i$.
+
+\nextex
+\example{Example \en}
+Consider the problem of finding the highest point on the curve of
+intersection of the plane $x + 2y + z = 1$ with the sphere
+$x^2 + y^2 + z^2 = 21$.   
+\medskip
+\centerline{\epsfbox{s12-20.ps}}
+\medskip
+Here we take 
+$f(x,y,z) = z$ and
+$$\gather
+\g(x,y,z)= \bm g_1(x,y,z)\\ g_2(x,y,z)\em
+= \bm x + 2y + z \\ x^2 + y^2 + z^2 \em\\
+  \c = \bm 1\\ 21\em.
+\endgather$$
+\endexample
+
+If we assume that $f$ and $\g$ are smooth, then
+just as before  we obtain 
+$$
+\frac{df}{dt} = \nabla f\cdot\v = 0
+$$
+for every vector $\v$ tangent to a curve in the level set through the
+maximum point.      Every such $\v$, since it is tangent to the
+level set, will be perpendicular to each of the normal vectors
+$\nabla g_i$ at the point, i.e.,
+$$\align
+\nabla g_1\cdot \v &= 0 \\
+\nabla g_2\cdot \v &= 0 \\
+ &\vdots \\
+\nabla g_m\cdot \v &= 0. 
+\endalign$$
+If we make the gradient vectors into the rows of a matrix, this system
+may be rewritten
+\nexteqn
+$$
+\bm \nabla g_1 \\ \nabla g_2 \\ \vdots \\ \nabla g_m\em \v = 0.\tag\eqn
+$$
+   In the case of one constraint, we
+assumed that $\nabla g \not= 0$ so there
+would be a well defined tangent plane at the maximum point. 
+  Now,  we need
+a more stringent condition:   the gradients
+at the potential maximum point 
+$$
+\nabla g_1, \nabla g_2, \dots, \nabla g_m
+$$
+should form a {\it linearly independent set}.   This means that the 
+$m\times n$ system 
+(\eqn) has rank $m$.
+Hence, the solution space of all vectors $\v$ satisfying (\eqn)
+is $n - m$-dimensional.  This solution space is called the
+{\it tangent space\/} to the level set at the point.
+In these circumstances, it is possible
+to show (from higher dimensional analogues of the implicit function
+theorem) that  every vector $\v$ in this tangent space is in fact
+tangent to a curve lying in the level set.  Using this, we may conclude
+that, at a maximum point,
+$$
+\nabla f\cdot \v = 0
+$$
+for every vector $\v$ in the tangent space. 
+ Consider then the  $(m +1)\times n$ system
+$$ 
+\bm \nabla g_1\\
+\nabla g_2 \\
+ \vdots \\
+\nabla g_m \\
+\nabla f \em \v =  0.
+ $$
+This cannot have rank $m+1$ since it has exactly the same solution
+space as the system (\eqn).  Hence, it has rank $m$, and the only way
+that could happen is if the last row is dependent on the $m$ previous
+rows, i.e.,
+\nexteqn
+$$
+\nabla f = \lambda_1\nabla g_1 + \lambda_2\nabla g_2 + \dots +
+\lambda_m\nabla g_m.\tag\eqn
+$$
+The scalars $\lambda_1, \lambda_2, \dots, \lambda_m$ are called
+Lagrange multipliers.    
+%Exer  Some exercise mentioning the normal space??
+
+\example{Example \en, continued}
+We have
+$\nabla f = \bm  0 & 0 & 1 \em$ and
+$$
+\bm \nabla g_1 \\ \nabla g_2 \em = \bm 1 & 2 & 1
+ \\ 2x & 2y  & 2z \em.
+$$
+Hence, the Lagrange multiplier condition $\nabla f = \lambda_1\nabla g_1
++ \lambda_2\nabla g_2$ amounts to
+$$
+ \bm 0 & 0 & 1 \em = \lambda_1 \bm 1 & 2 & 1\em +\lambda_2
+\bm  2x & 2y  & 2z \em
+$$
+which yields
+$$\align
+\lambda_1 + 2\lambda_2x &= 0\\
+2\lambda_1 + 2\lambda_2y & = 0 \\
+\lambda_1 + 2\lambda_2z &= 1.
+\endalign
+$$
+To this we must add the constraints
+\nexteqn
+$$
+\aligned
+x+ 2y + z &= 1 \\
+x^2 + y^2 + z^2 &= 21.
+\endaligned\tag\eqn$$
+In total, this gives 5 equations for the 5 unknowns
+$x, y, z, \lambda_1, \lambda_2$.   We can solve these equations
+by being sufficiently ingenious, but there is a short cut.
+The multiplier condition just amounts to the assertion that
+$\{\nabla g_1, \nabla g_2, \nabla f\}$ is a dependent set.
+(But, it is assumed that $\{\nabla g_1, \nabla g_2\}$ is independent.)
+However, this set is dependent if and only if
+$$\gather
+\det \bm \nabla g_1 \\ \nabla g_2 \\ \nabla f \em
+   = \det \bm 0 & 0 & 1 \\ 1 & 2 & 1\\ 2x & 2y & 2z \em = 0 \\
+\vspace{10pt}
+\text{i.e. }\quad
+ 1(2(2x) - 2y) = 2(2x - y) = 0 \\
+\text{i.e. }\quad y = 2x.
+\endgather$$
+Putting this in (\eqn) yields
+$$\gather
+5x + z = 1\qquad 5x^2 + z^2 = 21 \\ 
+5x^2 + (1-5x)^2 = 30x^2 -10x + 1 = 21 \\
+30x^2 -10x - 20 = 0 \\
+  x = 1, -\frac 23.
+\endgather
+$$
+Using $z = 1-5x, y = 2x$ yields the following two points as 
+possible maximum points:
+$$
+(1, 2, -4)
+\qquad \text{and} \qquad
+(-2/3,-4/3,13/3).
+$$
+It is clear that the maximum value of $f(x,y,z) =z$ is attained
+at the second point.
+
+There is one minor issue that was ignored in the above calculations.
+The reasoning is only valid at points at which the `tangent space'
+to the level set is well defined as defined above.  In this case
+the level set is a curve (in fact, it is a circle), and the
+tangent space is 1 dimensional, i.e., it is a line. 
+ The two gradients $\nabla g_1,
+\nabla g_2$ generally span the plane perpendicular to the
+tangent line, but it could happen at some point that one of
+the
+gradients is a multiple of the other.   In that case the two
+level surfaces
+$g_1(\x) = c_1$ and $g_2(\x) = c_2$ are tangent to one another
+at the given point, so we would expect some problems.   For example,
+consider the intersection of the hyperbolic paraboloid
+$z - x^2 + y^2 = 0$ with its tangent plane at the origin 
+$z = 0$.   This `curve'
+consists two straight lines which intersect at the origin. At any
+point other than the origin, there is a well defined tangent line,
+i.e., whichever of the two lines is appropriate, but at the origin there
+is a problem.  
+
+In general, there is no way to know that a maximum or minimum
+does not occur at a point where the tangent space is not well
+defined.  Hence, all such points must be considered possible
+candidates for maximum or minimum points.   In Example \en,
+however, it is fairly clear geometrically that there are no
+such points.   This can also be confirmed analytically by seeing
+that $\{\nabla g_1, \nabla g_2 \}$ is independent at every
+point of the set.  For, since $\nabla g_1 \not = 0$,
+the only way the pair could be dependent is by
+a relation of the form $\nabla g_2 = c\nabla g_1$.  This 
+yields
+$$\gather
+\bm 2x & 2y & 2z \em =  
+c\bm 1 & 2 & 1\em\\
+2x =c,\, 2y =c 2c,\, 2z = c \\
+ x = z, y = x/2 
+ \endgather$$
+and it is easy to see these equations are not consistent with
+$x + 2y + z = 1, x^2 + y^2 + z^2 = 21$.    
+\endexample
+\bigskip
+\input chap12.ex8
+\bigskip
+
+\endchapter
+\closeseg{chap12}
+\enddocument

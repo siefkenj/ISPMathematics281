@@ -1,0 +1,1948 @@
+\nextsec{Power Series Solutions at Ordinary Points}
+\head \sn.  Power Series Solutions at Ordinary Points
+\endhead
+
+We want to solve equations of the form
+\nexteqn
+\xdef\DE{\eqn}
+\[
+y'' + p(t)y' + q(t)y = 0\tag{\eqn}
+\]
+where $p(t)$ and $q(t)$ are analytic functions on some interval
+in $\R$.   We saw several examples of such equations in the
+previous chapter, and we shall see others.  They arise commonly
+in solving physical problems.
+
+The functions $p(t)$ and $q(t)$ are supposed to be analytic on
+their domains, but they often will have singularities at other
+points.  We assume that these singularities occur at {\it isolated\/}
+points of $\R$.   Points where the functions are analytic are
+called {\it ordinary\/} points and other points are called
+\outind{ordinary point}
+\outind{singular point}
+{\it singular\/} points.
+
+\nextex
+\xdef\ExOne{\en}
+\example{Example \en} The coefficients of   Legendre's equation
+\[
+y'' - \frac{2t}{1 - t^2}y' + \frac{\alpha(\alpha + 1)}{1 - t^2}y = 0
+\]
+are analytic on any interval not containing the points $t = \pm 1$.
+$\pm 1$ are singular points. 
+\endexample
+\outind{Legendre's equations}
+
+Let $t_0$ be an ordinary point of (\eqn).  It makes sense to look
+for a solution $y = y(t)$ which is analytic in an interval containing
+$t_0$.   Such a solution will have a power series centered at
+$t_0$
+\nexteqn
+\[ 
+y = \sum_{n=0}^\infty a_n(t - t_0)^n\tag{\eqn}
+\]
+with a positive radius of convergence $R$.   Hence, one way to
+try to solve the equation is to substitute the series (\eqn)
+in the equation (\DE) and see if we can determine the coefficients
+$a_n$.   
+Generally, these coefficients may be expressed in terms of
+the first two,
+$a_0 = y(t_0)$ and $a_1 = y'(t_0)$.  (See Chapter VIII, Section 1,)
+
+We illustrate the method by an example.
+
+\example{Example \en, {\rm continued}}  Consider
+\[
+y'' - \frac{2t}{1 - t^2}y' + \frac{\alpha(\alpha + 1)}{1 - t^2}y = 0
+\]
+in the neighborhood of the point $t_0 = 0$.   Before trying a
+series solution, it is better in this case to multiply
+through by the factor $1 - t^2$ so as to avoid fractions.
+(This is not absolutely necessary, but in most cases it simplifies
+the calculations.)   This yields
+\nexteqn
+\xdef\DEE{\eqn}
+\[
+(1 - t^2)y'' - 2ty' + \alpha(\alpha +1)y = 0.\tag{\eqn}
+\]
+We try a power series of the form $y = \sum_{n=0}^\infty a_nt^n$
+and calculate
+\begin{align*}
+y &= \sum_{n=0}^\infty a_nt^n \\
+y' &= \sum_{n=1}^\infty na_nt^{n-1} \\
+y'' &= \sum_{n=2}^\infty n(n-1)a_nt^{n-2} .
+\end{align*}
+We now write down the terms in the differential equation and
+{\it renumber the indices\/} so that we may collect coefficients of 
+common powers of $t$.
+\begin{align*}
+y'' &= \sum_{n=2}^\infty n(n-1)a_nt^{n-2} 
+&&=\sum_{n+2=2}^\infty (n+2)(n+2 -1)
+a_{n+2}t^{n+2 -2}\\
+&&&\text{replacing $n$ by $n+2$} \\
+&&&=\sum_{n=0}^\infty (n+2)(n+1)a_{n+2}t^n\\
+-t^2y'' &=  \sum_{n=2}^\infty(-1) n(n-1)a_nt^{2+n-2} &&= 
+\sum_{n=0}^\infty(-1) n(n-1)a_nt^{n}\\
+&&&\text{terms for $n= 0,1$ are 0}\\
+-2ty' &= \sum_{n=1}^\infty(-2) na_nt^{1+n-1} &&= \sum_{n=0}^\infty(-2) na_nt^n\\
+&&&\text{term for $n=0$ is 0}\\
+\alpha(\alpha +1)y &=&&\ \sum_{n=0}^\infty\alpha(\alpha +1) a_nt^n.
+\end{align*}
+(Make sure you understand each step!)   Now add everything up.
+On the left side, we get zero, and on the right side we collect
+terms involving the same power of $t$.
+\[
+0 = \sum_{n=0}^\infty
+[(n+2)(n+1)a_{n+2} - n(n-1)a_n - 2na_n + \alpha(\alpha +1) a_n]t^n .
+\] 
+A power series in $t$ is zero if and only if the coefficient of each power
+of $t$ is zero, so we obtain
+\begin{gather*}
+(n+2)(n+1)a_{n+2} - n(n-1)a_n - 2na_n + \alpha(\alpha +1) a_n = 0\qquad
+\text{for } n \ge 0 \\
+(n+2)(n+1)a_{n+2} =  [n(n-1) + 2n - \alpha(\alpha +1)] a_n \\
+(n+2)(n+1)a_{n+2} =  [n^2 -n + 2n - \alpha(\alpha +1)] a_n 
+ = [n^2 +n - \alpha(\alpha +1)] a_n\\
+(n+2)(n+1)a_{n+2} = (n +\alpha +1)(n - \alpha)a_n\\
+a_{n+2} = \frac{(n +\alpha +1)(n - \alpha)}{(n+2)(n+1)}a_n\qquad\text{for }
+n \ge 0.
+\end{gather*}
+The last equation is an example of what is called a
+{\it recurrence relation}.  Once $a_0$ and $a_1$ are known,
+\outind{recurrence relation}
+it is possible iteratively to determine any $a_n$ with $n \ge 2$.
+
+
+It is better, of course, to find a general {\it formula\/} for
+$a_n$, but this is not always possible.   In the present example,
+it is possible to find such a formula, but it is very complicated. 
+(See {\it Differential Equations\/} by G. F. Simmons,
+Section 27.)   We derive the formula
+for two particular values of $\alpha$.  
+First take $\alpha = 1$.  The recurrence relation is
+\[
+a_{n+2} = \frac{(n+2)(n -1)}{(n+2)(n+1)}a_n
+ = \frac{n-1}{n+1}a_n \qquad\text{for } n\ge 0.
+\]
+Thus, for even $n$,
+\begin{align*}
+n&=0 &\qquad\qquad a_2 &= -a_0 \\
+n&=2 &\qquad\qquad a_4 &= \frac 13a_2 = - \frac 13 a_0 \\
+n&=4 &\qquad\qquad a_6 &= \frac 35 a_4 =\frac 35 \left(-\frac 13 \right)a_0
+ = -\frac 15 a_0 \\
+n&=6 &\qquad\qquad a_8 &= \frac 57 a_6 = \frac 57 \left(-\frac 15 \right)a_0
+ = -\frac 17 a_0.
+\end{align*}
+The general rule is now clear
+\[
+a_n = -\frac 1{n-1} a_0\qquad\text{for } n = 2, 4, 6, \dots \,.
+\]
+This could also be written
+\[
+a_{2k} = -\frac 1{2k -1} a_0\qquad\text{for } k = 1, 2, 3 \dots \,.
+\]
+
+For $n$ odd, we get for $n = 1$,
+\[
+a_3 = \frac{0}{2}a_1 = 0,
+\]
+so $a_n = 0$ for every odd $n \ge 3$.
+
+We may now write out the general solution 
+\begin{align*}
+y &= \sum_{n=0}^\infty a_nt^n\\
+&= \undersetbrace{\text{even n}}\to{
+a_0 + \sum_{k=1}^\infty \left(-\frac 1{2k -1}\right)a_0t^{2k}}
+\quad+\quad a_1t \\
+&= a_0\left(1 -\sum_{k=1}^\infty \frac {t^{2k}}{2k-1}\right) + a_1t.
+\end{align*}
+Define $y_1 = 1 -\sum_{k=1}^\infty \dfrac {t^{2k}}{2k-1}$
+and $y_2 = t$.   Then, we have shown that any solution may
+be written
+\nexteqn
+\[
+y = a_0y_1 + a_1y_2.\tag{\eqn}
+\]
+Moreover it is clear that $y_1$ and $y_2$ form a linearly
+independent pair.  (Even if it weren't obvious by inspection,
+we could always verify it by calculating the Wronskian at
+$t = 0$.)
+
+Hence, (\eqn) gives a general solution of Legendre's  differential
+equation for $\alpha = 1$.   
+
+(Since $y_2 = t$ is a solution, you could use the method of
+reduction of order to find a second independent solution.
+This yields
+\[
+ y = 1 - \frac t2 \ln\left(\frac{1+t}{1-t}\right)
+ = 1 - \frac t2(\ln(1 + t) - \ln(1 -t)).
+\]
+See if you can expand this out and get $y_1$.)
+
+
+Let's see what happens for $\alpha = -\dfrac 12$.   The
+recurrence relation may be rewritten
+\begin{align*}
+a_{n+2} &= \frac{(n + 1/2)^2}{(n+2)(n+1)}a_n\\
+        &= \frac {(2n + 1)^2}{4(n+2)(n+1)}a_n
+\qquad\text{for }
+n \ge 0.
+ \end{align*}
+(Both numerator and denominator were multiplied by 4.)
+Thus, for $n$ even, we have
+\begin{align*}
+n&=0 &\qquad\qquad a_2 &= \frac {1^2}{4\cdot 2} a_0 \\
+n&=2 &\qquad\qquad a_4 &= \frac {5^2}{4\cdot 4\cdot 3}a_2 
+=  \frac {(5\cdot 1)^2}{4^2\cdot 4!} a_0 \\
+n&=4 &\qquad\qquad a_6 &= \frac {9^2}{4\cdot 6\cdot 5} a_4 
+=\frac {(9\cdot 5 \cdot 1)^2}{4^3\cdot 6!}a_0\\
+n&=6 &\qquad\qquad a_8 &= \frac {13^2}{4\cdot 8\cdot 7} a_6 
+= \frac {(13\cdot 9\cdot 5\cdot 1)^2}
+{4^4\cdot 8!}a_0 .
+\end{align*}
+Note that $4^36! = 2^66!$ and $4^48! = 2^88!$.
+We begin see the following rule for $n$ even,
+\[
+a_n = \frac{[(2n -3)(2n - 7)\dots 5\cdot 1)]^2}
+{2^nn!} a_0\qquad\text{for } n = 2, 4, 6,\dots\,.
+\]
+In the numerator, we start with $2n - 3$, reduce successively
+by 4 until we get down to 1, multiply all those numbers together,
+and square the whole thing.
+
+For $n$ odd, the same analysis yields a similar result.
+\[
+a_n = \frac{[(2n-3)(2n -7)\dots 3]^2}{2^{n-1}n!}a_1
+\qquad\text{for } n = 3, 5, 7, \dots\, .
+\]
+As above, we may define
+\begin{align*}
+y_1 &= 1 + \sum_{\substack{ n\ \text{even }\\ n > 0}}
+ \frac{[(2n -3)(2n - 7) \dots 5 \cdot 1]^2 }{2^nn!}t^n \\
+y_2 &= t + \sum_{\substack{ n\ \text{odd }\\ n > 1}}
+\frac{[(2n-3)(2n -7)\dots 3]^2}{2^{n-1}n!}t^n
+\end{align*}
+and
+\[
+y = \sum_{n=0}^\infty a_nt^n = a_0y_1(t) + a_1 y_2(t).
+\]
+Neither $y_1$ nor $y_2$ is a polynomial.   
+ For any power series  in
+$t$, the constant term is the value of the sum at $t= 0$ and the 
+coefficient of $t$ is the value of its derivative at $t = 0$.
+Hence,
+\begin{align*}
+   y_1(0) &= 1 &\qquad y_1'(0) &= 0 \\
+   y_2(0) & = 0&\qquad y_2'(0) &= 1.
+\end{align*}
+(Why?)
+Hence, the Wronskian  $W(0) = 1\cdot 1 - 0\cdot 0 = 1 \not= 0$,
+and it follows that the two solutions form a linearly independent
+pair.   (Note also, that it is fairly clear that neither is
+a constant multiple of the other since $y_1$ starts with $1$ 
+and $y_2$ starts with $t$.) 
+\endexample
+
+\nextex
+\example{Example \en}  Consider the equation
+$y'' -2t y' + 2y = 0$.
+The coefficients $p(t) = -2t$ and $q(t) = 2$ have no singularities,
+so every point is an ordinary point.  To make the problem a trifle
+more interesting, we find a series solution centered at $t_0 = 1$,
+i.e., we try a series of the form $y = \sum_{n=0}^\infty a_n(t -1)^n$.
+To simplify the algebra, we introduce a new variable $s = t - 1$.
+Then, since $t = s + 1$, the equation may be rewritten
+\[
+y'' - 2(s + 1)y' + 2y = 0.
+\]
+Subtle point: 
+ $y' = \dfrac{dy}{dt}= \dfrac{dy}{ds}$ and
+similarly for $y''$. (Why?)   Hence, we are not begging the question
+in the above equation by treating $s$ as the independent variable!
+
+We proceed exactly as before, but we shall skip some steps.
+
+\begin{align*}
+y'' &= \sum_{n=2}^\infty n(n-1) a_n s^{n-2} &&=\sum_{n=0}^\infty
+(n+2)(n+1)a_{n+2}s^n \\
+-2sy' &= \sum_{n=1}^\infty (-2n a_n)s^{1+n-1} &&=
+\sum_{n=0}^\infty(-2n a_n)s^n \\
+-2y' &= \sum_{n=1}(-2na_n)s^{n-1} &&= \sum_{n=0}^\infty (-2(n+1)a_{n+1})s^n \\
+2y &= &&\quad\sum_{n=0}^\infty (2a_n)s^n.
+\end{align*}
+Adding up and comparing corresponding coefficients of $s^n$ yields
+\begin{gather*}
+0 = (n+2)(n+1)a_{n+2} - 2na_n - 2(n+1)a_{n+1} + 2 a_n \\
+(n+2)(n+1)a_{n+2} = 2(n+1)a_{n+1} + (2n -2)a_n \\
+a_{n+2} = 2\frac{(n+1)a_{n+1} + (n-1)a_n}{(n+2)(n+1)}\qquad n \ge 0.
+\end{gather*}
+In this case, we cannot separate the terms into even and odd
+terms, and the general term is not so easy to determine.
+Here are some of the terms
+\begin{align*}
+n &= 0&\qquad\qquad a_2 &= 2\frac 12 (a_1 - a_0) = a_1 - a_0 \\
+n &=1 &\qquad\qquad a_3 &= 2\frac{2a_2 +0\cdot a_1}{3\cdot 2}
+         = \frac 23(a_1 - a_0) \\
+n &= 2 &\qquad\qquad a_4 &=
+2\frac{3a_3 + 1\cdot a_2}{4\cdot 3} = \frac 16(2(a_1 -a_0) + (a_1 - a_0))
+\\
+&&&= \frac 12(a_1 - a_0) \\
+n &= 3 &\qquad\qquad
+a_5 &= 2\frac{4a_4 + 2a_3}{5\cdot 4} =\dots = \frac 13(a_1 - a_0)\\
+&\vdots
+\end{align*}
+I gave up trying to find the general terms.   The general solution
+is
+\begin{align*}
+y &= \sum_{n=0}^\infty a_ns^n \\
+  &= a_0 + a_1s + (a_1 - a_0)s^2 + \frac 23 (a_1 - a_0)s^3
+   + \frac 12(a_1 - a_0)s^4 + \frac 13(a_1 - a_0) s^5 + \dots \\
+  &=a_0
+\undersetbrace{y_1}\to{(1 - s^2 -\frac 23s^3 - \frac 12s^4 - \frac 13
+ s^5 - \dots)} \\
+  &\qquad +a_1\undersetbrace{y_1}\to
+{(s + s^2 + \frac 23 s^3 + \frac 12 s^4 + \frac 13s^5 + \dots)}.
+\end{align*}
+Hence, if we put back  $s = t- 1$, we may write
+\[
+y = a_0y_1(t) + a_1y_2(t)
+\]
+where
+\begin{align*}
+y_1(t) &= 1 - (t-1)^2 -\frac 23(t-1)^3 - \frac 12(t-1)^4 -
+ \frac 13(t-1)^5 - \dots \\
+y_2(t) &= (t-1) + (t-1)^2 + \frac 23 (t-1)^3 + 
+\frac 12 (t-1)^4 + \frac 13(t-1)^5 + \dots\,.
+\end{align*}
+\endexample
+
+\subhead The radius of convergence of a series solution \endsubhead
+An extension of the {\it basic existence and 
+uniqueness theorem\/}---which we won't try to prove in this course---tells
+us that a solution of
+$y'' + p(t)y' + q(t)y = 0$  is analytic {\it at least\/} where
+the  coefficients  $p(t)$ and $q(t)$ are analytic.   (The solution
+could be
+analytic on an even larger domain.)  We may use this fact to
+\outind{radius of convergence of a solution}
+study the radius of convergence of a series
+solution of a linear differential equation.  
+Namely, in Chapter VIII, Section 8,
+
+we described a rule for determining the radius of convergence
+of the Taylor series of a function:  calculate the
+distance to the nearest singularity.  Unfortunately, there
+was an important caveat to keep in mind.  You have to look also at
+singularities in the complex plane.
+
+\example{Example \ExOne, {\rm revisited}}  Legendre's
+equation
+\[
+y'' - \frac{2t}{1 - t^2} y' + \frac{\alpha(\alpha +1)}{1 - t^2}y = 0
+\]
+has singularities when $1 - t^2 = 0$, i.e., at $t = \pm 1$.
+The distance from $t_0 = 0$ to the nearest singularity is 1.
+Hence, the radius
+of convergence of a power series solution centered at $t_0 = 0$ is
+at least 1, but it may be larger.   Consider in particular
+the case $\alpha = 1$.   One of the solutions $y_2(t) = t$
+is a polynomial and so it converges for all $t$.  Its radius of
+converges is infinite.   The other solution is
+\[
+y_1(t) = 1 - \sum_{k=1}^\infty \frac{t^{2k}}{2k -1}
+\]
+and it is easy to check by the ratio test that its radius
+of convergence is precisely 1.
+\endexample
+
+\nextex
+\example{Example \en}  Consider
+\[
+y'' + \frac{3t}{1 + t^2}y' + \frac 1{1+ t^2} y = 0.
+\]
+The coefficients have singularities where $1 + t^2 = 0$,
+i.e., at $t = \pm i$.  The distance from $t_0$ to
+$\pm i$ in the complex plane is 1.   Hence, series solutions
+of this equation centered at $t_0 = 0$ will have radius of
+convergence at least 1.
+
+(See Braun, Section 2.8, Example 2 for solutions of this equation.)
+\endexample
+
+\subhead  More complicated coefficients \endsubhead
+In all the above examples, the coefficients were quite
+simple.  They were what we call {\it rational functions\/},
+i.e.,  quotients of polynomials.   For such functions, it is
+possible to multiply through by a common denominator and thereby
+deal only with polynomial coefficients.   Of course, in general
+that may not be possible.  For example, for the equation
+\[
+y'' + (\sin t) y' + (\cos t) y = 0
+\]
+the simplification employed previously won't work.  However, the method
+still works.  Namely, we may put the expansions
+\begin{align*}
+\sin t &= \sum_{n=0}^\infty (-1)^n \frac{t^{2n+1}}{(2n+1)!} \\
+\cos t &=  \sum_{n=0}^\infty (-1)^n \frac{t^{2n}}{(2n)!} 
+\end{align*}
+along with the expansions 
+\begin{align*}
+y &= \sum_{n=0}^\infty a_n t^n \\
+y &= \sum_{n=1}^\infty na_n t^{n-1} \\
+y &= \sum_{n=2}^\infty n(n-1)a_n t^{n-2} 
+\end{align*}
+in the differential equation, multiply everything out, and
+collect coefficients as before.  Although this is theoretically
+feasible, you wouldn't want to try it unless it were absolutely
+necessary.   Fortunately, that is seldom the case.
+
+\bigskip
+\includeexercises{chap9.ex1}
+\bigskip
+\nextsec{Partial Differential Equations}
+\head \sn. Partial Differential Equations.  A Preview \endhead
+
+You probably have learned by now that certain partial differential
+equations such as Laplace's Equation or the Wave Equation govern
+the behavior of important physical systems.   The solution of such
+equations leads directly to the consideration of second order
+linear differential equations, and it is this fact that lends
+such equations much of their importance.   In this section,
+we show how an interesting physical problem leads to
+Bessel's equation
+\[
+t^2y'' + ty' + (t^2 - m^2)y = 0\qquad\text{where } m = 0, 1, 2, \dots .
+\]
+In the sections that follow we shall discuss methods for solving
+Bessel's equation and related equations by use of infinite series.
+
+\mar{s9-1.ps}
+The physical problem we shall consider is that of determining the
+possible vibrations of a circular drum head.   We model such
+\outind{drum head, vibrations of}
+a drum head as a disk of radius $a$ in the $x,y$-plane  centered
+at the origin.   We suppose that the circumference of the disk is
+fixed, but that other points may be displaced upward or downward
+in the $z$-direction.   The displacement $z$ is a function of
+both
+position $(x,y)$ and time $t$.  If we assume that the displacement is
+small, then to a high degree of approximation, this function
+satisfies the wave equation
+\[
+\frac 1{v^2}\frac{\d^2 z}{\d t^2} = \nabla^2 z
+\]
+where $v$ is a constant and $\nabla^2$ is the Laplace operator
+\[
+\nabla^2 = \frac{\d^2}{\d x^2} + \frac{\d^2}{\d y^2}.
+\]
+(You will study this equation shortly in physics if you have not
+done so already.)
+
+Because the problem exhibits circular symmetry, it is appropriate
+to switch to polar coordinates, and then the Laplace operator takes
+the form
+\[
+\nabla^2 = \frac{\d^2}{\d r^2} + \frac 1r\frac{\d }{\d r} + \frac 1{r^2}
+\frac{\d^2 }{\d\theta^2}.
+\]
+(See the exercises for Chapter V, Section 13.)
+Thus the wave equation may be rewritten
+\nexteqn
+\xdef\Eqn{\eqn}
+\[
+\frac 1{v^2}\frac{\d^2 z}{\d t^2} 
+ = \frac{\d^2z}{\d r^2} + \frac 1r\frac{\d z}{\d r} + \frac 1{r^2}
+\frac{\d^2 z}{\d\theta^2}.\tag{\eqn}
+\]
+Since the circumference of the disk is fixed, we must add the
+{\it boundary\/} condition  $z(a, \theta, t) = 0$ for all $\theta$ and
+all $t$.
+
+A complete study of such equations will be undertaken in your course
+next year
+in Fourier series and boundary value problems.   For the moment
+we shall consider only solutions which
+can be expressed
+\nexteqn
+\xdef\Sep{\eqn}
+\[
+z = T(t) R(r) \Theta(\theta)\tag{\eqn}
+\]
+where the variables have been {\it separated\/} out in three functions,
+each of which
+depends only on one of the variables.   (The method employed here is
+called {\it separation of variables\/}.   It is  similar in spirit to
+\outind{separation of variables for partial differential equation}
+the method employed previously for ordinary differential equations,
+but of course the context is entirely different, so the two methods should
+not be confused with one another.)  It should be emphasized that
+the general solution of the wave equation
+cannot be so expressed, but as you shall see next year, it can
+be expressed as a sum (usually infinite) of such functions.
+The boundary condition for a separated solution in this case is
+simply  $R(a) = 0$.
+
+If we substitute (\Sep) in equation (\Eqn), the partial derivatives
+become ordinary derivatives of the relevant functions and we obtain
+\[
+\frac 1{v^2} T''R\Theta = TR''\Theta + \frac 1r TR'\Theta +
+\frac 1{r^2}TR\Theta''.
+\]
+Divide through by $z = TR\Theta$ to obtain
+\[
+\frac 1{v^2} \frac {T''}T = \frac{R''}R + \frac 1r\frac{R'}R +
+\frac 1{r^2}\frac{\Theta''}\Theta.
+\]
+In this equation, the left hand side 
+$\dfrac 1{v^2}\dfrac{T''}T$ depends only on $t$, and the right hand
+side does not depend on $t$.  Hence, both equal the same constant
+$\gamma$, i.e.,
+\begin{gather*}
+\frac 1{v^2} \frac {T''}T = \gamma \\
+ \frac{R''}R + \frac 1r\frac{R'}R +
+\frac 1{r^2}\frac{\Theta''}\Theta = \gamma.
+\end{gather*}
+The second of these equations may be rewritten
+\[
+\frac{\Theta''}\Theta = r^2(\text{an expression depending only on $r$}),
+\]
+so by similar reasoning, it must be equal to  a constant $\mu$.
+Thus,
+\begin{gather*}
+\frac{\Theta''}{\Theta} = \mu \\
+\Theta'' -\mu \Theta = 0.
+\end{gather*}
+This is a simple second order equation with known solutions.  If
+$\mu$ is positive, the general solution has the form $C_1e^{\sqrt\mu\, \theta}
++C_2e^{-\sqrt\mu\, \theta}$.   However, the function $\Theta$ must satisfy
+the {\it periodicity\/} condition
+\[
+\Theta(\theta + 2\pi) = \Theta(\theta)\qquad\text{for every }\theta
+\]
+since adding $2\pi$ to the polar angle $\theta$ does not change
+the point represented.   The solution listed above does not satisfy
+this condition so we conclude that $\mu \le 0$.   In that case,
+the general solution is $\Theta = C_1\cos \sqrt{|\mu|}\theta
++ C_2 \sin \sqrt{|\mu|}\theta$.    Moreover, the periodicity condition
+tells us that $\sqrt{|\mu|}$ {\it must be an integer}.   Thus we
+may take $\mu = -m^2$ where $m$ is an integer.   We may even assume that
+that $m \ge 0$ since changing the sign of $m$ makes no essential difference
+in the form of the general solution
+\[
+\Theta = C_1\cos m\theta + C_2\sin m\theta\qquad m = 0, 1, 2, \dots\,.
+\]
+
+If we now put $\Theta''/\Theta = -m^2$ back into the separated equation,
+we obtain
+\[
+\frac 1{v^2} \frac {T''}T = \frac{R''}R + \frac 1r\frac{R'}R +
+\frac 1{r^2}(-m^2) = \gamma
+\]
+where $\gamma$ is a constant.   It turns out that $\gamma < 0$,
+but the argument is somewhat more complicated than that given above
+for $\mu$.   One way to approach this would be as follows.  The
+above equation gives the following equation for $T$
+\[
+T'' - \gamma v^2 T = 0.
+\]
+We know by
+observation (and common sense) that the motion of the drum head
+is oscillatory.
+If $\gamma > 0$, this equation has non-periodic exponential solutions
+(as in the previous argument for $\Theta$). 
+ Similarly, $\gamma = 0$ implies that 
+$T = c_1t + c_2$, which would make sense only if $c_1 = c_2 = 0$.
+That corresponds to the solution in which the drum does not vibrate
+at all, and it is not very interesting.
+ Hence, the only remaining possibility is
+  $\gamma < 0$,  in which case we
+get periodic oscillations: 
+\[
+T(t) = C_1\cos (\sqrt{|\gamma|}\,vt) + C_2 \sin (\sqrt{|\gamma|}\,vt).
+\]
+
+  This argument is a bit
+unsatisfactory for the following reason.   We should be able to
+derive {\it as a conclusion\/} the fact that the solution is
+periodic in time.  After all, the purpose of a physical theory is
+to predict as much as we can with as few assumptions as possible.
+It is in fact possible to show that $\gamma < 0$ by another
+argument (discussed in the Exercises) which only uses the fact
+that the drum head is fixed at its circumference.   
+
+Write
+ $\gamma = -\lambda$ where $\lambda = |\gamma|$,
+and
+consider the equation for $R$
+\begin{gather*}
+\frac{R''}R + \frac 1r\frac{R'}R +
+\frac 1{r^2}(-m^2) = -\lambda \\
+r^2 R''  +r R' + (\lambda r^2 - m^2)R = 0
+\end{gather*}
+where $m = 0, 1, 2, \dots,\, \lambda > 0$, and $R$ satisfies the
+boundary condition   $R(a) = 0$.   It is usual to make one last
+transformation to simplify this equation, namely introduce a
+new variable $s = \sqrt\lambda\, r$.    Then  if  $S(s) = R(r)$,
+we have
+\begin{gather*}
+\frac {dR}{dr} =   \frac {dS}{ds}\frac{ds}{dr} = \sqrt\lambda\, \frac{dS}{ds}\\
+\frac{d^2R}{dr^2} = \frac{d}{dr}\frac{dR}{dr} = \sqrt\lambda\,
+  \frac{d}{dr}\frac{dS}{ds} = \sqrt\lambda\,\sqrt\lambda\,\frac{d}{ds}
+\frac{dS}{ds} = \lambda \frac{d^2S}{ds^2}.
+\end{gather*}
+Thus
+\begin{gather*}
+\lambda r^2 S'' + \sqrt\lambda\, r S' + (\lambda r^2 - m^2)S = 0
+\\
+\text{or}\qquad s^2 S'' + sS' + (s^2 - m^2) S = 0.
+\end{gather*}
+The last equation is just {\it Bessel's Equation\/}, and we
+shall see how to solve it and similar equations in the next
+sections in this chapter.   Note that in terms of the function
+$S(s)$, the boundary condition becomes
+\[
+S(\sqrt\lambda a) = 0.
+\]
+On the other hand, as mentioned above, $\sqrt\lambda = \sqrt{|\gamma|}$
+is a factor in determining the frequency of oscillation of the
+drum.   Hence, finding the roots of the equation $S(x) = 0$ is
+a matter of some interest.
+
+If we switch back to calling the independent variable $t$
+and the dependent variable $y$, Bessel's  Equation takes the form
+used earlier
+\[
+t^2 y'' + ty' + (t^2 - m^2)y = 0
+\]
+or
+\[
+y'' + \frac 1t y' + \frac{t^2 - m^2}{t^2} y = 0.
+\]
+Of course, $t$ here need not bear any relation to `time'.
+In fact, in the above analysis, $t$ came from the polar
+coordinate $r$.   That means we have the following quandary.
+The value $t = 0$  (the origin in the above discussion) may
+be a specially interesting point.  However, it is also a
+singular point for the differential equation.   Thus,
+we may have to use series solutions 
+{\it centered at a singular point\/}, and that
+is rather different from what we did previously for ordinary
+points. 
+
+\bigskip
+\includeexercises{chap9.ex2}
+\bigskip
+
+\nextsec{Regular Singular Points and the Method of Frobenius}
+\head \sn.  Regular Singular Points and the Method of Frobenius \endhead
+
+The general problem we want to consider now is how to solve
+an equation of the form $y'' + p(t)y' + q(t)y = 0$ by expanding
+in a series {\it centered at a singular point}.   To understand
+the process, we start by reviewing the simplest case which is {\it Euler's
+Equation}
+\outind{Euler's equation}
+\[ 
+y'' + \frac \alpha t y' + \frac \beta{t^2} y = 0
+\]
+where $\alpha$  and $\beta$ are constants.  To solve it in the
+vicinity of the singular point $t = 0$, we try a solution
+of the form $y = t^r$.   Then, $y' = rt^{r-1}$ and $y'' = r(r-1)t^{r-2}$,
+so the equation becomes
+\begin{gather*}
+r(r-1)t^{r-2} + \alpha r \frac {t^{r-1}}t + \beta \frac{t^r}{t^2} = 0 \\
+(r(r-1) + \alpha r + \beta)t^{r -2} = 0 \\
+r(r-1) + \alpha r + \beta = 0 \\
+r^2 + (\alpha -1)r + \beta = 0.
+\end{gather*}
+This is a quadratic equation with two roots $r_1, r_2$, so we
+get two solutions $y_1 = t^{r_1}$ and $y_2 = t^{r_2}$.
+If the roots are different, these form a linearly independent pair,
+and the general solution is
+\[
+y = C_1t^{r_1} + C_2t^{r_2}.
+\]
+If the roots are equal, i.e., $r_1 = r_2 = r$, then $y_1 = t^r$
+is one solution, and we may
+use reduction of order to find another solution.  It turns
+out to be  $y_2 = t^r\ln t$.  (See the Exercises.)
+     The general solution is
+\[
+y = C_1t^r + C_2 t^r\ln t.
+\]
+
+There are a couple of things to notice about the above process.
+First, the method depended critically on the fact that $t$ occurred
+precisely to the right powers in the two denominators.  Otherwise,
+we might not have ended up with the common factor $t^{r-2}$. 
+Secondly, the solutions of the quadratic equation need not
+be positive integers; they could be negative integers, fractions,
+or worse.  In such cases $t^r$ may exhibit some singular behavior
+at $t = 0$.   This will certainly be the case if $r < 0$, since
+in that case $t^r = 1/t^{|r|}$ blows up as $t \to 0$.  If $r >0$
+but $r$ is not an integer, then $t^r$ is continuous at $t = 0$, but
+it may have discontinuous derivatives of some order.  For example,
+if $y = t^{5/3}$, then $y' = (5/3)t^{2/3}$ and $y'' = (10/9)t^{-1/3}$,
+which is not continuous at $t = 0$.  Hence, the singularity at
+$t = 0$ in the differential equation tends to show up in some way
+in the solution.  (In general, the roots $r$ could even be complex
+numbers, which complicates the matter even more.  In this course,
+we shall ignore that possibility.)
+
+Consider now the general equation
+\[
+y'' + p(t) y' + q(t) y = 0,
+\]
+and suppose $p(t)$ or $q(t)$ is singular at $t = 0$.  We say
+that $t = 0$ is a {\it regular singular point\/} if we
+\outind{regular singular point}
+can write
+\[
+    p(t) = \frac {\overline p(t)}t\qquad q(t) = 
+\frac{\overline q(t)}{t^2}
+\]
+where $\overline p(t)$ and $\overline q(t)$ are {\it analytic\/}
+in the vicinity of $t = 0$.   This means that the differential equation
+has the form
+\begin{gather*}
+y'' + \frac {\overline p(t)}t y' + \frac{\overline q(t)}{t^2} y = 0 \\
+\text{or}\qquad t^2 y'' + t\,\overline p(t)y' + \overline q(t) y = 0.
+\end{gather*}
+(This is what we get if we replace the constants in Euler's Equation
+by analytic functions.)
+
+	More generally, we say that $t = t_0$ is a regular singular
+point of the differential equation if it may be rewritten
+\begin{gather*}
+y'' + \frac {\overline p(t)}{t-t_0} y' + \frac{\overline q(t)}{(t-t_0)^2} y = 0 \\
+\text{or}\qquad (t- t_0)^2 y'' + (t- t_0)\,\overline p(t)y'
+ + \overline q(t) y = 0
+\end{gather*}
+where $\overline p(t)$ and $\overline q(t)$ are analytic functions
+in the vicinity of $t = t_0$.
+
+\nextex
+\example{Example \en}  Bessel's Equation
+\[
+y'' + \frac 1t y' + \frac{t^2 - m^2}{t^2} y = 0
+\]
+has a regular singular point at $t = 0$.
+\outind{Bessel's equation}
+\endexample
+
+\nextex
+\example{Example \en}  Legendre's Equation
+\[
+y'' - \frac {2t}{1 - t^2} y' + \frac{\alpha(\alpha +1)}{1 - t^2} y = 0
+\]
+has regular singular points both at $t = 1$ and $t = -1$.
+\outind{Legendre's equation}
+
+For, at $t = 1$, we may write
+\begin{align*}
+p(t) &= \frac{-2t}{1-t^2} = \frac{2t}{(t -1)(t +1)}
+   = \frac{2t/(t + 1)}{t - 1} \\
+q(t) &= \frac{\alpha(\alpha +1)}{1 -t^2}
+      = \frac{-\alpha(\alpha +1)}{(t -1)(t+1)}
+=  \frac{-\alpha(\alpha +1)(t -1)/(t +1)}{(t -1)^2}
+\end{align*}
+and
+\begin{align*}
+\overline p(t) &= \frac {2t}{t + 1} \\
+\overline q(t) &= \frac{-\alpha(\alpha +1)(t-1)}{t + 1}
+\end{align*}
+are analytic functions near $t = 1$.  (They are of course singular
+at $t = -1$, but that is far enough way not to matter.)
+
+ A similar argument which reverses the roles of $t -1$ and $t +1$
+shows that $t = -1$ is also a regular singular point.
+\endexample
+
+\nextex
+\example{Example \en}  The equation
+\[
+y'' - \frac 2{t^2}y' + 5 y = 0
+\]
+has an {\it irregular\/} singular point at $t = 0$.  In this case,
+the best we can do with $p(t)$ is
+\[
+  \frac{-2}{t^2} = \frac {-2/t}t
+\]
+and $-2/t$ is certainly not analytic at $t = 0$.
+
+To solve an equation with a regular singular point at $t = t_0$, we allow
+for the possibility that the solution is singular at $t = t_0$,
+but we hope that the singularity won't be worse than a negative or
+fractional power of $t - t_0$, as in the case of Euler's Equation.
+ That is, we try for a solution of the
+form
+\[
+  y = (t - t_0)^r\sum_{n=0}^\infty a_n(t -t_0)^n.
+\]
+Since the power series is analytic, this amounts to trying
+for a solution of the form  $y = (t - t_0)^r g(t)$ where $g(t)$
+is analytic near $t_0$.   This method is called the
+{\it method of Frobenius}.
+\outind{method of Frobenius}
+\outind{Frobenius, method of}
+
+There is one technical problem with the method of Frobenius.
+If $r$ is not an integer, then {\it by definition\/}
+$(t - t_0)^r = e^{r\ln(t - t_0)}$.  Unfortunately,
+$\ln(t - t_0)$ is undefined for $t - t_0 < 0$.  Fortunately,
+since $t = t_0$ is a singular point of the differential equation,
+one is usually interested either in the case $t > t_0$ or
+$t < t_0$, but one does not usually have to worry about going
+from one to the other.   We shall concentrate in this course
+on the case $t > t_0$.   For the case $t < t_0$, similar
+methods work except that you should use $|t - t_0|^r$ instead
+of $(t - t_0)^r$.
+
+\subhead The Method of Frobenius for Bessel's Equation \endsubhead
+
+We want to solve
+\[
+t^2 y'' + t y' + (t^2 - m^2) y = 0
+\]
+\outind{Bessel's equation}
+near the regular singular point $t_0 = 0$.  We look for a 
+solution defined for $t > 0$.  Clearly, we may assume
+$m$ is non-negative since its square is what appears in the equation.
+In interesting applications
+$m$ is a non-negative integer, but for the moment we make no
+assumptions about $m$ except that $m \ge 0$.  
+ The method of Frobenius suggests
+trying
+\[
+y = t^r\sum_{n=0}^\infty a_nt^n = \sum_{n=0}a_nt^{n+r}.
+\]
+Note that we may assume here that $a_0 \not = 0$ since if
+it were zero that would mean the series would start with
+a positive power of $t$ which could be factored out from each
+term and absorbed in $t^r$ by increasing $r$.
+
+As before, we calculate 
+\[y' = \sum_{n=0}^\infty (n+r)a_n t^{n+r -1}
+\quad\text{and  }y'' = \sum_{n=0}^\infty (n+r)(n+r -1)a_n t^{n+r -2}.\]
+(Note however that we can't play any games with the lower index
+as we did for ordinary points.)   Thus,
+\begin{align*}
+t^2y'' &= \sum_{n=0}^\infty (n+r)(n+r -1)a_nt^{n+r} \\
+ty' &= \sum_{n=0}^\infty (n+r)a_n t^{n+r}\\
+t^2y &= \sum_{n=0}^\infty a_nt^{n+r+2} = \sum_{n-2 = 0}^\infty
+  a_{n-2}t^{n+r} \\
+   &= \sum_{n=2}^\infty a_{n-2}t^{n+r} \\
+-m^2y &= \sum_{n=0}^\infty (-m^2a_n)t^{n+r}.
+\end{align*}
+Note that after the adjustments, one of the sums starts at $n = 2$.
+That means that when we add up the terms for each $n$, we have to consider
+those for $n = 0$ and $n = 1$ separately since they don't involve
+terms from the aforementioned sum.   Thus, for $n = 0$, we get
+\nexteqn
+\[
+0 = r(r-1)a_0 + ra_0 - m^2a_0
+\]
+while for $n = 1$, we get
+\[
+0 = (r+1)r a_1 + (r +1)a_1 - m^2 a_1.
+\]
+The general rule starts with $n = 2$
+\[
+0 = (n+r)(n+r -1)a_n + (n+r)a_n + a_{n-2} - m^2a_n\qquad\text{for } n\ge 2.
+\]
+These relations may be simplified.  For, $n = 0$, we get
+\[
+(r^2 - m^2)a_0 = 0.
+\]
+However, since by assumption $a_0 \not=0$, we get
+\[
+r^2 - m^2 = 0.
+\]
+This quadratic equation in $r$ is called the {\it indicial equation}.
+\outind{indicial equation}
+In this particular case, it is easy to solve
+\[
+r = \pm m.
+\]
+(Note that if $m = 0$, this is a double root!)
+For $n = 1$, (using $r^2 = m^2$) we get
+\nexteqn
+\xdef\NOne{\eqn}
+\[
+((r + 1)^2 - m^2)a_1 = (2r +1)a_1 = 0\tag{\eqn}
+\] 
+Except in the case $r = -1/2$, this implies that $a_1 = 0$.
+Finally, for $n \ge 2$, the coefficient of $a_n$ is
+$(n+r)(n+r-1) + (n+r) - m^2 = (n+r)^2 - m^2$, so we get 
+\nexteqn
+\xdef\NHigher{\eqn}
+\[
+[(n + r)^2 - m^2]a_n + a_{n-2} = 0.\tag{\eqn}
+\]
+
+We shall now consider separately what happens for each root
+$r = \pm m$  of the indicial equation.  (Some people prefer
+to see how far they can get
+without specifying $r$, and then they put $r$ equal
+to each of the roots when they can't proceed further.)   
+\medskip
+\subhead Solution of Bessel's Equation for the Positive Root of
+the Indicial Equation \endsubhead
+Take $r = m \ge 0$.
+Then, $r \not= -1/2$, so $a_1 = 0$.   For $n \ge 2$, the
+coefficient of $a_n$ is $(n+m)^2 - m^2 = n^2 + 2nm = n(n + 2m)$, and 
+we may solve
+\[
+a_n = -\frac{a_{n-2}}{n(n + 2m)}.
+\]
+This recurrence relation allows us to determine $a_n$ for all
+$n > 0$.   First of all, since $a_1 = 0$, it follows that
+$a_3 = a_5 = \dots = 0$, i.e., all odd numbered coefficients are
+zero.   For $n$ even, we have
+\begin{align*}
+n &= 2&\qquad a_2 &= -\frac{a_0}{2(2 + 2m)} = -\frac{a_0}{2^2(m + 1)} \\
+n &= 4 &\qquad a_4 &= -\frac{a_2}{4(4 + 2m)} = \frac{a_0}{2^5(m+2)(m+1)}\\
+n &= 6 &\qquad a_6 &= -\frac{a_4}{6(6 + 2m)} = 
+-\frac{a_0}{3\cdot 2^7(m+3)(m+2)(m+1)}\\
+n &= 8 &\qquad a_8 &= -\frac{a_4}{6(6 + 2m)} = 
+\frac{a_0}{4\cdot3\cdot 2^9(m+4)(m+3)(m+2)(m+1)}\\
+&&&=\frac{a_0}{4! 2^8(m+4)(m+3)(m+2)(m+1)}\\
+&\vdots
+\end{align*}
+The general rule may be written
+\[
+a_{2k} = (-1)^k\frac{a_0}{k!2^{2k}(m+k)(m+k-1)\dots (m+2)(m+1)}
+\qquad k = 0, 1, 2, \dots
+\]
+Note the quantity $(m +k)(m +k-1)\dots (m+2)(m+1)$  is similar to a
+factorial in which each term has an extra addend $m$.  If we interpret
+this product to be 1 if $k=0$, and recall that $0! = 1$, then the
+formula is valid, as indicated, for $k = 0$.
+
+The corresponding series solution is
+\[
+y = t^m\sum_{n=0}^\infty a_n t^n = a_0t^m\sum_{k=0}^\infty
+\frac{(-1)^k}{k!2^{2k}(m+k)(m+k-1)\dots (m+2)(m+1)}t^{2k}.
+\]
+Note that since $m \ge 0$, this solution is actually continuous
+at $t = 0$.  (It is the product of the continuous function $t^m$
+with the sum of a power series, i.e., an analytic function.)   If
+$m$ is a non-negative integer, the solution is even analytic
+at $t = 0$.  If $m$ is positive but not an integer, the solution
+is definitely not analytic since a sufficiently high derivative
+of $t^m$ will involve a negative power and so fail to exist at
+$t = 0$.   (A function which is analytic at $t = 0$ has derivatives
+of every order at $t = 0$. They are just the coefficients (except
+for factorials) of
+its Taylor series centered at $t = 0$.)
+
+The constant $a_0$ is arbitrary and determined by initial conditions.
+However, we may pick out one specific solution and any other such
+solution will be a constant multiple of it.  It is often useful to adjust
+the constant $a_0$ for the distinguished solution so that the formulas
+work out nicely.   If $m$ is a non-negative integer
+the most common choice is  $a_0 = 1/(2^mm!)$.   This yields
+\begin{align*}
+y &= \frac 1{2^mm!}t^m\sum_{k=0}^\infty
+\frac{(-1)^k}{2^{2k}k!(m+k)(m+k-1)\dots (m+2)(m+1)}t^{2k} \\
+&= \sum_{k=0}^\infty \frac{(-1)^k}{2^{2k+m}k!(m+k)!}t^{2k + m} \\
+&= \sum_{k=0}^\infty \frac{(-1)^k}{k!(m+k)!}\left(\frac t2\right)^{2k + m}.
+\end{align*}
+For $m$ a non-negative integer,
+this solution is   called a {\it Bessel Function of the first kind\/},
+\outind{Bessel function}
+and it is denoted
+\[
+J_m(t) = 
+\sum_{k=0}^\infty \frac{(-1)^k}{k!(m+k)!}\left(\frac t2\right)^{2k + m}.
+ \]
+\outind{$J_m(t)$}
+The ratio test shows that the series converges for all $t$, so 
+its sum is an analytic function for all $t$.
+Two interesting cases are
+\begin{align*}
+J_0(t) &= \sum_{k=0}^\infty \frac{(-1)^k}{(k!)^2}\left(\frac t2\right)^{2k}\\
+J_1(t) &= \sum_{k=0}^\infty \frac{(-1)^k}{(k+1)!k!}\left(\frac t2\right)^{2k+1}.
+\end{align*}
+
+If $m > 0$ but $m$ is not an integer, everything above works except
+that the resulting function is not analytic, but as mentioned above,
+it is bounded and continuous as $t \to 0$.   The choice of the constant
+$a_0$ for a distinguished solution is trickier.  The term $2^m$
+poses no problems, but we need an
+analogue of $m!$ for $m$ a positive real number which is not
+an integer.   It turns out that there
+is a real valued function $\Gamma(x)$ of the real variable $x$, which
+is even analytic for non-negative values of $x$, and which satisfies
+the rules
+\nexteqn
+\[
+  \Gamma(x+1) = x\Gamma(x)\qquad \Gamma(1) = 1.\tag{\eqn}
+\]
+It is called appropriately enough the {\it Gamma function}.
+(See the Exercises for its definition.)
+\outind{Gamma function}
+\outind{$\Gamma(x)$}
+It follows from the rules  (\eqn) that if $m$ is a positive integer,
+\[\begin{split}
+\Gamma(m) = (m-1)\Gamma(m-1) = (m-1)(m-2)\Gamma(m-2) = \dots \\
+ =  (m-1)\dots 2\,1\,\Gamma(1) = (m-1)!.
+\end{split}\]
+This is usually rewritten with $m$ replaced by $m+1$
+\[
+\Gamma(m + 1) = m!\qquad\text{for } m = 0, 1, 2, \dots.
+\]
+You will study the Gamma function
+in more detail in
+ your complex variables course.
+
+ Using the Gamma function, we may take  $a_0 = \dfrac 1{2^m\Gamma(m+1)}$.
+Then,  $2^m2^{2k} = 2^{2k + m}$, and
+\[
+\Gamma(m+1)(m+1)(m +2)\dots (m+k) = \Gamma(m+ k + 1).
+\]
+So, combining $a_0$ with 
+$a_{2k}$, we obtain the solution
+\begin{align*}
+J_m(t) &=
+\sum_{k=0}^\infty \frac{(-1)^k}{k!\Gamma(m+k+1)}
+\left(\frac t2\right)^{2k + m}\\
+&=\left(\frac t2\right)^m
+\sum_{k=0}^\infty \frac{(-1)^k}{k!\Gamma(m+k+1)}\left(\frac t2\right)^{2k}
+\end{align*}
+where the fractional power has been put in front in the second equation to
+emphasize the non-analytic part of the solution.
+
+One interesting case is $m = 1/2$.
+\begin{align*}
+J_{1/2}(t)
+&=\frac {t^{1/2}}{2^{1/2}\Gamma(3/2)}
+\sum_{k=0}^\infty 
+\frac{(-1)^k}{2^{2k}k!(1/2 +k)(1/2 + k -1)\dots (1/2 +1)}t^{2k}\\
+&= \frac 1{t^{1/2}2^{1/2}\Gamma(3/2)}
+\sum_{k=0}^\infty (-1)^k\frac{t^{2k+1}}{2^kk!(2k +1)(2k -1)\dots 3}\\
+&= \frac 1{t^{1/2}2^{1/2}\Gamma(3/2)}
+\sum_{k=0}^\infty (-1)^k
+\frac{t^{2k+1}}{(2k)(2k-2)\dots 4\cdot 2\,(2k +1)(2k -1)\dots 3}\\
+&= \frac 1{t^{1/2}2^{1/2}\Gamma(3/2)}
+\sum_{k=0}^\infty (-1)^k\frac{t^{2k+1}}{(2k+1)!}\\
+&= \frac 1{t^{1/2}2^{1/2}\Gamma(3/2)}\sin t.
+\end{align*}
+However,  $\Gamma(3/2) = (1/2)\Gamma(1/2)$, and it
+may be shown that $\Gamma(1/2) = \sqrt \pi$.  Thus, after
+some algebra,
+we get
+\[
+J_{1/2}(t) = \sqrt{\frac 2\pi}\,\frac{\sin t}{\sqrt t}.
+\]
+
+\bigskip
+\subhead  Solution of Bessel's Equation for the Negative Root
+of the Indicial Equation \endsubhead
+Suppose $m > 0$.
+By considering the positive root $r = m$  of the indicial equation
+$r^2 - m^2 = 0$,
+we found one solution of Bessel's Equation.
+We now attempt to find a second linearly independent solution
+by considering the 
+negative root $r = -m$. 
+\outind{Bessel's equation}
+For this root, 
+ equation (\NOne) for $n=1$ becomes
+\[
+(2r +1)a_1 = (1 - 2m)a_1 = 0,
+\]
+which, as earlier, implies that $a_1 = 0$ except
+in the case $m = 1/2, r = -1/2$.  However, even in that case   
+we need only find one additional solution, so in any event
+  we shall concentrate
+on the {\it even numbered\/} coefficients.
+
+For $n \ge 2$,  equation (\NHigher) becomes
+\[
+(n^2 + 2nr)a_n + a_{n-2} = (n^2 - 2nm)a_n + a_{n-2} = 0
+\]
+which may be solved to obtain
+\[
+ a_n = \frac{-a_{n-2}}{n(n - 2m)}\qquad\text{for } n \ge 2, 
+\]
+{\it provided\/} $n - 2m \not= 0$.   Thus, we may use the
+recurrence relation to generate coefficients 
+(for $n$ even)
+ for a second
+solution as long as $m \not= n/2$, i.e., $m$ {\it is not an integer}.
+     Assume
+that is the case.  Then we get
+\begin{align*}
+n&=2 &\qquad a_2 &= -\frac{a_0}{2(2 - 2m)} = -\frac{a_0}{2^2(1 - m)} \\
+n&=4 &\qquad a_4 &= -\frac{a_2}{4(4 - 2m)} = \frac{a_0}{2^42(1-m)(2-m)} \\
+n&=6 &\qquad a_6 &= -\frac{a_4}{6(6 - 2m)}
+  = -\frac{a_0}{2^63\cdot 2 (1 - m)(2-m)(3 -m)}\\
+&&\vdots
+\end{align*}
+Putting $n = 2k$, we get the general rule
+\[
+a_{2k} = \frac{(-1)^ka_0}{2^{2k}k!(1-m)(2-m)\dots (k-m)}\qquad k \ge 0.
+\]
+The corresponding solution is
+\[
+y = a_0t^{-m}\sum_{k=0}^\infty \frac{(-1)^ka_0}{k!(1-m)(2-m)\dots (k-m)}
+\left(\frac t2\right)^{2k}.
+\]
+If $m > 0$ is not a positive integer, we may set
+$a_0 = \dfrac 1{2^{-m}\Gamma(-m + 1)}$.  That is simiilar
+to what we did above, except that $m$ is replaced by $-m$.
+The resulting solution is 
+\[
+J_{-m}(t) = \sum_{k=0}^\infty \frac{(-1)^k}{k!\Gamma(-m + k + 1)}
+\left (\frac t2\right )^{2k -m}.
+\]
+ Note that this solution has a singularity for
+$t=0$ because of the common factor $t^{-m}$, so it is certainly not
+a constant multiple of $J_m(t)$.   Hence, we have a linearly
+independent pair of solutions and we conclude that
+{\it if $m$ is not an integer\/},  the general solution of
+Bessel's equation is
+\[
+y = C_1J_m(t) + C_2J_{-m}(t).
+\]
+
+The case $m = 1/2$ is interesting.  
+The series can be rewritten
+\begin{align*}
+J_{-1/2}(t)&= \frac 1{2^{-1/2}\Gamma(1/2)}\sum_{k=0}^\infty
+(-1)^k\frac 1{k!(1 -1/2)(2 - 1/2)\dots (k - 1/2)2^{2k}}t^{2k- 1/2} \\
+J_{-1/2}(t)&= \sqrt{\frac 2\pi}\frac 1{\sqrt t}\sum_{k=0}^\infty
+(-1)^k\frac 1{k!(1 -1/2)(2 - 1/2)\dots (k - 1/2)2^{2k}}t^{2k} \\
+&= \sqrt{\frac 2\pi}\frac 1{\sqrt t}\sum_{k=0}^\infty
+(-1)^k\frac {t^{2k}}{2^kk!(2 -1)(4 - 1)\dots (2k - 1)}t^{2k}\\
+&= \sqrt{\frac 2\pi}\frac 1{\sqrt t}\sum_{k=0}^\infty(-1)^k\frac {t^{2k}}{(2k)!} \\
+&= \sqrt{\frac 2\pi} \frac{\cos t}{\sqrt t}.
+\end{align*}
+\medskip
+Note that we still have to deal with the case that 
+$m$ is an integer since the above method breaks down.
+\bigskip
+\includeexercises{chap9.ex3}
+\bigskip
+\nextsec{The Method of Frobenius.  General Theory}
+\head \sn.  The Method of Frobenius.  General Theory \endhead
+
+In the previous section, we applied the method of Frobenius to
+Bessel's Equation.   For some cases ($m$ not an integer), the
+method gave a complete solution, but for other cases ($m$ a 
+non-negative integer),
+it gave only one solution.   In the `bad' cases, we need another
+method to find a linearly independent pair of solutions from which
+we can form a general solution of the differential equation.
+\outind{method of Frobenius}
+
+Before attempting to deal with the `bad' cases, we should discuss
+how the method of Frobenius works for other differential equations.
+
+\nextex
+\example{Example \en}  We shall try to solve
+\[
+t^2y'' + 2ty' - (2 +t)y = 0\qquad\qquad t > 0
+\]
+by a series of the form $y = t^r\sum_{n=0}^\infty a_nt^n
+= \sum_{n=0}^\infty a_nt^{n+r}$.
+Calculating as previously, we have
+\begin{align*}
+t^2y'' &= \sum_{n=0}^\infty (n+r)(n+r-1)a_nt^{n+r}\\
+2ty' &= \sum_{n=0}^\infty 2(n+r)a_n t^{n+r} \\
+-2y  &= \sum_{n=0}^\infty (-2a_nt^{n+r} \\
+-ty &= \sum_{n=0}^\infty (-a_n)t^{n+r+1} = \sum_{n-1=0}^\infty
+(-a_{n-1})t^{n-1+r+1} \\
+    &= \sum_{n=1}^\infty (-a_{n-1})t^{n+r}.
+\end{align*}
+Adding up corresponding powers of $t$ yields for $n=0$
+\nexteqn
+\xdef\ZeroEq{\eqn}
+\[
+[r(r-1) + 2r - 2]a_0 = 0\tag{\eqn}
+\]
+and for $n\ge 1$
+\nexteqn
+\xdef\HigherEq{\eqn}
+\[
+[(n+r)(n+r-1) + 2(n+r) - 2]a_n - a_{n-1} = 0.\tag{\eqn}
+\]
+Since $a_0\not=0$, (\ZeroEq) yields the {\it indicial equation}
+\nexteqn
+\xdef\IndEq{\eqn}
+\[
+f(r) = r(r-1) + 2r - 2 = r^2 + r - 2 = (r -1)(r +2) = 0.
+\]
+Note also that for $n \ge 1$, (\HigherEq) has the form
+\[
+f(n+r)a_n - a_2 = 0
+\]
+where
+\[
+f(n+r) = (n+r)(n+r-1) + 2(n+r) - 2 = (n+r)^2 + (n+r) - 2 = (n+r-1)(n+r+2).
+\]
+(You should look back at the previous section at this point to see
+what happened for Bessel's equation.  The indicial equation was
+$f(r) = r^2 - m^2 = 0$,
+while the coefficient of $a_n$ in each of the equations for $n \ge 1$ was 
+$f(r) = (n+r)^2 - m^2$.)
+
+The roots of the indicial equation are  $r = 1$ and $r = -2$.   Consider
+first $r = 1$.  For $n \ge 1$,  $f(n+1) = n(n+3)$
+so (\HigherEq) becomes
+\[
+ n(n+3)a_n  - a_{n-1} = 0
+\]
+which may be solved to obtain the recurrence relation
+\nexteqn
+\[
+a_n = \frac{a_{n-1}}{n(n+3)}\qquad\text{for } n \ge 1.\tag{\eqn}
+\]
+  Note that there is no problem with this relation since
+the denominator never vanishes.   This is not an accident.  We shall
+see below why it happened.
+
+Clearly, this recurrence relation may be used to determine all the
+coefficients $a_n$ in terms of $a_0$.  (We leave it to the student
+to actually do that.)  Thus, we obtain one solution of the differential
+equation which is in fact uniquely determined except for the
+{\it non-zero\/}
+ multiplicative
+constant $a_0$.
+
+Consider next the root $r = -2$ of the indicial equation.   For $n\ge 1$,
+$f(n-2) = (n-3)n$, so (\HigherEq) becomes
+\[
+(n-3)na_n = a_{n-1}.
+\]
+This can be solved for $n =1$ and $n = 2$ to obtain
+\nexteqn
+\begin{align*}
+a_1 &= \frac{a_0}{(-2)1} = -\frac{a_0}2 \\  
+a_2 &= \frac{a_1}{(-1)2} = \frac{a_0}4. \tag{\eqn}
+\end{align*}
+However,  for $n = 3$ we encounter
+a problem.   The equation becomes
+\[
+0\cdot a_3 = a_2
+\]
+which is consistent only if $a_2 = 0$, and by (\eqn) that contradicts
+the assumption
+that $a_0 \not= 0$.    
+Hence, for the root $r = -2$ of the indicial equation, the process
+breaks down.
+\endexample
+
+Let's see what was going on both in our discussion of Bessel's equation
+and in the last example.   In each case, we had a quadratic indicial equation
+\[
+f(r) = 0.
+\]
+In addition, we had for $n \ge 1$ equations of the form
+\[
+f(n+r)a_n = \text{an expression involving $a_j$ with $j < n$}.
+\]
+(The expression on the right might be zero
+as for Bessel's equation with $n=1$.) 
+ Suppose
+$r_1 \ge r_2$ are the two roots of the indicial equation.   If
+$n \ge 1$, it can never be the case that $f(n+r_1) = 0$ since the
+only other root of the equation $f(r) = 0$  is $r_2$ which is not
+larger than $r_1$.   Hence, we may always solve the above equation
+to obtain recurrence relations
+\[
+a_n = 
+\frac{\text{expression involving $a_j$ with $j < n$}}{f(n +r_1)},\qquad n\ge 1.
+\]
+
+For the other root, $r_2$ the situation is more complicated.   If
+$r_2 + n$ is never a root of the quadratic equation
+$f(r) = 0$, the above reasoning applies and we obtain recurrence
+relations
+\[
+a_n =
+\frac{\text{expression involving $a_j$ with $j < n$}}{f(n +r_2)},\qquad n\ge 1.
+\]
+Thus, we obtain a second solution, and it is not hard to see
+that the two solutions form a linearly independent pair.  (See
+the appendix to this section.)
+
+There is the possibility, however, that for some integer $n = k$,
+$r_2 + k = r_1$ is the {\it larger\/} root of the 
+indicial equation, i.e., $f(r_2 + k) = 0$.
+In that case, the $k$th recursion relation becomes
+\[
+ 0 = f(k+r_2)a_k = \text{an expression involving $a_j$ with $j < k$},
+\]
+so the process will break down 
+{\it unless
+we are incredibly lucky and the expression on the right happens to
+be zero.}   In that case, we can seize on our great
+fortune, and set $a_k$ equal to any convenient value.
+Usually, we just set $a_k = 0$.  In any case, the process may continue
+unimpeded for $n > k$ as soon as we successfully get past the `barrier'
+at $k$.
+
+The upshot of the above analysis is 
+ that the method of Frobenius
+may break down in the `bad case' that
+$r_1 - r_2$ is a positive integer.  Of course, if $r_1 = r_2$,
+the method only gives one solution in any case.   
+Hence, you must be on guard whenever {\it $r_1 - r_2$ is a
+non-negative integer}.
+
+If you look back at the previous section, you will see
+that Bessel's Equation  exhibits the phenomena we just described.
+\outind{Bessel's equation}
+The roots are $\pm m$, so  $m = 0$ is is the case of equal
+roots,  and the method
+of Frobenius only gives one solution.  If $m > 0$, the larger
+of the two roots is $r_1 = m$, and this gives
+a solution in any case.
+The smaller of the two roots is $r_2 = -m$, and provided
+$m -(-m) = 2m$ is not a positive integer, the method of
+Frobenius also generates a solution for $r_2 = -m$.
+On the other hand, if
+ $2m$ is a positive integer, then 
+the recurrence relations for $r_2 = -m$
+take the form
+\begin{align*}
+1(1 - 2m)a_1 &= 0 \qquad\text{for } n = 1\\
+n(n - 2m)a_n &= -a_{n-2}\qquad\text{for } n \ge 2.
+\end{align*}
+The first equation ($n = 1$) implies that $a_1 = 0$ except
+in the case $m = 1/2$.
+Even in that case, our luck holds out,
+and we may take $a_1 = 0$ since the right hand side of
+the equation is zero.  Similarly, if  $m = k/2$
+for some odd integer $k > 1$, then  the recursion relation will
+imply that $a_n = 0$ for every odd $n < k$, and the $k$th recurrence
+relation will
+read
+\[
+k(0)a_k = -a_{k-2} = 0,
+\]
+so we may set $a_k = 0$.  It follows that if $m$ is half an odd integer,
+then we may assume all the odd numbered $a_n$ are zero.  For
+ even
+$n$, the coefficient $n(n -2m) = n(n - k)$
+is never zero, so there is no problem determining
+the $a_n$ as previously. 
+
+ The only
+remaining case is when $m$ is itself a positive integer.  In this
+case, 
+for $n = 2m$, the coefficient on the left $n(n -2m)$ is zero, but
+the quantity $a_{n-1}$ is not,
+so there is no way to recover.  Hence, we must find another
+method to generate a second solution.
+
+
+\subhead The General Theory \endsubhead
+We shall explain here why the method of Frobenius behaves the way it
+does.   This section may be omitted your first time through the material,
+but you should come back a look at it after you have worked some
+\outind{method of Frobenius}
+more examples.
+
+Consider the differential equation
+\[
+t^2y'' + t\overline p(t) y' + \overline q (t) y = 0
+\]
+where $\overline p(t)$ and $\overline q(t)$ are analytic functions
+in a neighborhood of $t = 0$.   (That is what it means to say
+$t = 0$ is a regular singular point.)   We shall try to find a
+solution of the form $y = t^r\sum_{n=0}^\infty a_nt^n$ for
+$t > 0$.   (As mentioned earlier, if you want a solution for
+$t < 0$, replace $t^r$ by $|t|^r$.)   Since $\overline p(t)$
+and $\overline q(t)$ are analytic at $t = 0$, they have
+ power series expansions
+\begin{align*}
+\overline p(t) &= p_0 + p_1t + p_2t^2 + \dots \\
+\overline q(t) &= q_0 + q_1t + q_2t^2 + \dots\,.
+\end{align*}
+Putting these in the differential equation, one term at a time,
+we have
+\begin{align*}
+t^2y'' &= \sum_{n=0}^\infty a_n(n+r)(n+r-1)t^{n+r} \\
+p_0ty' &= \sum_{n=0}^\infty p_0a_n(n+r)t^{n+r} \\
+p_1t\,ty' =p_1t^2y' &= \sum_{n=0}^\infty p_1a_n(n+r)t^{n+r+1}
+ = \sum_{n=1}p_1a_{n-1}(n+r-1)t^{n+r} \\
+p_2t^2\,ty' = p_2t^3y' &= \sum_{n=0}^\infty p_2a_n(n+r)t^{n+r+2}
+= \sum_{n=2}^\infty p_2a_{n-2}(n+r-2)t^{n+r} \\
+&\vdots\qquad\text{sums starting with }n =3, 4, \dots \\
+q_0y = \sum_{n=0}^\infty q_0a_nt^{n+r} \\
+q_1ty &= \sum_{n=0}^\infty q_1a_nt^{n+r+1} =
+\sum_{n=1}^\infty q_1a_{n-1}t^{n+r} \\
+q_2t^2y &= \sum_{n=0}^\infty q_2a_nt^{n+r+2} =
+\sum_{n=2}^\infty q_2a_{n-2}t^{n+r} \\
+&\vdots\qquad\text{sums starting with } n = 3, 4,\dots \, .
+\end{align*}
+Adding up coefficients of corresponding powers of $t$ yields for
+$n = 0$
+\[
+[r(r-1) + p_0r + q_0]a_0 = 0,
+\]
+and since by assumption $a_0 \not= 0$, we get the indicial equation
+\[
+f(r) = r(r-1) + p_0r + q_0 = 0.
+\]
+(Notice the similarity to the equation obtained for Euler's equation.)
+For $n \ge 1$, we obtain equations of the form
+\[
+[(n+r)(n+r -1) + p_0(n+r) + q_0]a_n + \text{lesser numbered terms}= 0.
+\]
+The coefficient of $a_n$ will always be
+\[
+f(n+r) = (n+r)(n+r -1) + p_0(n+r) + q_0,
+\]
+and the additional terms will depend in general on the exact nature of the
+coefficients $p_1, p_2, \dots, q_1, q_2, \dots$.   (You should work out
+the cases $n = 1$ and $n=2$ to make sure you understand the argument!)
+
+The above calculation justifies {\it in general\/}
+ the conclusions drawn earlier by
+looking at examples.   However, there is still one point that has not
+been addressed.  Even if the method unambiguously generates the coefficients
+of the series (in terms of $a_0$), it won't be of much use unless that
+series has a positive radius of convergence.  Determining the radius
+of convergence of the series generated by the method of Frobenius 
+in any specific case is
+usually not difficult, but showing that it is not
+zero in  general is hard.   We shall leave that for you to investigate
+by yourself at a future date if you are sufficiently interested.
+{\it Introduction to Differential Equations\/} by Simmons has a good
+treatment of the question.
+\bigskip
+\subhead Appendix.  Why the solution pair $\{y_1, y_2\}$  is linearly
+independent when $r_1 - r_2$ is not an integer \endsubhead
+We have
+\[
+y_1 = t^{r_1}\,g_1(t)\qquad\text{and}\qquad y_2 = t^{r_2}\,g_2(t)
+\]
+where $g_1(t)$ and $g_2(t)$ are the sums of the series obtained
+in each case.  Since by assumption, the leading coefficient $a_0
+\not= 0$, neither of these functions vanishes.  It follows that
+the quotient of the solutions has the form
+\[
+\frac {y_1}{y_2} = \frac{t^{r_1}g_1(t)}{t^{r_2}g_2(t)}
+ = t^{r_1 - r_2}g(t)
+\]
+where $g(t) = g_1(t)/g_2(t)$ is a quotient of two analytic functions,
+neither of which vanishes at $t = 0$, so $g(t)$ is also analytic
+at $t= 0$ and does not vanish there.  If this were constant,
+we could write
+\[
+t^{r_1 - r_2} = \frac c{g(t)}
+\]
+and since $g(0)\not= 0$, the right hand side is analytic.
+  On the other hand, if $r_1 - r_2$ is not
+a positive integer, $t^{r_1 - r_2}$ is definitely not analytic.
+(If it is a positive integer, then it vanishes at $t = 0$,
+but the right hand side does not.)
+
+\bigskip
+\includeexercises{chap9.ex4}
+\bigskip
+
+\nextsec{Second Solutions in the Bad Cases}
+\head \sn. Second Solutions in the Bad Cases \endhead
+
+We consider next what to do when the method of Frobenius
+fails to produce a second solution.  We suppose that we
+\outind{method of Frobenius}
+are working at $t = 0$ which is assumed to be a regular
+singular point.   It is clear how to modify the formulas and
+arguments for an arbitrary regular singular point $t_0$.
+\medskip
+
+\subhead  The Case of Equal Roots \endsubhead
+Suppose first that the indicial equation
+\[
+  f(r) = 0
+\]
+has a double root $r$.   Let $y_1(t)$ denote the solution obtained
+\outind{method of Frobenius, equal roots}
+by the method of Frobenius for this root.   Then, we may apply
+the method of reduction of order to obtain a second solution.
+\outind{reduction of order}
+It turns out that this second solution always has the form
+\nexteqn
+\xdef\EqRootSol{\eqn}
+\[
+y_2(t) = y_1(t)\ln t + \sum_{n=1}^\infty c_nt^{n+r}.\tag{\eqn}
+\]
+Note that the summation starts with $n=1$.
+You should compare (\eqn)  with the second solution for Euler's equation
+in the
+case of a double root.   In that case, we had $y_1 = t^r$ and
+$y_2 = t^r\ln t = y_1\ln t$, so the logarithmic term is not a
+complete surprise.
+
+   We shall see later how the method of reduction of order leads
+to such a solution, but first let's look at an example.
+
+\nextex
+\example{Example \en}  Consider Bessel's equation for $m = 0$
+\[
+t^2y'' + ty' + (t^2 - 0^2)y = t^2y'' + ty' + t^2y = 0.
+\]
+$r = 0$ is a double root and the first solution is given by
+\[
+y_1 = J_0(t) = \sum_{k=0}^\infty (-1)^k\frac{1}{(k!)^2}\left(\frac t2
+\right)^{2k}.
+\] 
+As suggested above, let's try a second solution of the form
+\[
+y = y_1(t)\ln t + \sum_{n=1}^\infty c_n t^n.
+\outind{Bessel's equation}
+\]
+Then
+\begin{align*}
+y' &= y_1'(t)\ln t + \frac{y_1(t)}t + \sum_{n=1}^\infty nc_n t^{n-1} \\
+y'' &= y_1''(t)\ln t + 2\frac{y_1'(t)}{t}
+ - \frac{y_1(t)}{t^2} + \sum_{n=2}^\infty n(n-1)c_nt^{n-2}.
+\end{align*}
+Thus, renumbering as needed, we get
+\begin{align*}
+t^2y''&= t^2 y_1''\ln t\;  &+\quad &2ty_1'\; &-\quad &y_1\; &+\quad &\sum_{n=1}^\infty n(n-1)c_nt^n  \\
+  ty' &= ty_1'\ln t      &\quad  &\quad  &+\quad &y_1\; &+\quad &\sum_{n=1}^\infty nc_n t^n \\
+t^2y  &= t^2y_1\ln t     &\quad   &\quad &\quad  &{}  &+\quad &\sum_{n=3}^\infty c_{n-2}t^n
+\end{align*}
+
+Add this all up to get zero.   The right side includes the terms
+\[
+t^2y_1'' \ln t + ty_1' \ln t + t^2 y_1 \ln t
+ = (t^2y_1'' + ty_1' + t^2 y_1)\ln t = 0
+\]
+since $y_1$ is a solution of the differential equation.   The
+terms $-y_1$ and $+y_1$ cancel, so we are left only with
+$2ty_1'(t)$ and the summation terms.  The coefficient of $t^n$
+for $n \ge 3$ is 
+\[
+n(n-1)c_n + nc_n + c_{n-2} = n^2c_n + c_{n-2},
+\]
+but we also have two additional terms, those for $n = 1$ and
+$n = 2$.   Putting this all together, we get
+\[
+2ty_1'(t) + c_1t + 4c_2t^2 + \sum_{n=3}^\infty[n^2c_n + c_{n-2}]t^n
+ = 0,
+\]
+or
+\[
+c_1t + 4c_2t^2 +  \sum_{n=3}^\infty[n^2c_n + c_{n-2}]t^n
+ = -2ty_1'(t).
+\]
+However, we may evaluate $ty_1'(t)$ without too much difficulty.
+\begin{align*}
+y_1 &= \sum_{k=0}^\infty (-1)^{k}\frac 1{(k!)^2 2^{2k}}t^{2k}\\
+\intertext{so}
+-2ty_l' &= -2t\sum_{k=1}^\infty (-1)^{k}\frac 1{(k!)^2 2^{2k}}2kt^{2k-1}\\
+      &=\sum_{k=1}^\infty (-1)^{k+1}\frac 1{k!(k-1)! 2^{2k-2}}t^{2k}.
+\end{align*}
+Thus,
+\[
+c_1t + 4c_2t^2 +  \sum_{n=3}^\infty[n^2c_n + c_{n-2}]t^n
+=\sum_{k=1}^\infty (-1)^{k+1}\frac 1{k!(k-1)! 2^{2k-2}}t^{2k}.
+\]
+Now compare corresponding powers of $t$ on the two sides, and
+remember that only even powers appear on the right.
+For $n = 1$, there are no terms on the right, so
+\[
+c_1 =  0.
+\]
+For $n =2, k = 1$, we have
+\begin{align*}
+4c_2 &= +\frac 1{1!0!2^0} = 1\\
+c_2 &= \frac 14. 
+\end{align*}
+For $n = 3$, we have
+\begin{align*}
+9c_3 + c_1 &= 0 \\
+c_3 &= 0.
+\end{align*}
+For $n = 4, k = 2$, we have
+\begin{align*}
+16c_4 + c_2 &= - \frac 1{2!1! 2^2} = 1\frac 1{8} \\
+c_4 &= -\frac 1{16}(\frac 14+ \frac 18) = -\frac 1{64}(1 + \frac 12).
+\end{align*}
+This process may be continued indefinitely to generate
+coefficients.   Clearly, all the odd numbered coefficients
+will end up being zero.   The general rule for the even numbered
+coefficients is not at all obvious.  It turns out to be
+\[
+c_{2k} = (-1)^{k+1}\frac 1{(k!)^22^{2k}}\left(1 + \frac 12 + \frac 13
++ \dots +\frac 1k\right)\qquad k \ge 1.
+\]
+Hence, the second solution of Bessel's equation with $m = 0$
+is
+\[
+y_2 = J_0(t)\ln t + \sum_{k=1}^\infty\frac{(-1)^{k+1}}
+{(k!)^2}(1 + 1/2 + \dots + 1/k)\left(\frac t2\right)^{2k}.
+\] 
+It is not hard to see that $\{y_1, y_2\}$ is a linearly
+independent pair of solutions.
+
+It should be noted that one seldom needs to know the exact form
+of the second solution.   The most important thing about it
+is that it is not continuous as $t \to 0$ because of the
+\outind{logarithmic singularity}
+logarithmic term.   The first solution
+$y_1 = J_0(t)$ is continuous.   This has the following important
+consequence.   Suppose we know on physical grounds that the
+solution is continuous and bounded as $t \to 0$.  Then
+it follows that in
+\[
+y = C_1y_1(t) + C_2y_2(t)
+\]
+the coefficient of $y_2$ must vanish.  For example, this must
+be the case for the vibrating membrane.   The displacement
+must be bounded at the origin ($r = 0$), so we know the
+solution can involve only the Bessel function of the first
+kind.
+
+\bigskip
+\subhead   The Case of Roots Differing by a Positive Integer \endsubhead
+Suppose the roots $r_1, r_2$ of the indicial equation satisfy
+$r_1 - r_2 = k$ where $k$ is a positive integer.   If $y_1(t)$
+is a solution obtained by the method of Frobenius for $r = r_1$,
+the larger of the two roots, then the method of reduction of order
+yields a second solution of the form
+\outind{method of Frobenius, roots differing by an integer}
+\nexteqn
+\xdef\IntDiff{\eqn}
+\[
+y_2(t) = ay_1(t)\ln t + t^{r_2}\sum_{n=0}^\infty c_nt^n.\tag{\eqn}
+\]
+{\it Note that the summation starts with $n = 0$.}
+It is possible that the method of Frobenius works for the
+smaller root $r_2$ (because crucial terms vanish),
+ and in that case we would have $a= 0$ in 
+(\eqn); the series in the second term is what the method of Frobenius
+generates.   Otherwise, $a\not=0$, and, since we may always
+adjust a solution by a non-zero multiplicative constant,
+ we may take $a = 1$. 
+ In any case the solution definitely exhibits a
+logarithmic singularity.   In applying the method, you should
+\outind{logarithmic singularity}
+first see if the method of Frobenius can be made to work for
+the lesser root.  If it doesn't work (because the recursion
+at some point unavoidably yields a non-zero numerator and a zero denominator),
+then try a solution of the form (\IntDiff) with $a = 1$.   
+This will yield a
+set of recursion rules for the coefficients $c_0, c_1, c_2, \dots$
+roughly as in Example \en.   To find these rules, you will have
+to evaluate some expression involving the series for the first
+solution $y_1(t)$ and its derivative $y'_1(t)$.   See the
+Exercises for some examples.
+
+Bessel's equation with $m > 0$  and $2m$ an
+integer illustrates the above principles.   If 
+$m$ is half an odd integer, then the logarithmic term is missing
+and we may take
+$y_2 = J_{-m}(t)$.   However, if $m$ is a positive integer,
+then the logarithmic term is definitely present and
+we must take
+\outind{logarithmic singularity}
+\nexteqn
+\[
+y_2  = J_m(t)\ln t + t^{-m}\sum_{n=0}^\infty c_n t^n,\tag{\eqn}
+\]
+where the coefficients $c_n$ are determined by the method outlined
+above.
+Such solutions are called
+{\it Bessel Functions of
+the second kind}.  For technical reasons, it is sometimes
+\outind{Bessel functions of 2nd kind}
+better to add to (\eqn) an appropriate
+multiple of $J_m(t)$ (a solution of the first kind).   There is
+one particular family of such solutions called
+{\it Neumann functions\/} and denoted
+\outind{Neumann functions}
+\outind{$Y_m(t)$}
+$Y_m(t)$.  We won't study these in this course, but we mention
+them in case you encounter the notation.   The most important
+thing about Neumann functions is that they have logarithmic
+singularities.
+\outind{logarithmic singularity}
+\medskip
+  It is possible to see in general that
+$\{y_1, y_2\}$ is a linearly independent pair of solutions,
+so the general solution of the differential equation has the
+form
+\[
+y = C_1y_1(t) + C_2y_2(t).
+\]
+If $r_1 > 0$, then $y_1(t) = t^{r_1}\sum_{n=0}^\infty a_nt^n$
+is bounded as $t \to 0$.   Usually, the second solution $y_2$
+does not have this property.  If the logarithmic term is present
+or if $r_2 < 0$, $y_2$ will not be bounded as $t \to 0$.  In
+those cases, if we know the solution is bounded by physical
+considerations, we may conclude that $C_2 = 0$.
+
+
+\bigskip
+\subhead Using Reduction of Order for the Second Solution \endsubhead
+You might want to skip this section the first time through.
+
+
+There are a variety of ways to show the second solution has the
+desired form in each of the `bad' cases.   We shall use the
+method of reduction of order.   There is an alternate method based
+\outind{reduction of order}
+on solving the recursion relations in terms of $r$ before setting
+$r$ equal to either of the roots of the indicial equation.   It
+is possible thereby to derive a set of formulas for the coefficients
+$c_n$.   (See {\it Braun\/}, Section 2.8.3 for a discussion of this
+method.)   However, no method gives a really practical approach for
+finding the coefficients, so in most cases it is enough to know the
+form of the solution and then try to find the coefficients by
+substituting in the equation as we did above.
+
+First, assume $r$ is a double root of the indicial equation
+$f(r) = 0$ and $y_1 = t^rg(t)$ (where $g(t) =\sum_{n=0}^\infty a_nt^n$)
+is a solution
+obtained by the method of Frobenius.   (Note that $g(t)$ is analytic
+at $t = 0$ and $g(0) \not= 0$.) 
+The indicial equation has the form
+\[
+f(r) = r(r-1) + p_0r + q_0 = r^2 + (p_0 -1)r + q_0 = 0
+\]
+where $p(t) = \overline p(t)/t = (p_0 + p_1t + \dots)/t$
+and $q(t) = \overline q(t)/t^2 = (q_0 + q_1t + \dots)/t^2$.
+Since $r$ is double root, we have
+$(p_0 -1)^2 - 4q_0 = 0$ and
+\[
+r = -\frac{p_0 -1}2.
+\]
+The method of reduction of order tells us that there is a second
+solution of the form
+$y_2 = y_1v$ where
+\[
+v' = \frac 1{y_1{}^2}e^{-\int p(t)dt}.
+\]
+However, as above, 
+\begin{align*}
+p(t) = \frac{\overline p(t)}t &= \frac 1t(p_0 + p_1t + p_2t^2 + \dots)\\
+&= \frac{p_0}t + p_1 + p_2t + \dots + p_nt^{n-1} + \dots\,.
+\end{align*}
+Hence,
+\[
+\int p(t)dt =  p_0\ln t + p_1t + \frac{p_2}2t^2 + \dots,
+\]
+so
+\[
+e^{-\int p(t)dt} = e^{-p_0\ln t}e^{ -p_1t - \dots} = t^{-p_0}h_1(t)
+\]
+where $h_1(t) = e^{-p_1t - \dots}$ is an analytic function at $t = 0$
+such that $h_1(0)\not=0$.   On the other
+hand
+\[
+\frac 1{y_1{}^2} = \frac 1{t^{2r} g(t)^2} = t^{-2r}h_2(t) 
+\]
+where,  since 
+$g(0) \not=0$,
+$h_2(t) = 1/g(t)^2$ is also analytic at $t = 0$ and $h_2(0)\not=0$.
+ It follows that
+\[
+v' = t^{-2r}h_2(t)t^{-p_0}h_1(t) = t^{-(2r + p_0)}h_1(t)h_2(t).
+\]
+However,  $r = -(p_0 - 1)/2$, so $2r + p_0 = 1$.   Moreover,
+$h(t) = h_1(t)h_2(t)$ is analytic and $h(0)\not= 0$, so it may be expanded in
+a power series
+\[
+h(t) = h_0 + h_1t + h_2t^2 + \dots\,
+\]
+with $h_0\not=0$.  Thus,
+\begin{align*}
+v' &= t^{-1}(h_0 + h_1t + h_2t^2 + \dots)\\
+&= \frac{h_0}t + h_1 + \frac{h_2}t + \dots \\
+v &= h_0\ln t + h_1t + \frac{h_2}2t^2 + \dots\,
+\end{align*}
+It follows that 
+\[
+y_2 = y_1v = h_0 y_1(t)\ln t + y_1(t)(h_1t + \frac{h_2}2t^2 + \dots).
+\]
+The solution generated by this process may always be modified by
+multiplying by a constant.  Hence, since we know that $h_0 \not=0$,
+we may multiply by its reciprocal, so in effect we may assume
+$h_0 = 1$.   Moreover, since $y_1 = t^rg(t)$, the
+second term has the form
+\[
+t^rg(t)(h_1t + \frac{h_2}2t^2 + \dots).
+\]
+Since $g(t)$ and $h_1t + \frac{h_2}2t^2 + \dots$ are analytic,
+so is their product which can be expressed as a power series
+$\sum_{n=0}c_nt^n$.  Moreover, since the `h series' does not
+have a constant term, its sum vanishes at $t= 0$, and the
+same can be said for the product.  That implies $c_0 = 0$,
+i.e., the summation may be assumed to start with $n = 1$.  Thus
+we see that the solution obtained by reduction of order has
+the form
+\[
+y_2 = y_1(t)\ln t + t^r\sum_{n=1}^\infty c_n t^n
+\]
+as claimed. 
+
+A very similar analysis of the process of reduction of order
+works in the case $r_1 - r_2$ is a positive integer.
+\bigskip
+\includeexercises{chap9.ex5}
+\bigskip
+
+\nextsec{More about Bessel Functions}
+\head \sn. More about Bessel Functions \endhead
+
+We saw that $J_{1/2}(t) = \sqrt{2/\pi} \sin t/\sqrt t$ and
+$J_{-1/2}(t) = \sqrt{2/\pi} \cos t/\sqrt t$.  In general,
+it turns out that the Bessel functions $J_m(t)$
+all behave like sines and cosines
+with an `amplitude' $1/\sqrt t$.
+\outind{Bessel function, roots of}
+\medskip
+\centerline{\epsfbox{s9-2.ps}}
+\medskip
+To see why this is the case, put $y = u/\sqrt t$ in the
+differential equation
+\[
+t^2y'' + ty' + (t^2 - m^2)y = 0.
+\]
+We have
+\begin{align*}
+y' &= \frac {u'}{\sqrt t} - \frac 12 \frac u{t^{3/2}}\\
+y'' &= \frac {u''}{\sqrt t} - \frac{u'}{t^{3/2}} + \frac 34 \frac u{t^{5/2}}.
+\end{align*}
+Hence,
+\begin{align*}
+t^2y'' + ty' &+ (t^2 - m^2)y \\
+ &=  t^{3/2}u'' -t^{1/2}u' + \frac 34 \frac u{t^{1/2}}
++ t^{1/2}u' - \frac 12 \frac u{t^{1/2}} +
+t^{3/2}u - m^2 \frac u{t^{1/2}} \\
+&= t^{3/2}u'' + t^{3/2}u + (\frac 14 - m^2)\frac u{t^{1/2}}.
+\end{align*}
+Divide the last expression by $t^{3/2}$.   We see thereby that if
+$y$ is a solution of Bessel's equation, then $u = y\sqrt t$ satisfies
+the differential equation
+\nexteqn
+\xdef\ModBess{\eqn}
+\[
+u'' + u + \frac{1/4 - m^2}{t^2}u  = 0.\tag{\eqn}
+\]
+Let $t \to \infty$.  Then $\dfrac{1/4 -m^2}{t^2} \to 0$, so for large
+$t$, the equation is close to
+\nexteqn
+\xdef\SinEqn{\eqn}
+\[
+u'' + u = 0.\tag{\eqn}
+\]
+The general solution of (\eqn) is
+\[
+u = C_1\cos t + C_2\sin t = A\cos(t + \delta).
+\]
+Hence, it is {\it plausible\/} that for large $t$, the solution of
+(\ModBess) should look very similar.   That means that for large
+$t$,  any solution $y = u/\sqrt t$ of Bessel's equation should look
+like
+\[
+y \approx A\frac {\cos(t + \delta)}{\sqrt t}.
+\]
+(It is not clear in general that the limiting behavior
+of the solution of a differential equation is the same as a solution
+of the limit of the differential equation, but in this particular
+case, it happens to be true.)
+
+Since $J_m(t) \approx A\dfrac{\cos t}{\sqrt t}$ for large $t$,
+we would expect it to oscillate with approximate period $2\pi$.
+That means that successive roots of the equation
+\[
+J_m(t) = 0
+\]
+should differ roughly by $\pi$ for large $t$.  This is indeed the
+case.    As mentioned earlier, the roots of this equation are
+important in determining the frequencies of the
+basic vibrations of a vibrating drum (and similar physical
+systems).   The first root of the equation
+$J_0(t) = 0$ is approximately $2.4048$.
+
+\bigskip
+\subhead Functions Related to Bessel Functions \endsubhead
+The differential equation
+\nexteqn
+\eqn
+\[
+t^2z'' + 2tz' + (t^2 - p^2)z = 0\tag{\eqn}
+\]
+often arises in solving problems with spherical
+symmetry.   (Note that the coefficient of $z'$
+is $2t$ rather than $t$.)
+    This equation is related to Bessel's equation as
+follows.  In
+\[
+t^2y'' + ty' + (t^2 - m^2)y = 0
+\]
+put $y = \sqrt t\, z$.   Then
+\begin{align*}
+y' &= \sqrt t z' + \frac 12 \frac z{t^{1/2}} \\
+y'' &= \sqrt t z'' + 2\frac 12 \frac {z'}{t^{1/2}} - \frac 14\frac z{t^{3/2}}.
+\end{align*}
+We obtain
+\[
+t^{5/2}z'' +t^{3/2}z' -\frac 14 t^{1/2}z
++ t^{3/2}z' + \frac 12 t^{1/2}z + (t^2 - m^2)t^{1/2}z = 0.
+\]
+If we divide through by $t^{1/2}$ and rearrange the terms, we obtain
+\[
+t^2z'' + 2tz' + (t^2 - m^2 + 1/4)z = 0.
+\]
+If we put $p^2 = m^2 - 1/4$, then we obtain  equation (\eqn).   It
+follows that solutions of (\eqn) may be obtained by
+solving Bessel's equation with $m = \sqrt{p^2 + 1/4}$.    Thus,
+Bessel functions for such $m$ (where $p$ is a non-negative integer)
+are often called {\it spherical Bessel functions}.
+\outind{spherical Bessel function}
+\outind{Bessel function, spherical}
+
+\medskip
+The solutions of the equation
+\[
+z'' + tz' -(t^2 + m^2)z = 0
+\]
+are called {\it modified Bessel functions\/}, and they also arise
+\outind{Bessel function, modified}
+\outind{modified Bessel function}
+in important physical applications.   (Note that the coefficient
+of $z$ is $-t^2 - m^2$ rather than $+t^2 - m^2$.)
+  There are two methods for
+obtaining solutions.   First, apply the method of Frobenius.
+The process is almost identical to that in the case of the
+
+
+ordinary Bessel functions.   The indicial equation is
+also $r^2 - m^2 = 0$, and the only real difference is that
+the sign $(-1)^k$ does not occur.   In particular, if $m$
+is a non-negative integer, a normalized solution obtained
+for the root $r = m$ is
+\[
+I_m(t) = \sum_{k=0}^\infty\frac 1{k!(m+k)!}\left(\frac t2\right)^{2k+m}.
+\]
+For $m$ a non-negative integer, a second solution is obtained for the root
+$r = -m$ by reduction of order and has a logarithmic singularity.
+
+An alternate approach to the modified Bessel functions is to replace
+$t$ by $it$ in Bessel's equation where $i =\sqrt{-1}$.   Then,
+we see that $I_m(t)$ and $J_m(it)$ just differ by
+a multiplicative constant.   (Check that for yourself!)
+You may learn more about this in your complex variables course.
+
+\medskip
+One could go on almost without end discussing properties of Bessel
+functions and of the other {\it special functions\/} of mathematical
+physics.   We leave such pleasures for other courses in mathematics,
+physics, geophysics, etc.
+\bigskip
+\includeexercises{chap9.ex6}
+\bigskip
+
+\endinput

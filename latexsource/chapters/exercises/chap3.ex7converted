@@ -1,0 +1,196 @@
+
+
+\medskip
+In the following problems, use the appropriate form of the chain rule.  The
+rule you need may not have been stated explicitly in the text, but
+you ought to be able to figure out what it is.  The notation is typical
+of what is used in practice and is not always completely precise.
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Find $dw/dt$ by first using the chain rule, then by determining $w(t)$
+explicitly before differentiating.  Check that the answers are the same
+by expressing them both entirely in terms of $t$.
+
+        (a) $w=x^2 + y^2$, $x=t$, $y=-2t$.
+
+        (b) $w=\dfrac {1}{x+y}$, $x=\cos t$, $y=\sin t$.
+
+        (c) $w=\ln(x^2+y^2+z^2)$, $x=2-3t$, $y=\sqrt{t}$, $z=t$.
+
+        
+
+\answer{ (a) $\frac{dw}{dt} = 10t$ \par
+	(b) $\frac{dw}{dt} = \dfrac{\sin t-\cos t}{(\cos t-\sin t)^2}$\par
+	(c) $\frac{dw}{dt} = \dfrac{20t-11}{4-11t+10t^2}$
+
+
+
+
+}
+
+\item   Use the chain rule to find
+ $\partial h/\partial x$,$\partial h/\partial y$, and
+ $\partial h/\partial z$.
+
+        (a) $h=e^{-2u-3v+w}$, $u=xz$, $v=yz$, $w=xy$.
+
+        
+
+        (b) $h=\sqrt{u^2+v^2+w^2}$, $u=x+y+z$, $v=x^2$, $w=y^2$.
+
+\answer{ (a) $\frac{\d h}{\d x} = (-2z+y)  e^{-2xy-3yz+xy}$ \par\blank
+            $\frac{\d h}{\d y} = (x-3z)   e^{-2xy-3yz+xy}$ \par\blank
+            $\frac{\d h}{\d z} = (-2x-3y) e^{-2xy-3yz+xy}$ \par
+        (b) $\frac{\d h}{\d x} = (x+y+z+2x^3)/\sqrt{(x+y+z)^2+x^4+y^4}$
+		\par\blank
+            $\frac{\d h}{\d y} = (x+y+z+2y^3)/\sqrt{(x+y+z)^2+x^4+y^4}$
+		\par\blank
+            $\frac{\d h}{\d z} = (x+y+z)/\sqrt{(x+y+z)^2+x^4+y^4}$ \par
+
+
+
+
+}
+
+\item   Suppose $w = w(x,y)$ and $y = y(x)$.   Hence, ultimately
+$w = w(x)$.  With this abuse of notation, derive a correct
+formula for $\dfrac{dw}{dx}$.   (Hint:  You might try writing
+the above more precisely $w = f(x,y), y = g(x)$, and $w = h(x)
+= f(x,g(x))$.)
+
+\answer{ Set $g(x)=y, \quad h(x)=x, \quad w=f(h(x),g(x))$.  Then 
+\begin{align*}
+ \frac{dw}{dx} &= \frac{\d f}{\d h}\cdot\frac{\d h}{\d x}
+   + \frac{\d f}{\d g}\cdot\frac{\d g}{\d x}
+   = \frac{\d f}{\d x}\cdot 1 + \frac{\d f}{\d y}\frac{\d y}{\d x} \\
+ &= \frac{\d f}{\d x} + \frac{\d f}{\d y}\cdot\frac{\d y}{\d x}
+\end{align*}
+
+
+
+
+}
+
+\item  In each case, use the chain rule to
+ find $\partial h/\partial x$ and $\partial h/\partial y$ in terms of
+$x$ and $y$ for the given composite function $h(x,y)$ .   Then
+express $h$ explicitly in terms of $x$ and $y$, and find those partials
+again.  Check that you get the same thing. \par
+        (a) $h=u^2+v^2+x^2+y^2$, $u=2x-3y$, $v=2x+3y$. \par
+        (b) $h=uvwxy$, $u=x^2+y^2$, $v=5x-6y$, $w=xy$.
+
+\answer{ (a) $\dfrac{\d h}{\d x} = 18x;\qquad \dfrac{\d h}{\d y}=38y$\par
+(b)\newline $\dfrac{\d h}{\d x} = 2x^3y(5x-6y)+5x^2y^2(x^2+y^2) +
+ xy^2(x^2+y^2)(5x-6y) + xy^2(x^2+y^2)(5x-6y)$ \newline\smallskip
+$\dfrac{\d h}{\d y} = 2x^2y^3(5x-6y) - 6x^2y^2(x^2+y^2) +
+ x^2y(x^2+y^2)(5x-6y) + x^2y(x^2+y^2)(5x-6y)$
+
+
+
+
+}
+
+\item   In each case find a normal vector to the indicated level set
+at the indicated point. \par
+(a)  $x^2 + 3y^2 = 7$ at $(2,-1)$. \par
+(b)  $x^2 + y^2 - z^2 = 1$ at $(2,1,2)$. \par
+(c)  $x^3 -x + y^2 - z = 0$ at $(2,-3, 15)$.
+
+\answer{ (a) $4\i-6\j$;\quad (b) $4\i+2\j-4\k$;\quad (c) $11\i-6\j-\k$
+
+
+
+
+}
+
+\item   Find a normal vector to the level curve defined by
+$F(x,y) = f(x) - y = 0$ at a general point.   Show that it is
+perpendicular to a tangent vector to the graph $y = f(x)$.  Hint: What
+is the product of the slopes of the tangent line and the normal line?
+
+\answer{ (a) Normal vector $= \nabla F = f'(x) \i-\j$\ \  At a point the
+tangent vector is $\T=\i + f'(x) \j$. So $\nabla F\cdot \T = f'(x)-f'(x)=0$,
+hence $\nabla F\perp \T$.
+
+
+
+}
+
+\item  The temperature on a heated plate is given by the formula
+$T = T(x, y) = x^2 + xy + y^2$.  A psychologist induces a bug to
+follow the circular path given by $\r = 3\cos 2t\, \i + 3\sin 2t\,  \j$.
+Find the rate of change of temperature experienced by the bug at
+$t = \pi/2$.
+
+\answer{ 18.
+
+
+
+}
+
+\item  In a meteorological theory,  it is assumed that pressure is a
+function only of $z$,   $p = p(z)$.   A rocket with remote sensing
+equipment is launched in a parabolic path.   It is intuitively
+clear that at the top of the path,  it will report that the rate
+of change $dp/dt = 0$.  Verify this conclusion mathematically.
+Could you draw the same conclusion if $p = p(x, z)$ and the path
+is in the $y, z$-plane?   the $x, z$-plane?
+
+\answer{ $\dfrac{dp}{dt}=\dfrac{dp}{dz}\cdot\dfrac{dz}{dt}=0$ since
+$\dfrac{dz}{dt}=0$ at the apex of the parabolic path \par
+For the $yz$ plane: {\it yes} \par
+For the $xz$ plane: {\it no}
+
+
+
+}
+
+\item   In each case express $\nabla f$ in polar coordinates in terms
+of $\u_r$ and $\u_\theeta$. \par
+  (a)  $f(x,y) = x$. \par
+  (b)  $f(x,y) = y$. \par
+  (c)  $f(x,y) = x^2 + y^2 = r^2$.
+
+\answer{ (a) $\nabla f=\cos\theeta \u_r - \sin\theeta \u_\theeta$ \par
+	(b) $\nabla f=\sin\theeta \u_r + \cos\theeta \u_\theeta$ \par
+	(c) $\nabla f= 2r \u_r$
+
+
+
+}
+
+\item   Suppose $f(x, y) = \tan^{-1}\dfrac yx$ for $x,  y > 0$.
+Calculate $\nabla f$ in rectangular coordinates.  Also,  express
+$f(x, y) = g(r, \theeta)$ and use the formula
+$\nabla f = (\partial g/\partial r)\u_r +
+(1/r)(\partial g/\partial\theeta)\u_\theeta$.  Can you convince yourself
+the two answers are the same?
+
+\answer{ Rectangular calculation:
+\[
+  \nabla f
+  =\frac{1}{1+\frac{y^2}{x^2}}\left(\frac{-y}{x^2}\right)\i +
+   \frac{1}{1+\frac{y^2}{x^2}}\left(\frac{1}{x}\right)\j  
+  =\frac{-y}{x^2+y^2}\i + \frac{x}{x^2+y^2}\j
+\]
+Polar calc: $f(x,y)=\theeta$ so 
+\[
+\nabla f=\frac 1r u_\theeta =
+\frac{1}{\sqrt{x^2+y^2}}\left(\frac{-y}{\sqrt{x^2+y^2}},
+\frac{x}{\sqrt{x^2+y^2}}\right) 
+=\frac{-y}{x^2+y^2}\i + \frac{x}{x^2+y^2}\j
+\]
+   
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

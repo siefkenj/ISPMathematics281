@@ -1,0 +1,270 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 8
+\smallskip
+% 1
+\Exer In each case, find a basis for $\R^n$
+consisting of generalized eigenvectors for the given matrix.
+$$
+(a)   \bm\format\r&&\quad\r\\
+           2 & 1 \\
+          -1 & 4 \em
+\qquad
+(b)  \bm \format\r&&\quad\r\\
+           2 & -1 & 1 \\
+           3 & 1 & -2 \\
+          3 & -1 &  0 \em
+\qquad
+(c)  \bm \format\r&&\quad\r\\
+           1 & -1 & 1 \\
+           2 & -2 & 1 \\
+          1 & -1 &  0 \em
+$$
+$$
+(d)  \bm \format\r&&\quad\r\\
+           4 & -1 & 1 \\
+           1 & 3 & 0 \\
+          0 & 1 &  2 \em
+\qquad
+(e)  \bm \format\r&&\quad\r\\
+           -2 & -1 & 0 \\
+           1 & 0 & 0 \\
+          -2 & -2 &  -1 \em
+$$
+\answer (a)  The only eigenvalue is 3 with multiplicity 2.
+Hence,  $\{\e_1, \e_2\}$  is a basis of generalized eigenvectors.
+However, we could also use 
+$$
+  \e_1 = \bm 1\\ 0 \em, \quad \v_2 = (A - 3I)\e_1 = \bm -1\\ -1 \em,
+$$
+and there might be some technical advantages in so doing.  Note
+that $\v_2$ is actually an eigenvector.\par
+(b)  The eigenvalues are $\lambda = 2$ with multiplicity 2 and
+$\lambda = -1$ with multiplicity 1.
+For $\lambda = 2$, we have
+$$
+(A - 2I)^2 = \bm\format\r&&\quad\r\\
+               0 & 0 & 0 \\
+               -9 & 0 & 9 \\
+               -9 & 0 & 9 \em.
+$$
+A basis of generalized eigenvectors for $\lambda = 2$ consists of
+$$
+\v_1 = \bm 1\\ 0 \\ 1 \em, \v_2 = \bm 0\\ 1\\ 0 \em = \e_2.
+$$
+However, we could also use in this case
+$$
+\v_1, \v_2' = (A - 2I)\v_1 = \bm 1\\ 1\\ 1\em.
+$$
+Moreover, we could even use
+$$
+\v_1'' = v_2, \v_2'' = (A - 2I)\v_2 = \bm -1\\ -1 \\ -1 \em.
+$$
+Note that in either case the second vector is an eigenvector.\par
+For $\lambda = -1$,
+$$
+\v_3 = \bm 0\\ 1\\ 1\em
+$$
+forms a basis for the subspace of generalized eigenvectors which in this
+case are just ordinary eigenvectors for $\lambda = -1$.\par
+Any of the pairs described for $\lambda = 2$ together with $\v_3$
+form a basis for $\R^3$ consisting of generalized eigenvectors.\par
+(c) For $\lambda = -1$, all generalized eigenvectors are level 1,
+i.e., ordinary eigenvectors, and 
+$$
+\v_1 = \bm 0\\ 1\\ 1\em
+$$
+is a basic eigenvector.  For $\lambda = 0$ which has multiplicity 2,
+$$
+\v_2 = \bm 1 \\ 1\\ 0 \em, \v_3 = \bm 0\\ 0\\ 1 \em
+$$
+forms a basis of generalized eigenvectors for that eigenvalue.
+Note that in this case  $\v_2 = (A -0I)\v_3 = A\v_3$ and it is
+already an eigenvector, so it would make sense to choose the
+basis in the order $\{ \v_2' =\v_3, \v_3' = \v_2\}$.\par
+(d)  $\lambda = 3$ is the only eigenvalue and it has multiplicity
+3.   $\{\e_1, \e_2,\e_3\}$ is a basis of generalized eigenvectors.
+However,
+$$
+\e_1, \v_2 = (A -3I)\e_1 = \bm 1\\ 1\\ 0 \em, \v_3 = (A - 3I)^2\e_1
+= (A- 3I)\v_2 = \bm 0\\ 1\\ 1\em
+$$
+also form such a basis, and might provide some technical advantages.\par
+(e)  $\lambda = -1$ is the only eigenvalue and it has multiplicity 3.
+$\{\e_1, \e_2, \e_3\}$ is a basis of generalized eigenvectors.
+However,
+$$
+\e_1, \v_2 = (A +I)\e_1 =\bm\format\r\\ -1\\ 1\\ -2 \em, \e_3
+$$
+also forms such a basis.  Note that in this case $(A -\lambda I)\e_1
+= (A+I)\e_1$ is already an eigenvector.  We can't get a third
+ basis element by multiplying again by $(A - \lambda I)$
+(as was the case in part (d)).   However, $\e_3$ is also an
+eigenvector.\par
+The point of making the alternate choices will be clear in the
+next problem.  The solutions are easier to write down.   However,
+the rules for how to go about doing this are far from clear.
+As noted in the text, there is a general theory, but it is
+quite involved, and it is not easy to apply it in particular
+cases.  (See Appendix 2.)   I urge you to be opportunistic and
+do what you can to simplify the calculations in particular cases,
+even if you don't see how you could do the same in every case.
+
+% 2
+\Exer  For $A$ equal to each of the matrices in the previous problem,
+find a general solution of the system  $\dfrac{d\x}{dt} = A\x$.
+\answer   The answers will depend on which particular basis of
+generalized eigenvectors you
+chose in the previous problem.\par
+(a)  For the basis $\{\e_1, \e_2 \}$, the general solution
+is
+$$
+\x = e^{3t}\left\{c_1\bm 1 - t\\ -t \em + c_2 \bm t\\ 1 +t \em\right\}.
+$$
+For the basis $\{\e_1, (A - 3I)\e_1\}$, the general solution is
+$$
+\x = e^{3t}\left\{c_1\bm 1 - t\\ -t \em + c_2 \bm -1\\ -1 \em\right\}.
+$$\par
+(b) Use the basis $\{\v_1, \v_2', \v_3\}$ as desribed above.
+The general solution is
+$$
+\x = e^{2t}\left \{ c_1\bm 1+ t\\ t \\ 1+ t\em + c_2\bm 1\\ 1\\ 1\em\right\}
+    + c_3 e^{-t}\bm 0 \\ 1\\ 1\em.
+$$\par
+(c)  Use the basis $\{ \v_1, \v_2', \v_3'\}$.  The general solution is
+$$
+\x = c_1 e^{-t}\bm 0\\ 1\\ 1\em + c_2\bm t\\ t\\ 1\em + c_3\bm 1\\ 1\\ 0\em.
+$$\par
+(d)  There is only one eigenvalue $\lambda = 3$ of multiplicity 3.
+Use the basis $\{\e_1, \v_2 = (A - 3I)\e_1, \v_3 = (A - 3I)^2\e_1\}$.
+The general solution is
+$$
+\x = e^{3t}\left\{c_1\bm 1 + t\\ t + t^2/2\\ t^2/2\em
+    + c_2\bm 1\\ 1 + t\\ t\em + c_3 \bm 0\\ 1\\ 1\em\right \}.
+$$ \par
+(e)  There is only one eigenvalue $\lambda = -1$ of multiplicity
+3.  Use the basis $\{\e_1, \v_2 = (A + I)\e_1, \e_3\}$.  The
+general solution is
+$$
+\x = e^{-t}\left\{c_1\bm 1 - t\\ t \\ -2t\em  + c_2 \bm\format\r\\
+-1\\ 1 \\ -2 \em + c_3\bm 0\\ 0\\ 1\em\right\}.
+$$
+
+% 3
+\Exer (a)  Find a basis for $\R^3$ consisting of eigenvectors for
+$$
+A = \bm\format\r&\quad\r&\quad\r\\
+              1 & 2 & -4 \\
+              2 & -2 & -2 \\
+              -4 & -2 & 1 \em.
+$$
+
+(b) Let $P$ be the matrix with columns the basis vectors
+in part (a).   Calculate $P^{-1}AP$ and check that it is diagonal
+with the diagonal entries the eigenvalues you found.
+\answer (a)$$
+\lambda = -3, \v_1 = \bm\format\r\\ -2\\ 2\\ 0 \em,
+\v_2 = \bm 1\\ 0 \\ 1 \em,\qquad \lambda = 6, \v_3 = \bm\format\r\\ -2\\ -1\\ 2\em
+$$
+$\{\v_1,\v_2,\v_3\}$ is a basis, but other answers are possible, depending
+on how you went about doing the problem,
+
+% 4
+\Exer
+Which of the following matrices are diagonalizable?
+Try to discover the answer without doing any significant amount
+of computation.
+$$
+\text{(a) } \bm 1 & 1 & 0 \\
+	0 & 2 & 0 \\
+	0 & 0 & 3 \em
+\qquad
+\text{(b) }\bm 1 & 1 & 0 \\
+	0 & 1 & 0 \\
+	0 & 0 & 3 \em
+\qquad
+\text{(c) } \bm 1 & 0 & 0 \\
+	0 & 1 & 1 \\
+	0 & 0 & 3 \em
+$$
+\answer  (a)  Since the matrix is upper triangular, the eigenvalues are
+the diagonal entries.   There are three distinct eigenvalues, so the
+corresponding basic eigenvectors form a basis for $\R^3$ and
+the matrix is diagonalizable.\par
+(b)  The matrix is upper triangular, so the eigenvalues are the
+diagonal entries.  However, in this case 1  is a repeated eigenvalue,
+so the argument in part (a) does not apply.   Subtracting 1 from
+each diagonal entry yields
+$$
+\bm 0 & 1 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 2 \em.
+$$
+It is easy to see this matrix has  rank two, hence the eigenspace
+for the eigenvalue $\lambda = 1$ has dimension one, not two,
+and the matrix is not diagonalizable.\par
+(c)   Again, 1 is a repeated root.  Subtracting  1 from each diagonal
+entry yields
+$$
+\bm 0 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 2 \em.
+$$
+which is of rank one.   Hence, the eigenspace for this eigenvalue
+has dimension two.   The other eigenvalue  $\lambda = 3$ has
+multiplicity one, so there is no problem for the corresponding
+eigenspace.   Hence, the matrix is diagonalizable.
+
+% 5
+\Exer  Solve the initial value problem
+$$
+\frac{d\x}{dt} = \bm\format\r&&\quad\r\\
+                 3 & -1 & 1 & -1 \\
+                 1 & 1 & 2 & 0 \\
+                 0 & 0 & 2 & 0 \\
+                 0 & 0 & 0 & 2 \em \x 
+\qquad\text{where } \x(0) = \bm 1\\ 0\\ 3\\ 2 \em.
+$$
+Hint.   The only eigenvalue is $\lambda = 2$.
+\answer  A check of the characteristic equation shows that indeed
+2 is the only eigenvalue and its multiplicity is 4.   Hence,
+$\{\e_1, \e_2, \e_3, \e_4\}$ is a basis of generalized eigenvectors.
+Using this basis the general solution is
+$$
+\x = e^{2t}\left\{
+c_1\bm 1 + t\\ t\\ 0 \\ 0 \em + 
+c_2\bm - t\\ 1-t \\ 0 \\ 0 \em +
+c_3\bm t - t^2/2 \\ 2t -t^2/2\\ 1 \\ 0 \em +
+c_4\bm -t -t^2/2\\ -t^2/2\\ 0 \\ 1\em\right\}.
+$$
+At $t = 0$, this yields
+$$
+\bm\format\r&&\quad\r\\
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1\em \bm c_1\\ c_2\\ c_3 \\ c_4 \em
+= \bm 1 \\ 0 \\ 3 \\ 2 \em.
+$$
+Thus $c_1 =1, c_2 = 0, c_3 = 3, c_4 = 2$.   The solution is
+$$
+\x = e^{2t}\bm 1 + 2t -\frac 52 t^2 \\ 4t - \frac 52 t^2 \\ 3\\ 2\em.
+$$
+
+% 6
+\Exer  Theorem  11.7  asserts that the dimension of the solution
+spaces for $(A - \lambda I)^j\v = 0$, where $\lambda$ is
+an eigenvalue for $A$ of multiplicity $m$,
+ increases to the maximum value $m$
+for $j = m$ and then stays constant thereafter.  Without
+using the Theorem, show that the dimensions of these
+subspaces must increase to some value $m'$ and stabilize
+thereafter.  (n fact,  $m' \le m$, but you don't have to
+show that for this problem.)
+\answer  It is shown it the text that the subspace of level $k$
+generalized eigenvectors
+is a subspace of the subspace of level $k+1$ generalized eigenvectors
+for each $k = 1, 2, \dots$.
+Since the dimensions of subspaces of a finite dimensional vector space
+cannot grow without bound, it must eventually be true that all these
+subspaces for some $k$ on are equal.
+

@@ -1,0 +1,191 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Find general solutions for the following differential equations. \par
+     (a) $\displaystyle{\frac {dy}{dx} = 4x^2y^2}$. \par
+     (b) $\displaystyle{\frac {dy}{dx} = \frac {x}{y}}$. \par
+     (c) $\displaystyle{\frac {dy}{dx} = \frac {1 + x^2}{1 + y^2}}$.
+(Don't try to express $y$ as a function of $x$.) \par
+     (d) $\displaystyle{\frac {dy}{dx} = (xy)^{3/2}}$. \par
+
+\answer{ (a) $y=\dfrac{3}{4x^3+c}$ \qquad
+(b) $y=\pm \sqrt{x^2+c}$ \par
+(c) \[
+\let\frac\tfrac
+\align
+ y_1 = &\dfrac13\bigg(\root3\of{\frac{-27}{2}(-3x-x^3+c)+\frac32
+\sqrt{-3(-108-27(-3x-x^3+c)^2}}  \\
+&+\root3\of{\frac{-27}{2}(-3x-x^3+c)-\frac32 \sqrt{-3(-108-27(-3x-x^3+c)^2}}\bigg)
+\\
+y_2 = &\dfrac13\bigg(\big(-\frac12 + \frac12\sqrt{-3}\big)^2
+\root3\of{\frac{-27}{2}(-3x-x^3+c)+\frac32 \sqrt{-3(-108-27(-3x-x^3+c)^2}}  \\
+&+\dfrac13\bigg(\big(-\frac12 + \frac12\sqrt{-3}\big)
+\root3\of{\frac{-27}{2}(-3x-x^3+c)-\frac32 \sqrt{-3(-108-27(-3x-x^3+c)^2}}\bigg)
+\\
+y_3 = &\dfrac13\bigg(\big(-\frac12 + \frac12\sqrt{-3}\big)
+\root3\of{\frac{-27}{2}(-3x-x^3+c)+\frac32 \sqrt{-3(-108-27(-3x-x^3+c)^2}}  \\
+&+\dfrac13\bigg(\big(-\frac12 + \frac12\sqrt{-3}\big)^2
+\root3\of{\frac{-27}{2}(-3x-x^3+c)-\frac32 \sqrt{-3(-108-27(-3x-x^3+c)^2}}\bigg)
+\endalign
+\]
+which are the 3 solutions to $y+\frac{y^3}{3} = x+\frac{x^3}{3} + c$ \par
+(d) $y=\dfrac{25}{(c-x^{5/2})^2}$ for $x : c-x^{5/2} > 0$. 
+
+
+
+
+}
+
+\item   Solve the initial value problem \[\frac {dy}{dx} = y^2 \text {, where }
+y(0) = 2\].
+
+\answer{ $y = \dfrac{2}{1-2x}$.
+
+
+
+
+}
+
+\item   The arctic fox population in a certain habitat is given by the equation
+\[\frac {dP}{dt} = -k\sqrt P\].
+     (a) If the initial population (at $t=0$) is $P_0$, find the general
+         solution. \par
+     (b) If there are 100 foxes initially, and 25 remain after 6 weeks, how
+         long until extinction?   Do you see anything wrong with this approach?
+
+\answer{ (a) $P=\left(\sqrt{P_0} - \frac{kt}{2}\right)^2$
+for $t \ge \dfrac{2\sqrt{P_0}}{k}$.
+\par
+(b) 12 weeks. What's wrong: the model from which the equation is derived presumes
+a substantial fox population (if there are only  3 foxes they won't exhaust the
+food supply, for example.)
+
+
+
+}
+
+\item   The bacterial species  {\it E. Coli} doubles in number every twenty
+     minutes.  If a single colony is present initially, how long will a
+     biologist have to wait before having one million colonies?  One
+     billion colonies?
+
+\answer{ (a) $t=\dfrac{120\ln 10}{\ln 2}$ min; \quad
+(b) $t = \dfrac{180\ln 10}{\ln 2}$ min.
+
+
+
+
+}
+
+\item   Show that the time $T$ required for $e^{-\gamma t}$ to drop to
+half its value at $t = 0$ is
+\[ T = \frac{\ln 2} \gamma.  \]
+
+\answer{ $N_0e^{-\gamma t} = \frac{N_0}2 e^{-0} = \frac{N_0}2 
+\implies -\gamma t = -\ln 2
+\implies t=\dfrac{\ln 2}{8}$.  So really $T=\dfrac{\ln 2}{\gamma}$. 
+
+
+
+
+}
+
+\item  Archaeologists recently uncovered a relic purported to
+     date from 0 A.D.  Several independent laboratories used carbon
+     dating to analyze the sample.  If the fabric contains $6.0 \times
+     10^{11}$ atoms of ${}^{14}C$ per gram, and modern fabric of the
+     same type contains $7.0 \times 10^{11}$ atoms of ${}^{14}C$ per
+     gram, is it authentic?
+
+\answer{ It's about 1275 years old, so it probably not authentic.  
+
+
+
+
+}
+
+\item   Electricity drains from a capacitor according to the equation
+\[\frac {dV}{dt} = -\frac {1}{20} V.\]
+Solve the equation in terms of $V(0) = V_0$. Find how long it will take
+for $V$ to be reduced to one hundredth its value at $t = 0$.   Is $V$
+ever zero?
+
+\answer{ (a) $t=20\ln 100$ (of the relevant time units used to get the
+differential equation). \par
+(b) No.
+
+
+
+
+}
+
+\item  {\it Newton's Law of Cooling\/} states that the rate at which an
+     object's temperature changes is proportional to the temperature
+     difference between the object and its surroundings.  In other
+     words, \[\frac {dT}{dt} = -k(T - T_s),\] where $T$ is the
+     temperature of the object, and $T_s$ is the temperature of its
+     surroundings (a constant).  \par
+     (a) Solve this equation for T. \par
+     (b) A steel ingot at 1000 K is exposed to air at 300 K.  If it
+     cools to 800 K in one hour, what will its temperature be after
+     five hours?  How long will it take until equilibrium ($T = T_s$)
+     is attained?
+
+\answer{ (a) $T=(T_0-T_s) e^{-kt} + T_s$. \par
+(b) After 5 hours: $700(\frac57)^5 + 300$ hours, \newline
+\indent\qquad  til equilibrium: forever.
+
+
+
+
+}
+
+\item   In the solution of the equation $d^2x/dt^2 = -Kx$,
+it was noted that the constant $C_1 = 2c > 0$ if $K > 0$.
+However, the reasoning did not exclude the case $C_1 = 2c = 0$.
+How might we exclude that case?   Hint: What would $C_1 = 0$
+say about $x$ and $v$ if $K > 0$?
+
+
+
+\item   A mass on a spring undergoes simple harmonic motion.  \par
+     (a) If the frequency is 6 Hz, $x(0) = 5$, and $x'(0) = 0$, find
+         the amplitude A of the motion. \par
+     (b) If the period is 4 seconds, $x(0) = 0$, and $x'(0) = 5$, find
+         the amplitude A of the motion.  If the mass is 10 kg, what is
+         the force applied by the spring at $t=0$? \par
+     (c) If the amplitude is 10, the mass starts at the origin, and
+         $x'(0) = 1$, find the frequency and period of motion. \par
+     (d) Find the phases for (a), (b), and (c).
+
+\answer{ (a) $A=5$;\quad
+(b) $A = \frac{10}{\pi}$, $F=0$; \quad
+(c) $\omega = \frac{1}{10}$, $P=20\pi$; \par
+(d): a) $\delta=0$;\quad
+b) $\delta=\dfrac{3\pi}{2}$;\quad
+c) $\delta=\dfrac{3\pi}{2}$.
+
+
+
+
+}
+
+\item  A pendulum at the end of a (massless) rod of
+length $L$ satisfies the differential equation 
+$\dfrac{d^2\theta}{dt^2} = -\dfrac gL\sin\theta$.   Show that
+\[
+\left(\frac{d\theta}{dt}\right)^2 - \frac{2g}L\cos \theta = C
+\]
+where $C$ is a constant.  Solve for $\dfrac{d\theta}{dt}$
+and try to solve the resulting first order differential equation
+explicitly.  If you can't integrate the resulting expression, don't
+be surprised.
+
+
+\end{enumerate}
+\endinput

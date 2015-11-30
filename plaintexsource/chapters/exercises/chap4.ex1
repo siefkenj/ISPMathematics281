@@ -1,0 +1,45 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 1
+\smallskip
+\Exer  Enter the program in the text into a computer, compile it
+and run it.   Try different values of $m$ and see what happens.
+(If you prefer, you may write an equivalent program in some other
+programming language.)\par
+\answer  Try your computer course for help.
+
+\Exer   Modify  the program in the text
+ to approximate the double integral 
+$\iint_D (x + y) dA$ where $D$ is the region above the line
+$y = x$ and below the parabola $y = \sqrt x$.  Run your
+program for various values of $m$.\par
+\answer $Dx$ and $Dy$ should be set to $1/m$, and $x$ should be
+started off at $0$.
+The crucial loop should read
+\def\hs{\hskip 25pt}
+\par
+{
+\tt
+\hs for i :$=$ 1 to m do\par
+\hs \hs begin\par
+\hs \hs\hs x :$=$ x $+$ Dx; \par
+\hs \hs\hs y :$=$ 0;\par
+\hs \hs\hs for j :$=$ 1 to m do\par
+\hs \hs\hs\hs begin\par
+\hs \hs\hs\hs\hs y :$=$ y $+$ Dy;  \par
+\hs \hs\hs\hs\hs if (x $<=$ y) and (y $<=$ sqrt(x)) then\par
+\hs \hs\hs\hs\hs\hs sum :$=$ sum + (x + y)*DA; \par
+\hs \hs\hs\hs end;\par
+\hs \hs end;\par
+}
+
+
+\Exer (Optional)  The program in the text is  not very efficient.
+Try to improve it so as to cut down the number of
+multiplications.   Also, see if you can think of better ways
+to approximate the integral.  For example, instead of using the
+value of the integrand at the upper right hand corner of each
+subrectangle, you might use the average value of the integrand
+at the four corners of the subrectangle.  See if that gives greater
+accuracy for the same value of $m$.\par
+\answer Ask your computer instructor for help with this.
+

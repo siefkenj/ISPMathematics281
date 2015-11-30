@@ -1,0 +1,260 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Variation of parameters requires calculation of $X(s)^{-1}$
+where $X(t)$ is a fundamental solution matrix. Suppose the
+coefficient matrix $A$ is constant. Derive the
+formula
+\[
+X(s)^{-1} = X(0)^{-1}X(-s)X(0)^{-1}.
+\]
+Hint: Use $X(s) = e^{As}X(0)$.
+
+\answer{  $X(s)^{-1} = (e^{As}X(0))^{-1} = X(0)^{-1}e^{-As}$.
+On the other side,
+\[
+X(0)^{-1}X(-s)X(0)^{-1}
+= 
+X(0)^{-1}e^{-As}X(0)X(0)^{-1} = X(0)^{-1}e^{-As}.
+\]
+Thus both sides are equal.
+
+
+
+}
+
+\item  (a)  Find a particular solution of the system
+\[
+\x' = \bm{}
+              2 & 3 \\ 2 & 1 \em\x + \bm 2 \\ 5\em
+\]
+by guessing.
+
+(b)  Solve the corresponding homogeneous system and find a
+fundamental solution matrix.
+
+(c)  Find a particular solution by using (\VarPar).  (Take
+$t_0 = 0$.) 
+
+\answer{ (a) Try $\x = \bm a\\ b \em$ where $a, b$ are constants
+to be determined.  Putting this in the differential equation
+yields
+\[
+\bold 0 = \bm{}
+              2 & 3 \\ 2 & 1 \em\bm a\\ b\em  + \bm 2 \\ 5\em.
+\]
+The solution is $a = -\dfrac{13}4, b = \dfrac 32$.\par
+(b)  The eigenvalues are $-1$ and $4$.  A fundamental solution
+matrix is
+\[
+X(t) = \bm -e^{-t} & 3 e^{4t} \\
+            e^{-t} & 2e^{4t} \em.
+\]
+(c)  We have
+\[
+X(s)^{-1} = \frac 15
+ \bm -2e^s & 3e^s \\
+   e^{-4s} & e^{-4s} \em,
+\]
+so, by formula (2),
+\begin{align*}
+\x_p &=   X(t)\int_0^t X(s)^{-1}\f(s)ds \\
+ &=	 \bm
+-\frac{13}4 + \frac{11}5e^{-t}+\frac{21}{20}e^{4t} \\
+\frac 32 - \frac{11}5e^{-t}+\frac 7{10}e^{4t} \em.
+\end{align*}
+The first part of this
+\[
+\bm -\frac{13}4  \\ \frac 32 \em
+\]
+is the particular solution obtained in (a) by guessing, and the rest
+\[
+\bm \frac{11}5e^{-t}+\frac{21}{20}e^{4t}\\
+    - \frac{11}5e^{-t}+\frac 7{10}e^{4t} \em
+\]
+is a solution of the homogeneous equation.
+
+
+}
+
+\item   Find a general solution of the system
+\[
+\x' = \bm {}
+          1 & 0 & 1 \\
+          0 & 1 & 0 \\
+          0 & 1 & 2 \em \x +
+     e^{3t}\bm 1\\ 1 \\ 0 \em.
+\]
+
+\answer{  The coefficient
+matrix has eigenvalues $\lambda = 1$ of multiplicity 2 and 
+$\lambda =2$ of multiplicity 1.   For $\lambda = 1$, generalized eigenvectors
+are necessary.   A basis of generalized eigenvectors consists
+of the vectors
+\[
+\v_1 = \bm 1\\ 0\\ 0 \em,\qquad \v_2 = \bm 0\\ -1\\ 1 \em.
+\]
+Two corresponding solutions are
+\[
+\x_1(t) = e^t\bm 1\\ 0 \\ 0 \em,\qquad \x_2(t) = e^t\bm t\\ -1\\ 1 \em.
+\]
+A solution for $\lambda = 2$ is
+\[
+\x_3(t) = e^{2t}\bm 1\\ 0 \\ 1 \em.
+\]
+Hence, a fundamental solution matrix is
+\[
+X(t) = \bm e^t & te^t & e^{2t} \\
+ 0 & -e^t& 0 \\
+ 0 & e^t & e^{2t} \em
+\]
+Using variation of parameters, yields the particular solution
+\[
+\x_p(t) = e^{3t}\bm \frac 34\\ \frac 12 \\ \frac 12 \em.
+\]
+(We used an indefinite integral in formula (3).  If you used
+a definite integral with say $t_0 = 0$, your answer would
+differ from the above by a solution of the homogeneous system.)
+A general solution is
+\[
+\x = c_1 e^t\bm 1\\ 0 \\ 0 \em + c_2 e^t\bm t\\ -1\\ 1 \em
++c_3 e^{2t}\bm 1\\ 0 \\ 1 \em +
+ e^{3t}\bm \frac 34\\ \frac 12 \\ \frac 12 \em.
+\]
+
+
+}
+
+\item   (a)  Find a general solution of the differential equation
+$y''' - 2y'' - 5y' + 6y = 0$.   Hint: solve the system you get
+by putting $x_1 = y, x_2 = y'$, and $x_3 = y''$.
+
+(b)  Solve $y''' - 2y'' - 5y' + 6y = e^t$
+ given $y(0) = y'(0) = 0, y''(0) = 1$.  Hint: use variation of
+parameters for the appropriate inhomogeneous system.
+
+\answer{  (a)  The system is
+\[
+\x' = \bm 0 & 1 & 0 \\ 0 & 0 & 1 \\ -6 & 5 & 2 \em\x.
+\]
+The eigenvalues and eigenvectors of this matrix are
+\begin{gather*}
+\lambda = -2,\qquad \v_1 = \bm 1\\ -2\\ 4\em \\
+\lambda = 1,\qquad \v_2 = \bm 1\\ 1\\ 1\em \\
+\lambda = 3,\qquad \v_3 = \bm 1\\ 3\\ 9\em 
+\end{gather*}
+A fundamental solution matrix of the
+homogeneous system is
+\[
+X(t) =
+ \bm e^{-2t} & e^t & e^{3t}\\
+ -2e^{-2t} & e^t & 3e^{3t}\\
+ 4e^{-2t} & e^t & 9e^{3t}
+\em. 
+\]
+A general solution of the system is
+\[
+\x = \bm e^{-2t} & e^t & e^{3t} \\
+         -2e^{-2t} & e^t & 3e^{3t} \\
+          4e^{-2t} & e^t & 9e^{3t} \em
+\bm c_1 \\ c_2 \\ c_3 \em.
+\]
+A general solution of the original equation is
+obtained by taking the first component
+\[
+y = c_1e^{-2t} + c_2e^t + c_3e^{3t}.
+\]\par
+(b)  The corresponding inhomogeneous system is
+\[
+\x' = \bm 0 & 1 & 0 \\ 0 & 0 & 1 \\ -6 & 5 & 2 \em\x +
+e^t\bm 0 \\ 0\\ 1 \em.
+\]
+A particular solution to the inhomogeneous system obtained by
+variation of parameters is
+\[
+\x_p = \bm -\frac 1{36}e^t -\frac 16 te^t \\
+            -\frac 7{36}e^t - \frac 16 te^t \\
+             -\frac{13}{36}e^t - \frac 16 te^t \em.
+\]
+(We just used an indefinite integral instead of a definite integral
+in formula (3).  Using formula (3) as written with say $t_0 = 0$
+would yield a particular solution which differs from the above by
+a solution of the homogeneous equation.)
+A general solution of the inhomogeneous system is
+\[
+\x = \bm e^{-2t} & e^t & e^{3t} \\
+         -2e^{-2t} & e^t & 3e^{3t} \\
+          4e^{-2t} & e^t & 9e^{3t} \em
+\bm c_1 \\ c_2 \\ c_3 \em +
+ \bm -\frac 1{36}e^t -\frac 16 te^t \\
+            -\frac 7{36}e^t - \frac 16 te^t \\
+             -\frac{13}{36}e^t - \frac 16 te^t \em.
+\]
+The initial conditions for the system at $t = 0$ are given by
+\[
+\x(0) = \bm 0\\ 0 \\ 1 \em
+\]
+so we have to solve
+\[
+\bm 0\\ 0 \\ 1 \em
+=  \bm 1 & 1 & 1 \\
+     -2 & 1 & 3 \\
+     4 & 1 & 9 \em \c + \bm \frac 1{36}\\ -\frac 7{36}\\ -\frac{13}{36} \em.
+\]
+The solution is
+\[
+\c = \bm -\frac 4{45}\\ \frac 16 \\ -\frac 1{20}\em.
+\]
+Putting these values back in the general solution of the system
+and taking the first component yields the following solution
+of the original equation
+\[
+y =
+ -\frac 4{45}e^{-2t} + \frac 16 e^t -\frac 1{20} e^{3t}
+ -\frac 1{36}e^t -\frac 16 te^t.
+\]\par
+Note. There is a somewhat simpler approach which could be employed
+for the original equation.  First, it is always true that the
+characteristic polynomial of the system obtained from an $n$th
+order linear equation with constant coefficients may be obtained
+simply by replacing derivatives by powers, as we did in the second
+order case.  For this problem, the equation would be
+\[
+r^3 - 2r^2 -5r + 6 = 0.
+\]
+The solutions are distinct:  $r = -2, 1, 3$.  That means the
+general solution of the homogeneous equation has the form
+\[
+y = c_1e^{-2t} + c_2e^t + c_3e^{3t}.
+\]
+(How do you think this procedure would have to be modified if
+there were repeated roots?)  To solve the inhomogeneous equation,
+one could use an analogue of variation of parameters, which would
+be a complicated formula involving the solutions of the homogeneous
+equation and their derivatives.  In fact, it would be equivalent
+to the formula for a particular solution of the system, but with
+the matrices hidden in messy formulas.  An easier method would
+be to try a guess.  In this case, a plausible guess might be
+$y = Ae^t$, but after some effort, you would discover this doesn't
+work.  This could be explained by noticing that $e^t$ is a solution
+of the homogeneous equation, so, using the second order theory as
+a guide, we might try  $y = Ae^t + Bte^t$.   This would work
+with appropriate values of $A$ and $B$, the same as we obtained
+above by the system method.   Finally, we could impose the
+initial conditions in order the determine $c_1, c_2, c_3$.  However,
+this would require finding $y'$ and $y''$ in the general solution
+of the inhomogeneous equation, and solving the same system of
+equations that we did above. 
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

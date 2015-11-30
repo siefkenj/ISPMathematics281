@@ -1,0 +1,125 @@
+%\nextsec{Integrating on Curves}
+\subhead Exercises for Section \sn \endsubhead
+%Section 6
+\nobreak
+% 1
+\Exer  Find the arc length of each of the following paths for the given 
+parameter interval. \par
+  (a) $\r = 2\sin t\, \i - 2\cos t\, \j + 2t\,\k$, 
+from $t=0$ to $t=2\pi$. \par
+  (b) $\r = \lb e^{-t} \cos t, e^{-t} \sin t, e^{-t}\rb$, 
+from $t=0$ to $t= 2$. \par
+  (c) $x=t^2$, $y=4t+3$, $z=-4\ln t$, from $t=1$ to $t=2$. \par
+  (d) $x=4t$, $y= 3$, $z=2t^2$, from $t=0$ to $t=3$.
+\answer (a) $4\pi\sqrt{2}$; (b) $\sqrt{3}(1-e^{-2})$;
+(c) $3+4\ln 2$;  (d) $6\sqrt{10} + 2\ln |3+\sqrt{10}|$.
+
+
+% 2
+\Exer  Let $\Cal C$ be the graph of the function defined by
+$y = f(x)$ on the interval $a\le x \le b$.  Use the parametric
+representation $\r = x\, \i + f(x)\, \j$ to derive the formula
+$$ L(\Cal C) = \int_a^b \sqrt{1 + f'(x)^2}\, dx.  $$
+\answer $L(\Cal C) = S^b_1 |\r'(x)|\, dx =
+S^b_a\sqrt{1+(f'(x))^2}\;dx$.
+
+
+% 3
+\Exer (Optional, for those with an interest in mathematical rigor).  Suppose
+a curve $\Cal C$ is represented parametrically by 
+$\r = \r_1(u), \,  a\le u \le b$ and $\r = \r_2(v), \,  c\le v \le d$.
+Under reasonable assumptions on the parametric representations,  it
+may be shown that there is a functional relation  $u = p(v),  \, 
+c \le v \le d$ such that $p$ is a differentiable function with
+continuous derivative,   $p'(u) \ge 0$,   $p(c) = a,  p(d) = b$,  and
+$\r_1(p(v)) = \r_2(v)$ for $c\le v \le d$.  Show that
+$$
+   \int_a^b |\r'_1(u)| du = \int_c^d |\r'_2(v)| dv.
+$$
+Hint:  Use the chain rule  
+$$\dfrac{d\r_1(p(v))}{dv} =  \dfrac{d\r_1(u)}{du}
+\dfrac{dp(v)}{dv}\qquad\text{where } u = p(v), $$
+and apply the change of variables formula for integrals. 
+
+
+%%%Need a lot more with geometric description.
+
+% 4
+\Exer  Evaluate $\int_C \F\cdot\T ds$ in each case. \par
+ (a) $\F = x\i+y\j+z\k$, $\r = \lb t, t, 2\rb$, $0\leq t\leq 1$. \par
+ (b) $\F = yz\i+xz\j+xy\k$, $x=\sin t, y=2\cos t, z=t$, $0\leq t\leq \pi$.
+\par
+ (c) $\F = y\i+z\j+x\k$, $\r = t\i + t^2\j + t^3\k$, $0\leq t\leq 1$.
+\answer (a) 1; (b) 0; (c) $\frac{89}{60}$.
+
+% 5
+\Exer   Let $\F = -y \i$, and let $\Cal C$ be
+the rectilinear
+path starting at $(0,1)$, going to $(0,3)$ and ending at $(3,3)$.
+Find $\displaystyle{\int_{\Cal C} \F\cdot d\r}$.
+\answer -9.
+
+% 6
+\Exer  Let  $\F = \r = x\i + y\j + z\k$.   Compute
+$\displaystyle{\int_{\Cal C} \F\cdot d\r}$ for each of the
+following paths: \par
+  (a)  the linear path which goes directly from the origin to the point
+$(2, 1, 3)$, \par
+  (b)  the rectilinear
+ path which goes from the origin to $(2,0,0)$, then to
+$(2,1,0)$ and finally to $(2,1,3)$.
+\answer (a) 7; (b) 7.
+
+% 7
+\Exer  Let $\F = y\i$ and let $\Cal C$ be the path which starts
+at $(-1,1)$ and follows the parabola $y = x^2$  to  $(1,1)$.
+Find $\displaystyle{\int_{\Cal C} \F\cdot d\r}$.
+\answer $2/3$.
+
+% 8
+\Exer  A workman at the top of a ten story building (50 m high) needs
+to lower a 10 kg box to a point on the ground 50 m from the base of
+the building.  To do this, he constructs a variety of slides.  Show
+that the work done by gravity (with force
+per unit mass $9.8\j$) is identical if the
+slide is \par
+  (a)  A freefall chute, and the box is then pushed 50 m horizontally.
+\par
+  (b)  A straight line of slope 1. \par
+  (c)  One quarter of a circle, with its center at the base of the
+building (concave down). \par
+  (d)  One quarter of a circle, with its center 50 m above the final
+point (concave up). \par
+Interesting diversion: Are the times involved the same?  Hint:  Consider
+the ISP toy with two balls on two slightly different tracks.
+\answer In each case the answer is $(500)(9.8) = 4900$ J.
+
+% 9
+\Exer   Suppose $\F = r\u_\theeta$.  (a)  Calculate
+$\displaystyle{\int_{\Cal C} \F\cdot d\r}$ for $\Cal C$ a circle of
+radius  $R$ centered at the origin and traversed once counter-%
+clockwise.  (This was done differently as an Example in the text.  Do
+you recognize it?)   (b)  Calculate the line integral for the same
+$\F$,  but for the path given parametrically by 
+$\r = t\i + t\j,  0\le t < \infty$.  In principle,  the fact that the
+path is unbounded could cause a problem.  Why doesn't it in this case?
+\answer (a) $2\pi R^2$; (b) $0$.
+
+% 10
+\Exer  Let $\F = \r = x\, \i + y\, \j + z\, \k$,  and let  $\Cal C$ be
+the circle of radius $R$ lying in the plane  $z = h$ and centered
+at the point  $(0, 0, h)$.  Assume $\Cal C$ is traversed in the
+counter-clockwise direction when viewed from above.  Calculate
+$\displaystyle{\int_{\Cal C} \F\cdot d\r}$.
+\answer 0.
+
+% 11
+\Exer  Let  $\F = \j$ and let $\Cal C$ be the quarter of the circle
+$x^2 + y^2 = R^2$ in the first quadrant of the $x, y$-plane.  Assume
+$\Cal C$ is traversed counter-clockwise.  Find  $\int_{\Cal C}
+\F\cdot d\r$.   (Hint:  The angle between $\F$ and $d\r$ is the
+polar angle $\theeta$.)    
+What if we use $\F = \i$ instead?  How about $x\i$?
+\answer For $\F=j : R$, for $\F=i : -R$, for $\F=xi : -R^2/2$.
+
+\endinput

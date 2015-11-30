@@ -1,0 +1,138 @@
+%\nextsec{The Vector Product}
+\subhead Exercises for Section \sn \endsubhead
+%Section 4
+
+% 1
+\Exer   Find $\a \times \b$ for the following vector pairs:\par
+        (a) $\a = \lb 4, -2, 0 \rb$, $\b = \lb 2, 1, -1 \rb$ \par
+        (b) $\a = \lb 3, 3, 3 \rb$, $\b = \lb 4, -3, 2 \rb$ \par
+        (c) $\a = 2\i + 3\j + 4\k$, $\b = \i -3\j + 4\k$ \par
+\answer (a) $2,4,8)$; (b) $(15,6,-21)$; (c) $24\i -4\j -9\k$
+
+% 2
+\Exer Use the vector product to find the areas of the following
+figures.
+\par
+(a)  The parallelogram with vertices $(0,0,0), (1, 1, 0), (1,2,1)$
+and $(0,1,1)$.  (Perhaps you should first check that this is a
+parallelogram.)
+\par
+(b) The triangle with vertices $(1,0,0), (0,1,0)$, and $(0,0,1)$.
+\answer (a) $\sqrt3$; (b) $\dfrac{\sqrt3}{2}$.
+
+% 3
+\Exer   Prove that the vector product is not associative by calculating
+      $\a \times (\b \times \c)$ and $(\a \times \b) \times \c$ for $\a = \i$,
+ $\b = \c = \j$.
+\answer $\i\times(\j\times\j)=\i\times 0=0$ while $(\i\times\j)\times
+\j = \k\times\j = -\i$. 
+
+% 4
+\Exer   Show that if $\a$, $\b$, and $\c$ are mutually perpendicular, then
+$\a \times  (\b \times  \c) = 0$.  What is the analogous geometric situation?
+\answer If $\a$, $\b$ and $\c$ are mutually $\perp$, then $\a$ and
+$\b\times\c$ have the same direction, so
+$\big|\a\times(\b\times\c)\big|\sin 0^\circ =$\underbar{0}. \newline
+Hence $\a\times(\b\times\c)$ is the zero vector. \newline
+This would be analogous to noting that a parallelogram with no width
+has no area.
+
+% 5
+\Exer  $3\times 3$ determinants are defined by the formula
+$$
+ \det \bm a_1 & a_2 & a_3 \\
+ b_1 & b_2 & b_3 \\
+ c_1 & c_2 & c_3 \em =
+ a_1b_2c_3 + a_2b_3c_1 + a_3b_1c_2 - a_3b_2c_1 - a_2b_1c_3 - a_1b_3c_2.
+$$
+(Can you see the pattern?)  Using this rule, verify formulas (\ForOne)
+and (\ForTwo) in this section.
+\answer {\bf Eq\. (2):} $\a\times\b = (a_2b_3 - a_3b_2)\i + (a_3b_1 -
+a_1b_3)\j + (a_1b_2 - a_2b_1)\k = 
+a_2b_3\i - a_3b_2\i + a_3b_1\j + a_1b_2\k - a_2b_1\k =
+\det\bmatrix \i &\j &\k \\ a_1 &a_2 &a_3 \\b_1 &b_2 &b_3\endbmatrix$
+\par\smallskip
+{\bf Eq\.(4):} $$\split\a(\b\times\c)=\a\cdot \lb b_2c_3 - b_3c_2,\ 
+b_3,c_1-b_1c_3,\ b_1c_2-b_2c_1 \rb =\\ {a_1b_2c_3 + a_2b_3c_1 + a_3b_2c_1
+- a_2b_1c_3 - a_1b_3c_2}\endsplit $$ which is the determinant. 
+
+% 6
+\Exer  Find the volume of  the 
+ parallelepiped spanned by the vectors $\lb 1, 1, 0\rb,
+\lb 0, 2, -2 \rb$, and $\lb 1, 0, 3\rb$.
+\answer 4.
+
+
+% 7
+\Exer  A triangular kite is situated with its vertices at the points
+$(0, 0, 10), (2, 1, 10)$, and $(0, 3, 12)$.   A wind with velocity
+vector $20\i + 6\j + 4\k$ displaces the kite by blowing for $1/2$
+second.   Find the volume of the solid bounded by the initial and final
+positions of the kite.  (Assume all the distance units are in feet.)
+\answer 10 ft.$^3$.
+
+
+% 8 
+\Exer  Prove the formula $$(\a\times\b)\times\c = -(\b\cdot\c)\a +
+(\a\cdot\c)\b $$ as follows.  Since the quantities on both sides of the
+equation are defined geometrically,  you can use whatever coordinate
+system you find convenient.  Choose the coordinate system so that $\a$
+points along the $x$-axis and $\b$ lies in the $x, y$-plane.  Under
+these assumptions,  $\a$ has components $\lb a_1,  0,  0 \rb$, $\b$ has
+components $\lb b_1,  b_2,  0 \rb$,  and $\c$ has components $\lb c_1,
+c_2,  c_3 \rb$.  Show that both sides of the equation have components
+$$ \lb -a_1b_2c_2,  a_1b_2c_1,  0 \rb.  $$
+\answer $(\a\times\b)\times\c = (\lb a_1,0,0\rb \times \lb b_1,b_2,0\rb)
+\times\lb c_1,c_2,c_3\rb = \lb 0,0,a_1b_2\rb \times \lb c_1,c_2,c-3\rb
+= \lb -a_1b_2c_2, a_1b_2c_1, 0\rb$ while $-(\b\cdot\c)\a +
+(\a\cdot\c)\b = -(b_1c_1 + b_2c_2)\lb a_1,0,0\rb + a_1c_1\rb b_1, b_2,
+0\rb = \lb -b_1c_1a_1 - b_2c_2a_1 + a_1c_1b_1, a_1b_2c_1,0\rb =
+\lb-a_1b_2c_2, a_1b_2c_1, 0\rb$. 
+
+% 9
+\Exer Verify the formula.
+$$ |\a\times\b|^2 = |\a|^2|\b|^2 - (\a\cdot\b)^2.  $$
+Hint: Use the definitions in terms of the sine and cosine of the
+included angle $\theta$.           
+\answer{\predisplaypenalty=10000\nobreak
+$$\align
+	|\a\times\b|^2 &= (|\a|\ |\b|\sin\theta)^2 \\
+	  &= |\a|^2|\b|^2\sin^2\theta \\
+	  &= |\a|^2|\b|^2(1-\cos^2\theta) \\
+	  &= |\a|^2|\b|^2 - |\a|^2|\b|^2\cos^2\theta \\
+	  &= |\a|^2|\b|^2 - (|\a|\ |\b|\cos\theta)^2 \\
+	  &= |\a|^2|\b|^2 - (\a\cdot\b)^2.
+\endalign $$}
+
+% 10
+\Exer Suppose a particle moves in such a way that $\r\times \v$ is
+a constant vector.   Show that at each point of the path
+either $\r$ or $\a$ is zero or they are parallel.
+\answer $\r\times\v$ constant $\implies 0 = (\r\times\v)^1 = \r'\times
+\v + \r\times\v' = \v\times\v+\r\times\a$. \newline
+So $0=|\r\times\a| = |\r|\ |\a|\sin\theta$. \newline
+$$\vbox{\halign{\hfil#&\quad#\quad&\hfil#&#$=0\quad\iff\quad$&#\hfil \cr
+  $\iff$ either &(1)&$|\r|$&&$\r=0$ \cr
+             or &(2)&$|\a|$&&$\a=0$ \cr
+             or &(3)&$\sin\theta$ &&$\theta=0^\circ$ {\eightpoint or
+	     $180^\circ\iff\r$ and $\a$ are parallel.}\cr}}$$
+
+% 11
+\Exer One may try to generalize the vector product to higher dimensions.
+One plausible approach would be to consider all $2\times 2$
+determinants (with appropriate signs) which one can extract from
+the array
+$$
+\bm a_1 & a_2 & \dots & a_n \\
+ b_1 & b_2 & \dots & b_n \em .
+$$
+You learned in high school that there are $\dfrac{n(n-1)}2$ ways to
+choose $2$ things from a set of $n$ things,  so that is the number
+of components.  Show that $\dfrac{n(n-1)}2 = n$ only in the case
+$n = 3$.  (The moral is that we may be able to define a `cross
+product' for dimensions other than 3,  but only in that case will
+we get something of the same dimension.)
+\answer $\dfrac{n(n-1)}{2} = n\iff n(n-1) = 2n \iff n^2-3n=0 \iff
+n=0,3$ but only $n=3$ is relevant.
+
+\endinput

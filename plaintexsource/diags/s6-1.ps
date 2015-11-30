@@ -1,0 +1,93 @@
+%!
+%%Title: /tmp/xfig-export013589
+%%Creator: fig2dev
+%%CreationDate: Sat Dec 21 09:23:46 1991
+%%For: len@schur (Len Evens)
+%%BoundingBox: 0 0 147 157
+%%Pages: 0
+%%EndComments
+/$F2psDict 64 dict def 
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y translate xrad yrad scale 0 0 1 startangle endangle arc
+	savematrix setmatrix
+	} def newpath 0 0 0 0 0 1 DrawEllipse stroke
+
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+	/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+	/$F2psEnd {$F2psEnteredState restore end} def
+	%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-18 9 translate
+0.0 157.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Ellipse
+n 28 155 2 2 0 360 DrawEllipse gs col-1 s gr
+% Open spline
+n 28.000 153.000 m 30.000 127.000 l
+	30.000 127.000 32.000 101.000 60.500 85.500 DrawSplineSection
+	60.500 85.500 89.000 70.000 100.000 46.000 DrawSplineSection
+	111.000 22.000 l gs col-1 s gr
+n 105.849 28.439 m 111.000 22.000 l 109.485 30.106 l gs 2 setlinejoin col-1 s gr
+/Times-Roman findfont 14.00 scalefont setfont
+124 27 m 
+gs 1 -1 scale (\(v  , T  \)) col-1 show gr
+/Times-Roman findfont 14.00 scalefont setfont
+19 180 m 
+gs 1 -1 scale (\(v  , T  \)) col-1 show gr
+/Times-Roman findfont 10.00 scalefont setfont
+32 184 m 
+gs 1 -1 scale (1) col-1 show gr
+/Times-Roman findfont 10.00 scalefont setfont
+54 184 m 
+gs 1 -1 scale (1) col-1 show gr
+/Times-Roman findfont 10.00 scalefont setfont
+137 31 m 
+gs 1 -1 scale (2) col-1 show gr
+/Times-Roman findfont 10.00 scalefont setfont
+159 31 m 
+gs 1 -1 scale (2) col-1 show gr
+$F2psEnd

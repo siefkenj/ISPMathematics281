@@ -1,0 +1,49 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 5
+\smallskip
+% 1
+\Exer  In each case, tell if the indicated series is
+absolutely convergent, conditionally convergent, or divergent.
+If the ratio or root test does not work, you may want to
+try some other method.
+
+(a) $\sum_{n=1}^\infty t^n$ where $|t| < 1$.
+
+(b) $\sum_{n=1}^\infty \dfrac{(-1)^n(n + 4)}{5n + 6}$.
+
+(c) $\sum_{n=1}^\infty \dfrac{(-1)^{5n+2}t^n}{n^2}$
+where $|t| < 1$.
+
+(d)  $\sum_{n=2}^\infty \dfrac{(-1)^n}{\ln n}$.
+
+(e) $\sum_{n=1}^\infty \dfrac{(-2)^n}{n^n}$.
+
+(f) $\sum_{n=0}^\infty \dfrac{(-1)^n n!}{n^n}$.   Hint:  You should
+know what $\displaystyle{\lim_{n\to\infty}
+(1 + 1/n)^n}$ is from your previous courses.
+
+(g) $\sum_{n=1}^\infty \dfrac{n+1}{2n^3 + 4n + 5}$.
+\answer (a) Absolutely convergent.  (b)  Divergent since the
+general term does not go to zero.  (c)  Aboslutely convergent.
+(d) Conditionally convergent by the alternating series test.
+($\sum_n\dfrac 1{\ln n}$ diverges by comparison with $\sum_n \dfrac 1n$.)
+(e)  Converges absolutely.  (f)  Using the ratio test, the limit
+of $\dfrac{|u_{n+1}|}{|u_n|}$ as $n \to \infty$ turns out to be
+$\dfrac 1e < 1$, so the series converges absolutely.
+(g)  This is a series of positive terms so it converges absolutely
+if it just converges.  It does converge by the limit comparison
+test---compare it to $\sum_n\dfrac 1{n^2}$. 
+
+% 2
+\Exer  Determine all values of $t$ such that 
+$\sum_{n=0}^\infty \dfrac {t^n}{\sqrt{n+1}}$ converges.   For which
+of those values does it converge absolutely?
+\answer  By the ratio test, it converges absolutely for
+$|t| < 1$.  However, for $t = \pm 1$, the ratio is 1, so the
+ratio test is of no help.  For $t= 1$ the series diverges either
+by the integral test or by comparing with $\sum_n \dfrac 1{n^{1/2}}$
+using the limit comparison test.  For $t= -1$, the alternating
+series test applies and the series converges.  Hence it converges
+absolutely for $-1 < t < 1$ and it converges conditionally for
+$t = -1$.
+

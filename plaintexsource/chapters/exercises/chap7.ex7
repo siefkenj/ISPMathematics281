@@ -1,0 +1,66 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 7
+\smallskip
+% 1
+\Exer  If $m$ is measured in grams, $y$ in centimeters,
+and $t$ in seconds, then the spring constant $k$ should be
+measured in gm/sec${}^2$ and the coefficient of friction 
+$b$ in gm/sec.  Assuming we use these units, determine in
+each of the following cases if the system oscillates.
+If so determine the frequencies $\dfrac{\omega_0}{2\pi}$
+and $\dfrac{\omega_1}{2\pi}$.
+
+(a)  $m = 1, k = 0.5, b = 0.005$.
+
+(b)  $m = 4, k = 1, b = 4$.
+\answer (a) $b^2 - 4mk = -1.999975 < 0$, which is the underdamped
+case, so the system oscillates.  $\dfrac{\omega_0}{2\pi} =.1125395395$ Hz,
+$\dfrac{\omega_1}{2\pi} = .1125388361$ Hz. \par
+(b) $b^2 - 4mk = 0$ so this is the critically damped case.  
+$\dfrac{\omega_0}{2\pi} = .07957747153$ Hz.  $\dfrac{\omega_1}{2\pi} = 0$ Hz. 
+In the case of critical damping, $\omega_1$ is always zero and is not
+too interesting.
+
+% 2
+\Exer  Show that the three cases for the differential equation
+governing the charge on a capacitor break up as follows.
+(a) Overdamped: $R > 2\sqrt{\dfrac LC}$.   (b) Critically damped:
+$R = 2\sqrt{\dfrac LC}$.  (c)  Underdamped:  $R < 2\sqrt{\dfrac LC}$.
+
+Show that in the underdamped case,
+ $\omega_0 = \dfrac 1{\sqrt{LC}}$ and
+$\omega_1 = \sqrt{\dfrac 1{LC} - \left(\dfrac R{2L}\right)^2}$. 
+\answer  Just put $m = L, b = R$, and $k = \dfrac 1C$ in the
+formulas for mechanical oscillations.
+
+% 3
+\Exer  Inductance $L$ is measured in {\it henries\/},
+resistance $R$ is measured in {\it ohms\/}, and capacitance
+is measured in {\it farads}.   Find the frequencies
+$\dfrac{\omega_0}{2\pi}$ and $\dfrac{\omega_1}{2\pi}$
+if $L = 0.5$ henries, $R = 50$ ohms, and $C = 2\times 10^{-4}$
+farads.
+
+What are the full names of the famous physicists after whom these
+units are named?
+\answer $\dfrac{\omega_0}{2\pi} = 15.91549431$ Hz.
+$\dfrac{\omega_1}{2\pi} = 13.78322239$ Hz.  The physicists were
+Joseph Henry (American, d. 1878), Georg Simon Ohm (German, d. 1854),
+and
+Michael Faraday (English, d. 1869).  We should also mention
+ Heinrich Rudolph Hertz (German, d. 1894) after whom the unit
+of frequency is named.  (1 Hz is one cycle per second.)
+
+% 4
+\Exer   Approximately how many oscillatory cycles are
+required in the previous problem for the amplitude of the charge 
+to drop
+to half its initial value?
+\answer  The `amplitude' is proportional to $e^{-\frac R{2L}t}$
+so it drops to half its value when $t = \dfrac{2L \ln 2}R$
+which in this case is $\dfrac {\ln 2}{50}$.   The number of
+cycles would be this time multiplied by the frequency, i.e.,
+approximately $.19$.  Thus, the oscillation dies down very
+quickly.  In fact, it would be hard to detect the fact that
+this system was even oscillating.
+

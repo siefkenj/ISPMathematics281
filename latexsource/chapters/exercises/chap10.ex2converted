@@ -1,0 +1,225 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item 
+Let
+\[
+\x = \bm{} 1\\ 2\\-3\em,\qquad
+\y = \bm{} -2\\ 1\\3\em,\qquad
+\z = \bm{} 1\\ 0\\-1\em.
+\]
+Calculate  $\x + \y$ and $3\x - 5\y + \z$.
+
+\answer{\par
+\[\x + \y = \bm{} -1\\ 3\\0\em,\quad
+3\x - 5\y + \z = \bm{} 14 \\ 1\\-25\em.
+\]
+
+
+
+}
+
+\item   Let
+\[
+A = \bm{}
+    2 & 7 & 4 & -3 \\
+    -3 & 0 & 1 & -2 \\
+    1 & 3 & -2 & 3 \\
+    0 & 0 & 5 & -5 \em,\qquad
+\x = \bm{}1 \\ -2\\ 3\\ 5 \em,\qquad
+\y = \bm{}-2 \\ 2\\ 0\\ 4 \em.
+\]
+Compute  $A\x,\, A\y,\, A\x + A\y$, and $A(\x + \y)$. 
+
+\answer{\par
+\[
+A\x = 
+\bm {} -15\\-10\\4\\ -10\em,\quad
+A\y = \bm {} -2\\-2\\14\\-20,\em\quad
+A\x + A\y = A(\x + \y) = \bm {} -17\\-12\\18\\-30\em.
+\]
+
+
+
+}
+
+\item   Let
+\[
+A = \bm {}
+       1 & -1 & 3 \\ 0 & -2 & 2 \em,
+B = \bm {}
+       1 & 2  \\ 1 & 0\\ -3 & 2 \em,
+C = \bm {}
+       -1 & 1 & -3  \\ 0 & 2 & -2 \em,
+D = \bm {}
+       -1 & -2 & 0 \\ 1 & -2 & 1\\ 2 & 1 & -4 \em.
+\]
+Calculate each of the following quantities {\it if it is
+defined\/}:   $A + 3B, \, A + C, \, C + 2D, \, AB, BA, CD, DC$.
+
+\answer{  $A + 3B, C + 2D, DC$ are not defined.
+\begin{gather*}
+A + C = \bm 0 & 0 & 0 \\ 0 & 0 & 0 \em,
+\quad AB = \bm -9 & 8 \\ -8 & 4 \em,\\
+BA = \bm 1 & -5 &  7 \\ 1 & -1 & 3 \\ -3 & -1 & -5 \em,\quad
+CD = \bm -4 & -3 & 13 \\ -2 & -6 & 10 \em.
+\end{gather*}
+
+
+
+}
+
+\item   Suppose  $A$ is a $2\times 2$ matrix such that
+\[
+A\bm 1\\ 2 \em = \bm 3 \\ 1\em\qquad A\bm 2\\ 1 \em = \bm 6 \\ 4\em.
+\]
+Find $A$.
+
+\answer{  We have for the first components of these two products
+\begin{align*}
+a_{11} + a_{12}2 &= 3 \\
+a_{11}2 + a_{12} &= 6
+\end{align*}
+This is a system of 2 equations in 2 unknowns, and you can solve
+it by the usual methods of high school algebra to obtain
+$a_{11} = 3, a_{12} = 0$.
+ A similar argument applied to the second components yields
+$a_{2,1} = 7/3, a_{22} = -2/3$.   Hence,
+\[
+A = \bm 3 & 0 \\ 7/3 & -2/3 \em.
+\]
+
+
+
+}
+
+\item   Let  $\e_i$ denote the $n\times 1$ column vector, with
+all entries zero except the $i$th which is 1, e.g., for
+$n = 3$,
+\[
+\e_1 = \bm 1 \\ 0 \\ 0 \em,\qquad
+\e_2 = \bm 0 \\ 1 \\ 0 \em,\qquad
+\e_3 = \bm 0 \\ 0 \\ 1 \em.
+\]
+Let  $A$ be an arbitrary $m\times n$ matrix.   Show that
+$A\e_i$ is the $i$th column of $A$.   You may verify this
+just in the case $n = 3$ and $A$ is $3\times 3$.   That is
+sufficiently general to understand the general argument.
+
+
+\item   Write each of the following systems in matrix form.
+
+(a) $x_1' = 2x_1 - 3x_2,\, x_2' = -4x_1 + 2x_2$.
+
+(b) $x_1' = 2x_1 - 3x_2 + 4,\, x_2' = -4x_1 + 2x_2 -1$.
+
+(c)  $x_1' = x_2,\, x_2' = x_3,\, x_3' = 2x_1 + 3x_2 - x_3 + \cos t$.
+
+\answer{\par (a)
+\[
+\x' = \bm 2 & -3 \\ -4 & 2 \em \x.
+\]\par
+(b)
+\[
+\x' = \bm 2 & -3 \\ -4 + 2\em \x + \bm 4\\ -1\em.
+\]\par
+(c)
+\[
+\x' = \bm 0 & 1 & 0 \\ 0 & 0 & 1 \\ 2 & 3 & -1\em\x + \bm 0\\ 0 \\ \cos t\em.
+\]
+
+
+
+}
+
+\item  Let $y(t)$ be a solution of the linear second order
+differential equation
+\[
+t^2 y'' + t\overline p(t) y' + \overline q(t) y = 0.
+\]
+Put
+\[
+\x = \x(t) = \bm y(t)\\ ty'(t) \em
+\]
+and show that  $\x$ satisfies the matrix differential equation
+\[
+t\frac{d\x}{dt} = \bm 0 & 1 \\ -\overline q(t) & 1 - \overline p(t) \em \x.
+\]
+
+\answer{  We have
+\[
+t\frac{d\x}{dt} = \bm ty'(t)\\ ty'(t) + t^2y''(t) \em
+   = \bm ty'(t) \\ -\overline q(t)y + (1 - \overline p(t))ty'  \em
+\]
+which is the desired expression. 
+
+
+
+}
+
+\item   Matrices are used to  create more realistic population
+models than those we considered in Chapter VI, Section 4.  First,
+divide the population into $n$ age groups for an appropriate
+positive integer $n$.  Let
+$x_i,\, i = 1, 2, \dots, n$ be the number of women  
+in the $i$th age group, and consider the vector $\x$ with
+those components. Construct an $n\times n$ matrix $A$ which
+incorporates information about birth and death rates so that
+$A\x$ gives the population vector after one unit of time has
+elapsed.  Then  $A^n\x$ gives the population vector after
+$n$ units of time.
+
+ Assume a human population is divided into 10 age groups
+between 0 and 99.   Suppose the following table gives the
+birth and death rates for each age group
+\[\begin{matrix} 
+{}
+\text{Age}&\text{BR}&\text{DR}\\
+0\dots 9 & 0 & .01 \\
+10\dots 19 & .01 & .01 \\
+20\dots 29 & .04 & .01 \\
+30\dots 39 & .03 & .01 \\
+40\dots 49 & .01 & .02 \\
+50\dots 59 & .001 & .03 \\
+60\dots 69 & 0 & .04 \\
+70\dots 79 & 0 & .10 \\
+80\dots 89 & 0 & .30 \\
+90\dots 99 & 0 & 1.00 
+\end{matrix}
+\]
+Find $A$.
+
+\answer{   The unit of time should be 10 years, so we need to determine
+the relative number of individuals in each age group after 10 years
+has elapsed.   Notice however that the individuals in any given
+age group become (less those who die) the individuals in the next
+age group and that new individuals appear in the $0\dots 9$
+age group.  
+\[
+A = \bm 0 & .01 & .04 & .03 & .01 & .001 & 0 & 0 & 0 & 0\\
+        .99 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+        0 & .99 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 0 & .99 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+        0 &  0 & 0 & .99 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        0 & 0 &  0 & 0 & .98 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 0 & 0 &  0 & 0 & .97 & 0 & 0 & 0 & 0  \\
+        0 & 0 & 0 & 0 &  0 & 0 & .96 & 0 & 0 & 0  \\
+        0 & 0 & 0 & 0 & 0 &  0 & 0 & .90 & 0 & 0  \\
+        0 & 0 & 0 & 0 & 0 & 0 &  0 & 0 & .70 & 0  \em
+\]
+Note that this model is not meant to be realistic.  Also, as mentioned
+in the problem, men are not counted, so `birth rate' should refer
+to the number of female babies born.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

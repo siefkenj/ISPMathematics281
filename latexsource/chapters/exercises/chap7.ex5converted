@@ -1,0 +1,138 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Calculate each of the following quantities
+
+(a) $(1 + 3i)(2 - 5i)$.
+
+(b) $(1 + 2i)(1  + i) - 3$.
+
+(c)  $\dfrac{2 + i}{3 - 2i}$.
+
+(d) $(1 + i)^4$.
+
+\answer{ (a) $17 + i$.  (b) $-4 + 3i$.  (c)  Multiply both
+numerator and denominator by $3 + 2i$.  The answer is
+$\dfrac 4{13} + \dfrac 7{13}i$.  (d) $-4$.
+
+
+
+
+}
+
+\item   Show that $\alpha = e^{i(2\pi/3)}$ satisfies the equation
+$\alpha^3 = 1$.   There are two other complex numbers satisfying
+that equation.  What are they?    Draw the Argand diagrams for
+each of these numbers.
+
+\answer{ $(e^{(2\pi/3)i})^3 = e^{2\pi i} = 1$.  Two other
+complex numbers with cube 1 are  $e^{(4\pi/3)i}$ and of course
+$e^{(6\pi/3)i} = 1$.  
+
+
+
+}
+
+\item   Note that $e^{i\pi} = \cos \pi + i\sin\pi = -1$,   Using
+this information, find all complex numbers $\beta$ satisfying
+$\beta^3 = -1$.   Hint.  They are all of the form
+$e^{i\theta}$ for appropriate values of $\theta$.
+
+\answer{  $-1, e^{(5\pi/3)i}$, and $e^{(2\pi/3)i}$.
+
+
+
+}
+
+\item  (a)  Show that $|e^{ib}| = 1$ for any real number $b$. 
+
+(b) Show that $\alpha = |\alpha|e^{i\theta}$ for any complex
+number $\alpha$.   Hint: Consider the polar coordinates of
+the point in the complex plane corresponding to $\alpha$.
+
+\answer{ (a) $|e^{ib}| = |\cos b + i\sin b| = \sqrt{\cos^2 b +
+\sin^2 b} = 1$.\par
+(b)  $\alpha = x + iy = r\cos\theta + ir\sin\theta
+= re^{i\theta}$.   However, $r = \sqrt{x^2 + y^2} = |\alpha|$.
+
+
+
+
+}
+
+\item   Using the definition  
+\[
+e^{a + bi} = e^a\cos b + ie^a\sin b
+\]
+prove the formula
+\[
+\frac{d}{dt}e^{(a + bi)t} = (a + bi)e^{(a + bi)t}.
+\]
+
+\answer{ We have
+\[
+e^{(a + bi)t} = e^{at +ibt} = e^{at}\cos bt + ie^{at}\sin bt.
+\]
+Hence,
+\begin{align*}
+\frac{d}{dt}e^{(a + bi)t} &= ae^{at}\cos bt - be^{at}\sin bt
+    + i ae^{at}\sin bt + ibe^{at}\cos bt \\
+    &= a(e^{at}\cos bt + ie^{at}\sin bt) + ib(e^{at}\cos bt + ie^{at}\sin bt \\
+&= (a + bi)e^{(a + bi)t}.
+\end{align*}
+
+
+
+}
+
+\item   Prove the formula
+\[
+e^{ix + iy} = e^{ix}e^{iy}
+\]
+for $x, y$ real.   This is a special case of the law of exponents
+for complex exponentials.   To prove it you will have to use
+appropriate trigonometric identities.
+
+\answer{ We have
+\begin{align*}
+e^{i(x + y)} &= \cos (x + y) + i\sin (x + y) \\
+&= \cos x\cos y - \sin x \sin y + i\sin x\cos y + i \cos x \sin y.
+\end{align*}
+However,
+\begin{align*}
+e^{ix}e^{iy} &= (\cos x + i\sin x)(\cos y + i\sin y) \\
+    &= \cos x\cos y - \sin x\sin y + i\sin x\cos y + i\cos x\sin y
+\end{align*}
+as required.
+
+
+
+}
+
+\item   Show that there is only one possible choice for real valued
+functions
+$c(b), s(b)$ such that $c'(b) = -s(b), \, s'(b) = c(b)$ and
+$c(0) = 1, s(0) = 0$.   Hint:   If  $c_1(b), s_1(b)$ is another
+set of functions satisfying these conditions, then
+put $u(b) = c(b) - c_1(b), v(b) = s(b) - s_1(b)$.  Show that
+$u'(b) = -v(b), v'(b) = u(b)$ and $u(0) = v(0) = 0$.
+Then show that $u^2 + v^2$ is constant by taking its derivative.
+What is that constant, and can you conclude that $u = v = 0$?
+
+\answer{  $\dfrac{d}{d b}(u^2 + v^2) = 2uu' + 2vv' = 2u(-v) + 2uv = 0$.
+Hence $u^2 + v^2 = c$.  Putting $b = 0$, we have
+$u(0)^2 + v(0)^2 = 0 + 0 = 0$ so $c = 0$.   Thus, $u^2 + v^2 = 0$
+for all $b$.  It follows that $u(b) = v(b) = 0$ for all $b$. 
+ 
+
+}
+
+
+
+\end{enumerate}
+\endinput

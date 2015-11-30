@@ -1,0 +1,121 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 5
+\smallskip
+% 1
+\Exer
+Find a general solution of Laguerre's Equation $ty'' + (1-t)y' +
+\lambda y = 0$ as follows. \par
+(a)  Show that the indicial equation is $r^2 = 0$. \par
+(b)  Find a solution for $r=0$ by the method of Frobenius by assuming
+$a_0 = 1$.  Note that this solution is analytic in general and is
+actually a polynomial if $\lambda$ is a non-negative integer. \par
+(c)  Set up the procedure for finding a second solution of the form
+$y = y_1\ln t + \sum_{n=1}^\infty c_nt^n$.  In the case
+$\lambda = 0$,  find $c_1$,  a recurrence
+relation for $c_n$, the general value of $c_n$
+and the solution.
+% Need another with equal roots
+\answer (a) 
+$$
+\multline
+ ty'' + (1-t)y'+\lambda y \\
+= \sum^\infty_{n=0} (n+r)(n+r-1)a_nt^{n+r-1} 
++ \sum^\infty_{n=0} (n+r)a_n t^{n+r-1} \\
+ \qquad -\sum^\infty_{n=0}(n+r)a_nt^{n+r} + \sum^\infty_{n=0}\lambda a_nt^{n+r}\\
+=\sum^\infty_{n=1} 
+ [((n+r)(n+r-1) + (n+r))a_n -((n+r-1) -\lambda)a_{n-1}] t^{n+r-1} \\
+\qquad  + (r(r-1) + r)a_0t^{r-1}. 
+\endmultline
+$$ 
+The indicial equation is
+$(r^2-r+r) = r^2 = 0$ with double root $r=0$.
+Also,  $(n+r)(n+r-1) + (n+r) = (n+r)^2$.\par
+(b) We have 
+$$a_n= \frac{n -1 - \lambda}{n^2}a_{n-1}\qquad n \ge 1.$$
+Set $a_0=1$, then 
+$$a_n = 
+\frac{(n -1-\lambda)(n -2-\lambda)\cdots(-\lambda)}{(n!)^2}\qquad n \ge 0.
+$$
+(Interpet the numerator to be 1 for $n = 0$.)
+The corresponding solution is
+$$
+y = \sum_{n=0}^\infty 
+\frac{(n -1-\lambda)(n -2-\lambda)\cdots(-\lambda)}{(n!)^2}
+t^n
+$$
+which is analytic.  Since  $\dfrac{n-\lambda}{(n+1)^2}|t| \to 0$,
+the ratio test shows that the series converges for all $t$.
+If $\lambda$ is a positive integer $k$, then all terms from $n = k -1$
+on vanish, and the solution is actually a polynomial of degree $k-1$.
+If $\lambda = 0$, all the terms vanish except for $n =0$---remember
+that the numerator is interpeted to be 1---so the solution is actually
+the constant solution 1. \par
+(c) We have 
+$$\align
+y'&=\frac 1t y_1 + y'_1 \ln t + \sum^\infty_{n=1} nc_nt^{n-1}\\
+y''&=  -\frac1{t^2} y_1 + \frac 2ty_1' + y''_1 \ln t 
+ + \sum^\infty_{n=2} n(n-1) c_n t^{n-2}.
+\endalign$$
+So
+$$
+\multline
+ty'' + (1-t)y'  + \lambda y \\
+= -\frac 1t y_1 + 2y_1' + t{y_1}''\ln t + \frac 1ty_1 + y_1'\ln t
+   - y_1 - ty_1'\ln t + \lambda y_1\ln t\\
++ \sum_{n=1}^\infty n(n-1)c_nt^{n-1} + \sum_{n=1}^\infty nc_nt^{n-1}
+-\sum_{n=1}^\infty nc_nt^n + \sum_{n=1}^\infty\lambda c_nt^n \\
+= 2y_1' - y_1 + (t{y_1}'' + (1-t)y_1' + \lambda y_1)\ln t \\
++ \sum_{n=1}^\infty [((n+1)n + n+1)c_{n+1} - (n -\lambda)c_n]t^n
+  + c_1 \\
+= 2y_1' - y_1 + c_1 + \sum_{n=1}^\infty [(n+1)^2c_{n+1} -(n -\lambda)c_n]t^n 
+\endmultline
+$$
+which for $\lambda = 0, y_1 = 1$ becomes
+$$
+ -1 + c_1 +
+ \sum_{n=1}^\infty [(n+1)^2c_{n+1} -(n - 0)c_n]t^n.
+$$
+Setting this equal to zero yields $c_1 = 1$ and
+$$
+c_{n+1} = \frac{n}{(n+1)^2}c_n 
+$$
+for $n \ge 1$.  
+This yields
+$c_n = \dfrac 1{n\,n!}$.
+Hence, the second solution is
+$$
+y_2 = y_1\ln t + \sum_{n=1}^\infty \frac 1{n\,n!}t^n
+ = \ln t + \sum_{n=1}^\infty \frac 1{n\,n!}t^n.
+$$
+
+% 2
+\Exer
+Find a second solution of Bessel's Equation for $m = 1$ by trying a
+solution of the form $y = J_1(t)\ln t + \sum_{n=0}^\infty c_nt^{n-1}$.
+You may not be able to determine a general formula for $c_n$ but
+determine coefficients at least up to $c_4$.   You should discover that
+the recursion rule does not completely determine $c_2$, so you can set
+it equal to anything you want.  You should set it equal to zero for
+this problem.  (However, it turns out that zero is not usually the best
+choice.  By an appropriate non-zero choice, one gets the Neumann
+function $Y_1(t)$ discussed in the the text.)
+\answer  The differential equation is
+$t^2y'' + ty' + (t^2 -1)y = 0.$   Substituting the recommended expression
+yields the equation
+$$
+2tJ_1' -J_1'' + J_1 + \sum_{n=1}^\infty ((n^2 - 1)c_{n+1} + c_{n-1})t^n = 0.
+$$
+The part of the expression involving $J_1$ may be evaluated using
+$$J_1(t) = \sum_{k=0}^\infty \dfrac{(-1)^k}{k!(k+1)!e^{2k+1}}t^{2k+1}.$$
+The result is a bit complicated but it only involves positve odd
+powers of $t$.  It follows that  $c_1 = 0$ and by recursion, all
+$c_n = 0$ for odd $n \ge 1$.   Putting the combined coefficient of
+$t^1$ equal to zero yields $c_0 = -\dfrac{13}8$.
+ The equation puts no restrictions on
+$c_2$ (basically because the coefficient of $c_2$ (for $n = 1$) is zero).
+Hence, $c_2$ may be assigned any value, in particular zero.  Then
+the above formulas may be used to determine 
+$c_n$ for $n \ge 4$ and even.  In particular, $c_4 = \dfrac{53}{768}$.
+
+%Need another with roots differing by an integer.
+

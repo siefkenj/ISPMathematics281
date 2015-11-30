@@ -1,0 +1,114 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Let $\F = \dfrac{1}{|\r|^2}\u_{\rho}$.  
+ For each of the following surfaces
+determine the outward flux.
+
+(a) The ellipsoid $x^2/4 + y^2/16 + z^2 = 1$.
+
+(b)  The surface of the cube with vertices at $(\pm 2, \pm 2, \pm 2)$.
+
+(c)  The sphere $x^2 + y^2 + (z - 3)^2 = 1$.
+
+(d)  (Optional)
+ The surface of the unit cube in the first octant with opposite
+vertices at $(0, 0, 0)$ and $(1, 1, 1)$.  Hint:  $\F$ blows up at
+$(0,0,0)$ so you can't apply the divergence theorem without modification.
+This does not create problems for the surface integrals on
+the three faces in the coordinate planes because these are zero anyway.  (Why?)
+Let $a$ be small, and consider the part of the cube outside the sphere
+of radius $a$ centered at the origin.  Apply the divergence theorem to
+that solid region and let $a$ approach 0.   The answer is $\pi/2$.   
+
+\answer{ (a) Note $\nabla\cdot \F=0$ except at the origin where it is
+undefined. Let $\Cal S$ be the surface of the given ellipsoid
+and let $\Cal S'$ be the surface
+of any sphere centered at the origin and inside
+$\Cal S$.  Let the normals for $\Cal S$ point outward and
+those for $\Cal S'$ point inward.
+We have $\iint_{\Cal S} \F\cdot \N\,dS 
+ + \iint_{\Cal S'} \F\cdot \N\,dS = 0$.
+However, by previous calculations for spheres, we know
+   $\iint_{\Cal S'} \F\cdot \N\,dS  = -4\pi$.  The minus sign comes
+about because the normals point inward, whereas when we did the
+calculation for the sphere previously, they pointed outward. \par
+(b) Apply exactly the same reasoning with $\Cal S'$ a small sphere
+centered at the origin contained with the cube.  The answer is 
+$4\pi$.\par
+(c) The answer is 0 since the origin is not inside this region.
+
+
+
+}
+
+\item   Using the divergence theorem and Gauss's law,
+show that $\nabla\cdot\E = 0$ for an electrostatic field
+$\E$  in empty space (where there is no
+charge).  Hint:  By Gauss's Law, the flux out of any
+sufficiently small
+sphere centered at a point where there is no charge is zero.
+
+\answer{  Use $\nabla\cdot\E = \lim_{D \to P}
+\dfrac 1{v(D)}\iint_{\d D}\E\cdot d\S$, where $D$ runs through a
+sequence of volume elements approaching $P$.   The right hand
+side is zero because the flux integral is zero if $D$ is
+sufficiently small so as to contain no charge.
+
+
+
+}
+
+\item   Electrostatic fields are always conservative.  If $\E = \nabla f$
+for a function $f$, show that $f$
+satisfies Laplace's equation $\nabla^2 f
+= 0$ if the charge density is zero.
+
+\answer{  By the previous problem  $\nabla \cdot \E = 0$.
+However,  $\nabla^2 f = \nabla\cdot\E$.
+
+
+
+}
+
+\item   Suppose that $\E$ is a smooth vector field
+in $\R^3$ which  is a spherically symmetric about the origin
+and it satisfes $\nabla\cdot\E = \rho$.   Find $\E$.
+
+\answer{  By hypothesis,
+$\E(\r) = E(\rho)\u_\rho$.
+The flux out of a 
+ sphere of radius $R$ centered at the origin
+is  $E(R)(4\pi R^2)$. It is also
+$\int_0^{2\pi}\int_0^\pi\int_0^R\rho \,\rho^2\sin\phi\,d\rho\,d\phi\,
+d\theta
+= \pi R^4$.  Hence,  $E(R) = \dfrac{R^2}4$.
+
+
+}
+
+\item   Suppose it is known  that $\E$ is a smooth vector
+field which is cylindrically
+symmetric about the $\z$-axis and it satisies  $\nabla\cdot \E
+= \dfrac{\sin r}r$.   Find $\E$.
+
+\answer{  $\E(\r) = E(r)\u_r$.  The flux out of a cylinder of radius
+$R$ and height $H$ centered on the $z$-axis is
+$E(R)(2\pi RH)$.  (The flux through the top and bottom is zero.)
+It is also $\int_0^{2\pi}\int_0^R\int_0^H \dfrac{\sin r}r\,r\,dz\,dr\,
+d\theta = 2\pi H(1 - \cos R)$.   Hence,
+$E(R) = \dfrac{1 -\cos R}R$.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

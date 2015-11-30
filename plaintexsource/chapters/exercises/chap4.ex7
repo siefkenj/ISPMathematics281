@@ -1,0 +1,66 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 7
+\smallskip
+% 1
+\Exer  How would the argument for Olbers' Paradox change if we
+assumed the density of stars  was constant
+for $\rho < \rho_0$ and dropped off as $1/\rho$ for $\rho > \rho_0$?
+\answer You have to divide the integral in two parts, one for
+$0\le \rho\le \rho_0$ and the second for $\rho_0 \le \rho \le R$.
+The first integral is fixed, so you have to investigate what happens
+to the second integral as $R\to \infty$.  The extra factor of
+$\dfrac 1\rho$ doesn't hcange things enough for that integral to
+converge.  It still goes to $\infty$ but much more slowly.
+
+% 2
+\Exer  Find the force exerted on a test particle of unit mass at the
+origin by a solid
+hemisphere of radius $a$ centered at the origin if the density is given
+by $\delta = k\rho$.   Express the answer in terms of the total mass.
+Note that if the test particle is at the origin, then $s = \rho$
+in equations (\Aa) and (\Ab).  
+Note also that by symmetry the $x$ and $y$ components of the force are zero.
+\answer  In this case $\eta = \phi$ and $s = \rho$.  The answer
+is $\dfrac{Gk\pi a^2}2$. 
+
+% 3
+\Exer  Find the force exerted on a test particle of unit mass
+at the origin by a solid cone with vertex at the origin, centered on
+the $z$-axis, of height $\sqrt 3\,a$ and radius $a$.  Use the same
+density function $\delta = k\rho$ as in the previous problem.
+\answer  Again $\eta = \phi$ and $s = \rho$.  The answer is
+$3\pi a^2Gk \ln(2/\sqrt 3)$.
+
+\Exer  Consider a spherical shell described by $c \le \rho \le a$
+of constant density $\delta$.   It is clear by symmetry that the
+gravitational
+force exerted on a unit test mass at the origin is zero.
+Show that the force exerted on a test mass at any point {\it inside the
+shell\/} is zero.
+Hint:  Change
+variables from $\phi$ to $s$, as was done in the text.
+Convince yourself that if $\rho >= R$ (the test mass is inside the
+shell of radius $\rho$), then the calculation of 
+$\cos\eta$ in terms of $s$ is still correct, but the limits
+for $s$ are  $\rho - R \le s \le \rho + R$.  Show that in this
+case the answer is zero.  (Note that if $R < \rho$, it is possible
+for $\eta$ to be obtuse, so $w = R - z$ would be negative.)
+
+\Exer Let a mass $M$ be uniformly distributed over a solid sphere
+of radius $a$.   Imagine a very narrow tunnel drilled along a
+diameter and a test particle placed at distance $R$ from the center.
+Show that the gravitational attraction is proportional to $R$.
+Ignore the effect of removing the mass in the tunnel. Hint:
+According to the previous problem, the mass in the shell $R\le \rho
+\le a$ will exert zero net force.   What force will be exerted
+by the mass of the sphere $0\le \rho \le R$?  How does this
+argument change if the mass density is $\delta = k/\rho$?
+\answer  The magnitude of the force
+is  $\dfrac{G M(R)}{R^2}$ where $M(R)$ is the mass
+inside a sphere of radius $R$.   But for constant density,
+$\dfrac{M(R)}M = \dfrac{R^3}{a^3}$
+so the magnitude of the force is $\dfrac{GM}{a^3}R$. 
+If $\delta = \dfrac k\rho$, then $M(R) = 2\pi R^2 k$, so
+$\dfrac{M(R)}M = \dfrac{R^2}{a^2}$.  Hence, the magnitude
+of the force is $\dfrac{GM}{a^2}$ which is constant.
+

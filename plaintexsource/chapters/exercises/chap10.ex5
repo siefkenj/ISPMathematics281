@@ -1,0 +1,75 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 5
+\smallskip
+% 1
+\Exer  In each of the following cases, find the matrix inverse
+if one exists.  Check your answer by multiplication.
+
+(a) $\bm\format\r&&\quad\r\\
+     1 & -1 & -2 \\
+    2 & 1 & 1 \\
+   2 & 2 & 2 \em$
+
+(b) $\bm\format\r&&\quad\r\\
+     1 & 4 & 1 \\
+    1 & 1 & 2 \\
+   1 & 3 & 1 \em$
+
+(c) $\bm\format\r&&\quad\r\\
+     1 & 2 & -1 \\
+    2 & 3 & 3 \\
+   4 & 7 & 1 \em$
+
+(d) $\bm\format\r&&\quad\r\\
+     2 & 2 & 1 & 1 \\
+    -1 & 1 & -1 & 0 \\
+   1 & 0 & 1 & 2 \\
+   2 & 2 & 1 & 2\em$
+\answer\par
+$$
+\text{(a) }\bm\format\r&&\quad\r\\ 0 & 1 & -1/2 \\
+            1 & -3 & 5/2 \\
+         -1 & 2 & -3/2 \em,\quad
+\text{(b) } \bm\format\r&&\quad\r\\ -5 & -1 & 7 \\ 1 & 0 & -1 \\ 2 & 1 & -3 \em
+$$\par
+$$
+\text{(c) not invertible},\quad
+\text{(d) } \bm\format\r&&\quad\r\\ -4 & -2 & -3 & 5 \\
+               2 & 1 & 1& -2 \\
+               6 & 2 & 4 & -7 \\
+               -1 & 0 & 0 & 1 \em
+$$
+
+\Exer  Let  $A = \bm a & b \\ c & d \em$, and suppose
+$\det A = ad - bc \not=0$.   Show that
+$$
+   A^{-1} = \frac 1{ad - bc} \bm\format\r&&\quad\r\\ d & -b \\ -c & a \em.
+$$
+Hint:   If someone is kind enough to suggest to you what $A^{-1}$ 
+is, you need not `find' it.   Just check that it works by multiplication.
+
+\Exer  Let $A$ and $B$ be invertible $n\times n$ matrices.  Show
+that $(AB)^{-1} = B^{-1}A^{-1}$.   Note the reversal of order!
+Hint:  As above, if you are given a candidate for an inverse,
+you needn't `find' it; you need only check that it works.
+\answer  $(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I$.
+
+\Exer  In the general discussion of Gauss-Jordan reduction, we
+assumed for simplicity that there was at least one non-zero
+entry in the first column of the coefficient matrix $A$.  That
+was done so that we could be sure there would be a non-zero
+entry in the $1,1$-position (after a suitable row interchange)
+to use as a pivot.
+What if the first column consists entirely of zeroes?  Does the
+basic argument (for the singular case) still work?
+\answer  The basic argument does work except that you should
+start with the second column instead.  If that consists of
+zeroes, go on to the third column, etc.   The matrix obtained
+at the end of the Gauss-Jordan reduction will have as many
+columns at the beginning which consist only of zeroes as did
+the original matrix.  For example,
+$$
+\bm 0 & 1 & 3 & 0 \\ 0 & 1 & 3 & 4 \em
+\to \dots \to \bm 0 & 1 & 3 & 0 \\ 0 & 0 & 0 & 1 \em
+$$
+

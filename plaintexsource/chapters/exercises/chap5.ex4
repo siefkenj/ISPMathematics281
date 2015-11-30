@@ -1,0 +1,159 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 4
+\smallskip
+
+% 1
+\Exer Calculate the divergence and curl of each of the following
+vector fields in $\R^3$. \par
+(a) $\F(x,y,z) = \lb x, y, z \rb$. \par
+(b) $\F(x,y,z) = -y\i + x\j$. \par
+(c) $\F(x,y,z) = \dfrac 1{\rho^3}\lb x, y, z \rb$ where
+$\rho = \sqrt{x^2 + y^2 + z^2}$.   Hint:   The algebra will be
+easier if you use $\dfrac{\d \rho}{\d x} = \dfrac x\rho$ and the
+corresponding formulas for $y$ and $z$.
+\answer (a) $\nabla\cdot\F=3$, $\nabla\times\F = \lb 0,0,0\rb$\par
+(b) $\nabla\cdot\F=0$, $\nabla\times\F =\lb 0,0,2\rb$\par
+(c) div $\nabla\cdot\F=0$, $\nabla\times\F =\lb 0,0,0\rb$
+
+
+% 2
+\Exer  Prove that divergence and curl are linear, i.e., verify
+the formulas
+$$
+\align
+\nabla\cdot(a\F + b\G) &= a\nabla\cdot\F + b\nabla\cdot\G \\
+\nabla\times (a\F + b\G) &= a\nabla\times \F + b\nabla\times \G 
+\endalign
+$$
+where $\F$ and $\G$ are vector fields and $a$ and $b$ are constant
+scalars.
+\answer Let $\F=\lb F_1,F_2,F_3\rb$ and  $\G=\lb G_1,G_2,G_3\rb$ \par
+(a) We have
+$$\align
+\nabla\cdot(a\F+b\G) &= \nabla\cdot\lb aF_1+bG_1,aF_2+bG_2,aF_3+bG_3\rb \\
+&=\dfrac\d{\d x}(aF_1+bG_1) +\dfrac\d{\d y}(aF_2+bG_2) + \dfrac\d{\d z}
+  (aF_2+bG_3)\\
+&=a\dfrac{\d F_1}{\d x}+b\dfrac{\d G_1}{\d x} +
+  a\dfrac{\d F_2}{\d y}+b\dfrac{\d G_2}{\d y} +
+  a\dfrac{\d F_3}{\d z}+b\dfrac{\d G_3}{\d z} \\
+&=a\left(\dfrac{\d F_1}{\d x}+\dfrac{\d F_2}{\d y}+\dfrac{\d F_3}{\d z}\right)
+  +b\left(\dfrac{\d G_1}{\d x}+\dfrac{\d G_2}{\d y}+\dfrac{\d G_3}{\d z}\right)\\
+&=a\nabla\cdot F + b\nabla\cdot G
+\endalign $$\par
+(b) We have
+$$\align
+\nabla\times(a\F+b\G)
+  &= \left(\frac\d{\d y}(aF_3+bG_3) - \frac\d{\d z}(aF_2+bG_2)\right)\i \\
+   &+ \left(\frac\d{\d z}(aF_1+bG_1) - \frac\d{\d x}(aF_3+bG_3)\right)\j \\
+  &+ \left(\frac\d{\d x}(aF_2+bG_2) - \frac\d{\d y}(aF_1+bG_1)\right)\k\\
+&= a\left[
+  \left(\frac{\d F_3}{\d y} - \frac{\d F_2}{\d z}\right)\i +
+  \left(\frac{\d F_1}{\d z} - \frac{\d F_3}{\d x}\right)\j +
+  \left(\frac{\d F_2}{\d x} - \frac{\d F_2}{\d y}\right)\k\right]\\
+&+ b\left[
+  \left(\frac{\d G_3}{\d y} - \frac{\d G_2}{\d z}\right)\i +
+  \left(\frac{\d G_1}{\d z} - \frac{\d G_3}{\d x}\right)\j +
+  \left(\frac{\d G_2}{\d x} - \frac{\d G_2}{\d y}\right)\k\right]\\
+&= a(\nabla\times \F) + b(\nabla\times \G)
+\endalign $$
+
+% 3
+\Exer  Verify the formula
+$$
+\nabla\cdot(f\F) = f\,\nabla\cdot\F + \nabla f\cdot\F
+$$
+where $f$ is a scalar field and $\F$ is a vector field. \par
+What should the corresponding formula for curl be?
+\answer Let $\F = \lb F_1,F_2,F_3\rb$ \par
+(a)  We have
+$$\align
+\nabla\cdot(f\F)
+&= \frac{\d}{\d x}(fF_1) + \frac{\d}{\d y}(fF_2) + \frac{\d}{\d z}(fF_3)\\
+&= \frac{\d f}{\d x}F_1+f\frac{\d F_1}{\d x}+\frac{\d f}{\d y}F_2 +
+  f\frac{\d F_2}{\d y}+\frac{\d f}{\d z}F_3 + f\frac{\d F_3}{\d z} \\
+&= f\left(\frac{\d F_1}{\d x}+\frac{\d F_2}{\d y}+\frac{\d F_3}{\d z}\right)
+  +\frac{\d f}{\d x}F_1+\frac{\d f}{\d y}F_2 +\frac{\d f}{\d z}F_3 \\
+&= f\nabla \F + \nabla f\cdot \F
+\endalign
+$$\par
+(b) The corresponding
+ form for curl is $\nabla\times f\F = f(\nabla\times \F) +
+(\nabla f)\times \F$
+
+
+% 4
+\Exer  Verify the formula
+$$
+\nabla\cdot(\nabla\times \F) = 0
+$$
+for an arbitrary vector field $\F$.   This formula will play an
+important role later in this chapter.
+\answer Let $\F = \lb F_1,F_2,F_3\rb$. \par
+$$\align
+\nabla\cdot(\nabla\times \F) &= \nabla\cdot\left\lb
+  \frac{\d F_3}{\d y}-\frac{\d F_2}{\d z},
+  \frac{\d F_1}{\d z}-\frac{\d F_3}{\d x},
+  \frac{\d F_2}{\d x}-\frac{\d F_1}{\d y}\right\rb \\
+&=\frac{\d^2F_3}{\d x\d y} - \frac{\d^2F_2}{\d x\d z} +
+  \frac{\d^2F_1}{\d y\d z} - \frac{\d^2F_3}{\d y\d x} +
+  \frac{\d^2F_2}{\d z\d x} - \frac{\d^2F_1}{\d z\d y}\\
+&= 0.
+\endalign $$
+
+% 5
+\Exer  Verify the formula
+$$
+\nabla\times(\nabla\times\F) = \nabla(\nabla\cdot\F) - \nabla^2\F
+$$
+where $\nabla^2\lb F_1, F_2, F_3\rb = \lb \nabla^2F_1, \nabla^2F_2,
+\nabla^2F_3 \rb$.
+\answer  We have
+$$
+\nabla\times(\nabla\times \F) = \nabla\times\left\lb
+  \frac{\d F_3}{\d y}-\frac{\d F_2}{\d z},\
+  \frac{\d F_1}{\d z}-\frac{\d F_3}{\d x},\
+  \frac{\d F_2}{\d x}-\frac{\d F_1}{\d y}\right\rb.
+$$ 
+The first component of this is
+$$
+\gather
+  \frac{\d}{\d y}\left(\frac{\d F_2}{\d x}-\frac{\d F_1}{\d y}\right) -
+  \frac{\d}{\d z}\left(\frac{\d F_1}{\d z}-\frac{\d F_3}{\d x}\right)\\
+=
+  \frac{\d^2F_2}{\d y\d x} + \frac{\d^2F_3}{\d z\d x} 
+  -\frac{\d^2F_1}{\d y^2} - \frac{\d^2F_1}{\d z^2}.
+\endgather
+$$
+On the other hand, 
+the first component of
+$\nabla(\nabla\cdot \F)-\nabla^2\F$
+is
+$$
+  \frac{\d}{\d x}
+\left(\frac{\d F_1}{\d x}+\frac{\d F_2}{\d y}+\frac{\d F_3}{\d z}\right)
+  -\frac{\d^2F_1}{\d x^2} 
+  - \frac{\d^2F_1}{\d y^2}
+   - \frac{\d^2F_1}{\d z^2}.
+$$
+Since the term $\dfrac{\d^2F_1}{\d x^2}$ cancels, this 
+ amounts to the same thing.   Similar calculations work for
+each of the other components.
+
+% 6
+\Exer Show that the scalar field defined by $f(\r) = \dfrac 1\rho$
+satisfies Laplace's equation $\nabla^2 f = 0$ except at the
+origin where it is not defined.   Hint: You can use a previous
+exercise in which you considered $-\nabla f$.
+\answer $\nabla f =  -\dfrac 1{\rho^3}\lb x,y,z\rb$.
+However, this is just $-\F$ where $\F$ is the vector field in
+problem 1c.  Hence,
+ $\nabla^2 f =
+-\nabla\cdot \F = 0$ as computed there. 
+
+
+% 7
+\Exer  Let $\F$ and $\G$ be two vector fields.  Guess a formula
+for $\nabla\cdot(\F\times\G)$ and then verify that your formula
+is correct.
+\answer  $(\nabla\times\F)\cdot\G - \F\cdot(\nabla\times \G)$.
+

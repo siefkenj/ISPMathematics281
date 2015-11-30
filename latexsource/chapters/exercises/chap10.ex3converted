@@ -1,0 +1,67 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item  Find two $2\times 2$ matrices $A$ and $B$ such that neither
+has {\it any\/} zero entries but such that $AB = 0$.
+
+\answer{  There are lots of answers.  Here is one
+\[
+\bm 1 & 0 \\ 0 & 0 \em \bm 0 & 0 \\ 1 & 0\em = \bm 0 & 0 \\ 0 & 0 \em
+\]
+Here is another
+\[
+\bm 1 & 1 \\ 1 & 1 \em \bm 1 & -1 \\ -1 & 1\em = \bm 0 & 0 \\ 0 & 0 \em
+\]
+
+
+}
+
+\item 
+ Let $A$ be an $m\times n$ matrix, let $\x$ and $\y$ be
+$n\times 1$ column vectors, and let $a$ and $b$ be scalars.
+Using the rules of algebra discussed in Section 3, prove
+\[
+A(a\x + b\y) = a(A\x) + b(A\y).
+\]
+
+\answer{  By the distributive law,
+\[
+A(a\x + b\y) = A(a\x) + A(b\y).
+\]
+However, one of the rules says we may move scalars around at
+will in a matrix product, so the above becomes
+\[
+  a(A\x) + b(A\y).
+\]
+
+
+}
+
+\item   Prove the associative law $(AB)C = A(BC)$.   Hint:
+If $D = AB$, then  $d_{ik} = \sum_{j=1}^n a_{ij}b_{jk}$, and
+if $E = BC$ then $e_{jr} = \sum_{k = 1}^p b_{jk}c_{kr}$,
+where $A$ is $m\times n$, $B$ is $n\times p$, and $C$ is
+$p\times q$.
+
+\answer{  This is an exercise in the proper use of subscripts.
+The $i,r$ entry of $(AB)C = DC$ is
+\[
+\sum_{k=1}^p d_{ik}c_{kr} = \sum_{k=1}^p\sum_{j=1}^n a_{ij}b_{jk}c_{kr}.
+\]
+Similarly, the $i,r$ entry of $A(BC) = AE$ is
+\[
+\sum_{j=1}^n a_{ij}e_{jr} = \sum_{j=1}^n\sum_{k=1}^pa_{ij}b_{jk}c_{kr}.
+\]
+These are the same since the double sums amount to the same thing.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

@@ -1,0 +1,23 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 13
+\smallskip
+% 1
+\Exer  Determine the form of the Laplacian operator
+$\nabla^2 = \nabla\cdot\nabla$ in polar coordinates.
+\outind{Laplacian in curvilinear coordinates}%
+\answer $\nabla^2 = \dfrac{\d^2}{\d r^2} +\dfrac 1r\dfrac{\d }{\d r}
++ \dfrac 1{r^2}\dfrac{\d^2}{\d\theta^2}$.
+
+% 2
+\Exer  Do the same for cylindrical coordinates.
+\answer $\nabla^2 = \dfrac{\d^2}{\d r^2} +\dfrac 1r\dfrac{\d }{\d r}
++ \dfrac 1{r^2}\dfrac{\d^2}{\d\theta^2} + \dfrac{\d^2}{\d z^2}$.
+
+%3
+\Exer  Do the same for spherical coordinates.
+\answer $\nabla^2 =
+\dfrac{\d^2}{\d\rho^2} + \dfrac 2\rho\dfrac{\d}{\d\rho}
++\dfrac 1{\rho^2}\dfrac{\d^2}{\d\phi^2} + \dfrac{\cot\phi}{\rho^2}
+\dfrac{\d}{\d\phi}
++ \dfrac 1{\rho^2\sin^2\phi}\dfrac{\d^2}{\d\theta^2}$.
+

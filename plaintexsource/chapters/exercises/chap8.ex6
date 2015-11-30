@@ -1,0 +1,152 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 6
+\smallskip
+% 1
+\Exer  Show that the power series $\sum_{n=0}^\infty n!t^n$ has
+radius of convergence $R = 0$.
+\answer Use the ratio test.  
+$$\lim_{n\to\infty}\frac{(n+1)!|t|^{n+1}}{n!|t|^n} =
+\lim_{n\to\infty}(n+1)|t|.
+$$
+This limit is finite and smaller than 1 if and only if $t = 0$.
+
+% 2
+\Exer Find the interval of convergence and the radius
+of convergence for each of the following
+power series.
+
+(a) $\sum_{n=0}^\infty n t^n$.
+
+(b) $\sum_{n=0}^\infty \dfrac{3^n}{n^2}(t - 5)^n$.
+
+(c) $\sum_{n=0}^\infty \dfrac {n!}{(2n)!}(t - 1)^n$.
+
+(d) $\sum_{n=0}^\infty \dfrac {n^2}{10^n}(t + 1)^n$.
+
+(e) $\sum_{n=0}^\infty \dfrac {2^n}{(2n)!} t^{2n}$.
+\answer (a) $-1 < t < 1$.  $R = 1$. \par
+(b)  The ratio is $3|t - 5|$.
+We have absolute convergence if $-1/3 < t - 5 < 1/3$.
+For $t - 5 = -1/3$, we have conditional convergence and
+for $t - 5 = 1/3$, we have divergence.   The series converges
+for $14/3 \le t < 16/3$.  $R = 1/3$.\par
+(c) Converges absolutely for all $t$.  $R = \infty$.\par
+(d) $-11 < t < 9$.  $R = 10$.\par
+(e)  Converges absolutely for all $t$.  $R = \infty$.
+
+% 3
+\Exer  Using the geometric series  
+$$f(t) = \frac 1{1 + t} = \sum_{n=0}^\infty (-1)^n t^n,$$
+find series expansions for $-f'(t) = \dfrac 1{(1 + t)^2}$
+and $\dfrac{f''(t)}2 = \dfrac 1{(1 + t)^3}$.  For which
+values of $t$ does the theorem in the section assure you that
+these expansions are valid?
+\answer  We have
+$$\align
+\frac 1{(1 + t)^2} &= -f'(t) =
+ -\sum_{n=1}^\infty(-1)^n nt^{n-1} = \sum_{n=0}^\infty(-1)^n(n+1)t^n \\
+\frac 1{(1 + t)^3} &= \frac{f''(t)}2 = 
+\frac 12\sum_{n=1}^\infty(-1)^{n+1}(n+1)nt^{n-1}  =
+\sum_{n=0}^\infty (-1)^n\frac{(n+2)(n+1)}2 t^n.
+\endalign $$
+Both expansions are valid for $-1 < t < 1$.
+
+% 4
+\Exer  Find series expansion for $f(t) = t\ln(1 + t)$
+and $g(t) = \dfrac{\ln (1 + t)}t$.  What are the intervals of
+convergence of these series?
+\answer We have
+$$
+\align
+f(t) &= t\ln(1 +t) = t\sum_{n=1}^\infty (-1)^{n+1}\frac{t^n}n
+   = \sum_{n=1}^\infty (-1)^{n+1}\frac{t^{n+1}}n
+   = \sum_{n=2}^\infty (-1)^n\frac{t^n}{n-1}\\
+g(t) &= \frac 1t\sum_{n=1}^\infty (-1)^{n+1}\frac{t^n}n
+    = \sum_{n=1}^\infty (-1)^{n+1}\frac{t^{n-1}}n
+     =\sum_{n=0}^\infty (-1)^{n}\frac{t^n}{n+1}
+\endalign $$
+The expansions are valid for $-1 < t < 1$.   (In fact the expansions
+are valid for $t = 1$, but we can't deduce that from the facts
+presented in this chapter.)
+
+% 5
+\Exer  Assume the expansion
+$$
+f(t) = t - \frac{t^3}3 + \frac{t^5}5 - \dots = \sum_{n=0}^\infty
+\frac {(-1)^nt^{2n+1}}{2n+1}
+$$
+is valid for $-1 < t < 1$.  Show that  $f'(t) = \dfrac 1{1 + t^2}$.
+Given that $f(0) = 0$, conclude  $f(t) = \tan^{-1} t$.
+\answer  We have
+$$
+f'(t) = \sum_{n=0}^\infty (-1)^n(2n+1)\frac{t^{2n}}{2n+1}
+      =  \sum_{n=0}^\infty (-1)^nt^{2n} = \frac 1{1 + t^2}.
+$$
+Integrating, we obtain $f(t) = \tan^{-1}t + C$.   However, since
+$f(0) = 0$, it follows that $C = 0$. 
+
+% 6
+\Exer  Assume that the expansion
+$$
+f(t) = 1 + t + \frac{t^2}2 + \frac{t^3}{3!} + \dots = 
+\sum_{n=0}^\infty \frac{t^n}{n!}
+$$
+is valid for all $t$.   Show that $f'(t) = f(t)$. 
+  Given that $f(0) = 1$, what
+can you conclude about $f(t)$?
+\answer We have
+$$
+f'(t) = \sum_{n=1}^\infty n\frac{t^{n-1}}{n!}
+   = \sum_{n=1}^\infty \frac{t^{n-1}}{(n-1)!}
+   = \sum_{n=0}^\infty \frac{t^n}{n!} = f(t).
+$$
+$y = f(t)$ is  a solution of $y' = y$ so $f(t) = Ce^t$.  Since
+$f(0) = 1$, it follows that $C = 1$ and $f(t) = e^t$. 
+
+% 7
+\Exer  Suppose the ratio test applies to the power series
+$\sum_n a_nt^n$ and it has radius of convergence $R$.  Show
+that the series $\sum_n na_nt^{n-1}$ and $\sum_n\dfrac{a_n}{n+1}t^{n+1}$
+also have radius of convergence $R$.
+\answer  We have
+$$\lim_{n\to\infty}\dfrac{(n+1)|a_{n+1}||t|^n}
+{n|a_n||t|^{n-1}} = \lim_{n\to\infty}\frac{n+1}n \frac{|a_{n+1}|}{|a_n|}|t|
+  = \lim_{n\to\infty} \frac{|a_{n+1}|}{|a_n|}|t|
+$$
+since $\dfrac {n+1}n \to 1$.  Hence, the application of the ratio test
+for the series $\sum_n na_nt^{n-1}$ is the same as for the
+series $\sum_n a_nt^n$.   A similar argument works for the other
+series.
+
+% 8
+\Exer  Let $s_n(t) = ne^{-nt}$.  (You may assume that $s_n(t)$ is
+the $n$th partial sum of an appropriate series.)  Show that
+$\lim_{n\to\infty} s_n(t) = 0$ for $t\not = 0$.  Show on
+the other hand that $\int_0^1 s_n(t)dt = 1 - e^{-n}$.
+Conclude that 
+$$\int_0^1 \lim_{n\to\infty} s_n(t)dt \not=
+\lim_{n\to\infty}\int_0^1 s_n(t)dt
+$$
+in this case.
+\answer Use L'H\^opital's Rule by expressing $s_n(t) = \dfrac n{e^{nt}}$.
+Note that you have to treat numerator and denominator as functions
+of $n$ and differentiate
+with respect to $n$.  The derivative of the numerator is 1 and of
+the denominator is $te^{nt}$, 
+so (provided $t\not = 0$) 
+the limit of the quotient is zero.  In the second part, integrate
+with respect to $t$.   The integral is easy to do and yields the
+suggested result. \par
+  The point of this problem is that it sometimes
+makes a difference whether you first take the limit and then integrate
+or vice versa.  Since summing a series involves taking a limit, that
+means that you can't always integrate the sum of a series by
+integrating term by term and then summing.
+ A similar caveat applies to term by term differentiation.  
+As we have seen, no such problems arise for power series, but they
+sometimes arise for other series, e.g., Fourier series, which
+are used in applications.  When such difficulties do arise in
+applications, it
+often requires very clever analysis to get around them.
+You will study some of this next year in C91.
+

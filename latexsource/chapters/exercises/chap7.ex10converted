@@ -1,0 +1,132 @@
+
+
+\smallskip
+
+
+
+
+\begin{enumerate}
+
+\item  Find a particular solution of $y'' + 2y' -3y = t$
+by trying a solution of the form $y = At + B$.
+
+\answer{ $y_p = -\dfrac t3 - \dfrac 29$.
+
+
+
+}
+
+\item   Find a particular solution of $y'' + 2y' - 3y = e^t$
+by trying a solution of the form $y = (At + B)e^t$.
+Would a solution of the form $y = Ae^t$ work?
+
+\answer{ $y_p = \dfrac{te^t}4$.   No solution of the
+form $y = Ae^t$ will work.   For, if you substiute that in
+$y'' + 2y' - 3y$ you get $A(1 + 2 - 3)e^t = 0$.
+
+
+
+}
+
+\item  Find a particular complex solution of each of the
+following.
+
+(a) $y'' + y' + y = e^{it}$.
+
+(b) $y'' + 4y' + 5y = 6e^{2it}$.
+
+(c) $y'' + 3y' + 2y = 4e^{3it}$.
+
+(d)  $y'' - 2y' + 2y = 2e^{(2 + i)t}$.
+
+\answer{ (a) $y_p = -ie^{it} = e^{i(t -\pi/2)}$. \par
+(b)  $y_p = \dfrac 6{1+8i}e^{2it}= \dfrac 6{\sqrt{65}}e^{i(2t - \delta)}$
+where $\tan \delta = 8$.\par
+(c) $y_p = -\dfrac 4{7+9i}e^{3it} = -\dfrac 4{\sqrt{130}}e^{i(3t - \delta)}$
+where $\tan\delta = \dfrac 97$.  Note that in this case, we put
+a negative sign {\it in front\/} so that the value for
+$\tan \delta$ would determine a value of $\delta$ in the range
+$-\pi/2 \le \delta \le \pi/2$.  Otherwise, we would have had to
+choose $\delta$ in the third quadrant, which would have been
+a needless complication.\par
+(d) $y_p = \dfrac 2{1+2i}e^{(2+i)t} = \dfrac 2{\sqrt 5}e^{2t}e^{i(t - \delta)}$
+where $\tan\delta = 2$.\par
+
+
+
+}
+
+\item  Find the general solution of $y'' + 9y = e^{3it}$.
+
+\answer{ $y = -\dfrac i6 te^{3it} + C_1e^{3it} + C_2e^{-3it}$.
+
+
+
+
+}
+
+\item   Find a particular real solution of
+each of the following. 
+Hint.  Consider the appropriate complex equation.
+
+(a) $y'' + 4y = 3\cos 3t$.
+
+(b) $y'' + 4y' + 5y = 6\cos 2t$.
+
+(c) $y'' + 3y' + 2y = 4\cos 3t$.
+
+(d)  $y'' - 2y' + 2y = 2e^{2t}\cos t$.
+
+\answer{ (a)  A particular complex solution of $y'' + 4y = 3e^{3it}$
+is $y_p = -\dfrac 35e^{3it}$.  Take the real part of this
+to get $y_p = -\dfrac 35\cos 3t$.\par
+(b)  Take the real part of the solution to 3(b) to get
+$y_p = \dfrac 6{65}\cos 2t + \dfrac{48}{65}\sin 2t$ or
+equivalently $y_p = \dfrac 6{\sqrt{65}}\cos(2t - \delta)$
+where $\tan\delta = 8$.\par
+(c) Take the real part of the solution to 3(c) to get
+$y_p = -\dfrac {28}{130}\cos 3t + \dfrac{36}{130}\sin 3t$
+or $-\dfrac 4{\sqrt{130}}\cos(3t -\delta)$ where $\tan\delta = \dfrac 97$.\par
+(d) $y_p = \dfrac {2}{5}e^{2t}\cos t + \dfrac{4}{5}e^{2t}\sin t$
+or $\dfrac 2{\sqrt 5}e^{2t}\cos(t - \delta)$ where $\tan\delta = 2$.
+
+
+
+}
+
+\item   Find a particular solution of $y'' + 4y = 3\cos 3t$ by 
+trying something of the form $y = A\cos 3t + B\sin 3t$.
+
+\answer{ $y_p = -\dfrac 35\cos 3t$.
+
+
+
+}
+
+\item  Find the general solution of each of the following.
+
+(a)   $y'' + 9y = 3\cos 3t$.
+
+(b)  $y'' + 4y' + 5y = 6\cos 2t$.
+
+(c)   $y'' + y' = \sin 2t$.
+
+\answer{ (a) See problem 4.  To get a particular solution,
+take three times the real part:  $y_p = \dfrac t2\sin 3t$.   The general
+solution is $\dfrac t2\sin 3t + C_1\cos 3t + C_2\sin 3t$.\par
+(b)  See 5(b).  $y = \dfrac 6{\sqrt{65}}\cos(2t - \delta) +
+C_1e^{-2t}\cos t + C_2e^{-2t}\sin t$.\par
+(c) The equation $y'' + y' =e^{2it}$ has particular solution
+$y_p = -\dfrac 1{4 - 2i}e^{2it} = -\dfrac 1{\sqrt {20}}e^{i(2t -\delta)}$
+where $\tan\delta = -\dfrac 12$.  Hence, the given equation
+has particular solution $y_p = -\dfrac 1{\sqrt 20}\sin(2t - \delta)$.
+The general solution is
+$y = -\dfrac 1{\sqrt 20}\sin(2t - \delta) + C_1 + C_2e^{-t}$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

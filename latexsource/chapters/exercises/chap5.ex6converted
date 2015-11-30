@@ -1,0 +1,31 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item   Let $\F$ be a vector field.
+Suppose that it is known that the flux out of every sufficiently
+small rectangular box is zero.  Using the reasoning in the proof
+of the divergence theorem, show that the flux out of any
+rectangular box of any size whatsoever is zero.  Don't use
+the divergence theorem itself, only the reasoning in the proof.
+
+\answer{ Divide the large rectangular box up into rectangular boxes which
+are small enough so that the flux out of each is 0.  
+Consider the sum of the fluxes
+out of the smaller boxes.  The flux through each internal face appears twice,
+once for each of the two boxes which share that face. 
+These cancel since the normals for the two adjacent boxes 
+ point in opposite directions. 
+Hence the total internal flux is zero, and the result is the flux through
+the external faces of the big box.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

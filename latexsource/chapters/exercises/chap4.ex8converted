@@ -1,0 +1,107 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Evaluate the following improper integrals, if they converge:
+\smallskip
+	(a) $\int_0^1 \dfrac{1}{x^{5/2}} dx$.
+\smallskip
+	(b) $\int_1^\infty \dfrac{1}{x^{5/2}} dx$.
+\smallskip
+ 	(c) $\int_{-1}^1 \dfrac{1}{1- x^2} dx$.
+\smallskip
+	(d) $\int_0^1 \dfrac{1}{x-1} dx$.
+\smallskip
+	(e) $\int_{-\infty}^0 \dfrac{1}{x-1} dx$.
+\smallskip
+	(f) $\int_{-\infty}^\infty \dfrac{x}{x+1} dx$.
+
+\answer{ (a) Diverges.  (b) $\dfrac 23$.  (c) In this case,
+there is a potential problem at $x = -1$ and at $x = 1$.
+The integral should be divided into two parts: one
+for $-1 \le x \le 0$ and the other for $0\le x \le 1$.
+However, both of these diverge.\par
+(d) Diverges.  (e) Diverges.  \par
+(f)  This should be divided into two integrals, one for $x < -1$
+and one for $x > -1$.   However, both diverge.
+
+
+
+}
+
+\item  Consider the curve $y=f(x)=1/x$, $x\geq 1$.
+
+	(a) Show that the area under the curve is infinite.
+
+	(b) Show that the volume formed by rotating the curve around the 
+            $x$-axis is finite.
+
+\answer{  The area is $\int_1^\infty \dfrac{dx}x$ which diverges.
+The volume of the surface of revolution is $\int_1^\infty\dfrac{\pi}{x^2}
+\,dx$ which converges to $\pi$.
+
+
+
+}
+
+\item  An infinite rod of uniform density $\delta$ lies along the x-axis.  
+    Find the net gravitational force on a unit test mass located at $(0,a)$.
+
+\answer{ $F_x = 0$ and
+\[
+F_y = -\int_{-\infty}^\infty \dfrac{G\delta a}{(x^2 + a^2)^{3/2}}\,dx =
+-\frac{2G\delta}a. 
+\]
+
+
+
+}
+
+\item  Calculate  \[\int_0^\infty \int_0^\infty \frac{dx\, dy}{(1+x^2+y^2)^2} 
+    \]
+by switching to polar coordinates.
+
+\answer{ $\dfrac\pi 4$.
+
+
+}
+
+\item   Find the total mass in a solid sphere of radius
+$a$ supposing the mass density is given by $\delta(\rho) = k/\rho$.
+First find this by doing the integral in spherical coordinates.
+Next notice that because the integrand is unbounded as $\rho \to 0$,
+the integral is in fact an improper integral.   With this in
+mind, recalculate the integral as follows.  Find the mass $M(\epsilon)$
+in the solid region $E(\epsilon)$ {\it between\/} an inner sphere
+of radius $\epsilon$ and the outer sphere of radius $a$.  Then take
+the limit as $\epsilon \to 0$.  You should get the same answer.
+
+\answer{ $2\pi a^2k$.  $M(\epsilon) = 2\pi (a^2 - \epsilon^2) k$.
+
+
+}
+
+\item   Look back over previous integration problems to see if
+you can find any which involve hidden improper integrals.
+
+\answer{   Many such integrals involve hidden improper integrals.
+For example, finding the gravitational force at the origin due
+to a solid hemisphere involves integrating something with a
+factor $\dfrac 1{\rho^2}$ which blows up as $\rho \to 0$.
+By the time one has set up the iterated integral in spherical
+coordinates, however, this factor disappears.  Still, in principle,
+this is an improper integral.   This would be more apparent if
+one tried to do the problem in rectangular or cylindrical coordinates.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

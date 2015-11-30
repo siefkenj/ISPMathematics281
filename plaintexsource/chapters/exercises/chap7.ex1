@@ -1,0 +1,15 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 1
+\smallskip
+\Exer  The exact equation satisfied by a mass at the end of a
+pendulum of length $L$ is $d^2\theta/dt^2 = -(g/L)\sin\theta$.
+Put $u = d\theta/dt$ and reduce to a first order equation in 
+$\theta$ and $t$.  Do not try to solve this equation.
+\answer $\dfrac{d \theta}{dt} = \sqrt{\frac {2g}L\cos\theta + C}$.
+$C$ would be determined by the initial conditions.
+
+\Exer  Find a general solution for $y'' = (y')^2$ by putting 
+$u = y'$ and first solving for
+$u$.
+\answer $y = -\ln |t + C_1| + C_2$.
+

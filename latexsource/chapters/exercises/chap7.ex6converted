@@ -1,0 +1,126 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item  Find a general complex solution for each of the following
+differential equations.
+
+(a) $y'' + y' + y = 0$.
+
+(b) $y'' + 2y' + 2y = 0$.
+
+(c) $2y'' - 3y' + 2y = 0$.
+
+\answer{ (a) $y = C_1e^{\frac{-1 +\sqrt 3 i}2 t} 
++ C_2e^{\frac{-1 - \sqrt 3 i}2 t}$.\par
+(b) $y = C_1e^{(-1 + i) t} + C_2e^{(-1 - i) t}$.\par
+(c) $y = C_1e^{\frac{3 + \sqrt 7 i}4 t} + C_2e^{\frac{3 - \sqrt 7 i}4 t}$.
+
+
+
+}
+
+\item  Find a general real solution for each of the differential
+equations in the previous problem.
+
+\answer{ (a) $y = C_1e^{-\frac 12 t}\cos(\frac{\sqrt 3 }2t) +
+C_2 e^{-\frac 12 t}\sin(\frac{\sqrt 3}2 t)$.\par
+(b) $y = C_1e^{-t}\cos(t) +
+C_2 e^{-t}\sin(t)$.\par
+(c) $y = C_1e^{\frac 34 t}\cos(\frac {\sqrt 7}4t) +
+C_2 e^{\frac 34 t}\sin(\frac {\sqrt 7}4 t)$.
+
+
+
+}
+
+\item  Solve the initial value problem
+\[
+y'' + 9y = 0\qquad\text{given}\qquad y(0) = 1, y'(0) = -1.
+\]
+Solve the problem two ways.   (a)  Find a general complex
+solution and determine complex constants to match the initial
+conditions.   (b)  Find a general real solution and determine
+real constants to match the initial conditions.
+(c)  Verify that the two different solutions are the same.
+
+\answer{ (a) General complex solution: $y = C_1e^{3it} + C_2e^{-3it}$.
+From the initial conditions:
+\begin{align*}
+C_1 + C_2 &= 1 \\
+3iC_1 -3iC_2 &= -1,
+\end{align*}
+which yields $C_1 = \dfrac{3i - 1}{6i} = \dfrac{3 +  i}6$ and
+$C_2  = \dfrac{3 - i}6$.  The solution is
+\[
+y = \frac{3 + i}6e^{3it} + \frac{3 -i}6e^{-3it}.
+\] \par
+(b)  General real solution: $y = C_1\cos 3t + C_2\sin 3t$.
+From the initial conditions:
+\[
+C_1 = 1 , 
+3C_2 = -1,
+\]
+so the solution is
+\[
+y = \cos 3t -\dfrac 13\sin 3t.
+\]\par
+ (c) We have
+\begin{align*}
+\cos \theta &= \frac{e^{i\theta} + e^{-i\theta}}2 \\
+\sin \theta &= \frac{e^{i\theta} - e^{-i\theta}}{2i},
+\end{align*}
+so, from (b), 
+\begin{align*}
+y &= \frac{e^{3it} + e^{-3it}}2 - \frac 13\frac{e^{3it}-e^{-3it}}{2i} \\
+&= \left(\frac 12 +\frac i6\right)e^{3it} + 
+\left(\frac 12 -\frac i6\right)e^{-3it} \\
+&= \frac{3 + i}6e^{3it} + \frac{3 -i}6e^{-3it}.
+\end{align*}
+
+
+
+}
+
+\item  Solve the initial value problem
+\[
+y'' - 2y' + 5y = 0\qquad\text{given}\qquad y(0) = 1, y'(0) = -1.
+\]
+Solve the problem two ways.   (a)  Find a general complex
+solution and determine complex constants to match the initial
+conditions.   (b)  Find a general real solution and determine
+real constants to match the initial conditions.
+(c)  Verify that the two different solutions are the same.
+
+\answer{ (a) $y = \dfrac{1 + i}2e^{(1 + 2i)t} +
+\dfrac{1 - i}2e^{(1 - 2i)t}$.\par
+(b) $y = e^t\cos 2t - e^t\sin 2t$. \par
+(c) From (a),
+\begin{align*}
+y &= \dfrac{1 + i}2e^{(1 + 2i)t} +\dfrac{1 - i}2e^{(1 - 2i)t} \\
+ & = e^t\left ( \dfrac{1 + i}2(\cos 2t + i\sin 2t)
+    - \dfrac{1 - i}2(\cos 2t + i\sin 2t)\right ) \\
+ &= e^t(\cos 2t - \sin 2t).
+\end{align*}
+
+
+
+}
+
+\item   Calculate the Wronskian of the pair of functions
+$\{e^{at}\cos(bt), e^{at}\sin(bt)\}$.   Show that it
+never vanishes.
+
+\answer{ $W(t) = be^{2at}$ which never vanishes.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

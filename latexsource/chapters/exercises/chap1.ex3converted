@@ -1,0 +1,126 @@
+
+
+
+
+
+
+\begin{enumerate}
+
+\item    In each case determine if the given pair of vectors is
+perpendicular.\par
+        (a) $\a = 3\i + 4\j$, $\b = -4\i + 3\j$ \par
+        (b) $\a = \lb 4, -1, 2 \rb$, $\b = \lb 3, 0, -6 \rb$ \par
+        (c) $\a = 3\i - 2\j$, $\b = -2\i - 4\k$ \par
+
+\answer{ (a) yes; (b) yes; (c) no.
+
+
+
+
+}
+
+\item   Assume $\u = \lb a, b \rb$ is a non-zero plane vector.
+Show that $\v = \lb -b, a \rb$ is perpendicular to $\u$.  By examining
+all possible signs for $a$ and $b$, convince yourself that the 90 degree
+angle between $\u$ and $\v$ is in the counter-clockwise direction.
+
+\answer{ $\u\cdot\v = a(-b) + ba = 0$ so they are $\perp$.
+
+
+
+
+}
+
+\item    The methane molecule, $CH_4$, has four Hydrogen atoms at the vertices
+      of a regular tetrahedron and a Carbon atom at its center.  Choose as
+      the vertices of this tetrahedron the points (0,0,0), (1,1,0), (1,0,1),
+      and (0,1,1).  (a) Find the angle between two edges of the tetrahedron.
+      (b) Find the bond angle between two Carbon--Hydrogen bonds.
+
+\answer{ (a) $60^\circ$; (b) $\cos^{-1}\left(\frac13\right)^\circ$.
+
+
+
+
+}
+
+\item   An inclined plane makes an angle of 30 degrees with the horizontal.
+Use vectors and the dot product to find the scalar and vector projections
+of the gravitational acceleration vector $-g\j$ along a unit vector
+pointing down the inclined plane.
+
+\answer{ Scalar proj $= \frac g2$;  vector proj $=\frac{-g\sqrt3}{4}\i
+- \frac g4\j$.
+
+
+
+
+}
+
+\item   Show that if the velocity vector $\v$ is perpendicular to the
+acceleration vector $\a$ at every point of a path,  then the
+speed $|\v|$ is constant.  
+
+\answer{ We know $0 = \v\cdot\a = \v\cdot\v'$, so $(|\v|^2)' =
+(\v\cdot\v)' = \v\cdot\v' + \v'\cdot\v = 2\v\cdot\v' =0$. So
+$|\v|^2$ is constant, hence  $|\v|$ is constant.  
+
+
+
+
+}
+
+\item   Derive the formula 
+\[|\a + \b|^2 = |\a|^2 + |\b|^2 + 2|\a|\,|\b|\cos\theta.\]
+How is it related to the Law of Cosines?  A picture might help.
+
+\answer{ \removelastskip \[\eqalign{ 
+   |\a+\b|^2 = (\a+\b)\cdot(\a+\b) &= \a\cdot\a+\a\cdot\b
+         +\b\cdot\a+\b\cdot\b \cr
+   &= |\a|^2 + |\b|^2 + 2\a\cdot\b \cr
+   &= |\a|^2 + |\b|^2 + 2|\a|\,|\b|\cos\theta\cr}\]
+\par Applied to the triangle $\vcenter{\epsfbox{c1s3ex6.ps}}$ label 
+$\overarrow{BC}=\a$, $\overarrow{CA}=\b$, $\overarrow{BA}=\c$
+so $\c = \a + \b$.   If $\theta$ is the angle between  $\a$ and
+$\b$, then the internal angle at $C$ in the triangle is $\pi - \theta$.
+The law of cosines would give us  $|\c|^2 = |\a|^2 + \b|^2 -
+2|\a||\b|\cos(\pi - \theta)$, which amounts to the above formula. 
+
+
+
+}
+
+\item    Use the dot product to determine if the points $P(3,1,2)$, $Q(-1,0,2)$,
+      and $R(11, 3, 2)$ are collinear.
+
+\answer{ $P$, $Q$ and $R$ are collinear $\iff$ the angle between
+$\overarrow{PQ}$ and $\overarrow{QR}$ is $180^\circ$.  But
+$\overarrow{PQ}=(-4,-1,0)$ and $\overarrow{QR} = (12,3,0)$. So
+$\overarrow{PQ}\cdot \overline{QR} = -51 = |\overarrow{PQ}|\,|\overline{QR}|
+\cos\theta = 51\cos\theta$ $\implies \cos\theta=-1$ and so
+$\theta=180^\circ$ and the \underbar{points are collinear}.
+
+
+
+
+}
+
+\item    If a relativity physicist
+ claimed that the universe is orderly since the physical
+      vectors $\lb 2.54, 9.8, 6.626\times 10^{-34}, -c^2 \rb$ and
+      $\lb -9.8, -2.54, 1.509\times 10^{33}, 0 \rb$ are perpendicular in a four-space,
+      would his mathematics be correct?    Would it make any
+difference which `dot product' he was using?
+\bigskip
+\mar{s1-32a.ps}
+
+\answer{ (a) no; (b) no.
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

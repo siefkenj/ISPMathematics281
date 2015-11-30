@@ -1,0 +1,51 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 11
+\smallskip
+
+%1
+\Exer  Tell if each of the following regions is simply connected.
+If not, give a reason for your conclusion
+
+(a)  The set of all points in $\R^2$ except for the
+semi-circle $x^2 + y^2 = 1, y > 0$.
+
+(b)  The set of all points in $\R^2$ except for $(1,0)$ and
+$(-1,0)$.
+
+(c)  The region in $\R^2$ between $x^2 + y^2 = 1$ and
+$x^2 + y^2 = 4$.
+\answer (a)  Not simply connected.  (b)  Not simply connected.
+(c) Not simply connected.
+
+% 2
+\Exer Tell if each of the following regions in $\R^3$
+spans curves.
+
+(a)  The set of all points in $\R^3$ except for the line
+segment from $(0,0,0)$ to $(1,0,0)$.
+
+(b)  The interior of the torus in $\R^3$ obtained by rotating the
+circle $(x -2)^2 + y^2 = 1$ about the $z$-axis.
+
+(c) The region in $\R^3$ between the sphere $x^2 + y^2 + z^2 = 1$
+and the sphere $x^2 + y^2 + z^2 = 4$.
+
+(d) The set of all points  in $\R^3$ except for those on the
+circle $x^2 + y^2 = 1, z = 0$ in the $x,y$-plane.
+\answer (a) Yes.  (b) No.  (c) Yes.  (d)  No.
+
+% 3
+\Exer  You showed previously by a messy direct calculation that
+$\nabla\times(\nabla f) = \bold 0$ for any scalar field $f$
+in space.  Here is an alternate argument with avoids the messy
+calculation.  (However, it depends on Stokes's theorem, the
+proof of which is messy enough in its own right!)
+
+Use the `physical interpretation of the curl' to show that
+$\nabla\times\F\cdot\N = 0$ for any conservative field $\F=\nabla f$
+and any vector $\N$.
+(Use the path independence property for conservative fields.)
+Then conclude that $\nabla\times\F= \bold 0$.
+\answer  By path independence, the line integral $\int_{\Cal C}\F\cdot d\r
+= 0$  for any closed path.
+

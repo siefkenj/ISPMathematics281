@@ -1,0 +1,20 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item   Consider the surface consisting of the three faces
+of the unit cube in the first octant which lie in the
+coordinate planes.   Assume that the normals are chosen to
+point into the first octant.   Determine the orientation
+of the boundary of each of the three faces and verify that
+cancellation occurs as described in the proof of
+Stokes's Theorem along common edges.
+
+
+
+
+\end{enumerate}
+\endinput

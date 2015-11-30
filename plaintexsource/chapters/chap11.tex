@@ -1,0 +1,3564 @@
+\documentstyle{book}
+\input extra.tex
+\input le2.sty
+\input epsf.tex
+\input chap10.lnk
+\maketoctrue
+\indextrue
+\mardiagtrue
+\openseg{chap11}
+\Monograph
+\topmatter
+\nextchap{Determinants and Eigenvalues}
+\title
+\chapter{\chapno}Determinants and Eigenvalues
+\endtitle
+\endtopmatter
+\document
+\nextsec{Homogeneous Linear Systems of Differential Equations}
+\head \sn. Homogeneous Linear Systems of Differential Equations \endhead
+
+Let $A = A(t)$ denote an $n\times n$ matrix with entries
+$a_{ij}(t)$  which are functions defined and continuous
+on some real interval $a < t < b$.   In general, these functions
+may be complex valued functions.   Consider the $n\times n$ system of
+differential equations
+$$
+\frac{d\x}{dt} = A(t)\x
+$$
+where $\x = \x(t)$ is a vector valued function also defined on
+$a < t < b$ and taking values in $\C^n$.  (If $A(t)$ happens to
+have real entries, then we may consider solutions
+$\x = \x(t)$ with values in $\R^n$, but even in that case it is often
+advantageous to consider complex valued solutions.)   The most interesting
+case is that in which $A$ is a {\it constant\/} matrix, and we shall
+devote almost all our attention to that case.
+\outind{homogeneous system of differential equations}%
+
+\nextex
+\example{Example \en}  Consider
+$$
+\frac{d\x}{dt} = \bm 1 & 2 \\ 2 & 1 \em\x
+\qquad\text{where }
+\x = \bm x_1(t)\\x_2(t)\em
+$$
+on the interval $-\infty < t < \infty$.
+Note that the entries in the coefficient matrix are constants.  
+\endexample
+
+ The set of solutions
+of such a homogeneous system forms a (complex) vector space.
+To see this, consider the operator
+$$
+L = \frac{d}{dt} - A
+$$
+which is defined on the vector space of all differentiable vector
+\outind{linear operator}%
+valued functions.  It is not hard to see that $L$ is a linear
+operator, and its null space is the desired set of solutions since
+$$
+L(\x) = 0\quad\text{means } \frac{d\x}{dt} - A\x = 0.
+$$
+
+We shall see shortly that {\it this vector space is $n$-dimensional}.
+Hence, solving the system amounts to finding $n$ solutions 
+$\x_1(t), \x_2(t), \dots, \x_n(t)$ which form a basis for the
+solution space.   That means that any solution can be written
+uniquely
+$$
+  \x = c_1\x_1(t) + c_2\x_2(t) + \dots + c_n\x_n(t).
+$$
+Moreover, if the solution has a specified initial value
+$\x(t_0)$, then the $c_i$ are determined by solving 
+$$
+\x(t_0) = c_1\x_1(t_0) + c_2\x_(t_0) + \dots + c_n\x_n(t_0).
+$$
+(If you look closely, you will see that this is in fact a
+linear system of algebraic equations with unknowns
+$c_1, c_2, \dots , c_n$.)
+
+
+\example{Example \en, continued}  We shall try to solve
+$$
+\frac{d\x}{dt} = \bm 1 & 2 \\ 2 & 1 \em\x
+\qquad \text{given } \x(0) = \bm\format\r\\ 1\\ -2\em.
+$$
+
+The first problem is to find a linearly independent pair
+solutions.  Assume for the moment that you have a method
+for generating such solutions, and it
+tells
+you to try
+$$
+\x_1 = \bm\format\r\\e^{3t}\\e^{3t}\em = e^{3t}\bm 1\\1\em,\qquad
+\x_2 = \bm\format\r\\-e^{-t}\\e^{-t}\em = e^{-t}\bm\format\r\\ -1\\ 1\em.
+$$
+(We shall develop such methods later in this chapter.)
+ It is not hard to see that these are solutions:
+$$
+\alignat2
+\frac{d\x_1}{dt} &= 3e^{3t}\bm 1\\1\em\qquad&\text{and}\qquad 
+\bm 1 & 2 \\ 2 & 1 \em \x_1 &= e^{3t}\bm 1 & 2 \\ 2 & 1 \em\bm 1\\1\em
+    = e^{3t}\bm 3\\ 3\em \\
+\frac{d\x_2}{dt} &= -e^{-t}\bm\format\r\\-1\\1\em\qquad&\text{and}\qquad 
+\bm 1 & 2 \\ 2 & 1 \em \x_2 &= e^{-t}\bm 1 & 2 \\ 2 & 1 \em\bm\format\r\\-1\\1\em
+    = e^{-t}\bm\format\r\\ 1\\ -1\em .
+\endalignat$$
+
+Also, $\x_1(t)$ and $\x_2(t)$ form a linearly independent pair.
+For, otherwise one would be a scalar multiple of the other,
+say $\x_1(t) = c\x_2(t)$ for all $t$.  Then the same thing would be
+true of their first components, e.g., $e^{3t} = ce^{-t}$ for all
+$t$, and we
+know that to be false.
+
+Thus, $\{\x_1, \x_2\}$ is a  basis for the solution space, so any
+solution may be expressed uniquely
+$$
+\x = c_1\x_1(t) + c_2\x_2(t) = \x_1(t)c_1 + \x_2(t)c_2
+   = \bm \x_1(t) & \x_2(t) \em\bm c_1\\ c_2 \em.
+$$
+Thus putting $t = 0$ yields
+$$
+\x(0) = \bm \x_1(0) & \x_2(0) \em \bm c_1\\c_2 \em = \bm\format\r\\ 1\\-2\em.
+$$
+However,
+$$
+\x_1(0) = e^{3(0)}\bm 1\\ 1\em = \bm 1\\1\em\qquad
+\x_2(0) = e^{-(0)}\bm\format\r\\-1\\1\em = \bm\format\r\\ -1\\ 1\em,
+$$
+so the above system becomes
+$$
+\bm\format\r&\quad\r\\
+    1 & -1\\ 1 & 1 \em \bm c_1\\ c_2 \em = \bm\format\r\\ 1\\-2\em.
+$$
+This system is easy to solve by Gauss-Jordan reduction
+$$
+\bm \format\r&\quad\r&\quad\c\quad&\r\\
+       1 & -1 &|& 1\\ 1 & 1 &|&-2\em \to
+\bm \format\r&\quad\r&\quad\c\quad&\r\\
+       1 & -1 &|& 1\\ 0 & 2 &|&-3\em \to
+\bm \format\r&\quad\r&\quad\c\quad&\r\\
+       1 & 0 &|& -1/2\\ 0 & 1 &|&-3/2\em. 
+ $$
+Hence, the solution is $c_1 = -1/2, c_2 = -3/2$ and the desired
+solution of the system of differential equations is
+$$
+\x = -\frac 12 e^{3t}\bm 1\\ 1\em - \frac32 e^{-t}\bm\format\r\\ -1\\ 1\em
+   = \bm -\frac 12 e^{3t} + \frac 32 e^{-t} \\
+         -\frac 12 e^{3t} - \frac 32 e^{-t} \em.
+$$
+\endexample
+
+The general situation is quite similar.   Suppose we have some method
+for generating $n$ vector valued functions $\x_1(t), \x_2(t), \dots, \x_n(t)$
+which together constitute a linearly independent set of solutions
+of the $n\times n$ system
+$$
+\frac{d\x}{dt} = A\x.
+$$
+Then, the general solution takes the form
+$$
+\x = \x_1(t)c_1 + \x_2(t)c_2 + \dots \x_n(t)c_n
+= \bm \x_1(t) & \x_2(t) & \dots &\x_n(t) \em \bm c_1\\ c_2\\ \vdots \\ c_n \em.
+$$
+To match a given initial condition $\x(t_0)$
+at $t = t_0$, we have to solve the
+$n\times n$ algebraic system
+\nexteqn
+\xdef\AlgSys{\eqn}
+$$
+ \bm \x_1(t_0) & \x_2(t_0) & \dots &\x_n(t_0) \em 
+\bm c_1\\ c_2\\ \vdots \\ c_n \em
+= \x(t_0).\tag\eqn
+$$
+Note that the coefficient matrix is just a specific $n\times n$ matrix
+with scalar entries and the quantity on the right is a specific
+$n\times 1$ column vector.  (Everything in sight is evaluated at
+$t_0$, so there are no variable quantities in this equation.)  We
+now have to rely on the results of the previous chapter.   Since
+in principle the given initial value vector $\x(t_0)$ could be
+anything whatsoever, we hope that this algebraic system can be
+solved for any possible $n\times 1$ column vector on the right.
+However, we know this is possible only in the case that the
+coefficient matrix is non-singular, i.e., if it has rank $n$.
+How can we be sure of this?  It turns out to be a consequence
+of the basic uniqueness theorem for systems of differential equations.
+
+\medskip
+\subhead Existence and Uniqueness for Systems \endsubhead
+We state the basic theorem for complex valued functions.  There
+is a corresponding theorem in the real case.
+
+\nextthm
+\xdef\ThA{\tn}
+\proclaim{Theorem \cn.\tn}  Let $A(t)$ be an $n\times n$ complex
+matrix with entries continuous functions defined on a real interval
+$a < t < b$, and suppose  $t_0$  is a point in that interval.   Let
+$\x_0$ be a given $n\times 1$ column vector in $\C^n$.
+Then there exists a unique solution $\x = \x(t)$ 
+of the
+system
+$$
+\frac{d\x}{dt} = A(t)\x
+$$
+defined on the interval $a < t < b$
+and satisfying  $\x(t_0) = \x_0$.
+\endproclaim
+\outind{existence theorem for systems}%
+
+We shall not try to prove this theorem in this course.
+
+The uniqueness part of the theorem has the following important
+consequence.
+
+\nextthm
+\proclaim{Corollary \cn.\tn}  With the notation as above, suppose
+$\x_1(t), \x_2(t), \dots,\x_n(t)$ are  $n$ solutions of
+the system  $\dfrac{d\x}{dt} = A(t)\x$ on the interval
+$a < t < b$.   Let $t_0$ be any point in that interval.  Then the
+set $\{\x_1(t), \x_2(t), \dots, \x_n(t)\}$ is a linearly
+independent set of functions if and only if the set
+$\{\x_1(t_0),\x_2(t_0),\dots, \x_n(t_0) \}$ is a linearly independent
+set of column vectors in $\C^n$.
+\endproclaim
+
+\example{Example 1, again}
+The set of functions is
+$$
+\left\{ e^{3t}\bm 1\\ 1\em, e^{-t}\bm\format\r\\-1\\1\em\right\}
+$$
+and the set of column vectors (obtained by setting $t = t_0 = 0$) is
+$$
+\left\{ \bm 1\\ 1\em, \bm\format\r\\-1\\1\em\right\}.
+$$
+\endexample
+
+\demo{Proof of the Corollary}
+We shall prove that one set is linearly {\it dependent\/} if and
+only if the other is.   First suppose that the set of functions
+is dependent.  That means that one of them may be expressed as
+a linear combination of the others. For the sake of argument suppose
+the notation is arranged so that
+\nexteqn
+\xdef\EqA{\eqn}
+$$
+\x_1(t) = c_2\x_2(t) + \dots + c_n\x_n(t)\tag\eqn
+$$
+holds for all $t$ in the interval.
+Then, it holds for $t = t_0$ and we have
+\nexteqn
+\xdef\EqB{\eqn}
+$$
+\x_1(t_0) = c_2\x_2(t_0) + \dots + c_n\x_n(t_0).\tag\eqn
+$$
+This in turn tells us that the set of column vectors at $t_0$ is dependent.
+
+Suppose on the other hand that the set of column vectors at $t_0$ is dependent.
+Then we may assume that there is a relation of the form (\EqB)
+with appropriate scalars $c_2, \dots , c_n$.   But that means that
+the solutions $\x_1(t)$ and $c_2\x_2(t) + \dots + c_n\x_n(t)$
+agree at $t = t_0$.   According to the uniqueness part of
+Theorem \cn.\ThA, this means that they agree for all $t$, which means
+that (\EqA) is true as a relation among functions.
+ This in turn implies that the set of
+functions is dependent.
+\qed\enddemo
+
+The corollary gives us what we need to show that the $n\times n$ matrix
+$$
+\bm \x_1(t_0)& \x_2(t_0) &\dots & \x_n(t_0) \em
+$$
+is non-singular. Namely, if
+$\{\x_1(t), \x_2(t), \dots, \x_n(t)\}$ is a linearly independent
+set of solutions, then the columns of the above matrix form a
+linearly independent set in $\C^n$.  It follows that they
+form a basis for the column space of the matrix which must then
+have rank $n$, and so it is non-singular.  As noted above, that
+means that we can always solve the algebraic system of equations
+(\AlgSys)
+specifying initial conditions at $t_0$.
+\bigskip
+\input chap11.ex1
+\bigskip
+\nextsec{Finding Linearly Independent Solutions}
+\head \sn.  Finding Linearly Independent Solutions \endhead
+\xdef\DiagExSec{\sn}
+
+\subhead Existence of a Basis \endsubhead
+The basic existence and uniqueness theorem stated in the previous
+section ensures that a system of the form
+$$
+\frac{d\x}{dt} = A(t)\x
+$$
+always has $n$ solutions $\u_1(t), \u_2(t), \dots, \u_n(t)$
+which form a basis for the vector space of all solutions. 
+% Advice to instructor:  Skip this argument in class
+ To see this, fix $t_0$ in the interval
+$a < t < b$, and define the $i$th solution $\u_i(t)$ to be the {\it
+unique\/} solution satisfying the initial condition
+$$
+\u_i(t_0) = \e_i
+$$
+where as before $\e_i$ is the $i$th vector in the {\it standard basis\/}
+for $\C^n$, i.e., it is the $i$th column of the $n\times n$ identity
+matrix.    Since $\{\e_1, \e_2, \dots, \e_n\}$ is an independent set,
+it follows from Corollary  11.2 
+%  Back reference to corollary. 
+that $\{\u_1(t), \u_2(t), \dots, \u_n(t) \}$ is an independent set
+of solutions.   It also spans the subspace of solutions.   To see this,
+let $\x(t)$ denote any solution.  At $t = t_0$ we have
+$$
+\align
+\x(t_0)  = \bm x_1(t_0)\\ x_2(t_0)\\ \vdots \\ x_n(t_0) \em
+    &= x_1(t_0)\e_1 + x_2(t_0)\e_2 + \dots + x_n(t_0)\e_n \\
+    &= c_1\u_1(t_0) + c_2\u_2(t_0) + \dots + c_n(\u_n(t_0),
+\endalign
+$$
+where $c_1 = x_1(t_0), c_2 = x_2(t_0), \dots, c_n = x_n(t_0)$.
+Thus, by the uniqueness theorem, we have for all $t$ in the interval
+$$
+\x(t)  =   c_1\u_1(t) + c_2\u_2(t) + \dots + c_n\u_n(t).
+$$
+\medskip
+\subhead Case of Constant Coefficients \endsubhead
+It is reassuring to know that in principle we can always find a basis
+for the solution space, but that doesn't
+help us find it.   In this section we outline a method for generating
+a basis for the solutions of $\dfrac{d\x}{dt} = A\x$ in case
+$A$ is {\it constant}.   This method will work reasonably well for
+$2\times 2$ systems, but we shall have to develop the theory of
+$n\times n$ determinants to get it to work for general $n\times n$
+systems.
+
+\nextex
+\xdef\EE{\en}
+\example{Example \en}
+Consider the $2\times 2$ system
+\nexteqn
+\xdef\SysX{\eqn}
+$$
+\frac{d\x}{dt} = \bm \format\r&\quad\r\\0 & -2 \\ 1 & 3 \em \x.\tag\eqn
+$$
+I chose this because it is just the system version of the second
+order equation  
+\nexteqn
+\xdef\SecOrd{\eqn}
+$$
+y'' - 3y' + 2y = 0\tag\eqn
+$$
+which we already know how to solve.
+Namely, put $x_1 = y$ and $x_2 = y'$, so 
+$$
+\alignat2
+x_1'&= y'  &&=  \hphantom{-2x_1 + 3}x_2 \\
+x_2'&= y'' = -2y + 3y' &&=  -2x_1 + 3x_2,
+\endalignat
+$$ 
+which when put in matrix form is (\SysX).
+To solve the second order equation (\SecOrd), proceed in the
+usual manner.   The roots of
+$$
+r^2 - 3r + 2 = (r -1)(r - 2) = 0
+$$
+are $r_1 = 1, r_2 = 2$.   Hence, $y_1 = e^t$ and $y_2 = e^{2t}$
+constitute a linearly independent pair of solutions.   The
+corresponding {\it vector\/} solutions are
+$$
+\x_1 = \bm \format\c\\y_1\\y_1'\em = \bm\format\c\\ e^t\\ e^t\em
+   = e^t\bm 1\\ 1\em\qquad
+\x_2 = \bm \format\c\\y_2\\y_2'\em = \bm\format\c\\ e^{2t}\\ 2e^{2t}\em
+   = e^{2t}\bm 1\\ 2\em.
+$$
+\endexample
+
+The above example suggests that we {\it look for solutions of the
+form}
+\nexteqn
+$$
+\x = e^{\lambda t}\v\tag\eqn
+$$
+where $\lambda$ is a scalar and $\v$ is a vector, both to be determined
+by the solution process.  Note also that we want $\v \not= \bold 0$ since
+otherwise the solution of the differential equation would be identically
+zero and hence not very interesting.
+
+Substitute (\eqn) in $\dfrac{d\x}{dt} = A\x$ to obtain
+$$
+\frac{d\x}{dt} = \lambda e^{\lambda t}\v = A e^{\lambda t} \v.
+$$
+The factor $e^{\lambda t}$ is a scalar and non-zero for all $t$, so
+we cancel it from the above equation.   The resulting equation may
+be rewritten
+\nexteqn
+$$
+A\v = \lambda \v\qquad\text{where } \v \not= \bold 0.\tag\eqn
+$$
+We introduce special terminology for the situation described by
+this equation.   If  (\eqn) has a non-zero solution for a given
+scalar $\lambda$, then  $\lambda$ is called an {\it eigenvalue\/}
+of the matrix $A$, and any {\it non-zero\/} vector $\v$ which works for
+that eigenvalue is called an {\it eigenvector\/} of $A$ corresponding
+to $\lambda$.   These related concepts are absolutely essential for
+understanding systems of differential equations, and they arise in
+fundamental ways in a wide variety of applications of linear algebra.
+\outind{eigenvalue}%
+\outind{eigenvector}%
+
+Let's analyze the problem of finding eigenvalues and eigenvectors
+for $A$ a
+ $2\times 2$ matrix.   Then, (\eqn) may be rewritten
+$$
+\bm a_{11} & a_{12} \\ a_{21} & a_{22} \em \bm v_1\\ v_2 \em
+= \bm \lambda v_1 \\ \lambda v_2 \em
+$$
+or
+$$
+\align
+a_{11}v_1 + a_{12}v_2 &= \lambda v_1 \\
+a_{21}v_1 + a_{22}v_2 &= \lambda v_1,
+\endalign $$
+which, after transposing, becomes
+$$
+\align
+(a_{11} - \lambda)v_1 + a_{12}v_2 &= 0 \\
+a_{21}v_1 + (a_{22} - \lambda)v_2 &= 0.
+\endalign $$
+This is a homogeneous system which may be put in matrix form
+\nexteqn
+\xdef\EigVecEq{\eqn}
+$$
+\bm a_{11} - \lambda & a_{12} \\ a_{21} & a_{22} - \lambda \em
+\bm v_1 \\ v_2 \em = \bold 0.\tag\eqn
+$$
+This system will have a {\it non-zero\/} solution $\v$, as required,
+if and only if the coefficient matrix has rank less
+than $n = 2$.  Unless the matrix consists of zeroes, this means
+it must have rank one.   That, in turn, amounts to saying
+that one of the rows
+is a multiple of the other, i.e., that
+ the ratios of corresponding
+components are the same, or, in symbols,
+$$
+\frac{a_{11} - \lambda}{a_{21}} = \frac{a_{12}}{a_{22} - \lambda}.
+$$
+Cross multiplying and transposing yields the quadratic equation
+\nexteqn
+$$
+(a_{11} - \lambda)(a_{22} - \lambda) - a_{12}a_{21} = 0.\tag\eqn
+$$
+Our strategy then is to solve this equantion for $\lambda$ to
+find the possible {\it eigenvalues\/} and then
+for each eigenvalue $\lambda$ to find the non-zero solutions
+of (\EigVecEq)  which are the eigenvectors corresponding to that
+eigenvalue.   In this way, each eigenvalue and eigenvector pair
+will generate a solution  $\x = e^{\lambda t}\v$ of the original
+system of differential equations.      
+
+Note that  (\eqn) may be rewritten using $2\times 2$ determinants
+as 
+\nexteqn
+\xdef\CharEq{\eqn}
+$$
+\det
+\bm a_{11} - \lambda & a_{12} \\ a_{21} & a_{22} - \lambda \em
+ = 0.\tag\eqn
+$$
+This equation is called the {\it characteristic equation\/} of the matrix.
+\outind{characteristic equation}%
+
+\nextex
+\example{Example \en}
+\xdef\DiagEx{\en}
+Consider (as in Section 1) the system
+\nexteqn
+\xdef\SysDD{\eqn}
+$$
+\frac{d\x}{dt} = \bm \format\r&\quad\r\\1 & 2 \\ 2 & 1 \em \x.\tag\eqn
+$$
+Try 
+$\x = e^{\lambda t}\v$ as above.
+As we saw, this comes down to solving
+the eigenvalue--eigenvector problem for the coefficient matrix
+$$A = \bm 1 & 2\\ 2& 1 \em.$$
+To do so, we first solve the characteristic equation
+$$
+\align 
+\det \bm 1 - \lambda & 2\\ 2& 1  - \lambda\em &= (1 - \lambda)^2 -4 = 0\\
+\text{or}\qquad
+1 - 2\lambda + \lambda^2 - 4 &= \lambda^2 -2\lambda - 3  =
+(\lambda -3)(\lambda + 1) = 0.
+\endalign
+$$
+The roots of this equation are $\lambda = 3$ and $\lambda = -1$.
+First consider  $\lambda = 3$.    Putting this in 
+(\EigVecEq) yields 
+\nexteqn
+\xdef\SysHH{\eqn}
+$$
+\bm 1 - 3 & 2 \\
+2 & 1 - 3  \em \v
+ =
+\bm\format\r&&\qquad\r\\ -2 & 2  \\
+2  & - 2 \em \v  = \bold 0.\tag\eqn
+$$
+Gauss-Jordan reduction yields 
+ the solution $v_1 = v_2$ with $v_2$ free.  A general solution
+vector has the form
+$$
+\v = \bm v_1\\ v_2 \em = \bm v_2\\ v_2 \em  = v_2\bm 1\\ 1 \em.
+$$
+Put $v_2 = 1$ to obtain
+$$
+\v_1 = \bm 1\\ 1 \em
+$$
+which will form a basis for the solution space of
+(\SysHH).
+Thus, we obtain as one solution of  (\SysDD)
+$$
+\x_1 = e^{\lambda t}\v_1 =  e^{3t}\bm 1\\1\em.
+$$
+Note that any other eigenvector for $\lambda = 3$ is a non-zero
+mulitple of the basis vector $\v_1$, so choosing another
+eigenvector in this case will result in a solution of the differential
+equation which is just a constant multiple of $\x_1$.
+
+To find a second solution, consider the root $\lambda = -1$.  Put
+this in (\EigVecEq) to obtain
+\nexteqn
+$$
+\bm 1 - (-1) & 2 \\
+2 & 1 - 3  \em \v
+ =
+\bm 2 & 2  \\
+2  &  2 \em \v  = \bold 0.\tag\eqn
+$$
+Gauss-Jordan reduction yields
+the general solution $v_1 = - v_2$ with $v_2$ free.  The
+general solution vector is
+$$
+\v = \bm v_1\\v_2\em = 
+v_2\bm\format\r\\-1\\1\em.
+$$
+Putting $v_2 = 1$ yields a the basic eigenvector
+$$
+\v_2 = \bm\format\r\\-1\\1\em
+$$
+and the corresponding solution of the differential equation
+$$
+\x_2 = e^{-t}\bm\format\r\\-1\\1\em.
+$$
+
+Note that these are the solutions we used to form a basis in
+Example 1 in the
+previous section.
+\endexample
+
+The above procedure appears similar to what we did to solve a
+second order equation $y'' + py' + qy = 0$  with constant
+coefficients.   This is no accident!.   The quadratic equation
+$$
+r^2 + pr + q = 0
+$$
+is  just the characteristic equation (with $r$ replacing
+$\lambda$) of the $2\times 2$ matrix you obtain when you reformulate
+the problem as a first order system.   You should check this
+explicitly in Example \EE.   (The general case is the topic of
+an exercise.)
+
+
+The method for $n\times n$ systems is very similar to what
+we did above.    However, the analogue of (\CharEq), i.e.,
+the characteristic equation, takes the form
+$$
+\det\bm a_{11} - \lambda & a_{12} & \hdots & a_{1n} \\
+ a_{21} & a_{22} - \lambda & \hdots & a_{2n} \\
+\vdots & \vdots & \hdots & \vdots \\
+a_{n1} & a_{n2} & \hdots &  a_{nn} - \lambda \em  = 0
+$$
+which requires the use of $n\times n$ determinants.
+   So far in this course we have only discussed
+$2\times 2$ determinants and briefly $3\times 3$ determinants.  Hence, to
+develop the general theory, we need to define and study the
+properties of $n\times n$ determinants.
+
+\bigskip
+\input chap11.ex2
+\bigskip
+\nextsec{Definition of the Determinant}
+\head \sn. Definition of the Determinant \endhead
+
+Let $A$ be an $n\times n$ matrix.
+
+By definition
+$$
+\alignat2
+\text{for } n &=1&\qquad \det \bm a \em &= a \\
+\text{for } n &= 2 &\qquad \det\bm a_{11} & a_{12} \\ a_{21} & a_{22} \em
+         &= a_{11}a_{22} - a_{12}a_{21}.
+\endalignat
+$$
+For $n > 2$, the definition is much more complicated.  It is a
+sum of many terms formed as follows.  Choose any entry from
+the first row of $A$; there are $n$ possible ways to do that.
+Next, choose any entry from the second row which is not in the
+same column as the first entry chosen; there are $n - 1$ possible
+ways to do that.   Continue in this way until you have chosen one
+entry  from each row in such a way that no column is repeated;
+there are $n!$ ways to do that.  Now multiply all these entries
+together to form a typical term.  If that were all, it would be
+complicated enough, but there is one further twist.  The products
+are divided into two classes of equal size according to a rather complicated
+rule and then the sum is formed with the terms in one class multiplied
+by $+1$ and those in the other class multiplied by $-1$.
+
+Here is the definition for $n = 3$ arranged to exhibit the signs.
+$$\multline
+\det \bm a_{11} & a_{12} & a_{13} \\
+         a_{21} & a_{22} & a_{23} \\
+         a_{31} & a_{32} & a_{33} \em = \\
+           a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} \\
+           - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} - a_{13}a_{22}a_{31}.
+\endmultline
+$$
+The definition for $n=4$ involves $4! = 24$ terms, and I won't
+bother to write it out.
+\outind{determinant, definition of}%
+
+A better way to develop the theory is {\it recursively}.  That is,
+we assume that determinants have been defined for all $(n-1)\times (n-1)$
+matrices, and then use this to define determinants for $n\times n$
+matrices.   Since we have a definition for $1\times 1$ matrices, this
+allows us in principle to find the determinant of any $n\times n$
+matrix by recursively invoking the definition.   This is less
+explicit, but it is  easier to work with.
+
+Here is the recursive definition.
+Let $A$ be an $n\times n$ matrix, and let $D_j(A)$ be the determinant
+of the $(n-1)\times(n-1)$ matrix obtained by {\it deleting\/} the
+$j$th {\it row\/} and the {\it first column\/} of $A$.   Then, define
+$$
+\det A = a_{11}D_1(A) - a_{21}D_2(A) + \dots + (-1)^{j+1}a_{j1}D_j(A)
+ + \dots + (-1)^{n+1}a_{n1}D_n(A).
+$$
+In words: take each entry in the first column of $A$, multiply it
+by the determinant of the $(n-1)\times(n-1)$ matrix obtained by
+deleting the first column and that row, and then add up these
+entries alternating signs as you do.  
+
+\example{Examples}
+$$
+\align
+\det \bm \format\r&\quad\r&\quad\r\\
+2 & -1 & 3 \\
+1 & 2 & 0 \\
+0 & 3 & 6 \em
+&=
+2\det \bm 2 & 0 \\
+        3 & 6 \em
+- 1\det \bm \format\r&\quad\r\\
+             -1 & 3 \\
+             3 & 6 \em
++ 0\det \bm \format\r&\quad\r\\
+             -1 & 3 \\
+             2 & 0 \em\\
+&= 2 (12 - 0) - 1(-6 -9) + 0(\dots) = 24 + 15 = 39.
+\endalign $$
+Note that we didn't bother evaluating the $2\times 2$ determinant
+with coefficient 0.
+You should check that the earlier definition gives the same
+result.
+
+$$
+\multline
+\det \bm \format\r&\quad\r&\quad\r&\quad\r\\
+          1 & 2 & -1 & 3 \\
+          0 & 1 & 2 & 0 \\
+          2 & 0 & 3 & 6 \\
+          1 & 1 & 2 & 1 \em \\
+= 1\det \bm \format\r&\quad\r&\quad\r\\
+             1 & 2 & 0 \\
+              0 & 3 & 6 \\
+             1 & 2 & 1 \em
+ - 0\det \bm \format\r&\quad\r&\quad\r\\
+             2 & -1 & 3 \\
+              0 & 3 & 6 \\
+             1 & 2 & 1 \em \\
+ + 2 \det \bm \format\r&\quad\r&\quad\r\\
+             2 & -1 & 3 \\
+              1 & 2 & 0 \\
+             1 & 2 & 1 \em
+ - 1 \det \bm \format\r&\quad\r&\quad\r\\
+             2 & -1 & 3 \\
+              1 & 2 & 0 \\
+             0 & 3 & 6 \em.
+\endmultline
+$$
+Each of these $3\times 3$ determinants may be evaluated recursively.
+(In fact we just did the last one in the previous example.)  You should
+work them out for yourself.  The answers yield
+$$
+\det \bm \format\r&\quad\r&\quad\r&\quad\r\\
+          1 & 2 & -1 & 3 \\
+          0 & 1 & 2 & 0 \\
+          2 & 0 & 3 & 6 \\
+          1 & 1 & 2 & 1 \em
+ = 1 (3) - 0(\dots) + 2(5) - 1(39) = -26.
+$$
+\endexample
+
+Although this definition allows one to compute the determinant
+of any $n\times n$ matrix {\it in principle\/}, the number of operations
+grows very quickly with $n$.  In such
+calculations one usually keeps track only of the multiplications
+since they are usually the most time consuming operations.  Here
+are some values of $N(n)$, the number of multiplications
+needed for a recursive calculation of the determinant of
+an $n\times n$ determinant.  We also tabulate $n!$ for
+comparison.
+$$
+\matrix\format\quad\c\quad&\quad\c\quad&\quad\c\quad\\
+                n &   N(n) & n! \\
+                2  &   2   & 2  \\
+                3  &   6  &  6   \\
+                4  &   28 &  24 \\
+                5  &  145 & 120 \\
+                6  &  876 & 720 \\
+                \vdots & \vdots & \vdots \endmatrix
+$$
+Thus, we clearly need a more efficient method to calculate
+determinants.   As is often the case in linear algebra, elementary
+row operations provide us with such a method.  This is based on
+the following rules relating such operations to determinants.
+\medskip
+
+\noindent
+  Rule (i): {\it If $A'$ is obtained from $A$ by adding a multiple of
+ one row of $A$ to another, then $\det A' = \det A$}.
+
+\nextex
+\example{Example \en}
+$$
+\align
+\det\bm \format\r&\quad\r&\quad\r\\
+    1 & 2 & 3 \\ 2 & 1 & 3 \\ 1 & 2 & 1 \em
+  &= 1(1-6) - 2(2 - 6) + 1(6 - 3) = 6\\
+\det\bm \format\r&\quad\r&\quad\r\\
+    1 & 2 & 3 \\ 0 & -3 & -3 \\ 1 & 2 & 1 \em
+  &= 1(-3+6) - 0(2 - 6) + 1(-6 + 9) = 6.
+\endalign$$
+\medskip
+\noindent Rule (ii):
+{\it if $A'$ is obtained from $A$ by multiplying one row by
+a scalar $c$, then $\det A' = c\det A$}.
+
+\nextex
+\example{Example \en}
+$$
+\align
+\det\bm \format\r&\quad\r&\quad\r\\
+    1 & 2 & 0 \\ 2 & 4 & 2 \\ 0 & 1 & 1 \em
+  &= 1(4-2) - 2(2 - 0) + 0(\dots) = -2\\
+2\det\bm \format\r&\quad\r&\quad\r\\
+    1 & 2 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 1 \em
+  &= 2(1(2-1) - 1(2 - 0) + 0(\dots)) = 2(-1) = -2.
+\endalign$$
+One may also state this rule as follows: {\it any common factor
+of a row of $A$ may be `pulled out' from its determinant}.
+\medskip
+\noindent Rule (iii):
+{\it If $A'$ is obtained from $A$ by interchanging two rows, then
+$\det A' = - \det A$}.
+
+\nextex
+\example{Example \en}
+$$
+\det\bm 1 & 2 \\ 2 & 1 \em = -3\qquad\qquad
+\det\bm 2 & 1 \\ 1 & 2 \em = 3.
+$$
+\endexample
+The verification of these rules
+is a bit involved, so we relegate it to an appendix.  
+\medskip
+The rules allow us to compute the determinant of any $n\times n$
+matrix with specific numerical entries.
+
+\nextex
+\example{Example \en}   We shall calculate the determinant of
+a $4\times 4$ matrix.  You should make sure you keep track of
+which elementary row operations have been performed at each stage.
+
+$$
+\align
+\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   3 & 0 & 1 & 1 \\
+   -1 & 6 & 0 & 2 \em
+&=
+\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & -6 & 4 & -2 \\
+   0 & 8 & -1 & 3 \em
+=
+\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & 0 & 7 & 4 \\
+   0 & 0 & -5 & -5 \em\\
+&=
+-5\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & 0 & 7 & 4 \\
+   0 & 0 & 1 & 1 \em
+=
++5\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & 0 & 1 & 1 \\
+   0 & 0 & 7 & 4 \em \\
+&=
++5\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & 0 & 1 & 1 \\
+   0 & 0 & 0 & -3 \em.
+\endalign$$
+We may now use the recursive definition to calculate the last
+determinant.  In each case there is only one non-zero entry in the first
+column.
+$$
+\multline
+\det\bm\format\r&\quad\r&\quad\r&\quad\r\\
+   1 & 2 & -1 & 1 \\
+   0 & 2 & 1 & 2 \\
+   0 & 0 & 1 & 1 \\
+   0 & 0 & 0 & -3 \em.
+=1\det\bm\format\r&\quad\r&\quad\r\\
+        2 & 1 & 2 \\
+        0 & 1 & 1 \\
+        0 & 0 & -3 \em \\
+  = 1\cdot 2\det\bm\format\r&\quad\r\\
+                   1 & 1 \\
+                   0 & -3 \em
+   = 1\cdot 2 \cdot 1\det\bm -3\em \\ = 1\cdot 2 \cdot 1 \cdot (-3) = -6.
+\endmultline
+$$
+Hence, the determinant of the original matrix is $5(-6) = -30$.
+\endexample
+
+The last calculation is a special case of a general fact which is
+established in much the same way by repeating the recursive
+definition.
+
+$$
+\det\bm a_{11} & a_{12}& a_{13} &\hdots & a_{1n} \\
+         0  & a_{22} & a_{23} & \hdots & a_{2n} \\
+         0  & 0   & a_{33} & \hdots & a_{3n} \\
+       \vdots & \vdots & \vdots & \hdots & \vdots \\
+        0 & 0 & 0 & \hdots & a_{nn} \em =
+a_{11}a_{22}a_{33}\hdots a_{nn}.
+$$
+In words, {\it the determinant of an upper triangular matrix is
+the product of its diagonal entries}.
+\medskip
+It is important to be able to tell when the determinant of
+an $n\times n$ matrix $A$ is zero.  Certainly, this will be the
+case if the first column consists of zeroes, and indeed it turns
+out that the determinant vanishes if any row or any column
+consists only of zeroes.   More generally, if either the set of
+rows or the set of columns is a linearly {\it dependent\/} set, then
+the determinant is zero.   (That will be the case if the rank
+$r < n$ since the rank is the dimension of both the row space and
+the column space.)  This follows from the following important
+theorem.
+  
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $A$ be an $n\times n$ matrix.
+Then $A$ is singular if and only if $\det A = 0$.
+Equivalently, $A$ is invertible, i.e., has rank $n$, if and
+only if $\det A \not= 0$.
+\endproclaim
+
+\demo{Proof}  If $A$ is invertible, then Gaussian reduction leads
+to an upper triangular matrix with non-zero entries on its
+diagonal, and the determinant of such a matrix is the
+product of its diagonal entries, which is also non-zero. 
+No elementary row operation can make the determinant
+zero.   For,  type (i) operations don't
+change the determinant, 
+type (ii) operations multiply by
+non-zero scalars, and type (iii) operations change its sign.
+Hence, $\det A \not= 0$.
+
+If $A$ is singular, then Gaussian reduction also leads to an
+upper triangular matrix, but one in which at least the
+\outind{upper triangular matrix, determinant of}%
+\outind{determinant of upper triangular matrix}%
+last row consists of zeroes.   Hence, at least one diagonal
+entry is zero, and so is the determinant.
+\qed\enddemo
+
+\nextex
+\example{Example \en}
+$$
+\det \bm 1 & 1 & 2 \\ 
+         2 & 1 & 3\\
+         1 & 0 & 1 \em
+= 1(1 - 0) - 2(1 - 0) + 1(3 - 2) = 0
+$$
+so the matrix must be singular.  To confirm this, we reduce
+$$
+ \bm 1 & 1 & 2 \\ 
+     2 & 1 & 3\\
+     1 & 0 & 1 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+      1 & 1 & 2 \\ 
+     0 & -1 & -1\\
+     0 & -1 & -1 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+      1 & 1 & 2 \\ 
+     0 & -1 & -1\\
+     0 & 0 & 0 \em
+ $$
+which shows that the matrix is singular.
+\endexample
+
+In the previous section, we encountered $2\times 2$ matrices
+with symbolic non-numeric entries.   For such a matrix,
+Gaussian reduction doesn't work very well because we
+don't know whether the non-numeric expressions are zero
+or not.
+
+\nextex
+\example{Example \en}  Suppose we want to know whether or not the
+matrix
+$$
+\bm
+\format\r&\quad\r&\quad\r&\quad\r\\  
+ -\lambda & 1 & 1 & 1 \\
+   1 & -\lambda & 0 & 0 \\
+  1 & 0 & -\lambda & 0 \\
+  1 & 0 & 0 & -\lambda \em
+$$
+is singular.   We could try to calculate its rank, but since we
+don't know what 
+$\lambda$ is, it is not clear how to proceed.  Clearly, the
+row reduction works differently if $\lambda = 0$ than if
+$\lambda \not= 0$.   However, we can calculate the determinant
+by the recursive method.
+$$
+\align
+\det\bm\format\r&\quad\r&\quad\r&\quad\r\\  
+ -\lambda & 1 & 1 & 1 \\
+   1 & -\lambda & 0 & 0 \\
+  1 & 0 & -\lambda & 0 \\
+  1 & 0 & 0 & -\lambda \em \\
+ &= (-\lambda)
+\det\bm\format\r&\quad\r&\quad\r\\
+              -\lambda & 0 & 0 \\
+               0 & -\lambda & 0 \\
+               0 & 0 & -\lambda \em
+  - 1
+\det\bm\format\r&\quad\r&\quad\r\\
+               1 & 1 & 1 \\
+               0 & -\lambda & 0 \\
+               0 & 0 & -\lambda \em\\
+ &\qquad+ 1
+\det\bm\format\r&\quad\r&\quad\r\\
+               1 & 1 & 1 \\
+              -\lambda & 0 & 0 \\
+               0 & 0 & -\lambda \em
+ - 1
+\det\bm\format\r&\quad\r&\quad\r\\
+               1 & 1 & 1 \\
+              -\lambda & 0 & 0 \\
+               0 & -\lambda & 0 \em \\
+&= (-\lambda)(-\lambda^3) -(\lambda^2) + (-\lambda^2) -(\lambda^2)\\
+&= \lambda^4 - 3 \lambda^2 = \lambda^2(\lambda -\sqrt 3)(\lambda + \sqrt 3).
+\endalign
+$$
+Hence, this matrix is singular just in the cases $\lambda = 0,
+\lambda = \sqrt 3$, and $\lambda = -\sqrt 3$.
+\endexample
+
+\medskip
+\subhead  Appendix.  Some Proofs \endsubhead
+We now establish the basic rules relating determinants to
+elementary row operations.   If you are of a skeptical turn of
+mind, you should study this section, since 
+the relation between the recursive definition
+and rules (i), (ii), and (iii) is not at all obvious. 
+  However, if you have a trusting
+nature, you might want to skip this section since the
+proofs are quite technical and not terribly enlightening.
+
+   The idea behind the proofs is to assume that the
+rules---actually,  modified forms of the rules---have
+ been established for $(n-1)\times (n-1)$ determinants,
+and then to prove them for $n\times n$ determinants.  To start
+it all off, the rules  must be checked
+explicitly for $2\times 2$ determinants.   I leave that step
+for you in the Exercises.
+
+%Exer
+%  Prove that the following rules hold for $2\times 2$ determinants.
+%
+%   Rule (ia): $\det\bm a' + a'' & b' + b''\\ c & d \em
+%     = \det\bm a' & b' \\ c & d \em + \det  a'' & b'' \\ c & d \em$.
+%
+%    Rule (ii): $\det\bm sa & sb \\ s & b \em = s\det \bm a & b \\ c & d \em$.
+%
+%    Rule (iii): $\det\bm a & b \\ c & d\em = - \det \bm c & d \\ a & b \em$.
+%
+%    Note that rules (ia) and (ii) need only be proved for the first row
+%    since by means of rule (iii), those rules for the second row may be
+%    reduced to the corresponding rules for the first row.
+
+We start with the hardest case, rule (iii).   First we consider the
+special case that $A'$ is obtained from $A$ by switching two {\it adjacent\/}
+rows, the $i$th row and the $(i+1)$st row.  Consider the recursive
+definition
+$$
+\multline
+\det A'  = a'_{11}D_1(A') - \dots + (-1)^{i+1}a'_{i1}D_i(A') \\
+     + (-1)^{i+2}a'_{i+1,1}D_{i+1}(A') + \dots + (-1)^{n+1}a'_{n1}D_n(A').
+\endmultline
+$$
+Look at the subdeterminants occurring in this sum.   For $j \not= i, i+1$,
+we have
+$$
+D_j(A') = - D_j(A)
+$$
+since deleting the first column and $j$th row of $A$ and then
+switching two rows---neither of which was deleted---changes
+the sign by rule (iii) for $(n-1)\times(n-1)$ determinants.
+The situation for $j = i$ or $j=i+1$ is different; in fact, we have
+$$
+D_i(A') = D_{i+1}(A)\qquad\text{and}\qquad D_{i+1}(A')= D_i(A).
+$$
+The first equation follows because  switching
+rows $i$ and $i+1$ and then deleting row $i$ is the same as
+deleting row $i+1$ without touching row $i$.   A similar argument
+establishes the second equation.   Using this together
+with $a'_{i1} = a_{i+1,1}, a'_{i+1,1} = a_{i1}$ yields
+$$\align
+(-1)^{i+1}a'_{i1}D_i(A') &= (-1)^{i+1}a_{i+1,1}D_{i+1}(A) = - (-1)^{i+2}
+a_{i+1,1}D_{i+1}(A) \\
+(-1)^{i+2}a'_{i+1,1}D_{i+1}(A') &= (-1)^{i+2}a_{i1}D_i(A) = - (-1)^{i+1}
+a_{i1}D_i(A).
+\endalign$$
+In other words, all terms in the recursive definition of $\det A'$
+are negatives of the corresponding terms of $\det A$ {\it except\/}
+those in positions $i$ and $i+1$ which get reversed with
+signs changed.  Hence, the effect of switching adjacent rows is to
+change the sign of the sum.
+
+Suppose instead that non-adjacent rows in positions $i$ and $j$
+are switched, 
+and  suppose for the sake of argument
+that $i < j$.  One way to do this is as follows.  First
+move row $i$ past each of the rows between row $i$ and row $j$.  This
+involves some number of switches of adjacent rows---call that
+number $k$.  ($k = j - i - 1$, but
+it that doesn't matter in the proof.)   Next, move
+row $j$ past row $i$ and then past the $k$ rows just mentioned, 
+all in their new positions.   That requires  $k + 1$ switches
+of adjacent rows.  All told, to switch rows $i$ and $j$ in this
+way requires $2k + 1$ switches of adjacent rows.  The net effect
+is to multiply the determinant by $(-1)^{2k +1} = -1$ as required.
+
+There is one important consequence of rule (iii) which we shall use
+later in the proof of rule (i).
+\medskip
+\noindent
+Rule (iiie):  {\it  If an $n\times n$ matrix has two equal rows,
+then $\det A = 0$}.
+\medskip
+This is not too hard to see.   Interchanging two rows changes the
+sign of $\det A$, but if the rows are equal, it doesn't change
+anything.  However, the only number with the property that it
+isn't changed by changing its sign is the number 0.  Hence,
+$\det A = 0$.
+\medskip
+We next verify rule (ii).   Suppose $A'$ is obtained from
+$A$ by multiplying the $i$th row by $c$.   Consider the
+recursive definition
+\nexteqn
+$$
+\det A'
+= a'_{11}D_1(A') + \dots + (-1)^{i+1}a'_{i1}D_i(A') + \dots
++ (-1)^{n+1}a_{n1}D_n(A).\tag\eqn
+$$
+For any $j \not= i$, $D_j(A') = c D_j(A)$ since one of the
+rows appearing in that determinant is multiplied by $c$.
+Also, $a'_{j1} = a_{j1}$ for $j \not = i$.   On the other hand,
+$D_i(A') = D_i(A)$ since the $i$th row  is
+deleted in calculating these quantities, and, except for the $i$th row,
+$A'$ and $A$ agree. In addition, $a'_{i1} = ca_{i1}$ so we
+pick up the extra factor of $c$ in any case.  It follows that
+every term on the right of (\eqn) has a factor $c$, so
+$\det A' = c\det A$.
+\medskip
+Finally, we attack the proof of rule (i).  It turns out to
+be necessary to verify the following stronger rule.
+\medskip
+
+\noindent
+Rule (ia):  {\it Suppose $A, A'$, and $A''$ are three $n\times n$
+matrices which agree except in the $i$th row.  Suppose moreover
+that the $i$th row of $A$ is the sum of the $i$th row of $A'$
+and the $i$th row of $A''$.  Then  $\det A = \det A' + \det A''$}.
+\medskip
+Let's first see why rule (ia) implies rule (i).   We can add
+$c$ times the $j$th row of $A$ to its $i$ row as follows.
+Let $B' = A$, let $B''$ be the matrix obtained from $A$ by
+replacing its $i$th row by $c$ times its $j$th row, and let
+$B$ be the matrix obtained form $A$ by adding $c$ times its $j$th row
+to its $i$th row.
+ Then according to rule (ia), we have
+$$
+\det B = \det B' + \det B'' = \det A + \det B''.
+$$
+On the other hand, by rule (ii), $\det B'' = c\det A''$
+where $A''$ has both $i$th and $j$th rows equal to the
+$j$th row of $A$.  Hence, by rule (iiie), $\det A'' = 0$,
+and $\det B = \det A$.
+\medskip
+Finally, we establish rule (1a).  Assume it is known to be true
+for $(n-1)\times(n-1)$ determinants.  We have
+\nexteqn
+$$
+\det A = a_{11}D_1(A) - \dots + (-1)^{i+1}a_{i1}D_i(A) +
+\dots + (-1)^{n+1}a_{n1}D_n(A).\tag\eqn
+$$
+For $j\not= i$, the the sum rule (ia) may be applied to the
+determinants $D_i(A)$ because the appropriate submatrix
+has one row which breaks up as a sum as needed.  Hence,
+$$
+D_j(A) = D_j(A') + D_j(A'').
+$$
+Also, for $j\not = i$, we have $a_{j1} = a_{j1}'  = a''_{j1}$ since
+all the matrices agree in any row except the $i$th row.
+Hence, for $j\not=i$,
+$$
+a_{i1}D_i(A) = a_{i1}D_i(A') + a_{i1}D_i(A'')
+= a'_{i1}D_i(A') + a''_{i1}D_i(A'').
+$$
+On the other hand, $D_i(A) = D_i(A') = D_i(A'')$ because
+in each case the $i$th row was deleted.
+But $a_{i1} = a'_{i1} + a''_{i1}$, so
+$$
+a_{i1}D_i(A) = a'_{i1}D_i(A) + a''_{i1}D_i(A)
+= a'_{i1}D_i(A') + a''_{i1}D_i(A'').
+$$
+It follows that every term in (\eqn) breaks up into a sum
+as required, and $\det A = \det A' + \det A''$.
+\bigskip
+\input chap11.ex3
+\bigskip
+
+\nextsec{Some Important Properties of Determinants}
+\head \sn.  Some Important Properties of Determinants \endhead
+
+\nextthm
+\proclaim{Theorem \cn.\tn{\rm\enspace (The Product Rule)}}
+Let $A$ and $B$ be $n\times n$ matrices.   Then
+$$
+\det (AB) = \det A\, \det B.
+$$
+\endproclaim
+
+\demo{Proof}  First assume that $A$ is non-singular.   
+Then there is a sequence of row operations which reduces $A$
+to the identity
+$$
+A \to A_1 \to A_2 \to \hdots \to A_k = I.
+$$
+Associated with each of these operations will be a multiplier
+$c_i$ which will depend on the particular operation, and
+$$
+\det A = c_1\det A_1 = c_1c_2\det A_2 = \dots = 
+c_1c_2\dots c_k\det A_k = c_1c_2\dots c_k
+$$
+since $A_k =I$ and $\det I = 1$.   Now apply exactly these
+row operations to the product $AB$
+$$
+AB \to A_1B \to A_2B \to \hdots \to A_kB = IB = B.
+$$
+The same multipliers contribute factors at each stage, and
+$$
+\det AB = c_1 \det A_1B = c_1c_2\det A_2B =
+\dots = \undersetbrace{\det A}\to{c_1c_2\dots c_k}\det B
+      = \det A\, \det B.
+$$
+
+Assume instead that $A$ is singular.   Then, $AB$ is also
+singular.   (This follows from the fact that the rank of $AB$
+is at most the rank of $A$, as mentioned in the Exercises for
+Chapter X, Section 6.
+However, here is a direct proof for the record.  Choose   a sequence
+of elementary row operations for $A$, the end result of which is a matrix
+$A'$ with at least one row of zeroes.   Applying the same
+operations to $AB$ yields $A'B$ which also has to have at least
+one row of zeroes.)   It follows that both $\det AB$ and
+$\det A\, \det B$ are zero, so they are equal.
+\qed\enddemo
+\medskip
+\subhead Transposes \endsubhead
+Let $A$ be an $m\times n$ matrix.   The {\it transpose\/} of
+$A$ is the $n\times m$ matrix for which the columns are the
+rows of $A$.   (Also, its rows are the columns of $A$.)
+It is usually denoted $A^t$, but other notations
+\outind{transpose of a matrix}%
+are possible.
+
+\example{Examples}
+$$
+\alignat2
+A & = \bm 2 & 0 & 1 \\ 2 & 1 & 2 \em&\qquad
+A^t &= \bm 2 & 2 \\ 0 & 1 \\ 1 & 2 \em \\
+A &= \bm 1 & 2 & 3 \\ 0 & 2 & 3 \\ 0 & 0 &3 \em&\qquad
+A^t &= \bm 1 & 0 & 0 \\ 2 & 2 & 0 \\ 3 & 3 & 3 \em \\
+\a &= \bm a_1\\ a_2 \\ a_3 \em&\qquad \a^t &= \bm a_1 & a_2 & a_3 \em.
+\endalignat$$
+\endexample
+
+The following rule follows almost immediately from the
+definition.  Assume $A$ is an $m\times n$ matrix and $B$ is
+an $n\times p$ matrix.   Then
+$$
+   (AB)^t = B^tA^t.
+$$
+Note that {\it the order on the right is reversed}.   Unless the matrices are
+square, the shapes won't even match if the order is not reversed.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}
+Let $A$ be an $n\times n$ matrix.   Then
+$$
+\det A^t = \det A.
+$$
+\endproclaim
+
+\nextex
+\example{Example \en}
+$$
+\align
+\det \bm 1 & 0 & 1 \\
+         2 & 1 & 2 \\
+         0 & 0 & 1 \em
+   &= 1(1-0) - 2(0 - 0) + 0(\dots) = 1 \\
+\det \bm 1 & 2 & 0 \\
+         0 & 1 & 0 \\
+         1 & 2 & 1 \em
+   &=  1(1 - 0) - 0(\dots) + 1(0 - 0) = 1.
+\endalign$$
+\endexample
+
+The importance of this theorem is that it allows us to go freely
+from statements about determinants involving rows of the matrix
+to corresponding statements involving columns and vice-versa.
+
+%Advice to instructor.  You may want to skip this proof in class.
+
+\demo{Proof of the Theorem}   If $A$ is singular, then $A^t$ is
+also singular and vice-versa.
+For, the rank may be characterized as either the
+dimension of the row space or the dimension of the column space,
+and an $n\times n$ matrix is singular if its rank is less than $n$.
+Hence, in the singular case, $\det A = 0 = \det A^t$. 
+
+Suppose then that $A$ is non-singular.  Then there is a sequence
+of elementary row operations
+$$
+A \to A_1 \to A_2 \to \dots \to A_k = I.
+$$
+Recall from Chapter X, Section 4 
+% Back reference
+that each elementary row operation may be accomplished by multiplying
+by an appropriate elementary matrix.   Let $C_i$ denote the elementary
+matrix needed to perform the $i$th row operation.  Then,
+$$
+A \to A_1 = C_1A \to A_2 = C_2C_1A \to \dots \to
+ A_k = C_kC_{k-1}\dots C_2C_1A = I.
+$$
+In other words,
+$$
+A = (C_k \dots C_2C_1)^{-1} = C_1{}^{-1}C_2{}^{-1}\dots C_k{}^{-1}.
+$$
+To simplify the notation, let $D_i = C_i{}^{-1}$.  The inverse  $D$
+of an elementary matrix $C$ is also an elementary matrix; its effect
+is the row operation which reverses the effect of $C$.   Hence,
+we have shown that {\it any non-singular square matrix $A$
+may be expressed as a product of elementary matrices}
+$$
+A = D_1D_2 \dots D_k.
+$$
+Hence, by the product rule
+$$
+\det A = (\det D_1)(\det D_2)\dots(\det D_k).
+$$
+On the other hand, we have by rule for the transpose of a product
+$$
+A^t = D_k{}^t\dots D_2{}^t D_1{}^t,
+$$
+so by the product rule
+$$
+\det A^t = \det(D_k{}^t)\dots \det(D_2{}^t)\det(D_1{}^t).
+$$
+Suppose we know the rule  $\det D^t = \det D$ {\it for any
+elementary matrix $D$}.  
+Then,
+$$\align
+\det A^t &= \det(D_k{}^t)\dots \det(D_2{}^t)\det(D_1{}^t)\\
+       &= \det(D_k)\dots \det(D_2)\det(D_1) \\
+       &= (\det D_1)(\det D_2)\dots(\det D_k) = \det A.
+\endalign$$
+(We used the fact that the products on the right are products
+of scalars and so can be rearranged any way we like.)
+
+It remains to establish the rule for elementary matrices.
+If $D = E_{ij}(c)$ is obtained from the identity matrix by
+adding $c$ times its $j$th row to its $i$th row, then
+$D^t = E_{ji}(c)$ is a matrix of exactly the same type.
+In each case, $\det D = \det D^t = 1$.  If $D = E_i(c)$ is
+obtained by multiplying the $i$th row of the identity matrix
+by $c$, then $D^t$ is exactly the same matrix $E_i(c)$.  Finally,
+if $D = E_{ij}$ is obtained from the identity matrix by interchanging
+its $i$th and $j$th rows, then  $D^t$ is
+$E_{ji}$ which in fact is just $E_{ij}$ again.  Hence, in
+each case $\det D^t = \det D$ does hold.
+\qed\enddemo
+
+Because of this rule, we may use {\it column operations\/} as
+well as row operations to calculate determinants.   For, performing
+a column operation is the same as transposing the matrix, performing
+the corresponding row operation, and then transposing back.  The
+two transpositions don't affect the determinant.
+
+\nextex
+\example{Example}
+$$\align
+\det \bm 1 & 2 & 3 & 0 \\
+         2 & 1 & 3 & 1 \\
+         3 & 3 & 6 & 2 \\
+         4 & 2 & 6 & 4 \em
+&=
+\det \bm 1 & 2 & 2 & 0 \\
+         2 & 1 & 1 & 1 \\
+         3 & 3 & 3 & 2 \\
+         4 & 2 & 2 & 4 \em
+\qquad\text{operation } (-1)c1 + c3\\
+&= 0.
+\endalign
+$$
+The last step follows because the 2nd and 3rd columns are equal,
+which implies that the rank (dimension of the column space) is
+less than 4.  (You could also subtract the third column from the
+second and get a column of zeroes, etc.)
+\endexample
+\medskip
+\subhead Expansion in Minors or Cofactors \endsubhead
+There is a generalization of the formula used for the recursive
+definition.   Namely, for any $n\times n$ matrix $A$,  let
+$D_{ij}(A)$ be the determinant of the $(n-1)\times(n-1)$ matrix
+obtained by deleting the $i$th row and $j$th column of $A$.
+\outind{cofactor}%
+\outind{minor}%
+Then,
+\nexteqn
+\xdef\LapCol{\eqn}
+$$\align
+\det A &= \sum_{i=1}^n(-1)^{i+j}a_{ij}D_{ij}(A)\tag\eqn \\
+   &= (-1)^{1+j}a_{1j}D_{1j}(A) + \dots + (-1)^{i+j}a_{ij}D_{ij}(A)
+   + \dots + (-1)^{n+j}a_{nj}D_{nj}(A).
+\endalign$$
+The special case $j = 1$ is the recursive definition given in the
+previous section.   The more general rule is easy to derive
+from the special case $j = 1$ by means of column interchanges.
+Namely, form a new matrix $A'$
+ by moving the $j$th column to the first position by successively
+interchanging it with columns $j-1, j-2, \dots, 2, 1$.   There
+are $j-1$ interchanges, so the determinant is changed by the
+factor $(-1)^{j-1}$.  
+Now apply the rule for the first column.  The first column of
+$A'$ is the 
+$j$th column of $A$, and deleting it has the same effect
+as deleting the $j$th column of $A$.  Hence, $a'_{i1} = a_{ij}$
+and $D_i(A') = D_{ij}(A)$.     Thus,
+$$\align
+\det A =
+ (-1)^{j-1}\det A' &= (-1)^{j-1}\sum_{i=1}^n(-1)^{1+i}a'_{i1}D_i(A')\\
+    &=\sum_{i=1}^n(-1)^{i+j}a_{ij}D_{ij}(A).
+\endalign$$
+\medskip
+            
+Similarly, there is a corresponding rule for any {\it row\/}
+of a matrix
+\nexteqn
+\xdef\LapRow{\eqn}
+$$\align
+\det A &= \sum_{j=1}^n(-1)^{i+j}a_{ij}D_{ij}(A) \tag\eqn \\
+&= (-1)^{i+1}a_{i1}D_{i1} + \dots + (-1)^{i+j}a_{ij}D_{ij}(A)
+    + \dots + (-1)^{i+n}a_{in}D_{in}(A).
+\endalign$$
+This formula is obtained from (\LapCol) by transposing, applying
+the corresponding column rule, and then transposing back.
+
+\example{Example}
+Expand the following determinant using its second row.
+$$\multline
+\det \bm 1 & 2 & 3 \\
+         0 & 6 & 0 \\
+         3 & 2 & 1 \em
+ = (-1)^{2+3}0(\dots) + (-1)^{2+2}6\det \bm 1 & 3\\ 3 & 1 \em
+         + (-1)^{2+3}0(\dots)\\ = 6(1 - 9)  = -48.
+\endmultline
+$$
+\endexample
+
+There is some terminology which you may see used in connection with
+these formulas.   The determinant  $D_{ij}(A)$ of the
+ $(n-1)\times(n-1)$ matrix obtained by deleting the $i$th row
+and $j$th column is called the {\it $i,j$-minor\/} of $A$.    
+The quantity $(-1)^{i+j}D_{ij}(A)$ is called the {\it $i,j$-cofactor}.
+Formula (\LapCol) is called expansion in minors (or cofactors) of
+the $j$th column and formula (\LapRow) is called expansion in
+minors (or cofactors) of the $i$th row.   It is not necessary
+to remember the terminology as long as you remember the formulas
+and understand how they are used.
+\medskip
+\subhead Cramer's Rule \endsubhead
+One may use determinants to derive a formula for the solutions of
+ a {\it non-singular\/}
+ system of $n$ equations in $n$ unknowns
+$$
+\bm a_{11} & a_{12} & \hdots & a_{1n} \\
+   a_{21} & a_{22} & \hdots & a_{2n} \\
+\vdots & \vdots & \hdots & \vdots \\
+a_{n1} & a_{n2} & \hdots & a_{nn} \em
+     \bm x_1\\ x_2\\ \vdots \\ x_ n \em
+= \bm b_1\\ b_2 \\ \vdots \\ b_n \em.
+$$
+The formula is called {\it Cramer's rule\/}, and here it is.
+\outind{Cramer's rule}%
+{\it For the $j$th unknown $x_j$, take the determinant of the
+matrix formed by replacing the $j$th column of the coefficient
+matrix $A$ by $\b$, and divide it by $\det A$}.  In symbols,
+$$
+x_j =
+\frac {\det\bm 
+ a_{11} & \hdots & b_1 & \hdots & a_{1n} \\
+   a_{21} & \hdots & b_2 & \hdots & a_{2n} \\
+\vdots &\hdots & \vdots & \hdots & \vdots \\
+a_{n1} &\hdots & b_n & \hdots & a_{nn} \em}
+{\det\bm
+a_{11} & \hdots & a_{1j} & \hdots & a_{1n} \\
+   a_{21} & \hdots & a_{2j} & \hdots & a_{2n} \\
+\vdots &\hdots & \vdots & \hdots & \vdots \\
+   a_{n1} &\hdots & a_{nj} & \hdots & a_{nn} \em}
+$$
+
+\example{Example}
+Consider
+$$
+\bm  1 & 0 & 2 \\
+     1 & 1 & 2 \\
+     2 & 0 & 6 \em
+\bm x_1\\x_2\\x_3\em
+=
+\bm 1 \\ 5 \\ 3 \em.
+$$
+We have
+$$
+\det\bm
+     1 & 0 & 2 \\
+     1 & 1 & 2 \\
+     2 & 0 & 6 \em = 2.
+$$
+(Do you see a quick way to compute that?)   Hence,
+$$\align
+x_1 &=
+\frac{\det\bm
+     1 & 0 & 2 \\
+     5 & 1 & 2 \\
+     3 & 0 & 6 \em}2
+ = \frac 02 = 0 \\
+x_1 &=
+\frac{\det\bm
+     1 & 1 & 2 \\
+     1 & 5 & 2 \\
+     2 & 3 & 6 \em}2
+ = \frac 82 = 4 \\
+x_3 &=
+\frac{\det\bm
+     1 & 0 & 1 \\
+     1 & 1 & 5 \\
+     2 & 0 & 3 \em} 2
+= \frac 12.
+\endalign
+$$
+You should try to do this by Gauss-Jordan reduction.
+
+Cramer's rule is not too useful for solving specific numerical
+systems of equations.   The only practical method for calculating
+the needed determinants for $n$ large is to use row (and possibly
+column) operations.  It is usually easier to use row operations
+to solve the system without resorting to determinants.   However,
+if the system has non-numeric symbolic coefficients, Cramer's
+rule is sometimes useful.  Also, it is often valuable as a theoretical
+tool.
+
+Cramer's rule is related to expansion in minors.   You can find
+further discussion of it and proofs in Section 5.4 and 5.5
+of  {\it Introduction to
+Linear Algebra\/} by Johnson, Riess, and Arnold.  (See also
+Section 4.5 of {\it Applied Linear Algebra\/} by Noble and
+Daniel.)
+\bigskip
+\input chap11.ex4
+\bigskip
+
+\nextsec{Eigenvalues and Eigenvectors}
+\head \sn.  Eigenvalues and Eigenvectors for $n\times n$ Matrices \endhead
+
+As in Section 2,
+we want to solve an $n\times n$ system
+\nexteqn
+$$
+\frac{d\x}{dt} = A\x\tag\eqn
+$$
+by finding a basis $\{\x_1(t), \x_2(t), \dots, \x_n(t)\}$ of the
+solution space.   In case $A$ {\it is constant\/}, it was suggested
+that we {\it look for\/} solutions of the form
+$$
+ \x = e^{\lambda t}\v
+$$
+where $\lambda$ and $\v \not= 0$ are to be determined by the process.
+Such solutions form a linearly independent set
+as long as the corresponding $\v$'s form a linearly independent
+set.   For, suppose 
+$$
+\x_1 = e^{\lambda_1 t}\v_1, \x_2 = e^{\lambda_2 t}\v_2,
+\dots, \x_k = e^{\lambda_k t}\v_k 
+$$
+are $k$ such solutions.   We know that the
+set of solutions $\{\x_1(t), \dots, \x_k(t)\}$ is linearly independent
+if and only if the set of vectors 
+obtained by evaluating the functions at $t = 0$ is linearly
+independent.  However, this set of vectors is just
+$\{\v_1, \dots, \v_k\}$.
+
+
+We discovered in Section 2 that trying a solution of the form
+$\x = e^{\lambda t}\v$ leads to the eigenvalue--eigenvector
+problem
+\outind{eigenvalue}%
+\outind{eigenvector}%
+\nexteqn
+$$
+  A\v = \lambda \v.\tag\eqn
+$$
+
+We redo some of the algebra in Section 2 as follows.
+Rewrite equation (\eqn) as 
+$$
+\gather
+  A\v = \lambda \v \\
+  A\v - \lambda \v = 0 \\
+  A \v - \lambda I\v = 0 \\
+  (A - \lambda I)\v = 0.
+\endgather
+$$
+The last equation is the homogeneous $n\times n$ system 
+with $n\times n$ coefficient matrix 
+$$
+A - \lambda I = 
+\bm a_{11} - \lambda & a_{12} & \hdots & a_{1n} \\
+ a_{21} & a_{22} - \lambda & \hdots & a_{2n} \\
+\vdots & \vdots & \hdots & \vdots \\
+a_{n1} & a_{n2} & \hdots &  a_{nn} - \lambda \em.  
+$$
+It has
+a {\it non-zero\/} solution vector $\v$ if and only if
+the coefficient matrix has rank less than $n$,
+i.e., if and only if it is {\it singular\/}.  By
+Theorem 11.3, 
+% Back reference
+this will be true if and only if $\lambda$ satisfies the
+{\it characteristic equation\/}
+\nexteqn
+\xdef\CharEqnII{\eqn}
+$$
+   \det (A - \lambda I) 
+ = \det
+\bm a_{11} - \lambda & a_{12} & \hdots & a_{1n} \\
+ a_{21} & a_{22} - \lambda & \hdots & a_{2n} \\
+\vdots & \vdots & \hdots & \vdots \\
+a_{n1} & a_{n2} & \hdots &  a_{nn} - \lambda \em  
+= 0.\tag\eqn
+$$
+\outind{characteristic equation}%
+
+As in Section 2, the strategy for finding
+eigenvalues and eigenvectors is
+as follows.  First find the roots of the characteristic
+equation.   These are the eigenvalues.  Then for each root $\lambda$, find
+a general solution for the system
+\nexteqn
+$$
+(A - \lambda I)\v = 0.\tag\eqn
+$$
+This gives us all the eigenvectors for that eigenvalue.
+
+\nextex
+\example{Example \en}  Consider the matrix
+$$
+ A = \bm 1 & 4 & 3 \\
+         4 & 1 & 0 \\
+         3 & 0 & 1 \em.
+$$
+The characteristic equation is
+$$\align
+\det(A - \lambda I) &= \det \bm 1 - \lambda & 4 & 3 \\
+                                4 &  1 - \lambda & 0 \\
+                                3 & 0 & 1 - \lambda \em \\ 
+&= (1-\lambda)((1-\lambda)^2- 0) - 4(4(1 - \lambda)- 0)
+ + 3(0 - 3(1-\lambda) \\
+ &= (1-\lambda)^3 - 25(1 - \lambda) = (1 - \lambda)((1- \lambda)^2 -25)\\
+  &= (1 - \lambda)(\lambda^2 - 2\lambda - 24) = 
+(1-\lambda)(\lambda - 6)(\lambda + 4) = 0.
+\endalign
+$$
+Hence, the eigenvalues are $\lambda = 1, \lambda = 6$, and
+$\lambda = -4$.  We proceed to find the eigenvectors for each
+of these eigenvalues, starting with the largest.
+
+First, take $\lambda = 6$, and  put it in (\eqn) to obtain the system
+$$
+ \bm 1 - 6 & 4 & 3 \\
+         4 & 1- 6 & 0 \\
+         3 & 0 & 1-6 \em
+\bm v_1\\ v_2\\ v_3 \em = 0
+\qquad\text{or}\qquad
+ \bm\format\r&\quad\r&\quad\r\\
+        -5 & 4 & 3 \\
+         4 & -5 & 0 \\
+         3 & 0 & -5 \em
+\bm v_1\\ v_2\\ v_3 \em = 0.
+$$
+To solve, use Gauss-Jordan reduction
+$$\align
+ \bm\format\r&\quad\r&\quad\r\\
+        -5 & 4 & 3 \\
+         4 & -5 & 0 \\
+         3 & 0 & -5 \em
+&\to
+ \bm\format\r&\quad\r&\quad\r\\
+        -1 & -1 & 3 \\
+         4 & -5 & 0 \\
+         3 & 0 & -5 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+        -1 & -1 & 3 \\
+         0 & -9 & 12 \\
+         0 & -3 & 4 \em \\
+&\to
+ \bm\format\r&\quad\r&\quad\r\\
+        -1 & -1 & 3 \\
+         0 & 0 & 0 \\
+         0 & -3 & 4 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+        -1 & -1 & 3 \\
+         0 & 3 & -4 \\
+         0 & 0 & 0 \em \\
+&\to
+ \bm\format\r&\quad\r&\quad\r\\
+        1 & 1 & -3 \\
+         0 & 1 & -4/3 \\
+         0 & 0 & 0 \em 
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+        1 & 0 & -5/3 \\
+         0 & 1 & -4/3 \\
+         0 & 0 & 0 \em .
+\endalign$$
+Note that the matrix is singular, and the rank is smaller than 3.
+This must be the case because the condition $\det(A - \lambda I) = 0$
+guarantees it.  If  the coefficient matrix
+were non-singular, you would know that there was a mistake: either
+the roots of the characteristic equation are wrong or the
+row reduction was not done correctly.
+
+The general solution is
+$$\align
+v_1 &= (5/3)v_3 \\
+v_2 &=  (4/3)v_3 
+\endalign$$
+with $v_3$ free.   The general solution vector is
+$$
+\v = \bm (5/3)v_3\\ (4/3)v_3\\ v_3 \em
+ = v_3\bm 5/3\\ 4/3\\ 1 \em.
+$$
+Hence, the solution space is 1-dimensional.  A basis may be obtained
+by setting $v_3 = 1$ as usual, but it is a bit neater to
+put $v_3 = 3$ so as to avoid fractions.
+Thus,
+$$
+\v_1 = \bm 5 \\ 4 \\ 3 \em
+$$
+constitutes a basis for the solution space.
+Note that we have now found all eigenvectors for the eigenvalue
+$\lambda = 6$.   They are all the non-zero vectors in the 1-dimensional
+solution subspace, i.e., all non-zero multiples of $\v_1$.
+
+Next take $\lambda = 1$ and put it in (\eqn) to obtain the system
+$$
+\bm 0 & 4 & 3 \\
+    4 & 0 & 0 \\
+    3 & 0 & 0 \em \bm v_1\\ v_2\\v_3 \em = 0.
+$$
+Use Gauss-Jordan reduction
+$$
+\bm 0 & 4 & 3 \\
+    4 & 0 & 0 \\
+    3 & 0 & 0 \em 
+\to
+\bm 1 & 0 & 0 \\
+    0 & 1 & 3/4 \\
+    0 & 0 & 0 \em.
+$$
+The general solution is
+$$\align
+v_1 &= 0 \\
+v_2 &= -(3/4)v_3
+\endalign$$
+with $v_2$ free.
+Thus the general solution vector is
+$$
+\v = \bm 0 \\ -(3/4)v_3 \\ v_3 \em  = v_3\bm 0\\ -3/4 \\ 1 \em.
+$$
+Put $v_3 = 4$ to obtain a single basis vector
+$$
+\v_2 = \bm 0 \\ -3 \\ 4 \em.
+$$
+The set of eigenvectors for the eigenvalue $\lambda = 1$
+is the set of non-zero multiples of $\v_2$.
+
+Finally, take $\lambda = -4$, and put this in (\eqn) to obtain the
+system
+$$
+\bm 5 & 4 & 3 \\
+    4 & 5 & 0 \\
+    3 & 0 & 5 \em
+\bm v_1\\ v_2\\ v_3 \em = 0.
+$$
+Solve this by Gauss-Jordan reduction.
+$$\align
+\bm 5 & 4 & 3 \\
+    4 & 5 & 0 \\
+    3 & 0 & 5 \em
+&\to
+\bm\format\r&\quad\r&\quad\r\\
+    1 & -1 & 3 \\
+    4 & 5 & 0 \\
+    3 & 0 & 5 \em
+\to
+\bm\format\r&\quad\r&\quad\r\\
+    1 & -1 & 3 \\
+    0 & 9 & -12 \\
+    0 & 3 & -4 \em\\
+&\to
+\bm\format\r&\quad\r&\quad\r\\
+    1 & -1 & 3 \\
+    0 & 3 & -4 \\
+    0 & 0 & 0 \em
+\to
+\bm\format\r&\quad\r&\quad\r\\
+    1 & 0 & 5/3 \\
+    0 & 1 & -4/3 \\
+    0 & 0 & 0 \em.
+\endalign$$
+The general solution is
+$$\align
+v_1 &= -(5/3)v_3 \\
+v_2 &= (4/3)v_3 
+\endalign$$
+with $v_3$ free.  The general solution vector is
+$$
+\v = \bm -(5/3)v_3\\ (4/3)v_3 \\ v_3 \em
+   = v_3\bm -5/3 \\ 4/3 \\ 1 \em.
+$$
+Setting $v_3 = 3$ yields the basis vector
+$$
+\v_3 = \bm \format\r\\ -5 \\ 4\\ 3 \em.
+$$
+The set of eigenvectors for the eigenvalue $\lambda = -4$ consists
+of all non-zero multiples of $\v_3$.
+\endexample
+
+The set  $\{\v_1, \v_2, \v_3\}$ obtained in the previous
+example  is  linearly independent.
+ To see this apply Gaussian reduction to the matrix with
+these vectors as columns:
+$$
+\bm \format\r&\quad\r&\quad\r\\
+     5 & 0 & -5 \\
+     4 & -3 & 4 \\
+     3 & 4 & 3 \em
+\to
+\bm \format\r&\quad\r&\quad\r\\
+     1 & 0 & -1 \\
+     0 & -3 & 8 \\
+     0 & 4 & 6 \em
+\to 
+\bm \format\r&\quad\r&\quad\r\\
+     1 & 0 & -1 \\
+     0 & 1 & -8/3 \\
+     0 & 0 & 50/3 \em.
+$$
+The reduced matrix has rank 3, so the columns of the original
+matrix form an independent set.
+
+It is  no accident that a set so obtained is linearly
+independent.   The following theorem tells us that this will
+always be the case.
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $A$ be an $n\times n$ matrix.
+Let $\lambda_1, \lambda_2, \dots, \lambda_k$ be different
+eigenvalues of $A$, and let $\v_1, \v_2, \dots, \v_k$
+be corresponding eigenvectors.   Then 
+$$\{\v_1, \v_2, \dots, \v_k\}$$
+is a linearly independent set.
+\endproclaim
+%Advice to instructor.  Just do the proof for $k = 3$.
+\demo{Proof}  Assume $\{\v_1, \v_2,\dots, \v_k\}$ is not a linearly
+independent set, and  try to derive a contradiction.
+In this case, one of the vectors in the set can be
+expressed as a linear combination of the others.   If we number
+the elements appropriately, we may assume that
+\nexteqn
+\xdef\EqA{\eqn}
+$$
+\v_1 = c_2\v_2 + \dots + c_k\v_r,\tag\eqn
+$$
+where $r \le k$.   (Before renumbering,
+leave out any vector $\v_i$ on the right
+if it appears  with coeficient $c_i = 0$.)
+Note that we may also assume that no vector which appears on the
+right is a linear combination of the others because otherwise
+we could express it so and after combining terms delete
+it from the sum.  Thus we may assume the vectors which appear
+on the right form a linearly independent set.
+Multiply (\EqA)  on the left by $A$.  We get
+\nexteqn
+\xdef\EqnB{\eqn}
+$$\align
+A\v_1 &= c_2A\v_2 + \dots + c_kA\v_k\\
+\lambda_1\v_1 &= c_2\lambda_2\v_2 + \dots c_k\lambda_k\v_k\tag\eqn
+\endalign$$
+where in (\eqn) we used the fact that each $\v_i$ is an eigenvector
+with eigenvalue $\lambda_i$.  Now multiply (\EqA) by $\lambda_1$
+and subtract from (\EqnB).  We get
+\nexteqn
+$$
+0 = c_2(\lambda_2 - \lambda_1)\v_2 + \dots + c_k(\lambda_k - \lambda_1)\v_k.
+\tag\eqn
+$$
+Not all the coefficients on the right in this equation are zero.
+For at least one of the $c_i \not = 0$ (since $\v_1 \not=0$),
+and none of the quantities $\lambda_2 - \lambda_1, \dots 
+\lambda_k - \lambda_1$ is zero.   It follows that (\eqn)
+may be used to express one
+of the vectors $\v_2, \dots, \v_k$ as a linear combination of the
+others.  However, this contradicts the assertion that the set
+of vectors appearing on the right is linearly independent.
+Hence, our initial assumption that the set
+$\{\v_1, \v_2, \dots, \v_k\}$ is dependent must be false,
+and the theorem is proved. 
+
+You should try this argument out on a set $\{\v_1, \v_2, \v_3\}$
+of three eigenvectors to see if you understand it.
+ \qed\enddemo
+
+\subhead Historical Aside \endsubhead
+The concepts discussed here and in Section 2
+ were invented by the 19th century English mathematicians Cayley
+and Sylvester, but they used the terms `characteristic vector'
+and `characteristic value'.   These were translated into German
+as `Eigenvector' and `Eigenwerte', and then partially translated
+back into English---largely by physicists---as `eigenvector'
+and `eigenvalue'.   Some English and American mathematicians tried
+to retain the original English terms, but they were overwhelmed
+by extensive use of the physicists' language in applications.  Nowadays
+everyone uses the German terms.   The one exception is that we
+still call
+$$
+\det(A - \lambda I) = 0
+$$
+the characteristic equation and not some strange German-English
+name. 
+\medskip
+\subhead Application to Homogeneous Linear Systems of Differential Equations
+\endsubhead
+What lessons can we learn for solving systems of differential equations
+from the previous discussion of eigenvalues?   First, Theorem \cn.\tn\ 
+assures us that if the $n\times n$ matrix $A$ has distinct eigenvalues
+$\lambda_1, \lambda_2, \dots, \lambda_k$ corresponding to
+eigenvectors $\v_1, \v_2, \dots, \v_k$, then the 
+functions
+$$
+\x_1= e^{\lambda_1t}\v_1,\,\x_2 = e^{\lambda_2t}\v_2, \dots, 
+\x_k = e^{\lambda_kt}\v_k
+$$
+form a linearly independent set of solutions of
+$\dfrac{d\x}{dt} = A\x$.   If $k=n$ then
+this set will be a basis for the space of solutions of
+$\dfrac{d\x}{dt} = A\x$.  (Why?)
+
+\example{Example \en a}  Consider the system
+$$
+\frac{d\x}{dt} =
+     \bm 1 & 4 & 3 \\
+         4 & 1 & 0 \\
+         3 & 0 & 1 \em \x.
+$$
+We found that $\lambda_1 = 6, \lambda_2 = 1, \lambda_3 = -4$
+are eigenvalues of the coefficient matrix corresponding to
+eigenvectors
+$$
+\v_1 = \bm\format\r\\5\\4\\3\em,\,
+\v_2 = \bm\format\r\\0\\-3\\4\em,\,
+\v_3 = \bm\format\r\\-5\\4\\3\em.
+$$
+Since $k = 3$ in this case, we conclude that the general solution
+of the system of differential equations is
+$$
+\x =
+c_1e^{6t}
+ \bm\format\r\\5\\4\\3\em +
+c_2e^{t}
+ \bm\format\r\\0\\-3\\4\em +
+c_3e^{-4t}
+ \bm\format\r\\-5\\4\\3\em.
+$$
+\endexample
+
+The above example illustrates that 
+we should ordinarily look for a linearly independent set of eigenvectors,
+as large as possible,
+for the $n\times n$ coefficient matrix $A$.  If we can find such a set with $n$
+elements,
+then we may write out a complete solution 
+as in the example.  The condition that there is a linearly independent set
+of $n$ eigenvectors for $A$, i.e., that {\it there is a basis for
+$\R^n$ ($\C^n$ in the complex case) consisting of eigenvectors for
+$A$\/}, will certainly be verified if there are $n$ distinct
+eigenvalues  (Theorem \cn.\tn).   We shall see later that there are 
+other circumstances in which it holds.  On the other hand, it is easy to find
+examples where it fails.
+
+\nextex
+\example{Example \en}
+Consider the $2\times 2$ system
+$$
+\frac{d\x}{dt} = \bm 2 & 3 \\ 0 & 2 \em \x.
+$$
+The eigenvalues are found by solving the characteristic equation
+of the coefficient matrix
+$$
+\det \bm 2 - \lambda & 3 \\ 0 & 2- \lambda \em
+ = (2 - \lambda)^2 = 0.
+$$
+Hence there is only one (double) root $\lambda = 2$.  To find
+the corresponding eigenvectors, solve
+$$
+\bm 0 & 3 \\ 0 & 0 \em \v = 0.
+$$
+This one is easy, (but you can make it hard for yourself if
+you get confused about Gauss-Jordan reduction).  The general solution
+is
+$$
+v_2 = 0,\qquad v_1\quad\text{free}.
+$$
+Hence, the general solution vector is
+$$
+\v = \bm v_1\\ 0\em = v_1\bm 1\\ 0 \em.
+$$
+Hence, a basic eigenvector for $\lambda = 2$ is 
+$$
+\v_1 = \bm 1\\ 0 \em = \e_1.
+$$
+$\{\v_1\}$ is certainly not a basis for $\R^2$. 
+\endexample
+
+In the sections that follow, we shall be concerned with these
+two related questions.  Given an $n\times n$ matrix $A$, when 
+can we be sure that there is a basis
+for $\R^n$ ($\C^n$ in the complex case) consisting of eigenvectors
+for $A$?   If there is no such basis, is there another way to
+solve the system $d\x/dt = A\x$?
+
+\subhead Solving Polynomial Equations \endsubhead
+To find the eigenvalues of an $n\times n$ matrix, you have
+to solve a polynomial equation.  You all know how to solve
+quadratic equations, but you may be stumped by cubic or
+higher equations, particularly if there are no obvious
+ways to factor.  You should review what you learned in high
+school about this subject, but here are a few guidelines
+to help you.
+\outind{polynomial equations}%
+
+First, it is not generally possible to find a simple solution
+in closed form for an algebraic equation.   For most equations
+you might encounter in practice, you would have to use
+some method to approximate a solution.  (Many such methods exist.
+One you may have learned in your calculus course is
+{\it Newton's Method\/}.)   Unfortunately, an approximate
+solution of the characteristic equation isn't much good for
+finding the corresponding eigenvectors.  After all, the
+system
+$$ (A - \lambda I)\v = 0 $$
+must have rank smaller than $n$ for there to be non-zero solutions.
+If you replace the exact value of $\lambda$  by an approximation,
+the chances are that the new system will have rank $n$.  Hence,
+the textbook method we have described for finding eigenvectors
+won't work.  There are in fact many alternative methods for
+finding eigenvalues and eigenvectors approximately when exact
+solutions are not available.   Whole books are devoted to
+such methods.  (See {\it Johnson, Riess, and Arnold\/} or
+{\it Noble and Daniel\/} for some discussion of these matters.)  
+
+Fortunately, textbook  exercises and examination questions
+ almost always involve characteristic equations for
+which exact solutions exist, but it is not always obvious what
+they are.   Here is one  fact (a consequence of an
+important result called {\it Gauss's Lemma\/}) which helps us
+find such exact solutions when they exist.  Consider an
+equation of the form
+$$
+\lambda^n + a_1\lambda^{n-1} + \dots + a_{n-1}\lambda + a_n = 0
+$$
+where all the coefficients are {\it integers}.   (The
+characteristic equation of a matrix always has leading coefficient
+1 or $-1$.  In the latter case, just imagine you have
+multiplied through by $-1$
+to apply the method.)   Gauss's Lemma tells us that if this
+equation has any roots which are {\it rational numbers\/},
+i.e., quotients of integers, then any such root is actually
+an integer, and, moreover, it must divide the constant term
+$a_n$.  Hence, the first step in solving such an equation should
+be checking all possible factors (positive and negative)
+of the constant term.  Once, you know a root $r_1$, you can divide through
+by $\lambda - r_1$ to reduce to a lower degree equation.
+If you know the method of synthetic division, you will find
+checking the possible roots and the polynomial long division 
+much simpler.
+
+\nextex
+\xdef\ExBB{\en}
+\example{Example \en}
+Solve 
+$$
+\lambda^3 -3\lambda  + 2 = 0.
+$$
+If there are any rational roots, they must be factors of the
+constant term 2.  Hence, we must try $1, -1, 2, -2$.  Substituting
+$\lambda = 1$ in the equation yields 0, so it is a root.
+Dividing $\lambda^3 - 3\lambda + 2$ by $\lambda - 1$ yields
+$$
+\lambda^3 - 3\lambda + 2 = (\lambda - 1)(\lambda^2 + \lambda -2)
+$$
+and this may be factored further to obtain
+$$\lambda^3 - 3\lambda^2 + 2 = (\lambda - 1)(\lambda -1)(\lambda + 2)
+ = (\lambda - 1)^2(\lambda + 2).
+$$
+Hence, the roots are $\lambda = 1$ which is a double root and
+$\lambda = -2$.
+\medskip
+\subhead Eigenvalues and Eigenvectors for Function Spaces \endsubhead
+The concepts of eigenvalue and eigenvector make sense for
+a linear operator $L$ defined on any vector space $V$, i.e.,
+$\lambda$ is an eigenvalue for $L$ with eigenvector $\v$
+if
+$$
+L(\v) = \lambda \v\qquad\text{with } \v \not= \bold 0.
+$$
+If the vector space $\V$ is not finite dimensional, then the
+use of the characteristic equation and the other methods introduced
+in this section do not apply, but the concepts are still very
+useful, and other methods may be employed to calculate them.
+
+In particular, eigenvalues and eigenvectors arise naturally
+in the function spaces which occur in solving
+differential equations, both ordinary and partial.  Thus, if
+you refer back to the analysis of the vibrating drum
+problem in Chapter IX, Section 2, you will recall that the
+process of separation of variables led to equations of
+the form
+$$
+\align
+\Theta'' &= \mu \Theta \\
+R'' + \frac 1r R' - \frac{m^2}{r^2} &= \gamma R
+\qquad\text{where } \mu = -m^2.
+\endalign $$
+Here I took some liberties with the form of the equations in
+order to emphasize the relation with eigenvalues and eigenvectors.
+In each case, the equation has the form  $L(\psi) = \lambda\psi$
+where $\psi$ denotes a function, and $L$ is an appropriate
+differential operator:  
+$$
+\align
+L &=  \frac{d^2}{d\theta^2}\\
+L &= \frac{d^2}{dr^2}+ \frac 1r\frac d{dr} -\frac{m^2}{r^2}.
+\endalign 
+$$ 
+There is one subtle but crucial point here.  The allowable
+functions  $\psi$ in the domains of these operators are not
+arbitrary but have {\it other conditions\/} imposed on them
+by their interpretation in the underlying physical problem.
+Thus, we impose the periodicity condition $\Theta(\theta + 2\pi)
+= \Theta(\theta)$ because of the geometric meaning of the
+variable $\theta$, i.e.,  the domain of the operator
+$L = \dfrac{d^2}{d\theta^2}$ is restricted to such periodic
+functions.   The eigenvalue--eigenvector condition
+$L(\Theta) = \mu \Theta$ amounts to a differential equation
+which is easy to solve---see Chapter IX, Section 2---but the
+periodicity condition limits the choice of the
+eigenvalue $\mu$ to numbers
+of the form $\mu = -m^2$ where $m$ is a non-negative integer.
+The corresponding eigenvectors (also called appropriately
+eigenfunctions) 
+\outind{eigenfunction}%
+are the corresponding solutions of the differential equation
+given by
+$$\Theta(\theta) = c_1\cos m\theta + c_2\sin m\theta.$$
+Similarly, the allowable functions $R(r)$ must satisfy
+the boundary condition $R(a) = 0$.
+Solving the
+eigenvalue--eigenvector problem $L(R) = \gamma R$ 
+in this case amounts to  solving Bessel's equation and
+finding the eigenvalues $\gamma$ comes down to finding roots
+of Bessel functions.
+
+This approach is commonly used in the study of partial differential
+equations, and you will go into it thoroughly in your course
+on Fourier series and boundary value problems.  It is also
+part of the formalism used to describe
+quantum mechanics.   In that theory, linear operators correspond to
+observable quantities like position, momentum, energy, etc.,
+and the eigenvalues of these operators are the possible
+results of measurements of these quantities.
+
+\bigskip
+\input chap11.ex5
+\bigskip
+
+\nextsec{Complex Roots}
+\head \sn.  Complex Roots \endhead
+Let $A$ be an $n\times n$ matrix.
+The characteristic equation
+$$
+\det(A  - \lambda I) = 0
+$$
+is a polynomial equation of degree $n$ in $\lambda$.   The 
+{\it Fundamental Theorem of Algebra\/} tells us that
+\outind{fundamental theorem of algebra}%
+such an equation has $n$ {\it complex\/} roots, at least
+if we count repeated roots with proper multiplicity.  
+Some  or all of these roots may be real, but even if $A$ is a real
+matrix, some of the roots may be non-real complex numbers.   For example,
+the characteristic equation of 
+$$A = \bm\format\r&\quad\r\\ 0 & -1 \\ 1 & 0 \em
+\qquad\text{is } \det\bm\format\r&\quad\r\\ -\lambda & -1 \\ 1 & \lambda\em
+= \lambda^2 +1 = 0
+$$
+which has roots $\lambda = \pm i$.
+ We want to see in general how the
+nature of these roots affects the calculation of the eigenvectors
+of $A$.
+\outind{complex eigenvalues}%
+\outind{eigenvalues, complex}%
+
+First, suppose that $A$ has some non-real complex entries, that
+is, not all its entries are real.
+
+\nextex
+%Advice to instructor Skip this example in class
+\example{Example \en}
+Consider
+$$
+A = \bm 0 & i \\ -i & 0 \em.
+$$
+The characteristic equation is
+$$
+\det \bm -\lambda & i \\ -i & -\lambda \em = \lambda^2 -(-i^2)
+   = \lambda^2 - 1 = 0.
+$$
+Thus the eigenvalues are $\lambda = 1$ and $\lambda = -1$.
+For $\lambda = 1$, we find the eigenvectors by solving
+$$
+\bm\format\r&\quad\r\\ -1 & i \\ -i & -1 \em
+\v = 0.
+$$
+Gauss-Jordan reduction yields
+$$
+\bm\format\r&\quad\r\\ -1 & i \\ -i & -1 \em
+\to 
+\bm\format\r&\quad\r\\ 1 & -i \\ 0 & 0 \em.
+$$
+(Multiply the first row by $i$ and add it to the second row; then
+change the signs in the first row.)  Thus the general solution is
+$$
+v_1 = i v_2,\qquad\qquad v_2\  \text{free}.
+$$
+A general solution vector is
+$$
+\v = \bm\format\r\\ v_2 i\\ v_2 \em = v_2 \bm\format\r\\ i\\ 1 \em
+$$
+Thus a basic eigenvector for $\lambda = 1$ is 
+$$\v_1 = \bm i \\ 1 \em.$$
+
+A similar calculations shows that a basic eigenvector for the
+eigenvalue $\lambda = -1$ is
+$$
+\v_2 = \bm\format\r\\ -i\\ 1\em.
+$$
+\endexample
+
+The above example shows that when some of the entries are non-real
+complex numbers,
+we should expect complex eigenvectors.   That is, the proper domain
+to consider is the complex vector space $\C^n$.
+
+Suppose instead that $A$ has only real entries.  It may still be
+the case that some of the roots of the characteristic equation
+are not real.  
+We have two choices.   We can consider only {\it real\/}
+roots as possible eigenvalues.  For such roots $\lambda$, we
+may consider only {\it real\/} solutions of the
+system
+$$
+(A - \lambda I)\v = 0.
+$$
+That is, we choose as our domain of attention the {\it real\/}
+vector space $\R^n$.  In effect, we act as if we don't know about
+complex numbers.
+Clearly, we will be missing something this way.  We will have a better
+picture of what is happening if we also consider the non-real complex
+roots of the characteristic equation.  Doing that will ordinarily
+lead to complex eigenvectors, i.e., to  the complex vector vector space
+$\C^n$.
+
+\nextex
+\example{Example \en}
+Consider 
+$$
+A = \bm\format\r&\quad\r\\ 2 & 1 \\ -2 & 0 \em.
+$$
+The characteristic equation is
+$$
+\det
+\bm 2-\lambda & 1 \\ -2 & -\lambda \em = \lambda^2 - 2\lambda +2 = 0.
+$$
+The roots of this equation are
+$$
+\frac{2 \pm \sqrt{4 - 8}}2 = 1 \pm i.
+$$
+
+Neither of these roots are real, so considering this a purely real
+problem in $\R^n$ will yield {\it no\/} eigenvectors.
+
+Consider it instead as a complex problem.   The eigenvalue $\lambda = 1 + i$
+yields the system
+$$
+\bm 1 - i & 1 \\ -2 & -1 - i \em\v = 0.
+$$
+Gauss-Jordan reduction (done carefully to account for the complex
+entries) yields
+$$\align
+\bm 1 - i & 1 \\ -2 & -1 - i \em
+&\to  \bm 1 & (1 + i)/2 \\ 1 - i & 1 \em
+\qquad\text{switch rows, divide by }-2\\
+&\to \bm1 & (1 +i)/2 \\ 0 & 0 \em.
+\endalign$$
+(The calculation of the last $2,2$-entry is
+$1 - (1 -i)\dfrac{(1 +i)}2 = 1 - 1 = 0$.)
+The general solution  is
+$$
+v_1 = -\frac{(1 + i)}2v_2\qquad v_2\quad\text{free}.
+$$
+The general solution vector is
+$$
+\v = v_2\bm -(1 + i)/2 \\ 1 \em.
+$$
+Putting $v_2 = 2$ to avoid fractions yields a basic eigenvector 
+$$
+\v_1 = \bm -1 - i\\ 2 \em
+$$
+for the eigenvalue $\lambda = 1 + i$.
+
+A similar calculation may be used to determine the eigenvectors for
+the eigenvalue $1 - i$.    However, there is a shortcut
+based on the fact that the second eigenvalue $1 - i$ is the
+{\it complex conjugate\/} $\overline\lambda$
+ of the first eigenvalue $1 + i$.
+To see how this works requires a short digression.
+\medskip
+Suppose $\v$ is an eigenvector with eigenvalue $\lambda$.  This means
+that
+$$
+A\v = \lambda \v.
+$$
+Now take the complex conjugate of everything in sight on both sides
+of this equation.  This yields
+$$
+\overline A\overline\v = \overline\lambda \overline\v.
+$$
+(Here, putting a `bar' over a matrix means that you should take the
+complex conjugate of every entry in the matrix.)  Since $A$
+is {\it real\/}, we have $\overline A = A$.  Thus, we have
+$$
+A\overline\v = \overline\lambda\overline\v.
+$$
+In words, {\it for a real $n\times n$ matrix,
+the complex conjugate of an eigenvector is also an eigenvector,
+and the eigenvalue corresponding to the latter is the complex
+conjugate of the eigenvalue corresponding to the former}.
+
+\medskip
+Applying this principle in Example \en\ yields
+$$
+\v_2 = \overline\v_1 = \bm -1 + i \\ 2 \em
+$$
+as a basic eigenvector for eigenvalue $\overline\lambda = 1 - i$.
+\endexample
+
+\subhead Application to Homogeneous Linear Systems of Differential
+Equations \endsubhead
+Given a system of the form  $\dfrac{d\x}{dt} = A\x$ where $A$
+is a real $n\times n$ matrix, we know from our previous work
+with second order differential equations that it may be
+useful to consider complex valued solutions $\x = \x(t)$.
+
+\example{Example \en, expanded}   Consider the system
+$$
+\frac{d\x}{dt} = \bm\format\r&\quad\r\\   2 & 1 \\ -2 & 0 \em \x.
+$$
+Since the roots of the characteristic equation of
+the coefficient matrix are complex, if we look for solutions
+$\x(t)$ taking values in $\R^2$, we won't get anything by
+the eigenvalue-eigenvector method.   Hence, it makes sense to
+look for solutions with values in $\C^2$.   Then, according to
+our previous calculations, the general solution will be
+$$
+\align
+\x &=c_1e^{\lambda t}\v_1 + c_2e^{\overline\lambda t}\overline\v_1 \\
+   &=
+c_1 e^{(1+i) t}
+\bm  -1 - i\\ 2 \em + c_2e^{(1 - i)t}\bm -1 + i \\ 2 \em.
+\endalign
+$$
+As usual, the constants $c_1$ and $c_2$ are arbitrary complex
+scalars.
+
+It is often the case in applications that the complex solution
+is meaningful in its own right, but there are also occasions
+where one wants a real solution.   For this, we adopt the
+same strategy we used when studying second order linear
+differential equations:  {\it take the real and imaginary parts
+of the complex solution}.  This will be valid if $A$ is real
+since if $\x(t) = \u(t) + i\v(t)$ is a solution
+ with $\u(t)$ and $\v(t)$ real, then we have
+$$\gather
+\frac{d\x}{dt} = A\x \\
+\frac{d\u}{dt} + i\frac{d\v}{dt} = A\u + iA\v
+\endgather$$
+so comparing real and imaginary parts on both sides, we
+obtain
+$$
+\frac{d\u}{dt} = A\u\qquad\text{and}\qquad \frac{d\v}{dt} = A\v.
+$$
+Note that we needed to know $A$ is real in order to know that
+$A\u$ and $A\v$ on the right are real.
+
+Let's apply this in Example \en.   One of the basic complex
+solutions is
+$$\align
+\x(t) &=  e^{(1+i) t}
+\bm  -1 - i\\ 2 \em = e^t(\cos t + i\sin t)
+\bm  -1 - i\\ 2 \em \\
+&= e^t\bm (\cos t + i\sin t)(-1 - i) \\ 2\cos t + i2\sin t \em \\
+ &=
+e^t\bm -\cos t  + \sin t -i(\sin t + \cos t)\\
+    2\cos t + i2\sin t \em \\
+&= e^t\bm -\cos t  + \sin t\\ 2\cos t \em
+ + ie^t\bm -(\sin t + \cos t)\\ 2\sin t\em.
+\endalign$$
+Thus, the real and imaginary parts are
+$$\align
+\u(t) &=  e^t\bm -\cos t  + \sin t\\ 2\cos t \em\\
+\v(t) &= e^t\bm -(\sin t + \cos t)\\ 2\sin t\em.
+\endalign$$
+These form a linearly independent set since putting $t = t_0 = 0$
+yields
+$$\align
+\u(0) &= \bm \format\r\\ -1\\ 2 \em \\
+\v(0) &= \bm \format\r\\ -1 \\ 0 \em
+\endalign$$
+and these form a linearly independent pair in $\R^2$.
+Hence, the general {\it real\/} solution of the system is
+$$
+\x = c_1 e^t\bm -\cos t  + \sin t\\ 2\cos t \em
++
+c_2 e^t\bm -(\sin t + \cos t)\\ 2\sin t\em
+$$
+where $c_1$ and $c_2$ are arbitrary real scalars.
+
+Note that if we had used the eigenvalue $\overline\lambda = 1 - i$
+and the corresponding basic 
+complex solution $\overline\x(t) = \u(t) - i\v(t)$ instead, we would
+have obtained the same thing except for the sign of
+one of the basic real solutions.
+\endexample
+
+The analysis in the example illustrates what happens in general.
+If $A$ is a {\it real\/} $n\times n$ matrix, then the roots of
+its characteristic equation are either real or come in {\it conjugate
+complex pairs\/} $\lambda, \overline\lambda$.    For real
+roots $\mu$, we can always find basic eigenvectors 
+in $\R^n$.
+For non-real complex roots $\lambda$, we need
+to look for basic eigenvectors in $\C^n$, but we may obtain the
+basic eigenvectors for $\overline\lambda$ by taking the conjugates of
+the basic eigenvectors for $\lambda$.  Hence, for each pair of
+conjugate complex roots, we need only consider one root in the
+pair in order to generate an independent pair of real solutions.
+
+We already know that if the eigenvalues are distinct then the
+corresponding set of eigenvectors will be linearly independent.
+Suppose that, for each pair of conjugate complex roots,
+we choose one root of the pair and take the real and imaginary
+parts of the corresponding basic eigenvectors.   If we throw
+in the basic real eigenvectors associated with the real
+roots, then the set obtained in this way is always a linearly
+independent subset of $\R^n$.   The proof of this fact is
+not specially difficult, but we shall skip it.   (See the
+Exercises for special cases.)
+\bigskip
+\input chap11.ex6
+\bigskip
+
+\nextsec{Repeated Roots and the Exponential of a Matrix}
+\head \sn. Repeated Roots and the Exponential of a Matrix \endhead
+
+We have noted that the eigenvalue-eigenvector method for solving
+the $n\times n$ system $\dfrac{d\x}{dt} = A\x$ succeeds
+if we can find a set of eigenvectors for $A$ which forms a basis
+for $\R^n$ or where necessary for $\C^n$.   Also, according to
+Theorem \cn.6,
+% Back reference
+this will always be the case if there are $n$ distinct eigenvalues.
+Unfortunately, we still have to figure out what to do if the
+characteristic equation has repeated roots.
+
+First, {\it we might be lucky\/}, and there might be a basis of
+eigenvectors of $A$.
+
+\nextex
+\example{Example \en}
+Consider the system
+$$
+\frac{d\x}{dt} = \bm\format\r&\quad\r&\quad\r\\
+                     1 & 1 & -1 \\
+                     -1 & 3 & -1 \\
+                     -1 & 1 & 1 \em \x.
+$$
+First solve the characteristic equation
+$$\multline
+\det \bm 1 - \lambda & 1 & -1 \\
+          -1 & 3 - \lambda & -1 \\
+          -1 & 1 & 1 - \lambda \em
+= \\
+(1 - \lambda)((3 - \lambda)(1 - \lambda) + 1)
+   + (1 - \lambda +1) - (-1 + 3 - \lambda)\\
+ = (1 - \lambda)(3 - 4\lambda + \lambda^2 + 1)  + 2 - \lambda
+  - 2 + \lambda \\
+ = (1 - \lambda)(\lambda^2 - 4\lambda + 4) \\ 
+= (1 - \lambda)(\lambda - 2)^2 =0.
+\endmultline$$
+Note that 2 is a repeated root.
+We find the eigenvectors for each of these eigenvalues.
+
+For $\lambda = 2$ we need to solve  $(A - 2I)\v = 0$.
+$$
+ \bm\format\r&\quad\r&\quad\r\\
+                     -1 & 1 & -1 \\
+                     -1 & 1 & -1 \\
+                     -1 & 1 & -1 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+                     1 & -1 & 1 \\
+                     0 & 0& 0 \\
+                     0 & 0& 0 \em.
+$$
+The general solution of the system  is
+$v_1 = v_2 - v_3$ with $v_2, v_3$ free.   The general solution
+vector for that system is
+$$
+\v = \bm v_2 - v_3 \\ v_2\\ v_3 \em = v_2\bm\format\r\\ 1\\ 1 \\ 0 \em
++ v_3 \bm\format\r\\ -1\\ 0 \\ 1 \em.
+$$
+The solution space is {\it two\/} dimensional.
+Thus, for the eigenvalue $\lambda = 2$ we obtain {\it two\/}
+basic eigenvectors
+$$
+\v_1 = \bm\format\r\\ 1\\ 1 \\ 0 \em,\qquad \v_2
+=  \bm\format\r\\ -1\\ 0 \\ 1 \em,
+$$
+and any eigenvector for $\lambda = 2$ is a non-trivial linear
+combination of these.
+
+For $\lambda = 1$, we need to solve $(A - I)\v = 0$.
+$$
+ \bm\format\r&\quad\r&\quad\r\\
+                     0 & 1 & -1 \\
+                     -1 & 2 & -1 \\
+                     -1 & 1 & 0 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+                     1 & -1 & 0 \\
+                     0 & 1 & -1 \\
+                     0 & 0 & 0 \em
+\to
+ \bm\format\r&\quad\r&\quad\r\\
+                     1 & 0 & -1 \\
+                     0 & 1 & -1 \\
+                     0 & 0 & 0 \em.
+$$
+The general solution of the system is
+$v_1 = v_3, v_2 = v_3$ with $v_3$ free.  The general solution
+vector 
+is
+$$
+\v = \bm v_3\\ v_3\\ v_3 \em = v_3\bm 1\\ 1\\ 1\em.
+$$
+The solution space is one dimensional, and a basic eigenvector for
+$\lambda = 1$ is
+$$
+\v_3 = \bm 1 \\ 1 \\ 1 \em.
+$$
+It is not hard to check that the set of these basic eigenvectors
+$$
+\left\{ \v_1 = \bm\format\r\\ 1\\ 1 \\ 0 \em,\, \v_2
+=  \bm\format\r\\ -1\\ 0 \\ 1 \em,\,\v_3 = \bm 1 \\ 1 \\ 1 \em\right\}
+$$
+is linearly independent, so it is a basis for $\R^3$.
+
+We may now write out the general solution of the system of
+differential equations
+$$
+\x = c_1e^{2t}\bm\format\r\\ 1\\ 1 \\ 0 \em + c_2e^{2t}\bm\format\r\\ -1\\ 0 \\ 1 \em
++ c_3e^t \bm 1 \\ 1 \\ 1 \em.
+$$
+\endexample
+
+Of course, we may not always be so lucky when we have
+repeated roots of the characteristic equation.   (See for example
+Example 2 in Section 5.)   Hence, we need some other method.
+It turns out that there is a generalization of the 
+eigenvalue-eigenvector method which always works, but it requires
+a digression.
+\medskip
+\subhead The Exponential of a Matrix \endsubhead
+Let $A$ be a constant $n\times n$ matrix.  We could try to
+solve $d\x/dt = A\x$ by the following nonsensical calculations
+$$
+\gather
+\frac{d\x}{dt} = A\x \\
+ \frac{d\x}{\x} = A\,dt \\
+\ln \x = At + c \\
+\x = e^{At}e^c = e^{At}C.
+\endgather$$
+Practically every line in the above calculation contains some
+undefined quantity.  For example, what in the world is $\dfrac{d\x}{\x}$?
+($\x$ is an $n\times 1$ column vector, so it isn't an invertible matrix.)
+Strangely enough something like this actually works, but one must
+first make some proper definitions. 
+   We start with
+the definition of `$e^{At}$'.
+
+Let $B$ be any $n\times n$ matrix.  We define
+$$
+e^B = I + B + \frac 12 B^2 + \frac 1{3!}B^3 + \dots + \frac 1{j!}B^j + \dots
+$$
+A little explanation is necessary.   Each term on the right is
+an $n\times n$ matrix.   If there were only a finite number of such
+terms, there would be no problem, and the sum would also be an
+$n\times n$ matrix.   In general, however, there are infinitely
+many terms, and we have to worry about whether it makes sense
+to add them up.
+\outind{exponential of a matrix}%
+\outind{matrix, exponential of}%
+
+\nextex
+\example{Example \en}  Let
+$$
+B = t\bm \format\r&\quad\r\\
+              0 & 1 \\
+             -1 & 0 \em.
+$$
+Then
+$$
+\align
+B^2 &= t^2\bm\format\r&\quad\r\\
+                   -1 & 0 \\ 
+                  0 & -1 \em \\
+B^3 &= t^3\bm\format\r&\quad\r\\
+                0 & -1 \\
+                1 & 0 \em \\
+B^4 &= t^4\bm\format\r&\quad\r\\
+                1 & 0 \\ 0 & 1 \em \\
+B^5 &= t^5\bm\format\r&\quad\r\\
+                0 & 1 \\
+              -1 & 0 \em \\
+&\vdots 
+\endalign$$
+Hence,
+$$\align
+e^B &= \bm 1 & 0 \\ 
+          0 & 1 \em
++t\bm\format\r&\quad\r\\
+         0 & 1 \\ -1 & 0 \em 
++\frac 12
+t^2\bm\format\r&\quad\r\\
+                 -1 & 0 \\
+                  0 & -1 \em 
++
+ \frac 1{3!}t^3\bm\format\r&\quad\r\\
+                0 & -1 \\
+                1 & 0 \em 
+ + \dots \\
+&= \bm 1 -\frac{t^2}2 +\frac{t^4}{4!} -\dots &
+      t - \frac{t^3}{3!} + \frac{t^5}{5!} - \dots \\
+   -t + \frac{t^3}{3!} - \frac{t^5}{5!} + \dots & 1 - \frac{t^2}2
++ \frac{t^4}{4!} - \dots \em  \\
+&= \bm \cos t & \sin t \\
+      -\sin t & \cos t \em.
+\endalign$$
+\endexample
+
+As in the example, a series of $n\times n$ matrices yields a
+separate  series for
+each of the $n^2$ possible entries. 
+  We shall say that such a series of matrices converges
+if the series it yields for each entry converges.   With this rule, it
+\outind{matrix series}%
+\outind{series of matrices}%
+is possible to show that the series defining $e^B$  converges
+for any $n\times n$ matrix $B$, but the proof is a bit involved.
+ Fortunately, as we shall see presently,
+we can usually avoid worrying about convergence by a trick.  
+In what follows we shall generally ignore such matters and act as if
+the series
+ were finite sums.
+
+The exponential function for matrices obeys the usual rules you
+expect an exponential function to have, but sometimes you have
+to be careful.
+
+\roster
+\item  If $0$ denotes the $n\times n$ zero matrix, then $e^0 = I$.
+\item  The law of exponents holds if the matrices commute, i.e.,
+if $B$ and $C$ are $n\times n$ matrices such that 
+$BC = CB$, then $e^{B + C} = e^Be^C$.
+\item  If $A$ is an $n\times n$ constant matrix, then
+$\dfrac{d}{dt}e^{At} = Ae^{At} = e^{At}A$.   (It is worth writing
+this in both orders because products of matrices don't automatically commute.)
+\endroster
+
+Here are the proofs of these facts.  
+\medskip
+(1)  $e^0 = I + 0 + \dfrac 12 0^2 + \dots = I$.
+\medskip
+(2)  See the Exercises.
+\medskip
+(3)  Here we act as if the sum were finite (although the argument
+would work in general if we knew enough about convergence of
+series of matrices.)
+$$\align
+\frac{d}{dt}e^{At} &=
+\frac{d}{dt}\left(I + tA + \frac 12 t^2 A^2 + \frac 1{3!}t^3A^3 +
+\dots + \frac 1{j!}t^jA^j + \dots\right) \\
+ &= 0 + A + \frac 12(2t) A^2  + \frac 1{3!}(3t^2)A^3  + \dots
++ \frac 1{j!}(jt^{j-1})A^j  + \dots \\
+ &= A + tA^2 + \frac 12 t^2A^3 + \dots + \frac 1{(j-1)!}t^{j-1}A^j + \dots \\
+ &= A(I + tA + \frac 12 t^2A^2 + \dots + \frac 1{(j-1)!}t^{j-1}A^{j-1}
++ \dots)\\
+ &= Ae^{At}.
+\endalign$$
+Note that  in the next to last step $A$ could just as well
+have been factored out on the right, so it doesn't matter which
+side you put it on.
+\medskip
+Rule (3) gives us a formal way to solve the system $\dfrac{d\x}{dt}
+= A\x$ when $A$ is a constant $n\times n$ matrix.  Namely, if
+$\v$ is any constant $n\times 1$ column vector, then
+$\x = e^{At}\v$ is a solution.  For,
+$$
+\frac{d\x}{dt} = \frac{d}{dt}e^{At}\v = Ae^{At}\v = A\x.
+$$
+Suppose $\{\v_1, \v_2, \dots, \v_n\}$ is any basis for
+$\R^n$ (or in the complex case for $\C^n$).   That gives us
+$n$ solutions
+$$
+\x_1 = e^{At}\v_1,\quad \x_2 = e^{At}\v_2,\quad \dots, \x_n =e^{At}\v_n.
+$$
+Moreover, these solutions form a linearly independent set of
+solutions (hence a basis for the vector space of all solutions)
+since when we evaluate at $t= 0$, we get
+$$
+\x_1(0) = e^0\v_1 = \v_1, \dots, x_n(0)=e^0\v_n = \v_n.
+$$
+By assumption, these form a linearly independent set of vectors
+in $\R^n$ (or $\C^n$ in the complex case).
+
+The simplest choices for basis vectors are the standard basis
+vectors
+$$
+\v_1 = \e_1, \v_2 = \e_2, \dots, \v_n = \e_n,
+$$
+(which you should recall are just the columns of the identity
+matrix).
+In this case, we have $\x_i(t) = e^{At}\e_i$, which is
+the $i$th column of the $n\times n$ matrix $e^{At}$.  Thus,
+\smallskip
+{\narrower\it
+the columns of $e^{At}$ always form a basis for the vector
+space of all solutions.}
+\smallskip
+\example{Example \en, revisited}  For the system
+$$
+\frac{d\x}{dt} = \bm\format\r&&\quad\r\\ 0 & 1 \\ -1 & 0 \em \x
+$$
+we have
+$$
+e^{At} = \bm\format\r&&\quad\r\\ \cos t & \sin t \\ -\sin t & \cos t \em
+$$
+so 
+$$
+\bm\format\r\\ \cos t \\ -\sin t \em\qquad\text{and}\qquad
+\bm\format\r\\ \sin t \\ \cos t \em
+$$
+form a basis for the solution space of the system.
+\endexample
+
+There is one serious problem with the above analysis.   Adding
+up the series for $e^{At}$ is usually not very easy.  Hence,
+the facts mentioned in the previous paragraphs are usually not
+very helpful if you want to write out an explicit solution.
+To get around this problem, 
+we rely on the observation that a proper choice of $\v$ can make the series
+$$\align
+e^{At}\v &= (I + tA \frac 12 t^2A^2 + \frac 1{3!}t^3A^3 + \dots )\v\\
+&= \v + t(A\v) + \frac 12 t^2(A^2\v) + \frac 1{3!}t^3(A^3\v) + \dots
+\endalign$$
+easier to calculate. 
+The object then is to pick $\v_1, \v_2, \dots, \v_n$ with this
+strategy in mind.
+
+For example, suppose $\v$ is an eigenvector for $A$ with
+eigenvalue $\lambda$.  Then
+$$\align
+A\v &= \lambda\v \\
+A^2\v &=A(A\v) = A(\lambda\v) = \lambda(A\v) = \lambda^2\v \\
+A^3\v &= \dots = \lambda^3\v \\
+ &\vdots
+\endalign$$
+In fact, if $\v$ is an eigenvector with eigenvalue $\lambda$,
+it follows that $A^j\v = \lambda^j\v$ for any $j = 0, 1, 2. \dots$.
+Thus,
+$$
+\align
+e^{At}\v &= \v + t(A\v) + \frac 12 t^2(A^2\v) + \frac 1{3!}t^3(A^3\v) + \dots\\
+&= \v + t(\lambda\v) + \frac 12 t^2(\lambda^2\V) +
+ \frac 1{3!}t^3(\lambda^3\v) + \dots \\
+&= (1 + t\lambda + \frac 12 t^2\lambda^2 + \frac 1{3!}t^3\lambda^3 + \dots)\v\\
+&= e^{\lambda t}\v.
+\endalign$$
+Thus, if $\v$ is an eigenvector with eigenvalue $\lambda$,  the series
+essentially reduces to the scalar series for $e^{\lambda t}$, and
+$$
+\x = e^{At}\v = e^{\lambda t}\v
+$$
+is exactly the solution obtained by the eigenvalue-eigenvector method.
+
+Even where we don't have enough eigenvectors, we may
+exploit this strategy as follows.  Let $\lambda$ be an
+eigenvalue, and write
+$$
+  A = \lambda I + (A - \lambda I).
+$$
+Then, since $A$ and $A - \lambda I$ commute, the law of exponents
+tells us that
+$$
+e^{At} = e^{\lambda I t}e^{(A - \lambda I)t}.
+$$
+However, as above,
+$$\align
+e^{\lambda I t} &= I + \lambda t I + \frac 12 (\lambda t)^2 I^2 +
+\frac 1{3!}(\lambda t)^3 I^3 + \dots \\
+&= e^{\lambda t}I.
+\endalign
+$$
+   Hence,
+$$
+e^{At} =  e^{\lambda t}Ie^{(A - \lambda I)t} = 
+e^{\lambda t}e^{(A - \lambda I)t}
+$$
+which means that calculating $e^{At}\v$ can be reduced to calculating
+the {\it scalar multiplier\/}  $e^{\lambda t}$ and
+the quantity $e^{(A - \lambda I)t}\v$.   However,
+\nexteqn
+$$
+\align
+e^{(A - \lambda I)t}\v &=
+(I +  t(A - \lambda I) + \frac 12 t^2(A - \lambda I)^2
+ + \dots + 
+\frac 1{j!}t^j (A - \lambda I)^j + \dots)\v \\
+&= \v +  t(A - \lambda I)\v + \frac 12 t^2(A - \lambda I)^2\v
+      + \dots +
+ \frac 1{j!}t^j (A - \lambda I)^j\v + \dots, \tag\eqn
+\endalign
+$$
+so it makes sense to try to choose $\v$ so that
+ $(A - \lambda I)^j\v$  vanishes for all $j$ beyond
+a certain point.    Then the series  (\eqn) will reduce to a finite
+sum. 
+ In the next section, we shall explore  a systematic method to
+do this.
+
+\bigskip
+\input chap11.ex7
+\bigskip
+
+\nextsec{Generalized Eigenvectors}
+\head \sn.  Generalized Eigenvectors \endhead
+
+Let $A$ be an $n\times n$ matrix, and let $\lambda$ be an
+eigenvalue for $A$.   Suppose moreover that $\lambda$ has
+multiplicity $m$ as a root of the characteristic equation
+of $A$.  Call any solution of the
+system
+$$
+(A - \lambda I)\v = 0.
+$$
+a {\it level 1 generalized
+eigenvector}.    These include all the usual eigenvectors plus
+the zero vector.   Similarly, consider the system
+\outind{eigenvector, generalized}%
+\outind{generalized eigenvector}%
+$$
+(A - \lambda I)^2\v = 0,
+$$
+and call any solution of that system a {\it level 2 generalized
+eigenvector}.   Continuing in this way, call any solution of the system
+$$
+(A - \lambda I)^j\v = 0
+$$
+a {\it level $j$ generalized eigenvector}.   We will also
+sometimes just use
+the term {\it generalized eigenvector\/} without
+explicitly stating the level.
+
+If  $\v$ is a level $j$ generalized eigenvector, then
+$$(A - \lambda I)^{j+1}\v = (A - \lambda I)(A - \lambda I)^j\v = 0
+$$
+so it is also a level $j + 1$ generalized eigenvector, and similarly
+for all higher levels.  Thus, one may envision first finding the
+level 1 generalized eigenvectors (i.e., the ordinary
+eigenvectors), then finding the level 2 vectors, which may constitute
+a larger set, then finding the level 3 vectors, which may consititute
+a still larger set, etc.   That we need not continue this process
+indefinitely is guaranteed by the following theorem.    
+
+\nextthm
+\proclaim{Theorem \cn.\tn}  Let $A$ be an $n\times n$ matrix,
+and suppose $\lambda$ is an eigenvalue for $A$ with multiplicity
+$m$.
+
+   (a) The solution space of $(A - \lambda I)^j\v = 0$
+for $j > m$ is identical with the solution space of
+$(A - \lambda I)^m\v = 0$.
+
+   (b) The solution space of $(A - \lambda I)^m\v = 0$
+has dimension $m$.
+\endproclaim
+
+Part (a) tells us that we need go no further than level $m$ in
+order to obtain {\it all\/} generalized eigenvectors of any
+level whatsover.   Part (b) tells us that in some sense there
+are `sufficiently many' generalized eigenvectors.   This will
+be important when we need to find a basis consisting of
+such vectors.
+
+We shall not attempt to prove this theorem here.   The proof is
+quite deep and closely related to the theory of the so-called
+{\it Jordan Canonical Form}.   You will
+probably encounter this theory
+if you take a more advanced course in linear algebra.
+
+\nextex
+\example{Example \en}
+Let
+$$
+A = \bm 1 & 2 & 0 \\
+        2 & 1 & 0 \\
+        0 & 1 & 3 \em.
+$$
+The eigenvalues of $A$ are obtained by solving
+$$\align
+\det \bm 1 -\lambda & 2 & 0 \\
+        2 & 1 -\lambda & 0 \\
+        0 & 1 & 3 -\lambda \em
+&= (1 - \lambda)((1 - \lambda)(3 - \lambda) - 0) - 2(2(3 - \lambda) - 0) + 0 \\
+&= (3 - \lambda)((1 - \lambda)^2 - 4) \\
+&= (3 - \lambda)(\lambda^2 - 2\lambda - 3) = -(\lambda - 3)^2(\lambda + 1).
+\endalign
+$$
+Hence, $\lambda = 3$ is a root of multiplicity 2 and $\lambda = -1$
+is a root of multiplicity 1.
+
+Let's find the generalized eigenvectors for each eigenvalue.
+
+For $\lambda = 3$, we need only go to level 2
+and solve $(A - 3 I)^2\v = 0$.
+We have
+$$
+(A - 3 I)^2 = 
+\bm\format\r&\quad\r&\quad\r\\
+      -2 & 2 & 0 \\
+      2 & -2 & 0 \\
+      0 & 1 & 0 \em^2 =
+\bm\format\r&\quad\r&\quad\r\\
+     8 &  -8 & 0 \\
+    -8 & 8 & 0 \\
+    2 & -2 & 0 \em,
+$$
+and Gauss-Jordan reduction yields
+$$
+\bm\format\r&\quad\r&\quad\r\\
+     8 &  -8 & 0 \\
+    -8 & 8 & 0 \\
+    2 & -2 & 0 \em
+\to
+\bm\format\r&\quad\r&\quad\r\\
+     1 &  -1 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0 \em.
+$$
+The general solution is $v_1 = v_2$ with $v_2, v_3$ free.
+The general solution vector is
+$$
+\v = \bm v_2\\v_2\\ v_2\em = v_2\bm 1\\ 1\\ 0 \em + v_3\bm 0\\ 0\\ 1\em.
+$$
+Hence, a basis for the subspace of generalized eigenvectors for the
+eigenvalue $\lambda = 3$ is
+$$
+\left\{\v_1 = \bm 1\\ 1\\ 0 \em,\, \v_2 = \bm 0\\ 0\\ 1\em\right\}.
+$$
+
+Theorem \cn.\tn\ tells us that we don't need to go further
+than level 2  for the eigenvalue $\lambda = 3$, but it is
+reassuring to check that explicitly in this case.
+Look for level 3 vectors by solving
+$(A - 3I)^3\v = 0$  ($j = m +1 = 3$).  We have
+$$
+(A - 3I)^3\v = \bm\format\r&\quad\r&\quad\r\\
+     -32 &  32 & 0 \\
+    32& -32 & 0 \\
+    -8 & 8 & 0 \em,
+$$
+and it is clear that solving this system gives us
+exactly the same solutions as solving $(A - 2I)^2\v = 0$.
+
+For $\lambda = -1$, the multiplicity is 1, and we need to solve
+$(A - (-1) I)^1\v = 0$.   Hence, finding the generalized
+eigenvectors for $\lambda = -1$ just amounts to finding the
+usual eigenvectors.
+$$
+\bm\format\r&\quad\r&\quad\r\\
+ 2 & 2 & 0 \\
+ 2 & 2 & 0 \\
+ 0 & 1 & 4 \em
+\to
+\bm\format\r&\quad\r&\quad\r\\
+ 1 & 0 & -4 \\
+ 0 & 1 & 4 \\
+ 0 & 0 & 0 \em.
+$$
+ The general solution is $v_1 = 4v_3, v_2 = -4v_3$, with $v_3$ free.
+The general solution vector is
+$$
+\v = \bm\format\r\\ 4v_3\\ -4v_3\\ v_3 \em
+= v_3\bm\format\r\\ 4\\ -4\\ 1 \em.
+$$
+Thus,
+$$
+\v_3 = 
+\bm\format\r\\ 4\\ -4\\ 1 \em
+$$
+forms a basis for the subspace of (generalized) eigenvectors for
+$\lambda = -1$.
+
+Put these basic generalized eigenvectors together in a set
+$$
+\left\{\v_1 = \bm 1\\ 1\\ 0 \em,\, \v_2 = \bm 0\\ 0\\ 1\em,
+\,
+\v_3 = 
+\bm\format\r\\ 4\\ -4\\ 1 \em
+\right\},
+$$
+It is not hard to check by the usual means that we get a basis for
+$\R^3$.
+\endexample
+
+
+What we observed in this example always happens.   If we find a basis
+for the subspace of generalized eigenvectors for each eigenvalue
+and put them together in a set, the result is always a
+linearly independent set.  (See the first appendix to this section if
+you are interested in a proof.)  If we are working in $\C^n$
+and using complex scalars, then the Fundamental Theorem of
+Algebra tells us that the 
+multiplicities of the roots of the characteristic
+equation  add up to $n$, the degree of the equation.
+Thus, the linearly independent set of basic generalized
+eigenvectors has the right number of elements for a basis, so
+it is a basis.  If we are working in $\R^n$ using real scalars,
+we will also get a basis in this way provided all the
+(potentially complex) roots of the characteristic equation
+are real.   However, if there are any non-real complex
+roots, we will miss the corresponding generalized eigenvectors
+by sticking strictly to $\R^n$.
+
+%% Material on diagonalizability added.
+\medskip
+\subhead Diagonalizable Matrices \endsubhead
+In the simplest case, that in which all generalized eigenvectors
+are level one, the matrix $A$ is said to be {\it diagonalizable\/}.
+\outind{diagonalizable}%
+In this case, there is a basis for
+$\C^n$ consisting of eigenvectors for $A$.   (If the eigenvalues
+and eigenvectors are all real, we could replace  $\C^n$ by
+$\R^n$ in this statement.)   This is certainly
+the easiest case to deal with, so it is not surprising that we
+give it a special name.   However, why we use the term
+`diagonalizable' requires an explanation.
+
+Suppose  $\{\v_1, \v_2,\dots,\v_n\}$ is a basis for $\C^n$ consisting
+of eigenvectors for  $A$.  Then we have
+$$
+A\v_i = \lambda_i \v_i = \v_i\lambda_i,\qquad i = 1,2,\dots, n
+$$
+where $\lambda_i$ is the eigenvalue associated with $\v_i$.
+(These eigenvalues need not be distinct.)   We may write this
+as a single matrix equation
+$$
+\align
+A\bm \v_1 & \v_2 & \dots &\v_n\em
+&= 
+\bm \v_1\lambda_1  & \v_2\lambda_2 & \dots &\v_n\lambda_n\em \\
+&=
+\bm \v_1 & \v_2 & \dots &\v_n\em
+\bm \lambda_1 & 0 & \cdots & 0 \\
+     0 & \lambda_2 & \cdots & 0 \\
+     \vdots & \vdots & \cdots & \vdots \\
+     0 & 0 & \cdots & \lambda_n \em.
+\endalign
+$$
+If we put
+$$
+  P = \bm \v_1 & \v_2 & \hdots & \v_n\em
+$$
+then this becomes
+$$
+AP = PD
+$$
+where $D$ is {\it a diagonal matrix with the eigenvalues of $A$ appearing
+on the diagonal}.  $P$ is an invertible matrix since its columns
+form a basis for $\C^n$, so the last equation can be written in turn
+$$
+P^{-1}AP = D \qquad\text{where $D$ is a diagonal matrix}.
+$$
+\example{Example}  In Example \DiagEx\ of Section \DiagExSec, we considered
+the matrix
+$$
+A = \bm 1 & 2 \\ 2 & 1 \em.
+$$
+The eigenvalues are $\lambda = 3$ and $\lambda = -1$.   Corresponding
+eigenvectors are
+$$
+\v_1 = \bm\format\r\\ 1\\ 1 \em, \qquad \v_2 = \bm\format\r\\ -1\\ 1\em
+$$
+and these form a basis for $\R^2$ so $A$ is diagonalizable.  Take
+$$
+  P = \bm\format\r&&\quad\r\\
+                1 & -1 \\ 1 & 1 \em.
+$$
+The theory predicts that  $P^{-1}AP$ should be diagonal.   Indeed,
+$$
+\align
+   \bm\format\r&&\quad\r\\
+             1 & -1 \\ 1 & 1 \em^{-1} 
+ \bm 1 & 2 \\ 2 & 1 \em
+   \bm\format\r&&\quad\r\\
+             1 & -1 \\ 1 & 1 \em 
+ &=  \frac 12
+   \bm\format\r&&\quad\r\\
+             1 & 1 \\ -1 & 1 \em 
+ \bm 1 & 2 \\ 2 & 1 \em
+   \bm\format\r&&\quad\r\\
+             1 & -1 \\ 1 & 1 \em 
+ \\
+ &= \frac 12 \bm\format\r&\quad\r\\ 3 & 3 \\ 1 & -1\em
+   \bm\format\r&&\quad\r\\
+             1 & -1 \\ 1 & 1 \em \\ 
+&= \frac 12
+   \bm\format\r&&\quad\r\\
+             6 & 0 \\ 0 & -2 \em 
+=   \bm\format\r&&\quad\r\\
+             3 & 0 \\ 0 & -1 \em.
+\endalign
+$$
+Note that the eigenvalues appear on the diagonal as predicted.
+ 
+\medskip
+\subhead Application to Homogeneous Linear Systems of Differential
+Equations \endsubhead
+
+Let $A$ be an $n\times n$ matrix and let $\v$ be a generalized
+eigenvector for the eigenvalue $\lambda$.  In this case,
+$e^{At}\v$ is specially easy to calculate.   Let $m$ be the
+multiplicity of $\lambda$.   Then we know that
+$(A - \lambda I)^j\v = 0$ for $j \ge m$ (and perhaps also for
+some lesser powers).   Then, as in the previous section,
+$$
+e^{At} = e^{\lambda t}e^{(A - \lambda I)t},
+$$
+but
+$$
+e^{(A - \lambda I)t}\v= \v + t(A - \lambda I)\v+
+\frac 12 t^2(A - \lambda I)^2\v + \dots +
+\frac 1{(m-1)!}t^{m-1}(A - \lambda I)^{m-1}\v
+$$
+since {\it all other terms in the series vanish}.   Hence,
+\nexteqn
+$$
+e^{At}\v
+ = e^{\lambda t}(\v +  t(A - \lambda I)\v+
+\frac 12 t^2(A - \lambda I)^2\v + \dots +
+\frac 1{(m-1)!}t^{m-1}(A - \lambda I)^{m-1}\v).\tag\eqn
+$$
+This gives us a method for solving a homogeneous system
+$\dfrac{d\x}{dt} = A\x$.  First find a basis
+$\{\v_1, \v_2, \dots, \v_n\}$
+ consisting of
+generalized eigenvectors.   (This may require working in $\C^n$
+rather than $\R^n$
+if some of the eigenvalues are non-real complex numbers.)   Then, the solutions
+$\x_i = e^{At}\v_i$ may be calculated by formula
+(\eqn), and together form a basis for the solution space.
+
+\example{Example \en a}  Consider the system
+$$
+\frac{d\x}{dt} = \bm 1 & 2 & 0 \\
+                      2 & 1 & 0 \\
+                      0 & 1 & 3 \em \x.
+$$
+Then, as we determined above,
+$$
+\left\{\v_1 = \bm 1\\ 1\\ 0 \em,\, \v_2 = \bm 0\\ 0\\ 1\em,\,
+\v_3 =\bm\format\r\\ 4\\ -4\\ 1 \em\right\}
+$$
+is a basis of $\R^3$ consisting of generalized eigenvectors of
+the coefficient matrix.  The first two correspond to the eigenvalue
+$\lambda = 3$ with multiplicity 2,
+ and $\v_3$ corresponds to the eigenvalue $\lambda = 1$ with multiplicity 1.
+For $\lambda = 3$, $m = 2$, so we only need terms up to the {\it first\/}
+power of $(A - 3I)$ in computing $e^{(A - 3I)t}\v$
+for $\v = \v_1$ or $\v = \v_2$.
+$$
+(A - 3 I)\v_1 =
+\bm\format\r&\quad\r&\quad\r\\
+      -2 & 2 & 0 \\
+      2 & -2 & 0 \\
+      0 & 1 & 0 \em  \bm 1\\ 1\\ 0 \em = \bm 0\\ 0\\ 1\em. 
+$$
+Thus
+$$
+\x_1 = e^{At}\v = e^{3t}\left(
+ \bm 1\\ 1\\ 0 \em + t\bm 0\\ 0\\ 1\em \right)
+  = e^{3t}\bm 1\\ 1\\ t\em.
+$$
+
+Similarly,
+$$
+(A - 3 I)\v_2 =
+\bm\format\r&\quad\r&\quad\r\\
+      -2 & 2 & 0 \\
+      2 & -2 & 0 \\
+      0 & 1 & 0 \em  \bm 0\\ 0\\ 1 \em = \bm 0\\ 0\\ 0\em 
+$$
+so $\v_2$ turns out to be
+an eigenvector.  Thus,
+$$
+\x_2 = e^{At}\v_2 = e^{3t}\v_2 = e^{3t}\bm 0\\ 0 \\ 1 \em.
+$$
+
+
+For the eigenvalue $\lambda = -1$, $\v_3$ is also an eigenvector,
+so the method also just gives the expected solution
+$$
+\x_3 = e^{At}\v_3 = e^{-t}\v_3 = e^{-t}\bm\format\r\\ 4\\-4\\1\em.
+$$
+
+It follows that the general solution of the system is
+$$
+\x = c_1 e^{3t}\bm 1\\ 1\\ t\em + c_2  e^{3t}\bm 0\\ 0 \\ 1 \em 
++ c_3e^{-t}\bm\format\r\\ 4\\-4\\1\em.
+$$
+
+The fact that 
+$\v_2$ and $\v_3$ are
+ eigenvectors  
+ simplifies the calculation of
+the solutions $\x_2$ and $\x_3$.  {\it This sort of
+simplification  often
+happens, so you should be on the lookout for it}.
+$\v_3$ is an eigenvector because the
+associated eigenvalue has multiplicity one, but it is
+a bit mysterious why $\v_2$ should be
+an eigenvector.
+However, this may be clarified somewhat
+if you note that $\v_2$  turns up
+ (in the process of finding $\x_1 = e^{At}\v_1$) as
+ $\v_2 = (A - 3I)\v_1$.  Thus, it is an eigenvector because
+ $(A - 3I)\v_2 = (A - 3I)(A - 3I)\v_1 = (A - 3I)^2\v_2 = 0$.
+\endexample
+
+\nextex
+\example{Example \en}
+Consider the linear system
+$$
+\frac{d\x}{dt} = 
+\bm\format\r&\quad\r\\
+ -3 & -1 \\ 1 & -1 \em \x.
+$$
+The characteristic equation is
+$$
+(3 + \lambda)(1 + \lambda) +1 = \lambda^2 + 4\lambda + 4
+ = (\lambda + 2)^2 = 0.
+$$
+Since $\lambda = -2$ is the only eigenvalue and its multiplicity
+is 2, it follows that {\it every element\/} of $\R^2$ is a generalized
+eigenvector for that eigenvalue.   Hence, $\{\e_1, \e_2\}$
+is a basis consisting of generalized eigenvectors.
+The first vector $\e_1$  leads to  the basic solution
+$$\align
+\x_1 &= e^{At}\e_1 = e^{-2t}e^{t(A + 2I)}\e_1
+   = e^{-2t}(I + t(A + 2I))\e_1\\
+    &= e^{-2t}(\e_1 + t(A + 2I)\e_1) =
+e^{-2t}\left(\bm 1\\ 0\em + 
+t\bm\format\r&\quad\r\\-1 & -1\\ 1 & 1\em\bm 1\\0\em\right) \\
+&= e^{-2t}\left(\bm 1\\ 0\em + t\bm\format\r\\ -1\\ 1\em\right)\\
+&= e^{-2t}\bm 1 -t\\ t\em.
+\endalign$$
+A similar calculation gives a second independent
+solution 
+$$
+e^{At}\e_2 = e^{-2t}\left(\bm 0\\1\em + t\bm\format\r\\ -1\\ 1\em\right) 
+ = e^{-2t}\bm -t\\ 1 + t\em.
+$$
+However,
+we may simplify things somewhat as follows. 
+Let
+$$
+  \v_2 = (A + 2I)\e_1 = \bm\format\r\\ -1\\ 1\em.
+$$
+Then, it is not hard to see that
+$$
+\left\{\e_1 = \bm 1\\ 0\em,\, \v_2 =  \bm\format\r\\ -1\\1\em \right\}
+$$
+is an  independent pair of vectors. Hence, it must also necessarily be
+a basis for $\R^2$.
+Using the basis $\{\e_1, \v_2\}$ rather than $\{\e_1, \e_2\}$
+seems superficially to make things harder,
+but we gain something by using it
+since 
+$$
+ (A + 2I)\v_2 = (A + 2I)(A + 2I)\e_1 = (A + 2I)^2\e_1 = 0.
+$$
+That is, $\v_2$ is an
+eigenvector for $\lambda = -2$.  
+Hence, we may use the {\it simpler\/} second solution
+$$
+\x_2 = e^{-2t}\v_2 = e^{-2t}\bm\format\r\\ -1\\1\em.
+$$ 
+Thus, 
+$$
+\align
+\x_1 &= e^{-2t}(\e_1 + t\v_2) = \bm \e_1 & \v_2 \em\bm e^{-2t}\\ te^{-2t}\em \\
+\x_2 &= e^{-2t}\v_2 = \bm \e_1 & \v_2 \em \bm 0\\ e^{-2t}\em
+\endalign
+$$
+form a basis for the solution space of the linear system of differential
+equations.
+\endexample
+
+\nextex
+\example{Example \en} Consider the system
+$$
+\frac{d\x}{dt} = \bm 2 & 0 & 0 \\
+                     1 & 2 & 0 \\
+                     0 & 1 & 2 \em\x.
+$$
+It is apparent that the characteristic equation is
+$-(\lambda - 2)^3 = 0$, so $\lambda = 2$ is the only root and
+has multiplicity 3.  Also,
+$$
+(A - 2I)^2 = \bm 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0\em^2
+  = \bm 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \em,
+$$
+and necessarily $(A - 2I)^3 = 0$.
+Hence, {\it every\/} vector is a generalized eigenvector for
+$A$ and
+$$
+\{\e_1, \e_2, \e_3\}
+$$
+is a perfectly good basis consisting of generalized eigenvectors.
+
+The solutions are determined as before.
+$$
+\align
+\x_1 &= e^{2t}\left(\e_1 + t\bm 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0\em
+\e_1 + \frac 12 t^2\bm 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \em\e_1\right)\\
+ &= e^{2t}\left(\bm 1\\ 0 \\ 0\em +t\bm 0 \\ 1 \\ 0 \em
++ \frac 12 t^2\bm 0 \\ 0 \\ 1\em\right) \\
+   &= e^{2t}\bm 1 \\ t\\ t^2/2\em 
+\endalign$$
+Similarly,
+$$\align
+\x_2 &= e^{2t}\left(\e_2 + t\bm 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0\em
+\e_2 + \frac 12 t^2\bm 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \em\e_2\right)\\
+ &= e^{2t}\left(\bm 0\\ 1 \\ 0\em +t\bm 0 \\ 0 \\ 1 \em
++ \frac 12 t^2\bm 0 \\ 0 \\ 0\em\right) \\
+   &= e^{2t}\bm 0 \\ 1\\ t\em 
+\endalign$$
+and
+$$\align
+\x_3 &= e^{2t}\left(\e_3 + t\bm 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 1 & 0\em
+\e_3 + \frac 12 t^2\bm 0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \em\e_3\right)\\
+ &= e^{2t}\left(\bm 0\\ 0 \\ 1\em +t\bm 0 \\ 0 \\ 0 \em
++ \frac 12 t^2\bm 0 \\ 0 \\ 0\em\right) \\
+   &= e^{2t}\bm 0 \\ 0\\ 1\em. 
+\endalign
+$$
+Note that 
+$\x_2$ only needs terms of degree 1 in
+$t$ and $\x_3$ doesn't even need those since $\e_3$ is actually
+an eigenvector.
+This is not surprising since
+$$
+\e_2 = (A - 2I)\e_1\qquad\text{so}\qquad (A - 2I)^2\e_2 = (A - 2I)^3\e_1 = 0
+$$
+and
+$$
+ \e_3 =(A - 2I)\e_2\qquad\text{so}\qquad (A - 2I)\e_3 = (A - 2I)^2\e_2 = 0.
+$$
+
+The general solution is
+$$
+\x = c_1e^{2t}\bm 1 \\ t\\ t^2/2\em
++ c_2 e^{2t}\bm 0 \\ 1\\ t\em
++ c_3 e^{2t}\bm 0 \\ 0\\ 1\em.
+$$
+\endexample
+
+It should be noted that if the matrix $A$ is diagonalizable, then
+for each eigenvalue $\lambda_i$,
+we need only deal with genuine eigenvectors
+$\v_i$, and the series expansion  $e^{(A - \lambda_i I)t}\v_i$ has
+only one term and
+reduces to  $I\v_i = \v_i$.   Thus, if $A$ is diagonalizable,
+the generalized eigenvector method just reduces to the ordinary
+eigenvector method discussed earlier.
+\medskip
+\subhead Appendix 1.  Proof of Linear Independence of the Set
+of Basic Generalized Eigenvectors \endsubhead
+You may want to skip this proof.
+
+Let $\lambda_1, \lambda_2, \dots, \lambda_k$ be distinct eigenvalues
+of the $n\times n$ matrix $A$.
+Suppose that, for each eigenvalue $\lambda_i$,
+we have chosen a basis for the subspace of solutions of
+the system $(A - \lambda_i I)^{m_i}\v = 0$, where $m_i$ is the multiplicity
+of $\lambda_i$.    Put these all together in a set $S$.   We shall
+prove that $S$ is a linearly independent set.    
+
+If not there
+is a dependence relation.   Rearrange this dependence relation
+so that on the left we have a non-trivial
+ linear combination of the basic generalized eigenvectors
+belonging to one of the eigenvalues, say it is $\lambda_1$, and on
+the other side we have a linear combination of basic
+generalized eigenvectors
+for the other eigenvalues.  Suppose this has the form
+\nexteqn
+$$
+\v_1 = \sum_{i=2}^k\u_i\tag\eqn
+$$
+where $\v_1\not=0$ is a generalized eigenvector for $\lambda_1$ and each
+$\u_i$ is a generalized eigenvector for $\lambda_i$ for $i= 2, \dots, k$.
+
+Since $\v_1$ is a generalized eigenvector for $\lambda_1$, we have
+$(A - \lambda_1I)^r\v_1 = 0$ for some $r > 0$.   
+Assume 
+$r$ is chosen to
+be the {\it least\/} positive power for which that is true.  Then
+$\v_1' = (A - \lambda_1I)^{r-1}\v_1 \not=0$ and
+$(A -\lambda_1I)\v_1' = (A- \lambda_1I)^r\v_1 = 0$, i.e.,
+$\v_1'$ is an eigenvector with eigenvalue $\lambda_1$.  (Note that
+$r = 1$ is possible, so this requires that $\v_1\not = 0$, which is true by
+assumption.)  Multiply
+both sides of equation (\eqn) by $(A - \lambda_1I)^{r-1}$.  On
+the left we get $\v_1'$.   On the right, each term 
+$\u_i' = (A - \lambda_1I)^{r-1}\u_i$ is still a generalized eigenvector
+for $\lambda_i$.  For,
+$$
+(A - \lambda_iI)^{m_i}(A - \lambda_1I)^{r-1}\u_i
+= (A - \lambda_1I)^{r-1}(A - \lambda_iI)^{m_i}\u_i = 0.
+$$
+(This used the rather obvious fact that polynomial expressions in
+the matrix $A$ commute with one another.)    The upshot of this argument
+is that we may assume that $\v_1$ in (\eqn) is an actual eigenvector
+for $\lambda_1$.  (Just replace $\v_1$ by $\v_1'$ and each $\u_i$
+by the corresponding $\u_i'$.)
+
+Now multiply equation (\eqn) by the product
+$$
+(A - \lambda_2I)^{m_2}(A - \lambda_3I)^{m_3}\dots (A - \lambda_kI)^{m_k}.
+$$
+Note as above that the 
+factors in the product commute with one another so the
+order in which the terms are written in not important.   Each $\u_i$
+on the right
+is a generalized eigenvector
+ for $\lambda_i$, so $(A -\lambda_iI)^{m_i}\u_i = 0$.
+ That means that the effect on the right
+of multiplying by the product is 0.  Consider the effect on the left.
+$\v_1$ is an eigenvector for $\lambda_1$, so   
+$$
+\align
+(A - \lambda_iI)\v_1 &= A\v_1 - \lambda_i\v_1 = \lambda_1\v_1 -\lambda_i\v_1
+                 = (\lambda_1 - \lambda_i)\v_1 \\
+(A - \lambda_iI)^2\v_1 &= (A - \lambda_iI)(A - \lambda_iI)\v_1 = 
+(A- \lambda_iI)(\lambda_1-\lambda_i)\v_1\\
+  &= (\lambda_1-\lambda_i)(A-\lambda_iI)\v_1
+  = (\lambda_1=\lambda_i)^2\v_1\\
+&\vdots \\
+(A - \lambda_i)^{m_i}\v_1 &= (\lambda_1 - \lambda_i)^{m_i}\v_1.
+\endalign$$
+Thus the effect of the product on the left is
+$$
+(\lambda_1 - \lambda_2)^{m_2}\dots (\lambda_1-\lambda_k)^{m_k}\v_1
+$$
+which is non-zero since the scalar multiplier is non-zero.   This
+contradicts the fact that the effect on the right is zero, so we
+have a contradiction from the assumption that there is a dependence
+relation among the basic generalized eigenvectors.
+
+\medskip
+\subhead Appendix 2.  Cyclic Vectors and the Jordan Form\endsubhead
+You may want to come back and
+ read this if you take a more advanced course in
+linear algebra.
+
+It is a bit difficult to illustrate everything that can
+happen when one computes solutions $e^{At}\v = e^{\lambda t}
+e^{(A- \lambda I)t}\v$ as $\v$ ranges over a basis of
+generalized eigenvectors, particularly since the degree is
+usually fairly small.   However, there is one phenomenon we
+encountered in some of the examples.
+It might happen that the system $(A - \lambda I)^2\v = 0$
+has some basic solutions of the form
+$$
+\v_1, \v_2 = (A - \lambda I)\v_1
+$$
+so $\v_2$ is an eigenvector.  Similarly, it might happen
+that $(A - \lambda I)^3\v = 0$ has some basic solutions of the form
+$$
+\v_1, \v_2 = (A - \lambda I)\v_1, \v_3 = (A - \lambda I)\v_2
+ = (A - \lambda I)^2\v_1.
+$$
+More generally, we might be able to find
+a generalized eigenvector $\v$ which satisfies 
+$(A - \lambda I)^r\v = 0$, where the set formed from
+\nexteqn
+$$
+\v, (A-\lambda I)\v, (A-\lambda I)^2\v, \dots, (A-\lambda I)^{r-1}\v\tag\eqn
+$$
+is linearly independent.
+In this case, $\v$ is called a
+{\it cyclic vector\/} for $A$ of order $r$.   Note that
+a cyclic vector of {\it order 1\/} is an {\it eigenvector}.
+
+ The theory of the {\it Jordan
+Canonical Form\/} asserts that it is {\it always\/} possible to
+find a basis of generalized eigenvectors formed from cyclic vectors 
+\outind{Jordan canonical form}%
+as in (\eqn).   The advantage of using a basis derived from cyclic
+vectors is that the number of terms needed in the expansion of
+$e^{(A - \lambda I)t}$ is kept to a minimum. 
+
+It sometimes happens in solving $(A - \lambda I)^m\v = 0$ (where
+$m$ is the multiplicity of the eigenvalue) that
+the solution method gives  a `cyclic' basis, but as we saw in
+examples it is not always the case.  The best case is
+that in which one of the basic
+generalized eigenvectors for $\lambda$ is cyclic of order $m$,
+i.e., it
+ does not satisfy
+a lower order system
+  $(A - \lambda I)^j\v = 0$ with $j < m$.  
+ However, it is quite possible
+that all cyclic vectors for a given
+eigenvalue have order smaller than $m$.  In that case
+it is necessary to use two or more cyclic vectors to generate
+a basis.
+  For example, for an eigenvalue $\lambda$ of multiplicity $m = 3$,
+ we could have
+a basis 
+$$
+\{\v_1, \v_2 = (A - \lambda I)\v_1, \v_3\}
+$$
+where $\v_1$ is a cyclic vector of order $2$ and $\v_3$ is
+a cyclic vector of order 1, i.e., it is an eigenvector.
+An even more extreme case would be a basis of eigenvectors,
+i.e., each basis vector would be a cyclic vector of
+order 1.  In general, it may be quite difficult to find
+a basis derived from cyclic vectors.
+\bigskip
+\input chap11.ex8
+\bigskip
+
+\endchapter
+\closeseg{chap11}
+\enddocument

@@ -1,0 +1,76 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 1
+\smallskip
+\Exer  Tell whether or not each of the differential forms
+$M(x,y)dx + N(x,y)dy$ below is exact.
+If it is exact, find a function $f$ such that 
+$df = M\,dx + N\,dy$.   (In each case the domain of the
+form is $\R^2$, so every closed form is exact.)
+
+(a) $(2x \sin y + y^3e^x)dx + (x^2\cos y + 3y^2e^x)dy$
+
+(b) $(\dfrac 12 y^2 - 2 y e^x) dx + (y - e^x) dy$
+
+(c) $(2xy^3) dx + (3x^2y^2) dy$
+\answer (a) The form is exact.  It is $d(x^2\sin y + y^3e^x)$.\par
+(b)  The form is not exact. \par
+(c)  The form is exact and equals $d(x^2y^3)$.
+
+
+\Exer  The variables need not be called $x$ and $y$.  In succeeding
+chapters, we will generally use $t$ and $y$.  In each of the
+following cases, check to see if the given form is exact, and if
+it is, find a function $f$ of which it is the differential.
+
+(a) $(3 ty + y^2) dt + (t^2 + ty) dy$
+
+(b) $x^2e^{tx}\, dt + (1 + xt)e^{tx}\, dx$.
+\answer  (a)  The form is not exact. \par
+(b)  The form is exact and equals $d(xe^{tx})$.
+
+\Exer  A differential form  $P(x,y,z)\,dx + Q(x,y,z)\,dy + R(x,y,z)\,dz$
+in $\R^3$ is called closed if
+$$
+\frac{\d R}{\d y} = \frac{\d Q}{\d z},\qquad
+\frac{\d R}{\d x} = \frac{\d P}{\d z},\qquad\text{and}\qquad
+\frac{\d Q}{\d x} = \frac{\d P}{\d y}.
+$$
+It is called exact if it is of the form $df$ for an appropriate
+function $f(x,y,z)$.
+What do each of these statements
+say about the corresponding vector field $\F(x,y,z) =
+P\i + Q\j + R\k$?  Give a condition on a domain $E$ in $\R^3$
+such that every closed form on $E$ will be exact.
+\answer The form is closed if $\nabla \times \F = \bold 0$.
+It is exact if $\F = \nabla f$ for some scalar field $f$, i.e.,
+if $\F$ is conservative.
+If the domain $E$ spans curves, then every closed form is
+exact.
+
+\Exer  Check that each of the following differential forms is closed and find a
+function $f$ such that it equals $df$.
+
+(a) $yz\,dx + xz\,dy + xy\,dz$.
+
+(b) $(y + x\cos(xt))\,dt + t\,dy + t\cos(xt)\,dx$. 
+\answer (a) The form is closed and equals $d(xyz)$.\par
+(b)  The form is closed and equals $d(yt + \sin(xt))$.
+
+\Exer Show that every differential form of the form
+$M(t)\,dt + N(y)\,dy$ is closed.   Show that it is also
+exact because it is the differential of the function
+$f(t,y) = A(t) + B(y)$ where $A(t)$ and $B(y)$ are 
+indefinite integrals
+$$
+A(t) = \int M(t)\,dt \qquad\text{and}\qquad B(y) = \int N(y)\,dy.
+$$
+\answer  We have
+$$\frac{\d f}{\d t} = \frac{\d (A(t) +  B(y))}{\d t}
+   = \frac{d A(t)}{d t} = M(t),
+$$
+and similarly $\dfrac{\d f}{\d y} = M(y)$.   Hence,
+$$
+df = \frac{\d f}{\d t} dt + \frac{\d f}{\d y} dy = M(t)dt + N(y)dy
+$$
+as required.  Note that since $f$ is exact, it is certainly closed.
+

@@ -1,0 +1,221 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 5
+\smallskip
+% 1
+\Exer   Find the eigenvalues and eigenvectors for each of the
+following matrices.  Use the method described above for solving
+the characteristic equation if it has degree greater than two.
+
+(a)  $\bm\format\r&&\quad\r\\
+           5 & -3 \\
+           2 & 0 \em$.
+
+(b)  $\bm\format\r&&\quad\r\\
+           3 & -2 & -2 \\
+           0 & 0 & 1\\
+           1 & 0 & -1 \em$.
+
+(c)  $\bm\format\r&&\quad\r\\
+           2 & -1 & -1 \\
+           0 & 0 & -2\\
+           0 & 1 & 3 \em$.
+
+(d)  $\bm\format\r&&\quad\r\\
+           4 & -1 & -1 \\
+           0 & 2 & -1\\
+           1 & 0 & 3 \em$.
+\answer In each case we give the eigenvalues and for each eigenvalue
+a basis consisting of one or more basic eigenvectors for that
+eignevalue.
+(a)
+$$
+\lambda = 2, \bm 1\\ 1\em\qquad \lambda = 3, \bm 3\\ 2\em.
+$$\par
+(b)
+$$\lambda = 2,\bm 6\\ 1\\ 2\em\qquad 
+\lambda = 1,\bm 2\\ 1\\ 1\em\qquad 
+\lambda = -1,\bm\format\r&&\quad\r\\ 0\\ -1\\ 1\em.
+$$\par
+(c) 
+$$
+\lambda = 2, \v_1 =\bm 1\\ 0\\ 0\em, \v_2 = \bm\format\r\\0\\-1\\1\em
+\qquad
+\lambda = 1, \bm\format\r&&\quad\r\\ -1\\ -2\\ 1\em.
+$$
+(d)
+$$
+\lambda = 3, \bm\format\r\\ 0\\ -1\\ 1\em.
+$$
+
+% 2
+\Exer  Taking $A$ to be each of the matrices in previous exercise,
+use the eigenvalue-eigenvector method to find a basis for
+the vector space of solutions of the system $\dfrac{d\x}{dt} = A\x$
+{\it if it works}.   (It works if in the previous exercise, you
+found a basis for $\R^n$ consisting of eigenvectors for the
+matrix.)
+\answer There is no such solution in part (d) since we didn't get
+a basis of eigenvectors for $\R^4$.\par
+(a)
+$$
+e^{2t}\bm 1\\ 1\em\,\qquad  e^{3t}\bm 3\\ 2\em.
+$$\par
+(b)
+$$
+e^{2t}\bm 6\\ 1\\ 2\em,\qquad 
+e^t\bm 2\\ 1\\ 1\em,\qquad 
+e^{-t}\bm\format\r\\ 0\\ -1\\ 1\em.
+$$\par
+(c)
+$$
+e^{2t}\bm 1\\ 0\\ 0\em,\qquad  e^{2t}\bm\format\r\\0\\-1\\1\em,
+\qquad
+e^t\bm\format\r\\ -1\\ -2\\ 1\em.
+$$
+
+% 3
+\Exer  Solve the initial value problem
+$$
+\frac{d\x}{dt} = \bm\format\r&&\quad\r\\
+			1 & -1 & 1 \\
+                        1 & -2 & -1 \\
+                        0 & 1 & 2 \em\x
+\qquad\text{where } \x(0) = \bm 2\\ 0\\ 4\em.
+$$
+Hint:  One of the eigenvalues is zero.
+\answer  The general solution is
+$$
+\x = c_1\bm\format\r\\ -3\\-2\\ 1\em + c_2e^{2t}\bm 1\\ 0\\ 1\em
++ c_3e^{-t}\bm\format\r\\-2\\-3\\1\em.
+$$
+To find the $c_i$, solve the system
+$$
+\bm\format\r&&\quad\r\\ -3 & 1 & -2\\ -2 & 0 & -3\\ 1 & 1 & 1\em\c
+= \bm 2\\ 0\\ 4\em.
+$$
+The solution is $c_1 =2, c_2 = \dfrac{10}3, c_3 = -\dfrac 43$.
+
+%%% Put in a 4\times 4 example.
+
+% 4
+\Exer  Show that zero is an eigenvalue of the square matrix $A$
+if and only if $\det A = 0$, i.e., if and only if $A$ is
+singular.
+\answer  The eigenvalues of $A$ are the roots of the equation
+$\det (A - \lambda I) = 0$.   If $\lambda = 0$ is a root of
+this equation, then $\det(A - 0\,I) = 0$, i.e., $\det A = 0$.
+
+% 5
+\Exer  Let $A$ be a square matrix, and suppose $\lambda$
+is an eigenvalue for $A$ with eigenvector $\v$.   Show that
+$\lambda^2$ is an eigenvalue for $A^2$ with eigenvector
+$\v$.   What about $\lambda^n$ and $A^n$ for $n$ a positive
+integer?
+\answer  Mutliply $A\v = \lambda \v$ by $A$.  We get
+$$
+A^2\v = A(A\v) = A(\lambda \v) = \lambda A\v = \lambda(\lambda \v)
+  = \lambda^2\v.
+$$
+In general, $A^n\v = \lambda^n\v$.
+
+% 6
+\Exer  Suppose $A$ is non-singular.  Show that $\lambda$
+is an eigenvalue of $A$ if and only if $\lambda^{-1}$
+is an eigenvalue of $A^{-1}$.  Hint.  Use the same eigenvector.
+\answer  $A\v = \lambda \v$ implies that
+$$
+\v = A^{-1}A\v = A^{-1}(\lambda\v) = \lambda A^{-1}\v.
+$$
+Since $A$ is non-singular,  $\lambda \not= 0$ by a problem above,
+so we may divide through by $\lambda$ to obtain
+$\lambda^{-1}\v = A^{-1}\v$.   This just says $\lambda^{-1}$
+is an eignevalue for $A^{-1}$.
+
+% 7
+\Exer (a) Show that $\det(A - \lambda I)$ is a quadratic polynomial in
+$\lambda$ if $A$ is a $2\times 2$ matrix.
+
+(b)  Show that $\det(A - \lambda I)$ is a cubic polynomial in $\lambda$
+if $A$ is a $3\times 3$ matrix.
+
+(c)  What would you guess is the coefficient of $\lambda^n$ in
+$\det(A - \lambda I)$ for $A$ an $n\times n$ matrix?  
+\answer  (a) amd (b) are done by expanding the determinants
+$$
+\bm a_{11} - \lambda & a_{12}\\ a_{21}& a_{22} - \lambda \em\qquad
+\bm a_{11} - \lambda & a_{12} & a_{13}\\
+ a_{21}& a_{22} - \lambda & a_{23}\\ a_{31} & a_{32} & a_{33} - \lambda \em.
+$$
+I leave the details to you.\par
+(c)  The coefficient of $\lambda^n$ is $(-1)^n$, i.e., it is 1 if $n$
+is even and $-1$ if $n$ is odd.
+
+% 8
+\Exer (Optional) Let $A$ be an $n\times n$ matrix with entries not involving
+$\lambda$.   Prove in general
+that $\det(A -\lambda I)$ is a polynomial in
+$\lambda$ of degree $n$.   Hint.
+Assume  $B(\lambda)$ is an $n\times n$ matrix such that
+each column  has at most one term involving $\lambda$ and that
+term is of the form $a + b\lambda$.  Show by using the recursive definition
+of the determinant that $\det B(\lambda)$  is a polynomial in $\lambda$
+of degree at most $n$.   Now use this fact and the recursive definition
+of the determinant to show that $\det(A - \lambda I)$ is a polynomial
+of degree exactly $n$.
+
+% 9
+\Exer  Solve the $2\times 2$ system in Example 2
+$$
+\align
+\frac{dx_1}{dt} &= 2x_1 + 3x_2 \\
+\frac{dx_2}{dt} &= 2x_2
+\endalign
+$$
+by solving the second equation and substituting back in the
+first equation.
+\answer  The general solution is
+$$
+\x(t) = c_1e^{2t}\bm 1\\ 0\em + c_2e^{2t}\bm 3t\\ 1\em.
+$$
+
+% 10
+\Exer  Consider the infinite dimensional vector space of all
+infinitely differentiable real valued functions  $u(x)$ defined
+for $0\le x \le a$ and satisfying $u(0) = u(a) = 0$.
+Let  $L = \dfrac{d^2}{dx^2}$.   Find the eigenvalues and
+eigenvectors of the operator $L$.   Hint:  
+A non-zero solution 
+of the differential equation  $u'' + \mu u = 0$
+such that $u(0) = u(a) = 0$ is an eigenvector (eigenfunction)
+with eigenvalue $\lambda = -\mu$.  
+You may assume for the purposes
+of the problem that $\lambda < 0$,
+i.e., $\mu > 0$.   
+\answer $L(u) = \lambda u$ means $u'' = \lambda u$ or
+Assume $\lambda \le 0$, and write $\mu = -\lambda$ where
+$\mu \ge 0$.   The equation becomes  $u'' + \mu u = 0$.
+A general solution 
+is $u = c_1\cos \sqrt\mu x + c_2\sin\sqrt \mu x$.
+We want a non-zero solution satisfying
+$u(0) = u(a) = 0$, i.e., 
+$$
+\align
+c_1  &= 0 \\
+c_1\cos \sqrt \mu a + c_2\sin \sqrt\mu a &= 0.
+\endalign
+$$
+Since $c_1 = 0$, there is a nonzero solution ($c_2 \not = 0$)
+ if and only if
+$\sin\sqrt\mu a = 0$, i.e., $\sqrt\mu a = k\pi$ where $k$ is
+an integer.   Thus,  $\mu = (k\pi/a)^2$ for some integer k.
+Hence, the possible eigenvalues are $-(k\pi/a)^2, k = 1,2,3,\dots$
+and corresponding basic eigenvectors are the functions $u_k$
+defined by $u_k(x) = \sin ((k\pi/a)x)$.\par
+The reason the eigenvalues are negative is that for $\lambda > 0$,
+the general solution of the equation $u'' -\lambda u = 0$
+has the form $u = c_1e^{\sqrt\lambda x} + c_2e^{-\sqrt\lambda x}$,
+and it is not hard to see that such a solution cannot vanish just
+at two points such as $x = 0$ and $x = a$.  A similar argument shows
+that there is no nonzero solution satisfying $u(0) = u(a) = 0$
+for $\lambda = 0$.
+

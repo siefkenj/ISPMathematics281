@@ -1,0 +1,135 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 6
+\smallskip
+% 1
+\Exer Find spherical coordinates for the points with
+the given rectangular coordinates:
+
+	(a) $P(0,0,-2)$.
+
+	(b) $P(-1,0,-1)$.
+
+	(c) $P(2,-3,5)$.
+
+	(d) $P(-2,0,1)$.
+\answer (a) $\rho = 2, \phi = \pi, \theta$ undefined.\par
+      (b) $\rho = \sqrt 2, \phi = \dfrac{5\pi}4, \theta = \pi$.\par
+      (c) $\rho = \sqrt{38}, \phi =\tan^{-1} \dfrac {\sqrt{13}}5,
+\theta =  -\tan^{-1}\dfrac{3}2$.\par
+      (d) $\rho = \sqrt 5, \phi = \tan^{-1}2,\theta = \pi$, 
+
+\Exer Identify the following graphs given in spherical coordinates:
+
+	(a) $\phi = \pi/2$.
+
+	(b) $\rho = 2$.
+
+	(c) $\rho = 2\sin \phi$.
+
+	(d) $\theta = \pi$.
+
+	(e) $\rho \sin\phi = 1$.
+\answer (a) The $x,y$-plane.  (b)  A sphere of radius 2, centered
+at the origin. \par
+(c)  Multiply by $\rho$ to get $\rho^2 = 2\rho\sin\phi = 2r$.
+In cylindrical coordinates, this becomes $(r-1)^2 + z^2 = 1$.
+The locus of that equation is the surface of revolution obtained
+by rotating the circle $(x-1)^2 + z^2 = 1$ in the  $x,z$-plane
+about the $z$-axis. \par
+(d)  The part of the $x,z$-plane with $x < 0$.
+(e)  The cylinder $x^2 + y^2 = 1$.
+
+\Exer Write equations in spherical coordinates for each of the following:
+	
+	(a) $x^2+y^2+z^2 =25$.
+
+	(b) $x+y+z=1$.
+
+	(c) $z^2=x^2+y^2$.
+	
+	(d) $z=4-x^2-y^2$.
+\answer (a) $\rho = 5$.\par
+(b)  $\rho\sin\phi\cos\theta  + \rho\sin\phi\sin\theta + \rho\cos\phi = 1$.
+\par
+(c) $\phi = \dfrac \pi 4$ together with $\phi = \dfrac{3\pi}4$.\par
+(d) $\rho\cos\phi = 4 - \rho^2\sin^2\phi$.
+
+\Exer    A sphere of radius $a$ centered at the origin has a cylindrical 
+            hole of radius $a/2$, centered on the $z$-axis drilled in it.
+Describe the solid region that remains by inequalities in spherical
+coordinates.   
+\answer  $\dfrac{a\csc\phi}2 \le \rho \le a,
+\dfrac \pi 6 \le \phi \le \dfrac{5\pi}6, 0\le\theta < 2\pi$.
+
+\Exer  Two points on the surface of a sphere of radius $R$ have
+co-latitude and longitude  $(\phi_1,\theta_1)$
+and $(\phi_2,\theta_2)$ respectively.  Show that the great
+circle distance between them is  $R\alpha$ where
+$$
+\cos\alpha = 
+\sin \phi_1 \sin \phi_2 (\cos(\theta_1 - \theta_2)) + \cos \phi_1\cos\phi_2.
+$$
+(The great circle determined by two points on a sphere is the circle
+of intersection of the sphere and the plane determined by the two points
+and the center of the sphere.)
+Use this fact to determine the great circle distance from your home
+town to London, given that London is at 51.5 degrees north latititude
+(co-latitude 38.5 degrees)
+and 0 degrees longitude.   (If you don't know the latitude and longitude
+of your home town, look it up.)
+\answer Vectors to the two points are
+$$\lb R\sin\phi_1\cos\theta_1,R\sin\phi_1\sin\theta_1,R\cos\phi_1\rb$$
+and
+$$\lb R\sin\phi_2\cos\theta_2,R\sin\phi_2\sin\theta_2,R\cos\phi_2\rb.$$
+If $\alpha$ is the angle between the vectors at the center of the
+sphere, its cosine is obtained by taking the dot product of the
+above vectors and dividing by $R^2$.   This simplifies to the
+indicated expression.  The length of the arc on the sphere
+is $R\alpha$.
+ 
+\Exer Find the mass and centroid of a solid hemisphere of radius $a$ if 
+    the density varies proportionally to the distance from the center, i.e.
+    $\delta = k\rho$. 
+\answer Mass is $\dfrac{\pi a^4 k}2$.  Centroid is $(0,0,2a/5)$.
+
+\Exer Find the volume of the intersection of the cylinder $r=1$ with the
+    sphere $\rho = 2$.  Find the mass and center of mass if $\delta=\rho^2$.
+\answer The volume is $\dfrac{4\pi}3(8-3\sqrt 3)$. 
+The mass is $\dfrac{8\pi}5(16- 7\sqrt 3)$.
+The center of mass is at $(0,0,0)$ by symmetry.
+The relevant integrals are harder to set up if you use
+spherical coordinates.  (The region divides up into three
+parts, but you can use symmetry and set up integrals for
+only two of these.)  You are probably better off using
+cylindrical coordinates.
+
+\Exer Find the mass and center of mass of the `ice cream cone' between
+    the cone $\phi = \pi/6$ and the sphere $\rho = 2$, if $\delta = 2\rho$.
+\answer The mass is $8\pi(2 - \sqrt 3)$.  The center of mass
+is at $(0,0,(4 + 2/\sqrt 3)/5)$.
+
+\Exer  Find the moment of inertia of the right circular cylinder given by
+$0 \le r \le 1$ and $0\le z \le \sqrt 3$ about the $z$-axis assuming
+constant density $\delta = 1$.  Use {\it spherical coordinates\/} even
+though it would be more natural to use cylindrical coordinates.  Hint:
+You will have to divide the region into two parts.
+\answer The first integral is
+$$
+\int_0^{2\pi}\int_0^{\pi/6}\int_0^{\sqrt 3\sec\phi}\rho^4\sin^3\phi\,d\rho
+\,d\phi\,d\theta = \frac{\sqrt 3\pi}{10}.
+$$
+The second integral is
+$$
+\int_0^{2\pi}\int_{\pi/6}^{\pi/2}\int_0^{\csc\phi}\rho^4\sin^3\phi\,d\rho
+\,d\phi\,d\theta = \frac{2\sqrt 3\pi}{5}.
+$$
+The sum of these is $\dfrac{\sqrt 3 \pi}2$.
+You should compare this with doing the problem in cylindrical
+coordinates.
+
+\Exer  Find the volume left in a sphere of radius $a$ centered at the
+origin if a cylindrical hole of radius $a/2$ centered on the $z$-axis is
+drilled out.  Do the problem in both cylindrical and spherical
+coordinates.
+\answer  $\dfrac{\pi a^3\sqrt 3}2$.
+

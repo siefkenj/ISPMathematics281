@@ -1,0 +1,152 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 3
+\smallskip
+% 1
+\Exer  Apply the integral test in each of the following cases
+to see if the indicated series converges or diverges.
+
+(a) $\sum_{n=1}^\infty \dfrac 1{3n+2}$
+
+(b) $\sum_{n=1}^\infty \dfrac 1{n^2 + 1}$.
+
+(c) $\sum_{n=1}^\infty \dfrac 1{\sqrt{2n +1}}$.
+
+(d) $\sum_{n=2}^\infty \dfrac 1{n \ln n}$.
+
+(e) $\sum_{n=1}^\infty \dfrac{\ln n}{n^3}$.
+\answer (a) Diverges.  (b)  Converges.  (c)  Diverges.  (d) Diverges.
+(e) Converges.
+
+% 2
+\Exer  Why doesn't the integral test apply to each of the following
+series?
+
+(a)  $\sum_{n=1}^\infty (-1)^{n+1}\dfrac 1n$.
+
+(b)  $\sum_{n=1}^\infty \dfrac n{n+1}$.
+\answer (a)   The terms are not all positive.   \par
+(b)  The terms don't decrease and the limit of the general term is not
+zero.
+
+% 3
+\Exer  Apply one of the two comparison tests to determine if each
+of the following series converges or diverges.
+
+(a) $\sum_{n=1}^\infty \dfrac 1{3n+2}$
+
+(b) $\sum_{n=1}^\infty \dfrac 1{n^2 + 1}$.
+
+(c) $\sum_{n=1}^\infty \dfrac 1{\sqrt{2n +1}}$.
+
+(d) $\sum_{n=2}^\infty \dfrac {\ln n}n$.
+
+(e) $\sum_{n=1}^\infty \dfrac{\ln n}{n^3}$.
+\answer (a)  Use the limit comparison test and compare with $\sum 1/n$.
+The series diverges. \par
+(b) Use either the comparison test or the limit comparison test with
+$\sum 1/n^2$.   The series converges. \par
+(c)  Use the limit comparison test with $\sum 1/n$.  The series
+diverges. \par
+(d)   Use the comparison test with $\sum 1/n$.   The series diverges.\par
+(e)    Use the comparison test with $\sum 1/n^2$.  Note that
+$\ln n/n < 1$.  The series converges.
+
+
+% 4
+\Exer  Determine if each of the following series converges or diverges
+by applying one of the tests discussed in this section.
+
+(a) $\sum_{n=1}^\infty \dfrac{n +1}{n^3 + 3n + 1}$.
+
+(b) $\sum_{n=1}^\infty \dfrac{n^2 + 2n + 2}{n^3 + n + 2}$.
+
+(c) $\sum_{n=1}^\infty \dfrac 1{2n - 1}$.
+
+(d) $\sum_{n=1}^\infty \dfrac{n}{e^n}$.
+
+(e) $\sum_{n=1}^\infty \dfrac{1 + \sin nt}{n^2}$ where $t$ is
+a real number.
+\answer (a)  The integral test might work with considerable effort.
+The easiest thing to do would be to apply the limit comparison test
+and compare with $\sum 1/n^2$.  The series converges. \par
+(b)  Ditto, except compare with $\sum 1/n$.  The series diverges.\par
+(c)  Ditto.  The series diverges.\par
+(d)  Use the integral test.  The series converges. (You could also use
+the limit comparison test and compare with $\sum (1/\sqrt e)^n$ which
+is a geometric series which converges.)\par
+(e)  Use the comparison test and compare with $2\sum 1/n^2$.  The
+series converges.
+
+% 5
+\Exer (a) Estimate the error we make in calculating $\sum_{n=1}^\infty
+\dfrac 1{n^3}$ if we stop after 1000 terms.
+
+(b) Estimate the least number of terms we need to use to
+calculate $\sum_{n=1}^\infty \dfrac 1{n^3}$  accurately to
+within $5\times 10^{-16}$.  (This is close to but not the same
+as asking that it be accurate to 15 decimal places.)   
+\answer  (a)  $\dfrac 1{2(1001)^2} < R_{1000} < \dfrac 1{2(1000)^2}$
+so  $4.99\times 10^{-5} < R_n < 5\times 10^{-5}$.\par
+(b) $\dfrac 1{2(n+1)^2} < R_n < \dfrac 1{2n^2}$.  For $n$ large
+the upper an lower limits will be very close together, so
+we look for $n$ such that
+$\dfrac 1{2n^2} < 5\times 10^{-16}$, i.e., 
+ $n^2 > 10^{15}$.  In particular, $n > \sqrt{10}\times 10^7$ or
+$n = 316227767$ will do.  Note that in this case the error lies
+between $4.999999874\times 10^{-16}$ and $5.00000019\times 10^{-16}$.
+
+% 6
+\Exer (a) Estimate how many terms of the series $\sum_{n=1}^\infty \dfrac 1
+{n(n+1)}$ are necessary to calculate the sum accurately to with
+$5\times 10^{-6}$.
+(This will require a little work because you have
+to find $\int \dfrac{dx}{x(x+1)}$.
+
+(b)  Write a computer program to do the calculation.   See what you
+get and compare it to the true answer which you know to be 1.
+(See Section 2.)
+\answer (a) Need to choose $n$ such that 
+$R_n < \ln\dfrac{n+1}n < 5\times 10^{-6}$.
+$n > 2\times 10^5$  or $n = 200001$ will do.\par
+(b)   My C program with $n = 200001$ gave the sum $.999995$
+as expected.   Note that you can run into trouble since you have
+to use long integers and double precision reals for such a large $n$.
+Some compilers will allow ordinary integers only as large as
+32,767.   You also have to be careful about converting expressions
+which mix long integers and double precision reals.   For example.
+my C program did not do the right thing with the statement
+$s = s + 1/(n*(n+1));$.   Apparently, the expression $1/(n*(n+1))$
+became zero in the process of being converted to a double precision
+real.   Also, it is possible to introduce inaccuracies if you do
+the summation of a large number of terms in the usual order starting
+with the smallest value of $n$ and working up.   That is because when
+you get to add the terms for very large values of $n$, they may be
+too small to change the answer.  It is better to start with the
+last term and work down towards the first term.  (This turned out
+not to be a problem for my program.)
+
+
+% 7
+\Exer (a) Estimate how many terms of the series $\sum_{n=2}^\infty
+\dfrac 1{n \ln n}$ are necessary to compute the sum accurately
+to within $5\times 10^{-4}$.
+
+(b)  Why is this problem silly?
+\answer (a)  You should not be able to get any kind of sensible
+answer by the method suggested in this section.  The improper
+integrals used to estimate the answer are not finite.  (b)  The
+series diverges.
+
+% 8
+\Exer  (Optional)  Suppose $\sum_n u_n$ and $\sum_n c_n$
+are series of non-negative terms such that $\dfrac{u_n}{c_n} \to 0$.
+Show that if $\sum_n c_n$ converges, then so also does $\sum_n u_n$.
+Hint:  Show that for all $n$ sufficiently large,  $u_n < c_n$
+and use the previous version of the comparison test.
+\answer Since $\dfrac{u_n}{c_n} \to 0$ as $n \to \infty$, there
+is a $N$ such that $\dfrac{u_n}{c_n} < 1$ for $n >= N$.   That
+means $0 < u_n < c_n$ for $n \ge N$.  By the general principle that
+we can ignore any finite number of terms in determining convergence
+or divergence, it follows by the comparison test that $\sum_n u_n$
+converges.
+ 

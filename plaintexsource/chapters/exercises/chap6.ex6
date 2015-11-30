@@ -1,0 +1,33 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 6
+\smallskip
+% 1
+\Exer  Sketch the direction field for the differential equation
+$y' = t^2 + y^2$ in the rectangle $0\le t\le 1, 0\le y\le 3$.
+Try to sketch solution curves for the following initial
+conditions.  Use as many points as you feel necessary for
+an accurate sketch.  One shortcut is to plot selected points
+with slopes $m$ for various $m$'s.  Thus, all points with
+slope $m = 1$, lie along the circle $t^2 + y^2 = 1$.
+  (You may also use a software package
+ for sketching direction fields and solutions if
+you can find one and figure out how to use it.)
+
+(a) $y(0) = 0$.   (b) $y(0) = 1$.  
+
+On the basis of your sketch would you expect any problems in
+in either case in a numerical method (such as Euler's method
+or the improved Euler's method) to find $y(1.1)$?
+\answer  Yes, you should expect a problem in case (b).
+
+% 2
+\Exer (optional)  Program the improved Euler's method for
+$y' = t^2 + y^2, y(0) = 1$, and try to determine $y(1.1)$ for
+(a) $y(0) = 0$ and for (b) $y(0) = 1$.
+\answer  The simple C program I wrote  to calculate $y(1.1)$ worked well
+in case (a),
+but it seemed to blow up in case (b).   Further investigation suggests
+there is a vertical asymptote for $t$ a little larger than $2.0$
+in case (a).  In case (b), the vertical asymptote seems to be less
+than $1.0$.
+

@@ -1,0 +1,51 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 2
+\smallskip
+% 1
+\Exer  In each of the following examples, try to find a linearly
+independent pair of solutions of the $2\times 2$ system
+$d\x/dt = A\x$ by the method outlined in this section.
+It may not be possible to do so in all cases.
+
+(a)  $A = \bm\format\r&\quad\r\\ -2 & 1 \\ 1 & -2 \em$.
+
+(b)  $A = \bm\format\r&\quad\r\\ -2 & 0 \\ 1 & -1 \em$.
+
+(c)  $A = \bm\format\r&\quad\r\\ -1 & 0 \\ 1 & -1 \em$.
+
+(d)  $A = \bm\format\r&\quad\r\\ -1 & 1 \\ 1 & -1 \em$.
+\answer   The solutions need not be given in any special order,
+so your answers may look slightly different.\par
+(a)
+$$
+\x_1(t) = e^{-3t}\bm \format\r\\-1\\1\em,\qquad
+\x_2(t) = e^{-t}\bm \format\r\\1\\1\em.
+$$\par
+(b)
+$$
+\x_1(t) = e^{-2t}\bm \format\r\\-1\\1\em,\qquad
+\x_2(t) = e^{-t}\bm \format\r\\0\\1\em.
+$$\par
+(c)  In this case, we only get one solution by the method
+$$
+\x_1(t) = e^{-t}\bm 0\\ 1\em.
+$$\par
+(d) 
+$$
+\x_1(t) = e^{-2t}\bm \format\r\\-1\\1\em,\qquad
+\x_2(t) = \bm \format\r\\1\\1\em.
+$$
+
+% 2
+\Exer  Show that for the second order system $y'' + py' + qy = 0$,
+the characteristic equation of the corresponding matrix
+$A = \bm\format\r&\quad\r\\ 0 & 1\\ -q & -p \em$
+is $\lambda^2 +p\lambda + q = 0$.   This helps us to subsume
+the theory of second order equations under that of systems.
+\answer  We have
+$$
+\det\bm -\lambda & 1 \\ -q &-p-\lambda \em
+= (-\lambda)(-p -\lambda) - (1)(-q) = p\lambda + \lambda^2 +q
+  = \lambda^2 + p\lambda + q.
+$$
+

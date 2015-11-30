@@ -1,0 +1,103 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 11
+\smallskip
+% 1
+\Exer  A spring is subject to the periodic force  $F(t)
+= 2\cos(10\pi t)$.   For each of the following values of
+$m, b$ and $k$, determine the amplitude and phase of
+the response.
+
+(a)  $m = 1, k = 0.5, b = 0.005$.
+
+(b)  $m = 4, k = 1, b = 4$.
+\answer (a)  Phase $\approx -.000159$ radians.  Amplitude
+$\approx .00203$. \par
+(b)  Phase $\approx -.0318$ radians.  Amplitude
+$\approx .000506$.
+
+\Exer  In each of the cases in the previous problem, assume the
+spring is displaced one unit of distance at
+$t = 0$  and is released with no initial
+velocity.  Estimate in each case the
+number of cycles of the forced oscillation required before the
+transient response drops to  one percent of the response
+due to the  forced oscillation.
+\answer (a) With these initial conditions, the transient response
+turns out to be of the form
+$$
+e^{-.0025 t}(\cos(\omega_1 t) + \sin(\omega_1 t))
+$$
+where $\omega_1 \approx .707$.
+Hence, we want $t$ such that $e^{-.0025 t} = .00203/100$, i.e.,
+$t \approx 4322$ sec.  Since the forced oscillations are at
+5 Hz, it follows that it takes approximately 21610 cycles.\par
+ (b)  The transient solution takes the form $y = ( 1 + t/2)e^{-t/2}$.
+(This assumes its maximum value at $t = 0$.)   We need to
+determine $t$ such that  $(1 + t/2)e^{-t/2} =  .000506/100 =.00000506$.  
+Maple gives the solution $t \approx 29.9$ sec.  Since the
+forcing frequency is 5 Hz, the number of required cycles is
+approximately $150$ cycles.
+
+\Exer  Show that the maximum of
+$$  
+A(\omega) = \frac {F_0}{\sqrt{(k - m\omega^2)^2 + (b\omega)^2}}
+$$
+occurs for the value
+$\omega_2 = \sqrt{\dfrac km - \dfrac {b^2}{2m^2}}$.
+\answer The fraction takes its maximum when its denominator takes
+its minimum value.   We can minimize the square of the denominator
+instead.  Set
+$$
+\frac{d}{d\omega}((k -m\omega^2)^2 + b^2\omega^2)
+ = 2(k - m\omega^2)(-2m\omega) +2b^2\omega = 0.
+$$
+We may exclude $\omega = 0$, so the minimum occurs when
+$$
+2m(k - m\omega^2) = b^2
+$$
+which results in the desired value for $\omega$. 
+  
+% 4
+\Exer  Show that the phase angle $\delta = \pi/2$ for
+the resonant frequency $\omega = \omega_0 = \sqrt{k/m}$.
+\outind{resonant frequency, harmonic oscillator}%
+\outind{harmonic oscillator, resonant frequency}%
+Thus, at resonance, the force and the response are one
+quarter cycle out of phase.
+\answer $\delta$ is the argument of the complex number
+$k - m\omega^2 + ib\omega$, so $\delta = \pi/2$ when the
+real part $k - m\omega^2 = 0$, i.e., $\omega = \sqrt{k/m}$
+as required.  (Note that $\delta = \pi/2$ rather than $-\pi/2$
+since $b\omega > 0$.)
+
+% 5
+\Exer  Show that the {\it current\/} $I = dQ/dt$ in the solution
+of equation (\ElecEq) is of the form
+$$I = \frac{E_0}{|Z|}\cos(\omega t - \delta)    
+$$
+where $Z = R + i(\omega L - \dfrac 1{\omega C})$ and 
+$\delta$ is the argument of $Z$.  Hint:  Replace
+$E_0\cos(\omega t)$ by $E_0e^{i\omega t}$ in equation
+(\ElecEq), differentiate once to obtain a second order
+equation for $I$, and then apply the results of Section 10.
+
+In the theory of alternating current circuits, the quantity $Z$ is called
+the (complex) {\it impedance}.   By analogy with Ohm's Law,
+the complex quantity  $E_0/Z$ describes the current in the sense
+that its absolute value is its magnitude and its argument describes
+its phase.
+\answer The equation for $I$ obtained by following the hint is
+$$
+L\frac{d^2I}{dt^2} + R\frac{dI}{dt} +\frac 1CI = E_0(i\omega)e^{i\omega t}.
+$$
+Trying a particular solution of the form $I = Ae^{i\omega t}$
+yields the equation
+$$
+ (-\omega^2L + i\omega R +  1/C)A = iE_0\omega.
+$$
+Thus,
+$$
+A = \frac{iE_0\omega}{(1/C - L\omega^2) + iR\omega}
+ = \frac{E_1}{R + i(L\omega - 1/(\omega C))}.
+$$
+ 

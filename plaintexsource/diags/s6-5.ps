@@ -1,0 +1,96 @@
+%!
+%%Title: /tmp/xfig-export017512
+%%Creator: fig2dev
+%%CreationDate: Sat Dec 21 10:47:40 1991
+%%For: len@schur (Len Evens)
+%%BoundingBox: 0 0 126 106
+%%Pages: 0
+%%EndComments
+/$F2psDict 64 dict def 
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/l {lineto} bind def
+/m {moveto} bind def
+/s {stroke} bind def
+/n {newpath} bind def
+/gs {gsave} bind def
+/gr {grestore} bind def
+/clp {closepath} bind def
+/graycol {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+4 -2 roll mul setrgbcolor} bind def
+/col-1 {} def
+/col0 {0 0 0 setrgbcolor} bind def
+/col1 {0 0 1 setrgbcolor} bind def
+/col2 {0 1 0 setrgbcolor} bind def
+/col3 {0 1 1 setrgbcolor} bind def
+/col4 {1 0 0 setrgbcolor} bind def
+/col5 {1 0 1 setrgbcolor} bind def
+/col6 {1 1 0 setrgbcolor} bind def
+/col7 {1 1 1 setrgbcolor} bind def
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y translate xrad yrad scale 0 0 1 startangle endangle arc
+	savematrix setmatrix
+	} def newpath 0 0 0 0 0 1 DrawEllipse stroke
+
+ /DrawSplineSection {
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/xa x1 x2 x1 sub 0.666667 mul add def
+	/ya y1 y2 y1 sub 0.666667 mul add def
+	/xb x3 x2 x3 sub 0.666667 mul add def
+	/yb y3 y2 y3 sub 0.666667 mul add def
+	x1 y1 lineto
+	xa ya xb yb x3 y3 curveto
+	} def
+
+	end
+	/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+	/$F2psEnd {$F2psEnteredState restore end} def
+	%%EndProlog
+
+$F2psBegin
+0 setlinecap 0 setlinejoin
+-43 23 translate
+0.0 106.0 translate 0.900 -0.900 scale
+0.500 setlinewidth
+% Ellipse
+n 104 74 6 6 0 360 DrawEllipse gs col-1 s gr
+% Closed spline
+n 74.000 39.000 m
+	74.000 39.000 54.000 49.000 49.000 76.500 DrawSplineSection
+	49.000 76.500 44.000 104.000 69.000 126.500 DrawSplineSection
+	69.000 126.500 94.000 149.000 129.000 136.500 DrawSplineSection
+	129.000 136.500 164.000 124.000 179.000 96.500 DrawSplineSection
+	179.000 96.500 194.000 69.000 174.000 54.000 DrawSplineSection
+	174.000 54.000 154.000 39.000 139.000 31.500 DrawSplineSection
+	139.000 31.500 124.000 24.000 109.000 26.500 DrawSplineSection
+	109.000 26.500 94.000 29.000 74.000 39.000 DrawSplineSection closepath gs col-1 s gr
+% Closed spline
+n 94.000 49.000 m
+	94.000 49.000 74.000 54.000 71.500 71.500 DrawSplineSection
+	71.500 71.500 69.000 89.000 81.500 104.000 DrawSplineSection
+	81.500 104.000 94.000 119.000 119.000 114.000 DrawSplineSection
+	119.000 114.000 144.000 109.000 149.000 89.000 DrawSplineSection
+	149.000 89.000 154.000 69.000 146.500 56.500 DrawSplineSection
+	146.500 56.500 139.000 44.000 126.500 44.000 DrawSplineSection
+	126.500 44.000 114.000 44.000 94.000 49.000 DrawSplineSection closepath gs col-1 s gr
+% Closed spline
+n 99.000 61.500 m
+	99.000 61.500 84.000 64.000 86.500 79.000 DrawSplineSection
+	86.500 79.000 89.000 94.000 101.500 94.000 DrawSplineSection
+	101.500 94.000 114.000 94.000 121.500 84.000 DrawSplineSection
+	121.500 84.000 129.000 74.000 129.000 66.500 DrawSplineSection
+	129.000 66.500 129.000 59.000 121.500 59.000 DrawSplineSection
+	121.500 59.000 114.000 59.000 99.000 61.500 DrawSplineSection closepath gs col-1 s gr
+$F2psEnd

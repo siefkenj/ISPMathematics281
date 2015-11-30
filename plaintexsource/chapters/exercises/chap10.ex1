@@ -1,0 +1,88 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 1
+\smallskip
+% 1
+\Exer Solve the system
+$$
+\align
+\frac{dx}{dt} &= -k_1x \\
+\frac{dy}{dt} &= k_1x - k_2y
+\endalign$$
+as suggested in the text.  The answer should be expressed in terms
+of $x_0 = x(0)$ and $y_0 = y(0)$.
+\answer  $x = x_0e^{-k_1t}$.  The second equation becomes
+$\dfrac{dy}{dt} + k_2y = k_1x_0e^{-k_1t}$.   This is a first order
+linear equation which may be solved by the methods of Chapter VI.
+Assume $k_1 \not= k_2$.
+The general solution is
+$$
+\align
+y &= e^{-k_2t}\int k_1x_0e^{(k_2 - k_1)t}dt + Ce^{-k_2t} \\
+&=  \frac{k_1x_0}{k_2 - k_1}e^{-k_1t} + Ce^{-k_2t}.
+\endalign
+$$
+Putting $t = 0$ in the last equation yields
+$$
+y_0 = \frac{k_1x_0}{k_2 - k_1} + C
+$$
+so $C = y_0 - \dfrac{k_1x_0}{k_2 - k_1}$.
+Thus,
+$$
+y = \frac{k_1x_0}{k_2 - k_1}(e^{-k_1t} - e^{-k_2t}) + y_0e^{-k_2t}.
+$$
+If $k_1 = k_2 = k$, the answer has a different form
+$$
+y = x_0te^{-kt} + y_0e^{-kt}.
+$$
+
+% 2
+\Exer  In each of the following cases, reduce the given equation(s) to
+an appropriate first order system.
+
+(a) $y''' + 2y'' - 3y' + 2y = \cos t$.
+
+(b) $y''' - 2(y')^2 + y = 0$.
+
+(c) $y_1'' = 3y_1 - 2y_2, \, y_2'' = -2y_1 + 4y_2$.
+
+(d) $x_1'' + (x_1')^2 + x_1x_2 = 0, \, x_2'' + x_1 - x_2 = 0$.
+\answer\par
+(a) Put $x_1 = y, x_2 = y', x_3 = y''$.  Then
+$$
+\align
+x_1' &= x_2 \\
+x_2' &=  x_3 \\
+x_3' &= -2x_1 + 3x_2 -2x_3 + \cos t.
+\endalign
+$$\par
+(b)  Put $x_1 = y, x_2 = y', x_3 = y''$.  Then
+$$
+\align
+x_1' &= x_2 \\
+x_2' &= x_3 \\
+x_3' &= -x_1 + 2x_2{}^2
+\endalign
+$$\par
+(c)  Put $x_1 = y_1, x_2 = y_1', x_3 = y_2, x_4 = y_2'$.  Then
+$$
+\align
+x_1' &= x_2 \\
+x_2' &= 3x_1 - 2x_3 \\
+x_3' &= x_4 \\
+x_4' &= -2x_1 + 4x_3
+\endalign
+$$\par
+(d)  Put $z_1 = x_1, z_2 = x_1', z_3 = x_2, z_4 = x_2'$.  Then
+$$
+\align
+z_1' &= z_2 \\
+z_2' &=  -z_2{}^2 - z_1z_3 \\
+z_3' &= z_4 \\
+z_4' &= -z_1 + z_3
+\endalign
+$$
+
+\Exer  In the previous problem, determine if the first order
+system you obtained in each part is linear.
+\answer  Parts (a) and (c) are linear; the others are not.
+

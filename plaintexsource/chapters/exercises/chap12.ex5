@@ -1,0 +1,152 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 5
+\smallskip
+% 1
+\Exer  Apply the Gram--Schmidt Process to each of the following
+sets of vectors.
+
+(a)$\left\{\bm 1\\ 0\\1\em,\,\bm 2\\ 1 \\ 0 \em\right\}$
+
+(b) $\left\{\bm 1\\0\\2\\0\em,\,\bm 1\\1\\0\\1\em,\,
+\bm\format\r\\ 0\\2\\1\\-1\em\right\}$.
+\answer (a) 
+$$
+\left\{
+\frac 1{\sqrt 2}\bm 1\\ 0 \\ 1\em,
+\frac 1{\sqrt 3}\bm\format\r\\1\\ 1\\ -1\em
+\right\}
+$$\par
+(b)
+$$
+\left\{
+\frac 1{\sqrt 5}\bm 1\\ 0 \\ 2\\ 0 \em,
+\frac 1{\sqrt{70}}\bm\format\r\\ 4\\ 5\\ -2\\ 5\em,
+\frac 1{\sqrt{994}}\bm\format\r\\ -8\\ 25\\ 4\\ -17 \em
+\right\}
+$$
+
+% 2
+\Exer  Let $\{\v_1, \v_2, \v_3\}$ be a linearly independent set.
+Suppose $\{\v_1',\v_2', \v_3'\}$ is the set obtained (before
+normalizing) by the Gram-Schmidt Process.  Show that none
+of the $\v_j'$ is zero.
+
+The generalization of this to an arbitrary linearly independent
+set is one reason the Gram-Schmidt Process works.  The vectors
+produced by that process are mutually perpendicular
+{\it provided they are non-zero\/}, and so they form a
+linearly independent set.  Since they are in the subspace $W$ spanned
+by the original set of vectors and there are just enough of them,
+they must form a basis a basis for $W$.
+\answer
+$v'_1 = \v_1, \v_2' = \v_2 - x\v_1', \v_3' = \v_3 - y\v_2' - z\v_2'$
+for appropriate scalars $x, y, z$.  $v_1'\not= \bold 0$
+since $v_1 \not= \bold 0$.\par
+If $\v_2' = \bold 0$, then
+$$
+\v_2 = x\v_1' = x\v_1
+$$
+which is impossible since the original vectors formed an independent
+set.  Hence, $\v_2' \not= \bold 0$.\par
+$\v_3' = \bold 0$ yields
+$$
+\v_3 = y\v_2' + z\v_1' = y(\v_2 - x\v_1) + z\v_1 = y\v_2 + (z - yx)\v_1
+$$
+which is also impossible since the original set of vectors was independent.
+Hence, $\v_3' \not= \bold 0$.\par
+The same argument would work in general.  If any $\v_i' = \bold 0$,
+then that would, after a lot of algebra, give a way to express
+$\v_i$ in terms of $\v_1,\dots, \v_{i-1}$.
+
+
+% 3
+\Exer  Find an orthonormal basis of eigenvectors for
+$A = \bm 1 & 1 & 1 \\ 1 & 1 & 1\\ 1 & 1 & 1\em$.
+\answer  The eigenvalues are 0 with multiplicity 2 and 3 with
+multiplicity 1.  A basis for the eigenspace corresponding to
+the eigenvalue 0 is
+$$
+\left\{\bm\format\r\\ -1\\ 1 \\ 0\em, \bm\format\r\\ -1\\ 0\\1\em\right\}.
+$$
+Applying Gram Schmidt to this yields
+$$
+\left\{\frac 1{\sqrt 2}\bm\format\r\\-1\\ 1\\ 0\em,
+\frac 1{\sqrt 6}\bm\format\r\\ -1\\ -1\\ 2\em\right\}.
+$$
+an eigenvector of length 1 for the eigenvalue 3 is
+$$
+\frac 1{\sqrt 3}\bm 1\\ 1\\ 1\em.
+$$
+An orthonormal basis of eigenvectors is
+$$
+\left\{\frac 1{sqrt 2}\bm\format\r\\-1\\ 1\\ 0\em,
+\frac 1{\sqrt 6}\bm\format\r\\ -1\\ -1\\ 2\em,
+\frac 1{\sqrt 3}\bm 1\\ 1\\ 1\em\right\}.
+$$
+
+% 4
+\Exer  Find an orthonormal basis of eigenvectors for
+$$A = \bm\format\r&\quad\r&\quad\r\\
+       -1 & k & k \\ k & -1 & k \\ k & k & -1 \em.
+$$
+Hint: $2k - 1$ is an eigenvalue.
+
+Use the results to solve the differential equation $\dfrac{d^2\x}{dt^2}
+= A\x$ where
+$$
+\x = \bm \theeta_1\\ \theeta_2\\ \theeta_3 \em.
+$$
+This system describes small oscillations of the triple pendulum
+system pictured below if the units are chosen so that
+$m = 1$ and $L = g$.   (What is $k$?)   Find the normal modes.
+\medskip
+\centerline{\epsfbox{s12e-3.ps}}
+\medskip
+Note that there are at two obvious normal modes, and if you choose
+the appropriate eigenvectors for those modes, you can determine the
+corresponding eigenvalues, one of which happens to be $2k - 1$.
+\answer The characteristic polynomial is
+$-[(\lambda + 1)^3 - 3k^2(\lambda +1) - 2k^3]$.   Put $X = \lambda + 1$.
+Then the equation becomes $X^3 - 3k^2X - 2k^3 = 0$, and this
+factors as $(X - 2k)(X + k)^2 = 0$, so the roots are
+$X = 2k, -k, -k$.   That means the eigenvalues are
+$\lambda = 2k - 1$ with mulitplicity 1 and $\lambda = -k - 1$ with
+multiplicity 2.  For $\lambda = 2k - 1$, a normalized eigenvector
+is
+$$
+\u_1 = \frac 1{\sqrt 3}\bm 1\\ 1\\ 1 \em.
+$$
+For $\lambda = -k - 1$,
+$$
+\v_2 = \bm\format\r\\ -1\\ 1\\ 0\em,\v_3 = \bm\format\r\\ -1\\ 0 \\ 1 \em 
+$$
+form a basis of eigenvectors.  Applying Gram--Schmidt yields
+$$
+\u_2 = \frac 1{\sqrt 2}\bm\format\r\\ -1\\ 1\\ 0 \em,
+\u_3 = \frac 1{\sqrt 6}\bm\format\r\\ -1\\ -1\\ 2\em.
+$$
+However, it would also make sense to reverse the order and apply
+Gram--Schmidt to obtain
+$$
+\u_2' = \frac 1{\sqrt 2} \bm\format\r\\ -1\\ 0 \\ 1\em,
+\u_3' = \frac 1{\sqrt 6} \bm\format\r\\ -1\\ 2\\ -1\em.
+$$\par
+Using the orthonormal basis $\{\u_1, \u_2', \u_3'\}$, we obtain
+the following normal modes.   For $\omega = \sqrt{1 - 2k}$
+(where we have to assume $1 > 2k$), we have the normal mode where
+all three pendulums move together in unison.  For $\omega =
+\sqrt{1 + k}$, we have a degenerate mode which can be described
+as linear combinations of many different particular solutions.
+For the choice corresponding to $\{\u_2', \u_3'\}$, one mode has the two
+end pendulums moving in equal and opposite directions with the
+middle pendulum staying fixed, while the other pendulum has the two
+end pendulums moving equally in the same direction while the
+middle pendulum moves twice as far in the opposite direction.
+Notice that of the three modes we described, the first two could
+have been discovered by inspection, but you probably would have
+missed the third.\par
+It is also true that corresponding to $\omega = \sqrt{k + 1}$,
+we have normal modes in which one of the end pendulums stays
+fixed while the two others move equally in opposite directions.
+That these are normal modes is also not so obvious.
+

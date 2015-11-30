@@ -1,0 +1,96 @@
+%Section 2
+\subhead Exercises for Section \sn \endsubhead
+\smallskip
+
+% 1
+\Exer  Consider solutions of Laplace's equation $\nabla^2 z =
+\dfrac{\d^2 z}{\d x^2} + \dfrac{\d^2 z}{\d y^2} = 0$
+of the form $z = X(x)Y(y)$. \par
+(a)  Derive the equation
+$$ \frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} = 0.  $$ \par
+(b)  Conclude that $X$ and $Y$ satisfy the second order
+differential equations
+$$ X'' + c X = 0 \qquad\text{and}\qquad Y'' - c Y = 0 $$
+where $c$ is some constant. \par
+(c)  Suppose we want to find a non-zero solution of of the above form
+on the unit square in the first quadrant under the assumption that
+$z(x,0) = z(0, y) = z(1, y) = 0$.   Show that this leads to the
+conditions $X(0) = X(1) = 0$ and $Y(0) = 0$. \par
+(d)  Under these assumptions show that $c$ cannot be negative.  Hint:
+Solve the differential equation for $X$ under the assumption that $c <
+0$ and conclude that the solution cannot vanish for $x = 0$ and $x = 1$
+unless it is identically zero. \par
+(e)  Show that $c = (k\pi)^2$ with $k = 0, 1, 2, \dots$.  Find the
+general form of $X(x)$ and $Y(y)$.
+
+\answer(a) Assuming $z=X(x)Y(y)$, we have
+$$
+  \nabla^2z = \frac{\d^2z}{\d x^2} + \frac{\d^2z}{\d y^2} = X''(x)Y(y) +
+  Y''(y)X(x) = 0
+$$
+Assuming $z\ne 0$ ($\implies X(x), Y(y) \ne 0$), we then have
+$$ \frac{X''(x)}{X(x)} + \frac{Y''(y)}{Y(y)} = 0. $$\par
+(b) $\frac{X''}{X} + \frac{Y''}{Y} = 0 \implies \frac{Y''}{Y} = c \implies
+\frac{X''}{X} = -c$. So
+$$\alignat 3
+   X'' &= -cX & \quad&\implies\quad & X'' + cX &= 0 \\ 
+   Y'' &= cY  &      &\implies      & Y'' - cY &= 0 
+\endalignat$$ \par
+(c) For $z=X(x)Y(y)$ the conditions translate to:
+$$
+  \text{\it (1)}\quad
+  \cases X(x)Y(0)=0\\ X(0)Y(y)=0\\ X(1)Y(y)=0\endcases
+$$
+Assuming that neither $X(x)$ nor $Y(y)$ vanishes identically,
+{\it (1)\/} $\implies X(0) = X(1) = Y(0) = 0$. \par
+(d) If $c<0$ then $X'' - (-cX) = X'' + cX = 0$ has the solution
+$X(x) = c_1 e^{\sqrt{-c} x} + c_2 e^{-\sqrt{-c} x}$. So $X(0) = c_1+c_2=0$
+while $X(1)=C_1 e^{\sqrt{-c}} + c_2\dfrac{1}{e^{\sqrt{-c}}} =0$.
+For $c<0$ ($\implies c\ne0$ also) $\implies c_1 = c_2 =0$ which is a
+contradiction since $X$ does not vanish identically. \par
+(e) So $c\ge 0 \implies X(x) = c_1\cos\sqrt{c} x + c_2\sin\sqrt{c} x$ with
+$$ \align
+  X(0) &= c_1 =0 \quad\text{and} \\
+  X(1) &= c_1\cos\sqrt{c} +  c_2\sin\sqrt{c} =  c_2\sin\sqrt{c} = 0
+    \qquad \left({c_2\ne0} \text{ since } {x\not\equiv 0}\right)
+\endalign $$
+$\implies \sqrt{c} = \pi k$, where $k$ is a positive
+integer.  Thus, $c=(\pi k)^2$, with
+$k$ a positive integer.  So $X(x) = c_2\sin(\pi k)x$. And $Y(y) = c_1 e^{\pi ky} +
+c_2 e^{-\pi ky}$. Also,
+$$
+  Y(0) = c_1 + c_2 =0  \quad\implies\quad  c_2 = -c_1.
+$$
+So $\dsize Y(y) = c(e^{\pi ky}-e^{-\pi ky})$.\par
+Note that we will not generally be able to match a specified boundary
+condition on the remaining edge of the square ($y = 1$) with a
+solution of the form $X(x)Y(y)$.   However, if we are willing to
+consider linear combinations of such, we may be able to do it.
+For the most general boundary conditions, we need to consider 
+{\it infinite\/} `linear combinations'.   You will study this
+in more detail in your series on Fourier Series and Boundary
+Value Problems.
+
+% 2
+\Exer (Optional) Show that  $\gamma < 0$, where $\gamma$ is the
+quantity discussed in the Section.  Use the following argument.\par
+(a) Put $z = T(t)U(r,\theta)$ in $\dfrac 1{v^2}\dfrac{\d^2 z}{\d t^2} =
+\nabla^2 z$ and derive the equation
+$$ \frac 1{v^2}\frac {T''}T = \frac{\nabla^2 U}U = \gamma.  $$
+(In the notation of the section, $U(r,\theta) = R(r)\Theta(\theta)$.
+$\gamma$  is the same as before.) Thus, we have
+$$ \nabla^2 U = \gamma U.\tag{A} $$ \par
+(b) A necessary detour:  Apply the normal form of Green's Theorem
+$$ \int_{\d D} \F\cdot \N\,ds = \iint_D \nabla\cdot \F\, dA $$
+to the vector field $\F = U\,\nabla U$ to derive the formula
+$$
+  \int_{\d D} U\,\nabla U\cdot \N\,ds
+  = \iint_D(|\nabla U|^2 + U\nabla^2 U)dA.\tag{B}
+$$ \par
+(c) Let $D$ be a disk of radius $a$ centered at the origin. Assume that
+$$ U(a,\theta) = 0\tag{C} $$
+for all $\theta$, i.e., that $z$ vanishes on the boundary of $D$.  Use
+(A), (B), and (C) to derive a contradiction to the assumption that
+$\gamma \ge 0$.  What conclusion can you draw if $\gamma = 0$?
+
+

@@ -1,0 +1,120 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item   Solve each of the following systems by Gauss-Jordan elimination
+{\it if there is a solution}.
+
+(a)
+\begin{align*}
+x_1 + 2x_2 + 3x_3 &= 4 \\
+3x_1 + x_2 + 2x_3 &= -1 \\
+x_1 \quad\qquad + x_3 &= 0 
+\end{align*}
+
+(b)
+\begin{align*}
+x_1 + 2x_2 + 3x_3 &= 4 \\
+2x_1 + 3x_2 + 2x_3 &= -1 \\
+x_1  + x_2 - x_3 &= 10 
+\end{align*}
+
+(c)
+\[
+\bm{}
+  1 & 1 & -2 & 3 \\
+  2 & 1 & 0 & 1 \\
+  1 & -1 & 1 & 0 \\
+  3 & 1 & 2 & 1 \em
+\bm x_1\\ x_2\\ x_3 \\ x_4 \em
+=
+\bm{} 9 \\ -18 \\ -9 \\ 9 \em.
+\]
+
+\answer{  (a)  $x_1 = -3/2, x_2 = 1/2, x_3 = 3/2$.\par
+(b)  No solutions. \par
+(c) $x_1 = -27, x_2 = 9, x_3 = 27, x_4 = 27$.  In vector form,
+\[
+\x = \bm -27\\ 9\\ 27\\ 27 \em.
+\]
+ 
+
+
+
+
+
+}
+
+\item  Use Gaussian elimination to solve
+\[
+\bm 3 & 2 \\ 2 & 1 \em X = \bm 0 & 1 \\ 1 & 0 \em
+\]
+where $X$ is an unknown $2\times 2$ matrix.
+
+\answer{\par
+\[
+X = \bm 2 & -1 \\ -3 & 2 \em.
+\]
+
+
+}
+
+\item   Calculate
+\[
+\bm{}
+   1 & 0 & 1 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \em
+\bm{}
+   1 & 0 & 0 \\
+   -1 & 1 & 0 \\
+   0 & 0 & 1 \em
+\bm{}
+   0 & 1 & 0 \\
+   1 & 0 & 0 \\
+   0 & 0 & 1 \em
+\bm{}
+   2 & 0 & 0 \\
+   0 & 1 & 0 \\
+   0 & 0 & 1 \em
+\bm{}
+   1 & 2 & 3 \\
+   4 & 5 & 6 \\
+   7 & 8 & 9 \em.
+\]
+Hint: User the row operations suggested by the first three matrices.
+
+\answer{\par
+\[
+\bm  11 & 13 & 15 \\
+    -2 & -1 & 0 \\
+    7 & 8 & 9 \em
+\]
+
+
+}
+
+\item   What is the effect of mulitplying a $2\times 2$ matrix $A$
+on the right by the elementary matrix
+\[
+\bm 1 & a \\ 0 & 1 \em?
+\]
+What general rule is this a special case of?
+
+\answer{ The effect is to add $a$ times the first {\it column\/}
+to the second {\it column}.   The general rule is that if you multiply
+a matrix on the right
+ by the matrix with an $a$ in the $i,j$-position ($i\not=j$)
+and ones on the diagonal, the effect is to add $a$ times the
+$i$th column to the $j$th column.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

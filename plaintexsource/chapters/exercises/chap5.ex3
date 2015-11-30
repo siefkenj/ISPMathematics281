@@ -1,0 +1,153 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 3
+\smallskip
+
+% 1
+\Exer Find the force exerted by the gravitational dipole
+described in Example \ExOne \ by calculating $\nabla f$
+for the function $f$ derived in the example.
+\answer We have
+$$
+\align
+\F=\nabla f &= -\frac{Gm}{((x-a)^2 + y^2 + z^2)^{\frac 32}}
+      ((x-a)\i + y\j + z\k) \\
+ &- \frac{Gm}{((x+a)^2 + y^2 + z^2)^{\frac 32}}
+      ((x+a)\i + y\j + z\k) 
+\endalign $$
+
+% 2
+\Exer Four point masses each of mass  $m$ are placed at the points
+$(\pm a, \pm a, 0)$ in the $x,y$-plane. \par
+(a) Show that the gravitational potential at a point $(0,0,z)$
+due to these four masses is given by 
+$V(0,0,z) = -\dfrac{4Gm}{\sqrt{2a^2 + z^2}}$.  \par
+(b)  Determine the gravitational force on a unit test mass
+at the point $(0,0,z)$.
+\answer (a) Let $V_i(\r), i = 1,2,3,4$ be the potential for each
+of the four masses.   Then, since $(0,0,z)$ is the same distance
+$\sqrt{z^2 + 2a^2}$ from all four masses, we have
+$V_i(0,0,z)  =  -\dfrac{Gm}{\sqrt{z^2 + 2a^2}}$.
+  Thus, $V = \sum^4_{i=1} V_i = 
+  -4\dfrac{Gm}{\sqrt{z^2 + 2a^2}}.$ \par
+(b) By symmetry, the force is directed along the $z$-axis.
+It follows that only the $z$-component
+of $\F = -\nabla V$ needs to be computed.
+This is
+$$
+-\frac{\d V}{\d z} = -\frac{4Gmz}{(z^2 + 2a^2)^{\frac 32}}.
+$$
+
+
+% 3
+\Exer  Find the gravitational potential at a point on
+the $z$-axis due to a mass $M$
+uniformly distributed over a thin wire lying along the circle
+$x^2 + y^2 = a^2$ in the $x,y$-plane.   Calculate the gravitational
+force on a unit test mass at a point on the $z$-axis.
+\answer $V = -\dfrac{GM}{\sqrt{a^2+z^2}}$.  $F_x = F_y = 0$
+and  $F_z =-\dfrac{Gmz}{(a^2+z^2)^{\frac 32}}$.
+
+ 
+% 4
+\Exer Suppose a scalar function defined on all of $\R^n$ (with $n = 2$
+or $n = 3$) satisfies $\nabla f = 0$ everywhere.  Show that $f$ is
+constant.   (Hint: Use formula (\EqOne).    Note that if the domain of
+$f$ splits into two or more disconnected components, then the argument
+won't  work because you can't find a path from a point in one component
+to a point in another component which stays in the domain of the
+function.  Hence, the function might assume different (constant) values
+on the different components.)
+\answer $f(a) - f(b) = \int^b_a\nabla f\cdot d\r = 0$.
+
+
+% 5
+\Exer Find a function $f$ such that $\F = \nabla f$ {\it if one
+exists\/} for each of the following plane vector fields. \par
+(a)  $\F(x,y) = \lb 3x^2 + y^2, 2xy + y^2 \rb$. \par
+(b)  $\F(x,y) = \lb 3x^2 + y^2, 3xy + y^2 \rb$. \par
+(c)  $\F(x,y) = \lb e^y, xe^y \rb$.
+\answer (a) $f=x^3 + xy^2 + y^3/3$ \par
+(b) $3y \not= 2y$ so the field is not conservative.\par
+(c) $f=xe^y$
+
+
+% 6
+\Exer  Find a function $f$ such that $\F = \nabla f$ {\it if one
+exists\/} for each of the following vector fields in space. \par
+(a) $\F(x,y,z) = \lb yz, xz, xy \rb$. \par
+(b) $\F(x,y,z) = \lb x^2, y^2, z^2 \rb$. \par
+(c) $\F(x,y,z) = \lb z, x, y \rb$.
+\answer (a) $f=xyz$. \par
+(b) $f=\dfrac{x^3}3 + \dfrac{y^3}3 + \dfrac{z^3}3$. \par
+(c) $\dfrac{\d F_2}{\d z} = 0 \ne \dfrac{\d F_3}{\d y} =1$ so 
+the field is not conservative.
+ 
+% 7
+\Exer  Evaluate each of the following path independent line
+integrals.   (In each case, the vector field with the indicated
+components is conservative.)  \par
+(a) $\int_{(1,2)}^{(3,5)} (x^2 + 4y^2)dx + (8xy)dy$. \par
+(b) $\int_{(1,-1,0)}^{(4,1,1)} x\,dx + y\,dy + z\,dz$.
+\answer (a) $f=\dfrac{x^3}3+4xy^2$, so
+the answer is $f(3,5)-f(1,2)=\dfrac{584}3$. \par
+(b) $f=\dfrac{x^2}2+\dfrac{y^2}2+\dfrac{z^2}2$ so the answer
+is $f(4,1,1)-f(1,-1,0) = 8$.
+
+
+% 8
+\Exer Each of the following vector fields is not conservative.
+Verify that by showing that it does not satisfy the relevant
+screening test and also by finding a closed path for which
+the line integral is not zero. \par
+(a)  $\F(x,y) = \lb -y, 2x \rb$. \par
+(b)  $\F(x,y,z) = \lb z, -x, e^zxy \rb$.
+\answer (a) $\dfrac{\d F_1}{\d y} = -1 \ne \dfrac{\d F_2}{\d x}=2$.
+Let $\Cal C$ be the path which traverses the triangle with
+vertices at $(0,0), (1,0)$, and $(1,1)$ in the counterclockwise
+direction.  The line integral on this path is $\dfrac 32$.
+(b) $\dfrac{\d F_2}{\d z}=0 \ne \dfrac{\d F_3}{\d y} = e^z x$. 
+Let $\Cal C$ be a unit circle in the $x,z$-plane centered
+at the origin.   The line integral is $\pm 2\pi$
+depending on the direction you go around the circle.
+
+
+% 9
+\Exer  We know that the vector field $\F(x,y) = \lb -y/(x^2 + y^2),
+x/(x^2 + y^2) \rb, (x,y) \not= (0,0)$ is not conservative.  Ignore this
+fact and try to find a function $f$ such that $\F = \nabla f$.  You
+should come up with something like $f(x,y) = \tan^{-1}(y/x)$.  Since
+the vector field is not conservative,  no function exists.  Explain the
+seeming contradiction.  Hint: Consider the domains of $\F$ and of $f$.
+\answer For $x, y\not=0$,  $\int\dfrac{-y}{x^2+y^2}\, dx
+= \int\dfrac{x}{x^2+y^2}\, dy = \tan^{-1}(\dfrac yx)$ up to
+additive constants.  (Note that
+when integrating with respect to $x$, you should treat $y$ as
+a constant and when integrating with respect to $y$, you should
+treat $x$ as a constant.  Use an integral table or Maple to do
+the indefinite integrals.  Note also that $tan^{-1}(y/x) = \dfrac \pi 2
+- \tan^{-1}(x/y)$ so $\tan^{-1}(y/x)$ and $-\tan^{-1}(x/y)$ are
+the same up to an additive constant.)
+This doesn't give us a potential function since $\tan^{-1}\left(\frac
+yx\right)$ is not defined when $x = 0$ while both $\dfrac{-y}{x^2+y^2}$ and
+$\dfrac{x}{x^2+y^2}$ are {\it not\/} defined only at $(0,0)$.
+
+
+
+% 10
+\Exer Suppose $\F$ is a conservative vector field.  Then
+we know that the formula
+$$
+     f(\r) = \int_{\r_0}^{\r} \F\cdot d\r
+$$
+defines a function such that $\F = \nabla f$.  We know that choosing a
+different base point $\r'_0$ results in another such function $f'$, and
+$f'$ differs from $f$ by a constant.  How is the constant related to
+the base points $\r_0$ and $\r'_0$?
+\answer We have
+$$
+\align
+f'(\r) - f(\r) &= \int^\r_{\r'_0} \F\cdot d\r - \int^\r_{\r_0} \F\cdot d\r \\
+&= \int^\r_{\r'_0} \F\cdot d\r + \int^{\r_0}_\r \F\cdot d\r \\
+ &= \int^{\r_0}_{\r'_0}\F\cdot d\r
+\endalign $$  which is a constant depending on $\r_0, \r'_0$.
+

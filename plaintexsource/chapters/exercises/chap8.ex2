@@ -1,0 +1,153 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 2
+\smallskip
+% 1
+\Exer  In each of the following cases, determine if the
+the indicated {\it sequence\/} $s_n$ converges, and if so
+find its limit.   The sequence could have arisen 
+as the sequence of partial sums of a series, but it
+could also have arisen some other way.  Usually the simplest
+way to determine the limit is to use L'H\^opital's Rule,
+but in some cases other methods may be necessary.  (If you
+don't know L'H\^opital's Rule, ask your instructor.)
+
+(a) $s_n = \dfrac{n^2 + 2n + 3}{3n^3 - 5n^2}$.
+
+(b) $s_n = 1 - \dfrac{99^n}{100^n}$.   (Don't use L'H\^opital's
+Rule.)
+
+(c) $s_n = 1 - (-1)^n$.
+
+(d) $s_n = \dfrac{\sin(nt)}n$ where $t$ is a variable.
+
+(e) $s_n = \dfrac{\ln n}n$.
+
+(f) $s_n = \left(\dfrac 1n\right)^{1/n}$.   (Consider 
+$\ln s_n$ and apply L'H\^opital's Rule to that.)
+\answer (a) 0.  (b) 1.  ($\lim_{n\to\infty}r^n = 0$ if $|r| < 1$.
+In this case $r = .99$.  (c)  This sequence does not converge.  It
+alternates between 0 and 2.  (d)  For each $n$, we have
+$|s_n| \le \dfrac 1n$.   Since $\lim_{n\to\infty}\dfrac 1n = 0$,
+it follows that $\lim_{n\to\infty}s_n = 0$.
+(e) By L'H\^opital's Rule, the limit is the same as $\lim_{n\to\infty}
+\dfrac {1/n}1 = 0$. (f)  Take logs.  $\ln s_n = \dfrac 1n \ln n$.  By
+the previous problem, this has limit 0.   Hence,
+$\lim_{n\to\infty} s_n = e^{\lim_{n\to\infty}\ln s_n} = e^0 = 1$.
+
+% 2
+\Exer In each of the following cases, determine if the
+indicated {\it series\/} converges.
+
+(a) $1 + 1/5 + (1/5)^2 + \dots = \sum_{n=0}^\infty (1/5)^n$.
+
+(b) $1 + 2 + 3 + \dots = \sum_{n=1}^\infty n$.
+
+(c) $1 - 4 + 9 - \dots = \sum_{n=1}^\infty (-1)^{n+1}n^2$.
+
+(d) $2 - 2/3 + 2/9 - \dots = \sum_{n=0}^\infty (-1)^n \dfrac 2{3^n}$.
+
+(e) $(1 + t) - (1 +t)^2 + (1 + t)^3 - \dots = \sum_{n=1}^\infty (-1)^{n+1}
+(1 + t)^n$. where $t > 0$.  Does it matter how small $t$ is?
+Suppose $t= 10^{-100}$.  What if $-2 < t < 0$?
+
+(f) $1/2 - 2/3 + 3/4 - \dots = \sum_{n=1}^\infty (-1)^n\dfrac n{n+1}$.
+
+(g) $\sum_{n=1}^\infty \left(\dfrac 1{3^n} - \dfrac 1{4^n}\right)$.
+
+(h) $\sum_{n=1}^\infty \cos (n\pi)$
+
+(i) $\sum_{n=0}^\infty \dfrac{2^n + 99^n}{100^n}$.
+\answer (a) Convergent geometric series.  (b) The general term does
+not approach zero, so the series diverges.  (c)  Ditto.  (d) This
+is twice a convergent gemometric series ($t = -\dfrac 13$) so it
+converges.  (e)  For any $t > 0$ this is a divergent geometric
+series.  For $-2 < t < 0$, it is a convergent geometric series.
+(f) The general term does not go to zero, so the series diverges.
+(g)  This is a difference of two convergent geometric series
+so it converges.  (To quibble, because $n$ starts with 1,
+ the first series is $\dfrac 13$
+times a geometric series and the second is $\dfrac 14$ times a
+geometric series.)  (h)  The terms are alternately $\pm 1$ and
+do not approach zero, so the series diverges.   (i)  This is
+the sum of two convergent geometric series so it converges.
+
+
+% 3
+\Exer  Consider the repeating decimal
+$$
+  x = .2315231523152315\dots
+$$
+Treating this as the sum of the infinite series $\sum_{n=0}^\infty at^n$
+where $a = .2315$ and $t = .0001$, determine $x$.
+
+Every infinite decimal which repeats in this way can be evaluated by
+this method.  The method can be adapted also to infinite decimals
+which {\it eventually\/} start repeating.
+\answer  We have
+$$
+x = a(1 + t + t^2 + \dots) = \frac a{1-t} = \frac {2315}{9999}.
+$$
+
+
+\Exer  Suppose that when a ball is dropped from a given height,
+it bounces back to $r$ times that height where $0 < r < 1$.
+If it is originally dropped from height $h$, find the total
+distance it moves as it bounces back and forth infinitely many
+times.  Hint:   Except for the initial drop, each bounce involves
+moving through the same distance twice.
+\answer  The distance it moves is
+$$
+ h + 2rh + 2r^2h + \dots = -h + 2h(1 + r + r^2 + \dots) = 
+-h + \frac{2h}{1-r}= h\frac{1+r}{1-r}.
+$$
+
+\Exer Two trains initially 100 miles apart approach, each moving
+at 20 mph.  A bird, flying at 40 mph, starts from the first train, flies
+to the second train, returns to the first train, ad infinitum until
+the two trains meet.   Use a geometric series to find the
+total distance the bird flies. 
+
+  There is an
+easier way to do this.  Do you see it?
+A story is
+told of the famous mathematician John von Neumann who when given the
+problem immediately responded with the answer.  In response
+to the remark, ``I see you saw the easy method'', he is supposed to
+have answered ``What easy method?''
+\answer The relative speed of the bird and the train it is approaching
+is 60 mph.  Hence, the first leg of its journey takes
+$100/60 = 5/3$ hours.  At that point the trains are 
+$100 -2(100/3)=100/3$ miles
+apart.  Hence, the second leg of its journey takes  $5/3^2$ hours.
+Similarly for each successive leg.  The total time is
+$\sum_{n=1}^\infty 5(1/3)^n = 5/2$ hours.  At 40 mph, the bird
+flies 100 miles.   The easier method
+is that the two trains will take $5/2$ hours to meet since they
+approach each other at 40 mph.
+
+\Exer  For 
+$$
+\sum_{n=1}^\infty \frac 1{n(n+1)} =
+\sum_{n=1}^\infty \frac 1n - \frac 1{n+1},
+$$
+ show that $s_n = 1 - \dfrac 1{n+1}$.  Hint:   The partial sum
+$s_n$ is what is called a `collapsing sum', i.e., mutual cancellation
+\outind{collapsing sum}%
+ for adjacent terms eliminates  everything except the 
+`1' in the first term `$1 - \dfrac 12$' and the `$\dfrac 1{n+1}$'
+in the last term `$\dfrac 1n - \dfrac 1{n+1}$'.
+ 
+Conclude that the series converges and the sum is 1.
+\answer $s_n = 1 - \dfrac 12 + \dfrac 12 - \dfrac 13 + \dots + \dfrac 1n
+-\dfrac 1{n+1} = 1 - \dfrac 1{n+1}$ and this approaches 1 as $n \to \infty$.
+
+\Exer What is wrong with the following argument?
+$$\gather
+1 - 1 + 1 - 1 + \dots = 1 - (1 - 1 + 1 - \dots) \\
+\text{or} \qquad x = 1 - x
+\endgather $$
+where $x$ is the sum.  It follows that $x = 1/2$.
+\answer The argument assumes the series converges to some number $x$.
+Since the series doesn't converge, there is no such $x$ and the algebra
+that follows is irrelevant.
+

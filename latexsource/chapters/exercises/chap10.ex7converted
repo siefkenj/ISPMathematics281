@@ -1,0 +1,125 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item   Determine if each of the following subsets of $\R^3$
+is a vector subspace of $\R^3$.  If it is not a subspace, explain what fails.
+
+(a) The set of all $\x = \bm x_1\\x_2\\x_3\em$ such that
+$2x_1 - x_2 + 4x_3 = 0$.
+
+(b) The set of all $\x = \bm x_1\\x_2\\x_3\em$ such that
+$2x_1 - x_2 + 4x_3 = 3$.
+
+(c)  The set of all $\x = \bm x_1\\x_2\\x_3\em$ such that
+$x_1{}^2 + x_2{}^2 - x_3{}^2 = 1$.
+
+(d) The set of all $\x$ of the form $\x = \bm 1 + 2t\\ -3t\\ 2t\em$
+where $t$ is allowed to assume any real value.
+
+(e) The set of all $\x$ of the form $\x = \bm s + 2t\\2s -3t\\s + 2t\em$
+where $s$ and $t$ are allowed to assume any real values.
+
+\answer{ (a) is a subspace.  (b) is not a subspace since the
+sum of two non-zero solutions won't be a solution---you would get
+6, not 3---and also the only multiple of a solution that is
+a solution is the mutiple by 1.
+(c) is not a subspace because it is not closed under sums or
+under scalar multiples.  (d) is not a subspace because if you
+add two such vectors, you get
+\[
+\bm 1 + 2t_1\\ -3t_1\\ 2t_1 \em + \bm 1 + 2t_2\\ -3t_2\\ 2t_2 \em	
+ = \bm 2 + 2(t_1 + t_2)\\ -3(t_1 + t_2) \\ 2(t_1 + t_2) \em
+\]
+The second and third components have the right form with
+$t = t_1 + t_2$, but the first component does not have the
+right form because of the `2'.
+A similar calculation would show that the set is not closed under
+scalar mutiples. 
+(e) is a subspace.   A detailed proof of this follows
+\begin{gather*}
+\bm s_1 + 2t_1\\2s_1 -3t_1\\s_1 + 2t_1\em
++\bm s_2 + 2t_2\\2s_2 -3t_2\\s_2 + 2t_2\em
+= \bm s_1 + s_2 + 2(t_1 + t_2)\\2(s_1 + s_2) -3(t_1 + t_2)\\
+s_1 + s_2 + 2(t_1 + t_2)\em.\\
+c\bm s + 2t\\2s -3t\\s + 2t\em = \bm cs + 2(ct)\\2(cs) -3(ct)\\cs + 2(ct)\em.
+\end{gather*}
+Note that in cases (b), (c), (d), the simplest way to see that the
+set is not a subspace is to notice that the zero vector is not
+in the set.   However, the method we used will help you understand
+better what makes something a subspace.
+
+
+}
+
+\item   Which of the following sets of functions is a vector space under the
+operations discussed in the section.  If not a vector space, what fails?
+
+(a)  The set of all polynomial functions of the form
+$f(t) = a_0 + a_1t + a_2t^2 + a_3t^3$ (of degree $\le 3$.)
+ 
+(b)  The set of all polynomial functions with constant term 1.
+
+(c)  The set of all continuous, real valued functions $f$ with domain
+$-1\le t \le 1$ such that $f(0) = 0$.    
+ 
+(d)  The set of all continuous, real valued functions $f$ with domain
+$-1\le t \le 1$ such that $f(0) = 1$.    
+
+(e)  The set of all solutions of the differential equation
+$y'' + 4y' + 5y = \cos t$.
+
+\answer{ (a) is a subspace.  (b) is not a subspace since the zero
+polynomial is not in the set.  (c) is a subspace.  For, the sum
+of two functions which vanish at 0 and any scalar multiple of
+such a function is again such a function.  (d) is not a subspace
+since the zero function is not in the set.  (e) is not a subspace
+since the zero funtion is not a solution of the given equation.
+
+
+
+}
+
+\item   Show that the set of solutions of the first order equation
+$y' + a(t)y = b(t)$ is a vector space if and only if
+$b(t)$ is identically 0.
+
+\answer{ Assume the set of solutions is a vector space.  Then
+if $y$ is a solution, $cy$ must also be a solution for any
+scalar constant $c$.  That implies  $cy' + a(cy) = b$.  However, $cy' + a(cy)
+= c(y' + ay) = cb$.  Thus, $cb = b$.   Since this holds for
+every scalar constant  $c$, it follows that $b = 0$.\par
+Conversely, suppose $b(t) = 0$.  Then $y' + a(t)y = 0$ is a homogeneous
+equation, and we know that the solution space of a homogeneous equation
+is a vector space.
+ 
+
+}
+
+\item  This problem is mostly just a matter of translating
+terminology from one context to another.
+ Let $A$ be an $m\times n$ matrix with real
+entries.  Define an operator $L:\R^n \to \R^m$ which transforms
+$n$-tuples to $m$-tuples by the rule:  $L(\x) = A\x$. (a)  Show that
+$L$ is a linear operator as defined in Section 7.   (b)  Show that
+the set of solutions of the homogeneous system $A\x = 0$ is
+a subspace of $\R^n$ by repeating the argument given in the
+text that the null space of the operator $L$ is a subspace.
+
+\answer{ (a) $L(\x + \y) = A(\x + \y) = A\x + A\y = L(\x) + L(\y)$.
+Similarly, $L(c\x) = A(c\x) = cA\x = cL(\x)$.\par
+(b)  Suppose $\x, \y$ are solutions.  Then $L(\x) = L(\y) = \bold 0$.
+Hence, $L(\x + \y) = L(\x) + L(\y) = \bold 0$.  Similarly, if
+$\x$ is a solution and $c$ is a scalar, we have
+$L(c\x) = cL(\x) = c\bold 0 = \bold 0$.
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

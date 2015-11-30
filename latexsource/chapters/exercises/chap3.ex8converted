@@ -1,0 +1,122 @@
+
+
+\smallskip
+
+
+\begin{enumerate}
+
+\item   
+Find the equation  $\bold \nabla f(\r_0) \cdot (\r - \r_0)=0$
+for each of the following level surfaces. \par
+        (a) $2x^2 + 3y + z^3 = 5$, $P(3,-7,2)$. \par
+        (b) $x^4 + 3xy^2z + xy^2z^2 + z^3 = 0$, $P(0,-2,0)$ \par
+
+\answer{ (a) $12(x-3) + 3(y+7) + 12(z-2) =0 $\par
+	(b) $0(x) + 0(y+2) + 0(z) = 0$
+
+
+
+}
+
+\item   Show that every tangent plane of the cone $z^2 = x^2 + y^2$
+passes through the origin.  (See also Exercise (4) in Section 3.)
+
+\answer{ $f(x,y,z) = x^2+y^2-z^2 =0$ is our level set.
+Suppose $(x_0 y_0, z_0)$ is a point on the cone.
+The tangent plane at $(x_0, y_0, z_0)$ has equation
+\[ \nabla f(x_0,y_0,z_0) \cdot (x-x_0, y-y_0, z-z_0)=0. \]
+But $\nabla f(x_0,y_0,z_0) = 2x_0\i + 2y_0\j -2z_0\k$.
+So our equation is $2x_0(x-x_0)+2y_0(y-y_0)-2z_0(z-z_0)=0$
+or
+\[2x_0x + 2y_0y + 2z_0z - (2(x_0)^2 + 2(y_0)^2 -2(z_0)^2) = 0.\]
+But,$(2(x_0)^2 + 2(y_0)^2 -2(z_0)^2 = 0$ since the point is one
+the cone.  Hence, the equation of the tangent plane
+has the form $2x_0x + 2y_0y + 2z_0z = 0$ which is satisfied for
+$(x,y,z)=(0,0,0)$.
+
+
+
+}
+
+\item   Find all point(s) where the  tangent plane to the surface
+$z=x^2 + 4xy + 4y^2 - 12x + 4y$ is horizontal.
+
+\answer{ At no points.
+
+
+}
+
+\item   In each of the following,
+ find $\partial z/\partial x$ and $\partial z/\partial y$ in terms of
+$x$,$y$, and $z$ if you assume $z=f(x,y)$.   Do not try to solve 
+explicitly for $z$. \par
+        (a) $x^\frac{5}{2} + y^\frac{5}{2} + z^\frac{5}{2} = 1$ \par
+        (b) $2e^xz + 4e^yz - 6e^xy = 17$ \par
+        (c) $xyz = 2x + 2y + 2z$ \par
+        (d) $4x^2y^2z + 5xyz^3 - 2x^3y = -2$
+
+\answer{ (a) $\dfrac{\d z}{\d x}=\dfrac{-x^{\frac32}}{z^{\frac32}}; \qquad
+	    \dfrac{\d z}{\d y} = \dfrac{-y^{\frac32}}{z^{\frac32}}$\par
+        (b) $\dfrac{\d z}{\d x}=\dfrac{6e^xy-2e^xy}{2e^x+4e^y}; \qquad
+	    \dfrac{\d z}{\d y} = \dfrac{6e^x-4e^yz}{2e^x+4e^y}$\par
+        (c) $\dfrac{\d z}{\d x}=\dfrac{2-yz}{xy-2}; \qquad
+	    \dfrac{\d z}{\d y} = \dfrac{2-xz}{xy-2}$\par
+	(d) $\dfrac{\d z}{\d x} = 
+\dfrac{6x^2 - 8xyz - 5z^3}{4x^2y + 15xz^2}$\par
+ $\dfrac{\d z}{\d y} = 
+\dfrac{2x^2 - 8xyz - 5xz^3}{4xy^2 + 15yz^2}$
+
+
+
+}
+
+\item   Suppose that $f(x,y,z) = c$ expresses a relation among the
+three variables $x, y$, and $z$.   We may suppose that this
+defines any one of the variables as a function of the other
+two.  Show that
+\[
+  \left(\frac{\d x}{\d y}\right )_z
+  \left(\frac{\d y}{\d z}\right )_x
+  \left(\frac{\d z}{\d x}\right )_y
+= -1.
+\]
+Hint:  You should be able to express each of the indicated derivatives
+in terms of $f_x, f_y$, and $f_z$.
+
+\answer{ $0= df = f_x\, dx + f_y\,dy + f_z\,dz$ so 
+\[
+\left(\frac{\d x}{\d y}\right)_z = \dfrac{-f_y}{f_x}.\]  Symmetrically,
+\[\left(\frac{\d y}{\d z}\right)_x = \dfrac{-f_z}{f_y} 
+\qquad\text{and}\qquad \left(\frac{\d z}{\d x}\right)_y = \frac{-f_x}{f_z}.\]
+Hence, \[\left(\frac{\d x}{\d y}\right)_z
+\left(\frac{\d y}{\d z}\right)_x\left(\frac{\d z}{\d x}\right)_y
+=\left(\frac{-fy}{fx}\right)\left(\frac{-fz}{fy}\right)
+\left(\frac{-fx}{fz}\right) = -1.\]
+
+
+
+}
+
+\item   Each of the equations  $g(x, y, z) = c$ and $h(x, y, z) = d$
+defines a surface in $\R^3$.  The intersection of the two
+surfaces is usually a curve in $\R^3$.  At any given point
+on this curve,  $\nabla g$ is perpendicular to the first surface
+and $\nabla h$ is perpendicular to the second surface,  so both
+are perpendicular to the curve.  (a)  Use this information
+to find a vector {\it tangent\/} to the curve at the point.
+  (b)  Apply this analysis to find a tangent vector
+ to the intersection of the cylinder
+$x^2 + y^2 = 25$ with the plane $x + y - z = 0$ at the point
+$(3, 4, 5)$.
+
+\answer{ (a) $\nabla g\times \nabla h$ \par
+	(b) $-8\i + 6\j - 2\k$
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

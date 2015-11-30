@@ -1,0 +1,47 @@
+\subhead Exercises for Section \sn \endsubhead
+%Section 6
+\smallskip
+\Exer  Find the second positive root of the equation
+$J_0(t) = 0$.  If you want you can just look up the answer
+in a book, but you will have to figure out which book to
+look in.  You might find it more illuminating to graph
+$J_0(t)$ using an appropriate graphics program
+such as Maple or Mathematica 
+and try to zoom in on the root.  Such a program will
+also give you a numerical value for the root if you
+ask it nicely.
+\answer It starts off $5.5\dots$. I won't make it too easy by giving
+you more digits.
+In real life, when you need to know something
+like this, you have to figure out for yourself where to look.
+
+\Exer $J_m(t)$ where $m^2 = p^2 + 1/4$ is a spherical
+Bessel function.   Show that if $p^2 = k(k+1)$, then
+$m$ is half an odd integer.  That explains why Bessel
+functions of fractional order $m$ are interesting.
+\answer $m^2 = p^2 + \dfrac 14 = k(k+1) + \dfrac 14
+= \dfrac{4k^2 + 4k + 1}4$ implies that $m = \dfrac{2k+1}2$.
+
+\Exer (a)  Apply the method of Frobenius to the differential
+equation
+$$
+t^2y'' + ty' -(t^2 + m^2)y = 0.
+$$
+Find a first solution in the case $m$ is a positive integer.  Normalize it
+by putting $a_0 = 1/(2^mm!)$.
+
+(b)  Compare your answer with $J_m(it)$ where $i^2 = -1$.
+\answer (a)  This really works just exactly the way the calculation
+for the Bessel functions $J_m(t)$ did, except that there are
+no signs.   The solution is the formula for $I_m(t)$ in the
+text.\par
+(b)  We have
+$$
+\align
+J_m(it) &= \sum_{k=0}^\infty \frac{(-1)^k}{k!(m+k)!}
+\left(\frac{it}2\right)^{2k+m} \\
+     &= i^m\sum_{k=0}^\infty \frac{(-1)^k}{k!(m+k)!}(-1)^k
+\left(\frac{t}2\right)^{2k+m} = i^m I_m(t).
+\endalign
+$$
+

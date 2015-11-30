@@ -1,0 +1,74 @@
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Consider the differential equation
+$y'' + y = 1$.  
+
+(a)  What is a general solution of the homogeneous equation
+$y'' + y = 0$?
+
+(b)  Assume that there is a particular solution of the
+inhomogeneous equation of the form $y = A$.
+Find $A$.
+
+(c)  Find a general solution of the inhomogeneous equation.
+
+(d)  Find a solution to the initial value problem
+$y'' + y = 1,\, y(0) = 1, y'(0) = -1$. 
+
+\answer{ (a) $y = C_1\cos t + C_2\sin t$.\par
+(b)  $A = 1$.  (c) $y = 1 + C_1\cos t + C_2\sin t$. \par
+(d) $C_1 = 0, C_2 = -1$.
+
+
+
+}
+
+\item   Consider the differential equation
+$y'' + 9y = 2\cos (2t)$.  
+
+(a)  What is a general solution of the homogeneous equation
+$y'' + 9y = 0$?
+
+(b)  Assume that there is a particular solution of the
+inhomogeneous equation of the form $y = A\cos (2t)$.
+Find $A$.
+
+(c)  Find a general solution of the inhomogeneous equation.
+
+(d)  Find a solution to the initial value problem
+$y'' + 9y = 2\cos (2t),\, y(0) = 1, y'(0) = 0$. 
+
+\answer{ $y = C_1\cos 3t + C_2\sin 3t$.\par
+(b) $A = \dfrac 25$.  (c) $y = \dfrac 25\cos 2t + C_1\cos 3t + C_2\sin 3t$.
+\par
+(d)  $C_1 = \dfrac 35, C_2 = 0$.
+
+
+
+}
+
+\item   For which intervals does the existence theorem guarantee a solution
+for Legendre's equation?
+
+\answer{ There are solutions on the intervals
+$-\infty < t < -1,\,-1 < t < 1$, and $1 < t < \infty$.  
+Solutions may in fact exist for intervals containing $\pm 1$,
+ but we cannot be sure of that from the existence theorem since
+$f(t,y,y') = \dfrac{2t}{1 - t^2}y' -\dfrac{\alpha(\alpha +1)}{1 - t^2}y$
+is not continuous for $t = \pm 1$.  (As we shall see later, there are
+in fact some {\it polynomial\/} solutions which are defined for all
+$t$, but there are also other solutions with singularities at $t = \pm 1$.)
+
+
+}
+
+
+
+\end{enumerate}
+\endinput

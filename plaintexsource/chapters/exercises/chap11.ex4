@@ -1,0 +1,77 @@
+\subhead Exercises for Section \sn \endsubhead
+% Section 4
+\smallskip
+% 1
+\Exer  Check the validity of the product rule for the
+product
+$$
+    \bm\format\r&&\quad\r\\
+       1 & -2 & 6 \\
+       2 & 0 & 3 \\
+       -3 & 1 & 1 \em
+    \bm 2 & 3 & 1 \\
+        1 & 2 & 2  \\
+        1 & 1 & 0 \em.
+$$
+\answer  The first matrix has determinant 31, and the second matrix
+has determinant 1.   The product matrix is
+$$
+\bm \format &\r\\ 6 & 5 & -3 \\ 7 & 9 & 2 \\ -4 & -6 & -1 \em
+$$
+which has determinant 31.
+ 
+% 2
+\Exer  Find
+$$
+\det\bm 3 & 0 & 0 & 0 \\
+        2 & 2 & 0 & 0 \\
+        1 & 6 & 4 & 0 \\
+        1 & 5 & 4 & 3 \em.
+$$
+Of course, the answer is the product of the diagonal entries.  Using
+the properties discussed in the section, see how many different ways
+you can come to this conclusion.
+
+What can you conclude in general about the determinant of a lower
+triangular square matrix?
+\answer  The determinant of any triangular matrix is the product of
+its diagonal entries.
+
+% 3
+\Exer   (a)  Prove that if $A$ is an invertible $n\times n$ matrix, then
+$\det (A^{-1}) = \dfrac 1{\det A}$.
+
+(b)  Using part(a), show that if $A$ is any $n\times n$ matrix and
+$P$ is an invertible $n\times n$ matrix, then $\det(PAP^{-1})
+= \det A$.
+\answer  (a)  If $A$ is invertible, then $AA^{-1} = I$.  Hence,
+$\det (AA^{-1}) = 1$.  Using the product rule yields
+$\det A \det (A^{-1} = 1$.  Hence, $\det A \not= 0$, and dividing
+both sides by it yields $\det(A^{-1}) = \dfrac 1{\det A}$.\par
+(b) $\det(PAP^{-1}) = \det P \det A \det (P^{-1})$.  But
+$\det (P^{-1}) = \dfrac 1{\det P}$.   $\det P$ and $\dfrac 1{\det P}$
+cancel, so the net result is $\det A$ as claimed.
+
+% 4
+\Exer  Why does Cramer's rule fail if the coefficient matrix
+$A$ is singular?
+\answer  Creamer's rulle has $\det A$ in the denominator.  Hence,
+the formula is meaningless if $A$ is singular since in that case
+$\det A = 0$.
+
+% 5
+\Exer  Use Cramer's rule to solve the system
+$$
+\bm 0 & 1 & 0 & 0 \\
+    1 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 1 \\
+    0 & 0 & 1 & 0 \em \bm x_1\\ x_2\\ x_2 \\ x_4 \em
+= \bm 1 \\ 2 \\ 3\\ 4 \em.
+$$
+Also, solve it by Gauss-Jordan reduction and compare the amount of
+work you had to do in each case.
+\answer  The determinant of the coefficient matrix is 1.   The solution
+by Cramer's rule or by Gauss-Jordan reduction is
+$x_1 = -2, x_2 = 1, x_3 = 4, x_4 = 2$.
+
+

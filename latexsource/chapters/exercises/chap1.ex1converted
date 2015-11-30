@@ -1,0 +1,221 @@
+
+
+
+\smallskip
+
+
+
+\begin{enumerate}
+
+\item   Find $|\a|$, $5\a - 2\b$, and $-3\b$ for each of the following vector pairs:
+
+	(a) $\a = 2\i + 3\j, \b = 4\i - 9\j$
+
+	(b) $\a = \lb 1, 2, -1\rb, \b = \lb 2, -1, 0\rb$
+
+	(c) $\a = 0, \b = \lb 2, 3, 4\rb$
+
+	(d) $\a = 3\i - 4\j + \k, \b = \k$
+
+        (e) $\a = \lb \cos t, \sin t\rb, \b = \lb -\sin t, \cos t\rb$
+
+
+\answer{ \removelastskip
+{\tabskip=1em plus2em minus.5em\offinterlineskip
+\halign{\strut#&# &\vrule#& $#$\hfil &\vrule#& $#$\hfil
+&\vrule#& $#$\hfil \cr
+& && |\a| && 5\a - 2\b && -3\b \cr
+\noalign{\hrule}
+\noalign{\smallskip}
+& (a) && \sqrt{13} && 2i+33j && -12i+27j \cr
+& (b) && \sqrt{6}  && \lb 1,12,-5\rb && \lb -6,3,0\rb   \cr
+& (c) && 0 && \lb -4,-6,-8\rb && \lb -6,-9,-12\rb \cr
+& (d) && \sqrt{26} && 15i-20j+3k && -3k \cr
+& (e) && 1 && \lb 5\cos t+2\sin t,\; 5\sin t-2\cos t\rb
+  && \lb 3\sin t,-3\cos t\rb \cr }}
+
+
+
+
+}
+
+\item   Find the vector of the form $a\i + b\j + c\k$ that is represented by an 
+     arrow from the point $P(7, 2, 9)$ to the point $Q(-2, 1, 4)$.
+
+\answer{ $-9\i -\j -5\k$
+
+
+
+
+}
+
+\item   Find unit vectors with the same direction as the vectors (a) $\lb -4, -2\rb$,
+     (b) $3\i + 5\j$, (c) $\lb 1, 3, -2\rb$.
+
+\answer{ (a)\ \ $\left\lb \dfrac{-2\sqrt5}{5},
+\dfrac{-\sqrt5}{5}\right\rb$
+\qquad (b)\ \ $\dfrac{3\sqrt{34}}{34}\i + \dfrac{5\sqrt{34}}{34}\j$
+\qquad
+(c)\ \ $\left\lb\dfrac{\sqrt{14}}{14},\ \dfrac{3\sqrt{14}}{14},\
+\dfrac{-\sqrt{14}}{7}\right\rb$
+
+
+
+
+}
+
+\item   Show that if $\v$ is any non-zero vector, then $\u = \v/|\v|$ is a unit 
+     vector.  Hint: Use the following property for the magnitude of 
+     vectors,  $|s\v| = |s||\v|$.  (Note that $|s|$ means the absolute value
+     of the scalar s, but $|\v|$ and $|s\v|$ mean the magnitudes of the 
+     indicated vectors).
+
+\answer{ Take $s=\dfrac1{|\v|}$. Then $|\u| =
+\left|\dfrac{\v}{|\v|}\right| = \dfrac{1}{|\v|}|\v| =
+\dfrac{|\v|}{|\v|} = 1$
+
+
+
+
+}
+
+\item   Show by direct calculation that the rule
+$\overarrow{AB} + \overarrow{BC} + \overarrow{CA} = \bold 0$
+holds for the three points $A(2, 1, 0)$, 
+     $B(-4, 1, 3)$, and $C(0, 12, 0)$.  
+  Can you prove the general rule  
+     for any three points in space?
+
+\answer{ $\overarrow{AB} = -6\i+3k \qquad \overarrow{BC}=4\i+11\j-3k
+\qquad \overarrow{CA}=2\i-11\j$ \smallskip
+So $\overarrow{AB}+\overarrow{BC}+\overarrow{CA} =
+(-6+4+2)\i + (11-11)\j + (3-3)\k = 0$\smallskip
+Now let $A = (a_1,a_2,a_3)$ \qquad $B=(b_1,b_2,b_3)$ \qquad
+$C=(c_1,c_2,c_3)$ be any points
+\[
+\eqalign{
+     &\overarrow{AB} = (b_1-a_1)\i + (b_2-a_2)\j + (b_3-a_3)\k  \cr
+{}+\ &\overarrow{BC} = (c_1-b_1)\i + (c_2-b_2)\j + (c_3-b_3)\k \cr
+{}+\ &\overarrow{CA} = (a_1-c_1)\i + (a_2-c_2)\j + (a_3-c_3)\k \cr
+     &\smash{\hbox to 7cm{\hrulefill}}\cr
+  =\ &(b_1-a_1+c_1-b_1+a_1-c_1)\i + (b_2-a_2+c_2-b_2+a_2-c_2)\j + \cr
+     &\qquad\qquad (b_3-a_3+c_3-b_3+a_3-c_3)\k \cr
+  =\ & 0 \cr
+}\]
+	
+
+
+
+}
+
+\item   Show that if a vector $\v$ in the plane has components 
+$\lb v_x, v_y\rb$ then the scalar multiple $s\v$ has components 
+$\lb sv_x,  sv_y \rb$.  
+
+\answer{ $\v=\v_x i +\v_yj$ so $sv=s(v_xi+v_yj)=sv_xi+sv_yj$. 
+So $sv$ has components $sv_x$ and $sv_y$. 
+
+
+
+}
+
+\item   Use Newton's Second Law, $\F = m\a$, to find the acceleration 
+of a 10 kg box if a 120 N force is applied in the horizontal direction.
+     Draw the vector diagram.  Are $\F$ and $\a$ in the same direction?  Is
+     this always true?  Why?  What if the force were applied at a $30$ angle
+     to the horizontal?
+
+\answer{ \item{i)} acceleration $= F/m = \dfrac{120\text{N}}{10\text{kg}}
+   = 12\; m/s^2$ 
+\item{ii)} $ \overset{120 \text{N}}\to\longrightarrow
+\boxed{10 \text{kg}} \overset{12 m/s^2}\to{\cdots\to}$
+\item{iii)} $F$ and $a$ are in the same direction.
+\item{iv)} This is not always true 
+$\j$ e.g.\ $\vcenter{\epsfbox{c1s1ex7.ps}}$
+\par
+The reason is that other forces act on the box, eg\. the force of
+gravity and the counterforce of the ground holding it up.
+\item{v)} $\vcenter{\epsfbox{c1s1ex7a.ps}}$\ If $\angle = 30^\circ$
+then $a=6\sqrt{3} m/s^2$ in the horizontal direction.
+
+
+
+}
+
+\item   If an airplane flies with apparent velocity $\v_a$ relative to air, and 
+     the wind velocity is denoted $\w$, then the planes true velocity 
+     relative to the ground, is $\v_g = \v_a + \w$.
+     Draw the diagram to assure yourself of this.  
+
+     (a)  A farmer wishes to fly his crop duster at 80 km$/$h north over his 
+          fields.  If the weather vane atop the barn shows easterly winds 
+          at 10 km$/$h, what should his apparent velocity, $\v_a$ be?
+
+     (b)  What if the wind were northeasterly?  southeasterly?
+
+
+\answer{ a) $10 \sqrt{65}$ km/h, $\tan^{-1}\left(\frac18\right)^\circ$
+east of north
+\item{b)} for a northeasterly wind:
+$2\sqrt{\left(40+\frac{5\sqrt{2}}{2}\right)^2 + \frac{25}{2}}$ at
+$\tan^{-1}\left(\frac{5\sqrt{2}}{80+5\sqrt{2}}\right)^\circ$
+east of north \newline
+for a southeasterly wind:
+$2\sqrt{\left(40-\frac{5\sqrt{2}}{2}\right)^2 + \frac{25}{2}}$ at
+$\tan^{-1}\left(\frac{5\sqrt{2}}{80-5\sqrt{2}}\right)^\circ$
+east of north
+
+
+
+}
+
+\item   Suppose a right handed coordinate system has been set up in space.  
+     What happens to the orientation of the coordinate system if you make 
+     the following changes?  (a) Change the direction of one axis.  
+     (b) Change the direction of two axes.  (c) Change the direction of all
+     three axes.  (d) Interchange the x and y axes.
+
+\answer{ (a) the orientation changes \par
+(b) the orientation stays the same \par
+(c) the orientation changes \par
+(d) the orientation changes
+
+
+
+
+
+}
+
+\item  In body-centered crystals, a large atom (assumed spherical) is
+     surrounded by eight smaller atoms.  If the structure is placed in a
+     "box" that just contains the large atom, the smaller atoms each occupy 
+     a corner.  If the central atom has radius R, what is the greatest 
+     atomic radii the smaller atoms may have?
+
+\answer{ Max $\mid$ radius = $(2 - \sqrt{3})R$ \quad where $R =
+\text{radius of the larger atom}$
+
+
+
+
+}
+
+\item  Prove that the diagonals of a parallelogram bisect each other.  (Hint:
+     show that the position vectors from the origin to the midpoints are 
+     equal).
+
+\answer{ for either diagonal the midpoint is 
+$\dfrac{\v + \w}{2} = \v + 
+\left(\dfrac{\w - \v}{2}\right)$
+\smallskip
+\leftline{\epsfbox{c1s1ex11.ps}}
+\smallskip
+
+
+
+}
+
+
+
+\end{enumerate}
+\endinput
