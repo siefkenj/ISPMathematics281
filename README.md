@@ -6,6 +6,11 @@ This textbook was originally written in 1992/1993 in AMSTeX
 by Leonard Evans.  This version has been retypeset in 2015 in
 LaTeX by Jason Siefken.
 
+#### License
+This text is licensed under the Creative Commons By-Attribution
+Share-Alike 3.0 Unported license.  To see the fulltext of the 
+license see the `LICENSE` file.
+
 ### Original Source
 Since many of the macros from AMSTeX are incompatible with
 the newer latex macros, some pre-processing was done to the original
@@ -18,7 +23,7 @@ AMSTeX as well as original xfig drawings are located in
 the `plaintexsource` directory.
 
 ## Compiling
-To Compile the text, do
+To compile the text, do
 
 	cd  latexsource
 	xelatex evans
